@@ -1,0 +1,141 @@
+{
+  "id": "T55",
+  "studyNotes": [
+    {
+      "heading": "What configuration management does",
+      "body": "In this first part, we are going to look at what configuration management is and why it matters.\n\nConfiguration management, often shortened to CM, makes sure that systems are set up in a known, approved and recorded way. Think of a school where every classroom follows the same plan. The desks are in the same places, and the fire notice is on the same wall. If a teacher walks into any room, there are no surprises. And if a room looks different from the plan, somebody notices.\n\nCM answers three simple questions. What do we own? How is each thing set up? Has anything moved away from the approved setup?\n\nEach thing that you track is called a configuration item. Servers, routers, software versions and even settings are all configuration items. Routers are the devices that pass network traffic between networks. The details of each item are kept in a CMDB, or configuration management database, which is the central record of them.\n\nWhy does a security manager care? There are several good reasons. Most attacks use weaknesses that are already known, such as a default password or an unnecessary service left running. Configuration management closes those weaknesses in a consistent way. It also helps during an incident, because you can compare a suspicious machine against how it should look. And it speeds up recovery, because you have a record of how to rebuild it.\n\nHere is a workplace example. A hospital has 400 servers. A new attack targets one version of a piece of software. Because the hospital keeps a good CMDB, it can find every affected server within minutes, instead of checking each one by hand.\n\nNow we need to clear up a common confusion. Configuration management and change management are partners, but they are different. Change management decides whether a change may happen. Configuration management records and checks the state of systems. One is the permission. The other is the record of how things actually stand.\n\nThe outline names three activities under this objective: provisioning, baselining and automation. We will take each of those in turn.\n\nHere is what to take away. Configuration management keeps systems known, approved and recorded, and it works hand in hand with change management."
+    },
+    {
+      "heading": "Provisioning",
+      "body": "Now we will look at provisioning, which is the first of the three activities that the outline names.\n\nProvisioning means preparing and delivering a new system, so that it is ready and secure from its first day. Think of a new employee's first day. A good company has the desk, the badge and the training ready, and has already decided what that person may do. A poor company leaves the person to sort it out, and mistakes follow.\n\nA safe provisioning process does these things.\n\nFirst, it starts from an approved, hardened image. Hardening means removing what is not needed and closing weak settings. A golden image is the approved master copy, from which new systems are built.\n\nSecond, it applies current patches before the system goes live. A patch is a software fix from the maker.\n\nThird, it removes default accounts and changes default passwords. Attackers keep lists of these passwords.\n\nFourth, it turns off unused services and ports. A port is a numbered doorway through which network traffic reaches a program. Every open doorway that nobody uses is a door that somebody could try.\n\nFifth, it records the new system in the inventory and the CMDB, or configuration management database.\n\nThe timing of this matters. A system connected to a network before it is hardened may be attacked within minutes. So build it in a protected area, and connect it only when it is ready.\n\nHere is a workplace example. A bank needs twenty new virtual servers. A virtual server is a software-based computer that runs on shared hardware. The team builds them from the golden image, which already has the current patches and the correct settings. The tool records each one in the database automatically. A scan confirms that they match the standard before any of them handles real work.\n\nProvisioning also covers cloud services, where a few clicks can create a new server in seconds. That ease brings risk. Someone may build a system that nobody records and nobody patches. This is often called shadow IT, meaning technology that is used without the knowledge of the technology team.\n\nHere is your takeaway. Build new systems from a hardened image, patch them, remove defaults, close what is unused, and record them."
+    },
+    {
+      "heading": "Baselining",
+      "body": "Next we are going to look at baselining, which gives you something to compare against.\n\nA baseline is an approved snapshot of how a system should be set up. Think of a recipe. If the cake tastes strange, you can check what went into it against what the recipe says. Without the recipe, you are only guessing.\n\nYou do not need to invent a baseline from nothing. Published guides help you to build one. Examples are the benchmarks from CIS, the Center for Internet Security, and the technical guides from the United States Department of Defense, which are called STIGs, or Security Technical Implementation Guides.\n\nYou pick a guide, and then adjust it to your own needs. Adjusting it is called tailoring. Scoping means deciding which parts of the guide apply at all. A setting that is sensible for a public web server may be pointless for an isolated laboratory machine.\n\nDifferent kinds of system will have different baselines. A database server, a laptop and a network switch each need their own. A switch is a device that connects computers within a network.\n\nDrift is when a system slowly moves away from its baseline, often through small manual fixes. A technician makes a quick change during a busy night and forgets to record it. Then another technician does the same. Drift matters because every unrecorded change can open a weakness, and can also make recovery harder.\n\nA baseline must be kept up to date. When a change is approved, update the baseline too, or the next new system will repeat the old weakness. Baselines themselves are placed under version control, so you always know which edition applied at which time.\n\nHere is a workplace example. A government agency adopts a published benchmark for its laptops. It finds that one setting would break a piece of essential software. Instead of ignoring the matter, the agency records a formal exception, notes the reason, and adds another control in its place. A senior person approves that exception.\n\nThe manager's point of view here is about evidence. A documented baseline lets you show an auditor exactly what your standard is, and how well you follow it.\n\nHere is what to take away. A baseline is the approved standard, you tailor it to your needs, and you keep it up to date."
+    },
+    {
+      "heading": "Automation",
+      "body": "In this part, we will look at automation, which is the third activity that the outline names.\n\nPeople make mistakes when they repeat a task a hundred times. Tools do not get tired. Think of a bakery. A baker who shapes every loaf by hand will make some larger than others. A machine set to the right weight will make them all the same.\n\nAutomation builds systems the same way every time, checks them against the baseline, and can correct drift. Drift means a system slowly moving away from its approved setup.\n\nHere are the words that you should know.\n\nIaC, or infrastructure as code, means writing the setup of systems in files, as if it were a program. Those files can be reviewed, tested, reused and version-controlled. Version control is a system that keeps every earlier edition of a file and records who changed what.\n\nConfiguration management tools apply the desired settings to many machines at once. Well-known examples are Ansible, Puppet and Chef. You describe how the system should look, and the tool makes it so.\n\nImmutable infrastructure means that servers are never changed after they are built. If something needs to change, you build a new server and throw away the old one. Immutable simply means unable to be changed. This removes the possibility of drift.\n\nAutomation has clear security benefits. It provides speed, consistency and a record of what was done. A central set of files also makes it possible to fix a mistake once, and have the fix reach every system.\n\nAutomation also has a clear risk. One bad setting can spread to every system within minutes. Think again about the bakery machine. If it is set wrongly, every loaf that day is wrong. So automated changes still need review and testing, and they still go through change management. The files themselves need strong protection, because anyone who can alter them can alter every system, and secrets such as passwords must never be stored inside them.\n\nHere is a workplace example. A retailer stores its server setup in version-controlled files. Two engineers must review any change. The change is tested on a small group of servers first, and only then does it go to all of them.\n\nHere is your takeaway. Automation gives consistency and speed, but it can spread mistakes quickly, so it needs review and control."
+    },
+    {
+      "heading": "Keeping configuration under control every day",
+      "body": "Now we are going to look at how configuration management works in daily life, and how it connects to other parts of security.\n\nA configuration that was correct last year may not be correct today. Think of a garden. Planting it well once is not enough. You must keep checking it, and you must pull out the weeds as they appear.\n\nThere are several routine activities to understand.\n\nConfiguration auditing means comparing what is really running against what the records say should be running. It catches unapproved changes. It also catches errors in the records themselves.\n\nConfiguration status accounting means keeping track of the current state of each item, and of its history. In plain words, it tells you what version something is at, and how it got there.\n\nInventory is the foundation of it all. You cannot protect something if you do not know that it exists. Tools can discover devices on a network and compare them against the database. An unknown device may be harmless, or it may be a rogue device placed there by an attacker. Rogue means unauthorised.\n\nConfiguration management also strengthens other activities that you are studying in this domain. Patch management needs to know what is installed. Incident response needs to know what normal looks like. Disaster recovery needs enough detail to rebuild a system. Vulnerability scanning needs a list of what to scan.\n\nHere is a workplace example. A university runs a monthly report comparing its database of assets with what its network tools can actually see. Last month, the report showed twelve computers that were not in the database. Ten were new laboratory machines that nobody had recorded. Two were personal devices that a contractor had connected. The university fixed its process for new machines, and it removed the two personal devices.\n\nNotice the management thinking in that example. The team did not only fix the twelve machines. It also fixed the process that allowed those machines to go unrecorded. That is the idea of fixing the cause.\n\nGood configuration management also needs ownership. Somebody must be responsible for each baseline and each database record, or else the records will quietly go out of date.\n\nHere is what to take away. Audit what is really running, keep the inventory accurate, and fix the process as well as the single problem."
+    },
+    {
+      "heading": "Worked example: a drifting web server",
+      "body": "In this final part, we will walk through one complete example, so that you can see how the pieces fit together.\n\nThink of a rental flat. The landlord has a written list of what should be in each room. Between tenants, someone walks through with the list. If a door lock has been changed without permission, the list makes this easy to see.\n\nNow let us do the same thing with a company's web server.\n\nStep one. The approved baseline says that the web server must not run file sharing, because it faces the internet and nobody needs that service on it.\n\nStep two. An automated weekly check compares the server against the baseline, and it finds that file sharing has been switched on.\n\nStep three. The tool raises an alert and records the difference, including the date on which it first appeared.\n\nStep four. The team checks the change records, looking for an approved change. There is none. That makes this an unauthorised change.\n\nStep five. The team considers whether this might be an attack. They review the logs, and they find that a technician switched the service on to copy a large file, and then forgot about it. So this is a mistake, not an intruder. Had the logs shown an unknown account, the team would have treated it as an incident instead.\n\nStep six. They restore the baseline setting, and they check the server once more to confirm that it is correct.\n\nStep seven. They speak to the technician and find out why the service was needed. If there is a real need, it must go through change management, and the baseline must be updated.\n\nStep eight. They look for the cause. Technicians had no approved way of moving large files. So the team provides a secure file transfer tool, which removes the temptation to switch on file sharing.\n\nNotice that the automated tool found the problem, but people judged what it meant. Notice also that the final answer was not simply to reset one setting.\n\nThe exam will often give you a problem that keeps coming back. The best answer usually deals with the master image, the baseline or the process, and not with each machine separately.\n\nHere is your takeaway. Detect the drift, check for approval, consider an attack, restore the baseline, and fix the reason it happened."
+    }
+  ],
+  "practiceQuestions": [
+    {
+      "prompt": "A company needs to find every server running one particular software version, within an hour of a new attack being announced. Which resource would help MOST?",
+      "options": [
+        "An up-to-date configuration management database",
+        "The minutes from the change advisory board's last meeting",
+        "The firewall rule list",
+        "The disaster recovery plan"
+      ],
+      "correctIndex": 0,
+      "explanation": "A configuration management database records what exists and how each item is set up. The change board's notes are tempting, but they record decisions about changes, not the current state of all systems."
+    },
+    {
+      "prompt": "A new server will be placed on the company network next week. To reduce risk, when should default accounts be removed and current patches applied?",
+      "options": [
+        "After the first vulnerability scan of the live production network",
+        "During the first scheduled maintenance after go-live",
+        "Before the server is connected to the production network",
+        "As soon as users report that they can log in"
+      ],
+      "correctIndex": 2,
+      "explanation": "Provisioning should make a system secure from its first day, so hardening happens before it goes live. Waiting for the first maintenance window is tempting for convenience, but the server is exposed throughout that time."
+    },
+    {
+      "prompt": "A published security benchmark includes a setting that would stop an essential application from working. What should the security manager do?",
+      "options": [
+        "Delete the whole benchmark and write a new one from scratch",
+        "Apply the setting anyway because the benchmark is authoritative",
+        "Ask administrators to leave that one setting as they see fit",
+        "Record an approved exception and add a compensating control"
+      ],
+      "correctIndex": 3,
+      "explanation": "Tailoring allows a documented exception with a compensating control. Applying the setting anyway is tempting because it follows the guide, but it would break an essential business function."
+    },
+    {
+      "prompt": "An organisation writes its server setups in files that are version-controlled and reviewed before use. What is this practice called?",
+      "options": [
+        "Golden imaging",
+        "Infrastructure as code",
+        "Configuration status accounting",
+        "Vulnerability management"
+      ],
+      "correctIndex": 1,
+      "explanation": "Writing system setup in reviewable files is infrastructure as code. Golden imaging is tempting because it also builds systems consistently, but it uses a master copy of a system and not setup files."
+    },
+    {
+      "prompt": "A faulty setting in an automated build tool reached every branch office server within ten minutes. Which control would BEST reduce this risk in future?",
+      "options": [
+        "Stop using automation and build each server manually",
+        "Run the tool only at night when nobody is working",
+        "Review changes and release them to a small test group first",
+        "Give more staff permission to change the build files"
+      ],
+      "correctIndex": 2,
+      "explanation": "Review and staged release catch a bad setting before it spreads. Dropping automation is tempting after a failure, but it gives up consistency and brings back human error."
+    },
+    {
+      "prompt": "An auditor wants to confirm that what is running in production really matches the approved records. Which activity does this describe?",
+      "options": [
+        "Provisioning",
+        "Configuration auditing",
+        "Tailoring",
+        "Regression testing after an upgrade"
+      ],
+      "correctIndex": 1,
+      "explanation": "Configuration auditing compares reality with the records. Regression testing is tempting because it is also a check, but it tests whether software still works after a change."
+    },
+    {
+      "prompt": "An approved change alters a security setting on all database servers. The change has been completed. What else should be updated to prevent the old setting from coming back on new builds?",
+      "options": [
+        "The security awareness training slides",
+        "The company's business impact analysis",
+        "The service level agreement",
+        "The configuration baseline and the master image"
+      ],
+      "correctIndex": 3,
+      "explanation": "The baseline and master image must match the approved state, so new systems start correctly. The business impact analysis is tempting because it is a key document, but it records business priorities and not settings."
+    },
+    {
+      "prompt": "A network tool discovers a device that is not listed in the configuration management database. What should the security team do FIRST?",
+      "options": [
+        "Investigate what the device is and who connected it",
+        "Add it to the database so that the records agree",
+        "Shut down the whole network segment immediately as a precaution",
+        "Ignore it unless it starts causing problems"
+      ],
+      "correctIndex": 0,
+      "explanation": "An unknown device could be harmless or could be a rogue device, so the team must find out. Adding it to the database is tempting for tidy records, but that would approve something nobody has checked."
+    },
+    {
+      "prompt": "A department creates cloud servers using its own credit card. The servers appear in no record and nobody patches them. What is the BEST long-term response?",
+      "options": [
+        "Scan the public internet once a year for the company's servers",
+        "Ban every use of cloud services across the whole company",
+        "Bring cloud provisioning under the approved, recorded process",
+        "Ask the department to keep its own spreadsheet of the servers"
+      ],
+      "correctIndex": 2,
+      "explanation": "An approved process means new servers are hardened, recorded and patched. A ban is tempting, but it ignores the business need and tends to push the activity further out of sight."
+    },
+    {
+      "prompt": "Which statement BEST describes the relationship between change management and configuration management?",
+      "options": [
+        "Change management records system settings, while configuration management approves changes",
+        "Configuration management applies only to hardware, and change management to software",
+        "They are two names for the same process",
+        "Change management decides on a change, and configuration management records the resulting state"
+      ],
+      "correctIndex": 3,
+      "explanation": "One gives permission for a change, and the other records and checks how things stand. The first option is tempting because it uses the right words, but it swaps the two roles."
+    }
+  ]
+}

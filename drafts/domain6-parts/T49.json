@@ -1,0 +1,141 @@
+{
+  "id": "T49",
+  "studyNotes": [
+    {
+      "heading": "Log reviews",
+      "body": "In this first part, we will look at log reviews, which are one of the oldest and most useful ways of checking whether controls are working. A control is a safeguard that reduces risk.\n\nA log is a record of events, such as a failed sign-in or a changed file. A log review looks through those records for signs of trouble or misuse.\n\nThink about the visitors' book at the front desk of an office. On its own, it does nothing. But if someone reads it, they may notice that the same stranger has signed in every night at midnight.\n\nFour things make log reviews work well.\n\nFirst, synchronize all the clocks, often with Network Time Protocol, or NTP. That is the standard way for computers to agree on the time. If one server's clock is six minutes fast, you cannot put events in the right order, and your timeline may not be trusted in court.\n\nSecond, protect the logs from being changed or deleted. An attacker often tries to erase their tracks. Sending logs quickly to a separate, protected system makes this far harder, and it also means that administrators cannot quietly alter records of their own actions.\n\nThird, collect logs centrally. A Security Information and Event Management tool, or SIEM, gathers logs from many systems, links related events and raises alerts.\n\nFourth, keep logs for as long as policy and law require, and no longer than necessary.\n\nThere is far too much data for anyone to read every line, so organizations filter it. A clipping level is a set limit below which events are ignored. For example, one failed sign-in is normal, so an alert is raised only after five failures in a short time. Clipping saves effort, but set it too high and real attacks will slip past.\n\nHere is a workplace example. A bank's SIEM alerts on fifty failed sign-ins against one account, followed by a success, all from another country. Because the clocks agree across systems, the analyst can follow the attacker from the sign-in to the database within minutes.\n\nReviews must also be done regularly and acted upon. Logs that nobody reads are only a storage bill.\n\nHere is your takeaway. Useful logs need synchronized clocks, protection, central collection, sensible filtering and someone who really reads the results."
+    },
+    {
+      "heading": "Synthetic transactions, real user monitoring and benchmarks",
+      "body": "Next, we will look at two ways of watching a running service, and at how benchmarks are used. The exam likes to compare the first two.\n\nA synthetic transaction is a scripted, pretend action with a known correct result. A script carries out the same steps over and over and checks the answer. Because it does not depend on people, it is active monitoring. It generates its own traffic.\n\nReal user monitoring is different. It passively watches what real people actually do, and records their real experience. It adds no test traffic of its own, but it needs real users.\n\nThink about a restaurant owner. Sending a pretend customer to order the same meal every day, and timing it, is a synthetic transaction. It works even on a quiet Tuesday. Watching the real customers in a busy dining room, and noticing who waits too long, is real user monitoring. It shows real experience, but on a day with no customers there is nothing to see.\n\nHere are the differences that matter. Synthetic transactions are active, scheduled and repeatable. They can run at night, and they can catch a failure before any customer does. But they only test the paths that were scripted.\n\nReal user monitoring is passive, and it reflects real devices, real locations and real behavior. But it needs traffic, and it tells you about a problem only after real people have met it.\n\nHere is a workplace example. An online shop runs a script that buys a test item every ten minutes from three countries. At three in the morning, the script fails, and staff are alerted before the morning rush. The shop's real user monitoring separately shows that customers using older phones in one region are getting slow pages. The script had never tried that path. The two methods work well together.\n\nA benchmark compares a system with a fixed reference. That reference might be a past level of performance, which is often called a baseline. Or it might be a secure settings guide, such as those from the Center for Internet Security, or CIS. If a server is compared with the CIS guide, every difference can be reviewed.\n\nHere is what to take away. Synthetic is scripted and active and needs no users. Real user monitoring is passive and needs real people. A benchmark compares against a known reference."
+    },
+    {
+      "heading": "Code review and code testing",
+      "body": "In this part, we will look at how software itself is checked, both by reading it and by running it.\n\nCode review means reading program code to find flaws. Think about having a friend proofread an important letter. A fresh pair of eyes catches what the writer no longer sees. Reviews can be informal, as when one developer looks at another's change.\n\nThe most formal method is a Fagan inspection, which has six steps, in this order.\n\n- Planning\n- Overview\n- Preparation\n- Inspection\n- Rework\n- Follow-up\n\nIn planning, the team decides what will be reviewed and who will attend. The overview introduces the code to the team. In preparation, each reviewer studies the code alone. In the inspection meeting, the team finds and records the defects. In rework, the author fixes them. In follow-up, someone confirms that the fixes were really made. Notice that finding the defects and fixing them are separate steps.\n\nThere are also two main kinds of tool-based testing.\n\nStatic testing, or Static Application Security Testing, known as SAST, checks code that is not running. It reads the source code, and it can find problems early, before the program can even be used.\n\nDynamic testing, or Dynamic Application Security Testing, known as DAST, checks the program while it runs. It behaves like a user sending requests, and it can find problems that only appear at run time, such as a poor server setting.\n\nThink of a new recipe. Static testing is reading the recipe and spotting that it asks for a whole cup of salt. Dynamic testing is cooking the dish and tasting it. You need both.\n\nFuzz testing sends unexpected or random input to a running program to find crashes and flaws. It comes in two kinds. Mutation fuzzing changes real input, for example by flipping parts of a valid file. Generation fuzzing builds new input from knowledge of the expected format, so it can go deeper.\n\nHere is a workplace example. A payments team runs static testing on each code change, and holds a formal inspection for the code that moves money. It then uses dynamic testing and fuzz testing on the running test system. Each method finds things the others miss.\n\nHere is your takeaway. Know the six Fagan steps in order. Static testing needs no running code, while dynamic and fuzz testing do."
+    },
+    {
+      "heading": "Misuse cases and test coverage",
+      "body": "Now we will look at how to test for abuse, and how to measure how much of a program was really tested.\n\nA use case describes normal use of a system. A misuse case, sometimes called an abuse case, describes how someone might deliberately or carelessly abuse it. Most ordinary tests check that a program does what it should. Misuse case testing checks that it refuses to do what it should not.\n\nThink about a vending machine. The normal use is to put in a coin and receive a drink. A misuse case asks other questions. What if someone uses a fake coin? What if someone presses every button at once? What if someone pulls the coin back on a string?\n\nHere is a workplace example. An online shop's normal use case is that a customer enters a quantity of two and pays. A misuse case asks whether a customer can enter a quantity of minus five and receive a refund. Another asks whether a customer can change the price in the web page before paying. A test is written for each of these. The best misuse cases come from thinking like an attacker, and they are best written during design, when problems are cheapest to fix.\n\nTest coverage analysis shows how much of a program or of its requirements was tested. Coverage is the number of items tested, divided by the total number of items, times 100, and the answer is a percentage.\n\nLet us work one through. A program has 500 branches. A branch is a decision path in the code, such as the yes or no of an if statement. The tests reach 450 of them. So 450 divided by 500 is 0.9, and 0.9 times 100 is 90 percent.\n\nCoverage can be measured in several ways, and you should recognize this set.\n\n- Branch coverage: has every decision path been taken?\n- Condition coverage: has each logical condition been tried in each possible way?\n- Function coverage: has every function been called?\n- Loop coverage: has every loop been run in the ways it could be?\n- Statement coverage: has every line of code been run?\n\nBe careful. High coverage shows what was tested. It does not prove the code is secure.\n\nHere is what to take away. Misuse cases test for abuse, and coverage measures how much was tested but never how good it is."
+    },
+    {
+      "heading": "Interface testing",
+      "body": "In this part, we will look at interface testing, because flaws often hide in the places where two things connect.\n\nAn interface is a point where two things meet and exchange information. Think about the counter at a bank. It is where the customer and the bank's systems meet. A teller who checks each form carefully is one thing. A teller who accepts anything is the weak point of the whole bank, however strong the vault may be.\n\nThe outline names three interfaces, and you should know the set.\n\n- User interface: the screens and buttons that people use.\n- Network interface: the connections between systems.\n- Application Programming Interface, or API: the way that programs ask each other for data or services.\n\nTesting a user interface means trying what a person might try. Does a field reject bad entries? Does the page hide things it should? Remember that what a screen hides, a determined person can still ask for directly, so checks must also be made on the server side.\n\nTesting a network interface means looking at how systems connect. Are the connections encrypted, which means scrambled so outsiders cannot read them? Are only the expected services reachable?\n\nTesting an API means sending requests directly to it, without using the normal screens. Check that it confirms who is calling, which is called authentication. Then check that it limits what that caller may do, which is called authorization. Also check that it limits how many requests a caller can send.\n\nFor all three interfaces, try good input, bad input and boundary values. A boundary value is one at the very edge of what is allowed. If a field allows ages 18 to 65, try 17, 18, 65 and 66. Errors often live right at the edges.\n\nHere is a workplace example. A mobile banking application shows each customer only that customer's own statements. A tester sends a request straight to the API and changes the account number in it. If the API returns another customer's statement, there is a serious flaw, even though the screens looked perfectly safe.\n\nAlso check that a failure leaves the system in a safe state, and that error messages give away nothing useful.\n\nHere is your takeaway. Test user, network and application programming interfaces with good, bad and boundary input, and always check who is calling."
+    },
+    {
+      "heading": "Breach attack simulation and compliance checks",
+      "body": "In this final part, we will look at two more checks: one that keeps testing defenses all the time, and one that compares what you do with what you are required to do.\n\nBreach attack simulation tools run safe, automated copies of real attack methods. They run often, sometimes continuously, and they show whether your defenses block or detect each one.\n\nThink about a fire drill. A real fire tells you how good your plan was, but too late. A drill, repeated regularly, shows whether the alarm still sounds and whether people still know where to go, and nobody gets hurt.\n\nHow is this different from the other kinds of test? A vulnerability scan looks for weaknesses and lists them. A penetration test uses human creativity to break in, and it happens only now and then. A breach attack simulation is automated and repeated, and it tests whether your existing controls still respond to known attack methods. It will not invent a clever new attack, but it will notice when a control has quietly stopped working.\n\nHere is a workplace example. A company's simulation tool safely copies the steps of a well-known ransomware attack every week. Ransomware is harmful software that locks files and demands payment. For months, the alerts fire correctly. Then a change to one system turns off a detection rule. The next weekly run shows the gap, and it is fixed the same day. A yearly penetration test might not have caught that for eleven months.\n\nA compliance check compares controls with a requirement, such as a law, a contract or a policy. One example is the Payment Card Industry Data Security Standard, or PCI DSS, which covers card payments.\n\nCompliance checks answer a narrow question: do we do what the requirement says? That is important, but it is not the same as being safe. A company can pass a check on Friday and be breached on Saturday, through a risk the standard never addressed. Remember that compliant does not always mean secure.\n\nA manager uses both. Compliance is the minimum that the law or contract demands. Risk management decides what else is needed.\n\nHere is what to take away. Breach attack simulation repeatedly proves that defenses still respond, and a compliance check shows that requirements are met but never proves that you are secure."
+    }
+  ],
+  "practiceQuestions": [
+    {
+      "prompt": "A global online retailer wants to understand how its website actually performs for its customers on different phones and in different countries. Which approach BEST meets this need?",
+      "options": [
+        "Synthetic transactions run from the head office",
+        "Real user monitoring",
+        "Static testing of the website's source code",
+        "A benchmark of the servers against a secure settings guide"
+      ],
+      "correctIndex": 1,
+      "explanation": "Real user monitoring passively records the experience of real customers on their real devices. Synthetic transactions are tempting, but a script from one place only follows the paths that were written for it."
+    },
+    {
+      "prompt": "Investigators cannot work out the order of events during an incident, because the logs from different servers appear to disagree by several minutes. What would have BEST prevented this problem?",
+      "options": [
+        "Keeping the logs on each server for a much longer period of time",
+        "Lowering the clipping level so that more events are recorded",
+        "Encrypting all of the logs before they leave each server",
+        "Synchronizing all clocks with Network Time Protocol"
+      ],
+      "correctIndex": 3,
+      "explanation": "Agreed time across systems is what allows events to be placed in order. Keeping logs for longer is useful, but older logs with wrong times would still disagree."
+    },
+    {
+      "prompt": "A security analyst receives thousands of alerts each day because every single failed sign-in raises one. Most are simple typing errors. Which change would BEST reduce the noise while still catching repeated attempts?",
+      "options": [
+        "Set a clipping level",
+        "Stop collecting sign-in events on all of the company's systems",
+        "Require staff to report each of their own typing errors to the help desk",
+        "Review the sign-in logs once a year instead of each day"
+      ],
+      "correctIndex": 0,
+      "explanation": "A clipping level ignores events below a set limit, so one mistake is ignored and repeated failures are not. Stopping the collection is tempting because it ends the noise, but it also ends the detection."
+    },
+    {
+      "prompt": "A software team is holding a Fagan inspection. The team has just finished the inspection meeting and recorded a list of defects. What is the NEXT step?",
+      "options": [
+        "Follow-up",
+        "Preparation",
+        "Rework",
+        "Overview"
+      ],
+      "correctIndex": 2,
+      "explanation": "The order is planning, overview, preparation, inspection, rework and follow-up. Follow-up is tempting, but the author must first fix the defects so that there is something to confirm."
+    },
+    {
+      "prompt": "A development team wants to find security flaws as early as possible, while the application is still being written and cannot yet be run. Which method is BEST?",
+      "options": [
+        "Dynamic testing",
+        "Fuzz testing",
+        "Real user monitoring",
+        "Static testing"
+      ],
+      "correctIndex": 3,
+      "explanation": "Static testing examines code that is not running, so it can be used before the application works. Dynamic and fuzz testing are tempting, but both need a running program."
+    },
+    {
+      "prompt": "Before an online shop launches a new refunds page, a tester writes a test to find out whether a customer could claim a refund twice for one purchase. Which kind of testing is this?",
+      "options": [
+        "Misuse case testing",
+        "Synthetic transaction monitoring",
+        "Benchmark comparison",
+        "Loop coverage analysis"
+      ],
+      "correctIndex": 0,
+      "explanation": "A misuse case describes how someone could abuse a system, and this test checks exactly that. Synthetic transactions are tempting, but they usually repeat a normal path to prove that a service works."
+    },
+    {
+      "prompt": "A program contains 1,000 statements. The test suite ran 800 of them. A project manager asks for the statement coverage. What is the correct answer?",
+      "options": [
+        "20 percent",
+        "80 percent",
+        "125 percent",
+        "800 percent"
+      ],
+      "correctIndex": 1,
+      "explanation": "Coverage is the items tested divided by the total, times 100, so 800 divided by 1,000 times 100 is 80 percent. 20 percent is tempting, but that is the share that was not tested."
+    },
+    {
+      "prompt": "A tester sends requests straight to a mobile application's Application Programming Interface and changes the customer number in each request. The screens of the application never allow this. What is the tester MOST likely checking?",
+      "options": [
+        "How fast the mobile screens load on an older model of telephone",
+        "Whether the interface limits each caller to that caller's own data",
+        "Whether the application's source code follows the agreed naming rules",
+        "How much of the mobile application's code has been covered by tests"
+      ],
+      "correctIndex": 1,
+      "explanation": "Changing the customer number tests authorization, which means whether the API limits what a caller may reach. Checks in the screens alone are not enough, because a caller can skip the screens and go straight to the API."
+    },
+    {
+      "prompt": "A company passes its annual compliance check against a card payment standard. The chief executive says the company can now stop worrying about security for the year. What should the security manager advise?",
+      "options": [
+        "Agree, because a passed check shows that all risks have been removed",
+        "Agree, but ask for a second check against the same standard",
+        "Explain that compliance is a minimum and that risks must still be managed",
+        "Explain that compliance checks are of no value and should be stopped"
+      ],
+      "correctIndex": 2,
+      "explanation": "Compliance shows that certain requirements were met at a point in time, and it does not remove all risk. The last option is tempting to a frustrated manager, but compliance checks are needed, just not sufficient."
+    },
+    {
+      "prompt": "An organization wants to compare the settings on its new servers against a recognized secure configuration guide, and to list every difference. What is this activity called?",
+      "options": [
+        "Benchmarking",
+        "Fuzz testing",
+        "Mutation testing",
+        "Penetration testing"
+      ],
+      "correctIndex": 0,
+      "explanation": "A benchmark compares a system with a fixed reference, such as a secure settings guide. Penetration testing is tempting because it also looks for weaknesses, but it tries to break in instead of comparing settings."
+    }
+  ]
+}

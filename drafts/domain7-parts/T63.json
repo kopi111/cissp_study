@@ -1,0 +1,141 @@
+{
+  "id": "T63",
+  "studyNotes": [
+    {
+      "heading": "What a disaster recovery plan is for",
+      "body": "In this first part, we are going to look at what disaster recovery is, and at what a good plan must contain.\n\nDisaster recovery, or DR, is about getting computer systems and data back after a major event. A DRP, or disaster recovery plan, sets out the steps, so that people do not have to invent them under stress.\n\nThink of a school after a flood. Someone must decide that it is a disaster. The right people must be called. Parents must be told. The damage must be checked. Classes must restart somewhere else and then, later on, return home. Nobody wants to be working all that out while standing in the water.\n\nDo not confuse a disaster with an ordinary incident. An incident might affect one server. A disaster is a major disruption, big enough to need the organisation's emergency arrangements, often including moving to another site. Disaster recovery is usually one part of a wider effort called business continuity, which keeps the whole business going.\n\nThe plan must be approved by senior management, and they must support it with money and authority. That is one of the most commonly tested ideas in this topic.\n\nIt also needs to be available when things go wrong. Keep copies away from the main site. Keep them on paper too, because the systems that hold the plan may be down. Many team members keep a short copy with them at home.\n\nThe plan's targets come from the business impact analysis, which works out which functions matter most, and how quickly they must return. Those targets include the RTO, or recovery time objective, which is the target time to bring a system back, and the RPO, or recovery point objective, which is the most data that can be lost, measured in time.\n\nThe outline lists seven parts for this objective: response, personnel, communications, assessment, restoration, training and awareness, and lessons learned. We will go through all of them.\n\nHere is a workplace example. A regional bank's plan names the critical systems in order. It lists the people and backups for each role, gives the steps for each system, and says where the recovery site is.\n\nHere is what to take away. A disaster recovery plan restores systems after a major event, management must approve it, and copies must be available when the main site is not."
+    },
+    {
+      "heading": "Response and personnel",
+      "body": "Now we will look at the first two parts of the outline, which are response and personnel.\n\nThe first duty in any response is people's safety. Think of a family during a house fire. Getting everyone out comes before saving a single photograph. It is the same at work. Evacuate, account for everyone and call the emergency services. Only then start to think about the data.\n\nNext, someone with named authority declares a disaster, and this starts the plan. A declaration is a formal decision. It should not be left to whoever happens to be on shift.\n\nThe timing of this decision matters. Declaring too late wastes recovery time. Declaring too early wastes money, because moving to a recovery site is expensive and disruptive. So the plan should set out clear triggers. For example, it might say to declare if the data centre is likely to be unavailable for more than eight hours.\n\nAnother important point is to work from checklists. Under pressure, people forget things. A simple written list keeps them on track.\n\nNow for personnel. Every role needs a named person and at least one backup, because some people may be hurt, away or caring for their families. Think of a football team. You do not go to a final without substitutes.\n\nA DR team often includes technical staff, management and business representatives. Larger plans divide this into teams, and two are worth remembering. The recovery team brings systems back at the alternate site. The salvage team goes back to the damaged site to work out what can be saved, and to make it usable again.\n\nA call tree is a list that says who phones whom, so that messages spread quickly. Keep it current, and keep a copy away from the office.\n\nA thoughtful plan also looks after the people carrying it out. Staff may be working long shifts during a stressful event. They need food, rest and transport. They may also need help with their own families, because people cannot concentrate if they are worried about those they love.\n\nHere is a workplace example. A hurricane is forecast. The plan names the operations director as the person to declare. The director confirms that everyone is safe, declares, and starts the call tree.\n\nHere is your takeaway. Safety first, a named person declares against clear triggers, and every role has a backup."
+    },
+    {
+      "heading": "Communications",
+      "body": "Next we are going to look at communications, because a good plan can still fail when people cannot reach one another.\n\nThink of a big storm that knocks out the power in your town. Your phone may not work. Your internet may be down. You would need another way to tell your family that you are safe, perhaps a battery radio, or a neighbour who can carry a message.\n\nNormal channels may be down in a disaster. So plan more than one method. The outline expects you to think about the methods.\n\n- Mobile phones and text messages.\n- Satellite phones, which do not rely on local networks.\n- Two-way radios.\n- A website or status page hosted elsewhere.\n- Emergency notification services that send messages to many people at once.\n- Runners, if nothing else works.\n\nThe important idea is that you should not depend upon a system that may have failed. If the plan says to send a company email, but the email server is the thing that has been flooded, the plan has failed.\n\nDifferent groups need different messages.\n\nStaff need instructions on where to go, and what to do. Their first question is usually whether they should come to work.\n\nCustomers need reassurance, and information about service.\n\nSuppliers and partners need to know what will change.\n\nRegulators may need formal notice, sometimes within a set time. Banks and health care providers often have specific rules.\n\nThe press should hear from one trained spokesperson, so that the message stays accurate and consistent. Staff should be told to refer all press questions to that person. If several people give different stories, the public quickly loses confidence.\n\nMessages should be honest, based on facts, and approved before release. Prepare template messages ahead of time, so that you only need to fill in the details. And do not forget security. An attacker can use the confusion of a disaster to send fake messages, so staff need to know how to recognise a real one.\n\nHere is a workplace example. After a flood closes a building, an insurance firm cannot use its office phones. Staff receive a text message telling them to work from home. A status page hosted elsewhere keeps customers informed, and the firm's trained spokesperson gives the only interview.\n\nHere is what to take away. Plan several ways to communicate, tailor the message to each group, and use one trained spokesperson."
+    },
+    {
+      "heading": "Assessment and restoration",
+      "body": "In this part, we will look at two more parts of the outline, which are assessment and restoration.\n\nAssessment means checking what is damaged and how badly. Only enter the site when it is safe. Think of a house after a storm. You do not rush in if the roof looks ready to collapse. You wait until the fire service says it is safe, and then you go around with a notebook.\n\nThe results decide whether you repair the site, or move to the recovery site. Good questions to ask are these. What has been damaged? How long will the repairs take? Could this be longer than the business can tolerate?\n\nThe salvage team often does this work, and the findings go to those with the authority to act.\n\nRestoration has two directions, and the exam tests them.\n\nMoving to the recovery site, you bring up the most critical functions first. Use the business impact results to set the order.\n\nMoving back to the main site, you move the least critical functions first. This proves that the repaired site is stable, before you trust it with the most important work.\n\nThink about wading across a river. Going out, you carry the most valuable thing first, to get it to safety. Coming back to a bridge that has just been repaired, you send something light across before you drive the truck over it.\n\nThe disaster is over only when all work is back at the primary site, or at a new permanent home.\n\nA few other points are important. Before going live, check that restored data is complete and correct. Check that security controls are working. Controls should not be relaxed for convenience at a recovery site, since attackers may try to take advantage of the disruption. Confirm that backups are clean, especially if the disaster was caused by an attack.\n\nHere is a workplace example. A shipping company moves to its recovery site after a fire. It restores order processing first, as this is its most important function, and then its customer website. Internal reporting comes last. Eight weeks later, the main building is ready, and internal reporting moves back first. Order processing moves back last.\n\nHere is your takeaway. Assess only when it is safe, bring the most critical up first at the recovery site, and return the least critical first."
+    },
+    {
+      "heading": "Worked example: flood at a bank's data centre",
+      "body": "Now we are going to walk through one disaster from beginning to end, and see how all the parts of the plan work together.\n\nA river has burst its banks, and water is entering the ground floor of a bank's main data centre early on a Tuesday.\n\nStep one, safety. Night staff evacuate by the agreed route. The floor warden counts them at the meeting point. Everyone is accounted for. The emergency services are called.\n\nStep two, declaration. The on-call manager looks at the plan's triggers, and contacts the named senior manager, who declares a disaster at the agreed time.\n\nStep three, personnel. The call tree starts. The first person called is away on holiday, and so the named backup steps in. The DR team gathers at the recovery site.\n\nStep four, communications. The office phones are out, so the team uses mobile phones and text messages. Staff are told not to come to the building. The trained spokesperson gives a prepared statement. Legal informs the banking regulator within the required time.\n\nStep five, assessment. The next day, once the fire service says that it is safe, the salvage team enters and finds the ground floor equipment ruined. Repairs will take about six weeks.\n\nStep six, restoration to the recovery site. Payments, the most critical function, start first at the hot site. A hot site is a fully equipped location with current data. Next come customer accounts and online banking. The internal library system comes last.\n\nStep seven, security checks. The team confirms that the access controls and monitoring are working at the hot site before opening up systems to customers.\n\nStep eight, restoration to the main site. After repairs, the least critical systems return first. The library system moves back and is watched for several days. Payments return last of all, only when the site has proved that it is stable.\n\nStep nine, lessons learned. The team reviews what went well and badly. They find that the call tree had two out-of-date numbers, and that the generator's fuel tank had been installed on the ground floor. They update the plan and put forward a change to move the fuel supply.\n\nNotice how the order of restoration is reversed on the way back.\n\nHere is what to take away. Safety, declaration, people, messages, assessment, restoration and review each have their own place."
+    },
+    {
+      "heading": "Training, awareness and lessons learned",
+      "body": "In this final part, we will look at the last parts of the outline, which are training, awareness and lessons learned. These are the things that keep a plan alive.\n\nThese two words are often confused, so let us separate them. Training gives people the skills for their DR role. Awareness makes sure that all staff know that a plan exists, and what they should do.\n\nThink of a block of flats. Every resident needs to be aware of the fire exits and the meeting point. That is awareness. The volunteers who use the fire extinguishers and check the floors need proper training. That is a much smaller group, with more detail to learn.\n\nBoth must be repeated, because people change jobs and memories fade. New joiners should learn about the plan early. People with DR roles should practise their part regularly.\n\nA plan is only as good as the people who carry it out. A beautifully written document that nobody has read will not help anyone in the middle of the night.\n\nLessons learned happens after the event. Ask what went well and what did not. Then update the plan, the contact lists and the training. A plan that is not maintained soon becomes wrong.\n\nThe review should be held soon after the event, while details are still fresh. It should be honest, and it should not look for someone to blame. People who fear punishment will hide useful facts. The results should go to senior management, as a written report, with each action given an owner and a date.\n\nThe plan should also be updated whenever the business changes. New systems, new offices and new staff can all make a plan out of date. Version control matters too. Everyone should have the current edition, and old copies should be withdrawn.\n\nHere is a workplace example. After a power failure at a retailer, staff say that they did not know the status page existed. The review results in a short awareness campaign, and a line about it on every employee's identity badge holder. The technical team also finds that a restore took too long, so it trains two more people to carry out that step.\n\nHere is your takeaway. Training builds skill, awareness reaches everyone, and lessons learned feeds improvement back into the plan."
+    }
+  ],
+  "practiceQuestions": [
+    {
+      "prompt": "A chemical spill has closed a company's head office. Systems are still online, but managers are arguing over whether to move to the recovery site. Which part of the plan would have prevented this argument?",
+      "options": [
+        "The list of hardware serial numbers",
+        "Clear declaration triggers and a named person with authority",
+        "The backup rotation schedule",
+        "The results of last year's tabletop exercise"
+      ],
+      "correctIndex": 1,
+      "explanation": "Named authority and clear triggers mean that the decision does not depend on argument. Last year's exercise is tempting because it relates to the plan, but it does not settle who decides and when."
+    },
+    {
+      "prompt": "A fire breaks out at a data centre during working hours. What is the FIRST priority of the disaster recovery response?",
+      "options": [
+        "Copy the latest backups onto portable drives and carry them out",
+        "Inform the regulator of the outage",
+        "Move the most critical systems to the hot site",
+        "Evacuate staff and make sure everyone is accounted for"
+      ],
+      "correctIndex": 3,
+      "explanation": "People's safety always comes first. Moving critical systems is tempting because it is the purpose of the plan, but it comes after people are safe."
+    },
+    {
+      "prompt": "A company's disaster recovery plan is stored only on its main file server. Why is this a serious weakness?",
+      "options": [
+        "The file server may be down in the very disaster the plan is for",
+        "The plan may be read and copied by too many members of staff at once",
+        "The plan will take up too much storage space",
+        "The file server's backups may become too large"
+      ],
+      "correctIndex": 0,
+      "explanation": "The plan must be reachable when the main systems are not, so copies should be held elsewhere and on paper. Too many readers is tempting as a confidentiality concern, but the bigger problem is losing access altogether."
+    },
+    {
+      "prompt": "A storm has destroyed the local phone network. A company's call tree relies entirely on office landlines and email. What should the plan have included?",
+      "options": [
+        "A longer list of phone numbers for each employee",
+        "A spokesperson who is trained to speak to the press",
+        "Several communication methods that do not depend on the same systems",
+        "A requirement that staff stay at the office until the phones are restored"
+      ],
+      "correctIndex": 2,
+      "explanation": "Communications need several independent methods. A longer list of phone numbers is tempting, but those numbers would still depend on the failed network."
+    },
+    {
+      "prompt": "Reporters are contacting various employees about a major outage at a company. Which approach is BEST?",
+      "options": [
+        "Let each manager give their own explanation of the event",
+        "Refer all questions to one trained spokesperson",
+        "Ask staff to say nothing and to deny that there is a problem",
+        "Publish the full technical incident log on the website"
+      ],
+      "correctIndex": 1,
+      "explanation": "One trained spokesperson keeps the message accurate and consistent. Letting managers speak is tempting as a show of openness, but different stories damage trust."
+    },
+    {
+      "prompt": "After a flood, a salvage team is told to start its work at the primary site. What should happen BEFORE the team enters the building?",
+      "options": [
+        "The insurance claim should be fully paid",
+        "The building should be confirmed safe by the right authorities",
+        "The hot site should be shut down",
+        "The lessons learned report should be published"
+      ],
+      "correctIndex": 1,
+      "explanation": "No one should go in until it is safe, because people's safety comes first. Waiting for the insurance claim is tempting because it matters to the business, but it has nothing to do with safety."
+    },
+    {
+      "prompt": "A company is bringing its systems up at a recovery site after a disaster. Which function should be restored FIRST?",
+      "options": [
+        "The most critical function identified in the business impact analysis",
+        "The function that is easiest to restore",
+        "The internal staff newsletter system",
+        "The function requested by the most senior manager present on the site"
+      ],
+      "correctIndex": 0,
+      "explanation": "The business impact analysis sets the order, and the most critical function comes first. The easiest function is tempting for a quick win, but it may not be what the business most needs."
+    },
+    {
+      "prompt": "A company has moved all its work back to its repaired head office, except for one small department that remains at the recovery site. Is the disaster over?",
+      "options": [
+        "Yes, because most of the work has returned",
+        "Yes, because the lessons learned review has been scheduled",
+        "Yes, once the insurer has inspected the building",
+        "No, because work is not yet fully back at the primary site"
+      ],
+      "correctIndex": 3,
+      "explanation": "The disaster is over only when all work is back at the primary site or a new permanent home. Most of the work returning is tempting as a milestone, but the emergency arrangements are still running."
+    },
+    {
+      "prompt": "All staff at a company receive a short briefing about the existence of the disaster plan and where to go in an emergency. Which activity is this?",
+      "options": [
+        "Awareness",
+        "Training",
+        "A parallel test",
+        "A salvage operation"
+      ],
+      "correctIndex": 0,
+      "explanation": "Telling everyone that a plan exists and what to do is awareness. Training is tempting, but that means building skills for a specific recovery role."
+    },
+    {
+      "prompt": "Following a real outage, the team held no review, and the same weaknesses appeared in the next outage. Which part of the process was MISSED?",
+      "options": [
+        "Communications",
+        "Assessment",
+        "Lessons learned",
+        "Declaration"
+      ],
+      "correctIndex": 2,
+      "explanation": "Lessons learned feeds improvements back into the plan. Assessment is tempting because it involves checking what went wrong, but it examines the damage during the event, not how to improve afterwards."
+    }
+  ]
+}

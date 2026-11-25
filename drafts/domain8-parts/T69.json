@@ -1,0 +1,141 @@
+{
+  "id": "T69",
+  "studyNotes": [
+    {
+      "heading": "Programming languages and libraries",
+      "body": "In this first part, we are going to look at the raw materials of the software workshop, the languages and the ready-made parts.\n\nA programming language shapes the risk. Source code is the set of human-written instructions. Compiled languages, such as C, are turned into machine code before they run, so customers usually receive only the machine code. Interpreted languages, such as Python, are read and run by another program, so the source code is often visible. Some languages sit in between. Java is compiled into an in-between form called bytecode, which a virtual machine then runs. Compiled programs are not secret either. A decompiler can turn them back into something readable, so never rely on hidden code to protect a password.\n\nC and C plus plus let programmers control memory directly. That gives speed, but it also allows buffer overflows, where a program writes more data than a memory space can hold. Memory-safe languages, such as Java, C sharp and Rust, check or manage memory for the programmer. No language removes all flaws. Bad logic and injection can happen in any of them.\n\nThink of two kitchens. In one, the knives are sharp and have no guards. An expert works very fast, and one slip is serious. In the other, the knives have guards. It is harder to cut yourself, but you can still burn the dinner.\n\nA library is ready-made code that a program reuses. Think of buying pastry and not making your own. Most modern programs are mostly libraries. A flaw in a library becomes your flaw, and libraries pull in other libraries, so you may be using code that you have never heard of.\n\nHere is a workplace example. A delivery company uses a free image library. A flaw is announced. Because the company pins its versions, meaning it names the exact version that it uses, it knows exactly what to update. So use approved sources, pin the version, verify what you download and keep libraries up to date.\n\nHere is what to take away. Choose languages knowing their risks, and treat every library as part of your own product."
+    },
+    {
+      "heading": "Tool sets, the IDE and the runtime",
+      "body": "Next we will look at the tools that build the software, and at the place where the software finally runs.\n\nTool sets include compilers, which turn source code into machine code, along with build tools and package managers, which fetch libraries. A poisoned tool can infect everything built with it. Think of a contaminated flour mill. Every bakery that buys the flour has a problem, however clean the bakery is.\n\nSo approve the tools you use, keep them patched and check their digital signatures or hashes. A hash is a short fingerprint of a file that changes if the file changes. A digital signature proves who issued the file and that it was not altered. There is also a risk called dependency confusion, where a package manager is tricked into fetching a public package with the same name as a private one. Using a private, controlled source helps to prevent it.\n\nAn integrated development environment, or IDE, is the program where developers write and debug code. Debugging means finding and fixing faults. Plug-ins add features to it. A bad plug-in can steal code or passwords, because it sits right beside both. In a workplace, allow only approved plug-ins, and manage them centrally. Also protect the developer's own computer, because it holds access to everything that matters.\n\nThe runtime is the environment where code executes. Examples are the Java Virtual Machine and containers. A container is a sealed package that holds an application and what it needs. Three controls matter most at runtime.\n\nFirst, run software with least privilege, meaning only the access that it needs. A web application should not run as the all-powerful administrator. Second, patch the runtime and the container base images, the starting layers that a container is built from. Third, turn off debugging features in production, because they can reveal secrets and internal details.\n\nHere is a workplace example. An online shop's container runs as the administrator with debugging switched on. An attacker who finds one small flaw now owns the whole system. Removing both problems greatly limits the harm.\n\nHere is your takeaway. Trust no tool by default. Approve it, verify it, patch it, and run everything with least privilege."
+    },
+    {
+      "heading": "Continuous integration and continuous delivery",
+      "body": "Now we will look at the automatic production line that carries code from a developer's computer towards customers.\n\nContinuous integration, often shortened to CI, means that developers merge code often, and each merge is built and tested automatically. Continuous delivery, often shortened to CD, keeps code ready to release, and a person approves the release. Continuous deployment goes one step further and releases automatically, with no person pressing the button.\n\nThe set of automatic steps is called a pipeline. Think of a bottling plant. Bottles move along a belt, and they are filled, checked and labeled by machines. A worker may press the final button to ship the batch. If someone tampers with the machine, every bottle is affected.\n\nThe pipeline holds the keys to production, so attackers want it. Controlling it is one of the most valuable things that a development organization can do. Here are the controls to remember.\n\n- Limit who can edit the pipeline.\n- Keep secrets in a protected vault.\n- Sign what is built.\n- Stop the build when security tests fail.\n- Log every run.\n\nLet me say why each one matters. A secret is a password, key or token. If it sits in a build script, anyone who can read the script has it. A vault is a protected store that hands out secrets only when they are needed. Signing what is built means that production can refuse anything which did not come from the real pipeline. Stopping the build makes security tests matter, because a warning that nobody has to act on is soon ignored.\n\nNow here is a workplace walk-through. At a bank, a developer merges a change. The pipeline builds it and runs automatic tests. A security tool fails the build because of a known flaw in a library. The developer updates the library. The build passes and is signed. A manager approves the release. Because a person approves, this is continuous delivery and not continuous deployment. The pipeline logs every step, and those records go to a separate system.\n\nHere is what to take away. The pipeline is a high-value target. Control who can change it, protect its secrets and let failed security tests stop the line."
+    },
+    {
+      "heading": "Configuration management and code repositories",
+      "body": "In this part, we will look at how a team keeps track of exactly what it has built, and where its code is stored.\n\nSoftware configuration management, or SCM, records exactly which versions of code and settings make up each release. It lets you rebuild an old release or roll back to one. Its four classic parts, in order, are these.\n\n- Configuration identification: naming and labeling each item.\n- Configuration control: making sure that items change only in an authorized way.\n- Configuration status accounting: recording the state and history of each item.\n- Configuration audit: checking that what exists matches what the records say.\n\nThink of a recipe book in a restaurant chain. Each dish has a version number. If customers fall ill, the chain can see exactly which recipe and which supplier were used that week.\n\nHere is a workplace example. A release goes badly wrong on a Friday night. With good configuration management, the team knows exactly which versions made up last week's good release, and it can return to that within minutes. Without it, people guess.\n\nA code repository stores code and its full history of changes. It is a very attractive target, because whoever can change the code can change the product. Protect it with least privilege, and with multifactor authentication, which means proof of identity by two or more kinds of evidence. Require peer review, so that a second person approves each change before it is merged. Sign commits where you can, a commit being one saved change. And keep backups.\n\nNow for one of the most tested points. Never store passwords in code. Deleting a password from the latest version does not remove it from the history. Think of a page in a diary. Tearing out the newest page does not remove what you wrote in last year's volume. A leaked password must be changed first of all. Then you may clean the history, and add automatic secret scanning so that it does not happen again.\n\nHere is your takeaway. Configuration management tells you exactly what you shipped. Repositories need strong access control and review, and any password committed to one must be treated as exposed."
+    },
+    {
+      "heading": "Static testing versus dynamic testing",
+      "body": "Next we come to the part the exam loves, how static and dynamic testing differ.\n\nStatic application security testing, or SAST, reads source code without running it. Static means standing still. Dynamic application security testing, or DAST, attacks the running application from outside. Dynamic means moving.\n\nThink of inspecting a car. Static testing is walking around it in the garage with the engine off and reading the design. You can find a cracked part and say exactly where it is. Dynamic testing is driving it on the road. You discover that it pulls to the left at high speed, but you cannot say which bolt is responsible.\n\nLet us take the strengths and the limits of each.\n\nStatic testing works early, even before the application can run. It can point to the exact line of code. It is a kind of white box testing, because the tester can see inside. Its limits are these. It produces many false alarms, which are warnings about problems that are not real. It needs tooling that understands the language. And it cannot see problems that appear only at run time, such as a wrongly configured server.\n\nDynamic testing needs a running application, so it comes later. It finds run-time and setup problems, and it does not need the source code, so it works on purchased software. It is a kind of black box testing, because the tester sees only the outside. Its limits are these. It cannot name the line of code, and it tests only what it manages to reach.\n\nHere is a workplace example. A company has built a staff portal. Static testing in the first week finds a database query built unsafely, and it names the file and the line. Dynamic testing in the staging environment, a copy of production used for final checks, finds that the session cookie is sent without protection. Neither tool would have found the other's problem.\n\nSo use both. Each sees what the other misses. On the exam, if parts cannot run yet, choose static. If the source code is unavailable, choose dynamic.\n\nHere is what to take away. Static reads code at rest and names the line. Dynamic attacks the running application and finds what only appears at run time."
+    },
+    {
+      "heading": "Interactive testing, composition analysis and fuzzing",
+      "body": "In this final part, we will look at the remaining kinds of testing, and at how to choose among them.\n\nInteractive application security testing, or IAST, watches from inside the application while it is being tested. A small piece of monitoring software, called an agent, is placed inside the running application. While normal tests use the application, the agent watches what the code really does.\n\nThink of a car with a mechanic's sensors attached to the engine while it is being driven. You get the road conditions of dynamic testing and the inside view of static testing. So interactive testing can report the exact line of code, with fewer false alarms. Its limits are these. It needs an agent that supports your language, and it can see only the code which the tests actually exercise. It runs in test environments. Do not confuse it with runtime application self-protection, which sits inside a production application and blocks attacks. Interactive testing finds. Self-protection defends.\n\nSoftware composition analysis, or SCA, lists third-party components and their known flaws. It can also report their license terms. Think of a tool that reads the ingredients on a packet and checks them against a recall list. Composition analysis does not judge your own code. It is about what you borrowed. It can also produce a software bill of materials, a formal list of the components in a product.\n\nFuzzing feeds in random or unexpected input to cause failures. Mutation fuzzing changes valid input at random. Generation fuzzing builds input based on knowledge of the expected format. Fuzzing is especially good at finding crashes and memory errors.\n\nHere is a simple way to choose, with a workplace example. A payment company uses each tool at its proper point.\n\n- When code is saved, static testing and composition analysis run.\n- In the test environment, interactive testing runs during the normal tests.\n- In staging, dynamic testing attacks the complete application.\n- For the file upload parser, fuzzing runs overnight.\n\nAs an adviser, remember that one tool never covers everything.\n\nHere is your takeaway. Interactive testing watches from inside during tests, composition analysis checks borrowed parts, and fuzzing throws unexpected input to make software fail."
+    }
+  ],
+  "practiceQuestions": [
+    {
+      "prompt": "A team is about to write new firmware for a network device and wants to choose a language that greatly reduces the risk of buffer overflows. Which choice BEST meets this goal?",
+      "options": [
+        "C, because it gives programmers direct control of memory",
+        "Assembly, because each instruction can be reviewed by hand",
+        "C plus plus, because it supports classes and object-oriented design",
+        "Rust, because it enforces memory safety"
+      ],
+      "correctIndex": 3,
+      "explanation": "Rust enforces memory safety, which greatly reduces this kind of flaw. C is tempting because direct control sounds powerful, but that same control is what makes buffer overflows possible."
+    },
+    {
+      "prompt": "A product depends on many open libraries. The security team is worried that a new version of a library could silently add malicious code to the next build. What is the BEST control?",
+      "options": [
+        "Always download the newest version during every build",
+        "Pin approved versions and verify their hashes",
+        "Copy code from public forums instead of using libraries",
+        "Let each developer choose the versions that work best"
+      ],
+      "correctIndex": 1,
+      "explanation": "Pinning approved versions and checking their hashes stops an unexpected version from entering the build. Always using the newest version is tempting because it picks up fixes, but it also pulls in whatever was published last, without review."
+    },
+    {
+      "prompt": "A developer's plug-in for the integrated development environment is found sending source code to an unknown server. Which control would BEST prevent this from happening again?",
+      "options": [
+        "Allow only approved plug-ins, managed centrally",
+        "Ask developers to read the reviews of each plug-in",
+        "Stop developers from using any such tool on their computers",
+        "Scan the production servers for signs of the plug-in"
+      ],
+      "correctIndex": 0,
+      "explanation": "Central approval controls what can be installed, so it fixes the cause. Reading reviews is tempting and cheap, but reviews are no proof of safety and the decision is left to each person."
+    },
+    {
+      "prompt": "A review finds that a production web application runs in a container with full administrator rights and with debugging switched on. What is the BEST change?",
+      "options": [
+        "Move the container to a larger host that has more memory",
+        "Keep debugging on, but limit who may read its output",
+        "Run it with least privilege and turn off debugging",
+        "Put a notice on the site telling users about the testing"
+      ],
+      "correctIndex": 2,
+      "explanation": "Least privilege limits the harm of any flaw, and removing debugging removes a source of leaked information. Limiting who reads the debug output is tempting, but the feature would still be active and could still be abused."
+    },
+    {
+      "prompt": "At a software company, each code change is automatically built and tested and is kept ready for release. A manager must approve before anything reaches production. What is this practice called?",
+      "options": [
+        "Continuous deployment",
+        "Continuous delivery",
+        "Software composition analysis",
+        "Waterfall release control"
+      ],
+      "correctIndex": 1,
+      "explanation": "Continuous delivery keeps code ready, and a person approves each release. Continuous deployment is tempting because the words are similar, but it releases automatically, with no person approving."
+    },
+    {
+      "prompt": "A build script holds a cloud administrator key in plain text, and every developer can edit the script. What should the security manager recommend?",
+      "options": [
+        "Rename the variable so that the key is harder to find",
+        "Tell developers not to read the build script from now on",
+        "Encode the key in Base64 before storing it in the script",
+        "Move the key to a vault and restrict pipeline edits"
+      ],
+      "correctIndex": 3,
+      "explanation": "A vault protects the secret, and limiting who may edit the pipeline protects the process. Base64 encoding is tempting because the key no longer looks readable, but encoding is not encryption and anyone can reverse it."
+    },
+    {
+      "prompt": "After a failed release, a team cannot tell which versions of code and settings made up the last good release, so it cannot roll back. Which practice is MOST clearly missing?",
+      "options": [
+        "Threat modeling",
+        "Dynamic application testing",
+        "Software configuration management",
+        "Rate limiting"
+      ],
+      "correctIndex": 2,
+      "explanation": "Software configuration management records exactly which versions make up each release. Dynamic testing is tempting because it was a failed release, but testing finds problems and does not keep a record of what was shipped."
+    },
+    {
+      "prompt": "A company has bought a web application and has no access to its source code. It wants to find server setup weaknesses and session handling problems in a staging copy. Which approach BEST fits?",
+      "options": [
+        "Dynamic application security testing",
+        "Static application security testing",
+        "Software composition analysis of the source",
+        "Peer code review of the login module"
+      ],
+      "correctIndex": 0,
+      "explanation": "Dynamic testing attacks the running application and needs no source code. Static testing is tempting because it is thorough, but it must be able to read the code, and it cannot see run-time setup problems."
+    },
+    {
+      "prompt": "A team wants security findings during its existing automated functional tests. It wants an agent inside the application to report the exact line of code, with few false alarms. Which approach BEST fits?",
+      "options": [
+        "Static application security testing",
+        "Interactive application security testing",
+        "Software composition analysis of its packages",
+        "Manual penetration testing"
+      ],
+      "correctIndex": 1,
+      "explanation": "Interactive testing uses an agent inside the running application during tests, and can name the line of code. Static testing is tempting because it also names the line, but it does not run the application and it produces more false alarms."
+    },
+    {
+      "prompt": "An auditor asks which third-party packages inside a product have known flaws, and what license terms apply to them. Which tool would answer this MOST directly?",
+      "options": [
+        "Fuzz testing of the input fields",
+        "Static analysis of the in-house code",
+        "Dynamic scanning of the login page",
+        "Software composition analysis"
+      ],
+      "correctIndex": 3,
+      "explanation": "Software composition analysis identifies third-party components, their known flaws and their licenses. Static analysis is tempting because it reads code, but here it is aimed at the company's own code and not at what it borrowed."
+    }
+  ]
+}

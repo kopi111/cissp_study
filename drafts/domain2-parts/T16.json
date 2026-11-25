@@ -1,0 +1,141 @@
+{
+  "id": "T16",
+  "studyNotes": [
+    {
+      "heading": "The data lifecycle",
+      "body": "In this first part, we are going to look at the life of a piece of data, from the moment it appears until the moment it is gone.\n\nA lifecycle is the set of stages something goes through. A common model for data has six stages, in this order.\n\n- Create or collect\n- Store\n- Use\n- Share\n- Archive\n- Destroy\n\nTo archive means to move data to long-term storage, because it is no longer in daily use but must still be kept.\n\nThink about a library book. It arrives and is catalogued. It is put on a shelf. People read it in the building. It is lent to someone else. When it is rarely wanted, it moves to a store room. And one day it is withdrawn and pulped. At every stage, the library knows what should happen to it.\n\nNow let us follow something real. A job applicant fills in an online form. That is the create or collect stage. The form is saved to a database. That is store. A recruiter reads it. That is use. The recruiter sends it to the hiring manager. That is share. After the post is filled, the record moves to cheaper storage for the period the law requires. That is archive. When that period ends, the record is securely removed. That is destroy.\n\nThree ideas apply across the whole cycle.\n\nThe first is that security applies at every stage. Many organizations protect the store stage very well, and then forget about the copies shared by email.\n\nThe second is that the class follows the data from start to finish. An archived record is not less sensitive just because nobody is looking at it. The class should be decided as early as possible, ideally when the data is created or collected, so that the right rules apply from the first day.\n\nThe third is that different people have different duties at each stage. That brings us to the roles, which the exam tests very closely.\n\nHere is what to take away. Create or collect, store, use, share, archive, destroy. The class travels with the data all the way through, and nothing is finished until the data has been properly destroyed."
+    },
+    {
+      "heading": "Inside the organization: owner, custodian and user",
+      "body": "Next we will look at the three data roles found inside an organization. These are the owner, the custodian and the user.\n\nThink about leaving your car with a hotel parking attendant. You own the car, and you decide who may drive it. The attendant parks it, keeps it safe and hands it back, following your wishes. The attendant does not decide to lend it to a friend. Your passenger simply rides in it, and must behave.\n\nThe data owner is a senior manager who is accountable for the data. The owner sets its class, decides who may access it, and decides how much protection it needs. The owner usually comes from the business side. The head of sales would own customer sales data, for example.\n\nThe data custodian is usually technical staff. The custodian does the daily care the owner asks for, such as making backups, applying security settings and restoring data when needed. The custodian does not decide what the class is, or who should get access. The custodian carries out those decisions.\n\nThe data user is anyone who uses the data for their job and must follow the rules. Users only use data for the approved purpose. Users also report anything that looks wrong.\n\nThe key sentence for the exam is this. The owner is accountable, and the custodian is responsible for doing the work. Accountable means that you answer for the result. Responsible means that you carry out the task.\n\nHere is a workplace example. In a bank, the head of lending owns the loan records and decides that loan officers may read them. A database administrator is the custodian, and sets up the permissions and runs the backups. A loan officer is the user, and looks up a customer's loan.\n\nIf a question asks who decides, look for the owner. If it asks who runs the backups, look for the custodian.\n\nYou may also meet the words data steward and system owner. A steward looks after the quality and meaning of data on behalf of the business. A system owner answers for a particular system. Neither replaces the data owner.\n\nHere is your takeaway. The owner decides and is accountable, the custodian carries it out, and the user follows the rules."
+    },
+    {
+      "heading": "Privacy roles: controller, processor and subject",
+      "body": "In this part we will look at three roles that come from privacy law, and then we will place all six roles in one example.\n\nThese terms are strongly linked to the General Data Protection Regulation, or GDPR, the European Union privacy law. Personal data means any information about an identifiable living person.\n\nThe data controller is the person or organization that decides why personal data is used and how. In practice, it is usually the organization, not one employee. Two organizations that decide together are joint controllers.\n\nThe data processor is a separate party that handles personal data for the controller and follows the controller's instructions. The word separate matters. A company's own IT department, meaning its information technology staff, is not a processor. It is part of the controller, and it acts as a custodian.\n\nThe data subject is the living person the personal data is about. Subjects have rights, including the right to see their data, to have errors corrected, and in some cases to have it erased. The controller must see that those rights are met.\n\nThink about a dry cleaner. You decide that your suit needs cleaning, and why. The dry cleaner does the work on your instructions. If the dry cleaner starts wearing your suit to parties, it has stopped following instructions. In the same way, a processor that decides for itself why and how data is used is treated as a controller for that use.\n\nUnder GDPR, hiring a processor does not end the controller's accountability. The processor has its own legal duties too. There must be a written contract. A processor needs the controller's permission to use another processor. If a processor has a breach, it must tell the controller without undue delay. The controller must normally tell the regulator within 72 hours of becoming aware of it, where that is feasible.\n\nHere is a worked example. A shop runs a loyalty card scheme.\n\n- The shop is the controller.\n- The marketing director is the data owner.\n- The database team is the custodian.\n- An outside mailing company is the processor.\n- The cashier who looks up points is a user.\n- The customer with the card is the subject.\n\nHere is what to take away. The controller decides why and how, the processor follows instructions, and accountability stays with the controller."
+    },
+    {
+      "heading": "Data collection",
+      "body": "Now we will look at the first stage of the lifecycle more closely, which is deciding what to collect in the first place.\n\nCollect only what you really need for a stated purpose. This is called data minimization. Data you never collected cannot be stolen from you.\n\nThink about someone at your front door asking to read the meter. You show them the meter. You do not also hand them your bank statements. They have no reason to see those, and the more you give out, the more can go wrong.\n\nA school needs a parent's phone number. It does not need the parent's salary. Four ideas should guide every collection.\n\nThe first idea is notice. People should be told what is being collected, why it is being collected, and who will receive it.\n\nThe second idea is lawful basis. There must be a lawful reason to collect personal data. Under the General Data Protection Regulation, or GDPR, the European Union privacy law, consent is only one possible basis. Others include carrying out a contract and meeting a legal duty.\n\nThe third idea is purpose limitation. Do not quietly use data for a new purpose later. If phone numbers were collected to arrange deliveries, then sending sales messages to them is a new purpose, and it needs its own lawful basis.\n\nThe fourth idea is quality. Data should be accurate and relevant when it is collected, because every later decision depends on it.\n\nHere is a workplace example. A gym's sign-up form asks for name, phone number, date of birth, salary and employer. The gym uses only the first three. The right action is to remove the last two questions. Making them optional does not solve the problem, because the gym would still be holding data that it has no use for. And encrypting those answers would be protecting something that should not exist.\n\nCollection also has a security side. Forms must send data safely, input should be checked, and a class should be assigned to the data as soon as it arrives.\n\nThink like an adviser. The cheapest and strongest control for unneeded data is not to have it.\n\nHere is your takeaway. Collect the minimum, tell people why, have a lawful basis, and keep to the stated purpose."
+    },
+    {
+      "heading": "Data location",
+      "body": "In this part we will look at where data is kept, and why the answer can be a legal question as well as a technical one.\n\nThink about taking something across a national border. The moment you cross, a different set of laws applies to you and to what you are carrying. Data is much the same.\n\nThe laws of a country can apply to data stored there. Data sovereignty is the idea that data is subject to the laws of the place where it is held. Data residency means an organization or a law requires the data to stay in a certain place. Some countries go further and pass data localization laws, which require certain data to be stored or processed inside the country.\n\nSo sovereignty is about whose law applies. Residency is about where the data must sit.\n\nA court in the country where your data is held may be able to order its disclosure, whatever your home country thinks about that. That is a real risk, and it belongs in the decision about where to store data.\n\nThe cloud, which means computers run by another company, makes this harder. You may choose one region for your data, while the provider's default setting copies backups to another continent. So before moving data to the cloud, check which countries will hold it, including backups, logs and support staff access. Support staff in another country who can read the data may count as a transfer.\n\nPersonal data leaving the European Union needs a legal route under the General Data Protection Regulation, or GDPR. Examples are a formal decision that the other country gives adequate protection, or an approved set of contract terms.\n\nEncryption is a good protection, but it does not cancel these legal rules. Check the law and the contract first, and involve legal advisers.\n\nHere is a workplace example. A bank's contract says that customer data stays in its home country. The cloud provider's main storage is in that country, but its backups are not. The security manager has the backups restricted to in-country locations, and has this written into the contract.\n\nHere is what to take away. Know every place your data sits, including backups, and check the law and contracts before you move it."
+    },
+    {
+      "heading": "Data maintenance",
+      "body": "In this final part we will look at what happens during the long middle of the lifecycle, when data simply has to be looked after.\n\nMaintenance means keeping data correct, useful and safe while you hold it. It is like looking after a house. Nothing dramatic happens most days. But if you stop checking the roof and the pipes, you find out about it at the worst possible moment.\n\nMaintenance includes these jobs.\n\n- Correcting errors and keeping records up to date.\n- Making and testing backups.\n- Reviewing who has access.\n- Applying updates to the systems that hold the data.\n- Checking that the class is still right.\n\nLet us look at why each one matters.\n\nCorrect data is part of integrity, which means keeping data accurate. Under privacy law, people may also have the right to have mistakes corrected. Wrong data can cause real harm. Think of a hospital record with the wrong allergy on it.\n\nBackups are only useful if they work. A backup that has never been restored is a hope and not a plan. So test restores on a regular schedule. A company might run backups every night for three years, and learn only when a disk fails that none of them can be restored.\n\nAccess reviews catch people who have changed jobs or left. The owner should confirm that each person still needs access.\n\nUpdates, also called patches, fix known weaknesses in the systems that hold data.\n\nClass checks matter because value changes with time, and because new combinations of data can become more sensitive.\n\nHere is a workplace example that brings the roles together. A health insurer's customer data needs yearly care. The data owner confirms the class and signs off the access list. The custodian runs the backups, tests a restore and applies the patches. Users correct errors as they find them. An outside processor follows the insurer's written instructions. The people that the data is about can ask to see it and correct it.\n\nThe owner stays accountable for this work, even though the custodian carries it out.\n\nThink like a manager. Maintenance is a routine with named people and dates, and not a task left for when something breaks.\n\nHere is your takeaway. Keep data accurate, test your restores, review access, patch systems, and recheck the class."
+    }
+  ],
+  "practiceQuestions": [
+    {
+      "prompt": "A database administrator at a bank runs the backups, applies the security settings and restores data, all according to rules set by the head of lending. Which data role does the administrator hold?",
+      "options": [
+        "Data owner",
+        "Data custodian",
+        "Data subject",
+        "Data controller"
+      ],
+      "correctIndex": 1,
+      "explanation": "The custodian does the daily care that the owner asks for. Data owner is tempting because the administrator has great technical power over the data, but the head of lending sets the rules."
+    },
+    {
+      "prompt": "A company's own IT (information technology) department runs the servers that hold the staff records. The company decides what is collected and why. A consultant describes the department as the company's data processor. Which statement is MOST accurate?",
+      "options": [
+        "The consultant is right, because anyone who touches personal data is legally a processor",
+        "The department is the controller, because it physically holds all of the staff records",
+        "The department is the data subject, because its own staff appear in the records it holds",
+        "The department acts as a custodian, because a processor is always a separate party"
+      ],
+      "correctIndex": 3,
+      "explanation": "A processor is a separate party acting for the controller, so an internal department is part of the controller and acts as a custodian. The consultant's view is tempting because the department does handle the data, but handling alone does not make a processor."
+    },
+    {
+      "prompt": "A retailer hires a mailing company to send its customer newsletter, under a contract limiting the company to that task. The mailing company secretly uses the customer list to advertise its own services. Which statement is MOST accurate?",
+      "options": [
+        "It is still only a processor, because a contract with the retailer exists and has not ended",
+        "The customers have become its custodians, because they received its advertising in the post",
+        "For that use it has acted as a controller, and it has to answer for that decision",
+        "The retailer has become a processor, because the mailing company now makes the decisions"
+      ],
+      "correctIndex": 2,
+      "explanation": "A processor that decides for itself why and how data is used is treated as a controller for that use. The first option is tempting because the contract still exists, but the mailing company went outside it. The retailer does not become a processor."
+    },
+    {
+      "prompt": "A customer notices that a shop's records show her old address, and she asks the shop to correct it. The shop decides what customer data is collected and why, and an outside firm hosts the records on the shop's instructions. Who must see that her request is met?",
+      "options": [
+        "The shop, because the controller must see that a data subject's rights are met",
+        "The customer, as the data subject, by logging in and fixing the records herself",
+        "The outside firm, which must decide by itself whether the request should be met",
+        "The cashier who last served her, as the data user who happens to know her address"
+      ],
+      "correctIndex": 0,
+      "explanation": "The controller must see that the subject's rights are met, even if a processor does the technical work. The outside firm is tempting because it holds the records, but a processor acts on instructions and does not decide."
+    },
+    {
+      "prompt": "An outside company processes customer data on an insurer's instructions. The company discovers that its system has been breached and the insurer's data exposed. Under the General Data Protection Regulation, which notification duty applies to the company?",
+      "options": [
+        "Contact each affected customer directly and decide the message, without informing the insurer",
+        "Wait for the results of a full investigation, which can take several months, and then report",
+        "Say nothing, because the duty to report a breach falls only on the controller and never on a processor",
+        "Tell the insurer without undue delay, so that the insurer can meet its own duties"
+      ],
+      "correctIndex": 3,
+      "explanation": "A processor must tell its controller without undue delay, and the controller then deals with the regulator, normally within 72 hours of becoming aware. Waiting for a full investigation is tempting because the facts would be clearer, but it would use up the controller's time."
+    },
+    {
+      "prompt": "A gym's online sign-up form asks for name, phone number, date of birth, salary and employer. The gym uses only the name, phone number and date of birth. What is the BEST action?",
+      "options": [
+        "Keep the form as it is and encrypt the salary and employer fields in the database",
+        "Remove the questions about salary and employer from the form, and stop collecting both",
+        "Keep the form as it is and add a line telling members the fields may be useful one day",
+        "Make the salary and employer questions optional, and keep all of the answers that are given"
+      ],
+      "correctIndex": 1,
+      "explanation": "Data minimization means collecting only what is needed for a stated purpose. Encryption is tempting because it is a strong control, but the gym should not hold the data at all. Optional questions would still collect data it has no use for."
+    },
+    {
+      "prompt": "An online shop collected phone numbers only to arrange deliveries. The marketing team now wants to send sales messages to those numbers. What should the privacy adviser recommend FIRST?",
+      "options": [
+        "Go ahead, because the shop already holds the numbers and they were collected lawfully",
+        "Go ahead, but send sales messages only once a month so that customers are not disturbed",
+        "Check whether there is a lawful basis for using the numbers for this new purpose",
+        "Delete all of the phone numbers, because any thought of new use has already made them unlawful"
+      ],
+      "correctIndex": 2,
+      "explanation": "Purpose limitation means data collected for one purpose cannot simply be reused for another. It is tempting to go ahead because the numbers were lawfully collected, but that lawful reason covered deliveries only."
+    },
+    {
+      "prompt": "A contract requires a bank's customer data to stay within its home country. The cloud provider's main storage is in that country, but its default backup setting copies data to another continent. What is the BEST action?",
+      "options": [
+        "Accept the setting, because only the main copy counts for the purposes of this type of contract",
+        "Encrypt the backups, as encrypted copies are exempt from any limit on where data may be kept",
+        "Stop taking backups altogether, so that no copy of the data can ever leave the home country",
+        "Restrict the backups to locations in that country, and confirm this in the contract"
+      ],
+      "correctIndex": 3,
+      "explanation": "Backups are copies of the data, so the residency requirement applies to them as well. Encryption is tempting, but it does not cancel a legal or contract rule about location. Stopping backups would put availability at serious risk."
+    },
+    {
+      "prompt": "A company's legal team warns that because its files are held on servers in a certain foreign country, that country's courts may be able to order their disclosure. Which concept does this warning BEST describe?",
+      "options": [
+        "Data sovereignty",
+        "Data minimization",
+        "Purpose limitation",
+        "Data remanence"
+      ],
+      "correctIndex": 0,
+      "explanation": "Data sovereignty is the idea that data falls under the laws of the place where it is held. Data remanence is tempting because the words sound technical and related, but it means data left behind after an attempt to remove it."
+    },
+    {
+      "prompt": "A company has run nightly backups of its customer records for three years. When a disk failed last week, it learned that the backups could not be restored. Which maintenance step would BEST have prevented this?",
+      "options": [
+        "Buying larger backup disks, so that the nightly backup could hold several more years of data",
+        "Testing a full restore from those backups on a regular, recorded schedule",
+        "Running the backup twice each night and keeping each of the copies on the same backup system",
+        "Reviewing who has access to the backup system every three months"
+      ],
+      "correctIndex": 1,
+      "explanation": "Only a test restore proves that backups work. Running two backups a night is tempting because it sounds safer, but two copies made by the same faulty process would both fail. An access review is useful, but it does not prove that restores work."
+    }
+  ]
+}

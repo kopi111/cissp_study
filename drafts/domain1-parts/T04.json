@@ -1,0 +1,141 @@
+{
+  "id": "T04",
+  "studyNotes": [
+    {
+      "heading": "Cybercrime and data breaches",
+      "body": "In this first part, we are going to look at cybercrime and data breaches, and at the legal duties that follow from them.\n\nCybercrime means crime carried out using computers or aimed at computers. It includes hacking into systems, fraud, stealing data, and spreading harmful software. A data breach is when information is seen, copied or stolen by someone who should not have it. Not every breach is a crime, because a clerk who emails a file to the wrong person has caused a breach by accident.\n\nThink about a burglary in your street. If the burglar lives nearby, the local police can deal with it. Now imagine the burglar lives on another continent, and has never set foot in your country. That is the normal situation in cybercrime. It makes jurisdiction hard. Jurisdiction means which country's law and courts apply. Laws differ from one place to another, and something illegal in one country may not be illegal in the next. Some countries have agreed to cooperate. One well-known example is the Budapest Convention on Cybercrime.\n\nA breach also brings duties. Many laws require you to tell a regulator, which is a government body that oversees an area, and sometimes the affected people as well. The deadlines are short and they differ. You will meet one important deadline shortly, when we reach European privacy law.\n\nHere is a workplace example. A retailer finds that customer records have been copied by an outsider. A good response follows the incident plan that was agreed in advance. The team contains the damage and preserves the evidence. Legal advisers are brought in early to work out which laws apply in each country where customers live. Then the company notifies the authorities and the customers as the law requires.\n\nA security professional is not a lawyer. When the law is unclear, involve legal advisers. And never attack back. Trying to break into the attacker's computer is usually illegal in its own right.\n\nSo here is what to take away. Cybercrime crosses borders, breaches bring legal notification duties, and the correct first move is to follow your plan and involve legal advisers."
+    },
+    {
+      "heading": "Intellectual property and licensing",
+      "body": "Now we will look at intellectual property and licensing. Intellectual property means things created by the mind, and the law protects them in four main ways.\n\n- Copyright: protects creative works, including software code. It often lasts for the author's life plus 70 years.\n- Trademark: protects names and logos. It can be renewed without limit.\n- Patent: protects inventions, usually for 20 years from filing. The details become public.\n- Trade secret: protects valuable secret business information. It lasts as long as it stays secret.\n\nHere are everyday pictures for each. A novel is protected by copyright. The name and logo of a soft drink are protected by trademark. A new kind of engine is protected by a patent. And a secret recipe for fried chicken is a trade secret.\n\nThe choice between a patent and a trade secret is one the exam likes. A patent gives strong protection, but only for a limited time, and you must publish how the invention works. A trade secret can last forever, but it gives you little protection if someone discovers the secret honestly, for example by working it out independently. So companies protect trade secrets using access limits and non-disclosure agreements, which are promises to keep information secret.\n\nCopyright protects the way an idea is expressed, and not the idea itself. Two programmers may write different code to do the same job, and neither has copied the other.\n\nA licence is permission to use software under certain terms. You usually buy the right to use it, and you do not own it. Common forms are a signed contract, a shrink-wrap licence that you accept by opening the box, a click-through licence that you accept by clicking a button, and cloud service terms. Open source software is also licensed, and its terms can carry real duties.\n\nHere is a workplace example. A company buys 300 licences, but an audit finds 500 installations. That is a violation, and it can bring penalties. Keeping an accurate software inventory prevents this.\n\nThe point to take away is this. Know the four types and how long each one lasts, and track your licences carefully."
+    },
+    {
+      "heading": "Import and export controls",
+      "body": "Next we will look at import and export controls. These are laws that limit which goods and technologies can cross a national border.\n\nThink about customs at an airport. You may carry a suitcase of clothes, but certain items are stopped, even if you bought them legally. Technology faces rules of the same kind, particularly technology that could be useful to a military or to a hostile government.\n\nThe United States has two sets of rules that you should recognize.\n\n- International Traffic in Arms Regulations, or ITAR: cover military items and defence services.\n- Export Administration Regulations, or EAR: cover commercial and dual-use items, including some encryption.\n\nDual-use means useful for both civilian and military purposes. Encryption means scrambling data so that only someone with the key can read it. A strong encryption product can protect a shopkeeper's records, and it can also protect a military communication. Many countries also take part in the Wassenaar Arrangement. This is an agreement between states to control the export of weapons and dual-use goods.\n\nImports are controlled as well. Some countries restrict bringing encryption products in, or require a licence to use them, or require access to keys. So a product that is legal at home may not be allowed where you plan to use it.\n\nHere is a worked workplace example. A company in Canada sends an engineer to a new branch office abroad, with a laptop that uses strong encryption and a set of design files. Step one, find out whether the encryption can legally be taken into that country. Step two, find out whether the design files are controlled, because sending technical data can count as an export, even by email. Step three, check who will receive them, since some people and countries are restricted. Step four, get legal or compliance approval, and keep a record.\n\nNotice one trap. Export does not only mean shipping a box. Giving access to controlled technical data over a network can count as well.\n\nThis is what to take away. Before technology or technical data crosses a border, find out what the rules allow in both directions, and ask legal or compliance staff before you move it."
+    },
+    {
+      "heading": "Transborder data flow",
+      "body": "In this part we will look at transborder data flow. This means data moving between countries, particularly personal data.\n\nImagine you hand your medical file to a friend, and the friend passes it to someone in a country where nobody is required to keep it private. You would want some say in that. Data protection laws give people that kind of protection.\n\nSome countries go further and require certain data to stay inside their borders. This is called data localization, or data sovereignty when it is about the country's legal control over the data. A common example is government data, or health records.\n\nThe cloud makes this harder. The cloud means computing services run for you by another company over the internet. A cloud provider may copy your data automatically to several regions, for safety. That sounds sensible, but those copies may be crossing borders that your legal duties forbid. So when you buy a cloud service, you need to know where the data will be stored, where it will be backed up, and where the provider's support staff are based.\n\nThe European Union's General Data Protection Regulation, or GDPR, allows personal data to leave the European area in a few main ways.\n\n- The destination country has an adequacy decision, meaning the European Commission has judged its protection adequate.\n- The parties use standard contractual clauses, which are approved contract terms.\n- A group of companies uses binding corporate rules, which are approved internal rules for moving data within that group.\n\nThese arrangements can change. An earlier framework for transfers to the United States, known as Privacy Shield, was struck down by the European court in 2020. So you cannot assume last year's answer is still valid.\n\nHere is a worked workplace example. A company in France wants to send its staff records to a head office outside Europe. First, map the data and find out where it will go. Next, take legal advice on the lawful basis for the transfer. Then, put the proper safeguards in place. Only after that should the data move.\n\nHere is your takeaway. Know where your data is going, make sure there is a lawful basis for the transfer, and settle it before any data moves."
+    },
+    {
+      "heading": "Privacy requirements",
+      "body": "Now we will look at privacy. Privacy is a person's right to have a say in how information about them is collected and used.\n\nPersonally identifiable information, or PII, is any data that can identify a person, such as a name together with a date of birth. The biggest privacy law you will study is the GDPR. It protects people in the European Union, even when the company handling their data is elsewhere. So a shop in Jamaica that sells to customers in Germany may have to obey it.\n\nLearn these roles. A data subject is the person the data is about. A controller decides why and how data is used. A processor handles data on the controller's behalf. Here is an everyday picture. You are the data subject. Your dentist is the controller. The company that stores the dentist's records is the processor. The controller stays responsible for choosing a good processor.\n\nThe GDPR has seven principles. Lawfulness, fairness and transparency. Purpose limitation, which means using data only for the reason given. Data minimization, which means collecting no more than you need. Accuracy. Storage limitation, which means not keeping data longer than needed. Integrity and confidentiality. And accountability, which means being able to show that you comply.\n\nPeople also have rights, such as seeing their data, correcting it and asking for it to be erased.\n\nThe numbers to remember are these. A breach must be reported to the supervisory authority within 72 hours of becoming aware of it, unless it is unlikely to harm people. The highest fines reach 20 million euros or 4 percent of worldwide yearly turnover, whichever is higher.\n\nOther laws to recognize are these.\n\n- California Consumer Privacy Act, or CCPA.\n- Personal Information Protection Law, or PIPL, in China.\n- Protection of Personal Information Act, or POPIA, in South Africa.\n- Health Insurance Portability and Accountability Act, or HIPAA, for US health data.\n- Gramm-Leach-Bliley Act, or GLBA, for US financial customer data.\n\nThe takeaway is this. Know the three GDPR roles, the seven principles and the 72-hour rule, and match each law to its place."
+    },
+    {
+      "heading": "Four sources of requirements",
+      "body": "In this last part, we are going to bring it together by looking at where requirements come from. The outline names four sources, and the exam expects you to tell them apart.\n\n- Contractual: promises in an agreement. Break them and the other party may sue.\n- Legal: laws made by government. Breaking them can bring fines or prison.\n- Industry standards: rules set by an industry body.\n- Regulatory: rules from a government agency that oversees an area, such as banking.\n\nThink about running a small food stall. The law says you must not sell unsafe food. A health inspector, working for a government agency, has detailed rules about how you store it. A trade association may set its own quality mark. And your contract with a supermarket says you will deliver every Monday. Those are four different kinds of duty, and all four are real.\n\nThe example the exam loves is PCI DSS. That stands for Payment Card Industry Data Security Standard. It applies to anyone handling payment cards. It is not a law. It is an industry standard, and card companies enforce it through contracts. If you break it, you can face fines or lose the right to accept cards. Saying that it is not a law does not make it optional.\n\nAnother law worth knowing is the Sarbanes-Oxley Act, or SOX. It requires accurate financial reporting by US public companies, and so it drives controls over the systems that hold financial data.\n\nCompliance means meeting the rules that apply to you. A good compliance program lists which requirements apply and who is responsible for each one. It maps controls to those requirements, checks them regularly and reviews the list after any change.\n\nHere is a workplace example. A medical software firm opens a European office and begins taking card payments. In a single move, it picks up privacy law, health data law, an industry standard and new customer contracts. The list must be updated before the launch.\n\nSo remember this. Requirements come from contracts, laws, industry standards and regulators. You must know which apply, and involve legal advisers wherever the answer is unclear."
+    }
+  ],
+  "practiceQuestions": [
+    {
+      "prompt": "The owner of a small restaurant chain that accepts credit cards tells the security adviser that the Payment Card Industry Data Security Standard can be ignored, because it is not a law. What is the BEST reply?",
+      "options": [
+        "That is correct, and the standard only applies to the banks that issue credit cards to the public",
+        "That is correct, unless the government later decides to pass the standard into national legislation",
+        "That is incorrect, because the standard is a criminal law in almost every country in the world",
+        "It is not a law, but it binds the business through its card contracts"
+      ],
+      "correctIndex": 3,
+      "explanation": "The standard is enforced by contract, so a business that accepts cards must meet it, or face penalties or lose card access. The first option is tempting, but merchants are directly in scope."
+    },
+    {
+      "prompt": "A food company has a valuable secret flavouring process. It wants protection that can last as long as the company exists and does not want the process published. Which form of protection BEST fits?",
+      "options": [
+        "Patent",
+        "Trade secret",
+        "Copyright",
+        "Trademark"
+      ],
+      "correctIndex": 1,
+      "explanation": "A trade secret lasts for as long as it stays secret, and nothing is published. A patent is tempting because it gives strong protection, but it must be disclosed and usually lasts only 20 years from filing."
+    },
+    {
+      "prompt": "A software audit at an insurance firm finds that a product has been installed on 500 computers, but the firm holds only 300 licences. What should the security manager recommend FIRST?",
+      "options": [
+        "Report it to management and bring usage in line with the licences",
+        "Delete the audit results and repeat the exercise once the new financial year has started",
+        "Do nothing unless the software maker decides to carry out a licence check of its own at the firm",
+        "Tell the software maker's sales staff that the extra copies were only being used for occasional testing"
+      ],
+      "correctIndex": 0,
+      "explanation": "Over-use is a licence violation, so management must be told and the position corrected. Waiting for the supplier to check is tempting, but it leaves a known violation and a known risk in place."
+    },
+    {
+      "prompt": "A company is about to send an engineer abroad with a laptop containing strong encryption software and technical design files. What should be done FIRST?",
+      "options": [
+        "Remove the encryption from the laptop so that it cannot cause any trouble at the airport customs desk",
+        "Send the design files ahead by email, because sending data by email is never treated as an export",
+        "Check export and import rules with legal or compliance staff",
+        "Rely on the engineer to explain the purpose of the laptop to the customs officers on arrival"
+      ],
+      "correctIndex": 2,
+      "explanation": "Encryption and technical data may be controlled in both directions, so the rules must be checked first. Removing encryption is tempting, but it exposes the data and does not answer whether the files may travel."
+    },
+    {
+      "prompt": "A clothing retailer in Spain decides what employee data to collect and why. It pays an outside payroll firm to calculate wages using that data. Under the General Data Protection Regulation, what is the payroll firm?",
+      "options": [
+        "The data controller",
+        "The data processor",
+        "The data subject",
+        "The supervisory authority"
+      ],
+      "correctIndex": 1,
+      "explanation": "The payroll firm handles the data on the retailer's behalf, which makes it a processor. Controller is tempting because the firm holds the data, but the retailer decides why and how it is used."
+    },
+    {
+      "prompt": "A breach exposes customer data belonging to people in several countries, including members of the European Union. What should the security manager do FIRST after containment has begun?",
+      "options": [
+        "Issue a public statement saying that no data was taken, in order to reassure customers while the facts are gathered",
+        "Wait for the forensic report to be finished, so that all the notices can be sent out at the same time",
+        "Follow only the notification rules of the country where the company has its head office and pays its taxes",
+        "Involve legal advisers to work out each country's notification duties"
+      ],
+      "correctIndex": 3,
+      "explanation": "Duties differ by jurisdiction and some deadlines are short, so legal advice is needed early. Waiting for the full forensic report is tempting, but it could cause the company to miss a deadline such as the 72-hour rule."
+    },
+    {
+      "prompt": "A European group of companies wants to send staff data regularly between its own offices, including offices outside the European Union. Which transfer safeguard is designed for this situation?",
+      "options": [
+        "An ordinary non-disclosure agreement signed by each individual member of the human resources team",
+        "Encryption of the data while it is travelling between the offices over the public internet",
+        "Binding corporate rules",
+        "A written promise from each overseas office that the data will be used only with great care"
+      ],
+      "correctIndex": 2,
+      "explanation": "Binding corporate rules are approved internal rules for transfers within a corporate group. Encryption is tempting and useful, but it is a technical control and is not by itself a legal basis for the transfer."
+    },
+    {
+      "prompt": "A government agency's rules require citizens' records to remain inside the country. A cloud provider's default setting copies data to several regions worldwide. What is the BEST course of action?",
+      "options": [
+        "Limit storage and backups to approved in-country locations",
+        "Accept the default setting, because copies in other regions greatly improve the availability of the records",
+        "Encrypt the records so that the copies in other countries no longer count as being stored outside",
+        "Ask the provider to confirm verbally that the copies will be deleted quickly after they have been used"
+      ],
+      "correctIndex": 0,
+      "explanation": "A data localization duty must be met, so storage and replication need to be restricted. Encryption is tempting, but the data would still be held abroad, and the rule is not waived because the data is protected."
+    },
+    {
+      "prompt": "A US clinic is reviewing which privacy law MOST directly governs its patients' medical records. Which is it?",
+      "options": [
+        "Gramm-Leach-Bliley Act",
+        "Health Insurance Portability and Accountability Act",
+        "Sarbanes-Oxley Act",
+        "Payment Card Industry Data Security Standard"
+      ],
+      "correctIndex": 1,
+      "explanation": "The Health Insurance Portability and Accountability Act covers US health data. Gramm-Leach-Bliley is tempting because it is also a privacy law, but it deals with financial customer data."
+    },
+    {
+      "prompt": "A company traces an attack to a server in another country. The technical team wants to break into that server to delete the stolen files. What should the security manager advise?",
+      "options": [
+        "Go ahead quickly, because the stolen files may be sold if the team waits any longer",
+        "Go ahead, as long as the team hides the company's identity during the operation",
+        "Go ahead, as long as only the stolen files are deleted and nothing else on the server is touched",
+        "Do not do it; preserve evidence and work with legal advisers and law enforcement"
+      ],
+      "correctIndex": 3,
+      "explanation": "Attacking back is usually illegal, and the server may belong to an innocent party. Deleting only the stolen files is tempting, but it is still unauthorized access to someone else's system."
+    }
+  ]
+}

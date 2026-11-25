@@ -1,0 +1,141 @@
+{
+  "id": "T58",
+  "studyNotes": [
+    {
+      "heading": "Events, incidents and being prepared",
+      "body": "In this first part, we are going to look at what an incident really is, and at what must be ready before one happens.\n\nAn event is anything that happens on a system, such as a login or a file being opened. An incident is an event that harms, or could harm, the confidentiality, integrity or availability of data and systems. Confidentiality means keeping secrets. Integrity means keeping things correct. Availability means keeping things working.\n\nThink of a home. A car driving down your street is an event. A car that crashes through your fence is an incident. Most events are harmless, and part of the job is sorting them.\n\nThe process of sorting and ranking is often called triage, a word borrowed from hospitals. In an emergency room, a nurse looks at each patient quickly and decides who needs care first. Security teams do the same. They ask what is affected, how serious it is, and how fast it is spreading.\n\nIncident management needs preparation. A written plan, approved by senior management, sets out who does what. A trained group of people carries it out. This group is often called a CSIRT, or computer security incident response team. A good team includes technical staff, and also people from legal, human resources, communications and the business.\n\nA plan should clearly define what counts as an incident, who has the authority to act, and how to contact each person. An incident is a very bad time to discover that nobody has the right phone number.\n\nThe team also needs tools, such as forensic software, clean spare equipment, and a way to communicate that does not depend on the systems that are under attack.\n\nHere is a workplace example. A staff member reports that their computer is behaving strangely. The help desk records that event and checks it. If it turns out to be a slow update, it stays an event. If it turns out to be malware, which is harmful software, it becomes an incident, and the plan begins.\n\nThe exam expects you to know seven steps, and they come next. Preparation is not one of the seven, but none of the seven will work without it.\n\nHere is what to take away. An incident harms or threatens confidentiality, integrity or availability, and the plan and team must exist before the trouble does."
+    },
+    {
+      "heading": "The seven steps: detection and response",
+      "body": "Now we will look at the seven steps of incident management in the order that ISC2, the body that runs this exam, lists them. Learn this exact order.\n\n- Detection.\n- Response.\n- Mitigation.\n- Reporting.\n- Recovery.\n- Remediation.\n- Lessons learned.\n\nThink of a house fire. You notice the smoke. You call for help. You stop the fire spreading. You tell the people who need to know. You repair the damage. You fix the faulty wire that caused it. Then you talk about how to do better next time. That is the whole list, in order, in one picture.\n\nLet us take the first two now.\n\nDetection is when something shows that all is not well. It might be a monitoring alarm, a log entry, or a worried member of staff. Someone must then confirm that it is real and not a false alarm. Tools that help include an IDS, or intrusion detection system, and a SIEM, which stands for security information and event management, a system that gathers logs in one place.\n\nDetection often comes from people. So staff should be told exactly how to report something odd, and they should never be blamed for reporting a false alarm.\n\nResponse is when the team is activated. A person with authority declares that this is an incident and starts the plan. The team begins working and keeping records of what was seen, when, and what was done. From this point on, evidence must be protected, because the incident could end up in court.\n\nThe team also judges the severity and decides who else must join. Speed matters, and so does staying calm and following the plan.\n\nHere is a workplace example. At nine in the morning, a monitoring tool warns that a server in the finance department is sending large amounts of data to an unknown address. An analyst checks and confirms that this is not a normal transfer. That is detection. The analyst calls the incident manager, who starts the plan and calls the team together. A shared written log is opened, with the time of each action. That is response.\n\nNotice that nobody has unplugged anything yet. Careless action in the first few minutes can destroy evidence.\n\nHere is your takeaway. Detection confirms that something is really wrong, response activates the team, and records begin straight away."
+    },
+    {
+      "heading": "Mitigation and reporting",
+      "body": "Next we are going to look at the third and fourth steps, which are mitigation and reporting.\n\nMitigation means limiting the damage. In this step, the aim is containment, which means stopping the problem from spreading. Think of a leaking pipe in a kitchen. The first thing to do is to turn off the water. Replacing the pipe comes later.\n\nContainment might involve taking an infected computer off the network, disabling a compromised account, or blocking an address at the firewall. A firewall is a device that controls what network traffic may pass.\n\nThe key lesson is that you contain before you try to repair.\n\nHow you contain also matters. Disconnecting a machine from the network stops the spread, and it keeps the memory intact, because the machine stays on. Powering it off destroys the contents of memory, and this may be valuable evidence. So isolate first, unless people's safety requires something else or the plan says otherwise.\n\nReporting is the next step. Tell management and the right people. Laws or contracts may require you to tell regulators or customers within a set time. For example, the General Data Protection Regulation, the European Union's privacy law, generally requires notice to the supervising authority within 72 hours of becoming aware of a personal data breach.\n\nReporting has its own place in the list, but in practice it continues throughout the incident. Management needs updates as the situation changes. Reports should stick to facts. Legal staff should review anything that leaves the organisation, and only named people should speak to the press or to customers.\n\nHere is a workplace example. Let us return to the finance server that was sending out data. The team disconnects the server from the network, but leaves it running. It also disables the account that was being used. That is mitigation. The incident manager then tells the chief information security officer and the legal team. Legal finds that the data includes personal records, and starts working on who must be told, and by what date. That is reporting.\n\nThe manager's mindset is important in this step. Your duty is to advise and escalate. Decisions on what to tell the public belong to senior management.\n\nHere is what to take away. Contain before you repair, isolate and do not power off, and report to the right people within the legal time limits."
+    },
+    {
+      "heading": "Recovery, remediation and lessons learned",
+      "body": "In this part, we will look at the last three steps, which are recovery, remediation and lessons learned.\n\nRecovery means returning systems to normal working order. That may involve rebuilding a machine or restoring clean backups. Check that the systems are clean and working before they go live again. Be careful that the backup you are restoring was not already infected. Monitor the restored systems closely for a while.\n\nThink of a burst pipe. Recovery is drying the floor and turning the water back on, so that the family can use the kitchen again.\n\nRemediation means finding the root cause and removing it. Root cause means the real reason it happened. Also check other systems for the same weakness. In the case of the pipe, remediation is finding out that the pipes are old and that they are all the same type, and then replacing them.\n\nMany people mix up recovery and remediation. Recovery brings the service back. Remediation stops it happening again. If you only recover, the attacker can return in the same way.\n\nThe root cause is often deeper than the first answer. An unpatched server might be the obvious cause. But why was it unpatched? Perhaps nobody owned it. Then the true fix includes giving the server an owner and improving the patching process.\n\nLessons learned is a review of what happened, held after the incident is over. Ask what worked and what did not. Ask how the event could have been detected sooner. Then update the plan, the training and the controls. The aim is improvement, and not blame. If people are afraid of blame, they will hide what really happened.\n\nThe meeting should take place soon after the event, while memories are fresh, and it should produce a written report and a list of actions, each with an owner and a date. Senior management should see the results.\n\nHere is a workplace example. The finance server is rebuilt and restored, and tested. That is recovery. Investigators find that an old web component was never patched, so the team patches it and checks all other servers. That is remediation. Two weeks later, the team meets and agrees that the alert should have been seen earlier, so it improves the monitoring. That is lessons learned.\n\nHere is your takeaway. Recovery restores the service, remediation removes the cause, and lessons learned improves the process."
+    },
+    {
+      "heading": "Worked example: ransomware at a retail chain",
+      "body": "Now we are going to walk through one incident from beginning to end, using all seven steps in order.\n\nRansomware is harmful software that locks your files and demands payment to release them. Imagine that somebody has changed all the locks on your house and is demanding money for the keys.\n\nA retail chain arrives at work on a Monday. Here is what happens.\n\nDetection. Tills in three stores stop working, and a ransom note appears on the screens. Staff call the help desk, which confirms that this is real and not a technical fault.\n\nResponse. The incident manager starts the plan. The team assembles and a written record begins. Because the company's email may be affected, the team uses a separate messaging service.\n\nMitigation. The team disconnects the affected computers from the network, keeping them powered on to preserve memory. They shut off the links between stores to stop the spread, and they make sure that the backups are disconnected from the network too.\n\nReporting. They inform senior management and legal. Legal advises which authorities must be told, and how soon. Named staff prepare a message for customers. Management decides, with legal advice, not to pay the ransom. Paying does not guarantee recovery, and it can break the law in some places.\n\nRecovery. They rebuild the computers and restore backups that have been checked to be clean. The most important systems come first, and then the rest. They watch closely for any sign of the attacker's return.\n\nRemediation. They find that a phishing email was the way in. Phishing is a trick message that fools staff. They also find that one member of staff had far too many rights, and that remote access lacked multi-factor authentication, meaning more than one kind of proof. They fix the email filter, the rights and the remote access, and they check every store for the same gaps.\n\nLessons learned. They meet, without blame. They agree that the plan needs clearer contact details and a regular practice. They update the plan and train the staff.\n\nNotice how the order works. Isolating the machines came before cleaning them. Restoring the service came before the final root cause fix, and the review came last of all.\n\nHere is what to take away. Walk through detection, response, mitigation, reporting, recovery, remediation and lessons learned, always in that order."
+    },
+    {
+      "heading": "The manager's rules, and other versions of the steps",
+      "body": "In this final part, we are going to look at how a manager should behave during an incident, and at one common source of confusion on the exam.\n\nThink of a captain during a storm. The captain does not grab a rope and start pulling. The captain makes sure that everyone is safe, follows the emergency drill, and gives clear orders.\n\nHere are the rules to remember.\n\nPeople's safety always comes first, ahead of data and ahead of evidence.\n\nFollow the plan and the policy. Do not make things up in a panic.\n\nNever hack back. Attacking the attacker may be illegal, and the machine that you attack may belong to an innocent person whose computer was taken over.\n\nDo not power off a system without thinking, because memory holds evidence.\n\nUse a separate way of communicating if the attacker may be reading your email. This is often called out-of-band communication.\n\nOnly named people speak to the press and to customers.\n\nEscalate when the matter goes beyond your authority. Senior management decides on things like calling law enforcement or paying a demand.\n\nNow for the confusion. Different sources use different steps. NIST, the United States National Institute of Standards and Technology, has published a widely quoted guide, Special Publication 800-61. In the edition that most books still describe, it has four phases: preparation, then detection and analysis, then containment, eradication and recovery, and then post-incident activity.\n\nEradication means removing the attacker and the attacker's tools. The ideas overlap with the seven steps, but the names and the groups do differ.\n\nThis exam's outline uses the seven steps. So if a question asks about the outline's order, use detection, response, mitigation, reporting, recovery, remediation and lessons learned. Be careful of questions that ask what comes next. Find out which step the scenario has reached, and then choose the very next one.\n\nHere is a workplace example of that kind of thinking. A team has isolated an infected server and has told management. What comes next? Recovery. They should not jump ahead to the review meeting.\n\nAlso watch for the word first. If the answer choices include something that protects a human being, that is nearly always the best first action.\n\nHere is your takeaway. Put people first, follow the plan, never hack back, and answer using the seven steps in their exact order."
+    }
+  ],
+  "practiceQuestions": [
+    {
+      "prompt": "A monitoring tool reports that an account has logged in from two countries within five minutes. An analyst confirms that the account has been taken over. Under the seven steps, what comes NEXT?",
+      "options": [
+        "Recover the account from the most recent backup",
+        "Hold a lessons learned session with the team",
+        "Activate the response team and start the incident plan",
+        "Report the matter to the industry regulator without any delay"
+      ],
+      "correctIndex": 2,
+      "explanation": "Detection has been confirmed, so response is next, which activates the team and the plan. Reporting is tempting because a takeover is serious, but it follows response and mitigation in the listed order."
+    },
+    {
+      "prompt": "Malware is spreading between workstations on one floor of an office. The incident team has been activated. What should the team do NEXT?",
+      "options": [
+        "Isolate the affected workstations from the network",
+        "Rebuild all workstations from the approved image",
+        "Find out exactly which staff member opened the attachment",
+        "Update the incident response plan"
+      ],
+      "correctIndex": 0,
+      "explanation": "Mitigation limits the damage, so the spread must be contained first. Rebuilding is tempting because it removes the malware, but it is recovery, and the infection would still be spreading while it happened."
+    },
+    {
+      "prompt": "A team has restored a compromised web server from a clean backup. The service is running again. A week later, the same attacker is back in using the same method. Which step was MOST likely skipped?",
+      "options": [
+        "Detection",
+        "Reporting",
+        "Remediation",
+        "Response"
+      ],
+      "correctIndex": 2,
+      "explanation": "Remediation removes the root cause, and skipping it lets the attacker return the same way. Reporting is tempting because it is also easy to skip, but telling people about the attack would not close the weakness."
+    },
+    {
+      "prompt": "During an active attack on a company's systems, an engineer suggests launching an attack against the source address to make it stop. What should the security manager do?",
+      "options": [
+        "Approve it, but only for a short period of time",
+        "Approve it if the source address is outside the country",
+        "Ask the legal team to approve it after the attack is over",
+        "Refuse, because attacking back may be illegal and may hit innocent systems"
+      ],
+      "correctIndex": 3,
+      "explanation": "Hacking back is not an option, because it may break the law, and the source is often someone else's compromised machine. A short approval is tempting as a compromise, but even a brief counter-attack carries the same legal and ethical problems."
+    },
+    {
+      "prompt": "A company's mail server may be compromised. The incident response team needs to discuss its plans without the attacker seeing them. What is the BEST approach?",
+      "options": [
+        "Use encrypted messages sent from the company's mail server",
+        "Use an out-of-band communication channel",
+        "Hold discussions only in the company's main chat channel",
+        "Delay all discussion until the mail server has been rebuilt"
+      ],
+      "correctIndex": 1,
+      "explanation": "An out-of-band channel does not depend on the possibly compromised systems. Encrypting messages is tempting, but an attacker controlling the mail server could still see who is talking and may reach the mailboxes."
+    },
+    {
+      "prompt": "An attack is still spreading when a director demands that the incident team stop and write a full report before doing anything else. What should the incident manager do?",
+      "options": [
+        "Stop all containment work and write the full report as requested",
+        "Ignore the director completely until the incident has been closed",
+        "Ask the press office to write the report on the team's behalf",
+        "Give a brief update now and carry on containing the attack"
+      ],
+      "correctIndex": 3,
+      "explanation": "Mitigation limits the damage, and reporting continues alongside it, so a short update meets both needs. Writing the full report first is tempting because a senior person asked, but the attack would keep spreading."
+    },
+    {
+      "prompt": "An organisation holds its review meeting after a major incident. Which outcome BEST shows that the meeting has served its purpose?",
+      "options": [
+        "A named employee has been disciplined for causing the incident",
+        "A written list of improvements with owners and dates has been agreed",
+        "All of the attackers have been identified by name",
+        "The incident response team has been reorganised"
+      ],
+      "correctIndex": 1,
+      "explanation": "Lessons learned aims at improvement, with clear actions and owners. Disciplining someone is tempting as a visible result, but blame discourages honest reporting in future."
+    },
+    {
+      "prompt": "Which of the following is an incident and not merely an event?",
+      "options": [
+        "A user logs in successfully at the normal time",
+        "A scheduled backup completes without errors",
+        "A printer runs out of paper during the day",
+        "Malware encrypts files on a shared drive"
+      ],
+      "correctIndex": 3,
+      "explanation": "An incident harms or threatens confidentiality, integrity or availability, which malware encrypting files clearly does. A printer running out of paper is tempting because it interrupts work, but it is an ordinary event with no security impact."
+    },
+    {
+      "prompt": "A breach involving personal data has been confirmed. Managers are unsure how soon the authorities must be told. Who should the incident manager involve FIRST to answer this?",
+      "options": [
+        "The legal or compliance team",
+        "The network engineering team",
+        "The company's public relations agency",
+        "The vendor of the affected application"
+      ],
+      "correctIndex": 0,
+      "explanation": "Legal or compliance staff know which notification laws apply and the time limits. Public relations is tempting because the matter may become public, but it cannot decide what the law requires."
+    },
+    {
+      "prompt": "Following a breach, a team restores a server from last week's backup. Shortly afterwards, the same malware becomes active on it. What is the MOST likely explanation?",
+      "options": [
+        "The backup had already been infected before it was taken",
+        "The server's hardware was too old",
+        "The monitoring tool caused the malware to return",
+        "The restore was carried out at the wrong time of day by mistake"
+      ],
+      "correctIndex": 0,
+      "explanation": "Backups taken after the attacker got in can include the malware, so backups must be checked for cleanliness. Old hardware is tempting as an easy explanation, but it would not bring the same malware back."
+    }
+  ]
+}

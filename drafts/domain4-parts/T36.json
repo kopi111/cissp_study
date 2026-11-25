@@ -1,0 +1,141 @@
+{
+  "id": "T36",
+  "studyNotes": [
+    {
+      "heading": "Firewall types and the layers they work at",
+      "body": "In this first part, we are going to look at the firewall family, and at exactly which layer each type works at, because this is tested directly.\n\nA firewall decides what traffic may pass between networks. Think of a guard at a door. Some guards check only the name on your badge. Others remember who has come in. Others open your bag and read your papers. The more a guard reads, the slower the queue.\n\nThe layers below are those of the OSI model, which stands for Open Systems Interconnection, the seven-layer map of networking.\n\n- Packet filter, also called static or stateless: Layers 3 and 4. It checks each packet alone, using addresses, ports and protocol. It is fast but simple.\n- Stateful inspection: Layers 3 and 4, with a memory. It keeps a state table of open connections and judges each packet in that context.\n- Circuit-level gateway: Layer 5. It checks that a session is valid, without reading the content. SOCKS, short for Socket Secure, a common proxy protocol, is the example.\n- Application-level gateway, also called an application proxy: Layer 7. It understands one application's traffic in detail. It is slower, but it can see inside.\n- Next-generation firewall, or NGFW: Layers 3 through 7. It adds application awareness, user identity and built-in intrusion prevention.\n- Web application firewall, or WAF: Layer 7. It protects websites from attacks such as SQL injection. SQL is Structured Query Language, and injection means feeding harmful database commands through a web form.\n- Host-based firewall: software that runs on one computer and protects that computer.\n\nHere is a worked example of why state matters. A staff computer asks a web server for a page, using destination port 443. A stateless filter sees the reply come back and has no memory of the request. So it needs a broad rule allowing replies in on high port numbers, which also lets others in. A stateful firewall remembers the outgoing request, and it allows only the matching reply.\n\nHere is a workplace example. A retailer buys a next-generation firewall for its perimeter, and also a web application firewall for its online shop. Each covers a gap that the other leaves.\n\nYour takeaway is this. Packet filter and stateful are Layers 3 and 4, circuit-level is Layer 5, and application-level is Layer 7."
+    },
+    {
+      "heading": "Firewall rules, placement and bastion hosts",
+      "body": "Now we will look at how firewall rules work, and at where firewalls and exposed systems should sit.\n\nA firewall reads its rules from the top down and stops at the first match. So order really matters. Think of a club's door policy. If the first line says everyone may enter, then the next line, which bans troublemakers, will never be read.\n\nHere is a worked example.\n\n- Rule 1: allow anyone to reach the web server on port 443.\n- Rule 2: allow administrators to reach the web server on port 22.\n- Rule 3: deny everything else.\n\nPort 443 is for secure web traffic, and port 22 is SSH, or Secure Shell, for remote administration. Suppose someone adds a new rule at the bottom, after Rule 3, to block a known bad address. It will never apply, because Rule 3 has already matched. To block that address from Rule 1 as well, the rule belongs at the top.\n\nThe standard approach is deny by default, then allow only what is needed. This is called implicit deny. Filter outgoing traffic as well as incoming. Review the rules regularly, because old rules build up, and each one is a door that someone may have forgotten.\n\nNow for placement. A screened subnet, also called a DMZ or demilitarized zone, is a buffer area for public servers. It sits between the internet and the inside network. Think of a shop counter, which lets customers do business without entering the storeroom. A web server sits in the screened subnet, and it can only talk to the database on the inside through a tightly limited rule.\n\nA bastion host is a hardened computer exposed to risky networks. Hardened means that everything unnecessary has been removed. It runs only what it must. A jump server is a similar hardened system that administrators pass through to reach protected systems.\n\nHere is a workplace example. A public web server is breached. Because it sits in the screened subnet, and rules restrict it, the intruder cannot simply reach the payroll system on the internal network. The design has reduced the damage.\n\nAlways use change control for rule changes, and record who asked for a rule and why.\n\nHere is what to take away. Rules run top to bottom, the default is deny, and public servers belong in a screened subnet."
+    },
+    {
+      "heading": "IDS and IPS",
+      "body": "Next we will look at devices that watch for attacks, and at the important difference between watching and stopping.\n\nAn IDS, which is an intrusion detection system, watches traffic and raises an alert. It is passive. It often works from a copy of the traffic, taken from a mirror port on a switch. An IPS, which is an intrusion prevention system, sits inline. Inline means all traffic must flow through it, so it can block in real time.\n\nThink of a doorbell camera compared with a security guard at the door. The camera tells you someone suspicious was there. The guard stops them entering. But if the guard makes a mistake, then an innocent visitor is turned away. In the same way, a wrong decision by an IPS can stop real business, and that is why new rules are often tested in alert-only mode first.\n\nBoth can be network-based, watching a segment of the network, or host-based, running on one computer. A host-based sensor can see activity after decryption, which a network sensor cannot.\n\nThere are two main detection methods.\n\n- Signature-based: matches known attack patterns. It is accurate on known attacks but misses new ones.\n- Anomaly-based, or behaviour-based: first learns what is normal, then flags differences. It can catch new attacks, but it raises more false alarms.\n\nNow four outcomes that the exam tests.\n\n- True positive: an alarm, and there was an attack.\n- False positive: an alarm, but no attack.\n- True negative: no alarm, and no attack.\n- False negative: no alarm, but there was an attack.\n\nThe false negative is usually the more dangerous, because no one knows to respond. But too many false positives have their own cost. Staff get tired and start ignoring alerts.\n\nHere is a workplace example. An IPS blocks a payment system after a software update changes its traffic pattern. Finance is unable to take payments for an hour. A manager's response is not to remove the IPS, but to set up change coordination, so that security teams know about updates and tune the rules in advance.\n\nEncrypted traffic is a challenge too. A network sensor cannot read inside it without decryption, which needs policy approval.\n\nYour takeaway is this. An IDS tells you, an IPS stops it, and false negatives are the ones that hurt the most."
+    },
+    {
+      "heading": "Proxies and the devices along the path",
+      "body": "In this part, we are going to look at proxies, and quickly place the other devices you meet on a network.\n\nA proxy makes requests on behalf of someone else. Think of a personal assistant who makes phone calls for an executive. The person being called talks only to the assistant.\n\nA forward proxy stands in front of staff who are going out to the internet. It can filter websites, scan downloads and log who went where. The outside server sees only the proxy.\n\nA reverse proxy stands in front of servers and receives requests from outside. The visitor believes that the proxy is the website. It can hide internal servers, spread the load and handle the encryption.\n\nA transparent proxy works without any setup on the client, and users may not even realize that it is there.\n\nHere is an easy way to keep these straight. Forward proxies serve clients, and reverse proxies serve servers.\n\nNow the other devices, in layer order. These layers come from the OSI model, the Open Systems Interconnection map.\n\n- Repeaters and hubs: Layer 1. They simply pass signals along.\n- Bridges and switches: Layer 2. They use MAC addresses, where MAC is Media Access Control, the hardware label on a network card.\n- Routers: Layer 3. They use IP addresses, where IP is the Internet Protocol, and they join networks.\n- Gateways: often up to Layer 7. They translate between very different systems.\n\nA load balancer spreads traffic over several servers. So it helps availability, and it often acts as a reverse proxy. It can also hide server details and absorb some attacks.\n\nSome proxies and firewalls inspect encrypted traffic. They decrypt it, inspect it, and then encrypt it again. This requires a company certificate on every managed device. It brings visibility, but it also brings privacy issues and a valuable target. Sensitive categories, such as banking and health sites, are commonly excluded by policy, and staff are told about it.\n\nHere is a workplace example. A company uses a forward proxy to block known malicious websites, and a reverse proxy to protect its customer portal. The same word covers two opposite directions.\n\nHere is what to take away. Forward proxies protect people going out, reverse proxies protect servers receiving requests, and every device has a home layer."
+    },
+    {
+      "heading": "Network access control",
+      "body": "Now we will look at network access control, which checks devices before trusting them, and at the two forms it takes in the outline.\n\nNAC, or network access control, is like the checks at an airport. Before you board, somebody confirms who you are and looks through your bags. Once you are at the gate, staff still keep an eye out.\n\nNAC works at two moments.\n\n- Pre-admission: checks a device before it joins the network.\n- Post-admission: keeps checking while it is connected, and can act if something changes.\n\nNAC can work together with 802.1X, a login check for joining a network, where the device must authenticate before the port opens. NAC can check things like whether patches are current, whether anti-malware software is running, and whether disk encryption is on. A device that fails can be sent to a quarantine network, where it can reach only the servers it needs to fix itself. This is called remediation.\n\nNAC can be delivered in physical or virtual form. A physical appliance is a dedicated box in the data centre. A virtual appliance is software running on a server or in the cloud, which is easier to expand and suits cloud or remote sites. Either way, losing the NAC system could stop people from connecting, so it needs redundancy.\n\nNAC can also work with or without an agent. An agent is software installed on the device, which allows deep checks. Agentless checks suit devices you cannot install on, such as printers and cameras. These can often be profiled only by their behaviour and hardware address, which can be faked, so they are better placed in restricted zones.\n\nHere is a worked example. A contractor's laptop connects to a meeting room socket.\n\n- Step 1: The switch holds the port closed and asks for a login.\n- Step 2: The NAC system checks the laptop's identity and its health.\n- Step 3: The laptop is missing patches, so it is sent to quarantine.\n- Step 4: The patches are applied and the device is checked again.\n- Step 5: The laptop is given access, limited by its role.\n\nThe contractor can still work, and the main network has stayed safe. The manager's goal was to allow business safely, not to prevent it.\n\nYour takeaway is this. NAC checks before and after joining, and quarantine fixes the problem without stopping the business."
+    },
+    {
+      "heading": "Endpoint security and operating devices safely",
+      "body": "In this final part, we will look at protecting each individual device, and then at how to keep security hardware working safely.\n\nAn endpoint is any device at the end of a network connection, such as a laptop, server or phone. Think of a large building. Good security at the gates is valuable, but each office should still have its own lock.\n\nEndpoint security is the set of host-based controls that protect the device itself. Here are the common ones.\n\nA host-based firewall limits what can reach that one computer, even from inside the network. Anti-malware finds harmful software. EDR, or endpoint detection and response, records activity on the device, spots suspicious behaviour, and lets responders isolate the machine remotely. A host-based intrusion detection system looks for attacks on that computer. Full disk encryption protects the data if a laptop is lost. Application allowlisting permits only approved programs to run. Patching closes known weaknesses. DLP, or data loss prevention, watches for sensitive data leaving the device.\n\nThe outline's point is that endpoints need protection of their own, because laptops leave the building and perimeter controls cannot follow them.\n\nHere is a workplace example. A laptop on a hotel network is attacked. The company firewall is no help there. The host firewall, the encrypted disk and EDR are what protect it, and EDR reports back to the security team.\n\nNow to operating security hardware safely. Devices only protect you if they are properly run.\n\n- Patch firmware, which is the software built into devices, through change management.\n- Remove default passwords.\n- Turn off unused ports and services.\n- Use a separate management network.\n- Send logs to a central system.\n- Lock devices away physically.\n\nFinally, decide how devices fail. Fail closed means that when a device fails, it blocks traffic. Fail open means it lets traffic through. A security device should normally fail closed, to protect data. Yet availability needs differ, so a manager should decide in advance and record the decision.\n\nPeople's safety always comes first. A door on a fire escape must open in an emergency, even if that reduces security. Lives matter more than data.\n\nHere is a workplace example. A hospital decides that one inline device protecting patient monitors should fail open, after a careful risk review.\n\nYour takeaway is this. Protect each endpoint, run the hardware with care, and plan your failure modes, with safety first."
+    }
+  ],
+  "practiceQuestions": [
+    {
+      "prompt": "A firewall must allow replies to outgoing web requests without opening a broad range of inbound high ports. Which firewall type BEST meets this requirement at the lowest complexity?",
+      "options": [
+        "A static packet filter with a broad inbound rule",
+        "A stateful inspection firewall",
+        "An application-level gateway rebuilt for each protocol in use",
+        "A host-based firewall on the internet router"
+      ],
+      "correctIndex": 1,
+      "explanation": "A stateful firewall remembers the outgoing connection and allows only the matching reply. An application-level gateway is tempting because it sees more, but it adds cost and complexity this need does not call for."
+    },
+    {
+      "prompt": "A network engineer states that a certain firewall validates that sessions are correctly established but does not look inside the application content. At which OSI layer does this firewall type work?",
+      "options": [
+        "Layer 2",
+        "Layer 5",
+        "Layer 3",
+        "Layer 7"
+      ],
+      "correctIndex": 1,
+      "explanation": "A circuit-level gateway checks sessions at Layer 5. Layer 7 is tempting, but an application-level gateway reads content, and this firewall does not."
+    },
+    {
+      "prompt": "An administrator adds a rule at the bottom of a firewall list to block a harmful address. The firewall still allows that address to reach the web server under an earlier rule. What is the BEST fix?",
+      "options": [
+        "Move the blocking rule above the rule that allows the traffic",
+        "Add the same blocking rule twice at the bottom of the list",
+        "Restart the firewall so that it reloads the new rule",
+        "Replace the firewall with one that has a larger rule table"
+      ],
+      "correctIndex": 0,
+      "explanation": "Firewalls stop at the first match, so the block must come first. Restarting is tempting as a quick try, but rule order would be unchanged after the restart."
+    },
+    {
+      "prompt": "A company wants its public web server reachable from the internet while limiting harm to internal systems if that server is compromised. Where is the BEST place to put the server?",
+      "options": [
+        "On the same internal network as the database servers",
+        "On the administrators' dedicated management network",
+        "In a screened subnet with tightly limited rules to the inside",
+        "On a staff laptop that is connected to the guest Wi-Fi"
+      ],
+      "correctIndex": 2,
+      "explanation": "A screened subnet is a buffer for public systems, and tight rules limit what a compromised server can reach. The management network is tempting because it is restricted, but exposing it to the internet defeats its purpose."
+    },
+    {
+      "prompt": "A new intrusion prevention system starts blocking a legitimate business application. Which step is the BEST way to avoid this happening with future rule changes?",
+      "options": [
+        "Run new rules in alert-only mode and tune them before blocking",
+        "Remove the intrusion prevention system from the network permanently",
+        "Turn off all rules that have ever caused a false alarm before",
+        "Allow all traffic from any business application without inspection"
+      ],
+      "correctIndex": 0,
+      "explanation": "Testing in alert-only mode allows tuning without disrupting business. Removing the system is tempting after an outage, but that gives up its protection altogether."
+    },
+    {
+      "prompt": "A breach investigation finds that an attacker's activity went on for months with no alert from any detection system. How is this outcome BEST described?",
+      "options": [
+        "A true positive",
+        "A false positive",
+        "A true negative",
+        "A false negative"
+      ],
+      "correctIndex": 3,
+      "explanation": "A false negative is a real attack that raised no alarm. A false positive is tempting because the word false sounds like a failure, but it is an alarm with no attack behind it."
+    },
+    {
+      "prompt": "A company wants to log and filter the websites that staff visit from the office. Which device is the BEST fit for this purpose?",
+      "options": [
+        "A reverse proxy placed in front of the company's web servers",
+        "A forward proxy between staff and the internet",
+        "A load balancer shared between the company's web servers",
+        "A hub connected to each of the office computers"
+      ],
+      "correctIndex": 1,
+      "explanation": "A forward proxy stands in front of clients going out, so it can filter and log. A reverse proxy is tempting, but it serves servers receiving requests from outside."
+    },
+    {
+      "prompt": "A company plans to decrypt and inspect all staff web traffic at its proxy, including visits to health and banking sites. What should the security manager do FIRST?",
+      "options": [
+        "Review the plan with legal and privacy staff and agree on policy and exclusions",
+        "Roll out the certificate to all devices and begin inspection the same day",
+        "Cancel the plan, because inspection of encrypted traffic is never permitted",
+        "Inspect the traffic quietly so that staff do not change their behaviour"
+      ],
+      "correctIndex": 0,
+      "explanation": "Inspection raises privacy and legal issues, so policy should come first, with staff informed. Rolling out at once is tempting for speed, but it skips that review."
+    },
+    {
+      "prompt": "A building's security cameras cannot run an agent and are connected to switch ports managed by network access control. What is the BEST way to handle them?",
+      "options": [
+        "Exempt them from all checks and allow full network access",
+        "Give each camera the same access as a managed staff laptop",
+        "Wait to connect them until the vendor provides an agent",
+        "Profile them agentlessly and place them in a restricted zone"
+      ],
+      "correctIndex": 3,
+      "explanation": "Agentless profiling can be fooled, so these devices are best placed in a restricted zone. Exempting them is tempting for simplicity, but it leaves an unmanaged device with open access."
+    },
+    {
+      "prompt": "A manager must decide how an inline security device protecting ordinary office file shares should behave if it fails. Unless a risk review says otherwise, which is the BEST default?",
+      "options": [
+        "Fail open, so that users never notice a problem with the device",
+        "Reboot repeatedly, so that the device keeps trying to reconnect",
+        "Fail closed, so that uninspected traffic is not let through",
+        "Send all traffic to the guest network until the device recovers"
+      ],
+      "correctIndex": 2,
+      "explanation": "A security device normally fails closed, so protection is not lost when it fails. Fail open is tempting for availability, but it should be a recorded decision after a risk review, as in cases affecting safety."
+    }
+  ]
+}

@@ -1,0 +1,141 @@
+{
+  "id": "T60",
+  "studyNotes": [
+    {
+      "heading": "What vulnerability management is",
+      "body": "In this first part, we are going to look at vulnerability management and where it starts.\n\nA vulnerability is a weakness that someone could use to cause harm. Think of a house with a broken latch on a window. First you need to know how many windows you have. Then you check them regularly, decide which ones matter most, and fix those first.\n\nVulnerability management is the ongoing job of finding, ranking and fixing weaknesses. The word ongoing matters. New weaknesses are found every day, so this work never ends.\n\nIt begins with an accurate asset inventory, which means a full list of what you own. You cannot protect what you do not know about. An old forgotten server, running in a corner of the network, is often the one that gets broken into.\n\nThe usual cycle has these stages.\n\n- Identify the assets.\n- Scan for weaknesses.\n- Evaluate and rank what you find.\n- Fix the weaknesses, or reduce or accept the risk.\n- Verify that the fix worked.\n- Report the results, and repeat the cycle.\n\nHere is a workplace example. A city council wants to begin a vulnerability programme. Before it buys any scanning tool, it builds a list of all of its servers, laptops and network devices, and names an owner for each one. When the first scan finds problems, each one is sent to the person who is responsible for that system.\n\nThat naming of an owner is important. A long report sitting in somebody's inbox fixes nothing. Each finding needs someone who is responsible for acting on it, and a date by which it must be done.\n\nThe security team's role is usually to find, advise and track. The system owners and the operations staff apply the fixes. Senior management accepts any risk that remains. Security people do not normally accept risk on the business's behalf.\n\nA few measures help a manager see whether the programme is working. One is how long a weakness stays open on average. Another is the percentage of systems covered by scanning. A falling number of open critical weaknesses is a good sign.\n\nHere is what to take away. Vulnerability management never ends, it begins with knowing what you own, and every finding needs an owner."
+    },
+    {
+      "heading": "Scanning and how it differs from penetration testing",
+      "body": "Now we will look at scanning, and at how a scan differs from a penetration test.\n\nA vulnerability scan is an automated check for known weaknesses. It looks and reports. It does not attack. Think of a home inspector who walks around your house and writes down each loose window and faulty lock. The inspector does not actually break in.\n\nA credentialed scan logs in, and so it sees far more detail, such as which patches are really installed. An uncredentialed scan looks from the outside, as an attacker would. An external scan comes from outside your network. An internal scan comes from inside. Each of these views gives you different information.\n\nA penetration test is different. A skilled person actually tries to break in, with written permission from management. Think of hiring someone to really try to get into your house, to find out how far they could go. The point is to show what could actually be done.\n\nThe written permission is vital. Without it, the same activity would be a crime. The agreement should set out what may be tested, when and how. These written limits are called the rules of engagement.\n\nScans can run often, and they are cheap. Penetration tests happen less often, and they cost more. Good programmes use both.\n\nScans can be wrong. A false positive reports a weakness that is not there. A false negative misses one that is really there. So someone needs to check important results. A clean scan does not prove that a system is safe, because a scanner can find only what it knows how to look for.\n\nScans can also cause problems. An aggressive scan may crash older or delicate systems, such as equipment in a factory or a hospital. So you need to plan when and how scans are run, and you may need to use a gentler method on fragile equipment.\n\nHere is a workplace example. A hospital runs credentialed scans on its office computers each week. It runs a gentle, carefully planned scan on its medical devices only during maintenance periods, after agreeing this with the clinical engineers. Once a year, it hires outside testers for a penetration test of its public systems.\n\nHere is your takeaway. Scans look and report, penetration tests really attempt a break-in, and penetration tests need written permission."
+    },
+    {
+      "heading": "Naming and scoring weaknesses",
+      "body": "Next we are going to look at how weaknesses are named and scored, so that everyone is talking about the same thing.\n\nThink about the way that doctors use exact names for illnesses, and a scale for how serious each one is. The name means that two doctors in different countries can discuss the same disease. The scale helps them to decide who gets treated first.\n\nHere are the terms.\n\nCVE stands for Common Vulnerabilities and Exposures. It gives each known weakness a unique name, so that everyone means the same thing.\n\nCVSS stands for Common Vulnerability Scoring System. It gives a severity score from 0 to 10.\n\nCWE stands for Common Weakness Enumeration. It is a list of the types of weakness, such as a failure to check user input. Think of CVE as naming one particular broken lock on one particular model of door. CWE is the general category of faulty locks.\n\nThe ratings that come with CVSS version 3 are these. The exam may test the bands.\n\n- 0.0: None.\n- 0.1 to 3.9: Low.\n- 4.0 to 6.9: Medium.\n- 7.0 to 8.9: High.\n- 9.0 to 10.0: Critical.\n\nA CVSS score is a starting point, and not the final answer. It measures how serious a weakness is in general. It does not know anything about your particular organisation. Your own risk matters more. Think about what the system holds and who can reach it.\n\nHere is a useful source to know. There are public lists of weaknesses that attackers are really using, such as the Known Exploited Vulnerabilities catalogue from CISA, the United States Cybersecurity and Infrastructure Security Agency. A weakness that is being attacked today may be more urgent than a higher-scoring weakness that nobody is using.\n\nSCAP, or Security Content Automation Protocol, is a set of standards that let scanning tools share and use this information in a consistent way.\n\nHere is a workplace example. A bank's scan reports a weakness and quotes its CVE name. The analyst uses that name to find the vendor's advice, confirm the score and check whether the weakness is being actively attacked. Then the analyst considers how the weakness affects the bank's own systems.\n\nHere is what to take away. CVE names it, CVSS scores it, and your own risk decides what to do first."
+    },
+    {
+      "heading": "Worked example: which weakness comes first?",
+      "body": "In this part, we are going to work through a choice that a security manager has to make all the time.\n\nThink of two repairs at home. A broken lock on a garden shed holding only old flowerpots, and a slightly loose lock on your front door in a neighbourhood where burglaries have been happening. Which do you repair first? The front door, even though the shed lock is more badly broken.\n\nNow the workplace version. A scan finds two problems.\n\nServer A has a score of 9.8. It is an internal test box with no real data and no access from outside.\n\nServer B has a score of 8.1. It faces the internet, holds customer records, and attackers are already using this weakness.\n\nThe number alone says Server A, because 9.8 is higher than 8.1. Risk says Server B. Let us work through why.\n\nStep one. Look at likelihood. Server A cannot be reached from outside, so likelihood is low. Server B is exposed to the whole internet, and active attacks are under way, so likelihood is high.\n\nStep two. Look at impact. Server A has no real data, so impact is low. Server B holds customer records, so a breach could bring legal penalties and lost trust. Impact is high.\n\nStep three. Bring them together. Risk is the likelihood along with the impact. Server B is much the higher risk.\n\nStep four. Decide. A manager fixes Server B first, because both the likelihood and the impact are higher. Server A still needs to be fixed, but it can wait for its normal turn.\n\nStep five. Record the reason. Note why you made this choice, and when Server A will be fixed. If an auditor asks about the 9.8 score that was left open, you have a clear and sensible answer.\n\nAsk yourself some standard questions whenever you rank weaknesses. Is the system reachable from outside? Are attackers really using this weakness? What data is on the system? How important is the system to the business? Is another control already reducing the risk?\n\nOn the exam, a question may offer the highest score as a tempting choice. Look for the facts about exposure and business value in the question, because they often point to a different answer.\n\nHere is your takeaway. Rank by real risk to your own business, and use the score as one input only."
+    },
+    {
+      "heading": "The patching process",
+      "body": "Now we are going to look at how patches should be managed.\n\nA patch is a software fix from the maker. Think of a car manufacturer recalling a model to fix a brake problem. They do not just change the part and hope. They check which cars are affected, plan the work, do the repair, and record that it was done.\n\nPatches should follow a written process.\n\n- Inventory: know what you have.\n- Evaluate: read the patch notes and decide whether it applies to you.\n- Test: try it on non-production systems, because a patch can break things.\n- Approve: send it through change management.\n- Deploy: roll it out, often in stages, with a way to roll back.\n- Verify: scan again to confirm that the patch is really in place.\n- Report: record the results and update your records.\n\nNon-production systems are those not used for real business work. To roll back means to undo a change and return to how things were.\n\nThe scan after the patch matters. A patch that failed silently leaves you exposed while your records say that you are safe. Those false records are worse than no records at all, because they stop people from looking.\n\nYou should also know where patches come from. Get them only from the vendor or a trusted source, and check that they have not been altered. A digital signature or a hash, which is a digital fingerprint, can show this.\n\nFirmware needs patching as well. Firmware is the built-in software that runs a device, such as a router. It is often forgotten. So are third-party applications, such as a PDF reader. PDF stands for portable document format.\n\nTools can help a great deal here. Central patch management software can push updates to thousands of machines and report which ones succeeded.\n\nHere is a worked example. A vendor releases a monthly update. The team reads it and confirms that it applies to 300 servers. They test it on a small group of test servers for three days. The change board approves it. It goes first to 10 percent of servers. No problems appear, so the rest follow during the weekend. A follow-up scan finds six servers that did not take the update, and those six are fixed and scanned again.\n\nHere is what to take away. Follow the process from inventory to report, and always verify that the patch is really in place."
+    },
+    {
+      "heading": "When no patch is available, or time is short",
+      "body": "In this final part, we are going to look at what to do when the normal process cannot be followed.\n\nA zero-day is a weakness that attackers know about before a fix exists. The name means that the maker has had zero days to fix it. Think of learning that thieves have found out how to open your make of front door, and the lock company has no new lock ready yet. You cannot wait. So you add a chain, you put in a camera, and you ask a neighbour to watch.\n\nWithout a patch, use a compensating control, which is another protection that reduces the risk. Examples are firewall rules, turning off the affected feature, adding rules to an intrusion prevention system, or closer monitoring. Another option is called virtual patching. It means blocking the attack at a network device, so that attacks cannot reach the weak software.\n\nFor a very urgent patch, use the emergency change process. Emergency means faster, and not careless. You still test as far as time allows, you still get approval from a named person, and you still record what was done. A review follows afterwards.\n\nSome old systems can no longer be patched, because the maker has stopped supporting them. Isolate them, put extra controls around them, and plan to replace them. If the business chooses to keep the risk, management should accept it in writing, with a date on which the decision will be reviewed.\n\nRemember the four responses to a risk: mitigate it, transfer it, avoid it or accept it. Not patching is only acceptable as a conscious, recorded decision, made by someone with the authority to make it.\n\nHere is a workplace example. A factory runs an old machine controller that cannot be patched, and that would cost millions of dollars to replace. The factory places it on a separate network with no internet connection. It allows access only from one protected computer, and it watches that network closely. The plant director signs a written acceptance of the remaining risk, and a replacement is scheduled in the budget for three years from now.\n\nThat is what good looks like. The risk is known, it is reduced, it is owned, and there is a plan.\n\nHere is your takeaway. When you cannot patch, add compensating controls, use the emergency process when needed, and record who accepted the risk."
+    }
+  ],
+  "practiceQuestions": [
+    {
+      "prompt": "A company wants to start a vulnerability management programme from nothing. What should it do FIRST?",
+      "options": [
+        "Buy the highest-rated scanning tool on the market",
+        "Build an accurate inventory of its assets",
+        "Run a penetration test against its website",
+        "Set a target for the number of patches applied per month"
+      ],
+      "correctIndex": 1,
+      "explanation": "You cannot protect what you do not know about, so inventory comes first. Buying a scanner is tempting because it feels like action, but a scanner cannot tell you what you are responsible for."
+    },
+    {
+      "prompt": "A scanner that checks a server from the network finds very little. The security team believes the patch details are incomplete. What change would give the MOST accurate picture of installed patches?",
+      "options": [
+        "Scan again at a different time of the day",
+        "Run an uncredentialed scan from the internet",
+        "Use a credentialed scan that logs in to the server",
+        "Ask the system owner to confirm the patches by email"
+      ],
+      "correctIndex": 2,
+      "explanation": "A credentialed scan logs in and can read exactly what is installed. Scanning from the internet is tempting for an attacker's view, but it sees even less detail."
+    },
+    {
+      "prompt": "An outside company has been hired to attempt to break into a client's network. Which item is MOST important before the work begins?",
+      "options": [
+        "A list of the testers' favourite tools",
+        "Written permission that sets the rules of engagement",
+        "A complete copy of the company's source code",
+        "Advance notice to all employees of the exact test date and time"
+      ],
+      "correctIndex": 1,
+      "explanation": "Written permission makes the activity lawful, and it sets the limits. Notifying all staff is tempting as a courtesy, but it can spoil the test and is not what makes the work legal."
+    },
+    {
+      "prompt": "A security analyst reports that a weakness has a score of 9.4 in the Common Vulnerability Scoring System. Using the version 3 bands, how is this rated?",
+      "options": [
+        "Medium",
+        "Severe",
+        "High",
+        "Critical"
+      ],
+      "correctIndex": 3,
+      "explanation": "The critical band runs from 9.0 to 10.0. High is tempting, but that band stops at 8.9."
+    },
+    {
+      "prompt": "A team is comparing two findings. One scores 7.2 on an internet-facing payment server, and attacks are being seen. The other scores 9.1 on an isolated laboratory machine with no data. Which should be addressed FIRST?",
+      "options": [
+        "The payment server, because of its exposure and business value",
+        "The laboratory machine, because of its higher score",
+        "Both at once, by shutting down the two systems",
+        "Neither of them, until the next quarterly maintenance period has come"
+      ],
+      "correctIndex": 0,
+      "explanation": "Risk combines likelihood and impact, and both are higher on the payment server. The higher score is tempting, but a score does not know how exposed or valuable a system is."
+    },
+    {
+      "prompt": "Records show that all servers have been patched, but an attacker has just used the patched weakness on one of them. Which step of the process would MOST likely have prevented this?",
+      "options": [
+        "Reading the patch notes more carefully",
+        "Verifying with a scan after deployment",
+        "Testing the patch on more test servers",
+        "Sending the patch to the change board"
+      ],
+      "correctIndex": 1,
+      "explanation": "A scan after deployment catches patches that failed silently. Testing on more servers is tempting because it seems more thorough, but testing happens before deployment and cannot show that production really received it."
+    },
+    {
+      "prompt": "A patch has been released for a business application. Before deploying it to production, what should the team do?",
+      "options": [
+        "Test it on a non-production system first",
+        "Deploy to all systems at the same moment",
+        "Disable the firewall so that the update can reach all servers",
+        "Delay it until the next hardware refresh"
+      ],
+      "correctIndex": 0,
+      "explanation": "Testing first shows whether the patch breaks something. Deploying at once is tempting for speed, but an unexpected fault could then affect every system at the same time."
+    },
+    {
+      "prompt": "A new weakness in a company's remote access product is being actively attacked, and the vendor has not yet released a fix. What is the BEST immediate action?",
+      "options": [
+        "Wait for the vendor to release a patch and then apply it",
+        "Accept the risk until the next maintenance window",
+        "Apply compensating controls such as restricting access and increasing monitoring",
+        "Write a custom fix by changing the vendor's software code"
+      ],
+      "correctIndex": 2,
+      "explanation": "With no patch, compensating controls reduce the risk right away. Waiting is tempting because a fix is the proper answer, but the attacks are already happening."
+    },
+    {
+      "prompt": "A legacy system can no longer receive patches, and the business says it must stay in use for two more years. What should happen?",
+      "options": [
+        "Connect it to the internet so the vendor can support it remotely",
+        "Stop scanning it so that the reports look cleaner",
+        "Let the system administrator decide privately whether it is safe",
+        "Isolate it, add controls, and have management accept the risk in writing"
+      ],
+      "correctIndex": 3,
+      "explanation": "Isolation and extra controls reduce the risk, and management owns what remains. Leaving the decision to the administrator is tempting, but accepting risk belongs to management and should be recorded."
+    },
+    {
+      "prompt": "A scan reports a critical weakness on a server, but the system owner shows that the software named in the report is not installed. How should this result be classified?",
+      "options": [
+        "A true positive",
+        "A false positive",
+        "A false negative",
+        "A true negative"
+      ],
+      "correctIndex": 1,
+      "explanation": "A report of a weakness that is not really there is a false positive. False negative is tempting because the words sound alike, but that is a weakness that exists and goes unreported."
+    }
+  ]
+}

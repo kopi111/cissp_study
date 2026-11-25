@@ -1,0 +1,1295 @@
+{
+  "number": 7,
+  "name": "Security Operations",
+  "weightPercent": 13,
+  "plainMeaning": "This domain is about the daily work of keeping an organisation safe. It covers watching for trouble, handling incidents and disasters, and protecting data, equipment and people.",
+  "topics": [
+    {
+      "id": "T53",
+      "name": "Investigations and digital forensics",
+      "outlineRef": "7.1",
+      "simpleExplanation": "When something bad happens on a computer, someone must find out what happened and prove it. That is an investigation. Digital forensics is the careful science of collecting computer evidence without changing it. Think of a crime scene in a house. You take photos first, you touch nothing without gloves, and you write down who handled each item. If you are careless, the proof is lost. A court may then refuse it. So care, order and good records matter most.",
+      "studyNotes": [
+        {
+          "heading": "Types of investigation",
+          "body": "The type of investigation decides how strong your proof must be.\n\n- Administrative: inside the company, such as a staff matter or a system fault. The standard of proof is low.\n- Criminal: run by police because a law was broken. The standard is beyond a reasonable doubt, the highest one.\n- Civil: one party sues another, usually for money. The standard is preponderance of the evidence, which means more likely true than not.\n- Regulatory: a government body or industry group checks whether rules were followed. The standard depends on that body.\n\nManager's view: if a case might reach court, bring in the legal team early. Treat everything as evidence from the start."
+        },
+        {
+          "heading": "Evidence and chain of custody",
+          "body": "Evidence must be admissible, which means a court will accept it. It must be relevant (it helps prove a fact), material (that fact matters in this case) and competent (collected legally and reliably).\n\nReal evidence is a physical thing, such as a hard drive. Documentary evidence is written records, such as logs. Testimonial evidence is what a witness says. The best evidence rule prefers the original over a copy. The hearsay rule limits second-hand statements.\n\nChain of custody is a written record of who held the evidence, when, where and why, from collection to court. Think of parcel tracking with no missing steps. One gap can make the evidence useless."
+        },
+        {
+          "heading": "Worked example: collecting from a running laptop",
+          "body": "- Step 1: Photograph the scene and the screen.\n- Step 2: Capture memory while the laptop is still on.\n- Step 3: Make a bit-for-bit copy of the disk. Use a write blocker, a device that stops any change to the original.\n- Step 4: Make a hash of the original and of the copy. A hash is a digital fingerprint. The two must match.\n- Step 5: Seal, label and log the original. Lock it away.\n- Step 6: Do all analysis on the copy, never the original."
+        },
+        {
+          "heading": "Order of volatility",
+          "body": "Volatile means it disappears quickly. Collect the most short-lived data first. Learn this order:\n\n- CPU (central processing unit) registers and cache\n- Routing table, ARP (Address Resolution Protocol) cache, which is a list matching network addresses to devices,, process table and main memory\n- Temporary files\n- Disk\n- Remote logs and monitoring data\n- Physical setup and network layout\n- Archive media, such as backup tapes"
+        },
+        {
+          "heading": "Techniques, artifacts and reporting",
+          "body": "An interview gathers facts from a willing person. An interrogation questions a suspect, so leave it to trained staff or police. Investigators look for MOM: motive, opportunity and means. Locard's exchange principle says a criminal always leaves something behind and takes something away.\n\nEnticement leaves a lure for someone already planning harm, and it is legal. Entrapment persuades someone to commit a crime they did not plan, and it is illegal.\n\nArtifacts are the traces left behind:\n- Computer: deleted files, browser history, system settings\n- Network: traffic captures, firewall logs\n- Mobile device: call logs, messages, location history\n- Data: files and their metadata, which is data about data, such as the date created\n\nThe report states facts, tools used, steps and times. It avoids guesses. Another expert should be able to repeat the work and get the same result."
+        }
+      ],
+      "keyTerms": [
+        {
+          "term": "Chain of custody",
+          "meaning": "A written record of who held evidence, when, where and why, from collection to court."
+        },
+        {
+          "term": "Order of volatility",
+          "meaning": "The rule to collect the most quickly lost data first, starting with CPU registers and cache."
+        },
+        {
+          "term": "Write blocker",
+          "meaning": "A device that lets you read a disk but stops any change to it."
+        },
+        {
+          "term": "Hash",
+          "meaning": "A digital fingerprint of data. If the data changes, the hash changes."
+        },
+        {
+          "term": "Admissible evidence",
+          "meaning": "Evidence a court will accept because it is relevant, material and competent."
+        },
+        {
+          "term": "Preponderance of the evidence",
+          "meaning": "The civil court standard: more likely true than not."
+        },
+        {
+          "term": "Beyond a reasonable doubt",
+          "meaning": "The criminal court standard and the highest standard of proof."
+        },
+        {
+          "term": "Entrapment",
+          "meaning": "Illegally persuading someone to commit a crime they did not plan."
+        },
+        {
+          "term": "Artifact",
+          "meaning": "A trace left on a computer, network or mobile device that shows what happened."
+        }
+      ],
+      "keyPoints": [
+        "Collect the most volatile data first.",
+        "Analyse a verified copy and protect the original.",
+        "A gap in the chain of custody can make evidence useless.",
+        "Criminal cases need the highest standard of proof.",
+        "Bring in legal early if a case may reach court."
+      ],
+      "memoryHook": "Think of a crime scene: photo first, gloves on, write down every hand that touches the item.",
+      "question": {
+        "prompt": "An investigator arrives at a running laptop that is suspected of being used for fraud. Which item should the investigator collect FIRST?",
+        "options": [
+          "A full image of the hard drive",
+          "Printed papers on the desk",
+          "The contents of main memory",
+          "Backup tapes kept in the office safe"
+        ],
+        "correctIndex": 2,
+        "explanation": "Memory is lost when power goes, so it comes first under the order of volatility. The hard drive image is tempting, but disk data lasts far longer than memory, so it can wait."
+      }
+    },
+    {
+      "id": "T54",
+      "name": "Logging and monitoring",
+      "outlineRef": "7.2",
+      "simpleExplanation": "Logging means writing down what happens on your systems. Monitoring means watching those records for trouble. Think of a shop with cameras, a visitor book and a guard who checks them. Tools can watch traffic, collect records in one place and even react by themselves. But tools need care. Too many false alarms and people stop looking. Good monitoring means the right records are kept safe, the alarms are tuned, and someone actually looks and acts on what they see.",
+      "studyNotes": [
+        {
+          "heading": "IDS and IPS",
+          "body": "An IDS (intrusion detection system) watches and raises an alarm. An IPS (intrusion prevention system) sits in the traffic path and can block. Think of a smoke alarm compared with a sprinkler.\n\nBoth come in two kinds. Network-based tools watch traffic. Host-based tools run on one computer.\n\nThey find trouble in two ways. Signature-based detection matches known attack patterns, but it misses new attacks. Anomaly-based detection, also called behaviour-based, learns what is normal and flags what is different. It can catch new attacks, but it gives more false alarms.\n\nA false positive is an alarm with no real attack. A false negative is a real attack with no alarm. The false negative is usually worse."
+        },
+        {
+          "heading": "SIEM and SOAR",
+          "body": "SIEM (security information and event management) collects logs from many systems into one place. It links events together and raises alerts. One failed login means little. Fifty failed logins, then a success, then a large download, tells a story.\n\nSOAR (security orchestration, automation and response) acts on alerts. It follows playbooks, which are written steps for a type of event. For example, it can disable an account and open a ticket without waiting for a person. SIEM finds and tells. SOAR does."
+        },
+        {
+          "heading": "Continuous monitoring and tuning",
+          "body": "Continuous monitoring means checking security all the time, not once a year. Tuning means adjusting rules to fit your own environment so that real alarms stand out. If a tool floods staff with false alarms, tune it. Do not switch it off. Fixing the cause beats ignoring the noise."
+        },
+        {
+          "heading": "Log management",
+          "body": "Logs are only useful if people can trust them.\n\n- Send logs to a central server so an attacker cannot easily erase them.\n- Restrict who can read or change them.\n- Synchronise all clocks with NTP (Network Time Protocol), or events cannot be put in order.\n- Keep logs as long as policy and law require.\n- Review them regularly. A clipping level is a set limit, such as five failed logins, below which events are not reported."
+        },
+        {
+          "heading": "Egress monitoring",
+          "body": "Egress means going out. Egress monitoring watches what leaves your network. DLP (data loss prevention) tools look for sensitive data, such as card numbers, in emails and uploads. Watermarks are hidden marks that help trace a leaked file. Steganography hides data inside a harmless file, such as a photo, so it is hard to spot."
+        },
+        {
+          "heading": "Threat intelligence, hunting and UEBA",
+          "body": "Threat intelligence is useful knowledge about attackers and their methods. Threat feeds deliver it as a steady stream, such as lists of bad internet addresses.\n\nThreat hunting is a person actively searching for attackers who have already got past the defences. It assumes a breach may have happened. It does not wait for an alert. The cyber kill chain and MITRE ATT&CK are two well-known ways to describe attacker steps.\n\nUEBA (user and entity behaviour analytics) learns normal behaviour for people and devices. A clerk who suddenly downloads thousands of files at 2 a.m. stands out."
+        }
+      ],
+      "keyTerms": [
+        {
+          "term": "IDS",
+          "meaning": "Intrusion detection system: watches for attacks and raises an alarm."
+        },
+        {
+          "term": "IPS",
+          "meaning": "Intrusion prevention system: sits in the traffic path and can block attacks."
+        },
+        {
+          "term": "SIEM",
+          "meaning": "Security information and event management: gathers logs in one place, links events and alerts staff."
+        },
+        {
+          "term": "SOAR",
+          "meaning": "Security orchestration, automation and response: follows playbooks to act on alerts automatically."
+        },
+        {
+          "term": "UEBA",
+          "meaning": "User and entity behaviour analytics: learns normal behaviour and flags unusual actions."
+        },
+        {
+          "term": "False negative",
+          "meaning": "A real attack that raised no alarm."
+        },
+        {
+          "term": "False positive",
+          "meaning": "An alarm raised when no real attack happened."
+        },
+        {
+          "term": "Egress monitoring",
+          "meaning": "Watching what data leaves the network."
+        },
+        {
+          "term": "Threat hunting",
+          "meaning": "Actively searching for attackers who may already be inside."
+        },
+        {
+          "term": "Clipping level",
+          "meaning": "A set limit below which events are not reported."
+        }
+      ],
+      "keyPoints": [
+        "An IDS alerts, while an IPS can block.",
+        "SIEM finds and tells, while SOAR acts.",
+        "Tune noisy tools rather than switching them off.",
+        "Logs need central storage, protection and synchronised clocks.",
+        "Threat hunting assumes the attacker may already be inside."
+      ],
+      "memoryHook": "IDS is the smoke alarm. IPS is the sprinkler. SIEM is the control room. SOAR is the robot that acts on the control room's orders.",
+      "question": {
+        "prompt": "A security team receives hundreds of alerts each day from its intrusion detection system. Most are false alarms, and staff have started to ignore them. What should the security manager do FIRST?",
+        "options": [
+          "Review the alerts and tune the rules to fit the environment",
+          "Turn off the rules that create the most alerts",
+          "Hire more analysts to read every alert",
+          "Replace the system with an intrusion prevention system"
+        ],
+        "correctIndex": 0,
+        "explanation": "Tuning fixes the cause, so real alarms stand out. Turning off noisy rules is tempting, but it may also hide real attacks and create false negatives."
+      }
+    },
+    {
+      "id": "T55",
+      "name": "Configuration management",
+      "outlineRef": "7.3",
+      "simpleExplanation": "Configuration management keeps every computer set up the way you approved. Think of a school where every classroom is arranged to the same plan. Provisioning means setting up a new system safely. A baseline is the approved setup that you measure against. Automation lets tools build and check systems the same way every time. When a system drifts away from its baseline, you notice it and put it back. Good configuration means fewer weak spots and fewer surprises for everyone.",
+      "studyNotes": [
+        {
+          "heading": "What configuration management does",
+          "body": "Configuration management, often shortened to CM, makes sure systems are set up in a known, approved and recorded way. It answers simple questions. What do we own? How is each thing set up? Has anything moved away from the approved setup?\n\nEach thing you track is called a configuration item. Servers, routers, software versions and settings are all configuration items. Their details are kept in a CMDB (configuration management database), which is the central record of them.\n\nDo not confuse it with change management. Change management decides whether a change may happen. Configuration management records and checks the state of systems. They work together."
+        },
+        {
+          "heading": "Provisioning",
+          "body": "Provisioning means preparing and delivering a new system, so that it is ready and secure from its first day.\n\nA safe provisioning process does these things:\n- Starts from an approved, hardened image. Hardening means removing what is not needed and closing weak settings. A golden image is the approved master copy.\n- Applies current patches before the system goes live.\n- Removes default accounts and changes default passwords.\n- Turns off unused services and ports.\n- Records the new system in the inventory.\n\nThink of a new school laptop. It is set up from a standard plan, not by each teacher in their own way."
+        },
+        {
+          "heading": "Baselining",
+          "body": "A baseline is an approved snapshot of how a system should be set up. It gives you something to compare against. Published guides help you build one, such as the benchmarks from CIS (Center for Internet Security). Pick a guide, then adjust it to your own needs. This adjusting is called tailoring.\n\nDrift is when a system slowly moves away from its baseline, often through small manual fixes. Drift matters because every unrecorded change can open a weakness and can make recovery harder.\n\nA baseline must also be kept up to date. When a change is approved, update the baseline too, or the next new system will repeat the old weakness."
+        },
+        {
+          "heading": "Automation",
+          "body": "People make mistakes when they repeat a task a hundred times. Tools do not get tired. Automation builds systems the same way every time, checks them against the baseline and can correct drift.\n\nIaC (infrastructure as code) means writing the setup of systems in files, as if it were a program. Those files can be reviewed, version-controlled and reused.\n\nAutomation also has a risk. One bad setting can spread to every system within minutes. So automated changes still need review and testing."
+        },
+        {
+          "heading": "Worked example: a drifting web server",
+          "body": "- Step 1: The baseline says the web server must not run file sharing.\n- Step 2: An automated weekly check finds file sharing switched on.\n- Step 3: The tool raises an alert and records the difference.\n- Step 4: The team checks for an approved change. There is none.\n- Step 5: They restore the baseline setting and find out who changed it and why.\n- Step 6: If the old setting was really needed, it must go through change management and the baseline is updated."
+        }
+      ],
+      "keyTerms": [
+        {
+          "term": "Configuration management",
+          "meaning": "Keeping systems set up in a known, approved and recorded way."
+        },
+        {
+          "term": "Provisioning",
+          "meaning": "Preparing and delivering a new system so it is secure from day one."
+        },
+        {
+          "term": "Baseline",
+          "meaning": "An approved record of how a system should be set up, used for comparison."
+        },
+        {
+          "term": "Drift",
+          "meaning": "When a system slowly moves away from its approved setup."
+        },
+        {
+          "term": "CMDB",
+          "meaning": "Configuration management database: the central record of systems and their settings."
+        },
+        {
+          "term": "Golden image",
+          "meaning": "An approved master copy used to build new systems."
+        },
+        {
+          "term": "Infrastructure as code",
+          "meaning": "Writing system setup in files that can be reviewed, reused and version-controlled."
+        }
+      ],
+      "keyPoints": [
+        "A baseline is the approved setup you compare against.",
+        "Provision new systems from a hardened image.",
+        "Automation gives consistency but can spread mistakes quickly.",
+        "Update the baseline whenever an approved change affects it."
+      ],
+      "memoryHook": "Baseline is the recipe. Provisioning is cooking from the recipe. Drift is when the cook starts adding extra salt.",
+      "question": {
+        "prompt": "An audit finds that many servers no longer match the approved standard because administrators have made small manual fixes over time. Which action would BEST solve this problem over the long term?",
+        "options": [
+          "Hold an audit of every server once a year",
+          "Remind administrators at every staff meeting to follow the approved standard",
+          "Make administrators use longer and stronger passwords",
+          "Automatically compare servers to the baseline and correct drift"
+        ],
+        "correctIndex": 3,
+        "explanation": "Automated comparison finds drift as it happens and can correct it. A yearly audit is tempting, but it finds problems up to a year late and fixes nothing by itself."
+      }
+    },
+    {
+      "id": "T56",
+      "name": "Foundational security operations",
+      "outlineRef": "7.4",
+      "simpleExplanation": "These are the everyday rules for who may do what. Need to know means you see only the information your job requires. Least privilege means you get only the rights your job requires. Separation of duties means one person cannot finish a risky task alone. Job rotation moves people between roles so that hidden problems come to light. Powerful accounts get extra watching. A service level agreement writes down what a supplier promises. Think of a bank, where no one person holds all the keys.",
+      "studyNotes": [
+        {
+          "heading": "Need to know and least privilege",
+          "body": "These two ideas are close but not the same.\n\nNeed to know is about information. You may see a file only if your work requires it. A clerk with the correct clearance still has no need to know about a secret project that is outside their work.\n\nLeast privilege is about rights and actions. You receive only the permissions your job requires, and no more. A help desk worker can reset a password, but cannot delete all user accounts.\n\nPrivilege creep happens when someone changes jobs and keeps their old rights as well as the new ones. Regular access reviews catch this problem."
+        },
+        {
+          "heading": "Separation of duties and related controls",
+          "body": "Separation of duties splits a sensitive task so that no single person can complete it alone. In a shop, one person orders the goods and another person pays the bill. It stops fraud and also catches mistakes.\n\nCollusion means two or more people secretly working together to break the rules. Separation of duties makes fraud harder because it now needs collusion. It does not make collusion impossible.\n\nRelated controls:\n- Two-person control: two people must act together at the same time, such as two keys for a vault.\n- M of N control: a set number of people out of a larger group must agree, such as any 3 of 5 managers.\n\nIn a very small team, you may be unable to separate duties. Then use a compensating control, such as an independent review of the logs."
+        },
+        {
+          "heading": "Job rotation and mandatory vacations",
+          "body": "Job rotation moves staff between roles from time to time. It has two benefits. It finds hidden fraud, because the new person sees the records. It also gives cross-training, so the business does not depend on one person.\n\nMandatory vacations are closely related. A person is made to take leave, and someone else does the work meanwhile. Fraud that needs daily hiding is often found this way."
+        },
+        {
+          "heading": "Privileged account management",
+          "body": "PAM (privileged account management) controls powerful accounts such as administrators. These accounts can do the most harm, so they get the tightest control.\n\n- Give each person their own account. Avoid shared accounts, because then nobody can be held accountable.\n- Require MFA (multi-factor authentication), meaning more than one kind of proof.\n- Grant high rights only when needed and for a short time. This is called just-in-time access.\n- Store passwords in a vault and change them regularly.\n- Record and review privileged sessions.\n- Keep normal work, such as email, on a separate normal account."
+        },
+        {
+          "heading": "Service level agreements",
+          "body": "An SLA (service level agreement) is a contract that sets measurable promises from a provider. A typical SLA states how much uptime is promised, how fast a problem will be answered, and what penalty applies if the provider fails.\n\nWorked example: an SLA promises 99.9% uptime each month. A 30-day month has 720 hours. 0.1% of 720 is 0.72 hours, which is about 43 minutes of allowed downtime.\n\nManager's view: you can hand over the work, but you remain accountable for the risk. Check the provider's reports."
+        }
+      ],
+      "keyTerms": [
+        {
+          "term": "Need to know",
+          "meaning": "Access to information only when your work requires it, even if you have clearance."
+        },
+        {
+          "term": "Least privilege",
+          "meaning": "Giving only the rights a job requires and no more."
+        },
+        {
+          "term": "Separation of duties",
+          "meaning": "Splitting a sensitive task so no single person can complete it alone."
+        },
+        {
+          "term": "Collusion",
+          "meaning": "Two or more people secretly working together to break the rules."
+        },
+        {
+          "term": "Job rotation",
+          "meaning": "Moving staff between roles to find fraud and to cross-train."
+        },
+        {
+          "term": "Privilege creep",
+          "meaning": "Collecting more rights over time as a person changes roles."
+        },
+        {
+          "term": "PAM",
+          "meaning": "Privileged account management: tight control of powerful accounts."
+        },
+        {
+          "term": "SLA",
+          "meaning": "Service level agreement: a contract with measurable promises from a provider."
+        }
+      ],
+      "keyPoints": [
+        "Need to know is about information, while least privilege is about rights.",
+        "Separation of duties forces fraud to need collusion.",
+        "Shared accounts destroy accountability.",
+        "Regular access reviews stop privilege creep.",
+        "You stay accountable even when a provider does the work."
+      ],
+      "memoryHook": "A bank vault with two keys held by two people: no single person can open it, and every opening is written down.",
+      "question": {
+        "prompt": "Five system administrators all log in with one shared root password. An auditor says that nobody can tell who made a damaging change last month. What is the BEST solution?",
+        "options": [
+          "Change the shared password every month",
+          "Give each administrator a personal account with recorded sessions",
+          "Stop administrators from logging in to production systems unless a manager is present",
+          "Keep the shared password in a locked office safe"
+        ],
+        "correctIndex": 1,
+        "explanation": "Individual accounts with recorded sessions give accountability, which is the real problem here. Changing the password monthly is tempting, but everyone still shares it, so nobody can be traced."
+      }
+    },
+    {
+      "id": "T57",
+      "name": "Resource protection",
+      "outlineRef": "7.5",
+      "simpleExplanation": "Resource protection means looking after the things that hold your data. Media means anything that stores data, such as hard drives, tapes and USB sticks (small plug-in storage devices). Think of a school's paper records. You label them, you lock them up, you know who took them, and you shred them when they are no longer needed. Data also needs protection while it sits still and while it travels. Encryption, which scrambles data so only key holders can read it, does much of this work.",
+      "studyNotes": [
+        {
+          "heading": "Media management",
+          "body": "Media management means controlling storage items through their whole life.\n\n- Marking and labelling: show the sensitivity on the item, so people know how to handle it.\n- Handling: only approved people move it, and each move is recorded.\n- Storage: keep it locked, cool and dry. Keep backup media away from the main site.\n- Retention: keep it only as long as policy and law require. A legal hold means you must keep it because of a court case, even past the usual date.\n- Disposal: sanitise or destroy it when it is finished with.\n\nTapes and disks wear out. Follow the maker's limits and test that you can still read them. A backup you cannot read is not a backup."
+        },
+        {
+          "heading": "Sanitising media",
+          "body": "Data remanence is data that stays behind after you try to delete it. Deleting a file or formatting a disk usually leaves the data recoverable.\n\nThe three levels, from weakest to strongest:\n- Clear: overwrite the data, so ordinary software tools cannot recover it.\n- Purge: a stronger method, so even a laboratory cannot recover it. Examples are degaussing and cryptographic erase.\n- Destroy: physically ruin the media by shredding, crushing or burning.\n\nDegaussing uses a strong magnetic field to wipe magnetic media. It does not work on SSDs (solid-state drives, which store data in chips rather than on magnetic platters), or on optical discs.\n\nCryptographic erase means destroying the encryption key, so the data can never be read. For the most sensitive data that will never be reused, physical destruction is the safest choice."
+        },
+        {
+          "heading": "Media protection techniques",
+          "body": "- Encrypt portable media, so a lost item does not expose data.\n- Control USB ports with technical rules and with policy.\n- Use write protection where media should not change.\n- Use tamper-evident bags and sealed containers when moving media.\n- Use trusted couriers and keep a record of each hand-over.\n- Keep backup copies away from the original, but protect them just as well.\n\nA backup tape holds the same secrets as the live system. It deserves the same protection."
+        },
+        {
+          "heading": "Data at rest and data in transit",
+          "body": "Data at rest is data sitting in storage, such as a laptop disk or a database. Protect it with encryption, access controls and backups. AES (Advanced Encryption Standard) is the common choice of cipher. Full-disk encryption mainly protects a stolen laptop while it is switched off.\n\nData in transit is data moving across a network, such as a payment travelling to a bank. Protect it with TLS (Transport Layer Security), which secures web traffic, or with IPsec (Internet Protocol Security), often used for a VPN (virtual private network), a private tunnel across the internet.\n\nProtecting the key matters as much as the encryption. If the key sits beside the data, the lock is useless."
+        },
+        {
+          "heading": "Worked example: retiring old laptops",
+          "body": "- Step 1: Check the data classification and any legal hold.\n- Step 2: Choose the method. These are SSD laptops, so degaussing will not work.\n- Step 3: If the laptops are to be reused, use cryptographic erase and check the result.\n- Step 4: If the data is highly sensitive and no reuse is planned, shred the drives.\n- Step 5: Record serial numbers, the method used and who did it."
+        }
+      ],
+      "keyTerms": [
+        {
+          "term": "Media",
+          "meaning": "Anything that stores data, such as disks, tapes and USB sticks."
+        },
+        {
+          "term": "Data remanence",
+          "meaning": "Data that remains after an attempt to delete it."
+        },
+        {
+          "term": "Clear",
+          "meaning": "Overwriting data so ordinary software tools cannot recover it."
+        },
+        {
+          "term": "Purge",
+          "meaning": "Removing data so even a laboratory cannot recover it."
+        },
+        {
+          "term": "Degaussing",
+          "meaning": "Wiping magnetic media with a strong magnetic field. It does not work on SSDs."
+        },
+        {
+          "term": "Cryptographic erase",
+          "meaning": "Destroying the encryption key so that the data can never be read."
+        },
+        {
+          "term": "Data at rest",
+          "meaning": "Data sitting in storage."
+        },
+        {
+          "term": "Data in transit",
+          "meaning": "Data moving across a network."
+        },
+        {
+          "term": "Legal hold",
+          "meaning": "An order to keep data because of a court case, even past its normal date."
+        }
+      ],
+      "keyPoints": [
+        "Deleting and formatting do not remove data safely.",
+        "Clear, purge and destroy go from weakest to strongest.",
+        "Degaussing does not work on SSDs.",
+        "Backups need the same protection as the live data.",
+        "Encrypt data at rest and in transit, and protect the keys."
+      ],
+      "memoryHook": "Clear, Purge, Destroy: wipe the board, scrub the board, burn the board.",
+      "question": {
+        "prompt": "A company is getting rid of solid-state drives that hold its most sensitive data. The drives will never be reused. Which method is BEST?",
+        "options": [
+          "Degauss each drive with a strong magnet",
+          "Format each drive and overwrite it once",
+          "Physically shred each drive",
+          "Delete the files and empty the recycle bin"
+        ],
+        "correctIndex": 2,
+        "explanation": "Physical destruction is the surest method when the drives will not be reused. Degaussing is tempting, but it does not work on solid-state drives because they do not store data magnetically."
+      }
+    },
+    {
+      "id": "T58",
+      "name": "Incident management",
+      "outlineRef": "7.6",
+      "simpleExplanation": "An incident is an event that harms, or threatens to harm, your systems or data. Incident management is a planned way to handle it. Think of a house fire. You notice the smoke, you call for help, you stop the fire spreading, you tell the people who need to know, you repair the damage, you fix the faulty wire that caused it, and then you talk about how to do better next time. The exam expects you to know these seven steps in order.",
+      "studyNotes": [
+        {
+          "heading": "Event or incident?",
+          "body": "An event is anything that happens on a system, such as a login. An incident is an event that harms, or could harm, the confidentiality, integrity or availability of data and systems.\n\nMost events are harmless. Part of the job is sorting them. A written plan, approved by management, sets out who does what. A trained group of people, often called a CSIRT (computer security incident response team), carries it out."
+        },
+        {
+          "heading": "The seven steps in order",
+          "body": "Learn this exact order:\n\n- 1. Detection\n- 2. Response\n- 3. Mitigation\n- 4. Reporting\n- 5. Recovery\n- 6. Remediation\n- 7. Lessons learned\n\nDetection: alarms, logs or a worried staff member show that something is wrong. Someone checks that it is real.\n\nResponse: the team is activated. They begin working and keeping records. Protect evidence from this point on.\n\nMitigation: limit the damage. This is containment, such as taking an infected computer off the network. Do this before trying to fix things.\n\nReporting: tell management and the right people. Laws or contracts may require you to tell regulators or customers within a set time. Reporting has its own step in the list, but in practice it continues throughout the incident."
+        },
+        {
+          "heading": "Recovery, remediation and lessons learned",
+          "body": "Recovery: return systems to normal working order. Check they are clean and working before going live again.\n\nRemediation: find the root cause and remove it. Root cause means the real reason it happened. Also check other systems for the same weakness. If you only recover, the attacker can return the same way.\n\nLessons learned: review what happened after the incident is over. What worked? What did not? Update the plan, the training and the controls. The aim is improvement, not blame.\n\nMany people mix up recovery and remediation. Recovery brings the service back. Remediation stops it happening again."
+        },
+        {
+          "heading": "Worked example: ransomware at a shop",
+          "body": "Ransomware is software that locks your files and demands payment.\n\n- Detection: tills stop working, and a ransom note appears. Staff call the help desk, who confirm it.\n- Response: the team starts the plan and begins a written record.\n- Mitigation: they disconnect the affected computers from the network, keeping them powered on to save the memory.\n- Reporting: they inform management and legal. Legal advises which authorities must be told.\n- Recovery: they rebuild the computers and restore clean backups.\n- Remediation: they find that a phishing email, a trick message that fools staff, was the way in, and that staff had too many rights. They fix the email filter and the rights.\n- Lessons learned: they meet, update the plan and train the staff."
+        },
+        {
+          "heading": "Manager's rules during an incident",
+          "body": "- People's safety always comes first.\n- Follow the plan and the policy. Do not make things up in a panic.\n- Never hack back. Attacking the attacker may be illegal and may harm innocent systems.\n- Do not power off a system without thinking, because memory holds evidence.\n- Use a separate way to communicate if the attacker may be reading your email.\n- Only named people speak to the press and to customers."
+        }
+      ],
+      "keyTerms": [
+        {
+          "term": "Event",
+          "meaning": "Anything that happens on a system."
+        },
+        {
+          "term": "Incident",
+          "meaning": "An event that harms, or could harm, data or systems."
+        },
+        {
+          "term": "CSIRT",
+          "meaning": "Computer security incident response team: the trained group that handles incidents."
+        },
+        {
+          "term": "Mitigation",
+          "meaning": "Limiting the damage, such as isolating an infected computer."
+        },
+        {
+          "term": "Recovery",
+          "meaning": "Returning systems to normal working order."
+        },
+        {
+          "term": "Remediation",
+          "meaning": "Finding and removing the root cause so it does not happen again."
+        },
+        {
+          "term": "Root cause",
+          "meaning": "The real underlying reason a problem happened."
+        },
+        {
+          "term": "Lessons learned",
+          "meaning": "A review after the incident to improve the plan and controls."
+        }
+      ],
+      "keyPoints": [
+        "The order is Detection, Response, Mitigation, Reporting, Recovery, Remediation, Lessons learned.",
+        "Contain the damage before you try to fix it.",
+        "Recovery brings the service back, while remediation removes the cause.",
+        "Never hack back at an attacker."
+      ],
+      "memoryHook": "Dirty Rats Make Really Rotten Rubbish Lately: Detection, Response, Mitigation, Reporting, Recovery, Remediation, Lessons learned.",
+      "question": {
+        "prompt": "A web server was attacked through an unpatched plugin. The team has contained the attack and restored the server from a clean backup, and the service is running again. What should the team do NEXT?",
+        "options": [
+          "Patch the plugin and check other servers for the same weakness",
+          "Hold the lessons learned meeting with all involved",
+          "Close the incident because the service is running again",
+          "Rebuild the server a second time to be certain"
+        ],
+        "correctIndex": 0,
+        "explanation": "Remediation comes after recovery and removes the root cause. The lessons learned meeting is tempting, but it is the last step and must wait until the weakness is fixed."
+      }
+    },
+    {
+      "id": "T59",
+      "name": "Detective and preventive measures",
+      "outlineRef": "7.7",
+      "simpleExplanation": "These are the tools that stop attacks or spot them. Preventive tools try to block trouble, like a locked gate. Detective tools notice trouble, like a security camera. Firewalls control what may pass. Allow lists and deny lists say who is welcome. Sandboxes test suspicious files in a safe place. Honeypots are fake targets that trap attackers. Anti-malware and machine learning tools find bad software and strange behaviour. No single tool is enough, so we use layers, like a house with locks, alarms and a dog.",
+      "studyNotes": [
+        {
+          "heading": "Firewalls",
+          "body": "A firewall controls what traffic may pass between networks. Its last rule should be implicit deny, which means anything not clearly allowed is blocked.\n\n- Static packet filter: checks addresses and ports only. It is fast but simple.\n- Stateful inspection: remembers each conversation, so it knows whether a reply belongs to a real request.\n- Application proxy: stands between the two sides and understands one application in detail.\n- Next-generation firewall, or NGFW: adds awareness of applications and users, plus built-in intrusion prevention.\n- Web application firewall, or WAF: protects websites from attacks such as SQL injection. SQL (Structured Query Language) is used to talk to databases, and in this attack bad commands are typed into a web form.\n\nA network firewall protects a whole network. A host-based firewall protects one computer."
+        },
+        {
+          "heading": "IDS, IPS, allow lists and deny lists",
+          "body": "An IDS (intrusion detection system) is a detective control. It alerts. An IPS (intrusion prevention system) is a preventive control. It sits in the path of the traffic and blocks. If an IPS makes a mistake, it can block real work, so tune it carefully.\n\nAn allow list names what is permitted and blocks everything else. A deny list names what is blocked and permits everything else. Older books call these whitelists and blacklists.\n\nThink of a party. An allow list is a guest list at the door. A deny list is a list of people who are banned. An allow list is usually stronger, because new unknown software is blocked by default. But it takes more work to keep up to date."
+        },
+        {
+          "heading": "Third-party security services",
+          "body": "Companies can pay others to help. An MSSP (managed security service provider) can watch your systems around the clock. A CASB (cloud access security broker) sits between your staff and cloud services and applies your rules.\n\nThese services bring skill and hours you may not have. But you stay accountable for your data. Use a contract and SLA (service level agreement, the written promises from the provider), and check that the provider meets them."
+        },
+        {
+          "heading": "Sandboxing, honeypots and honeynets",
+          "body": "A sandbox is a closed, safe space for running suspicious software. Like a child's sandbox, whatever happens inside stays inside. Security teams use it to see what a file really does.\n\nA honeypot is a fake system built to attract attackers. A honeynet is a whole network of honeypots. No real user should ever touch them, so any visit is suspicious. They help you learn attackers' methods and they waste attackers' time.\n\nKeep them apart from real systems. Stay on the legal side: enticement means leaving something for someone already looking to attack, which is allowed. Entrapment means persuading someone to commit a crime, which is not allowed."
+        },
+        {
+          "heading": "Anti-malware and machine learning tools",
+          "body": "Anti-malware finds bad software. Signature-based tools match known malware, so they need frequent updates. Heuristic tools look at how a program behaves, so they can find new malware, but they make more mistakes. Install it at several layers, such as the email gateway and the user's computer.\n\nMachine learning tools are trained on large amounts of data so they can spot unusual patterns. They help with scale, because no person can read millions of events. They have limits:\n- They are only as good as their training data.\n- They can give false alarms.\n- Attackers may try to poison the data they learn from.\n\nPeople must still review and decide."
+        }
+      ],
+      "keyTerms": [
+        {
+          "term": "Implicit deny",
+          "meaning": "A rule that blocks anything not clearly allowed."
+        },
+        {
+          "term": "NGFW",
+          "meaning": "Next-generation firewall: adds application and user awareness plus intrusion prevention."
+        },
+        {
+          "term": "WAF",
+          "meaning": "Web application firewall: protects websites from attacks in web requests."
+        },
+        {
+          "term": "Allow list",
+          "meaning": "A list of what is permitted, with everything else blocked."
+        },
+        {
+          "term": "Deny list",
+          "meaning": "A list of what is blocked, with everything else permitted."
+        },
+        {
+          "term": "MSSP",
+          "meaning": "Managed security service provider: an outside company that runs security services for you."
+        },
+        {
+          "term": "Sandbox",
+          "meaning": "A closed, safe space for running suspicious software."
+        },
+        {
+          "term": "Honeypot",
+          "meaning": "A fake system built to attract and study attackers."
+        },
+        {
+          "term": "Honeynet",
+          "meaning": "A network of honeypots."
+        },
+        {
+          "term": "Heuristic detection",
+          "meaning": "Finding malware by how it behaves rather than by a known signature."
+        }
+      ],
+      "keyPoints": [
+        "Firewalls should end with implicit deny.",
+        "An allow list is stronger but needs more upkeep than a deny list.",
+        "A honeypot must be kept apart from real systems.",
+        "Enticement is legal, while entrapment is not.",
+        "Outsourcing work does not outsource accountability."
+      ],
+      "memoryHook": "A guest list at the door is an allow list. A banned list at the door is a deny list. The honey jar in the shed is a honeypot.",
+      "question": {
+        "prompt": "A security team wants to study how attackers go after its network. The legal department warns the team to avoid entrapment. Which approach is BEST?",
+        "options": [
+          "Post an offer of free customer data on hacker forums to draw attackers in",
+          "Place the fake system on the main staff network so it looks more real",
+          "Set the fake system to automatically attack anyone who connects to it",
+          "Run a fake system on an isolated network and invite nobody"
+        ],
+        "correctIndex": 3,
+        "explanation": "An isolated honeypot that simply waits is enticement, which is allowed, and it protects real systems. Placing it on the staff network seems realistic, but it puts real systems at risk."
+      }
+    },
+    {
+      "id": "T60",
+      "name": "Patch and vulnerability management",
+      "outlineRef": "7.8",
+      "simpleExplanation": "A vulnerability is a weakness that someone could use to cause harm. A patch is a fix from the software maker. Think of a house with a broken window latch. First you need to know every window you own. Then you check them regularly, decide which ones matter most, and fix those first. You test the repair so it does not break anything else. Patch and vulnerability management is doing this calmly, all the time, for every computer in the organisation.",
+      "studyNotes": [
+        {
+          "heading": "Vulnerability management",
+          "body": "Vulnerability management is the ongoing job of finding, ranking and fixing weaknesses. You cannot protect what you do not know about, so it begins with an accurate asset inventory.\n\nA vulnerability scan is an automated check for known weaknesses. It looks and reports, and it does not attack.\n\nA credentialed scan logs in and sees far more detail. An uncredentialed scan looks from the outside, as an attacker would.\n\nA penetration test is different. A skilled person actually tries to break in, with written permission from management. Scans can be frequent. Penetration tests happen less often.\n\nScans can be wrong. A false positive reports a weakness that is not there. A false negative misses one that is really there."
+        },
+        {
+          "heading": "Common scoring and naming",
+          "body": "- CVE (Common Vulnerabilities and Exposures) gives each known weakness a unique name, so that everyone means the same thing.\n- CVSS (Common Vulnerability Scoring System) gives a severity score from 0 to 10.\n\nCVSS version 3 ratings:\n- 0.1 to 3.9: Low\n- 4.0 to 6.9: Medium\n- 7.0 to 8.9: High\n- 9.0 to 10.0: Critical\n\nA score is a starting point, not the final answer. Your own risk matters more. Think about what the system holds and who can reach it."
+        },
+        {
+          "heading": "Worked example: which to fix first?",
+          "body": "A scan finds two problems.\n\n- Server A has a score of 9.8. It is an internal test box with no real data and no outside access.\n- Server B has a score of 8.1. It faces the internet, holds customer records, and attackers are already using this weakness.\n\nThe number alone says A. Risk says B. A manager fixes B first, because the likelihood and the impact are both higher."
+        },
+        {
+          "heading": "The patching process",
+          "body": "Patches should follow a written process:\n\n- Inventory: know what you have.\n- Evaluate: read the patch notes and decide if it applies to you.\n- Test: try it on non-production systems, because a patch can break things.\n- Approve: send it through change management.\n- Deploy: roll it out, often in stages. Have a way to roll back.\n- Verify: scan again to confirm that the patch is really in place.\n- Report: record the results and update your records.\n\nThe scan after the patch matters. A patch that failed silently leaves you exposed while your records say you are safe."
+        },
+        {
+          "heading": "When a patch is not available",
+          "body": "A zero-day is a weakness that attackers know about before a fix exists. Without a patch, use a compensating control, which is another protection that reduces the risk. Examples are firewall rules, turning off the affected feature, or closer monitoring.\n\nFor a very urgent patch, use the emergency change process. Emergency means faster, not careless. You still test as far as time allows, and you still record what was done.\n\nSome old systems can no longer be patched. Isolate them, put extra controls around them, and plan to replace them. If the business chooses to keep the risk, management should accept it in writing."
+        }
+      ],
+      "keyTerms": [
+        {
+          "term": "Vulnerability",
+          "meaning": "A weakness that could be used to cause harm."
+        },
+        {
+          "term": "Patch",
+          "meaning": "A software fix from the maker."
+        },
+        {
+          "term": "CVE",
+          "meaning": "Common Vulnerabilities and Exposures: a unique name for each known weakness."
+        },
+        {
+          "term": "CVSS",
+          "meaning": "Common Vulnerability Scoring System: a severity score from 0 to 10."
+        },
+        {
+          "term": "Credentialed scan",
+          "meaning": "A scan that logs in, so it can see much more detail."
+        },
+        {
+          "term": "Zero-day",
+          "meaning": "A weakness attackers know about before any fix exists."
+        },
+        {
+          "term": "Compensating control",
+          "meaning": "Another protection used when the normal control is not possible."
+        }
+      ],
+      "keyPoints": [
+        "Accurate inventory comes before patching.",
+        "Test patches before production and send them through change management.",
+        "Rank by risk to your business, not only by score.",
+        "Scan again after patching to confirm the fix.",
+        "Use compensating controls when no patch exists."
+      ],
+      "memoryHook": "Find it, rank it, test it, fix it, check it.",
+      "question": {
+        "prompt": "A critical weakness is announced in the software on a company's internet-facing web servers. The vendor has just released a patch, and attackers are already using the weakness. What is the BEST next action?",
+        "options": [
+          "Install the patch on production immediately, without waiting for any testing",
+          "Use the emergency change process and add temporary protections",
+          "Wait for the next monthly maintenance window",
+          "Take the web servers offline until next quarter's upgrade"
+        ],
+        "correctIndex": 1,
+        "explanation": "The emergency process keeps speed and control together, and temporary protections reduce risk meanwhile. Installing immediately is tempting, but an untested patch can break the service, and it skips the approval path."
+      }
+    },
+    {
+      "id": "T61",
+      "name": "Change management",
+      "outlineRef": "7.9",
+      "simpleExplanation": "Change management makes sure nobody changes a system without thinking first. Think of building work on a school. You do not knock down a wall because one teacher wants more space. Someone asks, someone checks the risk, someone approves, the work is planned for a quiet time, and the plans are updated afterwards. In computing it is the same. Most outages come from changes, so a simple, written process protects the business. Every change also needs a way to undo it.",
+      "studyNotes": [
+        {
+          "heading": "Why it matters",
+          "body": "Systems are connected, so a small change can cause a large failure. A change that looks harmless can also remove a security control.\n\nChange management gives every change a review, an approval, a plan and a record. It protects availability and integrity. It also stops people from hiding unauthorised changes.\n\nThe group that reviews important changes is often called a CAB (change advisory board). It has members from security, operations and the business. A security person on the board can spot risks that others miss."
+        },
+        {
+          "heading": "The steps",
+          "body": "Learn the usual order:\n\n- Request: someone asks for the change and gives the reason.\n- Review: experts look at the effect, cost and risk.\n- Approve or reject: the right authority decides.\n- Test: try it in a place that is not production.\n- Schedule and implement: do it at a quiet time, with a rollback plan.\n- Document: update records and diagrams.\n\nA rollback plan is the prepared way to undo the change if it goes wrong. No rollback plan usually means the change is not ready."
+        },
+        {
+          "heading": "Worked example: a firewall rule",
+          "body": "The sales team needs a new connection to a supplier.\n\n- Request: the sales manager logs the need and gives the business reason.\n- Review: the network team and security check the risk. They limit the rule to one address and one port.\n- Approve: the CAB approves it.\n- Test: the rule is tried on a test firewall.\n- Schedule and implement: it goes live on Sunday at 6 a.m. The old rule set is saved for rollback.\n- Document: the rule list and network diagram are updated, and the configuration baseline is changed to match."
+        },
+        {
+          "heading": "Types of change",
+          "body": "- Standard change: low risk, common and approved in advance, such as adding a user to a known group.\n- Normal change: goes through the full process.\n- Emergency change: needed at once to stop serious harm.\n\nEmergency changes are not a way to skip control. A named person still authorises the change. The team records what was done as soon as possible. Afterwards the change goes through review, so that it is formally approved or undone.\n\nFrom the exam's point of view, the correct answer to an emergency is rarely to do nothing. It is to act, then document and review."
+        },
+        {
+          "heading": "Links to other controls",
+          "body": "Change management works closely with configuration management. Change management decides whether a change is allowed. Configuration management records the new state and checks that systems match it.\n\nIt also supports separation of duties. A developer who writes code should not be the person who moves it into production.\n\nVersioning means giving each release a number, such as 2.1 and 2.2, so you can tell what is running and go back to an earlier one.\n\nAuditing closes the loop. Compare what is actually running against approved changes. Anything unapproved is an unauthorised change and must be investigated."
+        }
+      ],
+      "keyTerms": [
+        {
+          "term": "Change management",
+          "meaning": "A controlled process to request, review, approve, test, carry out and record changes."
+        },
+        {
+          "term": "CAB",
+          "meaning": "Change advisory board: the group that reviews important changes."
+        },
+        {
+          "term": "Rollback plan",
+          "meaning": "The prepared way to undo a change if it goes wrong."
+        },
+        {
+          "term": "Emergency change",
+          "meaning": "An urgent change made quickly, then documented and reviewed afterwards."
+        },
+        {
+          "term": "Standard change",
+          "meaning": "A low-risk, common change that is approved in advance."
+        },
+        {
+          "term": "Versioning",
+          "meaning": "Giving each release a number so you can track it and go back to it."
+        }
+      ],
+      "keyPoints": [
+        "The steps are Request, Review, Approve or reject, Test, Schedule and implement, Document.",
+        "Every change needs a rollback plan.",
+        "Emergency changes are done first, then documented and reviewed.",
+        "Security should be part of change review."
+      ],
+      "memoryHook": "Rabbits Read And Test Some Documents: Request, Review, Approve, Test, Schedule, Document.",
+      "question": {
+        "prompt": "During an active attack late at night, an on-call engineer gets verbal approval from the duty manager and adds a firewall rule that stops the attack. No change ticket was raised. What should happen NEXT?",
+        "options": [
+          "Remove the rule so that a normal change request can be raised",
+          "Take disciplinary action against the engineer for skipping the process",
+          "Take no further action, as emergencies are outside the process",
+          "Record the change and submit it for review by the change board"
+        ],
+        "correctIndex": 3,
+        "explanation": "Emergency changes are recorded and reviewed after the fact. Removing the rule sounds like following the process, but it would let the attack start again."
+      }
+    },
+    {
+      "id": "T62",
+      "name": "Recovery strategies",
+      "outlineRef": "7.10",
+      "simpleExplanation": "Recovery strategies are the ways you prepare to get working again after something fails. You keep copies of your data, called backups. You arrange another place to work from, called a recovery site. You also build systems that keep going when a part breaks, for example RAID, which spreads data across several disks. Think of a shop that keeps spare keys at a friend's house and knows of an empty shop nearby. Faster recovery costs more, so choose what the business truly needs.",
+      "studyNotes": [
+        {
+          "heading": "Backup types",
+          "body": "- Full: copies everything. It is the slowest to make and the simplest to restore.\n- Incremental: copies what changed since the last backup of any kind. Fast to make, slow to restore.\n- Differential: copies what changed since the last full backup. It grows each day, but it is quicker to restore.\n\nWorked example. A full backup runs on Sunday night. The disk fails on Thursday morning.\n- With incrementals: restore Sunday's full, then Monday, Tuesday and Wednesday, in order.\n- With differentials: restore Sunday's full, then only Wednesday's differential.\n\nA backup is only proven when you test a restore."
+        },
+        {
+          "heading": "Backup storage",
+          "body": "- Onsite: fast to reach, but lost in the same disaster.\n- Offsite: survives a local disaster, but takes longer to reach.\n- Cloud: offsite and easy to grow, but it depends on your internet link and your provider's contract.\n\nElectronic vaulting sends whole backup files to another site in batches. Remote journaling sends only the transaction logs, more often. Remote mirroring keeps a live second copy."
+        },
+        {
+          "heading": "Recovery sites and agreements",
+          "body": "- Cold site: space and power only. Cheapest and slowest, taking weeks.\n- Warm site: some hardware and some older data. Ready in days.\n- Hot site: fully equipped with current data. Ready in minutes or hours, and costly.\n- Mobile site: a data centre in a truck or container.\n- Cloud site: recovery systems run at a cloud provider.\n\nA resource capacity agreement reserves space or equipment with a provider in advance. A reciprocal agreement means two companies promise to host each other, but it is hard to enforce.\n\nMultiple processing sites are two or more live sites that share the work, often called active-active. If one fails, the others carry on. This gives the shortest recovery time and costs the most."
+        },
+        {
+          "heading": "RAID",
+          "body": "RAID stands for redundant array of independent disks.\n\n- RAID 0: striping. Fast, but no protection. Minimum 2 disks.\n- RAID 1: mirroring. Minimum 2 disks. Survives one failure.\n- RAID 5: striping with parity, which is extra data used to rebuild. Minimum 3 disks. Survives one failure.\n- RAID 6: double parity. Minimum 4 disks. Survives two failures.\n- RAID 10: mirrors that are then striped. Minimum 4 disks.\n\nWorked example: four disks of 2 terabytes (TB) each in RAID 5 give 3 x 2 = 6 TB usable, because one disk's worth of space holds parity.\n\nRAID is not a backup. A deleted file is deleted on every disk."
+        },
+        {
+          "heading": "High availability, fault tolerance and quality of service",
+          "body": "High availability keeps a service running with very little downtime. It often uses clusters and load balancers, so that another server takes over.\n\nFault tolerance means a system keeps working with no interruption when a part fails. Examples are spare power supplies and RAID.\n\nQuality of service, or QoS, gives priority to important network traffic. It manages bandwidth, delay, jitter (uneven delay) and packet loss, so that a voice call stays clear when the network is busy."
+        }
+      ],
+      "keyTerms": [
+        {
+          "term": "Incremental backup",
+          "meaning": "Copies what changed since the last backup of any kind."
+        },
+        {
+          "term": "Differential backup",
+          "meaning": "Copies what changed since the last full backup."
+        },
+        {
+          "term": "Cold site",
+          "meaning": "A recovery site with space and power only. Cheapest and slowest."
+        },
+        {
+          "term": "Warm site",
+          "meaning": "A recovery site with some hardware and older data. Ready in days."
+        },
+        {
+          "term": "Hot site",
+          "meaning": "A fully equipped recovery site with current data. Ready in minutes or hours."
+        },
+        {
+          "term": "Reciprocal agreement",
+          "meaning": "Two organisations promise to host each other after a disaster."
+        },
+        {
+          "term": "RAID",
+          "meaning": "Redundant array of independent disks: spreading data over several disks for speed or protection."
+        },
+        {
+          "term": "Parity",
+          "meaning": "Extra calculated data used to rebuild a failed disk."
+        },
+        {
+          "term": "Fault tolerance",
+          "meaning": "Keeping going with no interruption when a part fails."
+        },
+        {
+          "term": "QoS",
+          "meaning": "Quality of service: giving priority to important network traffic."
+        }
+      ],
+      "keyPoints": [
+        "Incremental restores need every piece, while differential restores need just the latest.",
+        "Cold is cheapest and slowest, and hot is costly and fastest.",
+        "RAID protects against disk failure but is not a backup.",
+        "Backups are proven only by testing a restore."
+      ],
+      "memoryHook": "Cold site is an empty room. Warm site is a furnished room. Hot site is a room with the kettle already boiling.",
+      "question": {
+        "prompt": "A company takes a full backup every Sunday night and a differential backup every other night. The database fails on Thursday morning. Which backups are needed to restore the data?",
+        "options": [
+          "Sunday's full backup, plus Monday's, Tuesday's and Wednesday's differentials",
+          "Wednesday's differential backup only",
+          "Sunday's full backup, plus Wednesday's differential",
+          "Monday's, Tuesday's and Wednesday's differentials only"
+        ],
+        "correctIndex": 2,
+        "explanation": "A differential holds everything changed since the full backup, so you need the full and only the latest differential. Using all the differentials is tempting, but that is how incrementals work."
+      }
+    },
+    {
+      "id": "T63",
+      "name": "Disaster recovery processes",
+      "outlineRef": "7.11",
+      "simpleExplanation": "A disaster recovery plan tells people exactly what to do when a major event stops the computer systems. Think of a school after a flood. Someone must decide it is a disaster, the right people must be called, parents must be told, the damage must be checked, and classes must restart somewhere else and then return home. The plan covers response, people, communications, assessment, restoration, training and lessons learned. People's safety always comes before computers, and management must support the plan.",
+      "studyNotes": [
+        {
+          "heading": "What the plan is for",
+          "body": "Disaster recovery, or DR, is about getting computer systems and data back after a major event. A DRP (disaster recovery plan) sets out the steps, so that people do not have to invent them under stress.\n\nThe plan must be approved by senior management. Keep copies away from the main site, and on paper too, because the systems that hold the plan may be down.\n\nThe outline lists seven parts: response, personnel, communications, assessment, restoration, training and awareness, and lessons learned."
+        },
+        {
+          "heading": "Response and personnel",
+          "body": "Response. The first duty is people's safety. Next, someone with named authority declares a disaster, and this starts the plan. Declaring too late wastes recovery time. Declaring too early wastes money, so the plan should set clear triggers.\n\nPersonnel. Every role needs a named person and at least one backup, because some people may be hurt, away or caring for their families. A DR team often includes technical staff, management and business representatives.\n\nA call tree is a list that says who phones whom, so messages spread quickly. Keep it current and keep a copy away from the office."
+        },
+        {
+          "heading": "Communications",
+          "body": "Normal channels may be down. Plan more than one method:\n\n- Mobile phones and text messages\n- Satellite phones\n- Two-way radios\n- A website or status page hosted elsewhere\n- Runners, if nothing else works\n\nDifferent groups need different messages. Staff need instructions. Customers need reassurance. Regulators may need formal notice. The press should hear from one trained spokesperson, so the message stays accurate and consistent."
+        },
+        {
+          "heading": "Assessment and restoration",
+          "body": "Assessment means checking what is damaged and how badly. Only enter the site when it is safe. The results decide whether you repair the site, or move to the recovery site.\n\nRestoration has two directions, and the exam tests them.\n\n- Moving to the recovery site: bring up the most critical functions first. Use the business impact results to set the order.\n- Moving back to the main site: move the least critical functions first. This proves the repaired site is stable before you trust it with the most important work.\n\nThe disaster is over only when all work is back at the primary site, or at a new permanent home."
+        },
+        {
+          "heading": "Worked example: flood at a bank's data centre",
+          "body": "- Step 1: Staff evacuate, and everyone is accounted for.\n- Step 2: The named manager declares a disaster.\n- Step 3: The call tree starts, and the DR team uses text messages because the office phones are out.\n- Step 4: A damage assessment says repairs will take six weeks.\n- Step 5: Payments, the most critical function, start first at the hot site. Other services follow.\n- Step 6: After repairs, the least critical systems return first. Payments return last.\n- Step 7: The team reviews what happened and updates the plan."
+        },
+        {
+          "heading": "Training, awareness and lessons learned",
+          "body": "Training gives people the skills for their DR role. Awareness makes sure all staff know that a plan exists and what they should do. Both must be repeated, because people change jobs and memories fade.\n\nLessons learned happens after the event. Ask what went well and what did not. Then update the plan, the contact lists and the training. A plan that is not maintained soon becomes wrong."
+        }
+      ],
+      "keyTerms": [
+        {
+          "term": "DRP",
+          "meaning": "Disaster recovery plan: the steps to restore computer systems and data after a major event."
+        },
+        {
+          "term": "Declaration",
+          "meaning": "The formal decision, by a named person, that a disaster has occurred."
+        },
+        {
+          "term": "Call tree",
+          "meaning": "A list showing who phones whom so that messages spread quickly."
+        },
+        {
+          "term": "Damage assessment",
+          "meaning": "Checking what is damaged and how badly, once it is safe to do so."
+        },
+        {
+          "term": "Primary site",
+          "meaning": "The main place where the organisation normally runs."
+        },
+        {
+          "term": "Spokesperson",
+          "meaning": "One trained person who speaks to the press for the organisation."
+        }
+      ],
+      "keyPoints": [
+        "People's safety always comes first.",
+        "A named person declares the disaster.",
+        "Bring the most critical functions up first at the recovery site.",
+        "Return the least critical functions first to the main site.",
+        "Keep copies of the plan off site and on paper."
+      ],
+      "memoryHook": "Going out: most important first. Coming home: least important first, like testing the ice with a small step before you bring the whole family.",
+      "question": {
+        "prompt": "A company has been running at its recovery site since a hurricane. The primary data centre has now been repaired. How should the company move its work back?",
+        "options": [
+          "Move the least critical functions first and confirm the site is stable",
+          "Move the most critical functions first so they get the best service",
+          "Move everything in one weekend so that the two sites are never both in use",
+          "Stay at the recovery site permanently and close the primary site"
+        ],
+        "correctIndex": 0,
+        "explanation": "Least critical work goes first, so that any problem at the repaired site does not hurt the key functions. Most critical first is the right order when moving to the recovery site, not when returning."
+      }
+    },
+    {
+      "id": "T64",
+      "name": "Testing disaster recovery plans",
+      "outlineRef": "7.12",
+      "simpleExplanation": "A plan that has never been tested is only a hope. Testing shows what works and what does not, while nothing is on fire. Think of a school fire drill. First you read the instructions. Then you talk through them together. Later you practise for real. The tests go from easy and safe to hard and risky. Start small. The biggest test, which really shuts down normal operations, can harm the business, so senior management must approve it first.",
+      "studyNotes": [
+        {
+          "heading": "Why we test",
+          "body": "Testing proves that a DRP (disaster recovery plan) works and that people know their roles. It finds old phone numbers, missing steps and backups that cannot be restored.\n\nTests should happen at least once a year and after major changes. Each test needs clear goals, approval from management, and a written report."
+        },
+        {
+          "heading": "The test types, from lowest to highest risk",
+          "body": "Learn this order. Each one tests more and carries more risk.\n\n- Read-through: each team member reads the plan alone and reports errors. Also called a checklist review.\n- Tabletop: the team sits together and talks through a made-up event. No systems are touched. The outline pairs tabletop with read-through. Both are discussion only.\n- Walkthrough: team members go through the steps together, in order, confirming that each step makes sense. Some books use structured walkthrough to mean a tabletop, so watch the wording in the question.\n- Simulation: a realistic scenario is played out. Staff carry out their responses, but production systems are not switched over.\n- Parallel: the recovery site is really brought up and runs the workload. The main site keeps running, so the business is not at risk.\n- Full interruption: the main site is really shut down and work moves to the recovery site. It is the most realistic and the most dangerous."
+        },
+        {
+          "heading": "Choosing the right test",
+          "body": "- A new plan: start with a read-through or a tabletop.\n- A plan that needs a realistic practice with no technical risk: simulation.\n- You need proof that the recovery site really works, with no outage risk: parallel.\n- You need final proof, and management accepts the risk: full interruption.\n\nA full interruption test can itself cause a disaster. It needs senior management approval, careful timing and a way to go back. Many organisations never do one."
+        },
+        {
+          "heading": "Worked example: testing a hot site",
+          "body": "A bank wants proof that its hot site can process payments.\n\n- Step 1: Management approves a parallel test, and sets a goal of recovery within four hours.\n- Step 2: Staff restore recent data at the hot site.\n- Step 3: They process a copy of the day's payments there, while the main site continues as normal.\n- Step 4: They compare the results from the two sites.\n- Step 5: They find that recovery took six hours. The goal was missed.\n- Step 6: They report this to management, fix the slow step, and plan a retest."
+        },
+        {
+          "heading": "Communications during a test",
+          "body": "The outline names three groups to think about.\n\n- Stakeholders: anyone affected should know the date, the scope and what to expect. Announce it, so that a test is not mistaken for a real event. Begin messages with words such as: this is a test.\n- Test status: report progress as the test runs, including any problems. Have a clear way to stop the test.\n- Regulators: some industries, such as banks, must tell regulators about tests or send them results. Check what your rules require.\n\nAfterwards, give management a report of what was found. Then update the plan. A failed test is still useful, because it found the problem while no real disaster was happening."
+        }
+      ],
+      "keyTerms": [
+        {
+          "term": "Read-through",
+          "meaning": "Each person reviews the plan alone and reports errors. Also called a checklist review."
+        },
+        {
+          "term": "Tabletop exercise",
+          "meaning": "A group talks through a made-up event without touching systems."
+        },
+        {
+          "term": "Walkthrough",
+          "meaning": "The team goes through the plan's steps together, in order."
+        },
+        {
+          "term": "Simulation test",
+          "meaning": "A realistic scenario is played out, with no switch of production systems."
+        },
+        {
+          "term": "Parallel test",
+          "meaning": "The recovery site is brought up and runs work while the main site keeps running."
+        },
+        {
+          "term": "Full interruption test",
+          "meaning": "The main site is really shut down and work moves to the recovery site."
+        }
+      ],
+      "keyPoints": [
+        "The order is read-through, tabletop, walkthrough, simulation, parallel, full interruption.",
+        "A parallel test leaves the main site running.",
+        "A full interruption test needs senior management approval.",
+        "Tell stakeholders and, where required, regulators about tests.",
+        "Report results and update the plan after each test."
+      ],
+      "memoryHook": "Read it, Talk it, Walk it, Act it, Run it beside, Run it instead.",
+      "question": {
+        "prompt": "A bank wants to confirm that its recovery site can really handle the workload. It cannot accept any risk to its live services. Which type of test is BEST?",
+        "options": [
+          "Simulation test",
+          "Parallel test",
+          "Full interruption test",
+          "Tabletop exercise"
+        ],
+        "correctIndex": 1,
+        "explanation": "A parallel test really runs the workload at the recovery site while the main site carries on. Full interruption is tempting because it is the most thorough, but it puts live services at risk."
+      }
+    },
+    {
+      "id": "T65",
+      "name": "Taking part in business continuity planning and exercises",
+      "outlineRef": "7.13",
+      "simpleExplanation": "Business continuity means keeping the important work of a business going during and after a disruption. Think of a bakery whose oven breaks. It might borrow an oven, sell yesterday's stock, or change what it bakes. Disaster recovery is the smaller part that restores computer systems. A security professional helps with this planning as an adviser. You make sure that security is not forgotten when things are rushed. The business owners and senior managers decide what matters most, and they accept the plan.",
+      "studyNotes": [
+        {
+          "heading": "Continuity and recovery are different",
+          "body": "BCP (business continuity planning) keeps the whole business working through a disruption. It looks at people, buildings, suppliers and processes as well as technology.\n\nDRP (disaster recovery planning) restores computer systems after a disaster. It is narrower.\n\nThink of BCP as keeping the shop open, and DRP as getting the tills and computers working again. Both follow the same priorities: people first, then the most important business functions."
+        },
+        {
+          "heading": "The planning process",
+          "body": "The usual stages:\n\n- Project scope and planning: name the team and get senior management support.\n- Business impact analysis: work out which functions matter most and what an outage would cost.\n- Continuity planning: choose strategies and build the plans.\n- Approval and implementation: senior management signs off, and the plans go live.\n\nSenior management support comes first. Without it, there is no budget and no authority. Business leaders should be on the team, because they understand their own work best.\n\nThe security professional's part includes these:\n- Advising on risk, and helping with the impact analysis\n- Making sure that controls still work at a recovery site\n- Keeping data protected when normal rules are under strain, such as staff working from home\n- Helping to plan and run exercises"
+        },
+        {
+          "heading": "The key numbers",
+          "body": "A BIA (business impact analysis) gives you these numbers:\n\n- MTD (maximum tolerable downtime): the longest a function can be down before the harm is unacceptable.\n- RTO (recovery time objective): the target time to bring the system back.\n- WRT (work recovery time): the time needed after the system is back, to check data and catch up.\n- RPO (recovery point objective): the most data you can afford to lose, measured in time.\n\nThe rule to remember: RTO + WRT must be no more than MTD."
+        },
+        {
+          "heading": "Worked example",
+          "body": "The billing system has an MTD of 24 hours.\n\n- If WRT is 6 hours, then RTO must be 18 hours or less, because 24 - 6 = 18.\n- If the RPO is 4 hours, backups or copies must happen at least every 4 hours. A daily backup could lose up to 24 hours of data, so it would not meet this target.\n\nIf the cheaper option cannot meet the MTD, the adviser explains the gap. The business owner and senior management then decide whether to pay more or accept the risk."
+        },
+        {
+          "heading": "Exercises and keeping the plan alive",
+          "body": "An exercise is a practice of the plan. It can be as simple as a tabletop discussion, or as large as moving real work to another building. Exercises build confidence, show gaps, and teach people their roles.\n\nAs a participant, you should do the following:\n- Take part in your assigned role, and use the plan as written.\n- Record what went wrong rather than quietly working around it.\n- Report results to management, and track the fixes.\n\nThe plan needs regular maintenance, and must be reviewed when the business changes. New systems, new suppliers and new staff can all make an old plan wrong. Keep versions controlled, so that everyone has the current copy."
+        }
+      ],
+      "keyTerms": [
+        {
+          "term": "BCP",
+          "meaning": "Business continuity planning: keeping the whole business working through a disruption."
+        },
+        {
+          "term": "BIA",
+          "meaning": "Business impact analysis: finding what matters most and what an outage would cost."
+        },
+        {
+          "term": "MTD",
+          "meaning": "Maximum tolerable downtime: the longest a function can be down before harm is unacceptable."
+        },
+        {
+          "term": "RTO",
+          "meaning": "Recovery time objective: the target time to bring a system back."
+        },
+        {
+          "term": "WRT",
+          "meaning": "Work recovery time: the time to check data and catch up once a system is back."
+        },
+        {
+          "term": "RPO",
+          "meaning": "Recovery point objective: the most data you can afford to lose, measured in time."
+        }
+      ],
+      "keyPoints": [
+        "BCP covers the whole business, while DRP restores computer systems.",
+        "Senior management support comes first.",
+        "RTO plus WRT must be no more than MTD.",
+        "Security advises, and the business owners decide.",
+        "Plans must be exercised and kept current."
+      ],
+      "memoryHook": "RPO looks back at the data you lost. RTO looks forward to when you are running again. MTD is the cliff edge.",
+      "question": {
+        "prompt": "During a business impact analysis, the order system is given a maximum tolerable downtime of 12 hours. The technical team proposes a cheaper recovery option with a recovery time of 16 hours. What should the security professional do?",
+        "options": [
+          "Approve the option because it saves money for the business",
+          "Quietly raise the maximum tolerable downtime to 16 hours to match the proposal",
+          "Choose the most expensive recovery option available",
+          "Explain the gap and let the business owner and management decide"
+        ],
+        "correctIndex": 3,
+        "explanation": "The option cannot meet the limit, so the adviser explains the gap and the business decides. Changing the downtime figure is tempting, but that number comes from business impact, not from what the technical team finds convenient."
+      }
+    },
+    {
+      "id": "T66",
+      "name": "Physical security and personnel safety",
+      "outlineRef": "7.14, 7.15",
+      "simpleExplanation": "Physical security protects buildings, equipment and people from real-world harm. Think of a bank, with a fence outside, a guard at the door, cameras in the hall and a locked vault inside. Layers slow an intruder down and make them easier to catch. Personnel safety means looking after staff, at work and when they travel. If there is ever a choice between protecting people and protecting equipment, people win every time. On the exam, safety is always the first answer.",
+      "studyNotes": [
+        {
+          "heading": "Safety comes first",
+          "body": "Human life is always the top priority. Security controls must never trap people.\n\nThis matters for door locks. When power fails:\n- Fail-safe: the door unlocks so that people can get out. Use this on exit routes.\n- Fail-secure: the door stays locked. Use this for a cash store or equipment room where nobody is trapped.\n\nFire exits must work from the inside, even if this lowers security."
+        },
+        {
+          "heading": "Perimeter security controls",
+          "body": "The perimeter is your outer edge.\n\n- Fences: 3 to 4 feet deters casual walkers. 6 to 7 feet is hard to climb. 8 feet with three strands of barbed wire deters a determined intruder.\n- Bollards: short strong posts that stop vehicles.\n- Lighting: deters people and helps cameras.\n- Gates, guards and dogs: guards can use judgement, which no machine can.\n- CCTV (closed-circuit television): cameras that record and deter.\n- Motion sensors and intrusion alarms.\n\nCPTED (crime prevention through environmental design) means shaping the site to discourage crime. Low plants and open views give fewer hiding places."
+        },
+        {
+          "heading": "Internal security controls",
+          "body": "- Badges and access cards, with logs of who entered.\n- Access control vestibule, once called a mantrap: a small space with two doors where only one can open at a time. It stops tailgating, which is following someone through a door.\n- Visitor sign-in, badges and escorts.\n- Locks and cabinets, with strict key control.\n- Secure zones: the more sensitive the room, the fewer people may enter.\n- Cameras inside sensitive rooms.\n\nUse several layers, so one failure does not expose everything. This is called defence in depth."
+        },
+        {
+          "heading": "Emergency management and duress",
+          "body": "Emergency management plans for fires, storms, medical events and violence. Staff should know the exits and the meeting points. Floor wardens help people leave and count them. Practise with drills.\n\nDuress means being forced to act under threat. Staff may have a duress code, which is a word or personal code that looks normal but silently calls for help. A panic button does the same job.\n\nThe guidance is simple. Comply with the attacker, stay calm, and raise the alarm silently if it is safe to do so. No data is worth a life."
+        },
+        {
+          "heading": "Travel",
+          "body": "Staff who travel face extra risks.\n\n- Check travel advice for the destination first.\n- Take a clean loaner laptop or phone, with only the data needed.\n- Use a VPN (virtual private network, a protected tunnel) on public Wi-Fi.\n- Never leave devices unattended, including in hotel rooms.\n- Check import and export rules for encryption and any data carried.\n- Check loaner devices for tampering on return, or simply wipe them."
+        },
+        {
+          "heading": "Security training and awareness",
+          "body": "Training teaches people how to do something. Awareness reminds them why it matters. Key topics are:\n\n- Insider threat: people inside can do great harm. Staff should know how to report concerns.\n- Social media: posting about work, travel or a new badge can help attackers.\n- Two-factor authentication fatigue: an attacker sends login prompts again and again, hoping that a tired person approves one. Never approve a prompt you did not start, and report it.\n\nRepeat training regularly, and test how well it works."
+        }
+      ],
+      "keyTerms": [
+        {
+          "term": "Fail-safe",
+          "meaning": "A door unlocks when power fails, so that people can escape."
+        },
+        {
+          "term": "Fail-secure",
+          "meaning": "A door stays locked when power fails, protecting what is inside."
+        },
+        {
+          "term": "Bollard",
+          "meaning": "A short strong post that stops vehicles."
+        },
+        {
+          "term": "Access control vestibule",
+          "meaning": "A small space with two doors, where only one can open at a time. Once called a mantrap."
+        },
+        {
+          "term": "Tailgating",
+          "meaning": "Following someone through a secure door without using your own access."
+        },
+        {
+          "term": "CPTED",
+          "meaning": "Crime prevention through environmental design: shaping a site to discourage crime."
+        },
+        {
+          "term": "Duress",
+          "meaning": "Being forced to act under threat."
+        },
+        {
+          "term": "Duress code",
+          "meaning": "A word or personal code that looks normal but silently calls for help."
+        },
+        {
+          "term": "Two-factor authentication fatigue",
+          "meaning": "Flooding a person with login prompts until one is approved."
+        }
+      ],
+      "keyPoints": [
+        "Human safety always comes first.",
+        "Exit doors must fail safe so that people can escape.",
+        "Use layers from the fence to the vault.",
+        "Under duress, comply and raise the alarm silently.",
+        "Take clean devices when travelling."
+      ],
+      "memoryHook": "Fail-safe saves people. Fail-secure secures things.",
+      "question": {
+        "prompt": "A company is fitting electronic locks to the only exit door on a staffed office floor. What should the door do during a power failure?",
+        "options": [
+          "Stay locked, to protect the equipment on the floor",
+          "Stay locked until a security guard arrives with a key",
+          "Unlock, so that people can leave the floor",
+          "Unlock only for staff who present a valid badge"
+        ],
+        "correctIndex": 2,
+        "explanation": "An exit route must fail safe because people's lives come first. A badge check sounds like a sensible compromise, but the badge reader may have no power, and people could be trapped."
+      }
+    }
+  ],
+  "examQuestions": [
+    {
+      "prompt": "An analyst confirms that malware is active on a file server. The company may take legal action against the attacker. What should the analyst do FIRST?",
+      "options": [
+        "Power off the server at once",
+        "Disconnect the server from the network and leave it running",
+        "Wipe the server straight away and restore it from the last good backup",
+        "Email all staff to warn them about the malware"
+      ],
+      "correctIndex": 1,
+      "explanation": "Isolating the server contains the attack and keeps the memory as evidence. Powering off also stops the attack, but it destroys the volatile evidence that a legal case may need.",
+      "testsTopics": [
+        "T58",
+        "T53"
+      ]
+    },
+    {
+      "prompt": "A company is worried that staff may be sending customer records to personal email accounts. Which control would BEST detect this?",
+      "options": [
+        "A stricter firewall rule for incoming traffic",
+        "Anti-malware software on every laptop",
+        "A longer password policy for email accounts",
+        "Egress monitoring with data loss prevention tools"
+      ],
+      "correctIndex": 3,
+      "explanation": "Egress monitoring looks at what leaves the network and can recognise sensitive data. An incoming firewall rule may sound strong, but this data is going out, not coming in.",
+      "testsTopics": [
+        "T54"
+      ]
+    },
+    {
+      "prompt": "An auditor finds that developers write code and also move it into production themselves. What is the BEST way to fix this finding?",
+      "options": [
+        "Separate the roles and release code only through the change process",
+        "Ask developers to sign a code of conduct every year and report any mistakes",
+        "Review the source code after each yearly audit",
+        "Move the developers to a separate office location"
+      ],
+      "correctIndex": 0,
+      "explanation": "Separating the roles and using change control stops one person from pushing unapproved code. A signed code of conduct sets expectations, but it does not prevent anything technically.",
+      "testsTopics": [
+        "T56",
+        "T61"
+      ]
+    },
+    {
+      "prompt": "An online retailer states that its order system may be down for only a few minutes and that it can lose almost no transactions. Cost is not the main concern. Which strategy BEST meets these needs?",
+      "options": [
+        "A cold site with daily backups sent by courier",
+        "A warm site with nightly copies of the data",
+        "Two active sites sharing the work with synchronous data replication",
+        "A reciprocal agreement with a company in the same city"
+      ],
+      "correctIndex": 2,
+      "explanation": "Two active sites with synchronous replication give the shortest recovery time and the smallest data loss. A warm site is cheaper, but it takes days to start and could lose a full day of data.",
+      "testsTopics": [
+        "T62",
+        "T65"
+      ]
+    },
+    {
+      "prompt": "A company has just finished writing its first disaster recovery plan. Nobody has tested it, and management will not accept any risk to operations. Which test should be done FIRST?",
+      "options": [
+        "A full interruption test on a quiet weekend",
+        "A read-through of the plan by each team member",
+        "A parallel test at the recovery site",
+        "A simulation with the whole company taking part"
+      ],
+      "correctIndex": 1,
+      "explanation": "A new plan should begin with the simplest, safest test, which finds basic errors at no risk. A parallel test also protects live services, but it is costly and premature for an untested plan.",
+      "testsTopics": [
+        "T64",
+        "T63"
+      ]
+    },
+    {
+      "prompt": "A robber forces a night receptionist at gunpoint to open the door to a secure area. According to good duress procedures, what should the receptionist do?",
+      "options": [
+        "Comply and silently raise the alarm if it is safe",
+        "Refuse to open the door and protect the assets",
+        "Try to overpower the robber when given a chance",
+        "Open the door, then leave the building without telling anyone"
+      ],
+      "correctIndex": 0,
+      "explanation": "People's safety comes first, so staff comply and use the silent alarm. Refusing may feel loyal, but no asset is worth a person's life.",
+      "testsTopics": [
+        "T66"
+      ]
+    },
+    {
+      "prompt": "A scanner keeps finding the same missing security setting on every new server, although the team fixes each server after the scan. What is the BEST action?",
+      "options": [
+        "Run the scanner more often on new servers",
+        "Fix each new server sooner after it goes live",
+        "Accept the risk because the setting is always fixed after the scan finds it",
+        "Correct the setting in the golden image used to build servers"
+      ],
+      "correctIndex": 3,
+      "explanation": "Updating the master image fixes the root cause, so new servers start correct. Scanning more often is tempting, but it only finds the same problem faster.",
+      "testsTopics": [
+        "T60",
+        "T55"
+      ]
+    },
+    {
+      "prompt": "A courier company has lost a box of backup tapes on the way to the offsite store. The tapes hold customer records. Which measure would have BEST reduced the impact of this loss?",
+      "options": [
+        "Encrypting the tapes before they left the building",
+        "Printing the customer records on paper as well",
+        "Choosing a courier with a lower delivery price",
+        "Sending the tapes offsite once a month instead of once a week"
+      ],
+      "correctIndex": 0,
+      "explanation": "Encrypted tapes are unreadable to whoever finds them, as long as the keys are kept separate. Sending tapes less often cuts the number of trips, but any lost tape would still expose the data.",
+      "testsTopics": [
+        "T57",
+        "T62"
+      ]
+    },
+    {
+      "prompt": "A small company has no security staff at night, yet attacks often begin in the early hours. It needs round-the-clock monitoring quickly and has a limited budget. What is the BEST option?",
+      "options": [
+        "Hire and train a full night team of its own",
+        "Ask day staff to check the alerts each morning",
+        "Contract a managed security service provider with a clear service level agreement",
+        "Turn off remote access at night until the budget grows"
+      ],
+      "correctIndex": 2,
+      "explanation": "A managed provider gives full-time coverage quickly at a lower cost, and the agreement sets measurable promises. A team of its own would work, but it is slow and costly for a small company.",
+      "testsTopics": [
+        "T59",
+        "T56"
+      ]
+    },
+    {
+      "prompt": "Human resources suspects an employee of fraud. The manager asks a system administrator to log on to the employee's computer and look through the files. What should the administrator do?",
+      "options": [
+        "Log on and copy any interesting files to a shared folder",
+        "Refer it to trained investigators so that a verified forensic copy can be taken",
+        "Log on quietly after hours so that the employee is not warned",
+        "Ask the employee to hand over the files voluntarily"
+      ],
+      "correctIndex": 1,
+      "explanation": "Browsing the live computer changes the evidence and breaks the chain of custody, so trained staff should take a verified copy. Doing it after hours seems discreet, but it still alters the original.",
+      "testsTopics": [
+        "T53"
+      ]
+    }
+  ]
+}

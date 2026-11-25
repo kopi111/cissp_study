@@ -1,0 +1,141 @@
+{
+  "id": "T51",
+  "studyNotes": [
+    {
+      "heading": "From raw output to meaning",
+      "body": "In this first part, we will look at what happens straight after a test, when you are holding a long list of results and need to work out what they mean.\n\nTest tools produce raw output, which is a long list of technical results. Raw output is not a report.\n\nThink about the blood test numbers that come back from a laboratory. Your doctor does not simply hand you the page. The doctor checks whether any result looks like an error, sees how the numbers fit together, works out what matters and then explains what to do first.\n\nIn security, work through these steps in order.\n\n- Confirm accuracy. Remove false positives, which are reported problems that are not real.\n- Look for patterns and for common causes.\n- Rate the risk, using how likely the harm is and how bad it would be for the business.\n- Recommend actions.\n- Report to the right people.\n\nLet us look at each of these. Confirming accuracy protects your credibility. If you tell a team that 500 problems exist, and they find that 100 are false, they will doubt the rest.\n\nLooking for patterns matters because findings are often related. Forty findings may come from one broken patching process. A patch is a software fix. Forty separate tickets will not repair that. One change to the process will.\n\nRating the risk means putting the finding in its business setting. A tool's severity score is general. It does not know that this particular server holds your customers' payment records, or that another one is about to be switched off.\n\nCompare results with past tests as well. A trend shows whether security is improving. If the same finding appears for three quarters in a row, that is a finding in its own right, because it tells you the fix process is failing.\n\nHere is a workplace example. A vulnerability scan produces 400 findings. An analyst checks them and finds that 60 are false positives. That is 60 divided by 400, times 100, which is 15 percent. So 340 are real. Of those, 250 trace back to a single old server build that is used across the company. Now the story is much clearer. One standard image needs replacing.\n\nHere is your takeaway. Confirm the results, find the common causes and rate the risk for your business before you report anything."
+    },
+    {
+      "heading": "Remediation",
+      "body": "Next, we will look at remediation, which means fixing the problem that was found. Finding problems achieves nothing unless they get fixed.\n\nThere are five rules to follow.\n\nFirst, fix the highest business risk first. This is not always the same as the highest score from a tool.\n\nSecond, give each fix an owner and a due date. A fix that belongs to everybody belongs to nobody.\n\nThird, send fixes through change management. That is the formal process for approving, testing and recording changes to systems. A rushed fix can cause an outage. Even in an emergency, there should be an emergency change process, so that the change is still approved and recorded.\n\nFourth, retest to prove the fix worked. Until it has been verified, a finding should not be marked as closed.\n\nFifth, fix the cause, not just the symptom.\n\nThink about a leaking ceiling at home. Putting a bucket under the drip deals with the symptom. It may be the right thing to do tonight. But if you never go up and repair the roof, you will be emptying that bucket all winter. And after the roof is repaired, you wait for the next rain to check that the ceiling stays dry. That is retesting.\n\nHere is a worked example. A scan finds 30 servers missing a patch. The team patches the servers in the agreed order, starting with those exposed to the internet. That fixes the symptom. The team then asks why the patching process skipped them. It finds that these 30 servers were built outside the standard process, and so they were never enrolled in the patching tool. Enrolling them, and changing the build process so that new servers are enrolled automatically, fixes the cause. A retest then confirms the result.\n\nSometimes a full fix will take time. Then you may apply a temporary measure first, such as restricting access to the affected system. That reduces the risk while the proper repair is prepared.\n\nThe security team generally does not apply every fix itself. System owners are usually responsible for the repair. The security team tracks progress and reports what is overdue, so that managers can step in.\n\nOn the exam, an answer that closes a finding without verifying it is almost always wrong.\n\nHere is what to take away. Rank by business risk, assign an owner, use change management, retest and fix the cause."
+    },
+    {
+      "heading": "Exception handling",
+      "body": "In this part, we will look at what to do when a finding cannot be fixed, or when a rule cannot be met.\n\nSometimes the fix simply is not possible yet. An old machine may break if it is patched. A vendor may not have released an update. This calls for a formal exception, which is approved permission to depart from a rule for a set time.\n\nThink about a school rule that all pupils must take part in the swimming class. A pupil with a broken arm cannot. The school does not ignore the rule, and it does not pretend the pupil is swimming. A parent provides a doctor's note, the school records it, the pupil does a different activity for a period of time, and the matter is looked at again when the cast comes off.\n\nA proper exception records these things.\n\n- The rule that cannot be met\n- The business reason\n- The risk that results\n- Compensating controls, which are other safeguards that reduce the risk\n- The approval of the risk owner, who is the manager accountable for that risk\n- An expiry date and a review date\n\nNotice who approves. A technician cannot accept risk for the business. Neither, generally, can the security manager, whose job is to advise. The person who owns the risk makes that decision.\n\nAn exception is never a way to hide a finding. It keeps the finding visible, with a decision attached. Removing a system from the scanning scope, simply so that the finding disappears from future reports, is exactly the wrong thing to do.\n\nHere is a worked example. A hospital imaging machine runs old software, and its maker will not support an update for six months. Patching would void its medical certification. The security team recommends isolating it on its own network, with access limited to the imaging staff and extra monitoring. Those are the compensating controls. The director who owns the imaging service reviews the risk and signs the exception, which runs for six months. When the date arrives, either the update is applied or the exception is formally reviewed again.\n\nExpired exceptions are a common audit finding. Organizations should keep a register of every exception and watch their expiry dates closely.\n\nHere is your takeaway. An exception must be formal, approved by the risk owner, protected by compensating controls and limited in time."
+    },
+    {
+      "heading": "Ethical disclosure",
+      "body": "Now we will look at ethical disclosure, which is about what you do when you find a flaw in someone else's product.\n\nImagine you notice that your neighbor's front door lock can be opened with a hairpin. You could quietly tell your neighbor and give them time to change it. You could post the details on a community notice board at once. Or you could say nothing at all. Those are the three choices that security researchers face, too.\n\nThe ISC2 Code of Ethics guides this decision. ISC2 is the body that awards the certification you are studying for. Its code has four canons, or main rules, in this order.\n\n- Protect society, the common good, necessary public trust and confidence, and the infrastructure.\n- Act honorably, honestly, justly, responsibly and legally.\n- Provide diligent and competent service to principals.\n- Advance and protect the profession.\n\nThe order matters. When duties conflict, the earlier canon generally comes first. Principals are the people you work for, such as your employer or client.\n\nThere are three common approaches to disclosure.\n\nCoordinated disclosure, also called responsible disclosure, means telling the vendor privately, agreeing a fair time for a fix, and then publishing. Many researchers allow about 90 days, but that is a custom and not a law.\n\nFull disclosure means telling the public at once. Users learn about the danger, but so do attackers, possibly before any fix exists.\n\nNondisclosure means telling no one. Users stay exposed, and someone else may find the same flaw and abuse it.\n\nFor most situations, coordinated disclosure is the best answer, because it protects users and gives the vendor a fair chance.\n\nHere is a workplace example. A researcher at your company finds a flaw in a widely used printer. Your company's legal team checks contracts and the relevant laws first. The researcher then uses the vendor's published reporting channel. If the vendor does not respond, a neutral coordinator, such as a national computer emergency response team, can help. Publication comes later, without working attack code.\n\nA bug bounty is a program in which a vendor pays people for reporting flaws within its published rules.\n\nHere is what to take away. Tell the vendor first, allow fair time and put the public good first."
+    },
+    {
+      "heading": "Reports for different audiences",
+      "body": "In this part, we will look at how one set of results becomes the right report for each reader.\n\nThink about a damaged roof after a storm. The builder needs exact measurements and a list of materials. The insurance company needs the cause, the cost and photographs. Your family only needs to know whether the house is safe tonight, and how much it is going to cost. It is the same roof, but three different explanations.\n\nThere are four main audiences to think about.\n\nThe board and senior leaders need a short summary of business risk, cost and the decisions they need to make. Technical detail gets in the way.\n\nSecurity and technology managers need priorities, owners, dates and resources, so that they can plan the work.\n\nTechnical teams need the exact systems, how to repeat the finding and how to fix it.\n\nAuditors and regulators need the scope, the method, the evidence and the compliance status.\n\nA full report usually has an executive summary, which is a short part at the front that gives leaders the main risks and decisions. After that come the scope, the method, the findings, the risk ratings and the recommendations. Technical detail often goes into an appendix at the back.\n\nHere is a workplace example. A penetration test shows that an attacker could reach customer records through an old web page. The penetration test is an approved attempt to break in. The board report says, in two sentences, that customer records were reachable, what the regulatory consequence would be, and that funding of a set amount is requested to fix it. The technical appendix gives the exact address of the page, the steps used and the patch needed.\n\nBe honest in reports. Do not soften a serious finding to keep someone happy. And do not exaggerate a minor one to win budget. Accurate reporting is part of your professional duty.\n\nReports are sensitive, because they can guide an attacker straight to a weakness. Label them, limit who can read them, encrypt them, which means scrambling them so that outsiders cannot read them, and store them safely. Keep them only as long as policy requires.\n\nHere is your takeaway. Give each reader what they need to act, tell the truth and protect the report itself."
+    },
+    {
+      "heading": "Bringing it together, from findings to closure",
+      "body": "In this final part, we will follow one set of results all the way through, so that you can see how analysis, remediation, exceptions and reporting work together.\n\nThink about a home inspection before you buy a house. The inspector lists what was found. You check which items are real. You decide what to repair first. A few items you agree to live with for a while, with a plan. Then you check the repairs were really done.\n\nHere is a workplace example. A company's quarterly vulnerability scan and a yearly penetration test have both just finished.\n\nStep one is to confirm. Analysts remove the false positives.\n\nStep two is to find the cause. Most of the real findings come from one group of servers, built from an old standard template.\n\nStep three is to rank. A flaw on the internet-facing payment server goes first, even though a test computer has a higher score. The payment server holds valuable data, and anyone can reach it.\n\nStep four is to assign. Each finding gets an owner and a date. Changes go through change management.\n\nStep five is to handle what cannot be fixed. One old machine cannot be patched for four months. The risk owner signs an exception, with extra safeguards and an expiry date.\n\nStep six is to report. The board sees a one-page summary. The technical teams see the full detail.\n\nStep seven is to retest. Findings are closed only when the fix has been proven.\n\nStep eight is to learn. The old server template is retired, and the build process is changed so that the same problem cannot return.\n\nThe tester also noticed a flaw in a product made by another company. That flaw goes privately to the vendor, under coordinated disclosure, and it is not put in any public report.\n\nAn exam question may offer you an answer that sounds strong, such as fixing everything immediately, or one that sounds easy, such as accepting the risk and moving on. The best answer usually follows the process. Confirm it, rank it by business risk, involve the person who owns the risk, make the fix through the proper channel and check that it worked.\n\nHere is what to take away. A finding is only finished when it has been confirmed, ranked, owned, fixed or formally excepted, reported, and verified."
+    }
+  ],
+  "practiceQuestions": [
+    {
+      "prompt": "A vulnerability scanner has just produced a list of 600 findings. A junior analyst wants to send the list to the system owners straight away. What should be done FIRST?",
+      "options": [
+        "Send the list on to the system owners exactly as it was produced by the tool",
+        "Confirm the results and remove false positives",
+        "Ask the vendor of the scanning tool to explain each of the listed findings",
+        "Schedule a penetration test to run against every one of the listed systems"
+      ],
+      "correctIndex": 1,
+      "explanation": "Results must be confirmed before they are shared, or owners will waste time and lose trust in the process. Sending the list quickly is tempting, but raw output is not a report."
+    },
+    {
+      "prompt": "A quarterly scan shows 45 findings across many servers. Analysis shows that all of them come from one standard server image that has never been updated. What is the BEST action?",
+      "options": [
+        "Update the standard image and rebuild or patch the affected servers",
+        "Create 45 separate tickets and assign them to staff at random",
+        "Remove those servers from the scope of the next quarterly scan",
+        "Accept all of the 45 findings, as there are too many of them to fix"
+      ],
+      "correctIndex": 0,
+      "explanation": "Repairing the standard image fixes the cause, so the problem does not return on every new server. Separate tickets are tempting because they feel organized, but they treat only the symptoms."
+    },
+    {
+      "prompt": "A system owner reports that a patch for a High severity finding was applied last night. What should happen before the finding is marked as closed?",
+      "options": [
+        "The owner should sign a statement saying that the patch was applied",
+        "The finding should be moved to the risk register as an accepted risk",
+        "The fix should be verified by retesting the system",
+        "The patch vendor should be asked to confirm that the patch is reliable"
+      ],
+      "correctIndex": 2,
+      "explanation": "Retesting proves that the problem is really gone. A signed statement is tempting because it creates a record, but it is only someone's word that the fix worked."
+    },
+    {
+      "prompt": "A severe flaw is being actively attacked on the internet. An administrator wants to patch a production server immediately, without recording the change. What should the security manager advise?",
+      "options": [
+        "Delay the patch until the next monthly change meeting",
+        "Patch now and leave out all approval and all records, given the urgency",
+        "Do nothing, because a patch could possibly cause a production outage",
+        "Use the emergency change process, then patch quickly"
+      ],
+      "correctIndex": 3,
+      "explanation": "An emergency change process allows fast action with approval and records. Patching without records is tempting because of the urgency, but an unrecorded change can cause outages that nobody can trace."
+    },
+    {
+      "prompt": "A required control cannot be applied to a legacy finance system this year. The security team has written up the risk and proposed compensating controls. Who should approve the exception?",
+      "options": [
+        "The technician who administers the legacy finance system",
+        "The company's external auditor",
+        "The risk owner, who is the accountable business manager",
+        "The vendor that sold the legacy finance system"
+      ],
+      "correctIndex": 2,
+      "explanation": "The manager accountable for the risk has the authority to accept it. The external auditor is tempting because of its independence, but auditors report and advise, and they do not accept risk for a business."
+    },
+    {
+      "prompt": "A formal exception for an unpatched server has reached its expiry date. The server is still unpatched. What should happen NEXT?",
+      "options": [
+        "Fix the issue or formally review the exception with the risk owner",
+        "Let the exception continue automatically, because nothing bad has happened",
+        "Delete the exception from the register so that it no longer shows as expired",
+        "Turn off the server's compensating controls, as the exception period has ended"
+      ],
+      "correctIndex": 0,
+      "explanation": "When an exception expires, the issue must be fixed or the risk formally reconsidered. Letting it continue is tempting because nothing has gone wrong, but it leaves an unreviewed risk."
+    },
+    {
+      "prompt": "A researcher privately reported a serious flaw to a vendor. After several polite attempts over many weeks, the vendor has not replied. What is the BEST next step?",
+      "options": [
+        "Publish working attack code at once so that the vendor is forced to act",
+        "Abandon the matter, as the vendor has shown that it does not care",
+        "Sell the details to a buyer who promises to use them only for defense",
+        "Seek help from a neutral coordinator, such as a national response team"
+      ],
+      "correctIndex": 3,
+      "explanation": "A neutral coordinator can apply pressure and help protect users without arming attackers. Publishing attack code is tempting out of frustration, but it endangers the users you are trying to protect."
+    },
+    {
+      "prompt": "A security professional's client asks them to keep quiet about a flaw in a product used in hospitals, because disclosing it would embarrass the client. Lives could be at risk. Under the ISC2 Code of Ethics, what should guide the decision MOST?",
+      "options": [
+        "The duty of service to the client, who is paying for the work",
+        "The duty to advance and protect the profession's reputation",
+        "The duty to protect society and the common good",
+        "The duty to avoid any kind of disagreement in the workplace"
+      ],
+      "correctIndex": 2,
+      "explanation": "The first canon is to protect society, and the canons are in order of priority. Service to the client is tempting, and it is a real duty, but it is the third canon and does not outrank public safety."
+    },
+    {
+      "prompt": "A security manager needs to brief the board on the results of a penetration test, meaning an approved attempt to break in. What should the briefing contain?",
+      "options": [
+        "A short summary of business risk, cost and the decisions needed",
+        "The tester's commands and the full technical appendix",
+        "Every finding from the test in the order in which it was found",
+        "A list of all of the tools the testing firm used during the work"
+      ],
+      "correctIndex": 0,
+      "explanation": "Boards need business risk and the decisions they must make. The technical appendix is tempting because it is complete, but that level of detail is for the technical teams."
+    },
+    {
+      "prompt": "A completed penetration test report shows exactly how testers reached the company's customer database. A manager wants to send it to all staff to raise awareness. What should the security manager recommend?",
+      "options": [
+        "Send it to all staff, because more readers will mean more ideas for repairs",
+        "Restrict the report and give staff a general lesson without technical detail",
+        "Post it on the company's public website in the interest of full transparency",
+        "Destroy the report at once so that nobody is able to misuse the information"
+      ],
+      "correctIndex": 1,
+      "explanation": "The report can guide an attacker, so it must be restricted, while staff can still learn the general lesson. Sending it out is tempting because awareness matters, but it spreads a map of the weakness."
+    }
+  ]
+}

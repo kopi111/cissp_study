@@ -1,0 +1,141 @@
+{
+  "id": "T35",
+  "studyNotes": [
+    {
+      "heading": "Physical segmentation",
+      "body": "In this first part, we are going to look at why networks are split into zones, and then at the physical way of doing it.\n\nA ship is built with separate compartments, so that one leak does not sink it. A network follows the same thinking. Segmentation means dividing a network into zones, so an intruder who gets into one zone cannot simply reach everything. It also keeps failures contained and helps performance.\n\nPhysical segmentation uses separate equipment. Different cables and different switches carry different traffic. The outline names three ideas here, so let us take each in turn.\n\nIn-band management means that the people managing a device reach it through the same network that carries ordinary traffic. It is cheap and simple. Its weakness is plain. If that network fails, or is under attack, then you lose your way in just when you need it most.\n\nOut-of-band management means there is a separate path, used only for management. It may be a dedicated network or a console connection. Think of a building with a separate service staircase. Even if the main staircase is blocked, the maintenance team can still get to every floor. Out-of-band management also keeps administrator traffic away from ordinary users.\n\nAn air gap means no network connection at all between two systems. Think of a filing cabinet in a locked room with no telephone. Nothing reaches it except by someone walking in. Air-gapped systems are used for things like weapons systems, some industrial controls and highly classified data.\n\nAn air gap is strong, but it is not perfect. Data still has to move in and out, often on removable media such as a USB drive. USB stands for Universal Serial Bus. If a contractor brings an infected drive across the gap, then the gap has been crossed. So an air gap needs strict controls on media, and people need to follow them.\n\nHere is a workplace example. A power company keeps its plant control systems physically separate from office computers. When a virus spreads through the office, the plant keeps running. The cost of duplicate equipment was justified by the harm of an outage, including harm to the public.\n\nHere is what to take away. Segmentation limits damage, in-band shares the road, out-of-band has its own road, and an air gap has no road at all."
+    },
+    {
+      "heading": "Logical segmentation",
+      "body": "Now we will look at logical segmentation, where equipment is shared and software keeps the traffic apart.\n\nImagine one large office where the desks are colour-coded, and people may only talk to those with the same colour. The room is the same. The separation is created by rules. Logical segmentation works just like this, and it is cheaper and more flexible than buying separate hardware.\n\nThe outline names four kinds.\n\nA VLAN is a Virtual Local Area Network. It separates traffic inside switches, using a tag defined in the standard 802.1Q. The tag carries a number that says which VLAN a frame belongs to. Devices in different VLANs cannot talk unless a router or Layer 3 device passes traffic between them.\n\nVLANs have a known weakness called VLAN hopping. In switch spoofing, a computer pretends to be a switch so that it can see all the VLANs. In double tagging, an attacker adds two tags to a frame, and the second one carries it into another VLAN. To defend, turn off automatic trunking, change the native VLAN to an unused one, and do not trust a VLAN alone for strong separation. A trunk is a link that carries several VLANs at once.\n\nA VPN is a Virtual Private Network. It creates an encrypted path across a shared network, such as the internet.\n\nVRF is Virtual Routing and Forwarding. It keeps separate routing tables inside one router, so that traffic in one table cannot see another. Two customers can even use the same internal addresses without conflict.\n\nA virtual domain divides one physical firewall into several separate virtual firewalls, each with its own rules and administrators.\n\nHere is a workplace example. A hospital uses VLANs to separate medical devices from guest Wi-Fi, and places a firewall between the VLANs. The VLAN keeps the traffic apart, and the firewall decides what may cross. A manager should know that both are needed.\n\nOne caution remains. Logical separation depends on correct configuration. A single wrong change can join two zones without anyone noticing. So configuration needs change control and regular review.\n\nThe takeaway is this. VLANs separate traffic inside switches, VRF separates routing, a virtual domain separates a firewall, and all of them depend on careful configuration."
+    },
+    {
+      "heading": "Microsegmentation and overlays",
+      "body": "Next we will see how segmentation can go right down to a single workload, and what makes that possible.\n\nOrdinary segmentation is like having separate floors in a building. Microsegmentation is like putting a lock on every room, and checking your pass at every door. Even if you get onto the floor, you cannot go into each room.\n\nIn technical terms, microsegmentation sets security rules around each workload. A workload is a server, a virtual machine or a container. It uses distributed firewalls, distributed routers and distributed IDS or IPS. IDS is an intrusion detection system, which raises an alert, and IPS is an intrusion prevention system, which can block. The word distributed means that enforcement runs close to each workload, rather than in one central box.\n\nIt supports zero trust, an approach in which nothing is trusted just because of where it sits on the network. Each request has to be checked every time.\n\nHow can a rule follow a workload that moves around a data centre? This is where overlay networks come in. An overlay is a virtual network running on top of a physical one by using encapsulation. Encapsulation means wrapping one piece of traffic inside another. The physical network, called the underlay, only sees the outer wrapper.\n\nThe main example is VXLAN, or Virtual Extensible LAN, where LAN means Local Area Network. It wraps Layer 2 frames inside UDP packets, normally on port 4789. UDP is the User Datagram Protocol.\n\nHere is a worked example of why this matters. A VLAN, or Virtual Local Area Network, has an ID of 12 bits. Two to the power of 12 is 4,096 values, and two of these are reserved, leaving 4,094 usable. A VXLAN has an ID of 24 bits. Two to the power of 24 is 16,777,216, or about 16 million segments. A large cloud provider with many customers needs that second number.\n\nThere is one caution. Overlays carry traffic inside wrappers, so a monitoring tool on the underlay may not see inside. Monitoring must understand the overlay.\n\nHere is a workplace example. A bank writes rules allowing its web servers to reach only one application server. If a web server is compromised, the intruder cannot reach the rest of the data centre.\n\nHere is your takeaway. Microsegmentation puts a lock on every room, overlays make that portable, and zero trust is the mindset behind it."
+    },
+    {
+      "heading": "Planes, software-defined networks and cloud",
+      "body": "Now we will look at how modern networks are run by software, starting with three words you must know.\n\nEvery network device does three kinds of work, called planes.\n\n- Data plane: moves the traffic. It is also called the forwarding plane.\n- Control plane: decides where traffic should go.\n- Management plane: where staff configure and monitor.\n\nThink of an airport. The planes on the runway and in the air are the data plane. The control tower directing them is the control plane. The airport office that sets the schedules and rosters is the management plane.\n\nSDN, which is Software-Defined Networking, separates the control plane from the data plane. A central controller makes decisions, and the switches simply follow them. The controller is reached through APIs, or Application Programming Interfaces, which are agreed ways for software to talk to software. Applications use northbound APIs to talk to the controller. The controller uses southbound APIs to talk to switches.\n\nSDN brings speed and consistency, because one change can reach hundreds of devices. That is also the danger. A compromised controller can change everything. So protect it with strong access control, a separate management network, and logging.\n\nNFV, which is Network Functions Virtualization, runs firewalls, routers and similar functions as software on ordinary servers rather than as dedicated boxes.\n\nSD-WAN, or Software-Defined Wide Area Network, steers branch office traffic across several links according to policy. A voice call might take the best quality link, while a backup job uses the cheapest one.\n\nA VPC, or Virtual Private Cloud, is your own logically isolated network inside a public cloud. You choose the address ranges, subnets and routes. Security groups act as firewall rules around resources. Remember shared responsibility. The cloud provider secures the underlying platform, while you secure your configuration. A storage service left open to the world is the customer's error.\n\nHere is a workplace example. A retailer opens fifty new shops and uses SD-WAN to apply one security policy to all of them from a central console. Before going live, the security manager insists that administrator access to that console requires multi-factor authentication, which means more than one kind of proof.\n\nYour takeaway is this. Data moves, control decides, and management configures. SDN centralizes the control, so protect the controller."
+    },
+    {
+      "heading": "Traffic flows, edge networks and content delivery",
+      "body": "In this part, we will look at the directions in which traffic travels, and what happens at the edge of the network.\n\nNorth-south traffic enters or leaves the data centre. East-west traffic moves between systems inside it. Picture a hotel. Guests coming through the front door are north-south. Staff walking between rooms along the corridors are east-west.\n\nThis matters because a perimeter firewall stands at the front door. It sees north-south traffic, but it often misses east-west traffic altogether. Modern applications have grown much more east-west traffic, and intruders who get in use it to move sideways. That sideways movement is known as lateral movement. It is one of the main reasons for internal segmentation.\n\nNext, the edge network. This is where your network meets the outside world. Three outline words apply.\n\nIngress means traffic coming in. Egress means traffic going out. Filtering both directions is good practice. Ingress filtering drops incoming packets that claim to come from your own internal addresses, because they must be forged. Egress filtering stops your own systems from sending out packets with forged source addresses, and it can also catch data theft and malware calling home.\n\nPeering means two networks exchange traffic directly with each other, often at an internet exchange point, instead of paying a third network to carry it. It reduces cost and delay. Internet routing between networks uses BGP, the Border Gateway Protocol. BGP trusts what its neighbours say, so a mistake or a false announcement can redirect traffic. Route filtering and checking of route origin reduce this risk.\n\nA CDN, or Content Distribution Network, keeps copies of content close to users. Think of a supermarket chain stocking the most popular goods in every town, rather than making everyone drive to the central warehouse. It speeds up delivery. It also absorbs a lot of attack traffic, because the load is spread over many locations.\n\nThere is a trade-off. If the CDN terminates your encrypted connections, it can see your content. It therefore becomes a third party that you must assess under contract.\n\nHere is a workplace example. A media company's site survives a sudden spike in visitors on election night, because a CDN serves the pages from many cities.\n\nHere is what to take away. North-south is the front door, east-west is the corridors, and always filter in both directions at the edge."
+    },
+    {
+      "heading": "Topology, switching, performance and monitoring",
+      "body": "In this final part, we will cover how networks are laid out, how we measure their health, and how we keep watching them.\n\nA topology is the layout of a network. In a star, everything connects to one central device, which is simple but makes a single point of failure. In a ring, each device connects to two neighbours. In a bus, all share a single line. In a mesh, devices have many connections to each other.\n\nHere is a worked example. A full mesh of 5 sites needs 5 times 4, divided by 2 links, which is 10 links. Full meshes are strong but expensive, and the number of links grows quickly.\n\nSwitches forward frames in two ways. A cut-through switch forwards after reading the destination, so it is fast but can pass on errors. A store-and-forward switch receives the whole frame and checks it first, so it is slower but cleaner.\n\nNow the performance measures.\n\n- Bandwidth: the most that a link can carry.\n- Throughput: what it really carries.\n- Latency: delay.\n- Jitter: variation in delay.\n- Signal-to-noise ratio: signal strength compared with background noise.\n\nThink of a motorway. Bandwidth is the number of lanes, throughput is the number of cars that really get through, latency is how long the journey takes, and jitter is when the same journey takes ten minutes one day and forty the next.\n\nHere is a worked example. A 1,000 megabit link delivers 700 megabits in testing. Throughput is 700 divided by 1,000, which is 70 percent of bandwidth. Jitter is what ruins voice and video, even when latency looks fine on average.\n\nLastly, monitoring and management. Network observability means being able to understand what the network is doing from its logs, metrics and flow records. Traffic flow analysis shows who talks to whom. Traffic shaping controls the pace of traffic, so that important services get priority. Capacity management plans for growth before links fill up. Fault detection and handling finds failures and restores service, often automatically.\n\nHere is a workplace example. Flow records show one server sending large amounts of data to another country at night. Without observability, nobody would have noticed.\n\nYour takeaway is this. Bandwidth is capacity, throughput is delivery, jitter is uneven delay, and you cannot protect what you cannot see."
+    }
+  ],
+  "practiceQuestions": [
+    {
+      "prompt": "A network outage prevented administrators from reaching routers during an attack, because management traffic used the same network that was under attack. Which change BEST addresses this?",
+      "options": [
+        "Move all management traffic onto a different in-band VLAN",
+        "Build out-of-band management on a separate network path",
+        "Lengthen the session timeout on each of the router consoles",
+        "Add more processor power to the existing routers"
+      ],
+      "correctIndex": 1,
+      "explanation": "Out-of-band management gives a separate path that remains available when the main network does not. A different VLAN is tempting, but it is still carried on the same network that failed."
+    },
+    {
+      "prompt": "A utility keeps a safety system on an air-gapped network. Engineers want to bring vendor updates in by USB drive. What is the BEST way for the manager to handle this?",
+      "options": [
+        "Connect the system to the internet for a short while each month instead",
+        "Permit any drive, because an air gap means that no malware can ever reach the system",
+        "Use a controlled media process that scans and logs every drive before use",
+        "Ban all updates permanently so that nothing can ever cross the air gap"
+      ],
+      "correctIndex": 2,
+      "explanation": "Removable media can carry malware across the gap, so a controlled process manages that path while allowing necessary updates. A permanent ban is tempting, but unpatched safety systems carry risks of their own."
+    },
+    {
+      "prompt": "A penetration tester sends a frame with two 802.1Q tags and reaches a VLAN that should be out of bounds. Which action MOST directly addresses this weakness?",
+      "options": [
+        "Set the native VLAN on trunks to an unused VLAN",
+        "Encrypt the web traffic of the affected servers",
+        "Increase the bandwidth available on the trunk links",
+        "Replace the core routers with an alternate brand"
+      ],
+      "correctIndex": 0,
+      "explanation": "Double tagging relies on the native VLAN of a trunk, so moving it to an unused VLAN removes the path. Encrypting web traffic is tempting, but it does not stop a frame from reaching the wrong VLAN."
+    },
+    {
+      "prompt": "A service provider must host two customers who both use the same internal address range on one physical router, with their routing kept separate. Which technology is the BEST fit?",
+      "options": [
+        "Network Address Translation at the provider's internet edge",
+        "Split-tunnel VPN access for each of the customers",
+        "A content distribution network",
+        "Virtual Routing and Forwarding"
+      ],
+      "correctIndex": 3,
+      "explanation": "Virtual Routing and Forwarding keeps separate routing tables inside one router, so overlapping addresses do not clash. Network Address Translation is tempting, but it changes addresses at a boundary and does not separate routing inside a router."
+    },
+    {
+      "prompt": "An architect explains that a cloud design needs far more than 4,094 separate customer networks. Which technology BEST supports this requirement?",
+      "options": [
+        "Standard 802.1Q VLAN tags",
+        "VXLAN with its 24-bit identifier",
+        "Bus topology with extended cables",
+        "A cut-through switching configuration"
+      ],
+      "correctIndex": 1,
+      "explanation": "A 24-bit identifier gives about 16 million segments. Standard VLAN tags are tempting because they do separate traffic, but their 12-bit identifier gives only 4,094 usable values."
+    },
+    {
+      "prompt": "An organization is adopting software-defined networking. Which security concern should the manager treat as the MOST important in the new design?",
+      "options": [
+        "Protecting the central controller from unauthorized access",
+        "Replacing every copper cable in the building with fiber",
+        "Keeping the existing VLAN numbers unchanged after the move",
+        "Buying the new switches from more than one vendor"
+      ],
+      "correctIndex": 0,
+      "explanation": "One compromised controller can change the behaviour of the whole network. Replacing cabling is tempting as a general upgrade, but it does nothing about this new central point of control."
+    },
+    {
+      "prompt": "A company runs its web servers in a Virtual Private Cloud. An audit finds a storage area open to the public because of a setting chosen by the company's staff. Who is MOST responsible for this error?",
+      "options": [
+        "The cloud provider, which runs the underlying platform",
+        "The company's external auditor, who discovered the error",
+        "The company, which is responsible for its own configuration",
+        "The internet service provider that carried the traffic"
+      ],
+      "correctIndex": 2,
+      "explanation": "Under shared responsibility, the customer secures its configuration. The cloud provider is tempting because it runs the platform, but it did not choose this setting."
+    },
+    {
+      "prompt": "An edge firewall receives packets from the internet that claim to have a source address inside the company's own private range. What should happen to these packets?",
+      "options": [
+        "Forward them, because internal addresses are trusted",
+        "Drop them through ingress filtering, because they must be forged",
+        "Log them and then forward them to the internal network",
+        "Translate their addresses and pass them on for further review"
+      ],
+      "correctIndex": 1,
+      "explanation": "A packet from outside cannot truly have an internal source address, so ingress filtering drops it. Logging and forwarding is tempting, but it still lets forged traffic through."
+    },
+    {
+      "prompt": "A file server link rated at 1,000 megabits per second is measured delivering only 450 megabits per second during busy periods. Which measure does the 450 figure represent?",
+      "options": [
+        "Bandwidth",
+        "Latency",
+        "Jitter",
+        "Throughput"
+      ],
+      "correctIndex": 3,
+      "explanation": "Throughput is what the link really delivers. Bandwidth is tempting, but that is the rated 1,000 megabit capacity."
+    },
+    {
+      "prompt": "A switch vendor offers two forwarding modes. The buyer needs corrupted frames to be stopped at the switch and accepts a small delay. Which mode is the BEST choice?",
+      "options": [
+        "Cut-through forwarding, which sends frames after reading the destination",
+        "Hub mode, which repeats frames out of every other port",
+        "Store-and-forward switching",
+        "Broadcast forwarding, sending each frame to all devices"
+      ],
+      "correctIndex": 2,
+      "explanation": "Store-and-forward receives the whole frame and checks it before forwarding. Cut-through is tempting because it is faster, but it can pass on corrupted frames."
+    }
+  ]
+}

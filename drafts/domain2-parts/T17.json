@@ -1,0 +1,141 @@
+{
+  "id": "T17",
+  "studyNotes": [
+    {
+      "heading": "Retention and legal holds",
+      "body": "In this first part, we are going to look at how long information should be kept, and what can interrupt the normal timetable.\n\nRetention means keeping data for a set period. A retention policy lists each type of data and how long to keep it, based on laws, contracts and business need.\n\nThink about the papers in your own home. You keep tax papers for a certain number of years, because you may be asked for them. You keep your birth certificate for life. You throw away last month's flyers. Each kind of paper has its own sensible period.\n\nKeeping data forever feels safe, but it is not. It costs money. It gives thieves more to steal. And it gives the other side in a court case more to ask for. Old data that has no remaining use is all risk and no value. Under many privacy laws, personal data must not be kept longer than it is needed.\n\nThere are two ways to get this wrong. Destroying data too early can break the law. Keeping data too long can also break the law. So a retention schedule needs input from legal advisers and from the data owners.\n\nHere is a worked example. Suppose a tax law requires invoices to be kept for seven years. An invoice from March 2020 must be kept until March 2027. After that date, with no other reason to keep it, it should be securely destroyed.\n\nNow for the interruption. A legal hold is an order to keep certain data because of a court case or investigation. It overrides normal deletion until it is lifted. Suppose that the same invoice is part of a dispute, and a lawsuit begins in February 2027. Automatic deletion must be suspended for the relevant data, and the invoice stays even when March 2027 arrives. Deleting evidence after a duty to preserve it has arisen can bring serious penalties.\n\nRemember that retention applies to every copy, including backups and archives. Backups usually hold data for far less time than archives do, and they should not be treated as a substitute for an archive.\n\nHere is what to take away. Keep data as long as law, contract and business require, and no longer, and let a legal hold override the schedule."
+    },
+    {
+      "heading": "End of life and end of support",
+      "body": "Next we will look at what happens when products grow old, because the exam expects you to know the difference between two dates.\n\nEnd of life, or EOL, is when the maker stops making or selling the product. Help may continue for a while. End of support, or EOS, is when the maker stops giving updates and help. No more security fixes will come.\n\nThink about a car model. One year, the factory stops building it. That is like end of life. You can still drive it, and the garage still gets parts. Some years later the parts run out and nobody can repair it. That is like end of support.\n\nEOS is the more dangerous date. After it, a newly found flaw stays unfixed forever. Attackers know this and they look for such systems. Exact dates and even the meaning of the words differ by maker, so read the notice. Some makers also say end of service life.\n\nHere is a worked example. A maker announces end of life for a network switch in June 2027 and end of support in June 2029. A switch is a device that connects computers on a network. The company needs 12 months to plan, buy and install replacements. So it must begin by June 2028 at the very latest, and it should really start sooner and budget for it now. Replacing it all on the day of the notice would be needless panic. Ignoring the notice would be worse.\n\nIf an old system must stay after EOS, management should accept the risk formally. Add compensating controls, which are extra protections that reduce the risk, such as separating the system from the network, restricting who can reach it and watching it closely. Treat this as a temporary state with a replacement plan.\n\nAsset retention also means thinking ahead. Keep equipment or software that you need to read old records. A record held for ten years is useless if the only program that opens it has gone.\n\nThink like a manager. Your inventory should show these dates, so that replacement is planned and budgeted, not a surprise.\n\nHere is your takeaway. End of life stops the sales, end of support stops the fixes, so plan to replace before end of support."
+    },
+    {
+      "heading": "Data remanence",
+      "body": "In this part we will look at why removing data is so much harder than it sounds.\n\nData remanence is data left behind after an attempt to remove it. To remain is to stay, and remanence is what stays.\n\nDeleting and normal formatting usually remove only the pointers to the data. Think of a library drawer full of index cards. If you tear out the card for a book, the book is still on the shelf. Anybody who walks along the shelf can find it. A computer's delete command is much the same. It marks the space as free, and the data sits there until something writes over it.\n\nDifferent kinds of storage leave data behind in different ways.\n\nA hard disk drive, or HDD, stores data magnetically on spinning platters. A deleted file stays there until it is overwritten. Also, a file may not fill all of the space given to it, and bits of older data can stay in the leftover area, which is called slack space.\n\nA solid-state drive, or SSD, stores data on chips, and it is a special problem. It moves data around to spread wear across its chips. This is called wear leveling. It also keeps spare areas that the computer cannot normally reach. So when you overwrite a file, the drive may write to a different place, and the old copy can stay where it was. Overwriting can therefore miss some copies.\n\nRandom access memory, or RAM, is a computer's short-term memory. It can hold data for a short time after power is lost. An attacker with physical access may try to read it in that short period, and this is known as a cold boot attack.\n\nData also hides in places that people forget. Office printers and copiers often have internal drives that hold images of what was scanned. Phones, network devices and old backup tapes hold data as well.\n\nHere is a workplace example. A company returns a leased copier without thinking about it. The internal drive still holds images of contracts and staff records. Nobody broke in. The data simply left the building inside the machine.\n\nHere is what to take away. Deleting is not removing, SSDs make overwriting unreliable, and any device that stores data must be sanitized before it leaves."
+    },
+    {
+      "heading": "Clear, purge and destroy",
+      "body": "Now we come to the three levels of sanitization, and the exam expects you to be exact about what each one means.\n\nSanitization is the general word for removing data from media, which is anything that stores data, so that it cannot reasonably be recovered. The National Institute of Standards and Technology, or NIST, a United States standards body, uses three levels, in this order from weakest to strongest.\n\n- Clear: protects against recovery with normal software tools, usually by overwriting.\n- Purge: makes recovery infeasible even with laboratory tools.\n- Destroy: makes recovery infeasible and also leaves the media unusable.\n\nBelow all of these sits ordinary erasing, which is a normal delete. It is not sanitization at all.\n\nThink about a whiteboard. Wiping it with a dry cloth is like erasing. You can still make out the words. Cleaning it properly so nobody in the room can read it is like clearing. Treating it so that no expert could ever bring the words back is like purging. Breaking it up and burning it is like destroying.\n\nClearing suits reuse inside the organization, at the same level of sensitivity. On a modern magnetic hard disk, one overwriting pass is generally treated as enough. The old advice to overwrite many times comes from much older drives.\n\nPurging suits media that will leave your control or be reused for less sensitive work. Examples are the drive's own secure-erase command, degaussing of magnetic media, and crypto-erase. Note that a purge can leave the device working, as a secure-erase command does, or it can ruin it, as degaussing does to a hard drive. What defines a purge is that laboratory recovery is not feasible.\n\nDestroying means physically ruining the media by shredding, disintegrating, melting or burning. It is the surest method. Choose it for the most sensitive data, and for media that cannot be purged, or when the media is cheap compared with the harm of a leak.\n\nYou may also see the word declassification used about media. It means preparing media so that it can be reused at a lower level. If there is any doubt, many organizations refuse to do this.\n\nHere is your takeaway. Erase is not enough. Clear beats software tools, purge beats the laboratory, and destroy leaves nothing to reuse."
+    },
+    {
+      "heading": "Degaussing and crypto-erase: the limits",
+      "body": "In this part we will look closely at two purge methods, because the exam tests when each one does not work.\n\nDegaussing uses a very strong magnetic field to scramble magnetically stored data. It works only on magnetic media, such as hard disk drives and tapes. It does not work on SSDs, which are solid-state drives that store data as electrical charge on chips. It does not work on optical discs, such as CDs and DVDs, which store data as marks read by a laser. A stronger magnet does not change this.\n\nA simple way to hold on to it is that magnets only beat magnets.\n\nDegaussing has other limits as well. The machine must be strong enough for the type of media, because modern drives resist magnetic fields more strongly than old ones. It usually ruins a hard drive, because the drive's own control information is wiped too. And a hybrid drive, which has both magnetic platters and a memory chip, keeps whatever is on its chip.\n\nCrypto-erase, or cryptographic erasure, means destroying the keys for data that was encrypted. Encrypted data has been scrambled, so that only a key holder can read it. Think of a safe that can never be cracked. If every key is thrown into the sea, the contents are gone for all practical purposes, even though the safe is still there.\n\nCrypto-erase is fast, and it works on SSDs. It is very useful in the cloud, which means computers run by another company, because you cannot touch the disks. Many drives, called self-encrypting drives, do this with one command.\n\nBut it only works under certain conditions.\n\n- The encryption must be strong.\n- It must have been on from the start.\n- Every copy of the key must be gone.\n\nIf a laptop ran for a year without encryption, and encryption was turned on later, old data may still sit unencrypted in places such as spare areas. If a copy of the key sits in a recovery safe, or in a backup, then the data can still be read, so that copy must be destroyed and recorded too.\n\nHere is what to take away. Degaussing is for magnetic media only. Crypto-erase needs strong encryption from the start and the end of every copy of the key."
+    },
+    {
+      "heading": "Worked examples: choosing a method",
+      "body": "In this final part we will practice choosing a method, and we will see what must happen after the data has gone.\n\nAsk three questions. How sensitive is the data? Will the media leave our control? And what type of media is it? The type matters because it rules some methods out.\n\nLet us work through some cases.\n\nA hard disk drive is being reused in the same department, for data at the same class. Clear it. There is no need to spend more, because the media stays under your control.\n\nA hard drive is being sold to the public, and it must still work afterwards. Purge it, for example by a secure-erase command, then verify. Degaussing would not suit this case, because the buyer would receive a dead drive.\n\nOld laptops with SSDs are being donated. Use the maker's secure-erase or crypto-erase, if the conditions for it are met. Do not degauss.\n\nA box of old DVDs holds confidential files. Shred them, in a machine built for optical discs. Degaussing does nothing to them.\n\nA drive held the most secret data, and it will not be reused. Destroy it. A drive costs very little compared with the harm of a leak.\n\nData sits on a cloud provider's disks. Crypto-erase it, because you have no physical access.\n\nPaper needs a method too. A cross-cut shredder cuts in two directions, which makes rebuilding a page much harder than with long strips. Pulping and burning are also used for the most sensitive paper.\n\nThere are always two steps after the sanitization. First, verify the result, because a tool may fail silently. Second, keep a record, such as a certificate of destruction, which is a signed statement of what was destroyed, when and how.\n\nIf a contractor does the work, the responsibility to get it right is still yours. Use an approved company, keep a chain of custody, which is a signed record of who held the media at each handover, and get the certificate. You may also want to watch it happen.\n\nThink like a manager. Choose the method by the sensitivity and the destination, not by habit, and follow your written policy.\n\nHere is your takeaway. Match the method to the sensitivity, the destination and the type of media. Then verify and record."
+    }
+  ],
+  "practiceQuestions": [
+    {
+      "prompt": "A company's policy deletes email after three years. Its lawyers report that a lawsuit has begun, and some of the affected email is nearly three years old. What should happen FIRST?",
+      "options": [
+        "Suspend deletion of the relevant email by placing it under a legal hold from the lawyers",
+        "Let the deletion run as scheduled, because the written policy has to be followed in every case",
+        "Delete the relevant email sooner, so that the company has less to hand over to the other side",
+        "Move the relevant email to a personal drive belonging to one of the company's senior lawyers"
+      ],
+      "correctIndex": 0,
+      "explanation": "A legal hold overrides normal deletion until it is lifted. Following the schedule is tempting, since policy usually wins on this exam, but the policy itself gives way to a duty to preserve evidence. Early deletion could bring serious penalties."
+    },
+    {
+      "prompt": "A company has kept every record since it was founded, just in case. A recent breach exposed customer files that were 15 years old and had no remaining use. What is the BEST long-term fix?",
+      "options": [
+        "Buy more storage, so that the old records can be spread over a larger number of encrypted disks",
+        "Keep the old records, but move all of them to a folder that most staff do not know exists",
+        "Delete everything older than one year at once, without asking what the law or contracts require",
+        "Adopt a retention schedule based on law, contracts and real business need for each record type"
+      ],
+      "correctIndex": 3,
+      "explanation": "A retention schedule keeps each type of data for as long as required and no longer. Deleting everything old is tempting because it removes risk quickly, but it could break laws and contracts that require certain records to be kept."
+    },
+    {
+      "prompt": "Hard disk drives from an accountant's computer will be reused by another accountant in the same department, at the same class. The drives never leave the company's control. Which option BEST fits?",
+      "options": [
+        "Destroy the drives in an approved shredder and buy new ones",
+        "Clear the drives with an approved overwriting software tool",
+        "Degauss the drives and put them straight back into service",
+        "Delete the accountant's files and empty the recycle bin"
+      ],
+      "correctIndex": 1,
+      "explanation": "Clearing suits reuse inside the organization at the same class. Destruction is tempting because it is the surest method, but it wastes usable drives when the risk is low. Degaussing usually ruins a hard drive, and deleting is not sanitization."
+    },
+    {
+      "prompt": "A company is selling used hard disk drives that held internal business records. The buyers are members of the public, and the drives must still work after the sale. Which approach is BEST?",
+      "options": [
+        "Reformat each drive with the normal operating system tool and then check that it appears empty",
+        "Degauss each drive with a rated machine and then test that it can still be read by a computer",
+        "Purge each drive using its own secure-erase command, then verify that the data has gone",
+        "Delete all visible folders, then fill the drive with harmless files and delete those files as well"
+      ],
+      "correctIndex": 2,
+      "explanation": "Media leaving the organization's control should be purged, and a secure-erase command leaves the drive usable. Degaussing is tempting because it is a true purge method for hard drives, but it usually ruins them, so the buyer would get a dead drive."
+    },
+    {
+      "prompt": "A records office has boxes of old recordable DVDs, which are optical discs, holding confidential case files. A technician offers to run them through the office's degausser. What is the BEST advice?",
+      "options": [
+        "Use the degausser, but run each box through it twice so that the field reaches the inner discs",
+        "Erase each disc using the computer's normal delete function and then reuse them as blank discs",
+        "Store the discs in a locked room for ten years, after which the data will have faded away",
+        "Do not use the degausser at all, and physically shred the discs in a suitable machine"
+      ],
+      "correctIndex": 3,
+      "explanation": "Optical discs do not store data magnetically, so degaussing has no effect, and shredding is the right method. Repeating the degauss is tempting because it sounds thorough, but no amount of magnetism changes marks read by a laser."
+    },
+    {
+      "prompt": "A laptop's drive was used without encryption for a year. Full-disk encryption was then turned on, and the laptop will now be given to an outside charity. A technician proposes crypto-erase by destroying the key. What is the BEST advice?",
+      "options": [
+        "It may not be enough, because data written before encryption began may remain unencrypted",
+        "It is sufficient, because destroying a key always removes every trace of data from a drive",
+        "It is sufficient, provided that the technician also empties the recycle bin before giving it away",
+        "It is not needed, because the encryption that was turned on has already erased all earlier data"
+      ],
+      "correctIndex": 0,
+      "explanation": "Crypto-erase depends on encryption having been in place from the start, because data written earlier may remain unencrypted, for example in spare areas of the drive. The second option is tempting, but destroying a key only affects data that the key protects."
+    },
+    {
+      "prompt": "A company performs crypto-erase on a cloud database by deleting its encryption key from its key management system. Later, a review finds a copy of that key in a recovery safe. What is the MOST important next step?",
+      "options": [
+        "Do nothing, because the copy of the key in the recovery safe is protected by a physical lock",
+        "Ask the cloud provider to degauss the disks that hold the company's encrypted database",
+        "Destroy that remaining copy of the key as well, and record that it has been destroyed",
+        "Move the copy of the key to a different safe in another building that has better locks"
+      ],
+      "correctIndex": 2,
+      "explanation": "Crypto-erase is complete only when every copy of the key has gone, and the record proves it. Moving the key to a better safe is tempting because it adds protection, but the data can still be read for as long as a copy exists."
+    },
+    {
+      "prompt": "A maker announces that a network switch has reached end of life and will no longer be sold. Security fixes will continue for three more years. What is the BEST response?",
+      "options": [
+        "Replace every switch this week, because the product became unsafe on the day of the notice",
+        "Take no action at all, because the maker will surely extend the support date when the time comes",
+        "Buy several spare switches and plan to keep using them for as long as they continue to work",
+        "Plan and budget for replacing the switches well before the end of support date arrives"
+      ],
+      "correctIndex": 3,
+      "explanation": "End of life stops sales, while end of support stops the fixes, so the replacement should be planned ahead of the later date. Replacing them this week is tempting because it feels safe, but the switches are still supported and the cost is not justified."
+    },
+    {
+      "prompt": "A company's lease on a multi-function printer is ending, and the leasing firm will collect it next week. The printer scans contracts and holds images of them on an internal drive. What should be done before collection?",
+      "options": [
+        "Clear the print queue shown on the screen and print a test page to confirm that it still works",
+        "Sanitize the internal drive using an approved method, and record that it was done",
+        "Ask the leasing firm to confirm by telephone that it never looks at returned equipment",
+        "Unplug the printer for a full day so that any stored information is lost from its memory"
+      ],
+      "correctIndex": 1,
+      "explanation": "The internal drive holds data remanence and is about to leave the company's control, so it must be sanitized, and that must be recorded. Unplugging is tempting because short-term memory does fade, but an internal drive keeps its data without power."
+    },
+    {
+      "prompt": "Hard drives held a company's most valuable trade secrets. They are old, they will not be reused, and they cost very little compared with the harm of a leak. What is the BEST way to dispose of them?",
+      "options": [
+        "Physically destroy them and keep a signed certificate",
+        "Clear them with a single overwrite and donate them",
+        "Format them and store them in an unlocked cupboard",
+        "Give them to the cheapest recycler and trust its care"
+      ],
+      "correctIndex": 0,
+      "explanation": "The data is highly sensitive and the media has no reuse value, so destruction with a record is the right match. Clearing is tempting because it is cheap and quick, but clearing only stops normal software tools, and the drives would then leave the company's control."
+    }
+  ]
+}

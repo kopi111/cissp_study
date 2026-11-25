@@ -1,0 +1,141 @@
+{
+  "id": "T03",
+  "studyNotes": [
+    {
+      "heading": "Aligning security to the business",
+      "body": "In this first part, we are going to look at the most important idea in governance, which is that security exists to serve the business.\n\nGovernance means how leaders direct and oversee an organization. It answers questions like who decides, who pays, and who checks. Security governance applies those questions to security.\n\nThe outline uses four words that sound alike, so let us separate them. The mission is why the organization exists. A hospital's mission is to care for patients. The strategy is the broad plan for achieving that mission over several years. Goals are the outcomes it wants along the way, such as opening a new children's ward. Objectives are specific and measurable targets, such as treating patients within four hours of arrival.\n\nA security program must fit all four. Here is an everyday picture. A bodyguard for a pop star does not lock the star in a safe room. The star's job is to appear in public. The bodyguard works out how to make that possible and safe. A good security leader thinks in the same way.\n\nNow a workplace example. A retail chain plans to start selling online within a year. A poor security manager says that online selling is too risky, and blocks it. A good one asks what the plan needs. Then the manager proposes secure payment handling, fraud checks and customer data protection, and estimates what they will cost. Security has become part of how the strategy succeeds.\n\nThis is also why a small school and a large bank need very different security. Their missions, their risks and their budgets are different.\n\nOn the exam, this idea appears in a simple way. When an answer protects things perfectly but stops the business from doing its work, that answer is usually wrong. When an answer begins by understanding what the business needs, it is often right.\n\nSo here is what to take away. Learn what the business is trying to achieve first. Security is successful when it helps the organization reach its mission at a level of risk that its leaders accept."
+    },
+    {
+      "heading": "Top-down direction and levels of planning",
+      "body": "Next we will look at how security direction flows through an organization, and the three levels at which security is planned.\n\nGovernance works from the top down. Senior leaders set direction, approve policy, and provide money and people. Think of a family planning a long journey. The parents decide where the family is going and how much can be spent. The children can suggest things, but they cannot book the flights.\n\nIn an organization, a security program that starts at the bottom usually fails. An enthusiastic technician can install tools, but cannot make the finance director follow the rules. Without senior support, a security program lacks authority and budget. When a scenario describes a program that nobody follows, the first thing to look for is management support.\n\nThe security function also needs enough independence. If the security leader reports only to the head of technology, there can be a conflict. That head of technology may prefer to deliver projects quickly, and may not want to hear about their risks. Many organizations give the security leader a route to the chief executive, or to the board.\n\nPlans are written at three levels, and you should know the usual time scales.\n\n- Strategic plan: long-term, often about five years.\n- Tactical plan: mid-term, often about one year.\n- Operational plan: short-term and detailed, such as this month's tasks.\n\nHere is a worked example. A bank's strategic plan says that it will move to a model where every access request is checked, over five years. Its tactical plan says that this year it will roll out stronger login for all staff, and it sets a budget for that. Its operational plan says that next week the help desk will enrol the two hundred people in the Kingston branch.\n\nEach level feeds the one below it, and results at the lower levels report back up.\n\nHere is your takeaway. Direction comes from the top. Senior support is the first thing a security program needs, and plans run from long-term strategic, through mid-term tactical, to short-term operational."
+    },
+    {
+      "heading": "Organizational processes",
+      "body": "Now we will look at organizational processes. These are the big business events that can change risk very quickly. The outline names three: acquisitions, divestitures and governance committees.\n\nAn acquisition is when one company buys another. Think about buying a used car. You would look under the bonnet first. You would want to know about hidden rust before it becomes your problem. Buying a company works the same way, and when you buy it, you also buy its weaknesses.\n\nSo in an acquisition, security should be involved before the deal closes. You review the other company's policies, past incidents, legal duties, contracts and technology. You assess whether it may already have been breached. You keep the networks apart until that work is done. Then you connect them carefully, in stages. You also have to deal with two sets of rules, and decide which ones will apply.\n\nA divestiture is when part of a company is sold or closed. The risk runs in the opposite direction. Think of a couple separating and sharing out the house keys. You must be sure who still has a key.\n\nIn a divestiture, you decide which data goes and which stays. You remove access for people who are leaving with the sold business. You clean or transfer equipment properly, so that no data is left behind. You also close any network links that are no longer needed. Contracts may require certain services to continue for a time, so the separation must be planned with care.\n\nA governance committee is a group of leaders from different departments who review security decisions and priorities. It usually includes people from the business, technology, legal, finance and human resources. Here is why that matters. A committee gives security support across the company. It also stops one department from making decisions that affect everyone else. It may approve policies, review major risks and settle budget priorities.\n\nSo remember this. Business change is a security event. Assess before you connect, clean up when you separate, and use a cross-department committee to keep decisions visible and supported."
+    },
+    {
+      "heading": "Roles and responsibilities",
+      "body": "In this part we will look at who does what in security. The exam often tests whether you know the difference between being accountable and doing the work.\n\nHere is the most important fact. Senior management is ultimately responsible for security. Leaders can hand out tasks, but they cannot hand away the final responsibility. Think of the captain of a ship. The captain may sleep while an officer steers, but if the ship runs aground, the captain answers for it.\n\nThe Chief Information Security Officer, or CISO, leads the security program and advises other leaders. The CISO builds the program, reports on risk and asks for resources. Senior management still decides how much risk the organization will accept.\n\nSecurity professionals design, build and run the controls. A control is anything that reduces risk.\n\nA data owner is a manager who is accountable for a set of data. The owner decides how it is classified and who should be allowed to use it. In a hospital, the head of the records department may own patient records. Note that the owner is a business manager, and usually not a technical person.\n\nA data custodian carries out the daily care of the data. This is often someone in the technology team who runs backups and applies the access rules. The owner decides. The custodian does.\n\nUsers must follow policy and report problems. Auditors check independently that controls are working, and they report to management. Independence is what makes an audit worth having. Auditors should not audit their own work, and they do not fix what they find.\n\nHere is a workplace example. A database of customer orders has no clear rule on who may view it. The database administrator asks who should have access. The answer should come from the data owner, who is probably the head of sales or customer service. The administrator then applies that decision.\n\nSo here is what to take away. Senior management holds final responsibility. Owners decide, custodians carry out, auditors check independently, and the CISO advises and leads the program."
+    },
+    {
+      "heading": "Control frameworks",
+      "body": "Now we will look at control frameworks. You do not have to memorize their contents, but you should know what each one is for.\n\nA control framework is an organized set of security practices. Think of a recipe book compared with cooking from memory. It saves you from inventing everything and forgetting something important. Here are the ones to recognize.\n\n- ISO 27001, from the International Organization for Standardization: a standard for an information security management system. An organization can be certified against it.\n- ISO 27002: guidance on the controls themselves.\n- Special Publication 800-53, from NIST, the US National Institute of Standards and Technology: a large catalogue of controls.\n- NIST Cybersecurity Framework: six functions, which are Govern, Identify, Protect, Detect, Respond and Recover.\n- COBIT, or Control Objectives for Information and Related Technology: governance and management of company technology.\n- SABSA, or Sherwood Applied Business Security Architecture: security design built from business needs.\n- PCI DSS, or Payment Card Industry Data Security Standard: protection of payment card data.\n- FedRAMP, or Federal Risk and Authorization Management Program: security of cloud services used by the US government.\n\nThe key to telling them apart is the clue in the question. If an organization wants a certificate to show to its customers, think of ISO 27001. If it wants a very detailed list of controls, think of NIST 800-53. If its board wants technology to deliver business value under good management, think of COBIT. If an architect wants to build security from business requirements downward, think of SABSA. If it takes credit cards, PCI DSS applies. If it wants to sell cloud services to US federal agencies, it needs FedRAMP.\n\nHere is a workplace example. A software firm wants to win contracts with large European customers who keep asking for proof of good security. The best fit is usually ISO 27001 certification.\n\nHere is your takeaway. Frameworks save you from starting from nothing. Match each one to its purpose, and tailor it to the organization rather than copying it blindly."
+    },
+    {
+      "heading": "Due care and due diligence",
+      "body": "In this last part, we are going to separate two phrases that are tested often and confused often, due diligence and due care.\n\nImagine a landlord. Finding out what the fire code demands, planning how to meet it, and checking the alarms each month is due diligence. Actually installing the alarms and repairing the broken stair is due care.\n\nDue diligence is the research, the planning and the checking. It is about knowing what should be done, and making sure it is being done. Due care is taking the reasonable action. It is what a sensible person in the same position would actually do.\n\nA reasonable standard is often called the prudent person rule. Prudent means careful and sensible. The question is what a prudent person would have done in that situation. A leader is not expected to be perfect, but is expected to be reasonable.\n\nNow here is a worked example from a workplace. A company is thinking of using a new payroll provider.\n\nStep one. Before signing, the company reviews the provider's audit reports and its breach history. That is due diligence.\n\nStep two. Based on what it finds, the company requires encryption, which scrambles data so outsiders cannot read it, and a breach notification clause in the contract, and it limits who can reach the data. That is due care.\n\nStep three. Each year, the company checks that the provider still meets those terms. That checking is due diligence again.\n\nStep four. When the provider reports a weakness, the company makes sure it gets fixed. That is due care again.\n\nYou can see that the two work together in a cycle. Investigating without acting achieves nothing. Acting without investigating is guesswork.\n\nIf leaders fail at either one, they can be found negligent. Negligence means being legally at fault for not taking enough care. Showing that you did both is often the best defence after something goes wrong. Good records are how you show it.\n\nThis is the takeaway. Due diligence is finding out and checking. Due care is doing the reasonable thing. A wise leader does both, and keeps the evidence."
+    }
+  ],
+  "practiceQuestions": [
+    {
+      "prompt": "A newly formed e-commerce firm hires its first security manager. The founders want to launch in three months. What should the security manager do FIRST?",
+      "options": [
+        "Understand the firm's objectives and what the launch requires",
+        "Buy and install a full set of intrusion detection tools so that the launch is protected from its first day",
+        "Write a complete set of detailed procedures for all staff, covering every possible type of security incident",
+        "Advise the founders to delay the launch until all security work has been completed to a high standard"
+      ],
+      "correctIndex": 0,
+      "explanation": "Security must align to the business, so its plans begin with understanding what the business needs. Advising delay is tempting, but no assessment has yet shown that delay is needed."
+    },
+    {
+      "prompt": "A marketing manager asks the database administrator which staff should be allowed to see the customer contact list. Who should make this decision?",
+      "options": [
+        "The database administrator who looks after the system and understands its technical permissions",
+        "The internal auditor, who is independent of the department and of the people asking for access",
+        "The data owner accountable for the customer list",
+        "The help desk team, which handles the access requests sent in by staff across the company"
+      ],
+      "correctIndex": 2,
+      "explanation": "The data owner decides classification and who may use the data. The administrator is tempting because that person has technical control, but a custodian only carries out the owner's decisions."
+    },
+    {
+      "prompt": "A multinational company is selling its logistics division to another firm. What is the MOST important security concern as the sale completes?",
+      "options": [
+        "Recruiting new security staff to replace the people who are moving to the buyer's organization",
+        "Removing departing staff's access and properly handling data and equipment",
+        "Buying a new set of security tools for the parts of the business that remain after the sale",
+        "Rewriting the company's security policies so that they refer to the new company structure"
+      ],
+      "correctIndex": 1,
+      "explanation": "In a divestiture, access and data must be separated cleanly so nothing is left exposed. Rewriting policy is tempting and may follow later, but it does not address the immediate risk."
+    },
+    {
+      "prompt": "A software company wants to prove its security to prospective customers by showing an independent certificate for its information security management system. Which option BEST fits this aim?",
+      "options": [
+        "COBIT",
+        "NIST Special Publication 800-53",
+        "SABSA",
+        "ISO 27001"
+      ],
+      "correctIndex": 3,
+      "explanation": "ISO 27001 is a standard for a management system that organizations can be certified against. NIST 800-53 is tempting since it is well respected, but it is a catalogue of controls and does not provide that certificate."
+    },
+    {
+      "prompt": "A company's chief information security officer finds that each department sets its own security priorities, so that decisions regularly conflict. Which step would BEST address this at a governance level?",
+      "options": [
+        "Require each department to appoint one member of staff to look after its own firewalls and servers",
+        "Move all security work to an outside provider so that departments no longer need to make any decisions",
+        "Set up a cross-department committee to review priorities and decisions",
+        "Send each department head a monthly list of all of the security incidents across the organization"
+      ],
+      "correctIndex": 2,
+      "explanation": "A governance committee brings leaders together to agree priorities and gives security support across the business. Outsourcing is tempting, but accountability and the need for decisions stay with the organization."
+    },
+    {
+      "prompt": "A company selects a backup provider. It reads the provider's audit reports and inspects past breach records before signing. Which concept does this activity BEST represent?",
+      "options": [
+        "Due diligence",
+        "Due care",
+        "Risk transfer",
+        "Separation of duties"
+      ],
+      "correctIndex": 0,
+      "explanation": "Researching and checking before acting is due diligence. Due care is tempting because the company is behaving responsibly, but due care is the action taken as a result, such as adding contract terms."
+    },
+    {
+      "prompt": "After a serious data breach, a regulator asks a bank to show that its leaders acted reasonably. Which evidence would be MOST useful?",
+      "options": [
+        "A statement from the chief executive saying that security has always been a very high priority",
+        "A list of all of the security products that the bank has purchased during the last ten years",
+        "Press articles showing that many other banks have suffered similar breaches during the same period",
+        "Records of risk reviews and actions taken"
+      ],
+      "correctIndex": 3,
+      "explanation": "Documented reviews show due diligence, and documented actions show due care. A list of products is tempting, but owning tools does not show they were chosen, used or checked sensibly."
+    },
+    {
+      "prompt": "An internal auditor finds a serious weakness in the access controls for a payments system and is asked by the technology team to fix it directly. What should the auditor do?",
+      "options": [
+        "Fix it, because the auditor already understands the weakness better than anyone else in the company",
+        "Report it to management and leave the correction to the responsible team",
+        "Fix it, but leave the weakness out of the final report so that the technology team is not blamed",
+        "Ignore the request and wait for the next yearly audit to find out whether the problem still exists"
+      ],
+      "correctIndex": 1,
+      "explanation": "Auditors must stay independent, so they report and do not implement fixes. Fixing it is tempting and may seem helpful, but the auditor would then be judging their own work later."
+    },
+    {
+      "prompt": "A security leader has prepared a program for the year but cannot get departments to follow it. Staff say the program has no authority. What is MOST likely missing?",
+      "options": [
+        "A larger number of technical controls on the company's networks and its staff computers",
+        "More security staff based in each of the company's departments and branch offices",
+        "Visible support and approval from senior management",
+        "A more detailed set of operational tasks for the security team to work through each week"
+      ],
+      "correctIndex": 2,
+      "explanation": "Governance works from the top down, and without senior support a program has little authority. More detailed tasks are tempting, but they do not give the program the backing it needs."
+    },
+    {
+      "prompt": "A bank is planning its security work. One document sets out a security direction for the next five years, and another sets this year's projects and budget. Which pair of terms BEST describes these two documents, in that order?",
+      "options": [
+        "Strategic and tactical",
+        "Operational and tactical",
+        "Tactical and strategic",
+        "Strategic and operational"
+      ],
+      "correctIndex": 0,
+      "explanation": "Long-term direction is strategic, and mid-term work of about a year is tactical. Strategic and operational is tempting, but operational plans are short-term and detailed, such as this month's tasks."
+    }
+  ]
+}

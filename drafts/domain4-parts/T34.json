@@ -1,0 +1,141 @@
+{
+  "id": "T34",
+  "studyNotes": [
+    {
+      "heading": "How Wi-Fi works and its standards",
+      "body": "In this first part, we are going to look at how Wi-Fi works and at the standards behind it.\n\nA wired network keeps its signal inside a cable. A wireless network sends it through the air, and so it goes through walls and past the car park. Think of the difference between passing a note to a friend and talking aloud in a shop. Anyone nearby can hear the second one. So every wireless design starts from the assumption that others can listen.\n\nWi-Fi follows the 802.11 family of standards from the IEEE, the Institute of Electrical and Electronics Engineers. An access point is the box that connects wireless devices to the wired network. The network's name is called the SSID, which is the Service Set Identifier.\n\nHere is the list to recognize. Frequency is measured in gigahertz, and speed in megabits per second.\n\n- 802.11a: 5 gigahertz, up to 54 megabits per second.\n- 802.11b: 2.4 gigahertz, up to 11 megabits per second.\n- 802.11g: 2.4 gigahertz, up to 54 megabits per second.\n- 802.11n, also called Wi-Fi 4: 2.4 and 5 gigahertz, up to 600 megabits per second.\n- 802.11ac, or Wi-Fi 5: 5 gigahertz, gigabit speeds.\n- 802.11ax, or Wi-Fi 6: 2.4 and 5 gigahertz. Wi-Fi 6E adds 6 gigahertz.\n- 802.11be, or Wi-Fi 7: 2.4, 5 and 6 gigahertz.\n\nLower frequencies reach farther and pass through walls better. Higher frequencies are faster over short distances, but they fade sooner. Think about a neighbour's music, where you hear the deep bass through the wall but not the high notes.\n\nIn the 2.4 gigahertz band, channels overlap, and only channels 1, 6 and 11 are normally used side by side without interfering.\n\nHere is a workplace example. A warehouse with thick walls and long aisles may need more access points than expected. A wireless site survey measures where the signal really reaches. It also shows when the signal leaks into the street, where the company does not want it. Antenna type, position and power can then be adjusted.\n\nHere is what to take away. Assume that the air can be heard, know the standards and their bands, and survey the site before you trust the design."
+    },
+    {
+      "heading": "From WEP to WPA3",
+      "body": "Now we will follow how Wi-Fi security has improved, because the exam expects you to know exactly what each generation does.\n\nWEP is Wired Equivalent Privacy. It used a cipher called RC4, short for Rivest Cipher 4, with a very short 24-bit starting value, which repeats quickly. Attackers can crack it within minutes. Never use it.\n\nWPA is Wi-Fi Protected Access. The first version added TKIP, the Temporal Key Integrity Protocol. It was a stopgap that still ran on old WEP hardware. Retire it too.\n\nWPA2 uses AES, the Advanced Encryption Standard, in a mode called CCMP, the Counter Mode Cipher Block Chaining Message Authentication Code Protocol. You only need to remember that CCMP means AES on Wi-Fi. WPA2 protects data well, but its Personal mode has a known weakness. An attacker who records the four-way handshake, which is the login exchange, can take it away and guess the password offline for as long as they like.\n\nWPA3 fixes that. Its Personal mode uses SAE, Simultaneous Authentication of Equals. Each guess requires a live exchange with the network, so offline guessing does not work. SAE also gives forward secrecy, which means that a password stolen later does not unlock traffic that was recorded earlier. WPA3 also requires Protected Management Frames, which stops forged disconnect messages. Its Enterprise mode offers an optional stronger 192-bit setting.\n\nBoth WPA2 and WPA3 come in two flavours.\n\n- Personal means one shared password for everyone.\n- Enterprise means each person logs in with their own account.\n\nThink of a shared house key compared with a staff card that can be cancelled for one person.\n\nThere is a caution about mixed setups. Transition mode lets older WPA2 devices and newer WPA3 devices share a network. An attacker may try to push a device down to the weaker WPA2.\n\nHiding the network name, and filtering by MAC address, are not real security. MAC stands for Media Access Control and is the hardware label on a network card. Attackers can see and copy both.\n\nHere is a workplace example. A company moving from WPA2-Personal to WPA3-Enterprise gains individual accountability as well as stronger protection.\n\nYour takeaway is this. WEP and TKIP are finished, WPA2 means AES, and WPA3 means SAE and no offline guessing."
+    },
+    {
+      "heading": "802.1X and its three roles",
+      "body": "Next we will study 802.1X, which you can say as eight oh two dot one X. It controls who may join a network, and the exam likes its three roles.\n\n802.1X is port-based network access control. It works on Wi-Fi and on wired networks. A port is either closed or open, and until you prove who you are, only login traffic can pass.\n\nHere are the three roles.\n\n- Supplicant: the device asking to join. The visitor.\n- Authenticator: the access point or switch. The guard at the gate.\n- Authentication server: usually RADIUS, the Remote Authentication Dial-In User Service. Head office, which says yes or no.\n\nNotice one thing. The guard does not decide. The guard simply passes the request to head office and then acts on the answer.\n\nThe login itself is carried by EAP, the Extensible Authentication Protocol. Between the supplicant and the authenticator, EAP travels over the local network. Between the authenticator and the server, EAP is carried inside RADIUS messages.\n\nHere is a worked example of a connection.\n\n- Step 1: A laptop connects. The port is closed to everything but login traffic.\n- Step 2: The access point asks the laptop to identify itself.\n- Step 3: The laptop answers, and the access point relays this to the RADIUS server.\n- Step 4: The server and laptop complete an EAP method, and the server decides.\n- Step 5: The server tells the access point to accept or reject, and if accepted, the port opens.\n\nEAP has several methods.\n\n- EAP-TLS uses certificates on both sides. TLS is Transport Layer Security. This is the strongest common choice.\n- PEAP, Protected EAP, builds a protected tunnel with a server certificate, and then checks a password inside it.\n- EAP-TTLS, Tunneled TLS, is similar.\n- LEAP, Lightweight EAP, is old and broken. Avoid it.\n\nOne common error is letting devices connect without checking the server's certificate. A fake access point can then collect logins.\n\nHere is a workplace example. A hospital uses EAP-TLS, so staff devices need a certificate that the hospital issued. A stolen password alone will not get anyone on.\n\nThe takeaway is this. Supplicant asks, authenticator relays and enforces, and the authentication server decides."
+    },
+    {
+      "heading": "Wireless attacks and how a manager responds",
+      "body": "In this part we will look at how wireless networks are attacked, and at what a sensible organization does about it.\n\nHere are the attacks to recognize. A rogue access point is an unauthorized one that is connected to your network, often placed there innocently by staff who wanted better coverage. An evil twin is a fake access point that imitates your network's name, so that devices connect to it. A deauthentication attack sends forged messages that disconnect users, often to force them to reconnect to an evil twin. Jamming floods the radio band with noise and so denies service. War driving means travelling around to map wireless networks.\n\nThink of a fake bank branch set up down the road, with the same logo over the door. Customers walk in and hand over their details, because everything looks normal.\n\nHere are the controls, matched to those attacks.\n\nFor rogue access points and evil twins, use a wireless intrusion prevention system, which watches the airwaves for devices that should not be there. Use 802.1X, which is port-based access control, so that a rogue device plugged into the wall cannot connect. Require devices to check the server's certificate, so that an evil twin is exposed.\n\nFor deauthentication, use Protected Management Frames, which are required under WPA3, or Wi-Fi Protected Access version 3.\n\nFor jamming, remember that it is a physical problem. Encryption cannot help, so have a wired fallback for critical services.\n\nA captive portal, the web page you see in hotels, is not encryption. It only controls who gets online. WPS, or Wi-Fi Protected Setup, has a weak number code that can be guessed, so turn it off.\n\nGuest networks should be separate from business networks. Think of a shop's customer area, kept apart from the stockroom.\n\nHere is a workplace example. A manager finds an unapproved access point under a desk in the sales office. The technical response is to remove it. The manager's response goes further and asks why. If staff had poor coverage, then the cause must be fixed, or the next one will soon appear. Policy should also be repeated to staff.\n\nHere is what to take away. Know the attacks by name, match each to a control, and fix the reason that staff worked around security."
+    },
+    {
+      "heading": "Bluetooth and Zigbee",
+      "body": "Now we will look at two short-range technologies, each with its own weak points.\n\nBluetooth links nearby devices on the 2.4 gigahertz band, using frequency hopping, which means it jumps quickly between many channels. It is designed for short range, usually up to around ten metres for common devices, but an attacker with a strong antenna can reach further. So distance alone is not a defence.\n\nPairing is when two Bluetooth devices agree to trust each other. Older pairing methods were weak. Modern Secure Simple Pairing is better, particularly when the user compares a number on both screens.\n\nHere are three attacks to learn as a set.\n\n- Bluejacking: sending unwanted messages to a nearby device. It is annoying, but it takes no data.\n- Bluesnarfing: stealing data, such as contacts and messages.\n- Bluebugging: taking control of the device, so that an attacker could make calls or listen in.\n\nA simple way to remember them is this. Jacking is a nuisance, snarfing is a theft, and bugging is a takeover.\n\nDefences are mostly habits. Turn Bluetooth off when you are not using it. Keep the device non-discoverable. Pair only in private places. Apply patches. Think of a front door. Leaving it open with a sign saying that you are home is not sensible, even in a quiet street.\n\nHere is a workplace example. A company policy bans Bluetooth file transfer on phones used for sensitive work, and mobile device management enforces that setting. Mobile device management is central software that controls phones and tablets.\n\nZigbee follows the standard IEEE 802.15.4, where IEEE is the Institute of Electrical and Electronics Engineers. It is a low-power, low-speed wireless mesh, which means each device can pass messages on for its neighbours. It suits sensors and smart buildings, because batteries last for years and the network can cover a large space.\n\nZigbee can use 128-bit encryption with AES, the Advanced Encryption Standard. Its weakness is often in key handling, such as a key shared across many devices or sent during joining.\n\nImagine a building where lights, door sensors and air conditioning all use a mesh. If an attacker can join it, the damage may be wide. So keep these devices on a separate network from business systems.\n\nHere is your takeaway. Short range is not a security control, so patch, limit pairing and isolate."
+    },
+    {
+      "heading": "Satellite and cellular networks",
+      "body": "In this final part we will look at the two wide-area wireless technologies in the outline, satellite and cellular.\n\nSatellite reaches places with no cables, such as ships, mines and remote villages. There are three orbits to know.\n\n- GEO, geostationary orbit, is about 36,000 kilometres up. The satellite seems to stay still in the sky. A round trip takes about 600 milliseconds.\n- MEO, medium Earth orbit, is in between.\n- LEO, low Earth orbit, is usually under 2,000 kilometres up, with a delay of tens of milliseconds. Many small satellites are needed, because each one is only overhead for minutes.\n\nThink of shouting across a canyon compared with talking across a table. Distance creates delay, and voice calls suffer the most from it.\n\nA satellite beam covers a very wide area, so anyone within the beam may be able to receive the signal. Treat the link as public, and encrypt the traffic yourself. Weather can also weaken the signal. A satellite provider is also a third party, whose security you must assess.\n\nCellular networks divide land into cells, each served by a tower. 4G is the fourth generation of mobile networks and commonly means LTE, or Long-Term Evolution. 5G is the fifth generation. It brings higher speed, lower delay and network slicing, which creates separate virtual networks on shared equipment. So a utility company might have its own slice for meters.\n\n5G improves security in two ways. It conceals the permanent subscriber identity, so listeners cannot easily track a phone. And it has stronger mutual authentication, where the phone and the network each prove themselves. Very high 5G frequencies have short range, so more small cells are needed.\n\nHere is the key point. Radio encryption covers only the link from phone to tower. Beyond that, your data crosses the carrier's network. Fake towers can also trick phones, and forced downgrades can push them onto older, weaker networks.\n\nHere is a workplace example. Field engineers send customer data from phones. The manager does not rely on the mobile carrier alone. Data is protected end to end using TLS, which is Transport Layer Security, or a VPN, which is a Virtual Private Network.\n\nYour takeaway is this. Treat satellite and cellular links as untrusted, and protect your data from end to end."
+    }
+  ],
+  "practiceQuestions": [
+    {
+      "prompt": "A coffee shop owner wants customers to stop being able to record the Wi-Fi login exchange and then guess the shared password at home. Which change MOST directly addresses this?",
+      "options": [
+        "Hide the network name so that the login exchange cannot be seen",
+        "Move from WPA2-Personal to WPA3-Personal",
+        "Change the router to the 5 gigahertz band instead of 2.4 gigahertz",
+        "Require customers to accept the terms on a captive portal page"
+      ],
+      "correctIndex": 1,
+      "explanation": "WPA3-Personal uses SAE, so every guess needs a live exchange and offline guessing fails. A captive portal is tempting, but it only controls who gets online and does not change the login exchange."
+    },
+    {
+      "prompt": "During an 802.1X rollout, a colleague asks which component actually decides whether a user may join the network. What is the BEST answer?",
+      "options": [
+        "The supplicant running on the user's laptop",
+        "The access point acting as the authenticator",
+        "The switch port that carries the user's traffic",
+        "The authentication server, usually RADIUS"
+      ],
+      "correctIndex": 3,
+      "explanation": "The authentication server makes the decision. The access point is tempting because it enforces the result, but it only relays the request and acts on the answer."
+    },
+    {
+      "prompt": "A university wants the strongest common method of 802.1X login, and it can issue certificates to all its managed devices. Which method is the BEST choice?",
+      "options": [
+        "EAP-TLS",
+        "PEAP with an individual username and a password",
+        "LEAP",
+        "A single shared password in Personal mode"
+      ],
+      "correctIndex": 0,
+      "explanation": "EAP-TLS uses certificates on both sides and is the strongest common method. PEAP is tempting and is reasonable, but it still relies on a password that can be stolen."
+    },
+    {
+      "prompt": "Staff complain of being disconnected from Wi-Fi repeatedly. An analyst then sees an access point with the company's network name on a channel the company does not use. What is this MOST likely to be?",
+      "options": [
+        "Bluesnarfing aimed at the company's staff phones",
+        "A jamming attack on all the 5 gigahertz channels",
+        "A deauthentication attack that supports an evil twin",
+        "War driving carried out from the company's car park"
+      ],
+      "correctIndex": 2,
+      "explanation": "Forced disconnects combined with a look-alike network suggest an evil twin. Jamming is tempting, but jamming does not create a look-alike access point."
+    },
+    {
+      "prompt": "A security manager finds that a sales team installed its own access point because the office has poor coverage. After the device is removed, what is the BEST next step?",
+      "options": [
+        "Discipline the whole team and consider the matter closed",
+        "Hide the name of the official network so that it is harder to find",
+        "Purchase a stronger signal jammer for that office",
+        "Fix the coverage problem through the approved process and remind staff of policy"
+      ],
+      "correctIndex": 3,
+      "explanation": "Fixing the cause stops the next rogue device from appearing. Discipline is tempting, but it leaves staff with the same coverage problem."
+    },
+    {
+      "prompt": "An employee's phone was found to have had its contact list copied by someone nearby over Bluetooth, without any pairing request being accepted. Which attack BEST matches this?",
+      "options": [
+        "Bluejacking",
+        "Bluebugging",
+        "Bluesnarfing",
+        "Jamming"
+      ],
+      "correctIndex": 2,
+      "explanation": "Stealing data over Bluetooth is bluesnarfing. Bluejacking is tempting because of the similar name, but it only sends unwanted messages."
+    },
+    {
+      "prompt": "A smart building uses a low-power wireless mesh for its door sensors and lighting. Which step gives the BEST reduction in risk to the company's business systems?",
+      "options": [
+        "Place the mesh devices on a network separated from business systems",
+        "Raise the transmit power of each sensor so that signals stay strong",
+        "Replace the battery in every sensor on a regular yearly schedule",
+        "Rename the mesh network so that its purpose is less obvious to visitors"
+      ],
+      "correctIndex": 0,
+      "explanation": "Separation limits what a compromised sensor can reach. Renaming is tempting because it seems to hide the network, but hiding a name is not real security."
+    },
+    {
+      "prompt": "A shipping company must connect a remote vessel, and voice quality is a priority. Which option is MOST likely to give the lowest delay?",
+      "options": [
+        "A geostationary satellite service with a larger dish antenna",
+        "A low Earth orbit satellite service",
+        "A geostationary service with higher monthly data limits",
+        "Any satellite service, since all orbits have the same delay"
+      ],
+      "correctIndex": 1,
+      "explanation": "Low Earth orbit satellites are far closer, so the delay is tens of milliseconds. A larger dish is tempting, but it improves the signal and cannot shorten the distance of about 36,000 kilometres."
+    },
+    {
+      "prompt": "A city utility wants smart meter traffic kept logically apart from public traffic on a mobile carrier's shared equipment. Which 5G feature BEST meets this need?",
+      "options": [
+        "Short-range small cells",
+        "Concealed subscriber identity",
+        "Network slicing",
+        "Mutual authentication"
+      ],
+      "correctIndex": 2,
+      "explanation": "Network slicing creates separate virtual networks on shared equipment. Concealed subscriber identity is tempting because it adds privacy, but it does not separate any traffic."
+    },
+    {
+      "prompt": "A security team is told that sensitive data is safe because the company's phones use 5G radio encryption. What is the BEST response from the security manager?",
+      "options": [
+        "Agree, because 5G radio encryption protects data the whole way to its destination",
+        "Agree, because a carrier's own network can always be fully trusted",
+        "Ask for the phones to be moved to 4G, which offers far stronger end-to-end encryption",
+        "Point out that radio encryption stops at the carrier, so data needs end-to-end protection"
+      ],
+      "correctIndex": 3,
+      "explanation": "Radio encryption covers only the phone to tower link, so end-to-end protection is still needed. The first option is tempting, but the carrier's network lies beyond the part that the radio encryption protects."
+    }
+  ]
+}

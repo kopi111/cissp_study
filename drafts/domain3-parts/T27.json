@@ -1,0 +1,141 @@
+{
+  "id": "T27",
+  "studyNotes": [
+    {
+      "heading": "Why we need PKI, and who does what",
+      "body": "In this first part, we are going to look at why we need something called Public Key Infrastructure, and at the roles within it.\n\nPublic key cryptography has a gap. How do you know that a public key really belongs to your bank? An attacker could publish a key and claim to be the bank. So someone trusted has to vouch for it.\n\nThink of a passport. You trust a passport because you trust the government that issued it. You do not need to know the person. You only need to trust the office that checked them.\n\nPublic Key Infrastructure, or PKI, is the people, rules and systems that link public keys to identities. A digital certificate is the passport.\n\nThese are the parties.\n\n- Certificate Authority, or CA: issues and signs certificates.\n- Registration Authority, or RA: checks identity on behalf of the Certificate Authority. It does not issue certificates.\n- Root CA: the top of the trust chain. It is often kept offline for safety.\n- Intermediate CA: issues certificates under the root, so that the root stays protected.\n\nThink of the passport office again. The Certificate Authority is the office that issues the passport. The Registration Authority is the clerk at the counter who checks your documents.\n\nA chain of trust runs like this. Your computer trusts a small number of root certificates, which came installed with the operating system or browser. A root has signed an intermediate. The intermediate has signed the website's certificate. Your computer follows that chain back to the root.\n\nIf the root's private key were stolen, every certificate below it could no longer be trusted. That is why the root is kept offline and in a highly protected device, and why intermediates do the daily work.\n\nHere is a workplace example. A company runs its own private Certificate Authority for internal systems. The root sits powered off in a safe, and it is used only to sign new intermediates. An intermediate issues certificates to staff laptops and servers. Human resources acts as the Registration Authority, confirming that each person really works there.\n\nAn alternative to a central authority is a web of trust, in which individuals vouch for one another. PGP, or Pretty Good Privacy, uses this approach.\n\nHere is what to take away. The Certificate Authority issues certificates, the Registration Authority only checks identity, and the root is kept offline."
+    },
+    {
+      "heading": "Digital certificates and how to get one",
+      "body": "Now we are going to look at what is inside a digital certificate, and at how someone gets one.\n\nA digital certificate follows a standard called X.509. It contains the following.\n\n- The owner's name, called the subject.\n- The owner's public key.\n- The issuer's name.\n- A serial number and validity dates.\n- The issuer's digital signature.\n\nLook at a passport, and you find similar things. There is a name, a number, the dates it is valid for, and the mark of the issuing government. Notice what is missing from the list. The owner's private key is not in the certificate. It never is.\n\nA certificate simply says this: the Certificate Authority declares that this public key belongs to this name, for this period of time.\n\nHere are the steps to get a certificate.\n\n- Step 1: Create a key pair. The private key stays with you.\n- Step 2: Send a Certificate Signing Request, or CSR, containing your public key.\n- Step 3: The Registration Authority or the Certificate Authority checks your identity.\n- Step 4: The Certificate Authority signs and issues the certificate.\n\nThe important point is in Step 1. The private key does not leave you. You send the public key only. If a service offers to create your private key and email it to you, that should worry you.\n\nCertificates come in different kinds. A wildcard certificate covers all of the names under a domain, such as every address ending in a company's name. It is convenient, but if its private key is stolen, every one of those sites is exposed. A certificate can also be used to identify a user or a device, and not only a website.\n\nFor web certificates there are three levels of identity checking. Domain validation only proves control of the web address. Organization validation also checks the organization. Extended validation checks more thoroughly.\n\nHere is a workplace example. A company sets up a new web server. An administrator generates a key pair on the server, sends a signing request, proves control of the domain and installs the issued certificate. The private key never left the server.\n\nHere is your takeaway. A certificate binds a public key to a name, and is signed by the issuer. The private key is never in the certificate and never leaves its owner."
+    },
+    {
+      "heading": "How a certificate is checked",
+      "body": "Next we are going to look at what happens when your computer decides whether to trust a certificate.\n\nThink about a guard at a border. The guard looks at your passport and asks a series of questions. Was this issued by a government we recognise? Has it expired? Does the photo match the person standing here? Is it on the list of stolen passports? Only if all of the answers are good are you let through.\n\nA web browser does the same, and it checks these things.\n\n- The issuer's signature is valid, and it links to a trusted root.\n- Today's date is within the validity dates.\n- The name matches the website.\n- The certificate has not been revoked.\n\nLet us walk through an example. Maria visits her bank's website. The web server sends its certificate, along with the intermediate certificate that signed it.\n\nMaria's browser uses the intermediate's public key to check the signature on the bank's certificate. Then it uses the root's public key, which is already stored on her device, to check the signature on the intermediate's certificate. The chain is complete.\n\nThe browser checks the dates, and finds that the certificate is still valid. It checks that the name on the certificate matches the address she typed. It checks revocation, which we will look at next. Everything is fine, and the padlock appears.\n\nNow change one fact. Suppose that an attacker sends a certificate with the bank's name on it, but issued by an authority the browser does not trust. The chain fails, and the browser warns Maria. If she clicks through the warning, she may be talking to an impostor. This is why staff should be trained not to dismiss certificate warnings.\n\nA technique called certificate pinning goes one step further. An application remembers exactly which certificate or key to expect from a server, and refuses anything else. It defends against a wrongly issued certificate, but it can cause outages if certificates change and the application is not updated.\n\nIn the workplace, expired certificates are a very common cause of outages. A certificate expires quietly at midnight, and a major service stops working. A manager should insist on an inventory of certificates, with automatic reminders or automatic renewal.\n\nHere is what to take away. A client checks the signature chain, the dates, the name and the revocation status, and an expired certificate is a preventable outage."
+    },
+    {
+      "heading": "Revocation: CRL and OCSP",
+      "body": "In this part, we are going to look at how a certificate gets cancelled before its end date. This is called revocation, and the exam likes to compare the two main ways of checking it.\n\nA common reason for revocation is a stolen private key. Others are that the owner has left the organization, or that the certificate was issued wrongly.\n\nThe first method is a Certificate Revocation List, or CRL. This is a signed list of the serial numbers of cancelled certificates, which the Certificate Authority publishes from time to time. Clients must download it. It can grow large and it can be out of date. Think of a printed list of stolen passports, sent out to border posts once a day. A passport stolen this morning will not appear on the list until tomorrow.\n\nThe second method is OCSP, the Online Certificate Status Protocol. It lets a client ask about one certificate and get an answer right away. The answer is one of good, revoked or unknown. Think of the guard telephoning the passport office about one passport.\n\nHere is the comparison, spoken plainly.\n\nA list is downloaded in full, and may be stale. A protocol request asks about a single certificate, and is current.\n\nOCSP has its own drawbacks. The authority that answers learns which sites you are visiting, which raises a privacy concern. If the responder is down, some clients simply carry on, and that weakens the check.\n\nOCSP stapling solves those problems. The web server itself regularly gets a recent signed answer, and it attaches that answer to its certificate when it talks to a client. This is faster and more private.\n\nNow for the correct order of work. If a private key is stolen, revoke the certificate first, and then issue a new one with a new key pair. Do not reuse the old key, because it is exposed.\n\nHere is a workplace example. A web administrator finds the company's private key on a public code sharing site. The security manager asks the Certificate Authority to revoke the certificate at once, then generates a new key pair, then finds out how the key was exposed.\n\nHere is your takeaway. A Certificate Revocation List is a published list, OCSP is a live check on one certificate, and when a key is stolen, you revoke first."
+    },
+    {
+      "heading": "The key lifecycle and rotation",
+      "body": "In this part, we are going to follow a key through its whole life. Most real cryptographic failures happen because keys are poorly managed.\n\nKeys pass through these stages.\n\n- Generation: make keys with strong random numbers.\n- Distribution: move them safely.\n- Storage: never keep them beside the data, and protect them in hardware when possible.\n- Use: use each key for one purpose only.\n- Rotation: replace keys on a schedule.\n- Backup or archive: keep what is needed to read old data.\n- Revocation: stop trusting a key that is exposed.\n- Destruction: remove all copies when the key is no longer needed.\n\nThink about the key to a business premises. It is cut by a locksmith you trust. It is handed over in person. It is kept on a secure key ring. It is used only for that door. The lock is changed from time to time. A spare is kept somewhere safe. If the key is lost, the lock is changed. And when the business moves out, every copy is handed back.\n\nA key's allowed period of use is its cryptoperiod. Rotation means replacing a key before that period is over. Why bother? A key that has been used for a very long time has protected more data, so a single theft would expose more. Rotation limits the damage.\n\nThere is also a practical question. What happens to data that was encrypted with the old key? It has to be either re-encrypted with the new key, or the old key has to be retained to read it. A common approach is to encrypt data with one key and to protect that key with another, called a key encryption key. You can then rotate the outer key without re-encrypting all of the data. This is known as envelope encryption.\n\nDestruction has a special use. If you destroy every copy of a key, the data it protected can never be read again. This is called cryptographic erasure, and it is very useful in the cloud, where you cannot physically destroy the provider's disks.\n\nThe cryptographic lifecycle also covers algorithms. Choose approved algorithms, track them, and replace them as they weaken. Set this out in policy.\n\nHere is what to take away. Keys have a whole life, from generation to destruction, and a planned rotation limits how much a single stolen key can expose."
+    },
+    {
+      "heading": "Protecting and recovering keys",
+      "body": "In this final part, we are going to look at how to make sure that keys can be recovered when needed, without trusting any one person too much.\n\nImagine that the one person who knows the combination to the company safe leaves suddenly. The contents are lost. Now imagine that person is dishonest. The contents are stolen. We need to protect against both of these situations.\n\nKey escrow means a trusted third party holds a copy of a key, so that it can be recovered under agreed rules. A recovery agent is a person or account allowed to recover data, for example after an employee leaves.\n\nNo one person should control an important key alone. Three controls prevent this.\n\n- Split knowledge: each person holds only part of a key.\n- Dual control: two people must act together.\n- M of N control: any M out of N people can recover the key.\n\nThese are similar, so let us separate them with an everyday picture. Split knowledge is each of two friends knowing half of the combination. Dual control is the bank's safe deposit box, where your key and the bank's key must be turned at the same time. M of N control is a club where any three of the five committee members can open the account together.\n\nHere is a worked example. With 3 of 5 control, five managers hold pieces. Any three can recover the key. Two cannot, so one or two dishonest people cannot act alone. And if two managers are unavailable, the remaining three can still act, so one lost person does not stop the business.\n\nA Hardware Security Module, or HSM, is a tamper-resistant device that protects keys. Use one for root Certificate Authority keys and other high-value keys. Operations on the root are often done in a formal key ceremony, where several trusted people attend, each carrying out set steps, and everything is recorded.\n\nHere is a workplace example. A bank needs to protect its master encryption key. The key is stored in a Hardware Security Module. Activating it requires smart cards held by three of five named officers. Nobody can use the key alone, and nobody's resignation can lock the bank out.\n\nHere is your takeaway. Recover keys through controlled escrow, and use split knowledge, dual control and M of N, so that no one person holds full power."
+    }
+  ],
+  "practiceQuestions": [
+    {
+      "prompt": "A staff member in human resources confirms that certificate applicants really work for the company, but does not sign any certificates. Which role is this person performing?",
+      "options": [
+        "Certificate Authority",
+        "Root authority",
+        "Registration Authority",
+        "Intermediate authority"
+      ],
+      "correctIndex": 2,
+      "explanation": "A Registration Authority checks identity and does not issue certificates. Certificate Authority is tempting because it is the better known term, but that is the party that actually signs."
+    },
+    {
+      "prompt": "A company is setting up an internal certificate hierarchy. Which design BEST protects the root key?",
+      "options": [
+        "Keep the root online so that it can issue certificates quickly",
+        "Keep the root offline and let intermediates issue certificates",
+        "Give every department a copy of the root's private key",
+        "Store the root's private key on the web server for backups"
+      ],
+      "correctIndex": 1,
+      "explanation": "An offline root reduces exposure, and intermediates do the daily work. Keeping the root online is tempting for speed, but compromise of the root would destroy trust in everything beneath it."
+    },
+    {
+      "prompt": "Which item is NOT found in an X.509 digital certificate?",
+      "options": [
+        "The owner's private key",
+        "The owner's public key",
+        "The issuer's signature",
+        "The validity dates"
+      ],
+      "correctIndex": 0,
+      "explanation": "A private key is never placed in a certificate. The owner's public key is tempting if you confuse the two, but the public key is the very thing the certificate exists to vouch for."
+    },
+    {
+      "prompt": "A system administrator is requesting a certificate for a new server. Which action should be taken FIRST?",
+      "options": [
+        "Install the certificate on the new server",
+        "Ask the Certificate Authority to issue a private key",
+        "Publish the new public key on the website",
+        "Generate a key pair on the server"
+      ],
+      "correctIndex": 3,
+      "explanation": "The key pair comes first, and the public key is then sent in a signing request. Asking the authority for a private key is tempting, but the private key should be created by, and stay with, its owner."
+    },
+    {
+      "prompt": "A user receives a browser warning that a website's certificate was issued by an unknown authority. What is the MOST likely cause?",
+      "options": [
+        "The website's name has been shortened",
+        "The certificate's chain does not reach a trusted root",
+        "The website's public key is the wrong length",
+        "The server has stapled its status response"
+      ],
+      "correctIndex": 1,
+      "explanation": "An unknown issuer means the chain cannot be followed back to a trusted root. Stapling is tempting as a technical sounding option, but stapling is a normal way of speeding up revocation checks."
+    },
+    {
+      "prompt": "A service must learn the current status of one certificate during a connection, with no need to download a large file. Which method is BEST?",
+      "options": [
+        "Downloading a Certificate Revocation List",
+        "Checking the certificate's validity dates",
+        "The Online Certificate Status Protocol",
+        "Reading the certificate's subject name"
+      ],
+      "correctIndex": 2,
+      "explanation": "The Online Certificate Status Protocol answers about one certificate right away. A Certificate Revocation List is tempting because it also deals with revocation, but it must be downloaded in full and may be out of date."
+    },
+    {
+      "prompt": "A company wants revocation checks that are fast and do not reveal to the certificate authority which sites its users visit. Which technique BEST meets this need?",
+      "options": [
+        "Certificate pinning",
+        "Wildcard certificates",
+        "A longer validity period",
+        "OCSP stapling"
+      ],
+      "correctIndex": 3,
+      "explanation": "With stapling, the web server supplies a recent signed status, so clients need not contact the authority. Pinning is tempting because it strengthens checking, but it does not address revocation."
+    },
+    {
+      "prompt": "A database encrypted in a public cloud must be permanently and quickly made unreadable. The company cannot physically destroy the provider's disks. What is the BEST method?",
+      "options": [
+        "Destroy every copy of the encryption key",
+        "Delete the database through the normal console",
+        "Ask the provider to confirm that the disks are full",
+        "Rename the database and restrict all access to it"
+      ],
+      "correctIndex": 0,
+      "explanation": "Cryptographic erasure works because without the key the data can never be read. Normal deletion is tempting because it is simple, but it does not guarantee that the data is gone from the disks."
+    },
+    {
+      "prompt": "A master key is protected so that any four of seven executives can together restore it. Which control does this describe?",
+      "options": [
+        "Key rotation",
+        "M of N control",
+        "Key wrapping",
+        "Certificate pinning"
+      ],
+      "correctIndex": 1,
+      "explanation": "Any M out of N people together can recover the key, which here means four of seven. Key rotation is tempting because it is also a key management control, but it means replacing keys on a schedule."
+    },
+    {
+      "prompt": "A web server's private key has been exposed. The security manager has already had the certificate revoked. What should happen NEXT?",
+      "options": [
+        "Reinstall the same certificate after changing the server password",
+        "Issue a certificate for the same key with a later end date",
+        "Generate a new key pair and obtain a new certificate",
+        "Wait for the next scheduled renewal before doing anything"
+      ],
+      "correctIndex": 2,
+      "explanation": "The old key is exposed and must not be used again, so a new key pair is needed. Extending the certificate for the same key is tempting because it is quick, but the stolen key would remain valid for attackers."
+    }
+  ]
+}

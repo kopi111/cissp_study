@@ -1,0 +1,141 @@
+{
+  "id": "T02",
+  "studyNotes": [
+    {
+      "heading": "The five goals, and confidentiality",
+      "body": "In this first part, we are going to meet the five goals that almost all security work serves, and then look closely at the first one.\n\nThe five goals are confidentiality, integrity, availability, authenticity and nonrepudiation. The first three are known together as the CIA triad. Here CIA stands for confidentiality, integrity and availability. It has nothing to do with spies. A triad is simply a group of three.\n\nA useful picture is a signed letter in a sealed envelope, delivered on time. Keep that in mind, because each part of it matches one goal.\n\nConfidentiality means that only allowed people can see the information. The sealed envelope gives you confidentiality. In your own life, your bank balance should be seen by you and the bank, and not by your neighbour.\n\nAt work, think of a payroll file. Only the payroll team should be able to open it. If a salesperson can browse everyone's salary, confidentiality has failed, even though nothing was changed and the system kept running.\n\nThere are several ways to protect confidentiality. Encryption scrambles data so that only someone with the right key can read it. Access control decides who may open what. Data classification labels information by how sensitive it is, so that people know how to handle it. Training matters too, because people can leak information by accident.\n\nThe threats are just as varied. Laptops are stolen. Network traffic is secretly read, which is called eavesdropping. Someone reads your screen from behind you, which is called shoulder surfing. An employee emails a file to the wrong person.\n\nConfidentiality is related to privacy, but they are not the same. Confidentiality is about keeping any kind of information from the wrong people. Privacy is about a person's right to control their own personal information.\n\nWhen you read an exam question, ask yourself which goal is at risk. If the worry is the wrong person seeing something, the goal is confidentiality.\n\nSo here is what to take away. Confidentiality means only the right people can see the information, and a failure can happen without anything being changed or broken."
+    },
+    {
+      "heading": "Integrity",
+      "body": "Next we will look at integrity. This goal is about whether you can trust that information is correct.\n\nIntegrity means that information stays accurate and complete, and that it is only changed by allowed people in allowed ways. Back in our letter, the fact that nobody has altered the words on the page is integrity.\n\nHere is an everyday example. A teacher writes a mark of 40 in the register. A student sneaks in and changes it to 90. Nobody saw anything secret, and the register is still available. But the record is now false, so integrity has failed.\n\nIt helps to think about integrity in three parts. First, stop unauthorized people from making changes. Second, stop authorized people from making changes they should not make. Third, keep information consistent, so that the records inside a system agree with each other and with the real world.\n\nThe second part surprises people. Imagine a warehouse clerk who is allowed to update stock figures. If that clerk records stock that does not exist, in order to hide a theft, the person was authorized, but the change was not. Integrity has failed.\n\nThe tools for integrity are different from those for confidentiality. A hash is a short fingerprint of data, worked out by a mathematical formula. If even one letter changes, the fingerprint changes. So you can compare fingerprints to find out whether a file has been altered. A hash does not hide the data, and it does not say who made it.\n\nOther tools include digital signatures, which we will come to soon, and change control, which means changes are requested, approved and recorded. Input checks reject values that make no sense, such as a date of birth in the future. Separation of duties, which splits a task between people, makes false entries harder.\n\nA workplace case: a bank's payment file is altered so that money goes to the wrong account. Encrypting the file would not by itself tell you it was altered.\n\nRemember this as your takeaway. Integrity means information can be trusted as correct, and that covers honest mistakes and insiders as well as attackers."
+    },
+    {
+      "heading": "Availability",
+      "body": "Now we will look at availability, the third part of the triad. This goal is about whether things work when people need them.\n\nAvailability means that systems and data are ready and reachable for authorized people at the time they are needed. In our letter picture, this is the part about being delivered on time. A perfect letter that arrives a week late is of no use.\n\nThink of a cash machine that is always broken. Your money is safe and the balance is correct, but you cannot get to it. In daily life that feels like a security failure, and it is one.\n\nIn a workplace, imagine a hospital that loses access to patient records during a power cut. Nobody has stolen anything. Nothing has been altered. But doctors cannot see which drugs a patient is allergic to. Lack of availability can put lives at risk.\n\nAvailability is threatened by many things that are not attacks at all. Hardware fails. Floods happen. Someone cuts a cable while digging a road. An update goes wrong. There are attacks as well, such as denial of service, where a system is flooded with so much traffic that real users cannot get in. Ransomware, which locks your files and demands payment, is also an attack on availability.\n\nThe tools are about having a spare and a way back. Backups are copies that let you restore data. Redundancy means having more than one of something important, such as two power supplies or two internet links. Good capacity planning makes sure a system can handle its busiest day. Maintenance and patching, which means applying software fixes, keep systems healthy.\n\nAvailability is often measured as a percentage of time. Here is a worked example. There are about 8,766 hours in a year. A service promising 99.9 percent availability may be down for one tenth of one percent of the year. That comes to just under nine hours a year. A promise of 99.999 percent allows only about five minutes a year. Each extra nine costs much more money.\n\nHere is the takeaway. Availability means being there when needed, and it is threatened by accidents and failures as often as by attackers."
+    },
+    {
+      "heading": "Authenticity and nonrepudiation",
+      "body": "In this part we will look at the last two goals, authenticity and nonrepudiation. People often mix these up, so we will go carefully.\n\nAuthenticity means that something is genuine and really comes from where it claims. A letter that truly came from your bank is authentic. A forged one is not.\n\nDo not confuse authenticity with authentication. Authentication is the act of proving who you are, such as entering a password. Authenticity is the quality of being genuine. One is something you do. The other is something a thing has.\n\nNonrepudiation means a person cannot successfully deny having done something. To repudiate means to deny. Your handwritten signature on a contract gives this in the paper world. You cannot easily claim later that you never agreed.\n\nIn the digital world, the main tool is the digital signature. It is made with a private key, which is a secret value held by only one person. Others check the signature using the matching public key, which anybody may have. If the check passes, three things are shown. The message came from the holder of the private key, which is authenticity. The message has not changed, which is integrity. And the signer cannot easily deny it, which is nonrepudiation.\n\nThe list of what a signature does not give is just as important. It does not give confidentiality. Anyone may still read a signed message. If you want secrecy as well, you must also encrypt it.\n\nNow here is a point the exam likes. Nonrepudiation needs something tied to one person only. A key shared by two people cannot give it, because either of them could have used the key. A shared user account fails for the same reason.\n\nConsider a workplace case. Four finance clerks all log in using one account called finance. A false payment is approved. The log shows the account, but it cannot show which person acted. Individual accounts and good logs would solve that.\n\nSo take this away. Authenticity is about being genuine, nonrepudiation is about not being able to deny, and both depend on tying actions to one identity."
+    },
+    {
+      "heading": "The opposite view, and reading a scenario",
+      "body": "Now we are going to turn the goals around and look at them from the attacker's side. Then we will practise working out which goal a situation is really about.\n\nDAD is a short way of remembering what attackers try to cause. It stands for disclosure, alteration and destruction. Each one is the opposite of a part of the CIA triad.\n\n- Disclosure attacks confidentiality.\n- Alteration attacks integrity.\n- Destruction, or denial, attacks availability.\n\nHere is an everyday way to hold this. Imagine your diary. If your sister reads it, that is disclosure. If she writes false entries in it, that is alteration. If she burns it, that is destruction.\n\nThe exam rarely asks you to recite these words. It describes something that happened, and expects you to identify the goal. So let us work through some examples together.\n\nA stranger copies a customer list and sells it. Nothing was changed, and the list is still there. The goal harmed is confidentiality.\n\nAn employee edits a supplier's bank details in the payment system to divert money. The data is now wrong. The goal harmed is integrity.\n\nA ransomware attack locks the hospital's records so staff cannot open them. The first goal harmed is availability. If the attackers also copied the records first, confidentiality has been harmed as well.\n\nA fake website copies your bank's login page. The site is not what it claims to be. The goal harmed is authenticity.\n\nA manager approves a purchase and later says it was never approved, and no record can show otherwise. The goal that was missing is nonrepudiation.\n\nThere is a useful habit here. Look at the actual effect in the scenario, not the method used. A question may mention a firewall, encryption or harmful software to distract you. Ask only one thing. What went wrong for the business? Was something seen, changed, lost, faked or denied?\n\nHere is what to remember. Seen is confidentiality, changed is integrity, lost is availability, faked is authenticity, and denied is nonrepudiation."
+    },
+    {
+      "heading": "Balancing the goals",
+      "body": "In this final part, we will look at why you cannot simply maximize all the goals at once, and how an adviser chooses the right balance.\n\nThink about your front door. You could fit ten locks. Burglars would struggle, but so would you, especially when you are carrying shopping or need to get out during a fire. More protection in one direction can cost you something in another.\n\nThe same is true at work. Strong encryption protects confidentiality, but if the key is lost, the data is unreachable, and availability has suffered. Long approval chains protect integrity, but they slow the business down. Keeping many copies of data helps availability, but each copy is one more thing that could leak.\n\nThe right balance depends on what the organization does. A newspaper website publishes articles for everyone, so confidentiality of those articles hardly matters. Availability and integrity matter a great deal. A false story under the paper's name would be a disaster. A defence ministry's battle plan values confidentiality above nearly everything. A hospital's records need all three, and in an emergency, reaching a patient's record quickly can save a life.\n\nHere is a worked example of the thinking. A hospital is considering a login step that takes one minute each time. Step one, ask what the hospital exists to do, which is to care for patients. Step two, identify the goals in tension, which are confidentiality and availability. Step three, ask how much harm a delay could cause, and how much harm unauthorized viewing could cause. Step four, find a control that serves both, such as a fast badge login for clinicians, together with an audited emergency access route that is reviewed afterwards.\n\nThat is the adviser's mindset. You do not defend one goal blindly. You find out what the organization needs, you explain the trade-offs, and you let the people who own the risk make the decision. When people's lives are at stake, safety decides.\n\nSo here is your takeaway. The goals compete with one another, the business mission sets the balance, and human safety outranks everything else."
+    }
+  ],
+  "practiceQuestions": [
+    {
+      "prompt": "A delivery company discovers that a dispatcher has been changing delivery records to hide parcels that went missing on his route. He was allowed to edit those records as part of his job. Which security goal has been harmed MOST directly?",
+      "options": [
+        "Confidentiality, because the dispatcher looked at customer records in the course of his daily work",
+        "Availability, because the correct delivery information can no longer be used by the business",
+        "Integrity, because the records are now false",
+        "Nonrepudiation, because the dispatcher might deny having made the changes if he were asked about them"
+      ],
+      "correctIndex": 2,
+      "explanation": "Integrity also covers improper changes made by authorized people, so false entries harm integrity. Nonrepudiation is tempting, but nothing in the scenario says that he denied it or that his actions cannot be traced."
+    },
+    {
+      "prompt": "A law firm needs to send a contract to a client. The client must be able to confirm who sent it and that it has not been altered, but the contract is not secret. Which control BEST meets the need?",
+      "options": [
+        "A digital signature made with the sender's private key",
+        "Encrypting the contract with a password that is sent to the client in a separate message on the same day",
+        "Sending the contract over an encrypted connection to a shared folder used by both of the firms",
+        "Publishing a hash of the contract in the text of the same email that carries the document"
+      ],
+      "correctIndex": 0,
+      "explanation": "A digital signature shows who signed and that nothing changed, and secrecy is not needed. A hash in the same email is tempting, but anyone who alters the document could also alter the hash."
+    },
+    {
+      "prompt": "A shared account is used by six engineers to administer a production database. An important table is deleted and each engineer says someone else did it. What is the BEST long-term fix?",
+      "options": [
+        "Change the shared account's password each week and give the new password only to senior engineers",
+        "Restore the table from backup and ask the engineers to be much more careful in future",
+        "Keep database logs for a longer period so that the investigation team has more data to search",
+        "Give each engineer an individual account with logging"
+      ],
+      "correctIndex": 3,
+      "explanation": "Accountability and nonrepudiation need actions to be tied to one person. Longer logs are tempting, but logs of a shared account still cannot show which engineer acted."
+    },
+    {
+      "prompt": "Staff at a company receive an email that looks as if it came from the payroll team, but it was sent by an outsider using a look-alike address. Which security property of the email is MOST clearly missing?",
+      "options": [
+        "Availability",
+        "Authenticity",
+        "Confidentiality",
+        "Nonrepudiation"
+      ],
+      "correctIndex": 1,
+      "explanation": "The message is not genuine, so authenticity is missing. Nonrepudiation is tempting, but that concerns a real sender being unable to deny sending something, and here the claimed sender did not send it."
+    },
+    {
+      "prompt": "A hospital's ransomware investigation shows that files were encrypted so that staff could not open them. There is no evidence that any data left the network. Which goal was harmed MOST directly?",
+      "options": [
+        "Authenticity",
+        "Confidentiality",
+        "Availability",
+        "Nonrepudiation"
+      ],
+      "correctIndex": 2,
+      "explanation": "Staff could not reach the data, so availability was harmed. Confidentiality is tempting because the word encrypted is usually linked with it, but here encryption was the attacker's method for denying access."
+    },
+    {
+      "prompt": "A software company wants customers to be able to confirm that a downloaded update really came from the company and was not modified. A developer suggests publishing the file's hash on the download page. What is the MAIN weakness of relying only on that?",
+      "options": [
+        "A hash can only be calculated for small files and would not work with larger update packages",
+        "A hash makes the file unreadable to customers who have not been given a decryption key by the company",
+        "A hash slows the download so much that availability is put at serious risk for most customers",
+        "An attacker who controls the page can replace both the file and the hash"
+      ],
+      "correctIndex": 3,
+      "explanation": "A plain hash shows change only if the hash itself can be trusted, and it does not identify the source. A digital signature solves both problems. The other options describe things a hash does not do."
+    },
+    {
+      "prompt": "A news organization is setting priorities for its public website, which carries only articles meant for everyone to read. Which pair of goals should it value MOST for those articles?",
+      "options": [
+        "Confidentiality and nonrepudiation",
+        "Integrity and availability",
+        "Confidentiality and availability",
+        "Confidentiality and integrity"
+      ],
+      "correctIndex": 1,
+      "explanation": "Public articles do not need secrecy, but they must be correct and reachable. Pairs that include confidentiality are tempting because it is the most familiar goal, but it adds little for content meant for everyone."
+    },
+    {
+      "prompt": "Two companies exchange orders, and each message carries a check value created with a secret key that both companies share. One company later denies sending a particular order. Why can the check value NOT settle this dispute?",
+      "options": [
+        "Either company could have created the value",
+        "The check value does not show whether the order was altered in transit between the two companies",
+        "A shared secret key can only be used to protect stored data and cannot be used on messages",
+        "The check value provides confidentiality only and offers no assurance of any other security goal"
+      ],
+      "correctIndex": 0,
+      "explanation": "Both parties hold the same key, so the value cannot prove which one created it. Nonrepudiation needs a key held by one party. The second option is wrong, since a keyed check does show alteration."
+    },
+    {
+      "prompt": "A web shop's security team proposes making customers pass four separate login checks for every purchase. Sales staff warn that customers will leave. What should the security adviser do FIRST?",
+      "options": [
+        "Support the four checks, because stronger login always reduces the total risk faced by the company",
+        "Drop the proposal, because customer sales are always more important than any security measure",
+        "Apply the checks for one month and then see whether the sales figures have fallen",
+        "Work out the actual risk and business impact so that the owners can decide"
+      ],
+      "correctIndex": 3,
+      "explanation": "Controls must fit business needs, and the adviser gives decision makers the facts. A one-month trial is tempting, but it risks real losses and still does not show which level of control the risk justifies."
+    },
+    {
+      "prompt": "A company stores all of its customer data encrypted, and only one administrator knows where the single copy of the decryption key is kept. What is the GREATEST concern with this arrangement?",
+      "options": [
+        "Confidentiality, because encrypted data can usually be read without the key by anyone who has physical access",
+        "Integrity, because encryption changes the contents of files in a way that makes them permanently unreliable",
+        "Availability, because losing the key would make the data unreadable",
+        "Authenticity, because encryption of stored data removes any record of where the data first came from"
+      ],
+      "correctIndex": 2,
+      "explanation": "A single key known to one person is a single point of failure, and the data could be lost for good. Confidentiality is tempting because encryption is involved, but the encryption is actually protecting it here."
+    }
+  ]
+}

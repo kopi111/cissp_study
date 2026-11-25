@@ -1,0 +1,141 @@
+{
+  "id": "T47",
+  "studyNotes": [
+    {
+      "heading": "Why an organization needs a strategy",
+      "body": "In this first part, we will look at why an organization needs a written plan for checking its security, and what that plan must contain.\n\nA control is a safeguard that reduces risk. A door lock is a control, and so is a rule that two people must approve a large payment. A strategy is the written plan for checking that those controls really work.\n\nThink about your home. You could test the smoke alarm whenever you happen to remember. Or you could decide that on the first Sunday of each month, one named person tests it and writes down the result. The second way is a strategy. It is planned, it has an owner, and it leaves a record.\n\nA good strategy answers five plain questions. Why are we checking? The reason may be a law, a contract or a known risk. What is in scope? Scope means what is included and what is left out. Who will do the work, and who will read the results and act on them? Where do the systems live? And when, and how often, will the checks happen?\n\nNow think like a manager. A strategy starts from business goals, risk and legal duties. It does not start from a favorite tool. Senior management must support it, because testing costs money and can disturb the business. Without that support, findings are ignored.\n\nThe exam outline uses the word validate. To design a strategy is to write it. To validate a strategy is to confirm that the strategy itself is still right. Do the tests still match the risks? Are the results reaching people who can act? Are problems really being fixed? Review the strategy on a regular schedule, and also whenever the business changes.\n\nHere is a workplace example. A retail company buys a smaller online firm. The old plan says nothing about the new firm's systems, its customers or the laws of the country where it trades. The plan was fine last year, but it is no longer valid, so it must be updated before more tests are run.\n\nHere is your takeaway. A strategy begins with business goals, risk and law, and it must be checked again whenever the business changes."
+    },
+    {
+      "heading": "Test, assessment and audit",
+      "body": "Next, we will separate three words that sound alike but mean different things: test, assessment and audit. The exam expects you to know which one a scenario describes.\n\nA test checks one control and gives a clear result. Does the door lock when it closes? Yes or no.\n\nAn assessment is a wider review of a system or a whole program. It often includes several tests, and it ends with advice on how to improve.\n\nAn audit is a formal check against a fixed standard. It is based on evidence, and it is done by someone independent of the work. Evidence is the proof that supports a conclusion.\n\nLet us use a car as an everyday picture. You press the brake pedal in the driveway to see whether the brakes work. That is a test. A mechanic spends an hour looking over the whole car and tells you what to repair soon. That is an assessment. A government inspector checks the car against the published road safety rules, records the proof and issues a pass or a fail. That is an audit.\n\nA simple way to hold on to this is to remember three questions. A test asks: does it work? An assessment asks: how good are we? An audit asks: can you prove that you meet the standard?\n\nNow a workplace example. A hospital tries to log in with a disabled account, to see whether access is really blocked. That is a test. It then asks a consultant to review its whole access program and recommend improvements. That is an assessment. Finally, an independent auditor checks its access records against a health privacy standard. That is an audit.\n\nAssessors commonly use three methods, and these are worth knowing as a set. To examine is to read documents and records. To interview is to talk to the people who do the work. To test is to try the control and see what happens. Testing usually gives the strongest proof, because it shows what really happens and not what people say happens.\n\nHere is what to take away. A test checks one thing, an assessment judges and advises, and an audit proves compliance with a standard through independent evidence."
+    },
+    {
+      "heading": "Internal, external and third-party work",
+      "body": "In this part, we will look at who does the checking, because that decides how far the results can be trusted.\n\nThe exam outline gives three groups, and each comes with a short description.\n\n- Internal: within your organization's control. Your own staff usually do the work.\n- External: outside your organization's control. Typically, an outside firm does the work.\n- Third-party: outside your enterprise's control. Another party, such as a regulator or a major customer, carries out or requires the check. A third-party review can also mean an independent check of a vendor.\n\nThink about a restaurant. The owner walks around the kitchen every morning, checking that it is clean. That is internal. The owner pays a private food safety consultant to visit twice a year. That is external. A health inspector arrives on behalf of the local government, and the owner did not choose the inspector or the day. That is third-party.\n\nEach has strengths. Internal work is cheaper and can happen often. Your staff know the systems well. But they are less independent, and they may find it difficult to criticize their colleagues. External work is more independent, and others trust it more, but it costs more and the outsiders take time to learn your systems. Third-party work carries the most weight with others, but you have the least control over its timing and its focus.\n\nBooks use these words in slightly different ways. Some call a hired firm a third party. So do not rely on the label alone. Read the scenario and ask two questions. Who ordered the work? And who is doing it?\n\nMost organizations use all three. Here is a workplace example. A bank's own team runs weekly vulnerability scans, which are automated searches for known weaknesses. A hired firm carries out a penetration test, which is an approved attempt to break in, once a year. And the banking regulator inspects the bank on its own schedule.\n\nThe manager's question is always the same. Who needs to trust this result? If it is only your own team, internal work may be enough. If it is a board, a customer or a regulator, you need more independence.\n\nHere is your takeaway. Independence and cost generally rise as you move from internal, to external, to third-party."
+    },
+    {
+      "heading": "Location: on-premises, cloud and hybrid",
+      "body": "Now we will look at where the systems live, because location changes what you are allowed to test and how you get your evidence.\n\nOn-premises means the systems are in your own building. You control the hardware, the network and the doors. You can test almost everything, and you can walk an auditor through the server room.\n\nCloud means a provider runs the systems in its own data centers, and you reach them over a network. Responsibility is shared, which means that the security duties are split between the provider and the customer. The split depends on the service.\n\n- Infrastructure as a Service, or IaaS: you rent servers. You check the operating system, the applications and the data.\n- Platform as a Service, or PaaS: you rent a place to run your own code. You check your application and your data.\n- Software as a Service, or SaaS: you rent a finished application. You mainly check your users, your settings and your data.\n\nThink about housing. If you own a house, you can inspect every pipe. If you rent a bare apartment, the landlord looks after the building, and you are responsible for what you bring in. If you stay in a furnished hotel room, nearly everything is done for you, but you must still lock your door and look after your passport.\n\nIn every model, the customer remains responsible for its own data and for who can reach it.\n\nYou usually cannot visit a cloud data center, or test it freely. So before any test, read the provider's testing rules and your contract. Testing without checking may break the contract, and it may even be illegal. For the parts that you cannot test, you rely on the provider's independent audit reports.\n\nHybrid mixes the two. Check each side, and also check the connection between them, because that link is easily forgotten. Think of a customer website in the cloud that reads from a database in your own building. Each side can look secure while the link between them is weak.\n\nLocation also affects law. Data held in another country may fall under that country's rules, so ask where your data is stored.\n\nHere is what to take away. Where the system lives decides what you may test, whose rules apply and what evidence you can collect."
+    },
+    {
+      "heading": "Vendor considerations",
+      "body": "In this part, we will look at how you check a vendor, which is a company that supplies a service to you. More and more of an organization's systems are run by someone else, so this matters a great deal.\n\nThink about hiring a builder. You could simply trust the builder's smile. You could ask for references. You could write into the agreement that you may inspect the work. Or you could ask to see the certificate from the building inspector. Each one gives you more confidence than the last.\n\nWith vendors, there are four main tools.\n\nA security questionnaire is a list of written questions that the vendor answers. It is useful for a first look, but it is weak on its own, because the vendor is simply marking its own work.\n\nA service level agreement, or SLA, is the promised level of service, in writing, such as how much of the time the service must be available.\n\nA right-to-audit clause is a term in the contract that lets you check the vendor. It must be agreed before the contract is signed. It is very hard to add later, once the vendor already has your business.\n\nAn independent audit report is an outside auditor's findings about the vendor's controls. This is often the most practical strong evidence, particularly with very large providers that will not let individual customers visit.\n\nAlso ask about the vendor's own suppliers, because your data may travel further than you expect. A supplier's supplier is sometimes called a fourth party.\n\nHere is a workplace example. A company is choosing a provider to handle its staff payroll records. First, it sends a questionnaire to narrow down the choice. Next, it reads the independent audit reports of the two best candidates. Then it adds a right-to-audit clause and a duty to report breaches quickly to the contract. Finally, it reviews the vendor every year, because a safe vendor can become an unsafe one.\n\nNow remember the most important rule of this part. You can hand over the work, but you cannot hand over the accountability. If the vendor loses your customers' data, your customers and your regulator will still look to you.\n\nHere is your takeaway. Build your right to check into the contract, prefer independent evidence, and stay accountable."
+    },
+    {
+      "heading": "Putting the strategy together",
+      "body": "In this final part, we will build one strategy from beginning to end, so you can see how all these pieces fit.\n\nThink about planning the health checks for a family. Everyone gets a basic check every year. A person with a heart condition is seen more often, and by a specialist. The frequency follows the risk. Security testing works the same way.\n\nNow here is a workplace example. A mid-sized online shop takes card payments, keeps its website in the cloud and runs its warehouse system in its own building. Let us walk through the steps.\n\nFirst, the shop lists its goals and duties. It must keep selling online, and it must follow the Payment Card Industry Data Security Standard, or PCI DSS, which protects card data.\n\nSecond, it ranks its systems by risk. The payment system comes first, then the website, and then the warehouse system.\n\nThird, it chooses who does what. Its own staff run scans and review logs, which are records of events. PCI DSS requires external vulnerability scans at least once every three months, carried out by an approved scanning company. It also requires penetration testing at least once every twelve months, and after any significant change. So an outside firm is booked. And each year an independent assessor checks compliance with the standard.\n\nFourth, it handles location. On the cloud side, it reads the provider's testing rules. For the warehouse, it can test directly. It also tests the link between the two.\n\nFifth, it agrees who receives the results and how fast problems must be fixed.\n\nSixth, it obtains senior management's approval and funding.\n\nFinally, it validates the plan each year. Are findings being closed? Did a real incident reveal something the tests missed? If an attack succeeded through a system that was never in scope, the strategy itself has failed, and it must change.\n\nOn the exam, watch for answers that jump straight to buying a tool or running a test. If nobody has decided what the business needs, that is the wrong place to start. The best first step is usually to understand the goals, the risks, the scope and the requirements.\n\nHere is what to take away. Test more often where the risk is higher, choose independence to match who must trust the result, and keep checking that the plan itself is right."
+    }
+  ],
+  "practiceQuestions": [
+    {
+      "prompt": "A company's internal security team tests the company's controls every month. The board now wants greater assurance that it can show to its shareholders. What would BEST add independence?",
+      "options": [
+        "Asking the internal team to carry out the same tests weekly instead of monthly",
+        "An audit by a firm from outside the company",
+        "Having the internal team's own manager sign every set of test results",
+        "Buying a more advanced scanning tool for the internal team to run each month"
+      ],
+      "correctIndex": 1,
+      "explanation": "An outside firm has no stake in the results, so others trust its findings more. Testing more often is tempting, but the same people are still checking their own organization, so independence does not improve."
+    },
+    {
+      "prompt": "A manufacturer has just merged with a company in another country. Its assessment and audit strategy was approved eight months ago and has not been changed. What should the security manager do FIRST?",
+      "options": [
+        "Continue with the current plan until the next scheduled yearly review date",
+        "Run a penetration test against every system owned by the merged company",
+        "Ask the other company's security team to keep following its own separate plan",
+        "Review the strategy against the new risks, scope and legal duties"
+      ],
+      "correctIndex": 3,
+      "explanation": "A major business change is a reason to validate the strategy, because its scope and legal duties have changed. Testing everything is tempting, but testing without a sound plan and approval is the wrong first step."
+    },
+    {
+      "prompt": "A company rents virtual servers from a provider under an Infrastructure as a Service agreement. Which items are the company's responsibility to check?",
+      "options": [
+        "Its operating systems, applications and data",
+        "The physical locks and guards at each of the provider's data centers",
+        "The layer of provider software that runs beneath every customer's servers",
+        "The electricity and cooling systems inside the provider's own buildings"
+      ],
+      "correctIndex": 0,
+      "explanation": "With Infrastructure as a Service, the customer manages everything from the operating system upward. The physical locks and guards are tempting because they matter, but they are the provider's duty."
+    },
+    {
+      "prompt": "A security team wants to run a penetration test, meaning an approved attempt to break in, against an application hosted with a large cloud provider. What should the team do FIRST?",
+      "options": [
+        "Begin at night, when the provider has fewer staff watching its systems",
+        "Ask the application's developers to list any weaknesses they already know about",
+        "Check the provider's testing rules and the terms of the contract",
+        "Run the test at a low speed so that the provider's monitoring does not notice it"
+      ],
+      "correctIndex": 2,
+      "explanation": "Cloud testing is governed by the provider's rules and the contract, and ignoring them can be a breach or a crime. Asking developers is useful, but it does not establish whether the test is allowed."
+    },
+    {
+      "prompt": "A company's customer website is in the cloud and reads from a database in the company's own building. An audit team tested the cloud side and the on-premises side and found both sound. What is the MOST important area still to check?",
+      "options": [
+        "The physical condition of the building's main reception area",
+        "The connection between the two environments",
+        "The colors and page layout used throughout the customer website",
+        "The age of the laptop computers issued to the company's sales staff"
+      ],
+      "correctIndex": 1,
+      "explanation": "In a hybrid setup, the link between the two sides is part of the system and is easily forgotten. Each side can be sound while the connection between them is weak."
+    },
+    {
+      "prompt": "A payment network requires a formal, evidence-based check, by someone independent, that a merchant meets a published standard. Which activity does this describe?",
+      "options": [
+        "Audit",
+        "Vulnerability scan",
+        "Security assessment",
+        "Tabletop exercise"
+      ],
+      "correctIndex": 0,
+      "explanation": "An audit is formal, independent, based on evidence and measured against a fixed standard. An assessment is tempting, but it is a wider review that ends with advice for improvement."
+    },
+    {
+      "prompt": "A company is negotiating a contract with a delivery firm that will store customer addresses. The company wants to be able to verify the firm's security during the contract. What is the BEST step?",
+      "options": [
+        "Ask the firm to send a friendly email each year confirming that all is well",
+        "Rely on the firm's strong reputation among other companies in its market",
+        "Request that the firm's website display a clear statement about security",
+        "Add a right-to-audit clause"
+      ],
+      "correctIndex": 3,
+      "explanation": "A right-to-audit clause creates an enforceable right to check the vendor, and it must be agreed before signing. Reputation is tempting, but it is not evidence and it gives the company no rights."
+    },
+    {
+      "prompt": "An outsourced customer service firm loses a company's customer records because of its own weak controls. The contract places operational security duties on the firm. Who remains accountable to the customers for protecting their data?",
+      "options": [
+        "The firm's systems administrator who made the configuration error",
+        "The outsourcing firm alone, because it agreed to do the security work",
+        "The company that entrusted the data to the firm",
+        "The insurance company that provides cover for the outsourcing firm"
+      ],
+      "correctIndex": 2,
+      "explanation": "Work can be outsourced, but accountability cannot. The contract may allow the company to recover its costs from the firm, which makes the second option tempting, but the company still answers to its customers."
+    },
+    {
+      "prompt": "A company stores customer records with a cloud provider that keeps copies in several countries. When scoping a compliance review, what is the MOST important question to ask about location?",
+      "options": [
+        "Which provider data center has the newest computer hardware",
+        "Which laws apply in the countries where the data is held",
+        "Which time zone suits the provider's customer support staff",
+        "Which country offers the provider the lowest electricity prices"
+      ],
+      "correctIndex": 1,
+      "explanation": "Data held in another country may fall under that country's laws, so the review must take this into account. The other options concern cost or convenience and do not affect legal duties."
+    },
+    {
+      "prompt": "A company has 200 systems and a limited testing budget. It cannot test every system equally often. How should the security manager set the testing frequency?",
+      "options": [
+        "Test more often where business risk is higher",
+        "Divide the budget into 200 equal parts, one for each of the systems",
+        "Test each system in alphabetical order until the money has run out",
+        "Test only the newest systems, because they have had the least testing so far"
+      ],
+      "correctIndex": 0,
+      "explanation": "A strategy follows risk, so the most important and most exposed systems are tested more often. Equal shares are tempting because they seem fair, but they spend too little on the systems that matter most."
+    }
+  ]
+}

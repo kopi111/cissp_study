@@ -1,0 +1,141 @@
+{
+  "id": "T57",
+  "studyNotes": [
+    {
+      "heading": "Media management through its whole life",
+      "body": "In this first part, we are going to look at media management, which means controlling storage items from the day they arrive until the day they are destroyed.\n\nMedia is anything that stores data. Hard drives, tapes, USB sticks, which are small plug-in storage devices, and even paper all count. Think of a school's paper records. You label them, lock them up, know who borrowed them, and shred them when they are no longer needed.\n\nThe life of a piece of media has several stages.\n\nMarking and labelling. Show the sensitivity on the item, so that people know how to handle it. A tape with no label is a danger, because someone may treat it as though it holds nothing important.\n\nHandling. Only approved people move it, and each move is recorded.\n\nStorage. Keep it locked, cool and dry. Keep backup media away from the main site, so that a single fire cannot destroy both copies.\n\nRetention. Keep it only as long as policy and law require. Retention simply means holding on to something. A legal hold means that you must keep it because of a court case, even past the usual date.\n\nDisposal. Sanitise or destroy it when it is finished with. Sanitise means removing the data so it cannot be recovered.\n\nMedia wears out. Tapes and disks have a limited life. Follow the maker's advice on how many times something can be used and how long it can be kept. Then test that you can still read it. A backup that you cannot read is not a backup at all.\n\nOld media raises another problem. If you keep a tape for ten years, you must also keep a machine that can read it.\n\nHere is a workplace example. A hospital sends its backup tapes to an offsite store. Each tape has a barcode and a classification label. Every hand-over is scanned, and the two sides reconcile their lists each month. When a tape reaches its retention date, the hospital checks for legal holds before ordering its destruction.\n\nThe manager's view is that the owner of the data decides how it should be classified, and the operations staff carry out the handling that this classification requires.\n\nHere is what to take away. Label, handle, store, retain and dispose of media under control, and test that it can still be read."
+    },
+    {
+      "heading": "Sanitising media: clear, purge and destroy",
+      "body": "Now we will look at how to remove data properly, because deleting a file does much less than most people think.\n\nData remanence is data that stays behind after you try to delete it. Think of a book in a library. Deleting a file is like tearing the entry out of the catalogue. The book itself is still sitting on the shelf. Formatting a disk is much the same. The data can usually be recovered.\n\nThere are three levels. They run from weakest to strongest, and the exam expects you to know the order. They come from guidance by NIST, the United States National Institute of Standards and Technology.\n\n- Clear: overwrite the data, so that ordinary software tools cannot recover it.\n- Purge: a stronger method, so that even a laboratory cannot recover it. Examples are degaussing and cryptographic erase.\n- Destroy: physically ruin the media by shredding, crushing, melting or burning.\n\nThe method must fit the type of media.\n\nDegaussing uses a strong magnetic field to wipe magnetic media, such as tapes and older hard disks. It does not work on SSDs, or solid-state drives, which store data in chips and not on magnetic platters. It also does not work on optical discs, such as DVDs.\n\nOverwriting is not reliable on SSDs either. These drives spread writing around their chips to make them last, which is called wear levelling. Because of this, some old data may be left in places that an overwrite never reaches.\n\nCryptographic erase means destroying the encryption key, so that the data can never be read. Encryption is the scrambling of data, so that only someone with the key can read it. This works very well on SSDs, provided that the data was encrypted from the start.\n\nFor the most sensitive data that will never be reused, physical destruction is the safest choice.\n\nHere is a workplace example. A company reuses its old magnetic disks within the same department. Clearing is enough for that. However, if those disks are leaving the company, a stronger method is needed, because the risk is higher once they are out of your control.\n\nHere is your takeaway. Clear, purge and destroy run from weakest to strongest, the method must suit the media, and degaussing does not work on solid-state drives."
+    },
+    {
+      "heading": "Media protection techniques",
+      "body": "Next we are going to look at the techniques that protect media from theft, loss and tampering.\n\nThink about carrying a large sum of cash. You would not leave it in a clear plastic bag on a bus seat. You would seal it, keep it with you, and use a trusted courier if you could not carry it yourself. Media deserves the same care.\n\nThese are the main techniques.\n\nEncrypt portable media, so that a lost item does not expose data. Encryption is the scrambling of data so that only a key holder can read it. This is the single most useful protection for anything that leaves the building.\n\nControl USB ports, using technical rules as well as policy. USB stands for Universal Serial Bus, and it is the common plug used for removable drives. Many organisations allow only approved, encrypted drives, or they block these ports altogether.\n\nUse write protection where media should not change. A forensic copy, or a master software image, is a good example.\n\nUse tamper-evident bags and sealed containers for moving media. These show clearly if somebody has opened them.\n\nUse trusted couriers, and keep a record of each hand-over. Check that the number of items sent matches the number received.\n\nKeep backup copies away from the original, but protect them just as well. A backup tape holds the same secrets as the live system. It deserves the same protection.\n\nControl the environment. Heat, damp and magnetic fields can damage media. Store them in the conditions that the maker recommends.\n\nHere is a workplace example. A law firm has a contract to send a case file to another office. The file goes on an encrypted drive, sealed in a tamper-evident bag. A named courier carries it, and signs a transfer record at each end. The password travels separately, by a different channel. If the bag is lost, the finder has a useless device.\n\nThe password is sent separately for a good reason. If the key travels with the lock, the lock provides no protection.\n\nThe manager would also ask whether the data needs to travel at all. Removing sensitive data that is no longer needed reduces the risk, because data you do not hold cannot be stolen.\n\nHere is what to take away. Encrypt anything that travels, control ports, seal and track each move, and protect backups as you would protect the live data."
+    },
+    {
+      "heading": "Data at rest",
+      "body": "In this part, we will look at data at rest, which is one of two states that the outline names for this objective.\n\nData at rest is data sitting in storage, such as a laptop disk, a database or a backup tape. Think of money in a safe. It is not going anywhere, but a thief could still try to break in and take it.\n\nThe main protections are encryption, access controls and backups.\n\nEncryption is the scrambling of data so that only a key holder can read it. AES, or Advanced Encryption Standard, is the common choice of cipher. A cipher is a method of encryption. It works at different levels.\n\nFull-disk encryption protects an entire drive. It mainly protects a stolen laptop while that laptop is switched off. Once the laptop is on and the user is logged in, the data is readable to anyone with control of that session.\n\nFile-level encryption protects individual files, so that they remain protected even when copied elsewhere.\n\nDatabase encryption protects stored records. Some databases can encrypt selected columns, such as card numbers.\n\nAccess controls decide who can reach the data. Encryption does not help if everyone has the key. Backups protect availability. If the data is destroyed, you can still get it back.\n\nProtecting the key matters as much as the encryption. If the key sits beside the data, the lock is useless. An HSM, or hardware security module, is a tamper-resistant device that creates and stores keys. Organisations use key management procedures to rotate keys and to retire them safely.\n\nThere is another option that is sometimes better than encryption. Tokenisation replaces a sensitive value with a meaningless token, with the real value held in a separate secure place. Masking hides part of the value, such as showing only the last four digits of a card number.\n\nHere is a workplace example. A retailer encrypts its customer database, and stores the keys in a hardware security module. A thief who copies the database files gets nothing useful. But if an attacker steals a database administrator's working login, the database may serve up readable records, because that account is allowed to read them. That is why encryption is only one layer.\n\nHere is your takeaway. Encrypt stored data, protect the keys separately, control who can reach it, and remember what each type of encryption does not protect."
+    },
+    {
+      "heading": "Data in transit",
+      "body": "Now we are going to look at data in transit, which is the second of the two states.\n\nData in transit is data moving across a network, such as a payment travelling to a bank. Think of a postcard. Anyone who handles it along the way can read it. A sealed letter is better, and a locked courier box is better still. Unprotected network traffic is like the postcard.\n\nHere are the main protections.\n\nTLS, or Transport Layer Security, secures web traffic and many other connections. When you see the padlock in a web browser, TLS is at work. Its older relative, called SSL, or Secure Sockets Layer, should no longer be used.\n\nIPsec, or Internet Protocol Security, protects traffic at the network level. It is often used for a VPN, or virtual private network, which is a private tunnel across the internet.\n\nSSH, or Secure Shell, gives an encrypted connection for administering a server, and it replaces older tools that sent passwords in the clear.\n\nThere are two ways of encrypting a path. Link encryption protects each section between two devices, and the data is decrypted and encrypted again at each stop. End-to-end encryption keeps the data encrypted the whole way from sender to receiver, so that points in between cannot read it.\n\nAs with data at rest, the strength depends on doing things properly. Weak, outdated settings can be attacked. Certificates, which are the digital identity documents that prove who a server is, must be checked and kept up to date.\n\nThere is also a third state that you should recognise, called data in use. This is data being processed in memory. It is the hardest to protect, because data normally has to be decrypted to be used.\n\nHere is a workplace example. A company's staff connect from home. Their laptops connect to the office through a VPN, and internal websites use TLS as well. A member of staff at a coffee shop is using public Wi-Fi, a wireless network that strangers can also join. Anyone listening on that network sees only scrambled traffic.\n\nA manager would also consider whether the sensitive data should leave the network at all, and whether a data loss prevention tool should watch it.\n\nHere is what to take away. Use TLS, IPsec or SSH for data on the move, and retire old protocols that send data in the clear."
+    },
+    {
+      "heading": "Worked example: retiring a batch of laptops",
+      "body": "In this final part, we will work through one complete example, from the decision to retire equipment all the way to the final record.\n\nThink about moving out of a home that you have rented. Before you hand back the keys, you check the cupboards, take your papers, and make sure that nothing private has been left behind. You also keep a note of what you did, in case anyone asks later.\n\nA company is replacing 200 laptops. Here are the steps it follows.\n\nStep one. Check the data classification and any legal hold. Some of these laptops belonged to staff who are involved in a court case. Those laptops must be kept, and they are set aside.\n\nStep two. Choose the method. These laptops use SSDs, which are solid-state drives, so degaussing will not work. Degaussing relies on magnetism, and these drives store data in chips.\n\nStep three. Consider the destination. Some laptops will be reused within the company. Others will be sold to a recycling firm. The data held on the finance team's machines is highly sensitive.\n\nStep four. For laptops being reused, use cryptographic erase, because the disks were encrypted from the start. Then check the result. A sample is tested to confirm that the data cannot be read.\n\nStep five. For the laptops leaving the company with no further use, including the finance machines, the drives are removed and shredded. An approved firm does the shredding and supplies a certificate of destruction. Staff from the company watch it happen or the firm provides proof.\n\nStep six. Record the serial number of each device, the method used, the date, and the name of the person who did it. This is the evidence that the company did what its policy requires.\n\nNotice three points. The legal hold came first, ahead of any plan to wipe. The method matched the media. And the record was kept.\n\nThere is one more thing to remember. Printers, photocopiers and even some network devices also hold data in internal storage. These are easily forgotten when they go back to a leasing company.\n\nOn the exam, watch for details such as the type of drive, whether the media will be reused, and whether a court case exists.\n\nHere is your takeaway. Check for legal holds, match the method to the media and its destination, verify the result, and keep the record."
+    }
+  ],
+  "practiceQuestions": [
+    {
+      "prompt": "A company stores old backup tapes, and a lawsuit has just been filed that relates to the data on them. The tapes have reached their normal destruction date. What should the company do?",
+      "options": [
+        "Destroy them, because the retention period has ended",
+        "Keep them, because a legal hold overrides the normal schedule",
+        "Overwrite them, and keep a written record of the action",
+        "Send them to the other party in the lawsuit"
+      ],
+      "correctIndex": 1,
+      "explanation": "A legal hold requires the data to be kept even past its normal date. Destroying them is tempting because policy says the time is up, but doing so could be treated as destroying evidence."
+    },
+    {
+      "prompt": "An employee deletes a confidential file and empties the recycle bin. Why might the data still be recoverable?",
+      "options": [
+        "Because of data remanence",
+        "Because of data classification",
+        "Because of the data owner",
+        "Because of the retention policy"
+      ],
+      "correctIndex": 0,
+      "explanation": "Data that remains after an attempt to delete it is called data remanence. A retention policy is tempting because it concerns how long data is kept, but it has no effect on how deletion works."
+    },
+    {
+      "prompt": "A company wants to sanitise magnetic tapes so that even a laboratory could not recover the data, and the tapes do not need to be reused. Which method fits BEST?",
+      "options": [
+        "Formatting the tapes",
+        "Deleting the files with the operating system",
+        "Clearing them with a single software overwrite",
+        "Degaussing"
+      ],
+      "correctIndex": 3,
+      "explanation": "Degaussing is a purge method that works on magnetic media. A software overwrite is tempting, but clearing only defeats ordinary software tools."
+    },
+    {
+      "prompt": "A company has encrypted all its solid-state drives from the first day of use. The drives will be reused within the company. Which sanitisation method is the BEST fit?",
+      "options": [
+        "Degaussing the drives",
+        "Formatting the drives",
+        "Cryptographic erase",
+        "Shredding the drives"
+      ],
+      "correctIndex": 2,
+      "explanation": "Destroying the key makes the data unreadable and leaves the drive usable. Shredding is tempting because it is the strongest method, but the drives are meant to be reused."
+    },
+    {
+      "prompt": "Staff keep plugging unknown USB sticks into office computers, and one of them carried malware. Which control would BEST reduce this risk?",
+      "options": [
+        "Send a monthly email asking staff to take care with USB sticks",
+        "Increase the required length of staff account passwords",
+        "Move the office computers to a different floor of the building",
+        "Technically block USB ports except for approved, encrypted drives"
+      ],
+      "correctIndex": 3,
+      "explanation": "A technical control on the ports works every time, whatever staff remember. A monthly email is tempting, but a reminder alone does not stop someone from plugging in a stick."
+    },
+    {
+      "prompt": "A laptop with full-disk encryption is stolen from a meeting room. It was logged in and unlocked at the time. What is the MOST accurate statement about the data?",
+      "options": [
+        "The data is safe, because the disk was encrypted",
+        "The data is safe, unless the thief can guess the password",
+        "The data may be readable, because the system was running and unlocked",
+        "The data has already been erased by the encryption software"
+      ],
+      "correctIndex": 2,
+      "explanation": "Full-disk encryption mainly protects a device that is switched off. Saying the data is safe is tempting, but an unlocked session has already made the data readable."
+    },
+    {
+      "prompt": "A database holds card numbers. The company wants staff in customer service to see only the last four digits. Which technique is BEST?",
+      "options": [
+        "Masking",
+        "Hashing the entire database",
+        "Full-disk encryption",
+        "Clearing"
+      ],
+      "correctIndex": 0,
+      "explanation": "Masking hides part of a value, so only the permitted portion is displayed. Full-disk encryption is tempting because it protects data, but it protects the stored disk and not what staff see on screen."
+    },
+    {
+      "prompt": "An employee will connect to company systems from a hotel's public wireless network. Which control BEST protects the data while it is moving?",
+      "options": [
+        "A virtual private network connection",
+        "Full-disk encryption on the laptop",
+        "A cable lock for the laptop",
+        "A stronger login password for the laptop"
+      ],
+      "correctIndex": 0,
+      "explanation": "A virtual private network protects data in transit through an encrypted tunnel. Full-disk encryption is tempting, but it protects data at rest and not data crossing the hotel network."
+    },
+    {
+      "prompt": "A web application encrypts its database and keeps the encryption key in a file on the same server. An auditor raises this as a finding. What is the MAIN problem?",
+      "options": [
+        "The encryption is too strong for that database",
+        "The key is stored alongside the data it protects",
+        "The database should have been in a different country",
+        "The key should have been shorter so it can be used more quickly"
+      ],
+      "correctIndex": 1,
+      "explanation": "An attacker who reaches the server can get both the data and the key. A shorter key is tempting for speed, but it would weaken protection and leave the real problem in place."
+    },
+    {
+      "prompt": "A company returns leased photocopiers at the end of a contract. What should the security manager make sure happens FIRST?",
+      "options": [
+        "The maintenance contract is renewed for another term",
+        "The toner cartridges are removed and recycled",
+        "The copiers are cleaned to remove any fingerprints",
+        "Any internal storage in the copiers is sanitised"
+      ],
+      "correctIndex": 3,
+      "explanation": "Many copiers store images of documents on internal disks, so those must be sanitised. Removing the toner is tempting as an obvious task, but it does nothing about stored copies of documents."
+    }
+  ]
+}

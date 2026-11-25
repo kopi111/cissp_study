@@ -1,0 +1,141 @@
+{
+  "id": "T72",
+  "studyNotes": [
+    {
+      "heading": "How software weaknesses are listed",
+      "body": "In this first part, we are going to look at the main lists of software weaknesses, and at the single idea behind nearly all of them.\n\nMost code-level flaws have one cause. The code trusts something that it should not. Think of a doorman who lets in anyone who says that they are on the guest list, without looking at the list.\n\nOWASP, the Open Worldwide Application Security Project, publishes a list of serious web application risks, called the Top 10. The list changes every few years, so learn the kinds of flaw and not the rank numbers. The 2021 list has these ten.\n\n- Broken access control.\n- Cryptographic failures.\n- Injection.\n- Insecure design.\n- Security misconfiguration.\n- Vulnerable and outdated components.\n- Identification and authentication failures.\n- Software and data integrity failures.\n- Security logging and monitoring failures.\n- Server-side request forgery.\n\nIn server-side request forgery, a server is tricked into making requests on behalf of an attacker, often to internal systems that the attacker could not reach directly. A newer 2025 edition keeps most of these ideas, and gives more attention to software supply chain failures and to the mishandling of unusual error conditions.\n\nAnother catalog is the Common Weakness Enumeration, or CWE. It names types of weakness in code. Be clear on the difference from Common Vulnerabilities and Exposures, or CVE. A CWE entry describes a kind of mistake, such as a missing length check. A CVE entry is one specific known flaw in one specific product.\n\nHere is a workplace example. A company reviews its last year of security bugs and groups them by weakness type. Forty percent turn out to be injection. So it does not just fix those bugs one by one. It changes its coding standard, adds a safe database library and trains its developers.\n\nThat is the manager's mindset, and it matters for this whole topic. Fix the cause, not only the symptom. A firewall rule can buy time as a compensating control, which is a stand-in for the real fix. But the real fix belongs in the code.\n\nHere is what to take away. Learn the kinds of flaw, know that CWE names a type and CVE names one instance, and fix causes."
+    },
+    {
+      "heading": "Buffer overflow",
+      "body": "Next we will look at one of the oldest and most dangerous flaws, the buffer overflow.\n\nA buffer is a fixed space in memory. A buffer overflow happens when a program writes more data than the space can hold. Think of pouring a large jug into a small cup on a table full of papers. The extra spills over and ruins whatever is next to it.\n\nIn memory, what sits next to the buffer may be important. There are two main areas. The stack is memory that is used for a running function, including the return address, which tells the program where to go next. The heap is memory that the program asks for while it is running.\n\nLet us walk through a stack attack. A program sets aside 64 bytes for a name, and it does not check the length. An attacker sends 200 bytes. The first 64 fill the buffer. The rest overwrite what comes after it, including the return address. If the attacker has chosen those bytes carefully, the program jumps to the attacker's own instructions. So the result may be a crash, or the attacker may run code with the program's privileges.\n\nThis flaw is mainly found in languages such as C and C plus plus, which let programmers handle memory directly and do not check boundaries for them.\n\nNow the fixes, starting with the most important.\n\nThe primary fix is in the code. Check the length of all input against the size of the buffer. This is known as bounds checking. Use safe functions, which require a length limit, and avoid old unsafe ones that have none. Better still, use memory-safe languages where you can.\n\nThen add the defenses that make attacks harder. A stack canary is a secret value placed before the return address, and if it has changed, the program stops. Address Space Layout Randomization, or ASLR, moves memory locations around, so the attacker cannot predict addresses. Data Execution Prevention, or DEP, blocks code from running in data areas.\n\nThese defenses make an attack harder. They do not remove the flaw. Making the buffer bigger does not fix it either.\n\nHere is your takeaway. A buffer overflow is writing beyond the end of a fixed space. Check the length first, and treat the operating system defenses as extra layers."
+    },
+    {
+      "heading": "SQL injection",
+      "body": "Now we will look at injection, and at its most famous form, which attacks databases.\n\nInjection happens when user input is treated as a command. Think of a clerk who is told to read out whatever is written on a form. Someone writes on the form, and also please open the safe. If the clerk cannot tell the form's data from an instruction, trouble follows.\n\nStructured Query Language, or SQL, is the language used to talk to databases. Imagine a login page. The program builds a database command by joining together fixed text and whatever the user types. The command says, find the user whose name matches the text that was typed.\n\nAn attacker does not type a name. The attacker types a quote mark, which ends the name early, then the word OR, and then a condition that is always true, such as one equals one. The database now reads the command as, find the user whose name is blank, or where one equals one. That is true for every row, so the database may return every user.\n\nWorse commands can change or delete data. In blind SQL injection, the attacker sees no data on the screen, and instead works things out from yes or no behavior, or from delays.\n\nThe best fix is a parameterized query, also called a prepared statement. The command is sent first with blank slots. The user's input is sent separately, as data only. Even if it contains a quote mark, it can never become part of the command. The clerk now has a form with a box, and nothing written inside the box is ever treated as an order.\n\nStored procedures, which are commands saved inside the database, help only if they do not build commands by joining text inside them.\n\nThen add these layers. Use server-side input validation, preferably with an allow list of what is permitted. Give the database account least privilege, meaning only the access it needs, so that a mistake does less harm. Show simple error messages, and keep the details in protected logs.\n\nChecks in the browser alone are useless, because an attacker can bypass them. A web application firewall can help for a while, but it is a compensating control.\n\nHere is what to take away. SQL injection mixes data with commands, and the primary fix is parameterized queries on the server."
+    },
+    {
+      "heading": "Cross-site scripting: stored, reflected and DOM-based",
+      "body": "In this part, we will look at cross-site scripting, and learn exactly how its three types differ.\n\nCross-site scripting, or XSS, puts an attacker's script into a page that other people view. A script is a small program that a browser runs. The victim's browser trusts it, because it appears to come from the real site. The script can steal session data, change what the victim sees, or act as the victim.\n\nThink of a town notice board that everyone trusts. If someone pins up a false notice, people believe it, because of where it is.\n\nThere are three types. The difference is where the script comes from.\n\nStored cross-site scripting is saved on the server, for example in a comment or a product review. Every visitor who opens that page gets the script. Nobody needs to be tricked into clicking anything unusual. That makes it especially dangerous. It is also called persistent.\n\nReflected cross-site scripting is not saved. It bounces back from a request, often through a crafted link. Picture a search page that says, you searched for, and then repeats whatever was typed. An attacker emails a link with a script in the search term. The victim clicks it, the site echoes the script into the page, and the browser runs it. Only people who follow the link are affected.\n\nDOM-based cross-site scripting happens in the browser's own page code. DOM means Document Object Model, the browser's working copy of a page. The page's own script takes input and writes it unsafely into the page. The server may never see the attack.\n\nHere are the fixes. The primary fix is output encoding, which means changing special characters so that a browser shows them as text and does not run them. The encoding must suit the place where the data appears. Also validate input on the server. Use a Content Security Policy, which limits which scripts may run. Mark session cookies, the small records that keep a user logged in, as HttpOnly, so that scripts cannot read them.\n\nHttpOnly protects the cookie only. The script can still run and do other harm.\n\nHere is your takeaway. Stored is saved on the server, reflected bounces back from a request, DOM-based lives in the page's own code, and output encoding is the main fix."
+    },
+    {
+      "heading": "Cross-site request forgery, and telling it apart",
+      "body": "Next we will look at cross-site request forgery, and at how to separate it from cross-site scripting, because these two are very often confused.\n\nCross-site request forgery, or CSRF, tricks a logged-in user's browser into sending an unwanted request. Think of a signed blank check. You have already proved who you are. Someone slips a piece of paper in front of your hand, and your signature goes on it without your noticing.\n\nHere is how it works, step by step, in a workplace example. An employee is logged in to the company's staff portal in one browser tab. The employee opens another website. That site holds a hidden form, which automatically sends a request to the staff portal to change the employee's bank details. The browser attaches the login cookie automatically, as it always does. The portal sees a valid session and carries out the request.\n\nNotice what the attacker did not need. The attacker never saw the password. No script ran inside the portal. The attacker usually cannot even read the reply. The attack simply causes an action.\n\nHere are the fixes. Put a unique, secret anti-CSRF token in each form. The server checks it, and a forged request does not know its value. Use SameSite cookies, a setting that tells the browser not to attach the cookie to requests that begin on other sites. Ask the user to confirm sensitive actions, for example by entering the password again.\n\nNow let us tell the two apart. Cross-site scripting abuses the user's trust in the site. Script runs in the victim's browser, as if it came from the site. Cross-site request forgery abuses the site's trust in the user's browser. A request is sent that the user never meant to send.\n\nAsk yourself one question. Did the attacker's code run inside the trusted page? If yes, it is scripting. If a request was forged and no code ran in the page, it is forgery.\n\nThe fixes differ too. Output encoding stops scripting, not forgery. Tokens stop forgery, not scripting. In fact, a working script inside the page can often read the token. Encryption of traffic and longer passwords stop neither.\n\nHere is what to take away. Scripting runs code in the page. Forgery sends a request the user did not intend, and it is stopped by tokens and SameSite cookies."
+    },
+    {
+      "heading": "Race conditions and other coding flaws",
+      "body": "In this final part, we will look at timing flaws, and then at some other weaknesses you should recognize.\n\nA race condition occurs when the result depends on the timing of events. The most common type is time of check to time of use, or TOCTOU. A program checks something, and it changes before the program uses it.\n\nThink of checking that a parking space is empty, then walking back to your car. By the time you drive over, someone else is in it. The check was true when you made it.\n\nHere is a worked example. An account holds 100 dollars. Two withdrawals of 100 dollars arrive together. Request one checks the balance and sees 100 dollars. Request two checks the balance and also sees 100 dollars. Both are approved, and 200 dollars leave an account that held only 100 dollars.\n\nFile systems give another example. A privileged program checks that a user may write to a file, and then opens that file by name. In the tiny gap between, an attacker replaces it with a link to an important system file.\n\nThe fix is to close the gap. Make the check and the use a single atomic action, which cannot be interrupted. Use locks or database transactions. For files, open the file first, and then check the file that you actually opened. Input validation does not help here, because the input was perfectly valid.\n\nNow for some other weaknesses, each with its fix. Hard-coded passwords live inside the code, so keep them in a vault. Backdoors, also called maintenance hooks, are hidden ways in, so remove them through code review before release. Path traversal uses input such as dot dot slash to climb out of a permitted folder, so validate file names against an allow list. Integer overflow happens when a number grows too large for its space and wraps around, so check ranges. Insecure deserialization happens when a program rebuilds objects from untrusted data, so do not accept such data or verify its integrity first.\n\nAs an adviser, fix the coding cause and train developers. A firewall rule alone only treats a symptom.\n\nHere is your takeaway. A race condition is a gap between check and use. Close that gap with atomic actions, locks or transactions."
+    }
+  ],
+  "practiceQuestions": [
+    {
+      "prompt": "A code review of a network service written in C finds that it copies incoming data into a fixed-size array without looking at how much data has arrived. What is the BEST fix?",
+      "options": [
+        "Encrypt the incoming data using Transport Layer Security",
+        "Check the data length against the size of the array",
+        "Increase the size of the array to a very large value",
+        "Run the service at night, when fewer users are online"
+      ],
+      "correctIndex": 1,
+      "explanation": "Bounds checking removes the cause of a buffer overflow. A larger array is tempting because it seems to leave more room, but an attacker can simply send more data."
+    },
+    {
+      "prompt": "A legacy application cannot be rewritten this year. The security team wants an operating system feature that stops code from running in areas of memory meant only for data. Which feature BEST fits?",
+      "options": [
+        "Address Space Layout Randomization",
+        "Output encoding in the browser",
+        "Transport Layer Security on the network",
+        "Data Execution Prevention"
+      ],
+      "correctIndex": 3,
+      "explanation": "Data Execution Prevention blocks code from running in data areas. Address Space Layout Randomization is tempting because it is also a memory defense, but it moves memory locations around and does not stop execution."
+    },
+    {
+      "prompt": "A developer moves a database query into a stored procedure to stop SQL injection. Inside the procedure, the command is still built by joining user text to fixed text. Testing shows that the attack still works. Why?",
+      "options": [
+        "Stored procedures can never be called from web applications",
+        "The database account has too few privileges for the work",
+        "Joining user text still mixes data with the command",
+        "Stored procedures must be encrypted before they are run"
+      ],
+      "correctIndex": 2,
+      "explanation": "The flaw is the mixing of data and command, and moving it inside a procedure does not change that. The privileges answer is tempting because least privilege matters for injection, but too few privileges would not make an attack succeed."
+    },
+    {
+      "prompt": "A company has converted its main queries to parameterized form. It wants to limit the damage if an injection flaw is ever found in a part of the application that was missed. What is the BEST additional control?",
+      "options": [
+        "Give the application's database account least privilege",
+        "Apply a longer password policy for customers of the site",
+        "Encrypt web traffic with Transport Layer Security",
+        "Use the database administrator account for all queries"
+      ],
+      "correctIndex": 0,
+      "explanation": "Least privilege limits what a successful injection can do. Encrypting web traffic is tempting because it is a sound control, but injection arrives inside a perfectly valid encrypted request."
+    },
+    {
+      "prompt": "An attacker posts a product review containing a script on a shopping site. The site saves the review, and the script runs for every visitor who opens that product page. What type of attack is this?",
+      "options": [
+        "Reflected cross-site scripting",
+        "Cross-site request forgery",
+        "SQL injection",
+        "Stored cross-site scripting"
+      ],
+      "correctIndex": 3,
+      "explanation": "The script is saved on the server and is served to every visitor, which makes it stored. Reflected is tempting because it is also cross-site scripting, but a reflected script is not saved and reaches only people who follow a crafted link."
+    },
+    {
+      "prompt": "An email contains a link to a real website, with a script placed in the search term. The site repeats the search term in its results page without saving it, and the script runs in the browser of whoever clicks. What type of attack is this?",
+      "options": [
+        "Stored cross-site scripting",
+        "Reflected cross-site scripting",
+        "Cross-site request forgery",
+        "A time of check to time of use race"
+      ],
+      "correctIndex": 1,
+      "explanation": "The script comes back from a request and is never saved, which makes it reflected. Stored is tempting because the script does run on the page, but nothing was kept on the server."
+    },
+    {
+      "prompt": "Scripts submitted in customer comments are running in other visitors' browsers on a community site. What is the BEST primary fix?",
+      "options": [
+        "Require a secret token in each comment form",
+        "Use parameterized queries for each comment saved",
+        "Encode comment output for the browser",
+        "Require longer passwords for those who comment"
+      ],
+      "correctIndex": 2,
+      "explanation": "Output encoding makes the browser show the text and not run it, which fixes cross-site scripting. A secret token is tempting, but tokens stop forged requests and do not stop a script stored in a comment."
+    },
+    {
+      "prompt": "An employee logged in to a payroll portal visits another website. The portal then records a change to the employee's bank details that the employee never made. No script ran on the portal, and the server saw a valid session. What is the MOST likely attack?",
+      "options": [
+        "Cross-site request forgery",
+        "Stored cross-site scripting",
+        "SQL injection",
+        "Buffer overflow"
+      ],
+      "correctIndex": 0,
+      "explanation": "A valid session sent an unwanted request, and no code ran in the portal, which is request forgery. Stored scripting is tempting because a browser is involved, but that attack needs a script running inside the trusted page."
+    },
+    {
+      "prompt": "A tester shows that a forged request can change the email address on a logged-in user's account. A developer replies that output encoding was added last week, so this cannot be a real problem. What is the BEST reply?",
+      "options": [
+        "Correct, because output encoding blocks all forged requests",
+        "Correct, provided that traffic is also sent with encryption",
+        "Encoding stops scripts, not forged requests, so add tokens",
+        "Incorrect, because the real fix is a parameterized query"
+      ],
+      "correctIndex": 2,
+      "explanation": "Output encoding addresses cross-site scripting, and forged requests need anti-forgery tokens or SameSite cookies. A parameterized query is tempting because it is a strong fix, but it solves injection and has nothing to do with forged requests."
+    },
+    {
+      "prompt": "A privileged program checks that a user may write to a temporary file, and then opens the file by name. An attacker swaps the file for a link to a system file between those two steps. What is the flaw and its BEST fix?",
+      "options": [
+        "Buffer overflow, fixed by checking the length of all input",
+        "Race condition, fixed by making check and use atomic",
+        "Injection, fixed with parameterized queries on the server",
+        "Cross-site scripting, fixed by output encoding of file names"
+      ],
+      "correctIndex": 1,
+      "explanation": "The gap between check and use is a time of check to time of use race, and an atomic action closes it. Buffer overflow is tempting because the program is privileged, but the input size has nothing to do with this attack."
+    }
+  ]
+}

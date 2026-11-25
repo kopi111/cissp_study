@@ -1,0 +1,141 @@
+{
+  "id": "T44",
+  "studyNotes": [
+    {
+      "heading": "Discretionary access control, and what non-discretionary means",
+      "body": "In this first part, we will look at the model where the owner decides, and at the word that covers every model where the owner does not.\n\nAuthorization is deciding what a person may do once we know who they are. An authorization model is a way of making that decision. Each model answers one question differently. Who or what decides?\n\nDAC stands for discretionary access control. Here, the owner of the object decides who gets access. Discretion simply means freedom to choose.\n\nThink about your own car. You can lend it to your brother and refuse to lend it to your neighbor. Nobody else makes that decision for you.\n\nDAC usually uses an ACL, which stands for access control list. An ACL is a list attached to the object saying who may do what. When you right-click a file on your own computer and share it with a colleague, that is DAC.\n\nDAC is flexible, and it is easy for ordinary users. Its weakness comes from the same place. Owners can share too much, and they often do. There is no central view of who has been given what. A malicious program run by a user acts with that user's rights, so it can read or pass on whatever the user can.\n\nHere is a workplace example. A project manager creates a folder on a shared drive and adds her team. A month later she adds a friend in another department, just to be helpful. The folder holds pay figures. Nothing stopped her, because under DAC she is allowed to make that choice.\n\nNow for the word non-discretionary. It simply means that owners do not decide. A central authority or the system does. Roles, rules, attributes and labels are all non-discretionary. So mandatory access control, role-based, rule-based and attribute-based are all non-discretionary models. Only DAC leaves the choice to the owner.\n\nA small point to be careful with. An ACL is just a list. Firewalls also use lists called ACLs, and they enforce rules that no owner chooses. So seeing the letters ACL does not prove that a system uses DAC. Ask who decides.\n\nHere is what to take away. In DAC, the owner decides and it is flexible but leaky, and non-discretionary means the owner does not decide."
+    },
+    {
+      "heading": "Mandatory access control",
+      "body": "Now we will look at the strictest model, where labels decide and users have no say.\n\nMAC stands for mandatory access control. The system decides by comparing labels. Subjects, which are the active things asking for access, have clearances. Objects, which are the things being reached, have classifications, such as Confidential, Secret or Top Secret.\n\nThe word mandatory means users cannot change it. A user cannot change a label or decide to share a document at will. Even the person who wrote a document does not own it in the DAC sense.\n\nThink of a secure government building with colored zones. Your pass is yellow. You can enter yellow areas. You cannot paint your pass red, and you cannot lend it to anyone.\n\nThe label level alone is not enough. Need to know still applies, and it is often enforced through compartments, which are named groups within a level. A person with Top Secret clearance who has not been briefed into a compartment cannot read what is in it. So there are two tests. Is your clearance high enough? And are you in the right compartment?\n\nMAC environments are usually described in three ways.\n\n- Hierarchical: levels stacked one above another.\n- Compartmentalized: separate groups with no ordering between them.\n- Hybrid: levels and compartments combined.\n\nMAC is also called lattice-based, because the levels and compartments form a structure like a garden trellis, with upper and lower limits for each subject. Models such as Bell-LaPadula apply these labels to protect confidentiality. Its short form is no read up and no write down.\n\nMAC is strict and costly. Everything must be labeled and kept labeled. It is hard to change quickly. It suits military and government work, where a leak could cost lives.\n\nHere is a workplace example. An intelligence agency holds reports at several levels. An analyst with Secret clearance opens a Secret report on her own project. She cannot open a Top Secret report, and she cannot lower the label on one to pass it to a colleague.\n\nHere is your takeaway. In MAC, the system compares labels and users cannot change them. Clearance is necessary, but need to know must also be met."
+    },
+    {
+      "heading": "Role-based and rule-based access control",
+      "body": "In this part we will look at two models that share the same short name, and learn how to keep them apart.\n\nRole-based access control ties rights to job roles. People are placed in roles, and they get the rights of each role they hold. A new cashier gets the cashier role and all its rights on the first day. When that cashier leaves, the person is removed from the role, and the role carries on.\n\nThink about a school. There is a teacher role, a caretaker role and a head teacher role. When a new teacher arrives, nobody sits down and works out her access one item at a time. She simply becomes a teacher.\n\nRole-based control suits companies with a lot of staff turnover, and it fits least privilege when roles are well designed. Its weakness is that some organizations end up with far too many narrow roles, which is known as role explosion. Another weakness is that a role describes a job, but it does not consider the time, the place or the device.\n\nRule-based access control applies global rules to everyone, whoever they are. The rules do not care about your job. A firewall is the classic example, where traffic is allowed or blocked by rules. Another example is a rule that says no logins between 10 at night and 6 in the morning.\n\nThink of a town's speed limit. It applies to the doctor, the mayor and the student alike.\n\nBoth of these can be shortened to the letters RBAC, so you need to read the scenario. If a question talks about jobs or positions, it means roles. If it talks about one set of rules for everybody, it means rules.\n\nHere is a workplace example that uses both. A store gives its supervisors a role that lets them approve refunds. Separately, a rule stops all refunds from being approved when the store is closed. The role says who may do it. The rule says when no one may.\n\nThe two are often combined in this way, and exam questions may describe one layered on the other.\n\nHere is what to take away. Roles follow the job, and rules apply to everyone. Read the scenario, because the same letters can stand for both."
+    },
+    {
+      "heading": "Attribute-based and risk-based access control",
+      "body": "Now we will look at two more flexible models, which make their decisions from facts about the moment.\n\nABAC stands for attribute-based access control. It makes decisions from many facts, called attributes. There are four groups to remember.\n\n- Subject: the person's department or training.\n- Object: how sensitive the item is.\n- Action: read or change.\n- Environment: time, location or device.\n\nThink about renting a car. The company checks your age, whether you hold a license, which country you are in, which car you want and whether you have a card. It is a combination of facts, and not a single job title.\n\nFor example, nurses may read charts for their own ward, during their shift, on a hospital device. A rule like that would need a huge number of roles if you tried to do it with roles alone. So ABAC can be the cure for role explosion.\n\nABAC is very fine-grained, which means it can make very precise decisions. But it needs accurate attribute data. If the human resources system shows the wrong department, the decision will be wrong. XACML, the Extensible Access Control Markup Language, is a standard for writing these policies.\n\nRisk-based access control works out how risky this particular request is, at this moment. It uses signals such as location, device health, unusual behavior and the sensitivity of the data. The result may be allow, ask for more proof, or block.\n\nThink of your bank card. A small purchase near your home goes through. A large purchase at midnight in a country you have never visited gets blocked until you confirm it.\n\nHere is a worked example, with a scale the company sets for itself, from 0 to 100.\n\nA login from the usual laptop in the usual town scores 10, so it is allowed. A login from a new phone in a new country scores 70, so the user is asked for extra proof. A login from a known bad network scores 95, so it is blocked. The numbers are not a standard. What matters is that the response rises with the risk.\n\nHere is your takeaway. ABAC combines facts about the subject, object, action and environment, and risk-based control adjusts its answer to the danger of this request."
+    },
+    {
+      "heading": "The access control matrix",
+      "body": "In this part we will look at a simple way to picture all access in one place, and at the two lists that come from it.\n\nAn access control matrix is a grid. Subjects, the people or programs, run down the side. Objects, the files or resources, run along the top. Each cell where a row meets a column holds the rights that subject has over that object.\n\nThink about a school attendance sheet. Pupils run down the side and dates run across the top. To see everything about one pupil, you read across a row. To see everything about one date, you read down a column.\n\nNow we will work through an example in words.\n\nAna has read and write on the grades file. She has no access to the payroll file.\n\nBen has read on the grades file. He has read and write on the payroll file.\n\nNow take one person and read across. For Ana, you get grades file, read and write, and payroll file, none. Reading one subject's row gives you a capability list. A capability list says everything this subject can reach.\n\nNow take one file and read down. For the grades file, you get Ana, read and write, and Ben, read. Reading one object's column gives you an access control list, or ACL. An ACL says everyone who can reach this object.\n\nThis gives you a simple rule to remember. Capability lists go with subjects, and ACLs go with objects. Row and capability both refer to the subject. Column and ACL both refer to the object.\n\nA real company would have thousands of people and millions of files. A complete matrix would be enormous and mostly empty. So in practice, systems do not store the whole grid. They store it as lists instead, usually ACLs on each object.\n\nSo why does the manager care? Because the two views answer different audit questions. If an investigator asks what this contractor could reach, you need the row. If an owner asks who can open the merger file, you need the column. Many systems find the second question easy and the first question hard, which is why identity tools are often bought.\n\nHere is what to take away. A matrix row is a capability list for a subject, and a column is an ACL for an object."
+    },
+    {
+      "heading": "Decision points, enforcement points, and choosing a model",
+      "body": "To finish this topic, we will look at how decisions are made and carried out, and then bring all of the models together.\n\nThink of a nightclub. The manager decides who may enter. The door staff carry it out. Those are two different jobs.\n\nThe PDP, or policy decision point, evaluates the policy and makes the decision. The PEP, or policy enforcement point, sits in front of the resource and permits or blocks the request. Here is the order.\n\n- The request arrives at the PEP.\n- The PEP asks the PDP.\n- The PDP checks the policy and facts about the request.\n- The PDP answers.\n- The PEP allows or blocks.\n\nThe outline names these two. You may also meet a policy administration point, where policies are written and managed.\n\nZero trust designs rely on this split. Zero trust means that no request is trusted just because of where it comes from. Each request is checked each time.\n\nWhat if the PEP cannot reach the PDP? For sensitive systems, the safe default is to deny the request until a decision can be made.\n\nNow let us set the models side by side. Ask who or what decides.\n\n- DAC, discretionary: the owner decides.\n- MAC, mandatory: the system compares labels.\n- Role-based: the person's job decides.\n- Rule-based: global rules decide, for everyone.\n- ABAC, attribute-based: a combination of facts decides.\n- Risk-based: the calculated danger of this request decides.\n\nHow should you pick on the exam? Look for the clue. An owner sharing a file points to DAC. Labels and clearances point to MAC. Jobs or staff turnover point to role-based. A rule for all, or a firewall, points to rule-based. Several conditions joined together, such as department and time and device, point to ABAC. Changing behavior based on unusual signals points to risk-based.\n\nHere is a workplace example. A company's gateway is the PEP in front of a finance application. A central engine is the PDP, and it weighs the user's role, the device and the risk of the sign-in before answering.\n\nHere is your takeaway. The PDP decides and the PEP enforces. To name a model, ask who or what makes the decision."
+    }
+  ],
+  "practiceQuestions": [
+    {
+      "prompt": "An engineer creates a design document on a shared drive and personally decides which colleagues can open it by adding them to the file's permissions. Which access control model is in use?",
+      "options": [
+        "Mandatory access control",
+        "Rule-based access control",
+        "Discretionary access control",
+        "Risk-based access control"
+      ],
+      "correctIndex": 2,
+      "explanation": "The owner chooses who has access, which is the mark of discretionary control. Rule-based is tempting because a permissions list looks like a set of rules, but in rule-based control no owner makes the choice."
+    },
+    {
+      "prompt": "A user with Top Secret clearance is refused access to a Top Secret document held in a named compartment she has not been briefed into. Why was access refused?",
+      "options": [
+        "She is outside the compartment, so she has no need to know",
+        "Her clearance is one level lower than the document's label",
+        "The document's owner has not yet added her name to its list",
+        "Her job role does not cover any documents at the Top Secret level"
+      ],
+      "correctIndex": 0,
+      "explanation": "Her level is sufficient, but compartments enforce need to know within a level. The owner's list is tempting, but in mandatory access control users do not decide who gets access."
+    },
+    {
+      "prompt": "A retail chain has high staff turnover. New cashiers across hundreds of stores must get the same rights on their first day, with little administrative effort. Which model is the BEST fit?",
+      "options": [
+        "Discretionary control, with each store manager sharing files",
+        "Role-based access control",
+        "Mandatory control with a label on every cash register",
+        "Risk-based control that scores each individual sale"
+      ],
+      "correctIndex": 1,
+      "explanation": "Rights tied to a cashier role can be given to each new person at once. Discretionary control is tempting because store managers know their staff, but it would produce inconsistent access across hundreds of stores."
+    },
+    {
+      "prompt": "A policy says that nobody at all may connect to the payments network between 8 at night and 6 in the morning, regardless of job title or seniority. Which model does this describe?",
+      "options": [
+        "Role-based access control",
+        "Discretionary access control",
+        "Mandatory access control",
+        "Rule-based access control"
+      ],
+      "correctIndex": 3,
+      "explanation": "One global rule applies to every subject, whoever they are. Role-based control is tempting because the letters are the same, but this policy deliberately ignores job title."
+    },
+    {
+      "prompt": "A company decides that file owners may no longer choose who has access, and a central security team will assign all access in future. Which term BEST describes the new approach?",
+      "options": [
+        "Non-discretionary access control",
+        "Discretionary access control with delegated file owners",
+        "Federated identity management across business units",
+        "Single sign-on with central control of all passwords"
+      ],
+      "correctIndex": 0,
+      "explanation": "When owners no longer decide and a central authority does, the approach is non-discretionary. Federation is tempting because it sounds like central control, but it concerns trust in identities between organizations."
+    },
+    {
+      "prompt": "A sign-in from a user's usual laptop is allowed. The same user signing in from a new phone in another country is asked for additional proof, and a sign-in from a known malicious network is blocked. Which model is in use?",
+      "options": [
+        "Rule-based access control",
+        "Role-based access control",
+        "Risk-based access control",
+        "Discretionary access control"
+      ],
+      "correctIndex": 2,
+      "explanation": "The response changes with the calculated risk of each attempt. Rule-based is tempting because rules may be involved in the scoring, but rule-based control applies the same fixed rule to everyone and does not rise with the level of danger."
+    },
+    {
+      "prompt": "An investigator needs a single view of everything that one contractor can reach across all systems. Thinking of an access control matrix, what does the investigator need?",
+      "options": [
+        "A single column of the matrix, read from top to bottom",
+        "The classification label attached to each object",
+        "The role definition written for the contractor's job",
+        "The contractor's row, which is a capability list"
+      ],
+      "correctIndex": 3,
+      "explanation": "One subject's row shows everything that subject can reach, and that is a capability list. A column is tempting, but a column shows everyone who can reach one object."
+    },
+    {
+      "prompt": "A gateway protecting a sensitive finance application cannot contact the central engine that evaluates policy, because of an outage. What should the gateway do?",
+      "options": [
+        "Allow all requests, to keep the finance team working",
+        "Deny requests until a decision can be obtained",
+        "Allow any users who were permitted earlier the same day",
+        "Let each application owner decide during the outage"
+      ],
+      "correctIndex": 1,
+      "explanation": "The enforcement point should not permit what it cannot get a decision on, especially for a sensitive system. Allowing users who passed earlier is tempting, but their situation may have changed, and that would bypass the policy."
+    },
+    {
+      "prompt": "A global firm has built over 3,000 roles to cover combinations of department, country, device type and project. Administrators can no longer manage them. Which approach BEST addresses this?",
+      "options": [
+        "Create further roles for each new combination that appears",
+        "Let the data owners share their own files as they see fit",
+        "Apply one single rule set to all subjects alike, for simplicity",
+        "Evaluate attributes of the user, data and context"
+      ],
+      "correctIndex": 3,
+      "explanation": "Attribute-based control handles combinations of facts without a separate role for each one. One rule set is tempting because it is simple, but it cannot express the differences that this firm needs."
+    },
+    {
+      "prompt": "An audit finds that employees using a discretionary model share folders too widely, and sensitive data has been exposed several times. Which change BEST addresses the cause?",
+      "options": [
+        "Move to centrally managed role-based access",
+        "Send all staff a reminder to be careful when sharing folders",
+        "Ask every folder owner to correct their own sharing settings",
+        "Add encryption to the folder contents held on the file server"
+      ],
+      "correctIndex": 0,
+      "explanation": "The root cause is that owners decide, so moving the decision to a central model fixes it. Asking owners to correct their settings is tempting, but it leaves the same people making the same choices."
+    }
+  ]
+}

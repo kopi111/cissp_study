@@ -1,0 +1,141 @@
+{
+  "id": "T38",
+  "studyNotes": [
+    {
+      "heading": "Voice communications",
+      "body": "In this first part, we are going to look at how phone calls travel today, and at how to protect them.\n\nFor most of the last century, phone calls went over a separate telephone network. Today they usually travel as data. VoIP, which is Voice over Internet Protocol, carries calls across data networks. This saves money and joins voice with other services, but it brings all the risks of a data network to the phone system.\n\nTwo protocols do most of the work.\n\n- SIP, the Session Initiation Protocol, sets up and ends the call. Think of it as dialling and hanging up.\n- RTP, the Real-time Transport Protocol, carries the sound itself. Think of it as the conversation.\n\nSIP normally uses port 5060, or port 5061 when it is protected with TLS, which is Transport Layer Security. RTP is carried on UDP, the User Datagram Protocol. To protect a call, use SIP over TLS for setup, and SRTP, or Secure RTP, for the sound. You need both, because protecting only one leaves the other part open.\n\nHere are the threats to know.\n\n- Eavesdropping: listening to calls.\n- Toll fraud: breaking into a phone system to make expensive calls, leaving the victim with the bill.\n- Caller ID spoofing: faking the number that appears.\n- Vishing: phishing by voice, where an attacker telephones and tricks someone.\n\nThink about a stranger who calls to say he is from your bank, and your phone even shows the bank's number. Caller ID proves nothing. The safe action is to hang up and call the number on your card.\n\nThe PBX, or private branch exchange, is the office telephone system. Secure it like a server. Change default passwords, patch it, and limit international calling if it is not needed. Put phones on a separate VLAN, or Virtual Local Area Network, so voice traffic stays apart from data and gets priority.\n\nThere is a matter of safety too. Emergency calls made from internet phones may not automatically give the caller's true location, and they may fail in a power cut. A manager has to plan for this, because people's lives could depend on it.\n\nHere is a workplace example. A firm finds huge phone charges from overnight international calls. The cause was a default password on the phone system.\n\nHere is what to take away. Protect both setup and sound, and never let cost savings put emergency calling at risk."
+    },
+    {
+      "heading": "Video conferencing and collaboration",
+      "body": "Now we will look at meetings and shared workspaces, which have become one of the main ways sensitive information moves.\n\nA video meeting is a little like a conference room with no door. Unless you add controls, anyone with the link can come in. The people in the room may not even see who has joined.\n\nHere are the main controls for meetings.\n\n- Require a meeting password or a sign-in.\n- Use a waiting room, so that the host decides who enters.\n- Limit screen sharing to the host unless others need it.\n- Use end-to-end encryption where it is possible.\n\nEnd-to-end encryption means only the people in the call hold the keys, and not the provider. It has a trade-off, because some features, such as cloud recording or joining by telephone, may not work with it. So a manager matches the choice to the sensitivity of the meeting.\n\nThe outline mentions conferencing and Zoom rooms. A room system is equipment fixed in a meeting room, including a screen, camera, microphone and a small computer. These devices are computers, and so they need patching, strong administrator passwords and network separation. A camera in a boardroom that is left unpatched is a serious risk. So is a microphone that stays active after the meeting has ended.\n\nRecording raises its own questions. Set rules for when meetings may be recorded, tell participants, and get consent where the law requires it. Then decide how long recordings are kept and who can see them. A recording of a confidential meeting is itself a confidential document.\n\nCollaboration tools, such as chat and shared files, need policy as well. Chat messages can be records for legal purposes. Files can be shared too widely, with one wrong click. Data loss prevention tools watch for sensitive data leaving where it should stay. Shadow IT is when staff use tools that have not been approved. If a staff member pastes customer data into a free online tool, then the company has lost control of that data.\n\nHere is a workplace example. A law firm's team uses a personal messaging app, because the approved one is awkward. A manager's response is to provide a usable approved tool, so that the cause is fixed, and to remind staff of the policy.\n\nYour takeaway is this. Control who joins, patch room systems like computers, and set clear rules for recordings and shared data."
+    },
+    {
+      "heading": "VPNs and tunneling",
+      "body": "Next we will look at virtual private networks and the protocols underneath them, where a very common trap is hiding.\n\nA VPN, or Virtual Private Network, creates a protected path across a shared network. Think of a private tunnel through a public road. Tunneling means carrying one protocol inside another. Here is the trap. A tunnel alone is not always encrypted. A tunnel is a road. It is not a lock.\n\nThere are two common shapes.\n\n- Site-to-site VPN: joins two networks through gateways.\n- Remote access VPN: joins one user to a network.\n\nNext, a choice with real security effect.\n\n- Full tunnel: all of the device's traffic goes through the company.\n- Split tunnel: only company traffic goes through the VPN, and other traffic goes straight to the internet.\n\nA full tunnel lets the company inspect everything, but it uses more bandwidth. A split tunnel saves bandwidth, but it reduces visibility, and the home connection is not filtered by the company.\n\nNow the protocols.\n\n- IPsec, or IP Security: works at Layer 3, and encrypts with its Encapsulating Security Payload.\n- TLS VPN: uses Transport Layer Security, often through a browser or a light client on port 443.\n- L2TP, the Layer 2 Tunneling Protocol: gives no encryption alone, so it is paired with IPsec. It uses UDP port 1701.\n- GRE, Generic Routing Encapsulation: a simple tunnel with no encryption. It is IP protocol number 47.\n- PPTP, the Point-to-Point Tunneling Protocol: obsolete, on TCP port 1723. Do not use it.\n\nUDP is the User Datagram Protocol, and TCP is the Transmission Control Protocol.\n\nHere is a worked example of choosing. A company needs to link two offices, and hide the internal addresses. An IPsec VPN between the gateways, in tunnel mode, is the natural choice. A contractor needs to reach a single internal web application. A TLS VPN, or better, access to only that application, is more suitable. The second answer follows least privilege, which means giving only the access needed.\n\nA VPN that connects a user to the whole network is a large grant of trust. If the laptop is infected, the infection has a road straight in.\n\nHere is your takeaway. A tunnel is a road and not a lock. Know which protocols encrypt, and give only the access that is needed."
+    },
+    {
+      "heading": "Remote access for administrators",
+      "body": "In this part, we will look at remote access, and especially at the people who manage the network itself.\n\nAdministrator access is the most valuable target on any network. A normal account can read a few files. A network administrator's account can change the rules for everybody. So think of it as the master key to a whole building.\n\nHere are the controls that matter.\n\nUse MFA, which is multi-factor authentication, meaning more than one kind of proof. Something you know, such as a password, is one factor. Something you have, such as a token, is another. Something you are, such as a fingerprint, is a third.\n\nRoute administrator access through a hardened jump server. This is a tightly controlled computer that administrators connect to first, before reaching other systems. It provides one place to control and record access.\n\nUse SSH, or Secure Shell, rather than Telnet. Never expose RDP, the Remote Desktop Protocol, directly to the internet. Attackers constantly scan the internet for it.\n\nUse a central login service for network devices, so that accounts can be removed in one place. Two common ones are these.\n\n- RADIUS, the Remote Authentication Dial-In User Service: uses UDP ports 1812 and 1813, where UDP is the User Datagram Protocol. It encrypts only the password. It combines authentication and authorization.\n- TACACS Plus, the Terminal Access Controller Access-Control System Plus: uses TCP port 49, where TCP is the Transmission Control Protocol. It encrypts the entire message body. It separates authentication, authorization and accounting, so it is well suited to controlling which commands each administrator may run.\n\nOut-of-band management uses a separate path, so staff can reach devices when the main network is down. Think about a separate service door that still works when the main entrance is blocked. It needs the same strong protection.\n\nLog all administrator sessions, and have someone other than the administrators review those logs. This is separation of duties.\n\nHere is a worked example. An administrator working from home wants to change a firewall. First she connects by VPN, or Virtual Private Network. Then she signs in to the jump server with multi-factor authentication. She then reaches the firewall using SSH, and the whole session is recorded. If her home computer is compromised, an attacker still faces several more barriers.\n\nThe takeaway is this. Protect administrator paths with extra care, keep them separate, and record everything."
+    },
+    {
+      "heading": "Data communications, backhaul and satellite",
+      "body": "Now we will look at the links that carry data between sites, and at why you should not simply trust them.\n\nThe outline names two examples here, backhaul networks and satellite.\n\nA backhaul network links the edge of a network to the core. The edge means sites like branch offices, cell towers or remote stations. The core is the main central network. Picture small country roads feeding into a motorway. The small roads are at the edge, and the road joining them to the motorway is the backhaul.\n\nThe backhaul often belongs to another company, such as a telecom carrier. Also, the traffic on it may have been decrypted at the edge. In mobile networks, for example, radio encryption ends near the tower, and the traffic then travels onward through the backhaul. If that link is not protected, then the data is exposed there.\n\nSo treat the backhaul as untrusted if somebody else runs it. Encrypt the traffic. IPsec, or IP Security, is the usual choice at the network layer. MACsec, which is Media Access Control Security, encrypts traffic hop by hop at Layer 2, between directly connected devices.\n\nA private carrier service, such as MPLS, or Multiprotocol Label Switching, keeps customers' traffic separate. But separation is not encryption. A carrier network marked private is not automatically confidential. Think of a private courier van. The van is yours for the day, but the driver can still open an unsealed envelope.\n\nSatellite links have the same need for protection. The signal covers a very wide area, so others can receive it. Treat it as public, and encrypt it.\n\nSatellite also brings delay. A geostationary satellite is about 36,000 kilometres up, and a round trip takes around 600 milliseconds. A geostationary satellite is one that appears to stay in the same place in the sky. Delay affects voice calls and can slow protocols that wait for acknowledgements. So a remote site may need its traffic prioritized.\n\nHere is a workplace example. A mining company connects a remote site over satellite. It uses an IPsec tunnel between the site and head office, because the link is shared. It also prioritizes safety messages over ordinary traffic, because a warning of danger to the workers has to arrive first.\n\nHere is what to take away. Anyone else's link is untrusted, separation is not encryption, and the most important traffic gets priority."
+    },
+    {
+      "heading": "Third-party connectivity",
+      "body": "In this final part, we will look at outside companies that connect to your network, because these connections are a common way in.\n\nThe outline names telecom providers and hardware support. A telecom provider carries your traffic. A hardware support vendor repairs your equipment, sometimes remotely. Both are trusted with something valuable.\n\nThink about giving a builder a key to your home. You would want to know who holds it, when they will use it and when you will get it back. You would not hand out a copy to everyone in the company.\n\nHere is a worked process for connecting a vendor.\n\n- Step 1: Assess the risk and get management approval.\n- Step 2: Put security duties in the contract. An SLA, or service level agreement, sets the service levels. An ISA, or interconnection security agreement, sets the technical rules for connecting.\n- Step 3: Give each engineer a named account, with least privilege and MFA, or multi-factor authentication.\n- Step 4: Keep access off by default, and turn it on for each approved job.\n- Step 5: Monitor the sessions and review them.\n- Step 6: Remove access when the work ends.\n\nLeast privilege means giving only the access needed. Named accounts matter for accountability, because if a whole company shares one login, then nobody can tell who did what.\n\nA contract should also include the right to audit, notice of breaches, and what happens at the end of the relationship. Remember that you can transfer the work to a vendor, but you cannot transfer accountability. Your customers will still look to you.\n\nThere are some particular points for each group. With telecom providers, plan for diversity, so that one provider's failure does not stop your business. Encrypt your own traffic rather than relying on theirs. With hardware support, think about what leaves the building. A failed disk that goes back to the vendor may still hold data. So require secure disposal, or keep the failed drive. Escort engineers on site, and record what they did.\n\nHere is a workplace example. A retailer's breach begins with stolen credentials from a heating contractor, whose account could reach far more than it should. Named accounts, restricted reach and monitoring would have limited the harm.\n\nYour takeaway is this. Vendor access must be approved, named, limited, time-bound, monitored and removed, and accountability stays with you."
+    }
+  ],
+  "practiceQuestions": [
+    {
+      "prompt": "A company secures its VoIP call setup with SIP over TLS, but an audit shows that conversations can still be captured and replayed. What should be added?",
+      "options": [
+        "A longer password on each of the desk phones",
+        "A larger internet link for the voice traffic",
+        "SRTP to protect the sound of each call",
+        "An additional SIP proxy on the company's internal network"
+      ],
+      "correctIndex": 2,
+      "explanation": "SIP over TLS protects only call setup, so SRTP is needed to protect the sound. A longer password is tempting, but it does nothing about the audio stream."
+    },
+    {
+      "prompt": "An office phone system racks up heavy overnight charges for international calls that no employee made. Which threat BEST describes this situation?",
+      "options": [
+        "Toll fraud",
+        "Vishing",
+        "Caller ID spoofing",
+        "Eavesdropping"
+      ],
+      "correctIndex": 0,
+      "explanation": "Breaking into a phone system to make costly calls is toll fraud. Vishing is tempting because it is also a voice threat, but vishing means tricking a person over the phone."
+    },
+    {
+      "prompt": "A company is about to replace all desk phones with internet-based phones. Which concern should the security manager raise FIRST?",
+      "options": [
+        "Whether call quality will match that of the old phones",
+        "Whether the emergency calling service will work and give the correct location",
+        "Whether the new phones will cost less to maintain",
+        "Whether staff will need training on the new phone menus"
+      ],
+      "correctIndex": 1,
+      "explanation": "People's safety comes first, and internet phones may not give the correct location or may fail in a power cut. Call quality is tempting because it matters to the business, but a failed emergency call could cost a life."
+    },
+    {
+      "prompt": "Meeting room video systems at a company have not been patched since installation because each one is seen as a piece of audio-visual equipment. What is the BEST action?",
+      "options": [
+        "Cover the camera in each room with a sticker while it is not in use",
+        "Leave them alone, because they only send video and cannot be attacked",
+        "Manage them as computers, with patching and separate network placement",
+        "Move every meeting to staff homes so that the systems are not needed"
+      ],
+      "correctIndex": 2,
+      "explanation": "Room systems are computers with cameras and microphones, so they need patching and network separation. A sticker is tempting as a quick step, but it leaves the device itself unpatched and reachable."
+    },
+    {
+      "prompt": "An engineer proposes GRE tunnels across the internet between branch offices, stating that tunnels make the traffic private. What is the BEST response?",
+      "options": [
+        "Agree, because any tunnel by definition keeps its data confidential",
+        "Point out that GRE has no encryption, so IPsec must protect the traffic",
+        "Agree, provided that the tunnels use a very unusual port number",
+        "Replace the tunnels with PPTP, as this is newer and more secure"
+      ],
+      "correctIndex": 1,
+      "explanation": "GRE provides no encryption, so IPsec is needed to protect the traffic. PPTP is tempting because it is called a VPN protocol, but it is obsolete and should not be used."
+    },
+    {
+      "prompt": "A contractor needs access to one internal web application for three weeks. Which approach BEST follows least privilege?",
+      "options": [
+        "A full network VPN for the contractor with permanent access",
+        "A shared administrator account that is used by the entire project team",
+        "Access limited to that application, for that period",
+        "A copy of the application placed on the contractor's own laptop"
+      ],
+      "correctIndex": 2,
+      "explanation": "Least privilege gives only the access needed, for only as long as it is needed. A full VPN is tempting because it is simple, but it grants far more than one application."
+    },
+    {
+      "prompt": "A network team wants to control exactly which commands each administrator can run on routers, with the whole message body encrypted. Which service is the BEST fit?",
+      "options": [
+        "TACACS Plus",
+        "RADIUS",
+        "Telnet with a banner",
+        "Plain LDAP"
+      ],
+      "correctIndex": 0,
+      "explanation": "TACACS Plus separates authentication, authorization and accounting, and encrypts the entire message body. RADIUS is tempting, but it encrypts only the password and combines authentication with authorization."
+    },
+    {
+      "prompt": "A company leases a private MPLS service between sites and asks if it can remove encryption because the carrier keeps customers separated. What is the BEST response?",
+      "options": [
+        "Remove it, since the provider's separation amounts to full encryption",
+        "Remove it, but require the carrier's staff to sign a short statement",
+        "Keep it only for traffic that leaves the country, and remove it elsewhere",
+        "Keep encrypting, because separation by a carrier is not confidentiality"
+      ],
+      "correctIndex": 3,
+      "explanation": "Separation is not encryption, and the carrier can still see the traffic. A signed statement is tempting, but it does not make unprotected data confidential."
+    },
+    {
+      "prompt": "A maintenance vendor's engineers all use one shared login to reach a firm's equipment. Which problem is the MOST important to fix?",
+      "options": [
+        "The password on the login is not changed daily",
+        "The firm cannot tell which person did what",
+        "The engineers connect from several different locations",
+        "The login does not expire at the end of each year"
+      ],
+      "correctIndex": 1,
+      "explanation": "Shared logins destroy accountability, so each engineer needs a named account. Changing the password daily is tempting, but a shared login would still not show who did what."
+    },
+    {
+      "prompt": "A hardware vendor collects a failed disk from a server holding customer data, and takes it away for warranty replacement. What should the company have done BEFORE allowing this?",
+      "options": [
+        "Asked the courier to promise to keep the disk's box closed",
+        "Waited until the warranty expired before returning the disk at all",
+        "Sent an extra copy of the data with the disk for the vendor's testing",
+        "Agreed a contract for secure disposal, or kept the failed drive"
+      ],
+      "correctIndex": 3,
+      "explanation": "A failed disk may still hold readable data, so secure disposal must be agreed or the drive retained. A courier's promise is tempting, but it does nothing to protect the data on the disk."
+    }
+  ]
+}

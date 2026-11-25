@@ -1,0 +1,141 @@
+{
+  "id": "T62",
+  "studyNotes": [
+    {
+      "heading": "Full, incremental and differential backups, with a worked restore",
+      "body": "In this first part, we are going to look at the three main kinds of backup, and work through a real restore.\n\nThink of a diary. A full backup is photocopying the entire diary. An incremental backup is photocopying only the pages written since your last photocopy of any kind. A differential backup is photocopying all the pages written since your last complete copy.\n\n- Full: copies everything. It is the slowest to make and the simplest to restore.\n- Incremental: copies what changed since the last backup of any kind. It is the fastest to make and the slowest to restore.\n- Differential: copies what changed since the last full backup. It grows each day, but it restores more quickly.\n\nSoftware often tracks this with a marker on each file called the archive bit. A full backup and an incremental backup both clear the marker. A differential does not, and that is why it keeps growing.\n\nNow the worked example. A full backup of 500 gigabytes runs on Sunday night. On each weekday night, 10 gigabytes of different data has changed. The disk fails on Thursday morning.\n\nFirst, with incrementals. Monday's backup is 10 gigabytes. Tuesday's is 10. Wednesday's is 10. To restore, you need Sunday's full, then Monday, Tuesday and Wednesday, in that order. That is four backup sets, and all must be readable. If Tuesday's is damaged, then everything after that point is in doubt.\n\nNext, with differentials. Monday's backup is 10 gigabytes. Tuesday's is 20, because it holds both days. Wednesday's is 30. To restore, you need Sunday's full and only Wednesday's differential. That is two sets.\n\nNow compare. Total storage is 530 gigabytes with incrementals, because 500 plus 30 is 530. It is 560 gigabytes with differentials, because 500 plus 10, plus 20, plus 30 is 560. Incrementals save space and night-time work. Differentials save time and risk during a restore.\n\nDo not mix the two in one routine, because the markers will not agree.\n\nHere is a workplace example. A hospital chooses differentials for its records, because a fast and simple restore matters more to it than storage costs.\n\nHere is what to take away. Incremental restores need the full and every piece since, differential restores need the full and only the latest piece, and a backup is proven only by testing a restore."
+    },
+    {
+      "heading": "Backup storage strategies",
+      "body": "Now we will look at where backups are kept, because a backup in the wrong place may be lost along with the original.\n\nThink of a spare house key. If you keep it inside the house, it will not help when you are locked out. If you keep it at a friend's house across town, it takes a while to get, but it is safe. The outline names three places to store backups.\n\nOnsite storage is fast to reach, but it can be lost in the same disaster.\n\nOffsite storage survives a local disaster, but it takes longer to reach.\n\nCloud storage is offsite and easy to grow, but it depends on your internet link and on your provider's contract. Restoring a very large amount of data over the internet can take days.\n\nA common rule of thumb is three, two, one. Keep three copies of your data, on two kinds of media, with one copy offsite.\n\nThere are also three ways to send data to another site, and the exam likes them.\n\n- Electronic vaulting sends whole backup files to another site in batches.\n- Remote journaling sends only the transaction logs, and it does so more often. A transaction log is the running record of each change.\n- Remote mirroring keeps a live second copy, updated as the changes happen.\n\nThese offer less and less data loss, and they cost more and more, as you move down the list.\n\nThese choices link to the RPO, or recovery point objective, which is the most data that you can afford to lose, measured in time. If your RPO is one hour, a nightly backup cannot meet it.\n\nRansomware has changed backup thinking. Ransomware is software that locks your files and demands payment. Attackers often try to destroy backups first. So keep at least one copy offline or immutable, which means that it cannot be changed for a set period.\n\nBackups need the same protection as live data, so encrypt them, and keep the keys somewhere else.\n\nHere is a workplace example. A law firm backs up to a local device each night for fast restores. It copies to the cloud as well, and it keeps one offline copy for the month.\n\nHere is your takeaway. Keep copies in more than one place, match the method to the RPO, and keep one copy out of an attacker's reach."
+    },
+    {
+      "heading": "Hot, warm and cold recovery sites",
+      "body": "Next we are going to look at recovery sites, which are the places you move to when your main site cannot be used.\n\nThink of having to leave your home after a fire. A hot site is like a fully furnished flat, with the lights on and a meal in the fridge. A warm site is like a furnished flat with no food, where you need to bring your own things. A cold site is like an empty flat with electricity and water. You still have to bring every piece of furniture.\n\nHere are the three main types, from slowest to fastest.\n\nA cold site has space, power and cooling, but no equipment and no data. It is the cheapest and the slowest. Bringing it into service usually takes weeks.\n\nA warm site has some hardware and network links, and may have older data. You will need to restore recent backups and finish setting up. It is usually ready in days. It is the middle choice on both cost and speed.\n\nA hot site is fully equipped, with data that is current or nearly current. It is ready in minutes or hours, and it is the most costly.\n\nThere are other kinds as well.\n\nA mobile site is a data centre in a truck or container, which can be driven where it is needed. A cloud site means that the recovery systems run at a cloud provider. You pay mainly when you use it, and it can be started quickly.\n\nThe right choice comes from the business impact analysis, which works out which functions matter most, and what an outage would cost. The site must be able to meet the recovery time objective, which is the target time for bringing a system back.\n\nDistance matters. If a hurricane can reach both sites, your recovery site is not much use.\n\nA recovery site also needs the same security as the main site. Controls should not be relaxed just because it is a disaster.\n\nHere is a workplace example. A bank's payment system uses a hot site. Its internal training system uses a cold site, as a few weeks without that service would do little harm.\n\nHere is what to take away. Cold is cheapest and slowest, hot is costly and fastest, and warm is in between."
+    },
+    {
+      "heading": "Agreements and multiple processing sites",
+      "body": "In this part, we will look at the agreements that secure a recovery location, and at running several sites at once.\n\nThink of two neighbours who agree to take each other in if a house burns down. It is a kind thought. But if a storm hits the whole street, both are in trouble. And if one of them has guests staying that week, the promise may not be kept.\n\nThat is a reciprocal agreement. Two companies promise to host each other after a disaster. It is cheap, but it is hard to enforce. The other company's equipment may not match yours, and its staff may have no spare capacity. It also lets another organisation close to your data, which raises security concerns.\n\nA resource capacity agreement is one named in the outline. It reserves space or equipment with a provider in advance. Be careful about the details here. If a provider has promised the same space to several customers, and a storm hits them all at once, the first to arrive may be the only one served. A good contract says how much capacity is guaranteed, how quickly it will be available and how long you may stay.\n\nNow we come to multiple processing sites, sometimes called active-active. These are two or more live sites that share the work all the time. If one fails, the others carry on. This gives the shortest recovery time, and it costs the most. Data has to be kept the same at both sites, often through replication, which means copying data continuously.\n\nReplication can be synchronous or asynchronous. Synchronous means that a change is written at both sites before it is confirmed. There is no data loss, but it needs a fast link and short distances. Asynchronous means that the change is copied slightly afterwards. It allows long distances, but a small amount of data could be lost if a failure strikes.\n\nHere is a workplace example. An online retailer runs in two regions at the same time, with traffic shared between them. When one region suffers a power failure, customers are moved to the other within seconds and hardly notice.\n\nHere is your takeaway. Reciprocal agreements are cheap and weak, capacity agreements need exact terms, and multiple live sites give the fastest recovery at the highest price."
+    },
+    {
+      "heading": "RAID levels, minimum disks and fault tolerance",
+      "body": "Now we are going to look at RAID, which keeps data available when a disk fails.\n\nRAID stands for redundant array of independent disks. It spreads data across several disks. Think of writing out a long story. You could split it among friends, so that it gets done faster. Or each friend could keep a full copy, so that if one loses theirs, nothing is lost.\n\nStriping means splitting data across disks for speed. Mirroring means writing the same data to two disks. Parity is extra calculated data that can rebuild what was on a failed disk.\n\nLearn these exactly.\n\n- RAID 0: striping with no protection. Minimum 2 disks. It tolerates no disk failures at all.\n- RAID 1: mirroring. Minimum 2 disks. It survives one disk failure in a pair.\n- RAID 5: striping with parity spread across the disks. Minimum 3 disks. It survives one disk failure.\n- RAID 6: striping with double parity. Minimum 4 disks. It survives two disk failures.\n- RAID 10: mirrors that are then striped. Minimum 4 disks. It survives one failure in each mirrored pair, but not two failures in the same pair.\n\nThe usable space differs too. RAID 0 uses all of it. RAID 1 and RAID 10 use half. RAID 5 loses one disk's worth, and RAID 6 loses two.\n\nHere is a worked example. You have four disks of 2 terabytes each. A terabyte is a thousand gigabytes.\n\nWith RAID 0, you get four times two, which is 8 terabytes, but one failure loses everything.\n\nWith RAID 5, you get three times two, which is 6 terabytes, and you can lose one disk.\n\nWith RAID 6, you get two times two, which is 4 terabytes, and you can lose any two disks.\n\nWith RAID 10, you also get 4 terabytes. You can lose one disk from each pair.\n\nNotice that RAID 0 is included in the list, but offers no redundancy at all. The exam likes to test that.\n\nRAID is not a backup. A deleted file is deleted on every disk. Ransomware encrypts every disk. Fire destroys every disk.\n\nHere is a workplace example. A company's accounts server runs on RAID 6, because rebuilding a large disk can take many hours, and a second disk could fail during that time.\n\nHere is what to take away. Learn each level's minimum disks and failures survived, and remember that RAID is never a backup."
+    },
+    {
+      "heading": "Resilience, high availability, fault tolerance and quality of service",
+      "body": "In this final part, we will look at how systems keep working through failures, and at how important traffic is protected.\n\nThese words sound alike, but the exam treats them as different.\n\nSystem resilience is the ability to keep providing a service, or to recover quickly, when something goes wrong. Think of a town with two roads in. If one floods, people can still get home by the other.\n\nHigh availability, or HA, keeps a service running with very little downtime. It often uses clusters and load balancers. A cluster is a group of servers working together. A load balancer shares incoming work among them. If one server fails, the others take over, perhaps after a brief pause.\n\nFault tolerance means that a system keeps working with no interruption when a part fails. Examples are spare power supplies, RAID, and dual network cards. Think of an aeroplane with more than one engine. If one fails in flight, the plane does not stop to think about it.\n\nThe difference is subtle. Fault tolerance is about a component failing and nobody noticing. High availability is about the service as a whole staying up, even though a brief interruption may occur.\n\nRemember the supporting power systems too. A UPS, or uninterruptible power supply, uses batteries to ride through short power cuts. A generator handles longer ones.\n\nAvoid a single point of failure, which is any one part that can stop the whole service if it breaks.\n\nQuality of service, or QoS, gives priority to important network traffic. It manages these factors.\n\n- Bandwidth, which is how much data can pass.\n- Latency, which is delay.\n- Jitter, which is uneven delay.\n- Packet loss, which is data that never arrives.\n\nThink of an ambulance lane on a busy motorway. The ambulance gets through even in heavy traffic. QoS does this for traffic such as voice calls, which become choppy if the network is congested.\n\nHere is a workplace example. A call centre has two internet links, two firewalls and a server cluster. Its network gives voice calls priority over large file downloads. When one firewall fails, the other takes over and calls continue.\n\nA manager matches these to business need, because every extra layer of redundancy costs money.\n\nHere is your takeaway. Fault tolerance survives a part failing, high availability keeps the service up, and quality of service protects the traffic that matters most."
+    }
+  ],
+  "practiceQuestions": [
+    {
+      "prompt": "A company runs a full backup on Saturday night and incremental backups on each other night. A server fails on Wednesday morning. Which backups are needed to restore it?",
+      "options": [
+        "Saturday's full and the incrementals of Sunday, Monday and Tuesday, in that order",
+        "Saturday's full and only Tuesday's incremental",
+        "Only Tuesday's incremental",
+        "All of the incrementals since the start of the month"
+      ],
+      "correctIndex": 0,
+      "explanation": "Each incremental holds only the changes since the previous backup, so all are needed in order. Using only the latest is tempting, but that is how differentials work."
+    },
+    {
+      "prompt": "A full backup is 800 gigabytes. Each night, 20 gigabytes of different data changes. Differential backups run on Monday, Tuesday and Wednesday nights. How large is Wednesday's differential?",
+      "options": [
+        "20 gigabytes",
+        "40 gigabytes",
+        "860 gigabytes",
+        "60 gigabytes"
+      ],
+      "correctIndex": 3,
+      "explanation": "A differential holds all changes since the full backup, so three nights of 20 gigabytes is 60 gigabytes. 20 gigabytes is tempting, but that is what an incremental would be."
+    },
+    {
+      "prompt": "A business needs backup data to reach the recovery location within minutes of each transaction, but it does not need a full second live copy. Which method fits BEST?",
+      "options": [
+        "Electronic vaulting once a day",
+        "Weekly tapes sent by courier",
+        "Remote journaling",
+        "A printed record of each transaction"
+      ],
+      "correctIndex": 2,
+      "explanation": "Remote journaling sends transaction logs frequently without keeping a full live copy. Electronic vaulting is tempting because it also moves data electronically, but it sends whole files in batches."
+    },
+    {
+      "prompt": "A company wants to be able to recover backups even if an attacker gains full administrator access to its network. Which approach BEST provides this?",
+      "options": [
+        "Keep a second copy on the same storage device",
+        "Keep at least one copy offline or immutable",
+        "Run backups more often during the working day",
+        "Use a larger backup server on the same network"
+      ],
+      "correctIndex": 1,
+      "explanation": "An offline or immutable copy cannot be reached or changed by an attacker on the network. More frequent backups are tempting, but they could all be destroyed if they can be reached."
+    },
+    {
+      "prompt": "A small charity can tolerate being without its systems for several weeks, and it has very little money. Which recovery option is MOST suitable?",
+      "options": [
+        "A hot site with live data",
+        "Two active sites with continuous replication",
+        "A warm site with recent backups",
+        "A cold site"
+      ],
+      "correctIndex": 3,
+      "explanation": "A cold site is the cheapest, and it fits a long tolerance for downtime. A warm site is tempting as a middle course, but the charity does not need to pay for speed it does not need."
+    },
+    {
+      "prompt": "A company has signed a reciprocal agreement with a firm next door in the same business park. What is the MAIN weakness of this arrangement?",
+      "options": [
+        "A single disaster could affect both companies",
+        "The agreement is too expensive for most companies",
+        "It would give the company more capacity than it needs",
+        "It would make staff travel too far during a disaster"
+      ],
+      "correctIndex": 0,
+      "explanation": "Two neighbours can be hit by the same event, and these agreements are hard to enforce anyway. Cost is tempting as a concern, but reciprocal agreements are in fact cheap."
+    },
+    {
+      "prompt": "A server has RAID 5 with four disks. Two disks fail at the same time. What is the result?",
+      "options": [
+        "The array continues to work with no problems",
+        "The array loses its data and must be restored from backup",
+        "The array rebuilds itself from the remaining parity",
+        "The server automatically converts the array to RAID 0"
+      ],
+      "correctIndex": 1,
+      "explanation": "RAID 5 survives only one disk failure. Rebuilding from parity is tempting, but parity can replace only one missing disk's data."
+    },
+    {
+      "prompt": "A company has four disks of 4 terabytes each, and it needs to survive any two disks failing at once. Which RAID level should it use, and how much space will be usable?",
+      "options": [
+        "RAID 5, with 12 terabytes usable",
+        "RAID 0, with 16 terabytes usable",
+        "RAID 6, with 8 terabytes usable",
+        "RAID 10, with 8 terabytes usable"
+      ],
+      "correctIndex": 2,
+      "explanation": "RAID 6 survives any two failures, and it loses two disks' worth of space, leaving 8 terabytes. RAID 5 is tempting because it gives more space, but it survives only one failure."
+    },
+    {
+      "prompt": "An executive says that because the file server uses RAID, the company no longer needs backups. What is the BEST response?",
+      "options": [
+        "Agree, provided the RAID level is 6 or higher",
+        "Agree, because RAID stores several copies of all data",
+        "Recommend moving to RAID 0 to save money",
+        "Explain that RAID does not protect against deletion, ransomware or fire"
+      ],
+      "correctIndex": 3,
+      "explanation": "RAID protects against disk failure only. Agreeing because it stores several copies is tempting, but a deleted or encrypted file is changed on every disk."
+    },
+    {
+      "prompt": "Voice calls at a busy office become choppy whenever large files are being downloaded. Which control would BEST address this?",
+      "options": [
+        "Quality of service with priority for voice traffic",
+        "RAID 10 on the phone system's server",
+        "A warm recovery site for the phone system",
+        "Full-disk encryption on the desktop computers"
+      ],
+      "correctIndex": 0,
+      "explanation": "Quality of service gives priority to traffic that is sensitive to delay. RAID 10 is tempting because it improves resilience, but it protects stored data, not network traffic."
+    }
+  ]
+}

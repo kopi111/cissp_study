@@ -1,0 +1,1265 @@
+{
+  "number": 3,
+  "name": "Security Architecture and Engineering",
+  "weightPercent": 13,
+  "plainMeaning": "This domain is about building systems and buildings that are safe from the start. It covers design rules, security models, hardware protection, cryptography and physical protection.",
+  "topics": [
+    {
+      "id": "T19",
+      "name": "Secure design principles",
+      "outlineRef": "3.1",
+      "simpleExplanation": "Secure design means building safety into a system from the first day, not adding it later. Think of building a house. You plan for burglars before you pour the floor. You give each person only the keys they need. You use more than one lock. Doors start locked. If the alarm breaks, the door stays shut. No single person controls everything. You keep the plan simple, and you check everyone, every time. These habits are the secure design principles.",
+      "studyNotes": [
+        {
+          "heading": "Threat modeling",
+          "body": "Threat modeling means thinking about what could go wrong before it goes wrong. Do it early in design, when fixes are cheap. Repeat it when the system changes.\n\nThe basic steps are:\n- Decide what you are protecting and draw how the data moves.\n- List the threats.\n- Rank the threats by risk.\n- Choose controls and check that they work.\n\nSTRIDE is a well-known method from Microsoft. Each letter is a type of threat:\n- Spoofing: pretending to be someone else.\n- Tampering: changing data without permission.\n- Repudiation: denying you did something.\n- Information disclosure: leaking data.\n- Denial of service: stopping others from using the system.\n- Elevation of privilege: gaining more power than you should have.\n\nPASTA (Process for Attack Simulation and Threat Analysis) is another method. It has seven stages and focuses on risk to the business."
+        },
+        {
+          "heading": "Limiting power and adding layers",
+          "body": "Least privilege means each person and program gets only the access needed for the job, and only for as long as it is needed. A cleaner gets the office key, not the key to the safe.\n\nDefense in depth means using several different layers, so one failure does not cause a loss. A house may have a fence, a locked door, an alarm and a safe.\n\nSegregation of duties, or SoD, means splitting a sensitive task so one person cannot finish it alone. In a shop, one person orders goods and another approves payment. Cheating then needs collusion, which means two people working together dishonestly."
+        },
+        {
+          "heading": "Safe starts, safe failures, simple designs",
+          "body": "Secure defaults means a product is safe when first switched on. Extra services are off. Guest access is off. People must choose to open things up.\n\nFail securely means a broken system stays in a safe state. If a login server crashes, nobody gets in. If a firewall, the gatekeeper of a network, fails, it blocks traffic.\n\nThe exam tests one important detail here. People's safety comes first. A fire exit must let people out during a power failure, even if that weakens security.\n\nKeep it simple and small means fewer parts and fewer mistakes. Small designs are easier to test. They also shrink the attack surface, which is every place an attacker could try to get in."
+        },
+        {
+          "heading": "Zero trust and trust but verify",
+          "body": "Trust but verify is the older idea. People inside the network are trusted, and their actions are checked later through logs and audits.\n\nZero trust means never trust and always verify. Being inside the building or the network earns nothing. Every request is checked: who is asking, from which device, and for what. The network is split into very small zones, called microsegmentation, so an intruder cannot move around freely.\n\nZero trust is a way of designing, not a product you can buy. NIST (the US National Institute of Standards and Technology) describes it in Special Publication 800-207."
+        },
+        {
+          "heading": "Privacy, shared duties and SASE",
+          "body": "Privacy by design means planning for privacy from the start. Collect only the data you need. Make the private choice the default. Protect the data for its whole life. A school app should not ask for a parent's income if it only sends homework.\n\nShared responsibility means security duties are split between parties, such as a company and its cloud provider. Write the split down in the contract. The company stays accountable for its own data.\n\nSASE (Secure Access Service Edge) joins networking and security into one service delivered from the cloud, close to the user. It combines smart links between sites with web filtering, a cloud firewall and zero trust access. It suits staff who work from anywhere.\n\nAs a manager, ask for these principles at the start of a project, and get leadership support for them in policy."
+        }
+      ],
+      "keyTerms": [
+        {
+          "term": "Threat modeling",
+          "meaning": "Finding and ranking what could go wrong, early in design."
+        },
+        {
+          "term": "STRIDE",
+          "meaning": "Threat list: Spoofing, Tampering, Repudiation, Information disclosure, Denial of service, Elevation of privilege."
+        },
+        {
+          "term": "Least privilege",
+          "meaning": "Only the access needed for the job, and only while it is needed."
+        },
+        {
+          "term": "Defense in depth",
+          "meaning": "Several different layers of protection, so one failure is not fatal."
+        },
+        {
+          "term": "Segregation of duties (SoD)",
+          "meaning": "Splitting a sensitive task so one person cannot complete it alone."
+        },
+        {
+          "term": "Collusion",
+          "meaning": "Two or more people secretly working together to cheat."
+        },
+        {
+          "term": "Fail securely",
+          "meaning": "When something breaks, it stays in a safe state, usually blocking access."
+        },
+        {
+          "term": "Attack surface",
+          "meaning": "All the places where an attacker could try to get in."
+        },
+        {
+          "term": "Zero trust",
+          "meaning": "Never trust by location; verify every request, every time."
+        },
+        {
+          "term": "SASE",
+          "meaning": "Secure Access Service Edge: network links and security delivered together from the cloud."
+        }
+      ],
+      "keyPoints": [
+        "Build security in at the start, because late fixes cost more.",
+        "Give the least access needed and split sensitive tasks.",
+        "Systems should start safe and fail safe, but people's lives come first.",
+        "Zero trust checks every request and never trusts by location."
+      ],
+      "memoryHook": "A safe house: plan for burglars (threat model), few keys (least privilege), many locks (depth), two signatures (SoD), door stays shut if the alarm dies (fail secure).",
+      "question": {
+        "prompt": "A school is designing a new grades system. In a design review, a developer asks what the grade-change page should do if the permission-checking service stops responding. What is the BEST design choice?",
+        "options": [
+          "Allow the change and write a note in the log for later review",
+          "Let teachers continue, because they are trusted members of staff",
+          "Refuse the change until the permission check is working again",
+          "Show an error and let the user retry with a shared admin password"
+        ],
+        "correctIndex": 2,
+        "explanation": "Failing securely means that when a safety check breaks, access is refused. Allowing the change and logging it is tempting because work continues, but it lets unchecked changes through. Grades are not a life-safety issue, so there is no reason to open the door."
+      }
+    },
+    {
+      "id": "T20",
+      "name": "Security models",
+      "outlineRef": "3.2",
+      "simpleExplanation": "A security model is a strict set of rules for who may do what to which information. Some models protect secrets. Some protect correctness. Bell-LaPadula is about keeping secrets. Biba is about keeping data correct. Clark-Wilson makes people use approved programs instead of touching data directly. Brewer-Nash stops conflicts of interest. Others describe safe states and how information may flow. For the exam, know each model's goal and its rules, especially which direction of reading and writing is banned.",
+      "studyNotes": [
+        {
+          "heading": "What a model is",
+          "body": "A policy says what we want. A security model turns that goal into exact rules. A system is then built to follow those rules.\n\nTwo words appear everywhere. A subject is an active thing, such as a person or a program. An object is a passive thing, such as a file."
+        },
+        {
+          "heading": "Bell-LaPadula and Biba",
+          "body": "Bell-LaPadula protects confidentiality, which means keeping secrets. It came from military needs.\n- Simple security property: no read up. You may not read above your level.\n- Star (*) property: no write down. You may not copy secrets to a lower level.\n- Strong star property: read and write only at your own level.\n- Discretionary security property: an access table also controls who may do what.\n\nBiba protects integrity, which means keeping data correct. Its rules are the opposite.\n- Simple integrity property: no read down. Do not rely on less trusted data.\n- Star (*) integrity property: no write up. Do not spoil more trusted data.\n- Invocation property: a subject may not call on a subject at a higher integrity level.\n\nThe outline also mentions the Star Model. Study it as these star rules, which control writing.\n\nWorked example. Sam works at the Medium level.\n- Bell-LaPadula: Sam may read Low and write High. Sam may not read High or write Low.\n- Biba: Sam may read High and write Low. Sam may not read Low or write High.\n\nNeither model handles availability. Bell-LaPadula also ignores integrity, and Biba ignores confidentiality."
+        },
+        {
+          "heading": "Clark-Wilson",
+          "body": "Clark-Wilson protects integrity in business systems. Users never touch the data directly. They must go through an approved program. This is called the access triple: subject, program, object.\n\nThink of a bank. You cannot walk into the vault and change your balance. A teller uses the banking system, and that system follows rules.\n\nIts terms are:\n- CDI (Constrained Data Item): protected data.\n- UDI (Unconstrained Data Item): unchecked data, such as user input.\n- TP (Transformation Procedure): the approved program that changes data.\n- IVP (Integrity Verification Procedure): a check that the data is still correct.\n\nIt also enforces well-formed transactions and separation of duties."
+        },
+        {
+          "heading": "Brewer-Nash and Take-Grant",
+          "body": "Brewer-Nash is also called the Chinese Wall model. It prevents conflicts of interest. Access changes based on what you have already seen. A consultant who opens Bank A's files is then blocked from rival Bank B's files.\n\nTake-Grant uses a drawing of arrows to show how rights move between subjects and objects. Its main rules are take, grant, create and remove."
+        },
+        {
+          "heading": "State machine, lattice and noninterference",
+          "body": "The state machine model says this: if a system starts in a secure state, and every change keeps it secure, the system is always secure. Bell-LaPadula is built on this idea.\n\nThe lattice model places every subject and object on a grid of levels. Each subject has a highest level (upper bound) and a lowest level (lower bound) of access.\n\nThe noninterference model says actions at a high level must not affect what a lower level can see. If a low-level user can notice high-level activity, information has leaked. This model helps defend against covert channels, which are hidden ways of passing information."
+        }
+      ],
+      "keyTerms": [
+        {
+          "term": "Subject and object",
+          "meaning": "A subject acts, such as a user. An object is acted on, such as a file."
+        },
+        {
+          "term": "Bell-LaPadula",
+          "meaning": "Confidentiality model: no read up, no write down."
+        },
+        {
+          "term": "Biba",
+          "meaning": "Integrity model: no read down, no write up."
+        },
+        {
+          "term": "Star (*) property",
+          "meaning": "The rule in these models that controls writing."
+        },
+        {
+          "term": "Clark-Wilson",
+          "meaning": "Integrity model where users change data only through approved programs."
+        },
+        {
+          "term": "Access triple",
+          "meaning": "Clark-Wilson link of subject, program and object."
+        },
+        {
+          "term": "Brewer-Nash",
+          "meaning": "Chinese Wall model: blocks access that would create a conflict of interest."
+        },
+        {
+          "term": "Take-Grant",
+          "meaning": "Model that shows how rights are passed, using a directed graph."
+        },
+        {
+          "term": "State machine",
+          "meaning": "Starts secure and stays secure through every change."
+        },
+        {
+          "term": "Noninterference",
+          "meaning": "High-level actions must not change what low levels can see."
+        }
+      ],
+      "keyPoints": [
+        "Bell-LaPadula protects secrets: no read up, no write down.",
+        "Biba protects correctness: no read down, no write up.",
+        "Clark-Wilson forces all changes through approved programs.",
+        "Brewer-Nash changes access to prevent conflicts of interest."
+      ],
+      "memoryHook": "Bell keeps secrets, Biba keeps it correct. Simple is always about reading, star is always about writing.",
+      "question": {
+        "prompt": "A consulting firm advises two competing airlines. After an analyst opens confidential files for the first airline, the system automatically blocks that analyst from the second airline's files. Which model does this BEST describe?",
+        "options": [
+          "Brewer-Nash",
+          "Bell-LaPadula",
+          "Biba",
+          "Take-Grant"
+        ],
+        "correctIndex": 0,
+        "explanation": "Brewer-Nash changes access based on what a person has already seen, to stop a conflict of interest. Bell-LaPadula is tempting because the files are confidential, but it uses fixed levels and does not react to earlier access."
+      }
+    },
+    {
+      "id": "T21",
+      "name": "Choosing controls and evaluating systems",
+      "outlineRef": "3.3",
+      "simpleExplanation": "Before you buy a lock, you decide what it must protect. Security works the same way. First write down the system's security requirements, based on risk, laws and business needs. Then choose controls that meet them at a sensible cost. To trust a product, you can look for independent testing. Common Criteria is an international testing scheme. It gives products an Evaluation Assurance Level, from 1 to 7. A higher level means deeper testing, not more features.",
+      "studyNotes": [
+        {
+          "heading": "Controls come from requirements",
+          "body": "A control is anything that reduces risk, such as a password rule, a guard or a backup. Never start with a favourite product. Start with what the system needs.\n\nRequirements come from risk assessments, laws, contracts, company policy and business goals.\n\nThere are two kinds of requirement:\n- Functional: what the control must do. Example: lock an account after five bad passwords.\n- Assurance: how sure we are that it works. Example: an independent lab tested it.\n\nA sensible order is:\n- Identify the data and how much harm a loss would cause.\n- Assess the risks.\n- Write the security requirements.\n- Pick a baseline, which is a standard starting set of controls.\n- Scope it by removing controls that do not apply.\n- Tailor it by adjusting the rest to fit.\n- Compare cost with benefit.\n- Get management approval.\n\nAs a rule, a control should not cost more than the value it protects."
+        },
+        {
+          "heading": "Common Criteria",
+          "body": "Common Criteria, or CC, is an international standard for evaluating security products. It is published as ISO/IEC 15408. A product tested under it can be recognised in many countries.\n\nLearn these terms:\n- Protection Profile (PP): what a type of customer needs. It is the shopping list.\n- Security Target (ST): what the vendor claims this product does.\n- Target of Evaluation (TOE): the exact product and setup being tested.\n\nThe flow is simple. Customers state needs in a Protection Profile. The vendor writes a Security Target. An independent lab tests the Target of Evaluation against those claims."
+        },
+        {
+          "heading": "Evaluation Assurance Levels in order",
+          "body": "An Evaluation Assurance Level, or EAL, tells you how deeply a product was examined. Know the exact order:\n- EAL1: functionally tested.\n- EAL2: structurally tested.\n- EAL3: methodically tested and checked.\n- EAL4: methodically designed, tested and reviewed.\n- EAL5: semi-formally designed and tested.\n- EAL6: semi-formally verified design and tested.\n- EAL7: formally verified design and tested.\n\nFormal means mathematical proof is used. Semi-formal means structured methods that fall short of full proof."
+        },
+        {
+          "heading": "What a rating does not tell you",
+          "body": "The exam likes this trap. A higher EAL means more assurance, not more security features. An EAL6 product may do less than an EAL4 product.\n\nOther limits matter too:\n- The rating covers only the configuration that was tested. Change the setup and it may no longer apply.\n- The rating applies to the stated claims. Check that the Protection Profile matches your needs.\n- A rating does not mean the product is free of flaws.\n\nTwo more words matter. Certification is the technical evaluation of a system. Authorization, once called accreditation, is when a senior manager formally accepts the risk and approves use. A lab can certify, but only management can accept the risk.\n\nTesting by itself never replaces your own requirements. Ask whether the product solves your problem, in your setting, at a fair cost."
+        }
+      ],
+      "keyTerms": [
+        {
+          "term": "Control",
+          "meaning": "Anything that reduces risk."
+        },
+        {
+          "term": "Functional requirement",
+          "meaning": "What a control must do."
+        },
+        {
+          "term": "Assurance requirement",
+          "meaning": "How much confidence we need that it works."
+        },
+        {
+          "term": "Scoping and tailoring",
+          "meaning": "Removing controls that do not apply, then adjusting the rest to fit."
+        },
+        {
+          "term": "Common Criteria (CC)",
+          "meaning": "International product evaluation standard, ISO/IEC 15408."
+        },
+        {
+          "term": "Protection Profile (PP)",
+          "meaning": "The security needs of a type of customer."
+        },
+        {
+          "term": "Security Target (ST)",
+          "meaning": "The vendor's security claims for its product."
+        },
+        {
+          "term": "Target of Evaluation (TOE)",
+          "meaning": "The exact product and setup being tested."
+        },
+        {
+          "term": "EAL",
+          "meaning": "Evaluation Assurance Level: 1 to 7, showing how deeply a product was tested."
+        },
+        {
+          "term": "Authorization",
+          "meaning": "A senior manager formally accepts the risk and approves use."
+        }
+      ],
+      "keyPoints": [
+        "Start with requirements, not with a product.",
+        "A Protection Profile is the need; a Security Target is the claim.",
+        "A higher EAL means more testing, not more features.",
+        "A rating covers only the configuration that was tested.",
+        "Certification is technical; authorization is management accepting risk."
+      ],
+      "memoryHook": "PP is the Purchaser's list, ST is the Seller's promise, TOE is the Thing On the Examination table.",
+      "question": {
+        "prompt": "A government agency must buy a firewall. Product A is rated EAL6 against a profile written for small home-office devices. Product B is rated EAL4 against a profile that closely matches the agency's network needs. What should the agency do?",
+        "options": [
+          "Buy Product A, as a higher level always means stronger security",
+          "Buy Product B, as lower-rated products cost less to run each year",
+          "Reject both products and demand an EAL7 rating for every firewall",
+          "Prefer Product B, as its evaluation fits the agency's needs"
+        ],
+        "correctIndex": 3,
+        "explanation": "An EAL shows how deeply a product was tested against certain claims. Product B was tested against the agency's kind of need. Product A is tempting, but a high rating against the wrong profile says little about this network."
+      }
+    },
+    {
+      "id": "T22",
+      "name": "Security capabilities of information systems",
+      "outlineRef": "3.4",
+      "simpleExplanation": "Computers have safety features built into them. Memory protection stops one program from reading another program's space, like walls between flats. A Trusted Platform Module is a small chip that guards keys inside one computer. A Hardware Security Module is a stronger, separate device that makes and guards many keys. Encryption scrambles data. Secure enclaves protect data while it is being used. All the parts that must be trusted together are called the trusted computing base.",
+      "studyNotes": [
+        {
+          "heading": "The trusted computing base",
+          "body": "The Trusted Computing Base, or TCB, is all the hardware, firmware and software that enforce security. Firmware is the low-level software stored on a chip. If the TCB fails, the whole security promise fails, so it should be small.\n\nRelated ideas:\n- Security perimeter: the imaginary line between the TCB and everything else.\n- Trusted path: a protected route between the user and the TCB, so a fake login screen cannot steal a password.\n- Reference monitor: the idea of a guard that checks every access by a subject to an object.\n- Security kernel: the real hardware and software that carry out the reference monitor idea.\n\nA reference monitor must have three qualities:\n- Tamperproof: nobody can change it.\n- Always invoked: it cannot be bypassed.\n- Verifiable: it is small enough to test completely."
+        },
+        {
+          "heading": "Memory protection",
+          "body": "Memory protection keeps each program inside its own space. This is called process isolation. Without it, a bad program could read the passwords held by another program.\n\nProtection rings separate levels of power. Ring 0 is the kernel, the core of the operating system, and it has the most power. Ring 3 is where normal applications run, with the least power. A program in Ring 3 must ask the operating system to do privileged work.\n\nTwo features help stop buffer overflows. A buffer overflow happens when a program writes more data than a space can hold, spilling into nearby memory.\n- ASLR (Address Space Layout Randomization): places program parts at random addresses, so an attacker cannot guess where they are.\n- DEP (Data Execution Prevention): marks data areas so that code cannot run from them."
+        },
+        {
+          "heading": "TPM and HSM",
+          "body": "A Trusted Platform Module, or TPM, is a chip on one computer's main board. It stores keys safely and measures the boot process. If someone tampers with startup files, the measurements change, and the TPM can refuse to release the disk key. This is called sealing. It helps protect a stolen laptop.\n\nA Hardware Security Module, or HSM, is a hardened device, often a card or a network box. It is built to resist tampering. It creates, stores and uses many keys, and it does encryption work quickly. Keys are not meant to leave it. Banks use HSMs. So do certificate authorities, which issue digital identity documents. Many are tested under FIPS 140, a US government standard for cryptographic modules.\n\nTo tell them apart:\n- TPM: one device, cheap, built in.\n- HSM: many keys, high volume, tamper-resistant, costly."
+        },
+        {
+          "heading": "Encryption and secure enclaves",
+          "body": "Encryption turns readable data into scrambled data that needs a key to read. Data has three states:\n- At rest: stored on a disk. Use disk or database encryption.\n- In transit: moving over a network. Use TLS (Transport Layer Security), the protection behind web padlocks.\n- In use: being worked on in memory. This is the hardest state to protect.\n\nA secure enclave, or Trusted Execution Environment, is a walled-off part of the processor. Code and data inside are protected even from the operating system. Intel SGX and Arm TrustZone are examples. Phones use enclaves to protect fingerprint data.\n\nNo single feature is enough. A manager should combine them according to risk."
+        }
+      ],
+      "keyTerms": [
+        {
+          "term": "Trusted Computing Base (TCB)",
+          "meaning": "All hardware, firmware and software that enforce security."
+        },
+        {
+          "term": "Reference monitor",
+          "meaning": "Concept of a guard that checks every access."
+        },
+        {
+          "term": "Security kernel",
+          "meaning": "The actual parts that implement the reference monitor."
+        },
+        {
+          "term": "Process isolation",
+          "meaning": "Keeping each running program in its own memory space."
+        },
+        {
+          "term": "Protection rings",
+          "meaning": "Levels of power; Ring 0 is highest, Ring 3 is for applications."
+        },
+        {
+          "term": "ASLR",
+          "meaning": "Address Space Layout Randomization: randomizes memory locations to frustrate attackers."
+        },
+        {
+          "term": "DEP",
+          "meaning": "Data Execution Prevention: stops code from running in data areas."
+        },
+        {
+          "term": "TPM",
+          "meaning": "Trusted Platform Module: a chip that guards keys and checks startup on one device."
+        },
+        {
+          "term": "HSM",
+          "meaning": "Hardware Security Module: a hardened device that makes, stores and uses many keys."
+        },
+        {
+          "term": "Secure enclave",
+          "meaning": "A protected part of the processor that shields data while in use."
+        }
+      ],
+      "keyPoints": [
+        "The TCB should be as small as possible.",
+        "A reference monitor is tamperproof, always invoked and verifiable.",
+        "A TPM protects one device; an HSM serves many keys at scale.",
+        "Enclaves protect data in use, the hardest state to protect."
+      ],
+      "memoryHook": "TPM is the small safe bolted inside your own house. HSM is the bank vault that serves the whole town.",
+      "question": {
+        "prompt": "A bank will run its own certificate service. It must create and use thousands of signing keys, and the keys must never be exposed outside protected hardware. Which option BEST meets this need?",
+        "options": [
+          "A Trusted Platform Module in each server",
+          "A tamper-resistant Hardware Security Module",
+          "Encrypted key files on a locked file server",
+          "A secure enclave on each staff member's laptop"
+        ],
+        "correctIndex": 1,
+        "explanation": "An HSM is built to create, hold and use many keys at high volume inside hardened hardware. A TPM is tempting because it also protects keys, but it is designed to serve one computer, not a high-volume signing service."
+      }
+    },
+    {
+      "id": "T23",
+      "name": "Vulnerabilities in architectures",
+      "outlineRef": "3.5",
+      "simpleExplanation": "Every kind of system has its own weak spots. A staff laptop faces different dangers from a server, a database or a factory machine. A smart doorbell may ship with a password everyone knows. Information can even leak through paths nobody planned, such as a light flicker or a tiny time delay. Your job is to know the typical weakness of each system, and then choose the right protection without causing harm to the business or to people.",
+      "studyNotes": [
+        {
+          "heading": "Clients and servers",
+          "body": "A client is the device a person uses, such as a laptop or phone. Common problems include missing updates, malicious downloads, data left in local caches, and lost or stolen devices. Protect clients with patching (installing updates), security software on the device, disk encryption and least privilege.\n\nA server provides services to many users. Common problems include unneeded services left running, weak settings, missing patches and floods of traffic. Protect servers by hardening them, which means turning off everything not needed. Also limit what data can flow in and out, and log activity."
+        },
+        {
+          "heading": "Databases",
+          "body": "Databases have three special problems.\n\nAggregation means joining many low-value facts to create a high-value secret. Each cook's schedule is harmless, but all of them together may reveal the army's movements.\n\nInference means working out a secret from facts you are allowed to see. If you know a department's total pay before and after one person joins, you can work out that person's salary.\n\nSQL injection means typing database commands into an input box. SQL (Structured Query Language) is the language databases understand.\n\nControls include:\n- Views: show users only certain columns or rows.\n- Polyinstantiation: keep different versions of a record for different clearance levels.\n- Cell suppression: hide particular values.\n- Noise: add small random changes to results.\n- Checking all input and using safe query templates, called parameterized queries, to stop SQL injection."
+        },
+        {
+          "heading": "Cryptographic systems",
+          "body": "Strong mathematics can still be used badly. Common weaknesses are:\n- Old algorithms that are no longer safe.\n- Keys that are too short.\n- Poor random numbers.\n- Keys stored next to the data they protect.\n- Flawed code written by hand instead of a tested library.\n\nMost cryptography fails through key handling or implementation, not through broken mathematics."
+        },
+        {
+          "heading": "Industrial control systems and IoT",
+          "body": "Operational Technology, or OT, is equipment that runs physical things, such as water plants and power grids. Industrial Control Systems, or ICS, are a main type of OT. Know these parts:\n- SCADA (Supervisory Control and Data Acquisition): watches and controls equipment over wide areas.\n- PLC (Programmable Logic Controller): a small rugged computer that runs a machine.\n- DCS (Distributed Control System): controls a process inside one plant.\n- HMI (Human-Machine Interface): the screen an operator uses.\n\nThese systems are old, hard to patch and often must never stop. Safety and availability come first. Separate them from office networks. Test changes carefully and work with the vendor.\n\nThe Internet of Things, or IoT, means everyday objects joined to a network, such as cameras and thermostats. They often have default passwords, weak encryption and no updates. Change default passwords, put them on a separate network and turn off what you do not use."
+        },
+        {
+          "heading": "Covert channels and side channels",
+          "body": "A covert channel is a hidden way of sending information using something not meant for communication. Two cooperating parties are involved.\n- Covert storage channel: writing to a shared place, such as changing a file name.\n- Covert timing channel: changing the timing of events, such as making the processor busy in a pattern.\n\nA side channel is different. Nobody is cooperating. An attacker watches what a system leaks by accident, such as power use, sound, timing or radio emissions.\n\nExam tip: covert means someone is deliberately sending, while side channel means someone is only observing."
+        }
+      ],
+      "keyTerms": [
+        {
+          "term": "Hardening",
+          "meaning": "Removing everything a system does not need and securing what remains."
+        },
+        {
+          "term": "Aggregation",
+          "meaning": "Combining many low-value facts into something more sensitive."
+        },
+        {
+          "term": "Inference",
+          "meaning": "Working out a secret from facts you are allowed to see."
+        },
+        {
+          "term": "Polyinstantiation",
+          "meaning": "Keeping several versions of one record for different clearance levels."
+        },
+        {
+          "term": "Operational Technology (OT)",
+          "meaning": "Equipment that controls physical processes."
+        },
+        {
+          "term": "SCADA",
+          "meaning": "Supervisory Control and Data Acquisition: remote monitoring and control over wide areas."
+        },
+        {
+          "term": "PLC",
+          "meaning": "Programmable Logic Controller: a rugged computer that runs a machine."
+        },
+        {
+          "term": "IoT",
+          "meaning": "Internet of Things: everyday devices joined to a network."
+        },
+        {
+          "term": "Covert channel",
+          "meaning": "A hidden, deliberate way to pass information against policy."
+        },
+        {
+          "term": "Side channel",
+          "meaning": "Learning secrets from what a system leaks by accident."
+        }
+      ],
+      "keyPoints": [
+        "Aggregation combines facts; inference deduces a secret from them.",
+        "In industrial systems, safety and availability come first.",
+        "Separate IoT and industrial devices from office networks.",
+        "Covert channels are deliberate; side channels are observed leaks."
+      ],
+      "memoryHook": "Aggregation is adding up. Inference is figuring out. Covert is a secret note passed on purpose. Side channel is overhearing through a wall.",
+      "question": {
+        "prompt": "An office clerk may only see total pay figures by department. When one new person joins a small team, the clerk compares this month's total with last month's and works out the new person's salary. What is the BEST control for this problem?",
+        "options": [
+          "Encrypt the payroll database while it is stored on disk",
+          "Add input validation to the payroll report search screen",
+          "Give the clerk a new password and require a stronger login",
+          "Suppress totals when a group is small or changes by one"
+        ],
+        "correctIndex": 3,
+        "explanation": "This is an inference problem. The clerk has proper access but deduces a secret, so results must be restricted, for example by hiding small-group totals. Encryption is tempting, but the clerk is an approved user and would still see the decrypted totals."
+      }
+    },
+    {
+      "id": "T24",
+      "name": "Cloud, virtualized and modern systems",
+      "outlineRef": "3.5",
+      "simpleExplanation": "Today, many systems do not sit in your own building. Renting cloud services is like renting a home. In some deals you get an empty plot, and in others a fully furnished flat. The more you rent, the less you look after, but you always look after your own valuables. Virtual machines, containers and small independent services split computers into smaller parts. Each design brings its own risks. Your data and who can reach it remain your responsibility.",
+      "studyNotes": [
+        {
+          "heading": "Cloud service models",
+          "body": "Cloud computing means renting computing power over a network. There are three main service models:\n- IaaS (Infrastructure as a Service): you rent virtual servers, storage and networks. You manage the operating system, applications and data.\n- PaaS (Platform as a Service): you rent a ready platform to build and run your code. You manage your application and data.\n- SaaS (Software as a Service): you use a finished application, such as web email. You manage your users, settings and data.\n\nDeployment models say who shares the cloud: public, private, community (a group with shared needs) or hybrid (a mix)."
+        },
+        {
+          "heading": "Shared responsibility in the cloud",
+          "body": "The provider always looks after the buildings and physical hardware. The customer always looks after its data, its users and their access.\n\nThe duties in between move with the model:\n- IaaS: the customer patches the operating system.\n- PaaS: the provider patches the operating system, and the customer secures its own code.\n- SaaS: the provider runs the application, and the customer controls settings and accounts.\n\nThis detail is tested often. You can hand over tasks, but you cannot hand over accountability for your data. If a cloud account is open to the world because of your setting, that is your failure.\n\nCloud risks include wrong settings, stolen accounts, data stored in the wrong country, and difficulty collecting evidence. Before signing, read the contract and check the provider's independent audit reports."
+        },
+        {
+          "heading": "Virtual machines and containers",
+          "body": "A virtual machine, or VM, is a software computer running on a real one. A hypervisor is the software that runs VMs.\n- Type 1 (bare metal): runs directly on the hardware. Common in data centres.\n- Type 2 (hosted): runs on top of a normal operating system. Common on desktops.\n\nVM risks are:\n- VM escape: an attacker breaks out of a VM to reach the host or other VMs.\n- VM sprawl: too many forgotten, unpatched VMs.\n\nA container packages an application with what it needs. Containers on one host share the host's operating system kernel, the core of the system. They start fast, but they are less isolated than VMs. A kernel flaw can affect them all. Use trusted, scanned images, do not run containers as the most powerful user, and keep the host patched."
+        },
+        {
+          "heading": "Serverless, microservices and distributed systems",
+          "body": "Serverless means you upload small functions, and the provider runs them when needed. You do not manage servers, but you still secure your code, its permissions and its data.\n\nMicroservices split one application into many small services that talk through APIs. An API (Application Programming Interface) is a defined way for programs to talk. More APIs mean more doors to guard. Each service must prove who is calling and needs limited rights.\n\nDistributed systems spread work across many computers. They are harder to keep consistent, and a weak member can harm the group."
+        },
+        {
+          "heading": "Embedded, high-performance and edge systems",
+          "body": "An embedded system is a computer built into a product, such as a car or a medical pump. It is often hard to update and may stay in use for many years.\n\nHigh-performance computing, or HPC, joins many processors to do huge calculations. Speed is the priority, so security tools are sometimes left out. Protect it by isolating the cluster and controlling who may submit jobs.\n\nEdge computing processes data close to where it is created, such as in a shop or a factory. This is quick, but devices sit in places that are less physically secure. Plan for theft, tampering and patching across many small sites."
+        }
+      ],
+      "keyTerms": [
+        {
+          "term": "IaaS",
+          "meaning": "Infrastructure as a Service: rent virtual servers, storage and networks."
+        },
+        {
+          "term": "PaaS",
+          "meaning": "Platform as a Service: rent a platform to run your own code."
+        },
+        {
+          "term": "SaaS",
+          "meaning": "Software as a Service: use a finished application over the network."
+        },
+        {
+          "term": "Hypervisor",
+          "meaning": "Software that creates and runs virtual machines."
+        },
+        {
+          "term": "VM escape",
+          "meaning": "Breaking out of a virtual machine to reach its host."
+        },
+        {
+          "term": "VM sprawl",
+          "meaning": "Too many unmanaged virtual machines."
+        },
+        {
+          "term": "Container",
+          "meaning": "A packaged application that shares the host's kernel."
+        },
+        {
+          "term": "Serverless",
+          "meaning": "Code run in small functions, with servers managed by the provider."
+        },
+        {
+          "term": "Microservices",
+          "meaning": "One application split into many small services linked by APIs."
+        },
+        {
+          "term": "Edge computing",
+          "meaning": "Processing data close to where it is created."
+        }
+      ],
+      "keyPoints": [
+        "From IaaS to PaaS to SaaS, the customer manages less.",
+        "The customer always stays accountable for its data and access.",
+        "Containers share a kernel, so they are less isolated than VMs.",
+        "Type 1 hypervisors run directly on the hardware."
+      ],
+      "memoryHook": "Renting a home: IaaS is the empty plot, PaaS is the built house, SaaS is the furnished hotel room. Your jewellery is always your job.",
+      "question": {
+        "prompt": "A shop rents virtual servers from a cloud provider under an IaaS contract. A newly announced flaw affects the operating system on those servers. Who is responsible for applying the fix?",
+        "options": [
+          "The shop, because it manages the operating system under this model",
+          "The provider, because it owns all the hardware beneath the servers",
+          "The provider, because the flaw is in software on its cloud platform",
+          "The operating system vendor, because it created the flaw in the product"
+        ],
+        "correctIndex": 0,
+        "explanation": "In IaaS, the provider runs the physical layer and the customer runs everything from the operating system upward. The provider answer is tempting because it owns the equipment, but ownership of hardware does not cover the customer's operating system."
+      }
+    },
+    {
+      "id": "T25",
+      "name": "Cryptography basics and symmetric encryption",
+      "outlineRef": "3.6",
+      "simpleExplanation": "Cryptography is the science of protecting information with mathematics. Think of a locked box. In symmetric encryption, the same key locks and opens the box. Both people need a copy, and they must share it safely. It is very fast, so it suits large amounts of data. Older methods called DES and 3DES are retired. AES is the modern standard. How you use a cipher, called its mode, matters as much as the cipher itself.",
+      "studyNotes": [
+        {
+          "heading": "Goals and basic terms",
+          "body": "Cryptography has four main goals:\n- Confidentiality: only the right people can read it.\n- Integrity: we can tell whether it changed.\n- Authentication: we can check who it came from.\n- Non-repudiation: the sender cannot deny sending it.\n\nCore words:\n- Plaintext is readable data. Ciphertext is scrambled data.\n- A cipher, or algorithm, is the method used to scramble.\n- A key is the secret value that controls the cipher.\n- A bit is the smallest unit of computer data, a 0 or a 1.\n- Key space is the number of possible keys. Each added bit doubles it.\n- A round is one pass of scrambling inside a cipher.\n- Work factor is the effort needed to break the cipher.\n- Confusion hides the link between key and ciphertext. Diffusion spreads each plaintext bit across the output.\n- An IV (Initialization Vector) is a random starting value, so the same message encrypts differently each time.\n- XOR (exclusive OR) is a simple operation that combines bits.\n\nKerckhoffs's principle says the method may be public, and only the key must be secret."
+        },
+        {
+          "heading": "Stream and block ciphers",
+          "body": "A stream cipher encrypts data one bit or byte at a time. It mixes data with a stream of key-based values, using XOR. ChaCha20 is a modern example. RC4 is an old, broken one.\n\nA block cipher encrypts fixed-size chunks of data. DES and AES are block ciphers.\n\nA one-time pad cannot be broken if its key is truly random, as long as the message, kept secret and used only once. It is rarely practical."
+        },
+        {
+          "heading": "Key counts: a worked example",
+          "body": "In symmetric encryption, every pair of people needs its own key. The formula is n(n-1)/2, where n is the number of people.\n\nFor 10 people: 10 x 9 = 90, and 90 / 2 = 45 keys.\n\nAsymmetric encryption, which has a public and private key for each person, needs 2n keys. For 10 people, that is 20 keys.\n\nThis growth is why symmetric keys are hard to manage at scale. Symmetric encryption alone also cannot give non-repudiation, because both parties hold the same key."
+        },
+        {
+          "heading": "DES, 3DES and AES",
+          "body": "Know these figures exactly:\n- DES (Data Encryption Standard): 64-bit block, 56-bit key, 16 rounds. Too weak today.\n- 3DES (Triple DES): runs DES three times, usually encrypt-decrypt-encrypt, for 48 rounds. Three keys total 168 bits but give about 112 bits of real strength. It has a 64-bit block and has been disallowed for new encryption since the end of 2023.\n- AES (Advanced Encryption Standard): 128-bit block. It was chosen from the Rijndael design.\n\nAES key sizes and rounds:\n- 128-bit key: 10 rounds.\n- 192-bit key: 12 rounds.\n- 256-bit key: 14 rounds."
+        },
+        {
+          "heading": "Modes of operation",
+          "body": "A mode says how a block cipher handles messages longer than one block.\n- ECB (Electronic Codebook): each block stands alone. Identical plaintext blocks give identical ciphertext, so patterns show. Avoid it.\n- CBC (Cipher Block Chaining): each block is mixed with the previous one and needs an IV. An error affects the next block too.\n- CFB (Cipher Feedback): turns a block cipher into a stream, with chaining.\n- OFB (Output Feedback): also stream-like. Errors do not spread.\n- CTR (Counter): encrypts a counter and can run in parallel. Never reuse a counter value with the same key.\n- GCM (Galois/Counter Mode): CTR plus a built-in integrity check. It gives confidentiality and integrity together, and is widely preferred."
+        }
+      ],
+      "keyTerms": [
+        {
+          "term": "Symmetric encryption",
+          "meaning": "The same key encrypts and decrypts."
+        },
+        {
+          "term": "Plaintext and ciphertext",
+          "meaning": "Readable data and scrambled data."
+        },
+        {
+          "term": "Key space",
+          "meaning": "The total number of possible keys."
+        },
+        {
+          "term": "Kerckhoffs's principle",
+          "meaning": "The method may be public; only the key must be secret."
+        },
+        {
+          "term": "Confusion and diffusion",
+          "meaning": "Hiding the key's effect, and spreading plaintext across the output."
+        },
+        {
+          "term": "IV",
+          "meaning": "Initialization Vector: a random starting value that stops repeats from looking alike."
+        },
+        {
+          "term": "DES",
+          "meaning": "Data Encryption Standard: 56-bit key, 64-bit block, now weak."
+        },
+        {
+          "term": "3DES",
+          "meaning": "Triple DES: three runs of DES, about 112 bits of strength with three keys."
+        },
+        {
+          "term": "AES",
+          "meaning": "Advanced Encryption Standard: 128-bit block with 128, 192 or 256-bit keys."
+        },
+        {
+          "term": "ECB",
+          "meaning": "Electronic Codebook: weak mode where identical blocks produce identical output."
+        }
+      ],
+      "keyPoints": [
+        "Symmetric uses one shared key and is fast.",
+        "Symmetric keys needed equal n(n-1)/2; asymmetric keys equal 2n.",
+        "AES has a 128-bit block and 10, 12 or 14 rounds.",
+        "Avoid ECB because it reveals patterns.",
+        "Symmetric encryption alone cannot give non-repudiation."
+      ],
+      "memoryHook": "AES rounds: 128 gives 10, 192 gives 12, 256 gives 14. Add 64 bits to the key, add 2 rounds.",
+      "question": {
+        "prompt": "A company of 30 staff wants every pair of employees to be able to exchange private messages using symmetric encryption, with a separate key for each pair. How many keys must the security manager plan to manage?",
+        "options": [
+          "60",
+          "870",
+          "435",
+          "900"
+        ],
+        "correctIndex": 2,
+        "explanation": "The formula is n(n-1)/2, so 30 x 29 = 870, and 870 / 2 = 435. The answer 60 is tempting, but that is the 2n count for asymmetric keys. The answer 870 forgets to divide by 2."
+      }
+    },
+    {
+      "id": "T26",
+      "name": "Asymmetric cryptography, hashing and digital signatures",
+      "outlineRef": "3.6",
+      "simpleExplanation": "Asymmetric encryption uses two matched keys. One is public, like a letter slot anyone can use. One is private, like the key only you hold to open the mailbox. Hashing is different. It makes a short fingerprint of data and cannot be reversed. A digital signature joins the two ideas. You make a fingerprint of a document, then lock it with your private key. Anyone with your public key can check that it came from you and was not changed.",
+      "studyNotes": [
+        {
+          "heading": "Asymmetric keys and which key to use",
+          "body": "Asymmetric encryption, also called public key cryptography, gives each person a key pair. What one key locks, only the other can open. It is much slower than symmetric encryption.\n\nThis rule is tested often:\n- To send a secret to Ana, encrypt with Ana's public key. Ana decrypts with her private key.\n- To sign as Ana, Ana uses her private key. Others verify with Ana's public key.\n\nReal systems are hybrid. Asymmetric encryption safely shares a one-time symmetric key, called a session key. The symmetric key then encrypts the bulk of the data."
+        },
+        {
+          "heading": "RSA, ECC and Diffie-Hellman",
+          "body": "RSA, named after its inventors Rivest, Shamir and Adleman, relies on factoring: it is very hard to find the two large prime numbers that were multiplied to make a huge number. Use at least 2048-bit keys today.\n\nECC (Elliptic Curve Cryptography) gives the same strength with much smaller keys. A 256-bit ECC key is about as strong as a 3072-bit RSA key. This suits phones and small devices.\n\nDiffie-Hellman lets two people agree on a shared secret over an open network. It is key agreement, not encryption of messages. On its own, it does not prove who is on the other end, so it is open to man-in-the-middle attacks, where someone secretly sits between the two people. The ephemeral form uses new values each session. This gives forward secrecy, meaning a key stolen later cannot unlock past sessions."
+        },
+        {
+          "heading": "Quantum-resistant ideas",
+          "body": "A large quantum computer, which uses quantum physics to calculate, would threaten today's public key methods.\n- Shor's algorithm would break RSA, ECC and Diffie-Hellman.\n- Grover's algorithm roughly halves symmetric key strength, so AES-256 stays strong.\n\nPost-quantum cryptography means new methods built to resist quantum attacks. NIST, the US standards body, published its first standards in 2024: ML-KEM for key exchange, and ML-DSA and SLH-DSA for signatures.\n\nA wise manager keeps a list of where cryptography is used, so that algorithms can be replaced in time."
+        },
+        {
+          "heading": "Hashing and HMAC",
+          "body": "A hash function turns data of any size into a short fixed-size value. It is one-way, and any small change gives a very different result. Hashing supports integrity. It does not provide confidentiality.\n\nA collision is when two inputs give the same hash.\n- MD5 (Message Digest 5): 128-bit. Broken.\n- SHA-1 (Secure Hash Algorithm 1): 160-bit. Broken.\n- SHA-2: includes 224, 256, 384 and 512-bit versions. In wide use.\n- SHA-3: a newer design with the same output sizes.\n\nHMAC (Hash-based Message Authentication Code) mixes a shared secret key into the hash. It proves integrity and that the sender holds the key. It cannot give non-repudiation, because both sides hold the same key."
+        },
+        {
+          "heading": "How a digital signature works",
+          "body": "Ana signs a contract for Ben. The steps are:\n- Step 1: Ana hashes the contract.\n- Step 2: Ana encrypts the hash with her private key. This is the signature.\n- Step 3: Ana sends the contract and the signature.\n- Step 4: Ben decrypts the signature with Ana's public key, which reveals her hash.\n- Step 5: Ben hashes the contract himself.\n- Step 6: Ben compares the two hashes. A match proves the signature is good.\n\nA signature gives integrity, authentication and non-repudiation. It does not give confidentiality, because the contract is not encrypted. To add secrecy, also encrypt with Ben's public key."
+        }
+      ],
+      "keyTerms": [
+        {
+          "term": "Asymmetric encryption",
+          "meaning": "Uses a public and private key pair."
+        },
+        {
+          "term": "RSA",
+          "meaning": "Asymmetric method based on factoring very large numbers."
+        },
+        {
+          "term": "ECC",
+          "meaning": "Elliptic Curve Cryptography: strong security with small keys."
+        },
+        {
+          "term": "Diffie-Hellman",
+          "meaning": "A way for two parties to agree a shared secret over an open network."
+        },
+        {
+          "term": "Forward secrecy",
+          "meaning": "A key stolen later cannot unlock earlier sessions."
+        },
+        {
+          "term": "Hash",
+          "meaning": "A fixed-size, one-way fingerprint of data."
+        },
+        {
+          "term": "Collision",
+          "meaning": "Two different inputs that produce the same hash."
+        },
+        {
+          "term": "HMAC",
+          "meaning": "Hash-based Message Authentication Code: a hash mixed with a shared secret key."
+        },
+        {
+          "term": "Digital signature",
+          "meaning": "A hash encrypted with the sender's private key."
+        },
+        {
+          "term": "Non-repudiation",
+          "meaning": "The sender cannot later deny sending it."
+        }
+      ],
+      "keyPoints": [
+        "Secrecy uses the receiver's public key; signing uses the sender's private key.",
+        "Real systems use asymmetric keys to share a symmetric key.",
+        "Diffie-Hellman agrees a key but does not prove identity alone.",
+        "HMAC proves integrity and authenticity, but not non-repudiation.",
+        "Signatures give integrity, authentication and non-repudiation, not secrecy."
+      ],
+      "memoryHook": "Lock a secret with THEIR public key. Sign with YOUR private key.",
+      "question": {
+        "prompt": "A supplier must send a purchase contract to a customer. The customer needs proof that the supplier sent it and that it was not altered, and the supplier must not be able to deny sending it. The contract itself is not secret. What should the supplier do?",
+        "options": [
+          "Encrypt the contract with the customer's public key",
+          "Hash the contract and sign the hash with its private key",
+          "Send the contract with an HMAC using a shared secret key",
+          "Encrypt the contract with its own symmetric session key"
+        ],
+        "correctIndex": 1,
+        "explanation": "Only a digital signature made with the sender's private key gives non-repudiation. HMAC is tempting because it shows integrity, but both sides hold the key, so either could have created it."
+      }
+    },
+    {
+      "id": "T27",
+      "name": "PKI and key management",
+      "outlineRef": "3.6",
+      "simpleExplanation": "How do you know a public key really belongs to your bank? A trusted organization vouches for it, much like a government issues a passport. This system is called Public Key Infrastructure, or PKI. A digital certificate is the passport. A Certificate Authority is the passport office. Keys also need care throughout their lives. They must be created safely, stored safely, changed regularly and destroyed when finished. Most real failures happen because keys are poorly managed.",
+      "studyNotes": [
+        {
+          "heading": "Certificates and who issues them",
+          "body": "Public Key Infrastructure, or PKI, is the people, rules and systems that link public keys to identities.\n\nA digital certificate follows a standard called X.509. It contains:\n- The owner's name, called the subject.\n- The owner's public key.\n- The issuer's name.\n- A serial number and validity dates.\n- The issuer's digital signature.\n\nThe parties are:\n- Certificate Authority (CA): issues and signs certificates.\n- Registration Authority (RA): checks identity on behalf of the CA. An RA does not issue certificates.\n- Root CA: the top of the trust chain. It is often kept offline for safety.\n- Intermediate CA: issues certificates under the root, so the root stays protected."
+        },
+        {
+          "heading": "Getting and checking a certificate",
+          "body": "To get a certificate:\n- Step 1: Create a key pair. The private key stays with you.\n- Step 2: Send a Certificate Signing Request, or CSR, containing your public key.\n- Step 3: The RA or CA checks your identity.\n- Step 4: The CA signs and issues the certificate.\n\nA browser checks that:\n- The CA's signature is valid and links to a trusted root.\n- Today's date is within the validity dates.\n- The name matches the website.\n- The certificate has not been revoked."
+        },
+        {
+          "heading": "Revocation: CRL and OCSP",
+          "body": "Revocation cancels a certificate before its end date. A common reason is a stolen private key.\n\nA Certificate Revocation List, or CRL, is a signed list of cancelled certificates that the CA publishes from time to time. Clients must download it, so it can grow large and be out of date.\n\nOCSP (Online Certificate Status Protocol) lets a client ask about one certificate and get an answer right away. OCSP stapling lets the web server attach a recent signed answer, which is faster and more private.\n\nIf a private key is stolen, revoke the certificate first, and then issue a new one with a new key pair."
+        },
+        {
+          "heading": "The key lifecycle",
+          "body": "Keys pass through these stages:\n- Generation: make keys with strong random numbers.\n- Distribution: move them safely.\n- Storage: never keep them beside the data, and protect them in hardware when possible.\n- Use: use each key for one purpose only.\n- Rotation: replace keys on a schedule. A key's allowed period of use is its cryptoperiod.\n- Backup or archive: keep what is needed to read old data.\n- Revocation: stop trusting a key that is exposed.\n- Destruction: remove all copies when the key is no longer needed.\n\nThe cryptographic lifecycle also covers algorithms. Choose approved algorithms, track them, and replace them as they weaken. Set this out in policy."
+        },
+        {
+          "heading": "Protecting and recovering keys",
+          "body": "Key escrow means a trusted third party holds a copy of a key, so it can be recovered under agreed rules. A recovery agent is a person or account allowed to recover data, for example after an employee leaves.\n\nNo one person should control an important key alone. Three controls prevent this:\n- Split knowledge: each person holds only part of a key.\n- Dual control: two people must act together.\n- M of N control: any M out of N people can recover the key.\n\nWorked example. With 3 of 5 control, five managers hold pieces. Any three can recover the key. Two cannot, so one lost person does not stop the business.\n\nA Hardware Security Module, or HSM, is a tamper-resistant device that protects keys. Use one for root CA keys and other high-value keys."
+        }
+      ],
+      "keyTerms": [
+        {
+          "term": "PKI",
+          "meaning": "Public Key Infrastructure: the system that links public keys to identities."
+        },
+        {
+          "term": "X.509",
+          "meaning": "The standard format for digital certificates."
+        },
+        {
+          "term": "CA",
+          "meaning": "Certificate Authority: the trusted body that issues and signs certificates."
+        },
+        {
+          "term": "RA",
+          "meaning": "Registration Authority: checks identities but does not issue certificates."
+        },
+        {
+          "term": "CRL",
+          "meaning": "Certificate Revocation List: a published list of cancelled certificates."
+        },
+        {
+          "term": "OCSP",
+          "meaning": "Online Certificate Status Protocol: a live check of one certificate."
+        },
+        {
+          "term": "Cryptoperiod",
+          "meaning": "The time a key may be used."
+        },
+        {
+          "term": "Key escrow",
+          "meaning": "A trusted third party holds a copy of a key for recovery."
+        },
+        {
+          "term": "M of N control",
+          "meaning": "Any M of N people together can use or recover a key."
+        }
+      ],
+      "keyPoints": [
+        "The CA issues certificates; the RA only checks identity.",
+        "A CRL is a list; OCSP is a live check.",
+        "Revoke first when a private key is stolen.",
+        "Split knowledge, dual control and M of N stop one person holding full power."
+      ],
+      "memoryHook": "The CA is the passport office, the RA is the clerk who checks your papers, and the CRL is the list of cancelled passports.",
+      "question": {
+        "prompt": "A company learns that the private key for its public website has been stolen. The certificate still has eight months before it expires. What should the security manager do FIRST?",
+        "options": [
+          "Wait for the expiry date and then issue a certificate with a longer key",
+          "Change the website administrator's password and review the access logs",
+          "Copy the current private key to a Hardware Security Module for safety",
+          "Have the certificate revoked so that others will stop trusting the key"
+        ],
+        "correctIndex": 3,
+        "explanation": "A stolen private key lets attackers pose as the company, so trust in it must be ended first by revoking the certificate. Changing passwords is tempting, but it leaves the stolen key valid. Afterward, issue a new certificate with a new key pair."
+      }
+    },
+    {
+      "id": "T28",
+      "name": "Cryptanalytic attacks",
+      "outlineRef": "3.7",
+      "simpleExplanation": "Cryptanalysis means trying to break protection without having the key. Some attackers try every key. Some look for patterns in the scrambled text. Others ignore the mathematics and attack the way it was built, for example by timing how long a device takes to answer. Others steal a password's stored fingerprint and reuse it, or forge network passes. Ransomware turns encryption against you by locking your files for money. Good defense means good design, good keys and good backups.",
+      "studyNotes": [
+        {
+          "heading": "Attacks on the mathematics",
+          "body": "These attacks are grouped by what the attacker has.\n- Brute force: try every possible key. A long key makes this impractical.\n- Ciphertext only: the attacker has only scrambled text. This is the hardest case for the attacker.\n- Known plaintext: the attacker has some original text and its scrambled version.\n- Chosen plaintext: the attacker chooses text to encrypt and studies the output.\n- Chosen ciphertext: the attacker chooses scrambled text to decrypt and studies the output.\n- Frequency analysis: count how often letters appear. In English, E is the most common. This defeats simple substitution ciphers, which swap each letter for another.\n\nA related idea is the birthday attack, which looks for hash collisions. A hash is a short fingerprint of data, and a collision is two inputs with the same hash.\n\nA meet-in-the-middle attack is mathematical too. It works from both ends of a double encryption, and is the reason Double DES was never adopted. Do not confuse it with man-in-the-middle, covered below."
+        },
+        {
+          "heading": "Attacks on how it was built",
+          "body": "These attacks go around strong mathematics.\n- Implementation attack: exploits a mistake in the software or hardware, such as weak random numbers.\n- Side-channel attack: studies physical signs, such as power use, heat, sound or radio signals.\n- Timing attack: a side-channel attack that measures how long operations take.\n- Fault injection: deliberately causes errors, for example with a power spike, heat or a laser, to make a device give up secrets or skip checks.\n\nDefenses include tested libraries, operations that always take the same time, shielding and tamper-resistant hardware."
+        },
+        {
+          "heading": "Man-in-the-middle and pass the hash",
+          "body": "In a man-in-the-middle attack, or MITM, the attacker secretly sits between two parties. Each party thinks it is talking to the other. The main defenses are certificates and having both sides prove who they are.\n\nPass the hash is a credential attack on Windows networks. Windows can accept a stored password hash for authentication with the older NTLM (NT LAN Manager) method. An attacker who steals the hash from memory can log in without ever knowing the password.\n\nDefenses are:\n- Least privilege, and separate admin accounts.\n- Do not log in with admin accounts on ordinary computers.\n- Use unique local admin passwords.\n- Limit or turn off NTLM."
+        },
+        {
+          "heading": "Kerberos exploitation",
+          "body": "Kerberos is a network login system that uses tickets, like a wristband at a fair. A central server, the Key Distribution Center, or KDC, gives them out.\n- Kerberoasting: request a service ticket, take it offline and crack the service account's password.\n- Golden ticket: forge a ticket-granting ticket using the hash of the KRBTGT account, which signs those tickets. This gives wide control over the whole domain, the managed group of Windows computers and accounts.\n- Silver ticket: forge a service ticket with a service account's hash. This gives access to that one service.\n- Pass the ticket: steal and reuse a valid ticket.\n\nDefenses include long, random service account passwords, tight control of domain controllers (the servers that handle logins), monitoring and resetting the KRBTGT password twice after a compromise."
+        },
+        {
+          "heading": "Ransomware",
+          "body": "Ransomware is malicious software that encrypts your files and demands payment. Many gangs also steal the data first and threaten to publish it, which is called double extortion.\n\nThe best preparation is:\n- Offline or unchangeable backups, tested regularly.\n- Patching, multi-factor login and staff awareness.\n- Network segmentation, which divides the network into separate parts, to slow the spread.\n- A rehearsed incident response plan.\n\nDuring an attack, follow the plan. Isolate infected systems first. Whether to pay is a decision for senior management, with legal advice. Paying does not guarantee recovery. Then find the root cause so that it does not happen again."
+        }
+      ],
+      "keyTerms": [
+        {
+          "term": "Brute force",
+          "meaning": "Trying every possible key."
+        },
+        {
+          "term": "Known plaintext",
+          "meaning": "Attacker holds some original text and its encrypted form."
+        },
+        {
+          "term": "Chosen plaintext",
+          "meaning": "Attacker picks text to encrypt and studies the results."
+        },
+        {
+          "term": "Frequency analysis",
+          "meaning": "Using how often letters appear to break a simple cipher."
+        },
+        {
+          "term": "Side-channel attack",
+          "meaning": "Learning secrets from physical signs such as power or timing."
+        },
+        {
+          "term": "Fault injection",
+          "meaning": "Forcing errors in a device to reveal secrets or skip checks."
+        },
+        {
+          "term": "Man-in-the-middle (MITM)",
+          "meaning": "Secretly sitting between two parties and relaying their messages."
+        },
+        {
+          "term": "Pass the hash",
+          "meaning": "Logging in with a stolen password hash instead of the password."
+        },
+        {
+          "term": "Golden ticket",
+          "meaning": "A forged Kerberos ticket made with the KRBTGT hash."
+        },
+        {
+          "term": "Ransomware",
+          "meaning": "Malicious software that encrypts files and demands payment."
+        }
+      ],
+      "keyPoints": [
+        "Attacks on mathematics are grouped by what the attacker holds.",
+        "Side-channel and fault attacks target the device, not the mathematics.",
+        "Pass the hash needs the hash, not the password.",
+        "Golden ticket uses the KRBTGT hash; silver ticket uses a service hash.",
+        "Offline, tested backups are the top ransomware defense."
+      ],
+      "memoryHook": "Golden ticket opens the whole fair. Silver ticket opens one ride.",
+      "question": {
+        "prompt": "A payment card maker finds that a researcher extracted a card's secret key by briefly dropping the card's power supply at exact moments, causing calculation errors. Which attack was used?",
+        "options": [
+          "Fault injection",
+          "Frequency analysis",
+          "Chosen ciphertext",
+          "Brute force"
+        ],
+        "correctIndex": 0,
+        "explanation": "Deliberately causing errors in a device is fault injection. A timing or side-channel attack is close, but those only observe the device. Here, the researcher actively disturbed it."
+      }
+    },
+    {
+      "id": "T29",
+      "name": "Site and facility design principles",
+      "outlineRef": "3.8",
+      "simpleExplanation": "Physical security begins before the walls go up. Where you build matters, and so does how the building is laid out. Good design makes wrongdoing harder without needing a guard on every corner. Open views, clear paths and well-kept grounds tell people someone is watching. Inside, areas get more secure the deeper you go, like a castle with several rings of walls. Above all, the design must keep people safe, so they can always get out in an emergency.",
+      "studyNotes": [
+        {
+          "heading": "Plan the site first",
+          "body": "Begin with a risk assessment of the site. Good questions include:\n- Is the area prone to floods, storms or earthquakes?\n- What is the local crime rate?\n- How close are the police, fire service and hospital?\n- Are there reliable power and network links, ideally from more than one provider?\n- Can visitors and vehicles be controlled?\n- Is a neighbour a danger, such as a chemical plant?\n\nInvolve security staff early. Changes are much cheaper at the drawing stage than after the building is finished. Security must also follow fire codes and building laws."
+        },
+        {
+          "heading": "CPTED",
+          "body": "CPTED stands for Crime Prevention Through Environmental Design. It means shaping a place so that crime becomes less attractive. It has three main strategies:\n- Natural access control: guide people with paths, fences, lighting and landscaping toward the correct entrance.\n- Natural surveillance: make it easy to see and be seen. Use low bushes, open sightlines and windows facing the car park.\n- Natural territorial reinforcement: show that the space is owned and cared for, with signs, tidy grounds and clear borders.\n\nA well-kept site also signals that someone is paying attention. Broken lights and rubbish signal the opposite.\n\nExample: a school trims its hedges, puts one clear visitor path past the office window, and adds its name and signs along the fence. Fewer people wander in, and no extra guards were hired."
+        },
+        {
+          "heading": "Layers and zones",
+          "body": "Use zones, with more control the deeper you go. A typical layout is:\n- Public: car park and lobby.\n- Reception or controlled: visitors signed in and escorted.\n- Restricted: staff work areas needing a badge.\n- High security: server rooms and evidence stores, with strict access and logging.\n\nEach boundary should delay and detect. The order of physical defense is: deter, deny or delay, detect, then respond.\n\nAn access control vestibule, also called a mantrap, is a small room with two doors. Only one door can open at a time. It stops tailgating, which is following an authorized person through a door."
+        },
+        {
+          "heading": "Secure layout inside the building",
+          "body": "Good layout rules are:\n- Put the server room near the centre of the building, away from outside walls.\n- Avoid basements, where floods reach, and top floors, where roofs leak.\n- Do not place it next to kitchens, toilets or water pipes.\n- Keep its walls running from the true floor to the true ceiling, so nobody can climb over through the ceiling space.\n- Limit entrances. Use few windows on sensitive areas.\n- Do not put signs saying where the server room is.\n- Separate deliveries from staff entry.\n\nSafety comes first. Exits must be marked, and escape routes kept clear. Where a door's security and a person's life conflict, life wins."
+        }
+      ],
+      "keyTerms": [
+        {
+          "term": "CPTED",
+          "meaning": "Crime Prevention Through Environmental Design: using layout to discourage crime."
+        },
+        {
+          "term": "Natural access control",
+          "meaning": "Guiding people to the right entrances through design."
+        },
+        {
+          "term": "Natural surveillance",
+          "meaning": "Designing so that people can easily see and be seen."
+        },
+        {
+          "term": "Territorial reinforcement",
+          "meaning": "Showing that a space is owned and cared for."
+        },
+        {
+          "term": "Zones",
+          "meaning": "Areas with increasing levels of control."
+        },
+        {
+          "term": "Mantrap",
+          "meaning": "A two-door room where only one door opens at a time; also called an access control vestibule."
+        },
+        {
+          "term": "Tailgating",
+          "meaning": "Following an authorized person through a door without permission."
+        }
+      ],
+      "keyPoints": [
+        "Assess the site before building or leasing it.",
+        "CPTED uses access control, surveillance and territorial reinforcement.",
+        "Controls should get stricter the deeper you go.",
+        "Place server rooms centrally, away from water and outside walls.",
+        "Life safety always beats security."
+      ],
+      "memoryHook": "CPTED is ASK: Access guided, Seen by others, Kept and owned.",
+      "question": {
+        "prompt": "A small company has had thefts from cars in a poorly lit side car park hidden behind tall hedges. Management wants a low-cost lasting improvement based on environmental design. What should the security manager recommend FIRST?",
+        "options": [
+          "Hire a guard to patrol the car park at night",
+          "Buy insurance to cover staff vehicles in the car park",
+          "Trim the hedges and improve the lighting for clear views",
+          "Install a biometric lock on the building's main entrance"
+        ],
+        "correctIndex": 2,
+        "explanation": "Trimming hedges and adding light is natural surveillance, a core CPTED strategy, and it fixes the cause of the problem cheaply. A guard is tempting, but it is an ongoing cost and does not change the design that hides the crime."
+      }
+    },
+    {
+      "id": "T30",
+      "name": "Site and facility controls",
+      "outlineRef": "3.9",
+      "simpleExplanation": "Important rooms need their own protection. A wiring closet needs a lock. A server room needs clean power, steady air and the right fire system. Tapes and drives need safe storage, and evidence needs a record of every person who touched it. You should also know the names of electrical problems and the classes of fire. The most important rule never changes. Protecting people comes before protecting equipment, even if that means losing the data centre.",
+      "studyNotes": [
+        {
+          "heading": "Sensitive rooms",
+          "body": "Wiring closets, also called intermediate distribution facilities, hold cables and switches for a floor. Lock them, log access and do not use them for storage.\n\nServer rooms and data centres need strict access, cameras, logs and escorted visitors.\n\nMedia storage holds tapes and drives. Label media, control check-out, protect it from heat and magnetic fields, and sanitize it (remove the data completely) before reuse.\n\nEvidence storage must keep a chain of custody, which is a record of who handled an item and when. Use a dedicated locked room with very few keyholders.\n\nRestricted and work areas should use badges, clean desk rules and visitor escorts. Higher sensitivity needs tighter control."
+        },
+        {
+          "heading": "Power problems",
+          "body": "Learn these exact pairs:\n- Fault: short loss of power. Blackout: long loss of power.\n- Sag: short low voltage. Brownout: long low voltage.\n- Spike: short high voltage. Surge: long high voltage.\n- Inrush: a sudden rise when equipment first switches on.\n- Noise: unwanted interference on the line.\n\nProtections are:\n- UPS (Uninterruptible Power Supply): batteries for a short time, usually enough to shut down or to start a generator.\n- Generator: longer-term power, which needs fuel and regular tests.\n- Surge protectors and power conditioners.\n- Two power feeds, ideally from separate sources."
+        },
+        {
+          "heading": "HVAC and environmental issues",
+          "body": "HVAC means Heating, Ventilation and Air Conditioning. Servers need steady conditions.\n- Temperature: about 18 to 27 degrees Celsius (64 to 81 Fahrenheit).\n- Humidity: commonly taught as 40 to 60 percent. Too low causes static electricity. Too high causes condensation and corrosion.\n- Use positive air pressure, so dust and smoke are pushed out when doors open.\n- Give the server room its own HVAC controls.\n\nFor environmental risks, use water leak sensors, raised equipment, bracing against earthquakes and shutoff valves. Know where the water enters the building."
+        },
+        {
+          "heading": "Fire classes",
+          "body": "Fire needs heat, fuel and oxygen, and a chemical reaction keeps it going. Remove one and it stops.\n\nUS fire classes are:\n- Class A: ordinary items such as paper and wood. Use water or foam.\n- Class B: flammable liquids such as petrol. Use CO2 (carbon dioxide), foam or dry powder.\n- Class C: live electrical equipment. Use CO2 or clean gas, never water.\n- Class D: burning metals. Use dry powder made for metals.\n- Class K: kitchen oils. Use a wet chemical.\n\nDetectors sense smoke, heat or flame. Fire detection should alert people early."
+        },
+        {
+          "heading": "Fire suppression",
+          "body": "Water sprinkler systems are:\n- Wet pipe: always full of water. It is the simplest, but leaks are a risk.\n- Dry pipe: holds air until needed. Good for freezing areas.\n- Preaction: fills with water only after a detector triggers, and then releases when a sprinkler head melts. It is the best water choice for data centres.\n- Deluge: all heads open at once for a large release of water. Used for high-hazard areas.\n\nGas systems protect electronics.\n- Clean agents such as FM-200 and Inergen leave no residue.\n- Halon is no longer produced under the Montreal Protocol, because it harms the ozone layer.\n- CO2 removes oxygen and can kill people, so use it only in unoccupied areas or with a warning delay.\n\nCut electrical power before releasing water. Train staff, run drills and make sure everyone can get out."
+        }
+      ],
+      "keyTerms": [
+        {
+          "term": "Chain of custody",
+          "meaning": "A record of who handled evidence, when and why."
+        },
+        {
+          "term": "Sag and brownout",
+          "meaning": "Short and long periods of low voltage."
+        },
+        {
+          "term": "Spike and surge",
+          "meaning": "Short and long periods of high voltage."
+        },
+        {
+          "term": "Fault and blackout",
+          "meaning": "Short and long losses of power."
+        },
+        {
+          "term": "UPS",
+          "meaning": "Uninterruptible Power Supply: batteries that give short-term power."
+        },
+        {
+          "term": "HVAC",
+          "meaning": "Heating, Ventilation and Air Conditioning."
+        },
+        {
+          "term": "Positive pressure",
+          "meaning": "Air flows outward when a door opens, keeping out dust and smoke."
+        },
+        {
+          "term": "Preaction",
+          "meaning": "A two-step water sprinkler system, best for data centres."
+        },
+        {
+          "term": "Clean agent",
+          "meaning": "A fire-suppressing gas that leaves no residue, such as FM-200."
+        }
+      ],
+      "keyPoints": [
+        "People's safety always comes first.",
+        "Short problems are fault, sag and spike; long ones are blackout, brownout and surge.",
+        "Fire classes are A, B, C, D and K.",
+        "Preaction is the best water option for data centres.",
+        "CO2 is dangerous to people, so it needs a warning delay."
+      ],
+      "memoryHook": "Fire classes: Ash, Barrel, Current, Dust of metal, Kitchen. Power: short names first (fault, sag, spike), and the long ones have longer names (blackout, brownout, surge).",
+      "question": {
+        "prompt": "A data centre wants a water-based fire system but worries that a damaged pipe or a single false alarm will soak its servers. Which system BEST addresses this concern?",
+        "options": [
+          "Wet pipe, because water is immediately ready in the pipes",
+          "Preaction, because two events must occur before water flows",
+          "Deluge, because every sprinkler head opens at the same time",
+          "Dry pipe, because the pipes are safer in freezing locations"
+        ],
+        "correctIndex": 1,
+        "explanation": "Preaction needs a detector to trigger and then a sprinkler head to open, so one mistake does not release water. Dry pipe is tempting because the pipes hold air, but it is designed for cold areas and lacks the detector step."
+      }
+    },
+    {
+      "id": "T31",
+      "name": "Information system lifecycle",
+      "outlineRef": "3.10",
+      "simpleExplanation": "A system has a life, much like a house. Someone wants it, plans it, builds it, connects it, inspects it, moves in, maintains it, and one day pulls it down. Security must be part of every stage. Fixing a problem in the plan is cheap. Fixing it after people have moved in is expensive. The exam expects you to know the order of the stages and what security should do during each one, including safely ending the system's life.",
+      "studyNotes": [
+        {
+          "heading": "The stages in order",
+          "body": "A system lifecycle is the full set of stages in a system's life. The order to learn is:\n- 1. Stakeholder needs and requirements definition\n- 2. Requirements analysis\n- 3. Architectural design\n- 4. Development or implementation\n- 5. Integration\n- 6. Verification and validation\n- 7. Transition or deployment\n- 8. Operations and maintenance, also called sustainment\n- 9. Retirement or disposal\n\nStakeholders are the people with an interest in the system, such as users, owners, regulators and customers."
+        },
+        {
+          "heading": "Planning stages",
+          "body": "Stakeholder needs: ask what the business wants. Find the data involved, the laws that apply and how much risk the owner accepts. Get management support now, because security needs funds and authority.\n\nRequirements analysis: turn those needs into clear statements that can be tested. 'Secure' cannot be tested. 'Lock the account after five failed logins' can.\n\nArchitectural design: plan the structure. Do threat modeling here, and apply secure design principles such as least privilege and defense in depth. Decide which controls go where."
+        },
+        {
+          "heading": "Building and proving it",
+          "body": "Development: build using secure coding standards, code reviews and approved libraries.\n\nIntegration: join the parts together and test the connections. Parts that are safe alone may be unsafe once joined, for example if one trusts another without checking.\n\nVerification and validation are different, and the exam likes this difference.\n- Verification asks: did we build the system right? It checks the system against the written requirements.\n- Validation asks: did we build the right system? It checks that the system meets the real needs of the users.\n\nA system can pass verification and still fail validation. It may match a flawed specification perfectly."
+        },
+        {
+          "heading": "Running and ending it",
+          "body": "Transition or deployment: move the system into live use. Harden it, meaning turn off everything not needed. Plan a way back if something fails, train the users and get formal approval. A senior manager accepts the remaining risk.\n\nOperations and maintenance: this is usually the longest stage. Patch (install updates), monitor, back up and test recovery. Use change management, so that each change is reviewed, approved, tested and recorded. Use configuration management to keep systems at a known setup. Reassess risk regularly, because threats change.\n\nRetirement or disposal: end the system safely.\n- Check how long the law requires data to be kept.\n- Move or archive the data that must stay.\n- Sanitize or destroy storage. Keep a record.\n- Remove accounts, certificates and firewall rules.\n- Tell the stakeholders and update the inventory."
+        },
+        {
+          "heading": "Worked example: a shop's online store",
+          "body": "Follow one system through the stages.\n- Needs: the owner wants online orders and must follow card payment rules.\n- Analysis: card data must be encrypted, and staff need individual logins.\n- Design: a payment company will handle card numbers, so the shop never stores them.\n- Development: developers use a tested library and review each other's code.\n- Integration: the store is joined to the payment service and tested.\n- Verification: testers confirm each written requirement is met.\n- Validation: real staff and customers confirm it works for them.\n- Deployment: the owner approves the risk, and the store goes live.\n- Operations: patches, monitoring and backups continue.\n- Retirement: data is kept as the law requires, then disks are wiped and accounts removed."
+        }
+      ],
+      "keyTerms": [
+        {
+          "term": "Stakeholder",
+          "meaning": "Anyone with an interest in the system."
+        },
+        {
+          "term": "Requirements analysis",
+          "meaning": "Turning needs into clear, testable statements."
+        },
+        {
+          "term": "Integration",
+          "meaning": "Joining the parts and testing how they work together."
+        },
+        {
+          "term": "Verification",
+          "meaning": "Did we build it right? Checks against the written requirements."
+        },
+        {
+          "term": "Validation",
+          "meaning": "Did we build the right thing? Checks against real user needs."
+        },
+        {
+          "term": "Transition",
+          "meaning": "Moving a system into live use."
+        },
+        {
+          "term": "Change management",
+          "meaning": "Reviewing, approving, testing and recording every change."
+        },
+        {
+          "term": "Sanitize",
+          "meaning": "Remove data from storage so that it cannot be recovered."
+        }
+      ],
+      "keyPoints": [
+        "Security belongs in every stage, starting at the first.",
+        "Verification means built right; validation means the right thing was built.",
+        "Operations is usually the longest stage.",
+        "Retirement includes retention checks, sanitizing and removing access."
+      ],
+      "memoryHook": "Needs, Analysis, Design, Develop, Integrate, Verify, Transition, Operate, Retire: think of the house from the first idea to the wrecking ball.",
+      "question": {
+        "prompt": "Testers confirm that a new clinic booking system meets every item in its written specification. When nurses begin using it, they find it cannot handle urgent same-day appointments, which they need daily. Which activity did NOT succeed?",
+        "options": [
+          "Integration",
+          "Verification",
+          "Retirement",
+          "Validation"
+        ],
+        "correctIndex": 3,
+        "explanation": "The system matches the specification, so verification passed. It does not meet the users' real need, so validation failed. Verification is tempting because testing took place, but that testing only compared the system with the document."
+      }
+    }
+  ],
+  "examQuestions": [
+    {
+      "prompt": "A company moves its payroll to a SaaS (Software as a Service) product. Later, an attacker logs in to the company's account using a stolen password, because the company never turned on the multi-factor login that the product offers. Which party is responsible for this weakness?",
+      "options": [
+        "The provider, because it hosts the application and the data",
+        "The provider, because it should detect any stolen password",
+        "The customer, because it controls its users and their access",
+        "Both are equally liable, because the contract covers the cloud"
+      ],
+      "correctIndex": 2,
+      "explanation": "Under shared responsibility, the customer always manages its own users, access and settings. The provider answer is tempting because it runs the application, but the provider offered the protection and the customer chose not to use it.",
+      "testsTopics": [
+        "T19",
+        "T24"
+      ]
+    },
+    {
+      "prompt": "A hospital wants to be sure that lab results can only be changed through one approved application, which checks each change, and that the person entering a result is not the one who approves it. Which model BEST fits this requirement?",
+      "options": [
+        "Clark-Wilson",
+        "Bell-LaPadula",
+        "Brewer-Nash",
+        "Noninterference"
+      ],
+      "correctIndex": 0,
+      "explanation": "Clark-Wilson forces all changes through approved programs and supports separation of duties. Bell-LaPadula is tempting because medical data is sensitive, but it protects confidentiality and does not address how data is changed.",
+      "testsTopics": [
+        "T20"
+      ]
+    },
+    {
+      "prompt": "A company wants its laptops' disk encryption keys tied to each laptop, and wants the disk to stay locked if someone tampers with the startup files. Which feature BEST meets this need?",
+      "options": [
+        "A network-attached Hardware Security Module",
+        "A Trusted Platform Module in each laptop",
+        "Address Space Layout Randomization",
+        "A strong login password for each user"
+      ],
+      "correctIndex": 1,
+      "explanation": "A TPM (Trusted Platform Module) stores keys on the device and releases them only if startup measurements match. An HSM (Hardware Security Module) is tempting because it guards keys, but it is built for central high-volume use and does not check each laptop's startup.",
+      "testsTopics": [
+        "T22"
+      ]
+    },
+    {
+      "prompt": "A new records system has passed all of its testing, and an independent assessor has delivered a technical report listing a few remaining low risks. The team wants to go live. What must happen NEXT?",
+      "options": [
+        "The assessor signs a statement accepting the remaining risks",
+        "The developers fix every low risk before anyone can use it",
+        "The project manager schedules the go-live with the help desk",
+        "A senior manager formally accepts the remaining risk"
+      ],
+      "correctIndex": 3,
+      "explanation": "Certification is technical, while authorization is a management decision to accept risk before transition to live use. The assessor option is tempting because the assessor knows the details, but only someone with authority over the business can accept its risk.",
+      "testsTopics": [
+        "T21",
+        "T31"
+      ]
+    },
+    {
+      "prompt": "A water treatment plant finds a flaw in the software that runs its pump controllers. The vendor says the patch needs testing, and the plant cannot stop pumping this month. What is the BEST action for the security manager?",
+      "options": [
+        "Tighten network separation and monitoring until patching is safe",
+        "Apply the patch tonight across every controller to close the flaw",
+        "Accept the risk and take no action until the next annual shutdown",
+        "Connect the controllers to the office network for central patching"
+      ],
+      "correctIndex": 0,
+      "explanation": "In industrial systems, safety and availability come first, so reduce the risk with compensating controls while a patch is tested and planned. Patching at once is tempting, but an untested change could stop the pumps and endanger the public.",
+      "testsTopics": [
+        "T23"
+      ]
+    },
+    {
+      "prompt": "Two companies that have never exchanged a secret must transfer a very large file securely over the internet, as quickly as possible. Which approach is BEST?",
+      "options": [
+        "Encrypt the whole file with the receiver's public RSA key",
+        "Encrypt the whole file with AES using ECB mode and a fixed key",
+        "Exchange a session key using public key methods, then use AES",
+        "Hash the whole file with SHA-256 and send the file with its hash"
+      ],
+      "correctIndex": 2,
+      "explanation": "Hybrid encryption uses public key methods to share a symmetric key safely, then fast AES (Advanced Encryption Standard) for the bulk of the data. Using RSA alone is tempting because no shared secret is needed, but it is far too slow for large files.",
+      "testsTopics": [
+        "T25",
+        "T26"
+      ]
+    },
+    {
+      "prompt": "A company encrypts its most important archive with one master key. The security manager wants the key to be recoverable if staff leave, but no single person should be able to recover it alone. Which control is BEST?",
+      "options": [
+        "Give the key to the chief executive in a sealed envelope",
+        "Use M of N control, with parts held by several managers",
+        "Store a full copy of the key on each manager's laptop",
+        "Rotate the key every month and tell the system administrator"
+      ],
+      "correctIndex": 1,
+      "explanation": "M of N control lets a set number of trusted people recover the key together, so no one person holds that power and one departure does not cause a loss. The sealed envelope is tempting, but it gives one person full control and creates a single point of failure.",
+      "testsTopics": [
+        "T27"
+      ]
+    },
+    {
+      "prompt": "An organization is hit by ransomware that has spread across several file servers. The incident response plan has been activated. What should the team do FIRST?",
+      "options": [
+        "Isolate the affected systems to contain the spread",
+        "Pay the ransom quickly to reduce the time of the outage",
+        "Restore every server from backup as soon as possible",
+        "Wipe all staff computers and reinstall each operating system"
+      ],
+      "correctIndex": 0,
+      "explanation": "Containment comes first, so isolate infected systems. Restoring from backup is tempting, but restoring before containment lets the malware encrypt the clean data again. Paying is a senior management decision and does not guarantee recovery.",
+      "testsTopics": [
+        "T28"
+      ]
+    },
+    {
+      "prompt": "A fire alarm sounds in a building. The server room door has an electronic lock, and the security team wants it to stay locked to protect the equipment. Staff are working inside at the time. What is the BEST approach for how this door should work?",
+      "options": [
+        "It stays locked, to protect the equipment and the data inside",
+        "It stays locked until a guard arrives to escort the staff out",
+        "It stays locked unless a manager approves a remote release",
+        "It lets people inside leave freely during the emergency"
+      ],
+      "correctIndex": 3,
+      "explanation": "People's safety always comes first, so a person inside must be able to get out, even when security is reduced. Waiting for a guard is tempting because it seems controlled, but any delay could cost lives.",
+      "testsTopics": [
+        "T29",
+        "T30"
+      ]
+    },
+    {
+      "prompt": "A company runs its application as many small services in containers. An attacker took over one service and then freely reached all the others, because internal traffic was trusted automatically. Which design change is the BEST long-term fix?",
+      "options": [
+        "Add a stronger firewall at the edge of the company's network",
+        "Authenticate every service call and allow only those required",
+        "Move every service back into one large single application",
+        "Scan all the container images once again before each release"
+      ],
+      "correctIndex": 1,
+      "explanation": "Zero trust removes automatic trust inside the network, so each call is checked and only allowed where needed. A stronger edge firewall is tempting, but the attacker was already inside, and it does nothing to stop movement between services.",
+      "testsTopics": [
+        "T19",
+        "T24"
+      ]
+    }
+  ]
+}

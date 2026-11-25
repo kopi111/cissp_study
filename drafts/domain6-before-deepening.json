@@ -1,0 +1,487 @@
+{
+  "number": 6,
+  "name": "Security Assessment and Testing",
+  "weightPercent": 12,
+  "plainMeaning": "This domain is about proving that security really works. You plan tests and audits, carry them out, collect the results, report them to the right people and make sure problems get fixed.",
+  "topics": [
+    {
+      "id": "T47",
+      "name": "Assessment, test and audit strategies",
+      "outlineRef": "6.1",
+      "simpleExplanation": "Think of a school that wants to know if its safety rules really work. It must decide what to check, who will check it, where, and how often. Its own staff can check some things. An outside expert can check others. A government inspector may also come. Security works the same way. A company writes a plan for checking its safeguards. The plan must match the company's goals, risks and laws. It must also fit where the systems live, such as an office, a cloud or both.",
+      "studyNotes": [
+        {
+          "heading": "Why an organization needs a strategy",
+          "body": "A control is a safeguard that reduces risk. A door lock is a control. A strategy is the written plan for checking that controls work.\n\nA good strategy answers these questions:\n- Why are we checking? The reason may be a law, a contract or a known risk.\n- What is in scope? Scope means what is included and what is left out.\n- Who will do the work?\n- How often will it happen?\n- Who will read the results and act on them?\n\nThink like a manager. The strategy starts from business goals and risk. It does not start from a favorite tool. Senior management must support it, because testing costs money and can disturb the business.\n\nThe outline says design and validate. To validate means to confirm that the strategy itself is still right. Review it when the business changes, such as after a merger or a move to the cloud."
+        },
+        {
+          "heading": "Test, assessment and audit",
+          "body": "These three words have different meanings.\n- Test: checks one control and gives a clear result. Does the door lock when it closes?\n- Assessment: a wider review of a system or program. It often includes tests. It ends with advice on how to improve.\n- Audit: a formal check against a fixed standard, based on evidence, done by someone independent of the work.\n\nA test answers: does it work? An assessment answers: how good are we? An audit answers: can you prove that you meet the standard?"
+        },
+        {
+          "heading": "Who does the work",
+          "body": "- Internal: your own staff do the work. It stays within your organization's control. It is cheaper and can happen often. Staff know the systems well. But they are less independent.\n- External: the work is outside your organization's control. An outside firm does it. It is more independent and more trusted by others. It costs more.\n- Third-party: the work is outside your enterprise's control. Another party, such as a regulator or a customer, checks you or sends someone to do so. A third-party review can also mean an independent check of a vendor.\n\nBooks use these words in slightly different ways. So read the scenario and ask two questions. Who ordered the work? Who is doing it?"
+        },
+        {
+          "heading": "Location: on-premises, cloud and hybrid",
+          "body": "On-premises means the systems are in your own building. You control the hardware, the network and the doors. You can test almost everything.\n\nCloud means a provider runs the systems in its own data centers. Responsibility is shared, and the split depends on the service:\n- Infrastructure as a Service (IaaS): you rent servers. You check the operating system, applications and data.\n- Platform as a Service (PaaS): you rent a place to run your code. You check your application and data.\n- Software as a Service (SaaS): you rent a finished application. You mainly check your users, settings and data.\n\nYou usually cannot visit a cloud data center or test it freely. Read the provider's testing rules and your contract first.\n\nHybrid mixes both. Check each side, and also check the connection between them.\n\nLocation also affects law. Data held in another country may fall under that country's rules."
+        },
+        {
+          "heading": "Vendor considerations",
+          "body": "When a vendor runs part of your service, use these tools:\n- Right-to-audit clause: a contract term that lets you check the vendor.\n- Security questionnaire: written questions the vendor answers. It is useful but weak on its own.\n- Independent audit reports: an outside auditor's findings about the vendor.\n- Service level agreement (SLA): the promised level of service, in writing.\n\nAlso ask about the vendor's own suppliers. Remember this rule: you can hand over the work, but you cannot hand over the accountability."
+        }
+      ],
+      "keyTerms": [
+        { "term": "Control", "meaning": "A safeguard that reduces risk, such as a lock, a rule or a firewall." },
+        { "term": "Scope", "meaning": "What a test or audit includes and what it leaves out." },
+        { "term": "Assessment", "meaning": "A wide review of a system or program that often includes tests and ends with advice." },
+        { "term": "Audit", "meaning": "A formal, independent, evidence-based check against a fixed standard." },
+        { "term": "Internal test", "meaning": "Work done by your own staff, within your organization's control." },
+        { "term": "External test", "meaning": "Work outside your organization's control, usually done by a firm from outside." },
+        { "term": "Third-party review", "meaning": "Work outside your enterprise's control, such as a check by a regulator or customer, or an independent check of a vendor." },
+        { "term": "Hybrid", "meaning": "A setup that uses both your own site and the cloud." },
+        { "term": "Right-to-audit clause", "meaning": "A contract term that lets a customer check how a vendor protects its data." },
+        { "term": "Shared responsibility", "meaning": "The split of security duties between a cloud provider and its customer." }
+      ],
+      "keyPoints": [
+        "A strategy starts from business goals, risk and legal duties.",
+        "Audits are formal, independent and based on evidence.",
+        "Independence usually rises from internal to external to third-party.",
+        "In the cloud, check the contract and provider rules before testing.",
+        "You can outsource the work but not the accountability."
+      ],
+      "memoryHook": "Why, What, Who, Where, When: answer these five and you have a strategy.",
+      "question": {
+        "prompt": "A hospital is moving its patient booking system to a Software as a Service provider. The contract does not allow customers to test the provider's platform. The hospital still needs confidence in the security of the service. What should the security manager do?",
+        "options": [
+          "Run an unannounced penetration test so that the provider has no time to prepare for it",
+          "Accept the security statement on the provider's website and record the matter as closed",
+          "Review the provider's independent audit report and check the hospital's own settings",
+          "Remove the system from the plan because the provider now carries all of the accountability"
+        ],
+        "correctIndex": 2,
+        "explanation": "An independent report gives trusted evidence without breaking the contract, and the hospital still checks the part it controls. An unannounced test is tempting, but it breaks the contract and may be illegal. The hospital also stays accountable for its patients' data."
+      }
+    },
+    {
+      "id": "T48",
+      "name": "Vulnerability assessment and penetration testing",
+      "outlineRef": "6.2",
+      "simpleExplanation": "Imagine checking your house for safety. Walking around and noting every open window is a vulnerability assessment. A vulnerability is a weakness. Hiring someone to actually climb through the window is a penetration test. It proves how far a burglar could get. Both need clear permission first. Companies use tools to find weaknesses and a standard score to rank them. They also use teams. One team attacks, one team defends, and sometimes they work together and learn from each other.",
+      "studyNotes": [
+        {
+          "heading": "Vulnerability assessment",
+          "body": "A vulnerability is a weakness that could be used to cause harm. A vulnerability assessment finds and lists weaknesses. It does not use them to break in.\n\nCommon scans:\n- Network discovery scan: finds which devices and ports exist. A port is a numbered door into a computer.\n- Network vulnerability scan: looks for known weaknesses on those devices.\n- Web application scan: looks for flaws in websites.\n- Database scan: looks for flaws in databases.\n\nTools make two kinds of mistake. A false positive reports a problem that is not real. A false negative misses a real problem. The false negative is more dangerous.\n\nA credentialed scan gives the scanner a login. It can see installed software and missing patches. A patch is a software fix. Results are more accurate. Protect that login carefully. An uncredentialed scan has no login, so it shows what an outsider sees."
+        },
+        {
+          "heading": "CVE and CVSS",
+          "body": "Common Vulnerabilities and Exposures (CVE) is a public list of known flaws. Each flaw gets a unique name, such as CVE-2014-0160. CVE names the flaw. It does not score it.\n\nThe Common Vulnerability Scoring System (CVSS) rates severity from 0.0 to 10.0:\n- None: 0.0\n- Low: 0.1 to 3.9\n- Medium: 4.0 to 6.9\n- High: 7.0 to 8.9\n- Critical: 9.0 to 10.0\n\nWorked example: a flaw scores 8.0, so it is High. Another scores 9.2, so it is Critical. But the score is general. It does not know your business. If the 8.0 is on your public payment system and the 9.2 is on a spare test computer, you may fix the 8.0 first."
+        },
+        {
+          "heading": "Penetration testing phases",
+          "body": "A penetration test goes further than a scan. A tester, with permission, tries to use weaknesses to break in. This proves the real impact.\n\nA United States government guide, NIST SP 800-115, gives four phases in this order:\n1. Planning: agree the goals and get written approval.\n2. Discovery: gather information and scan for weaknesses.\n3. Attack: try to break in. New findings can send the tester back to discovery.\n4. Reporting: record findings and advice. Reporting happens alongside the other phases.\n\nSome books use five steps: planning, information gathering and discovery, vulnerability scanning, exploitation, and reporting. To exploit means to use a weakness."
+        },
+        {
+          "heading": "Rules of engagement",
+          "body": "Rules of engagement are the written limits of the test. Senior management must approve them. Without permission, a penetration test is a crime.\n\nThey cover:\n- Scope: which systems may be tested.\n- Dates and times.\n- Methods allowed or banned, such as tricking staff or overloading systems.\n- Emergency contacts.\n- How to handle any data that is found.\n\nIf a tester causes an outage or finds a real attacker, the tester stops and calls the named contact."
+        },
+        {
+          "heading": "Box types and team colors",
+          "body": "Box types describe what the tester knows at the start:\n- White box (full knowledge): the tester has maps, code and details.\n- Gray box (partial knowledge): the tester has some details, perhaps a normal user account.\n- Black box (zero knowledge): the tester starts with nothing, like an outsider.\n\nTeam colors describe roles:\n- Red team: acts as the attacker.\n- Blue team: defends and responds.\n- Purple team: red and blue work together and share lessons.\n\nDo not mix up white box with a white team. A white team acts as referee in an exercise."
+        }
+      ],
+      "keyTerms": [
+        { "term": "Vulnerability", "meaning": "A weakness that could be used to cause harm." },
+        { "term": "CVE", "meaning": "Common Vulnerabilities and Exposures: a public list that gives each known flaw a unique name." },
+        { "term": "CVSS", "meaning": "Common Vulnerability Scoring System: a severity score from 0.0 to 10.0." },
+        { "term": "Credentialed scan", "meaning": "A scan that logs in, so it can see deeper and give more accurate results." },
+        { "term": "False positive", "meaning": "A tool reports a problem that is not real." },
+        { "term": "False negative", "meaning": "A tool misses a problem that is real." },
+        { "term": "Penetration test", "meaning": "An approved attempt to break in, to prove what an attacker could do." },
+        { "term": "Rules of engagement", "meaning": "The written, approved limits of a test." },
+        { "term": "Black box test", "meaning": "A test where the tester starts with zero knowledge of the target." },
+        { "term": "Purple team", "meaning": "Attackers and defenders working together and sharing what they learn." }
+      ],
+      "keyPoints": [
+        "A vulnerability assessment finds weaknesses, and a penetration test uses them.",
+        "Written senior management approval must come before any penetration test.",
+        "CVE names a flaw, and CVSS scores it.",
+        "Credentialed scans see more and are more accurate.",
+        "NIST phases in order are planning, discovery, attack and reporting."
+      ],
+      "memoryHook": "Scan finds the open window. Pen test climbs through it. Permission comes before both.",
+      "question": {
+        "prompt": "A bank has hired a firm to run a penetration test next week. The IT director gave spoken agreement in a meeting. The firm has its tools ready. What is the MOST important item to have in place before the test starts?",
+        "options": [
+          "Written senior management approval with agreed rules of engagement",
+          "A complete list of the passwords that are used by all of the bank's administrators",
+          "A fresh vulnerability scan of every server, completed within the past seven days",
+          "An agreement that the bank's security team will not be told anything about the test"
+        ],
+        "correctIndex": 0,
+        "explanation": "Written approval and rules of engagement make the test legal and set its limits. A recent scan is useful, and it is the tempting choice, but it does not give permission. Without proper permission, testing can be a crime."
+      }
+    },
+    {
+      "id": "T49",
+      "name": "Other security control tests",
+      "outlineRef": "6.2",
+      "simpleExplanation": "Scans and break-in tests are not the only checks. Think of a shop. The owner reads the alarm records. A staff member makes a pretend purchase to see that the till works. Someone reads the rule book for mistakes. Someone else asks how a dishonest customer might cheat. The owner also compares the shop with the fire code. Security teams use the same kinds of checks on their controls, which are the safeguards that reduce risk. Each check finds problems that others miss.",
+      "studyNotes": [
+        {
+          "heading": "Log reviews",
+          "body": "A log is a record of events, such as a failed sign-in. A log review looks for signs of trouble or misuse.\n\nFor good reviews:\n- Synchronize all clocks, often with Network Time Protocol (NTP). Otherwise events cannot be put in the right order.\n- Protect logs from being changed or deleted.\n- Collect logs centrally. A Security Information and Event Management (SIEM) tool gathers and links them.\n- Keep logs for as long as policy and law require.\n\nA clipping level is a set limit below which events are ignored. Example: raise an alert only after five failed sign-ins."
+        },
+        {
+          "heading": "Synthetic transactions and benchmarks",
+          "body": "A synthetic transaction is a scripted, pretend action with a known correct result. Example: a script buys a test item from a shop website every 10 minutes. If it fails, staff know, even at night when no customers are online.\n\nReal user monitoring is different. It passively watches what real people do. It needs real users.\n\nA benchmark compares a system with a fixed reference. This might be a past performance level or a secure settings guide, such as those from the Center for Internet Security (CIS)."
+        },
+        {
+          "heading": "Code review and testing",
+          "body": "Code review means reading program code to find flaws. A Fagan inspection is a formal review with six steps, in this order:\n1. Planning\n2. Overview\n3. Preparation\n4. Inspection\n5. Rework\n6. Follow-up\n\nOther methods:\n- Static testing, or Static Application Security Testing (SAST): checks code that is not running.\n- Dynamic testing, or Dynamic Application Security Testing (DAST): checks the program while it runs.\n- Fuzz testing: sends unexpected or random input to find crashes. Mutation fuzzing changes real input. Generation fuzzing builds new input from knowledge of the expected format."
+        },
+        {
+          "heading": "Misuse cases and coverage",
+          "body": "A use case describes normal use. A misuse case describes how someone might abuse the system. Example: can a customer enter a quantity of minus five and get a refund?\n\nTest coverage analysis shows how much was tested.\n\nCoverage = items tested / total items x 100\n\nWorked example: a program has 500 branches, which are decision paths. Tests reach 450. So 450 / 500 x 100 = 90 percent.\n\nCoverage can be measured by branch, condition, function, loop or statement. High coverage shows what was tested. It does not prove the code is secure."
+        },
+        {
+          "heading": "Interface testing",
+          "body": "An interface is a point where two things meet and exchange information. Test these three:\n- User interface: the screens and buttons people use.\n- Network interface: the connections between systems.\n- Application Programming Interface (API): the way programs ask each other for data.\n\nTry good input, bad input and boundary values. If a field allows ages 18 to 65, try 17, 18, 65 and 66. Check that an API also confirms who is calling it."
+        },
+        {
+          "heading": "Breach attack simulation and compliance checks",
+          "body": "Breach attack simulation tools run safe, automated copies of real attack methods. They run often and show whether defenses block or detect each one. A penetration test is different. It uses human creativity, and it happens less often.\n\nA compliance check compares controls with a requirement, such as a law, a contract or a policy. One example is the Payment Card Industry Data Security Standard (PCI DSS), for card payments. Remember that compliant does not always mean secure."
+        }
+      ],
+      "keyTerms": [
+        { "term": "Log review", "meaning": "Reading records of events to find trouble or misuse." },
+        { "term": "Clipping level", "meaning": "A set limit below which events are not reported." },
+        { "term": "Synthetic transaction", "meaning": "A scripted, pretend action with a known correct result." },
+        { "term": "Real user monitoring", "meaning": "Passively watching the actions of real users." },
+        { "term": "Fagan inspection", "meaning": "A formal, six-step code review." },
+        { "term": "Fuzz testing", "meaning": "Sending unexpected or random input to find crashes and flaws." },
+        { "term": "Misuse case", "meaning": "A description of how someone might abuse a system." },
+        { "term": "Test coverage", "meaning": "The share of a program or its requirements that was tested." },
+        { "term": "API", "meaning": "Application Programming Interface: the way programs ask each other for data." },
+        { "term": "Breach attack simulation", "meaning": "Automated, safe, repeated copies of real attacks that show whether defenses work." }
+      ],
+      "keyPoints": [
+        "Synchronized clocks are essential for useful log reviews.",
+        "Synthetic transactions are active, and real user monitoring is passive.",
+        "Static testing needs no running code, but dynamic testing does.",
+        "Coverage equals items tested divided by total items, times 100.",
+        "Being compliant does not always mean being secure."
+      ],
+      "memoryHook": "Fagan's six: People Often Prepare In Rushed Fashion (Planning, Overview, Preparation, Inspection, Rework, Follow-up).",
+      "question": {
+        "prompt": "A shop's online checkout had an outage overnight, and nobody noticed until morning. Management wants to know every 15 minutes, day and night, that checkout works and how quickly it responds, even when no customers are online. Which approach BEST meets this need?",
+        "options": [
+          "Real user monitoring of the checkout pages throughout the day and night",
+          "A weekly review of the web server logs by the operations team",
+          "Static testing of the checkout code each time that a new release is built",
+          "Synthetic transactions"
+        ],
+        "correctIndex": 3,
+        "explanation": "Scripted test purchases run on a schedule, so they work even when the site is empty. Real user monitoring is tempting, but it needs real users. With no customers online, it has nothing to measure."
+      }
+    },
+    {
+      "id": "T50",
+      "name": "Collecting security process data",
+      "outlineRef": "6.3",
+      "simpleExplanation": "A school can have good fire doors and still be unsafe if nobody runs fire drills. So the principal keeps records. Who attended? How long did it take? Did anything go wrong? Security needs the same kind of records. Companies collect data about accounts, management approvals, backups, staff training and recovery tests. This data shows whether daily security work is really happening. Managers use the numbers to see how well things went and where danger is growing, so they can act early.",
+      "studyNotes": [
+        {
+          "heading": "What process data is",
+          "body": "Process data is the record that security activities are happening as they should. Technical tests check machines. Process data checks routines and people.\n\nThe outline names these areas:\n- Account management\n- Management review and approval\n- Key performance and risk indicators\n- Backup verification data\n- Training and awareness\n- Disaster recovery and business continuity\n\nData must be accurate, complete and collected regularly. It must also help someone make a decision."
+        },
+        {
+          "heading": "Account management",
+          "body": "Every account should belong to a real person with a real need. Check these groups:\n- Joiners get only approved access.\n- Movers lose access they no longer need. Access that builds up over time is called privilege creep.\n- Leavers are disabled quickly.\n- Privileged accounts, which have powerful rights, are few and closely watched.\n\nWorked example:\n1. Take a sample of 200 accounts.\n2. Compare them with the human resources staff list.\n3. Find 6 accounts that belong to people who left.\n4. Failure rate = 6 / 200 x 100 = 3 percent.\n5. Disable the accounts. Then fix the leaver process, because that is the cause."
+        },
+        {
+          "heading": "Management review and approval",
+          "body": "Managers must look at security results, decide what to do and record that decision. This shows oversight, which means someone responsible is watching.\n\nManagers review policies, access requests, test results and accepted risks. The approver needs real authority. The approver should not be the person who made the request. This is separation of duties, which means no one person controls a whole task. A signature given without reading adds no value."
+        },
+        {
+          "heading": "KPIs and KRIs",
+          "body": "A Key Performance Indicator (KPI) looks back. It asks: how well did we do?\n\nA Key Risk Indicator (KRI) looks ahead. It is an early warning. It asks: is danger growing?\n\nWorked example:\n- KPI: 950 of 1,000 computers were patched on time. A patch is a software fix. 950 / 1,000 x 100 = 95 percent. The target was 98 percent, so the team missed it.\n- KRI: unpatched servers facing the internet rose from 2 to 9 in three months. Risk is growing.\n\nA good measure links to a business goal, is measured the same way each time and makes sense to its reader."
+        },
+        {
+          "heading": "Backups, training and awareness",
+          "body": "A backup log shows that a job ran. Only a test restore proves that data can be recovered. Collect job results, restore test results, restore times and the location of offsite copies.\n\nAwareness helps people notice danger. Training teaches a skill. Useful data includes course completion, how many staff click on test phishing emails and how many report them. Phishing means tricking people through false messages. Trends over time matter more than one result."
+        },
+        {
+          "heading": "Disaster recovery and business continuity",
+          "body": "Disaster recovery brings technology back after a serious event. Business continuity keeps important work going. People's safety always comes first.\n\nCollect test dates, plan review dates, lessons learned and recovery times.\n\nPlan tests, from least to most disruptive:\n1. Read-through, also called a checklist test\n2. Structured walk-through, also called a tabletop test\n3. Simulation\n4. Parallel\n5. Full interruption\n\nWorked example: the Recovery Time Objective (RTO), the longest a system may stay down, is 4 hours. The test took 6 hours. The goal was missed by 2 hours. The Recovery Point Objective (RPO), the most data the business can lose, measured in time, is 1 hour. The restored data was 30 minutes old, so that goal was met. Report both results."
+        }
+      ],
+      "keyTerms": [
+        { "term": "Process data", "meaning": "Records showing that security activities are happening as they should." },
+        { "term": "Privilege creep", "meaning": "Access that slowly builds up as a person changes jobs." },
+        { "term": "KPI", "meaning": "Key Performance Indicator: a measure of how well something was done." },
+        { "term": "KRI", "meaning": "Key Risk Indicator: an early warning that risk is growing." },
+        { "term": "Backup verification", "meaning": "Proving that backups work, best done with a test restore." },
+        { "term": "Separation of duties", "meaning": "Splitting a task so that no one person controls all of it." },
+        { "term": "RTO", "meaning": "Recovery Time Objective: the longest a system may stay down." },
+        { "term": "RPO", "meaning": "Recovery Point Objective: the most data the business can afford to lose, measured in time." }
+      ],
+      "keyPoints": [
+        "Process data shows whether security routines are really happening.",
+        "A KPI looks back, and a KRI warns about what lies ahead.",
+        "Only a test restore proves that a backup works.",
+        "Fix the process that left old accounts active, not only the accounts.",
+        "Recovery tests move from read-through to full interruption."
+      ],
+      "memoryHook": "KPI is the rear-view mirror. KRI is the headlights.",
+      "question": {
+        "prompt": "A monthly report shows that every backup job has finished successfully for a full year. The chief information officer says this proves that the company can recover its data. What should the security manager advise?",
+        "options": [
+          "Accept the report, because the software writes its success records automatically",
+          "Perform a test restore and record whether the data is complete and on time",
+          "Buy a second backup product so that the two sets of success records can be compared",
+          "Double the number of backup jobs each day to lower the chance of losing any data"
+        ],
+        "correctIndex": 1,
+        "explanation": "A success message only shows that the job ran. A test restore proves the data can be used and shows how long recovery takes. Accepting the report is tempting, but a backup can finish and still be damaged or incomplete."
+      }
+    },
+    {
+      "id": "T51",
+      "name": "Analyzing and reporting results",
+      "outlineRef": "6.4",
+      "simpleExplanation": "A doctor does not just hand you a page of blood test numbers. The doctor explains what they mean, what to do first and what can wait. Security results work the same way. Teams study the raw test results, remove errors and rate the risk. They then arrange fixes, which is called remediation. If a rule truly cannot be met, a manager may approve a formal, time-limited exception. If you find a flaw in someone else's product, you tell them responsibly. Each audience gets the report it needs.",
+      "studyNotes": [
+        {
+          "heading": "From raw output to meaning",
+          "body": "Test tools produce raw output, which is a long list of technical results. Raw output is not a report. Work through these steps in order:\n1. Confirm accuracy. Remove false positives, which are reported problems that are not real.\n2. Look for patterns. Forty findings may come from one broken patching process. A patch is a software fix.\n3. Rate the risk, using how likely the harm is and how bad it would be for the business.\n4. Recommend actions.\n5. Report to the right people.\n\nCompare results with past tests. Trends show whether security is improving."
+        },
+        {
+          "heading": "Remediation",
+          "body": "Remediation means fixing the problem that was found. Follow these rules:\n- Fix the highest business risk first.\n- Give each fix an owner and a due date.\n- Send fixes through change management, the formal process for approving and recording changes. A rushed fix can cause an outage.\n- Retest to prove that the fix worked.\n- Fix the cause, not just the symptom.\n\nWorked example: a scan finds 30 servers missing a patch. Patching them fixes the symptom. Finding out why the patching process skipped them fixes the cause."
+        },
+        {
+          "heading": "Exception handling",
+          "body": "Sometimes a finding cannot be fixed or a rule cannot be met. An old machine may break if it is patched. This calls for a formal exception, which is approved permission to depart from a rule for a set time.\n\nA proper exception records:\n- The rule that cannot be met\n- The business reason\n- The risk\n- Compensating controls, which are other safeguards that reduce the risk\n- The approval of the risk owner, the manager accountable for that risk\n- An expiry date and a review date\n\nA technician cannot accept risk for the business. An exception is never a way to hide a finding. When it expires, either fix the issue or review it again."
+        },
+        {
+          "heading": "Ethical disclosure",
+          "body": "Ethical disclosure is about what you do when you find a flaw in someone else's product. The ISC2 Code of Ethics has four canons, or main rules, in this order:\n1. Protect society, the common good, necessary public trust and confidence, and the infrastructure.\n2. Act honorably, honestly, justly, responsibly and legally.\n3. Provide diligent and competent service to principals.\n4. Advance and protect the profession.\n\nThere are three common approaches:\n- Coordinated, or responsible, disclosure: tell the vendor privately, agree a fair time for a fix, then publish. Many researchers allow about 90 days, but that is a custom and not a law.\n- Full disclosure: tell the public at once. Attackers learn of it too.\n- Nondisclosure: tell no one. Users stay exposed.\n\nCheck contracts and laws before sharing. A bug bounty is a program in which a vendor pays people for reporting flaws."
+        },
+        {
+          "heading": "Reports for different audiences",
+          "body": "Give each reader what they need:\n- Board and senior leaders: a short summary of business risk, cost and the decisions needed.\n- Security and IT managers: priorities, owners, dates and resources.\n- Technical teams: exact systems, how to repeat the finding and how to fix it.\n- Auditors and regulators: scope, method, evidence and compliance status.\n\nA full report usually has an executive summary, scope, method, findings, risk ratings and recommendations. Reports are sensitive because they can guide an attacker. Label them, limit who can read them and store them safely."
+        }
+      ],
+      "keyTerms": [
+        { "term": "Remediation", "meaning": "Fixing a problem that a test or audit found." },
+        { "term": "Exception", "meaning": "Formal, approved, time-limited permission to depart from a rule." },
+        { "term": "Compensating control", "meaning": "Another safeguard that reduces risk when the usual one cannot be used." },
+        { "term": "Risk owner", "meaning": "The manager accountable for a risk and able to accept it." },
+        { "term": "Coordinated disclosure", "meaning": "Telling a vendor about a flaw privately, then publishing after a fair time to fix it." },
+        { "term": "Full disclosure", "meaning": "Telling the public about a flaw at once." },
+        { "term": "Bug bounty", "meaning": "A program that pays people for reporting flaws." },
+        { "term": "Executive summary", "meaning": "A short part of a report that gives leaders the main risks and decisions." }
+      ],
+      "keyPoints": [
+        "Confirm results and remove false positives before reporting.",
+        "Fix by business risk, assign an owner and retest.",
+        "Exceptions need risk owner approval, compensating controls and an expiry date.",
+        "Coordinated disclosure tells the vendor first.",
+        "Executives need business risk, and technical staff need details."
+      ],
+      "memoryHook": "Confirm, Cause, Rank, Repair, Report, Retest.",
+      "question": {
+        "prompt": "A required security patch will stop an important factory control system from working. The system's vendor will not have a compatible update for four months. The plant manager asks to skip the patch. What should the security manager do?",
+        "options": [
+          "Install the patch anyway, because the written policy does not allow any departure from the rule",
+          "Tell the plant manager to skip the patch and mark the finding as closed in the tracking system",
+          "Remove the system from the scanning scope so that the finding stops appearing in later reports",
+          "Raise a formal exception with risk owner approval, added safeguards and an expiry date"
+        ],
+        "correctIndex": 3,
+        "explanation": "A formal exception keeps the factory running while the risk is reduced, recorded and reviewed. Patching anyway is tempting because it follows the rule, but it would stop the business. The other choices hide the risk."
+      }
+    },
+    {
+      "id": "T52",
+      "name": "Security audits",
+      "outlineRef": "6.5",
+      "simpleExplanation": "When a bank's books are checked, nobody simply takes the staff's word for it. An independent person asks for proof and compares it with the rules. A security audit works the same way. Auditors check safeguards against a standard and collect evidence. They can be your own staff, an outside firm or someone sent by a regulator or customer. Companies can also share special audit reports, called SOC reports, to show others that their safeguards are working. SOC stands for System and Organization Controls.",
+      "studyNotes": [
+        {
+          "heading": "What an audit involves",
+          "body": "An audit is a formal check against a fixed standard, based on evidence, done by someone independent. It checks controls, which are safeguards that reduce risk.\n\nAn audit usually follows these steps:\n1. Agree the purpose and scope, which means what is included.\n2. Plan the work and get management support.\n3. Collect evidence.\n4. Compare the evidence with the standard.\n5. Report the findings.\n6. Follow up to see that problems were fixed."
+        },
+        {
+          "heading": "Internal, external and third-party audits",
+          "body": "- Internal audit: your own audit staff do it. It stays within your organization's control. It often reports to the board's audit committee.\n- External audit: an outside firm does it, outside your organization's control. It carries more independence.\n- Third-party audit: outside your enterprise's control. It is done by or for another party, such as a regulator or customer. It can also be an independent audit of a vendor.\n\nLocation matters. On-premises audits can visit the site. Cloud audits rely more on contracts and provider reports. Hybrid audits must cover both.\n\nThe outline says conduct or facilitate. To facilitate means to help the auditors do their job. Name one contact person. Give them access and honest evidence. Escort them in secure areas. Track each finding until it is closed. Never hide anything."
+        },
+        {
+          "heading": "Audit evidence",
+          "body": "Evidence is the proof behind a finding. Good evidence is:\n- Sufficient: there is enough of it.\n- Reliable: it can be trusted.\n- Relevant: it relates to the control being checked.\n\nStronger evidence includes records taken directly from a system by the auditor, direct observation and repeating a control to see if it works. Weaker evidence includes a spoken statement.\n\nAuditors often use sampling, which means checking some items to judge the whole group.\n\nWorked example: there were 1,000 changes this year. The auditor selects 25. Three have no approval. 3 / 25 x 100 = 12 percent failed. The auditor reports this and may look at more items. Protect audit evidence, because it can be sensitive."
+        },
+        {
+          "heading": "SOC reports",
+          "body": "System and Organization Controls (SOC) reports come from independent certified public accountants. They let a service company show its controls to others. In the United States they are issued under a standard called SSAE 18.\n\n- SOC 1: controls that affect financial reporting. Example: an outsourced payroll company.\n- SOC 2: controls for security, availability, processing integrity, confidentiality and privacy. It is detailed and shared only with permitted readers.\n- SOC 3: a general summary on the same topics. It may be shared with the public.\n\nFor SOC 1 and SOC 2 there are two types:\n- Type 1: checks the design of controls at one point in time.\n- Type 2: checks design and operating effectiveness over a period, often 6 to 12 months.\n\nType 2 gives stronger assurance. Always read the scope and any exceptions in the report."
+        },
+        {
+          "heading": "Auditor independence",
+          "body": "An auditor must be free from influence. Otherwise the results cannot be trusted.\n- Auditors must not audit their own work.\n- They should report high up, ideally to the audit committee.\n- They should have no money or personal interest in the result.\n- They should be independent and also appear independent.\n\nAuditors report and advise. Management owns the decision and the fix."
+        }
+      ],
+      "keyTerms": [
+        { "term": "Audit evidence", "meaning": "Proof that supports a finding: it must be sufficient, reliable and relevant." },
+        { "term": "Sampling", "meaning": "Checking some items to judge a whole group." },
+        { "term": "SOC 1", "meaning": "A report on a service company's controls that affect financial reporting." },
+        { "term": "SOC 2", "meaning": "A detailed report on security, availability, processing integrity, confidentiality and privacy, with restricted sharing." },
+        { "term": "SOC 3", "meaning": "A general summary report that may be shared with the public." },
+        { "term": "Type 1", "meaning": "Checks the design of controls at one point in time." },
+        { "term": "Type 2", "meaning": "Checks the design and operation of controls over a period." },
+        { "term": "Auditor independence", "meaning": "Freedom from any influence or interest that could affect the audit." },
+        { "term": "Facilitating an audit", "meaning": "Helping auditors by giving them access, evidence and a contact person." }
+      ],
+      "keyPoints": [
+        "Audit evidence must be sufficient, reliable and relevant.",
+        "SOC 1 covers finances, SOC 2 gives security detail and SOC 3 is public.",
+        "Type 1 is a point in time, and Type 2 covers a period.",
+        "Auditors must never audit their own work.",
+        "Auditors report findings, and management owns the fixes."
+      ],
+      "memoryHook": "SOC 1 is for the money, SOC 2 is for the security details, SOC 3 is for the street. Type 1 is a photo, Type 2 is a video.",
+      "question": {
+        "prompt": "A clinic plans to store its patient documents with a new service provider. Before signing, the clinic wants detailed evidence that the provider's security controls worked throughout the past year. Which System and Organization Controls report is BEST?",
+        "options": [
+          "SOC 3 report",
+          "SOC 2 Type 2 report",
+          "SOC 2 Type 1 report",
+          "SOC 1 Type 2 report"
+        ],
+        "correctIndex": 1,
+        "explanation": "SOC 2 covers security in detail, and Type 2 shows that controls worked over time. Type 1 is tempting, but it only looks at design at one moment. SOC 1 covers financial reporting, and SOC 3 lacks detail."
+      }
+    }
+  ],
+  "examQuestions": [
+    {
+      "prompt": "During an approved penetration test, a tester finds tools and files showing that a real attacker has been inside the client's network for weeks. What should the tester do FIRST?",
+      "options": [
+        "Stop and tell the emergency contact named in the rules of engagement",
+        "Continue until the agreed end date so that the test results are complete",
+        "Remove the attacker's tools so that the client's network is clean again",
+        "Record the discovery in the appendix of the final written test report"
+      ],
+      "correctIndex": 0,
+      "explanation": "A real attack needs the client's incident process at once, and the named contact starts it. Removing the tools is tempting, but it destroys evidence and goes beyond the tester's approved role.",
+      "testsTopics": ["T48"]
+    },
+    {
+      "prompt": "A board wants one figure that gives early warning that the danger from phishing, meaning false messages that trick people, is growing. Which measure is the BEST Key Risk Indicator?",
+      "options": [
+        "The number of awareness courses that the training team delivered last year",
+        "The total amount spent on email filtering tools in the current budget year",
+        "The monthly trend in staff clicking links in test phishing emails",
+        "The average time that the help desk takes to close a password ticket"
+      ],
+      "correctIndex": 2,
+      "explanation": "A rising click rate warns that the risk is growing. Counting courses is tempting, but it only measures past activity, so it is a performance measure and not a risk warning.",
+      "testsTopics": ["T50"]
+    },
+    {
+      "prompt": "A development team has finished a static review of a new web application's code. The manager is worried about crashes and flaws that appear only when the running application receives unexpected input. Which test BEST addresses this concern?",
+      "options": [
+        "A Fagan inspection of the source code by a panel of senior developers",
+        "Fuzz testing of the running application",
+        "A second static analysis using a scanning tool from another supplier",
+        "A coverage analysis of the unit tests that the developers have written"
+      ],
+      "correctIndex": 1,
+      "explanation": "Fuzz testing sends unexpected input to running software, which is exactly the concern. A Fagan inspection is tempting and valuable, but it reads code that is not running.",
+      "testsTopics": ["T49"]
+    },
+    {
+      "prompt": "An internal auditor is assigned to audit an access approval process. The same person designed that process last year while working in the security team. What is the BEST action for the audit manager?",
+      "options": [
+        "Keep the auditor on the audit, because nobody knows the process better",
+        "Ask the auditor to sign a statement promising to be fair during the audit",
+        "Keep the auditor on the audit and mention the past role in the final report",
+        "Assign an auditor who had no part in designing the process"
+      ],
+      "correctIndex": 3,
+      "explanation": "Auditors must not audit their own work. Disclosing the past role is tempting because it is honest, but the lack of independence would remain.",
+      "testsTopics": ["T52"]
+    },
+    {
+      "prompt": "A security researcher at your company discovers a serious flaw in a product used by millions of people. The vendor does not know about the flaw, and no fix exists. What is the BEST next step?",
+      "options": [
+        "Report it privately to the vendor and agree a fair time for a fix",
+        "Publish the full details today so that all users can protect themselves",
+        "Keep it secret from everybody, because sharing it might create legal risk",
+        "Share working attack code on a public security forum for expert review"
+      ],
+      "correctIndex": 0,
+      "explanation": "Coordinated disclosure gives the vendor time to protect users. Publishing at once is tempting because it seems open, but it also arms attackers before any fix exists.",
+      "testsTopics": ["T51"]
+    },
+    {
+      "prompt": "A new security leader finds that the yearly testing schedule is based only on the tools the company already owns. Nobody can explain how the tests relate to the company's main risks. What should the leader do FIRST?",
+      "options": [
+        "Buy additional scanning tools so that more kinds of systems can be tested",
+        "Double the number of penetration tests that are carried out each year",
+        "Align the strategy with business goals, risks and legal duties",
+        "Hire an outside firm to carry out the current schedule of tests instead"
+      ],
+      "correctIndex": 2,
+      "explanation": "A strategy must start from business goals, risk and legal duties. Hiring an outside firm is tempting because it adds independence, but it would only repeat a plan that has no sound basis.",
+      "testsTopics": ["T47"]
+    },
+    {
+      "prompt": "A team has time to fix only one finding this week. One has a CVSS (Common Vulnerability Scoring System) score of 9.1 on an isolated lab computer that holds no real data. The other scores 7.5 on an internet-facing server that processes customer payments. Which should be fixed FIRST, and why?",
+      "options": [
+        "The 9.1 finding, because the highest score must always be fixed first",
+        "The 9.1 finding, because lab computers are often less closely monitored",
+        "Neither finding, until a penetration test has confirmed that both are real",
+        "The 7.5 finding, because it carries the greater business risk"
+      ],
+      "correctIndex": 3,
+      "explanation": "CVSS measures general severity, but priority depends on exposure and business value. The payment server is reachable and valuable. Choosing the 9.1 is tempting, but its isolation and lack of data lower the real risk.",
+      "testsTopics": ["T48", "T51"]
+    },
+    {
+      "prompt": "A publicly traded company outsources its payroll. Its financial auditors need assurance that the payroll provider's controls over financial data worked properly throughout the past year. Which report should the company request?",
+      "options": [
+        "SOC 2 Type 1",
+        "SOC 1 Type 2",
+        "SOC 3",
+        "SOC 1 Type 1"
+      ],
+      "correctIndex": 1,
+      "explanation": "SOC 1 covers controls that affect financial reporting, and Type 2 covers a period of time. SOC 1 Type 1 is tempting, but it only looks at design at one moment.",
+      "testsTopics": ["T52", "T47"]
+    },
+    {
+      "prompt": "A quarterly account review finds 12 active accounts that belong to former employees. The same problem appeared in the last two reviews. What is the BEST long-term response?",
+      "options": [
+        "Link the leaver process to account removal and verify it through reviews",
+        "Delete the 12 accounts and record the audit finding as fully resolved",
+        "Send all managers an email reminder about the current leaver policy",
+        "Require stronger passwords so that the old accounts are harder to use"
+      ],
+      "correctIndex": 0,
+      "explanation": "A repeated finding points to a broken process, so the cause must be fixed. Deleting the accounts is tempting and should be done, but on its own it treats only the symptom.",
+      "testsTopics": ["T50", "T51"]
+    },
+    {
+      "prompt": "A company has added new detection tools. The security manager wants frequent, automated proof that the tools still detect current attack methods, without harming live systems. Which approach is BEST?",
+      "options": [
+        "A black box penetration test carried out by an outside firm once a year",
+        "A compliance check of the written security policy against the standard",
+        "Breach attack simulation",
+        "A misuse case workshop held with the application development team"
+      ],
+      "correctIndex": 2,
+      "explanation": "Breach attack simulation repeats safe, automated attack methods and shows whether defenses respond. A penetration test is tempting and valuable, but a yearly human test is neither frequent nor automated.",
+      "testsTopics": ["T49"]
+    }
+  ]
+}

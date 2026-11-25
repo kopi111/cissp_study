@@ -1,0 +1,141 @@
+{
+  "id": "T11",
+  "studyNotes": [
+    {
+      "heading": "What a supply chain is, and why it matters",
+      "body": "In this first part, we are going to look at what a supply chain is, and why it has become such a serious security concern.\n\nA supply chain is every company and every step involved in giving you a product or service. Supply chain risk management, or SCRM, means finding and reducing risk from the companies you buy from, and from the companies they buy from.\n\nThink about a restaurant. The chef may be excellent and the kitchen may be spotless. But if a supplier sends bad meat, customers still get sick, and they will blame the restaurant. The restaurant's safety depends on the farm, the transport firm and the warehouse, even though it does not run any of them.\n\nHere is the question to carry with you. Who touched this before it reached me?\n\nAt work, think about a laptop. Its parts come from many factories in several countries. Its software comes from different developers, and much of that software includes open source components. Open source means software whose code is publicly shared, and which is often written by volunteers. Then the laptop passes through a warehouse, a delivery firm and perhaps a reseller. Any of these could be a weak link.\n\nThere is a reason attackers like this route. Why attack a thousand well-protected companies one by one, when you can attack the one supplier they all trust? An update from a trusted supplier is usually installed without a second thought. So a single compromised update can reach thousands of organizations at once.\n\nThis makes the supply chain a problem for managers as well as for technical staff. Decisions made by people buying things can create or reduce risk. Procurement, the department that buys goods and services, should work closely with legal and security staff from the start of any purchase.\n\nThe outline for this objective has two halves. One covers the risks of acquiring products and services. The other covers how those risks can be reduced. We will take them in that order.\n\nSo here is what to take away. A supply chain includes everyone upstream of you, you inherit their weaknesses, and you should always ask who touched something before it reached you."
+    },
+    {
+      "heading": "Tampering, counterfeits and implants",
+      "body": "Now we will look at the three risks the outline names. They are tampering, counterfeits and implants. We will also look at risks in software and services.\n\nTampering means someone changes a product before it reaches you. Think of a jar of food with a broken seal. It might be fine, but you have no way of knowing. At work, a shipment of routers may arrive with broken security seals, or with packaging that has been opened and taped up again.\n\nCounterfeits are fake parts sold as real ones. They may fail early or hide bad features. Think about a fake designer handbag that falls apart after a month. At work, a company may buy network equipment at a suspiciously low price from an unknown online seller. The labels look right, but the serial numbers are not on the manufacturer's records. Fake parts are a problem for reliability as well as for security.\n\nImplants are hidden chips or code added to equipment. An implant is deliberately placed to give someone a secret way in, or to send data out. Think of a hidden microphone sewn into a gift. These are very hard to find, and they tend to be used against particularly valuable targets.\n\nThe difference is worth stating clearly. A counterfeit pretends to be a different product. Tampering changes a genuine product. An implant is a specific kind of hidden addition.\n\nSoftware has similar risks. Malicious code can be added during the build or in an update. Open source parts inside a product may contain vulnerabilities, which are weaknesses that attackers can use.\n\nServices carry risks of their own. A cloud provider, meaning a company that runs computing services for you over the internet, may have weak security, poor recovery plans, or staff with too much access. The same is true of a support provider. A provider may also use subcontractors that you do not know about.\n\nHere is a workplace response. When a package arrives, inspect it and check seals. If something looks wrong, set the item aside, contact the maker through a known route, and do not connect it to your network.\n\nThe point to take away is this. Tampering alters the real thing, counterfeits imitate it, and implants hide something inside it. Buy from trusted sources, and inspect what arrives."
+    },
+    {
+      "heading": "Third-party assessment and monitoring",
+      "body": "In this part, we are going to look at how you check a supplier, both before you sign and afterwards.\n\nA third party is an outside company that you work with. The rule is simple. Assess it before you sign, and keep checking afterwards.\n\nThink about hiring a babysitter. You ask for references before the first evening. But you also keep paying attention over time, asking the children how it went, and noticing whether anything has changed.\n\nThere are several ways to assess a supplier. You can send a questionnaire about its security. That is cheap, but the answers are the supplier's own words. You can review independent audit reports. Or you can carry out on-site audits and tests, where the contract allows it.\n\nOne of the most useful reports is a System and Organization Controls report, known as a SOC report. There are three main kinds.\n\n- SOC 1: controls that affect financial reporting.\n- SOC 2: controls for security, availability, processing integrity, confidentiality or privacy. Detailed, and shared in confidence.\n- SOC 3: a shorter public version of that report.\n\nThese also come in two types. A Type 1 report looks at whether controls are well designed at a single point in time. A Type 2 report looks at whether they actually operated over a period, often a year. So Type 2 is stronger evidence, because it shows that the controls worked over time.\n\nAn ISO 27001 certificate from the International Organization for Standardization is another useful sign. Check what its scope covers. A certificate may apply only to one office, and not to the service you are buying.\n\nMonitoring means continuing to check. A supplier that was safe last year may not be safe today. Watch for news of breaches, changes of ownership and missed service levels.\n\nHere is a workplace example. A company signed with a software supplier three years ago, after a careful review. Since then, the supplier has been bought by another company, and most of its staff have left. Nothing in the old review reflects that. It is time to assess again.\n\nHere is your takeaway. Assess before you sign, prefer independent evidence over promises, and keep monitoring afterwards."
+    },
+    {
+      "heading": "Minimum requirements and service levels",
+      "body": "Now we will look at how you put your expectations in writing. There are two items from the outline here: minimum security requirements and service level requirements.\n\nMinimum security requirements are the lowest level of security a supplier must meet to do business with you. Put them in the contract. A promise made over lunch is worth very little when something goes wrong.\n\nAn everyday picture would be a landlord's conditions for a tenant. The tenant must have insurance, must not change the locks without permission, and must report damage right away. Those are the conditions for being allowed to live there.\n\nIn a supplier contract, these often include encryption, which scrambles your data so outsiders cannot read it, limits on who can reach it, background checks on staff, a duty to report breaches quickly, and the right to audit. The right to audit means you may check whether the supplier is meeting its promises. Contracts should also flow these requirements down to subcontractors, so that the protection does not stop at the first company in the chain.\n\nA Service Level Requirement, or SLR, describes what the customer needs. A Service Level Agreement, or SLA, is the formal promise from the provider, often with penalties if it is missed. Typical measures are uptime, response time and repair time.\n\nThink about ordering a birthday cake. Saying that you need it by four o'clock on Saturday is your requirement. The bakery's written promise to deliver it by then, with a refund if it is late, is the agreement.\n\nHere is a worked example. A shop needs its payment service up 99.9 percent of the time. That is its SLR. The contract then says the provider will meet 99.9 percent or pay a credit. That is the SLA. Let us see what that really means. A 30-day month has 43,200 minutes. One tenth of one percent of that is about 43 minutes. So the shop is accepting up to about 43 minutes of downtime each month.\n\nAlways do the sum. Numbers that look very high may allow more downtime than the business can bear.\n\nHere is what to remember. Put minimum security in the contract, flow it down the chain, and know that an SLR is the need and an SLA is the promise."
+    },
+    {
+      "heading": "Silicon root of trust and physically unclonable functions",
+      "body": "In this part we are going to look at two technical protections built right into hardware. They sound difficult, but the ideas are quite simple.\n\nA silicon root of trust is a security function built into a chip. It starts first and checks that the rest of the device's software is genuine and unchanged. Silicon is what computer chips are made of. Root of trust means the starting point that everything else depends on.\n\nThink of a chain of people passing a message. Each person checks the identity of the next. But somebody has to be first, and the whole chain depends on that first person being honest. A silicon root of trust is that first person, and it is built into the chip, so it is much harder to change than ordinary software.\n\nHere is how it works in practice. When a server is powered on, the root of trust checks the first piece of startup code. It verifies a digital signature on that code, which proves who made it and that it has not changed. That code checks the next piece, and so on. If a check fails, the device can stop or raise an alert. So if someone has tampered with the software during shipping, the problem can be detected the first time the device starts.\n\nA physically unclonable function, or PUF, uses tiny, natural differences made in each chip during manufacture. These work like a fingerprint and are extremely hard to copy.\n\nThink about your own fingerprints. Nobody designed them, and even identical twins have different ones. Nobody can simply manufacture a copy of you. In the same way, no two chips come out exactly the same, even from the same factory line. The chip's tiny differences can be measured and used to create a unique identity, or a secret key, without having to store that key in memory.\n\nThat last point is important. A key that is never stored in memory is much harder to steal.\n\nA workplace use is identifying genuine devices, which helps to catch counterfeits.\n\nHere is your takeaway. A silicon root of trust checks that startup software is genuine, and a PUF gives each chip a unique identity that is very hard to copy."
+    },
+    {
+      "heading": "Software bills of materials, and the management view",
+      "body": "In this final part, we are going to look at the software bill of materials, and then pull the whole topic together from a manager's point of view.\n\nA software bill of materials, or SBOM, is a list of all the parts inside a piece of software, like the ingredients on a food label. If you have a nut allergy, you read the label. You do not have to phone the factory.\n\nModern software is built largely out of parts that other people wrote. So a product you buy may include hundreds of smaller components, and you may have no idea what they are.\n\nHere is a workplace example. A serious flaw is announced in a common file compression component. A company has eighty applications from various suppliers. Without SBOMs, it must write to every supplier and wait for answers. With SBOMs, somebody can search the lists and have a good answer within minutes. Then the most exposed systems can be fixed first.\n\nAn SBOM has limits. It tells you what is inside. It does not tell you whether the flaw can actually be used in that product. And it has to be kept up to date with every new release.\n\nNow let us step back. Here is the management view, which the exam cares about most.\n\nYou can outsource the work, but you cannot outsource accountability. If a supplier loses your customers' data, your customers will still hold you responsible, and so will the regulators.\n\nSo a good manager does several things. Involve procurement, legal and security staff from the start of any purchase. Rank suppliers by how much harm they could do, and give the most attention to the riskiest. Put the requirements in the contract. Check that they are being met. And plan what happens if a supplier fails or is breached, including how you would leave that supplier and get your data back.\n\nIf a scenario offers one option that relies on a supplier's assurance and another that verifies it independently, the verified one is usually better.\n\nSo here is what to take away. An SBOM tells you what is inside software, and even when work is outsourced, accountability stays with you."
+    }
+  ],
+  "practiceQuestions": [
+    {
+      "prompt": "A company buys network switches from an unknown online seller at a very low price. Several fail within weeks, and the serial numbers do not appear in the maker's records. Which supply chain risk is MOST likely?",
+      "options": [
+        "Implants",
+        "Tampering",
+        "Service level failure",
+        "Counterfeits"
+      ],
+      "correctIndex": 3,
+      "explanation": "Fake goods sold as real often have invalid serial numbers and fail early. Tampering is tempting, but tampering changes a genuine product, and these serial numbers suggest the products are not genuine at all."
+    },
+    {
+      "prompt": "A government agency is worried about receiving fake or altered hardware. Which purchasing practice would BEST reduce this risk?",
+      "options": [
+        "Buying through authorized resellers",
+        "Choosing whichever seller is able to offer the lowest available price for the same model number",
+        "Asking each online seller to confirm by email that the equipment they are selling is genuine",
+        "Buying a larger number of spare units so that any that fail can be swapped out immediately"
+      ],
+      "correctIndex": 0,
+      "explanation": "Authorized sources reduce the chance of receiving fakes or altered goods. Asking sellers to confirm is tempting, but a dishonest seller would simply say yes."
+    },
+    {
+      "prompt": "A business writes down that it needs a support provider to respond to serious faults within two hours. No contract has been signed yet. What is this statement BEST described as?",
+      "options": [
+        "A Service Level Agreement",
+        "A software bill of materials",
+        "A Service Level Requirement",
+        "A non-disclosure agreement"
+      ],
+      "correctIndex": 2,
+      "explanation": "A statement of what the customer needs is an SLR. An SLA is tempting since it covers similar measures, but an SLA is the provider's formal promise, and nothing has yet been agreed."
+    },
+    {
+      "prompt": "A supplier passed a thorough security review three years ago. Since then, it has been bought by another company, and many staff have left. What should the customer do?",
+      "options": [
+        "Rely on the earlier review, because a supplier that passed once may be presumed to be secure afterwards",
+        "Reassess the supplier and continue monitoring it",
+        "End the contract immediately, because any company that has changed ownership can no longer be trusted",
+        "Ask the new owner's sales team to send over a short statement saying that nothing has changed"
+      ],
+      "correctIndex": 1,
+      "explanation": "Assessment must continue, and major changes are a reason to look again. Ending the contract is tempting for caution, but there is no evidence yet that justifies it."
+    },
+    {
+      "prompt": "A server maker wants each server to confirm, as soon as it powers on, that its first startup code is genuine and unchanged. Which feature is designed for this?",
+      "options": [
+        "A silicon root of trust",
+        "A physically unclonable function",
+        "A software bill of materials",
+        "A Service Level Agreement"
+      ],
+      "correctIndex": 0,
+      "explanation": "A silicon root of trust starts first and checks the code that follows. A physically unclonable function is tempting since it is also in the chip, but it gives a unique identity and does not itself check startup code."
+    },
+    {
+      "prompt": "A device maker needs each chip to have a unique identity that is derived from tiny manufacturing differences, without storing a secret in memory. Which technology BEST fits?",
+      "options": [
+        "Software bill of materials",
+        "Digital certificate kept on disk",
+        "Serial number printed on the case",
+        "Physically unclonable function"
+      ],
+      "correctIndex": 3,
+      "explanation": "A PUF derives identity from natural differences in each chip. A digital certificate is tempting because it provides identity, but keeping it on disk means that it can be copied."
+    },
+    {
+      "prompt": "A cloud provider's contract requires it to protect customer data, but says nothing about the outside firms that it uses for support. What is the BEST change to request?",
+      "options": [
+        "A statement from the provider that it only chooses well-known and reputable companies for support",
+        "Flow down the security requirements to subcontractors",
+        "An increase in the amount of the service credit that is payable for each hour of downtime",
+        "A commitment that the provider will send the customer a list of its support staff's names every year"
+      ],
+      "correctIndex": 1,
+      "explanation": "Requirements must follow the data down the chain, so subcontractors need to be bound too. A statement about reputable companies is tempting, but it is only an assurance and creates no specific duty."
+    },
+    {
+      "prompt": "A customer wants the strongest independent evidence that a provider's security controls actually worked throughout the past year. Which report BEST meets this need?",
+      "options": [
+        "A SOC 1 Type 1 report",
+        "A SOC 2 Type 1 report",
+        "A SOC 2 Type 2 report",
+        "A completed questionnaire"
+      ],
+      "correctIndex": 2,
+      "explanation": "SOC 2 covers security controls, and Type 2 examines how they operated over a period. A SOC 2 Type 1 report is tempting, but it only looks at design at one point in time."
+    },
+    {
+      "prompt": "A company is about to sign a contract that gives an outside firm access to customer data. Which contract term would be MOST valuable for managing security over the life of the relationship?",
+      "options": [
+        "A statement that both of the companies intend to work together in good faith and with mutual respect",
+        "A clause that gives the outside firm a discount if it pays its monthly invoices earlier than expected",
+        "A promise that the outside firm will use industry-leading technology wherever it is judged appropriate",
+        "A right to audit and a duty to report breaches quickly"
+      ],
+      "correctIndex": 3,
+      "explanation": "These terms give the customer a way to verify security and to hear about problems promptly. A promise of leading technology is tempting, but it is vague and cannot easily be enforced."
+    },
+    {
+      "prompt": "A shipment of routers arrives with broken security seals and packaging that seems to have been opened and taped shut again. What is the BEST action?",
+      "options": [
+        "Keep them isolated and verify with the maker through a known route",
+        "Install the routers at a less important branch office first and keep a close watch on how they behave",
+        "Return them to the courier and order the same model from a cheaper seller on the internet instead",
+        "Install the newest available software on the routers and then connect them to the network as planned"
+      ],
+      "correctIndex": 0,
+      "explanation": "Possible tampering means the items should not be connected until they have been verified. Installing new software is tempting, but hardware implants or altered firmware could survive an update."
+    }
+  ]
+}

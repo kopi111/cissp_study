@@ -1,0 +1,141 @@
+{
+  "id": "T09",
+  "studyNotes": [
+    {
+      "heading": "Basic words, threats and vulnerabilities",
+      "body": "In this first part, we are going to learn the basic words of risk management, because every later idea depends on them.\n\nAn asset is anything of value. A threat is something that could cause harm, such as a thief, a flood or a careless employee. A vulnerability is a weakness, such as a broken lock. Risk is the chance that a threat will use a weakness, together with the harm that results. Exposure means being open to possible loss. A safeguard, or control, is something that reduces risk.\n\nHere is an everyday picture that joins these together. Your bicycle is the asset. A thief is the threat. Leaving the bicycle unlocked is the vulnerability. The risk is the chance that it will be stolen and what that would cost you. A good lock is the control.\n\nNotice that a threat without a vulnerability causes little harm, and so does a vulnerability with no threat. A flood is no danger to a house on a high hill. Risk needs both.\n\nNow let us look at a workplace. A web server holding customer data is the asset. A criminal group is the threat. An unpatched flaw in its software, meaning a fault that has not yet been fixed, is the vulnerability. The risk is that the data will be stolen.\n\nThreat and vulnerability identification is the first practical stage of the work. You find threats by looking at incident history, industry reports and intelligence from other organizations, and by talking to the people who run the systems. You find vulnerabilities using scanning tools, audits, penetration tests, which are authorized simulated attacks, and reviews of processes.\n\nAlways include non-technical threats. Fires, floods, resignations and honest mistakes cause a great deal of real harm.\n\nThe risk manager's job is not to remove all risk. That is impossible, and it would be far too expensive. The job is to help the organization understand its risk, and to bring it down to a level that leaders accept.\n\nSo here is what to take away. A threat acts on a vulnerability to harm an asset, risk is the likelihood and the harm together, and the aim is to manage risk and not to eliminate it."
+    },
+    {
+      "heading": "Risk analysis and scope",
+      "body": "Next we will look at how risk is analyzed and how the boundaries of the work are set.\n\nScope means deciding what the assessment covers. Before you begin, you need to agree which systems, sites and business processes are included. A risk assessment of everything, all at once, usually goes nowhere. Think about tidying a house. You can do one room at a time, and be clear about which room you are doing, or you can feel overwhelmed and do nothing.\n\nThere are two main approaches to analysis.\n\nQualitative analysis uses words or simple rankings, such as high, medium and low. It is often shown as a risk matrix, which is a grid with likelihood on one side and impact on the other. A risk that is both likely and harmful lands in the most serious corner. Qualitative work is quick and easy to understand. Its weakness is that it depends on opinion.\n\nOne way to improve those opinions is the Delphi method. It gathers anonymous expert opinions in rounds. Each expert sees a summary of what the group said and can then change their view. Because it is anonymous, the most senior person in the room cannot dominate.\n\nQuantitative analysis uses money and numbers. It gives results that a finance director can compare directly with a budget. Its weakness is that it needs good data, and that data can be hard to find. How would you put an exact figure on the likelihood of a new type of attack?\n\nMost organizations combine the two. A common pattern is a qualitative assessment for all risks, followed by a detailed quantitative look at the few most serious ones.\n\nHere is a workplace example. A hospital ranks fifty risks as high, medium or low in a workshop. Six are high. For those six, it gathers figures on cost and frequency, so that it can compare possible controls.\n\nRemember also that risk assessment is a repeated activity. Things change, and so must the assessment.\n\nHere is your takeaway. Agree the scope first. Qualitative is words and judgment, quantitative is money and numbers, and the two work well together."
+    },
+    {
+      "heading": "The risk maths, with a worked example",
+      "body": "Now we come to the arithmetic. It is simple once you know the steps, so let us take one step at a time.\n\nAsset Value, or AV, is what the asset is worth. Exposure Factor, or EF, is the percentage of the asset lost in one event. Single Loss Expectancy, or SLE, is the money lost in one event. Annualized Rate of Occurrence, or ARO, is how many times per year the event is expected. Annualized Loss Expectancy, or ALE, is the expected loss per year.\n\nThere are two formulas to know. Say them aloud.\n\nSingle loss expectancy equals asset value times exposure factor.\n\nAnnualized loss expectancy equals single loss expectancy times annualized rate of occurrence.\n\nThink of a mobile phone. It is worth 400 dollars, and a dropped phone loses a quarter of its value in repairs. So one drop costs 100 dollars. If you drop it twice a year, your yearly bill is 200 dollars. That is the entire idea.\n\nNow a workplace example. A warehouse is worth 500,000 dollars. A flood would destroy 40 percent of it. A flood is expected once in 10 years.\n\nStep one, the single loss expectancy. 500,000 dollars times 0.40 is 200,000 dollars. That is the cost of one flood.\n\nStep two, the rate. Once in 10 years means 1 divided by 10, which is 0.1 per year.\n\nStep three, the annualized loss expectancy. 200,000 dollars times 0.1 is 20,000 dollars per year.\n\nBe careful with the rate. An event that happens four times a year has a rate of 4. An event that happens once in 50 years has a rate of 1 divided by 50, which is 0.02. A rate can be more than one, or much less than one.\n\nOne more caution. The yearly figure is an average. The warehouse will not lose 20,000 dollars every year. It will lose nothing for years, and then 200,000 dollars in a single flood. The yearly figure is simply a fair way to compare risks and budgets.\n\nHere is what to take away. Asset value times exposure factor gives one hit, and one hit times how often gives the yearly bill."
+    },
+    {
+      "heading": "Risk response and whether a safeguard is worth it",
+      "body": "In this part we will look at the choices management has, and how to decide whether a safeguard is worth buying.\n\nThere are four responses to know.\n\n- Mitigate: reduce the risk with controls.\n- Transfer or share: pass the cost to another party, such as through cybersecurity insurance.\n- Avoid: stop the risky activity.\n- Accept: knowingly live with it, with management's written approval.\n\nHere is an everyday picture. You are going on a long drive. Wearing a seat belt is mitigation. Buying car insurance is transfer. Deciding not to make the trip is avoidance. Accepting that some small risk remains, and setting off anyway, is acceptance.\n\nIgnoring a risk is never acceptable. Rejecting a risk, which means pretending it is not there, is different from accepting it. Acceptance is a conscious and recorded decision.\n\nWith transfer, remember that accountability stays with you. If your insurer pays for a breach, your customers still blame you.\n\nInherent risk exists before controls. Residual risk remains after them. Senior management decides what residual risk to accept.\n\nNow let us see whether a safeguard is worth buying, by carrying on with our warehouse. The annualized loss expectancy today is 20,000 dollars. A flood barrier costs 8,000 dollars a year, and it lowers the annualized loss expectancy to 5,000 dollars.\n\nThe value of a safeguard equals the annualized loss before, minus the annualized loss after, minus the yearly cost of the safeguard.\n\nSo 20,000 minus 5,000 is 15,000 dollars. That is the saving. Then 15,000 minus 8,000 is 7,000 dollars. A positive result means it is worth buying.\n\nNow change one number. Suppose the barrier costs 18,000 dollars a year. Then 15,000 minus 18,000 is minus 3,000 dollars. The safeguard costs more than it saves. On the numbers alone, you would not buy it.\n\nThe yearly cost should include everything, such as purchase spread over its useful life, maintenance and staff time. And if a safeguard protects human life, cost is not the only thing to weigh.\n\nHere is your takeaway. Choose among mitigate, transfer, avoid and accept, and subtract the safeguard's cost from what it saves."
+    },
+    {
+      "heading": "Types of control and control assessments",
+      "body": "Now we will look at the kinds of control there are, and how we test whether they really work.\n\nControls are grouped by how they work. Administrative controls are policies and procedures. Technical controls, also called logical controls, use technology, such as firewalls, which filter network traffic. Physical controls are things you can touch, such as fences and locks.\n\nControls are also grouped by purpose.\n\n- Preventive: stops an event. A lock.\n- Detective: discovers an event. A camera recording.\n- Corrective: fixes things after an event. Removing a virus.\n- Deterrent: discourages. A warning sign.\n- Recovery: restores operations. Backups.\n- Compensating: an alternative when the main control cannot be used.\n- Directive: tells people what to do. A policy.\n\nA single thing can be described in both ways. A security guard is a physical control. A guard can also be preventive, detective and deterrent all at the same time.\n\nThink of keeping your home safe. The front door lock is preventive. The doorbell camera is detective. The sign saying that the property is protected is a deterrent. Repairing a broken window is corrective. And staying with a relative while the home is repaired is a recovery measure.\n\nHere is a workplace example of a compensating control. An old machine in a factory cannot support encryption, which is the scrambling of data to keep it secret, and it cannot be replaced yet. The company places it on an isolated network, and restricts who can reach it. That isolation stands in for the missing control.\n\nControl assessments test whether security and privacy controls really work. A control that exists on paper may not be operating. Think about a smoke alarm with no battery. It looks fine until you need it.\n\nAssessments can be done by reviewing documents, by interviewing people and by testing the control. Testing could mean a practice restore of a backup, or an attempt to log in with a disabled account. Privacy controls are assessed in a similar way, asking whether personal data is really handled as promised.\n\nThe point to take away is this. Classify controls by how they work and by their purpose, and always test that they really operate."
+    },
+    {
+      "heading": "Monitoring, reporting, maturity and frameworks",
+      "body": "In this final part, we will look at how risk management carries on over time, and at the frameworks that guide it.\n\nContinuous monitoring and measurement watch risk and controls over time. Think about checking your weight or your blood pressure regularly, and not just once. A control that worked last year may have failed quietly this year.\n\nReporting shares the results. Internal reporting goes to leaders, in business language. External reporting goes to regulators, customers or auditors, as required.\n\nContinuous improvement means getting better over time. A risk maturity model shows how well an organization manages risk. One common order runs from least to most mature.\n\n- Ad hoc: nothing is planned, and it depends on individual effort.\n- Preliminary: early, inconsistent attempts.\n- Defined: standard processes exist and are documented.\n- Integrated: risk management is part of business decisions.\n- Optimized: it is continually improved.\n\nThe most important framework to know is the NIST Risk Management Framework. NIST is the US National Institute of Standards and Technology. It has seven steps, in this exact order.\n\n- Prepare.\n- Categorize.\n- Select.\n- Implement.\n- Assess.\n- Authorize.\n- Monitor.\n\nHere is a workplace walk-through. A government agency gets ready by setting context and priorities. It categorizes a new system by how much harm a loss would cause. It selects suitable controls and implements them. It assesses whether they work. A senior official authorizes the system to operate, accepting the remaining risk. Then the agency monitors it from then on.\n\nOther frameworks to recognize are ISO 31000 and ISO 27005, which are international standards on risk. ISO stands for the International Organization for Standardization. COBIT is Control Objectives for Information and Related Technology, which is about governing technology. SABSA is Sherwood Applied Business Security Architecture. PCI DSS, the Payment Card Industry Data Security Standard, protects card data. And FAIR, or Factor Analysis of Information Risk, measures risk in money.\n\nHere is your takeaway. Risk work never finishes. Monitor, report and improve, and know the seven NIST steps in order."
+    }
+  ],
+  "practiceQuestions": [
+    {
+      "prompt": "A server room and its equipment are valued at 200,000 dollars. A fire is expected to destroy 60 percent of that value. What is the single loss expectancy?",
+      "options": [
+        "80,000 dollars",
+        "200,000 dollars",
+        "120,000 dollars",
+        "12,000 dollars"
+      ],
+      "correctIndex": 2,
+      "explanation": "Single loss expectancy is asset value times exposure factor, so 200,000 times 0.60 is 120,000 dollars. 80,000 dollars is tempting, but that is the 40 percent of value that survives the fire."
+    },
+    {
+      "prompt": "A company has calculated a single loss expectancy of 30,000 dollars for a type of fraud that it expects to suffer four times a year. What is the annualized loss expectancy?",
+      "options": [
+        "120,000 dollars",
+        "7,500 dollars",
+        "30,000 dollars",
+        "34,000 dollars"
+      ],
+      "correctIndex": 0,
+      "explanation": "Annualized loss expectancy is single loss expectancy times the yearly rate, so 30,000 times 4 is 120,000 dollars. 7,500 dollars is tempting, but that comes from dividing by the rate instead of multiplying."
+    },
+    {
+      "prompt": "A building is worth 1,000,000 dollars. An earthquake would destroy half of its value, and one is expected every 25 years. What is the annualized loss expectancy?",
+      "options": [
+        "500,000 dollars",
+        "20,000 dollars",
+        "40,000 dollars",
+        "12,500 dollars"
+      ],
+      "correctIndex": 1,
+      "explanation": "One event costs 1,000,000 times 0.5, which is 500,000 dollars. The rate is 1 divided by 25, which is 0.04. So 500,000 times 0.04 is 20,000 dollars. 500,000 dollars is tempting, but it is the cost of a single event."
+    },
+    {
+      "prompt": "A risk has an annualized loss expectancy of 40,000 dollars. A safeguard costing 35,000 dollars a year would lower that figure to 10,000 dollars. Based only on these figures, what should the security manager recommend?",
+      "options": [
+        "Buy it, because it would save 30,000 dollars a year in expected losses",
+        "Buy it, because its yearly value is 5,000 dollars",
+        "Buy it, because any safeguard that lowers the annual loss will always be worth having",
+        "Do not buy it, because it costs 5,000 dollars more than it saves"
+      ],
+      "correctIndex": 3,
+      "explanation": "The saving is 40,000 minus 10,000, which is 30,000 dollars. Subtract the 35,000 dollar cost and the value is minus 5,000 dollars. The first option is tempting, but it leaves out the safeguard's cost."
+    },
+    {
+      "prompt": "A company buys a cybersecurity insurance policy to cover the cost of a possible data breach. Which risk response does this represent?",
+      "options": [
+        "Transfer",
+        "Mitigation",
+        "Avoidance",
+        "Acceptance"
+      ],
+      "correctIndex": 0,
+      "explanation": "Insurance passes the cost to another party, which is risk transfer. Mitigation is tempting because the company is reducing a worry, but the likelihood of a breach is unchanged, and accountability remains with the company."
+    },
+    {
+      "prompt": "A financial firm decides to stop offering an old online service, because the risk of running it is too high and fixing it would cost more than the service earns. Which risk response is this?",
+      "options": [
+        "Transfer",
+        "Mitigation",
+        "Avoidance",
+        "Acceptance"
+      ],
+      "correctIndex": 2,
+      "explanation": "Stopping the risky activity is avoidance. Mitigation is tempting because the risk does go down, but mitigation means keeping the activity and adding controls to it."
+    },
+    {
+      "prompt": "An old system cannot be upgraded to meet the company's encryption standard. The company places it on an isolated network and limits who can reach it until it can be replaced. What type of control is the isolated network in this case?",
+      "options": [
+        "Deterrent",
+        "Detective",
+        "Directive",
+        "Compensating"
+      ],
+      "correctIndex": 3,
+      "explanation": "It is an alternative used when the main control cannot be applied, so it is compensating. Deterrent is tempting because it limits who can reach the system, but it does more than discourage an attacker."
+    },
+    {
+      "prompt": "A shop reviews its camera footage each morning, to find out whether anything happened overnight. Which control purpose BEST describes this review?",
+      "options": [
+        "Preventive",
+        "Detective",
+        "Corrective",
+        "Directive"
+      ],
+      "correctIndex": 1,
+      "explanation": "Reviewing footage finds events after they happen, so it is detective. Preventive is tempting because cameras may put some people off, but that effect would be deterrent, and the review stops nothing."
+    },
+    {
+      "prompt": "After adding firewalls, encryption and staff training, a company asks how much risk it still faces in its online store. What is this remaining amount of risk called?",
+      "options": [
+        "Residual risk",
+        "Inherent risk",
+        "Total exposure factor",
+        "Single loss expectancy"
+      ],
+      "correctIndex": 0,
+      "explanation": "The risk left after controls is residual risk. Inherent risk is tempting, but that is the level before any controls are added."
+    },
+    {
+      "prompt": "A government team following the NIST Risk Management Framework has just finished implementing the controls that were selected for a new system. What is the NEXT step?",
+      "options": [
+        "Monitor",
+        "Authorize",
+        "Assess",
+        "Select"
+      ],
+      "correctIndex": 2,
+      "explanation": "The order is Prepare, Categorize, Select, Implement, Assess, Authorize, Monitor, so Assess follows Implement. Authorize is tempting, but an official needs the results of the assessment before accepting the risk."
+    }
+  ]
+}

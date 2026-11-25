@@ -1,0 +1,141 @@
+{
+  "id": "T48",
+  "studyNotes": [
+    {
+      "heading": "Vulnerability assessment",
+      "body": "In this first part, we will look at what a vulnerability assessment is, and the different kinds of scan it uses.\n\nA vulnerability is a weakness that could be used to cause harm. A vulnerability assessment finds and lists weaknesses. It does not use them to break in.\n\nThink about walking around your house at night. You check every window and every door, and you write down which ones are unlocked. You do not climb in. That is a vulnerability assessment.\n\nAssessments mostly rely on scans, which are automated checks run by software. There are four common kinds, and you should know them as a set.\n\n- Network discovery scan: finds which devices exist and which ports are open. A port is a numbered door into a computer, through which a service is offered.\n- Network vulnerability scan: looks for known weaknesses on those devices.\n- Web application scan: looks for flaws in websites, such as poor handling of what users type.\n- Database scan: looks for flaws in databases, such as weak settings and default accounts.\n\nA discovery scan may report each port as open, closed or filtered. Open means a service is answering. Closed means nothing is listening. Filtered means something, usually a firewall, is blocking the scanner, so it cannot tell. A firewall is a device or program that filters network traffic.\n\nDiscovery scans use a few different techniques. One well-known technique is the SYN scan, sometimes called a half-open scan. SYN is short for synchronize. It is the first message in the three-step greeting that starts a network connection. The scanner sends that first message, sees the reply and never finishes the greeting.\n\nHere is a workplace example. A hospital runs a discovery scan and finds a medical device on the network that nobody had listed. A vulnerability scan then shows that it has a well-known weakness. Nobody broke in, but the hospital now knows something important. It cannot protect what it does not know about.\n\nScanning is not a one-time event. New flaws are announced every day, so a clean result last month tells you little about today. Scans should run regularly, and after any significant change.\n\nHere is your takeaway. A vulnerability assessment finds and lists weaknesses without using them, and it should be repeated regularly."
+    },
+    {
+      "heading": "Scan accuracy and credentialed scans",
+      "body": "Next, we will look at how far you can trust a scan, and at one simple change that makes scans far more accurate.\n\nTools make two kinds of mistake. A false positive reports a problem that is not real. A false negative misses a problem that is real.\n\nThink about a smoke alarm. If it goes off when you make toast, that is a false positive. It is annoying, and it wastes your time. If it stays silent during a real fire, that is a false negative. That one can kill you. In security, too, the false negative is the more dangerous, because nobody knows there is anything to fix. It is why a clean scan never proves that a system is safe.\n\nFalse positives still do harm. If staff chase hundreds of false alarms, they lose trust in the tool. That is why people must confirm results before reporting them.\n\nNow, there are two ways to scan. An uncredentialed scan has no login. It shows what an outsider would see from the network. A credentialed scan, also called an authenticated scan, gives the scanner a login. It can then look inside the system and see the installed software, the settings and any missing patches. A patch is a software fix.\n\nPicture a doctor. An uncredentialed scan is a doctor who looks at you from across the room. A credentialed scan is a doctor who gets to examine you properly.\n\nA credentialed scan gives more accurate results, with fewer false positives and fewer false negatives. But it brings its own risk. That login is valuable, so give it only the rights it needs, store it safely and watch how it is used.\n\nHere is a workplace example. An uncredentialed scan of 50 servers finds only a few issues, and the team feels pleased. A credentialed scan of the same servers then finds that 30 of them are missing important patches. The first scan was not wrong about what an outsider sees. It simply could not see inside.\n\nOn the exam, when a scenario asks for the most accurate or complete picture of missing patches, think of a credentialed scan.\n\nHere is what to take away. A false negative is the more dangerous error, and a credentialed scan sees more because it logs in."
+    },
+    {
+      "heading": "CVE and CVSS",
+      "body": "In this part, we will look at two terms that are very often confused: CVE and CVSS. One names a flaw, and the other scores it.\n\nCommon Vulnerabilities and Exposures, or CVE, is a public list of known flaws. Each flaw gets a unique name, made of the letters CVE, a year and a number. CVE-2014-0160 is one example. CVE does not tell you how bad a flaw is. It only gives everyone the same name for the same flaw.\n\nThe Common Vulnerability Scoring System, or CVSS, rates the severity of a flaw from 0.0 to 10.0. It is maintained by a global group called the Forum of Incident Response and Security Teams.\n\nThink about a car recall. The recall number identifies exactly which fault is meant. That is like CVE. A separate rating says whether the fault is a minor rattle or whether the brakes may fail. That is like CVSS.\n\nThese are the score bands, and you must know them exactly.\n\n- None: 0.0\n- Low: 0.1 to 3.9\n- Medium: 4.0 to 6.9\n- High: 7.0 to 8.9\n- Critical: 9.0 to 10.0\n\nLet us work through some examples. A score of 3.9 is Low, but 4.0 is Medium. A score of 6.9 is Medium, but 7.0 is High. A score of 8.9 is High, but 9.0 is Critical.\n\nCVSS is built from groups of measures. In version 3.1 they are base, temporal and environmental. The base group describes the flaw itself. Temporal covers things that change over time. Environmental adjusts the score for your own organization. Version 4.0 renames temporal to threat, and adds a supplemental group.\n\nThe base score is general, and it knows nothing about your business. Here is a workplace example. A flaw that scores 8.0 is on your public payment system. A flaw that scores 9.2 is on a spare test computer with no real data. A flaw's score matters, but so do its exposure and the value of what it affects. A manager may rightly fix the 8.0 first.\n\nHere is your takeaway. CVE names the flaw and CVSS scores it. Know the bands exactly, and then let business risk set the order of repair."
+    },
+    {
+      "heading": "Penetration testing phases",
+      "body": "Now we will look at penetration testing, and the order in which it happens. The order is something the exam can test directly.\n\nA penetration test goes further than a scan. A tester, with permission, tries to use weaknesses to break in. To use a weakness in this way is to exploit it. The point is to prove the real impact.\n\nGoing back to our house, a scan notes the open window. A penetration test climbs through it, and finds out whether the burglar could reach the safe.\n\nA United States government body, the National Institute of Standards and Technology, or NIST, publishes a guide called Special Publication 800-115. It gives four phases, in this order.\n\n- Planning: agree the goals and the limits, and get written approval.\n- Discovery: gather information about the target and scan for weaknesses.\n- Attack: try to exploit the weaknesses and break in.\n- Reporting: record the findings and give advice.\n\nTwo details make these phases less simple than they look. First, the attack phase feeds back into discovery. When a tester gets into one machine, the tester often sees new systems from there, so the tester goes back to discovery and looks again. Second, reporting is not only the end. It happens alongside the other phases, as the tester writes things down, and it finishes with the final report.\n\nSome books use five steps instead: planning, information gathering and discovery, vulnerability scanning, exploitation, and reporting. These are the same ideas divided differently. Whichever list a question uses, planning and approval come first, and reporting finishes the job.\n\nHere is a worked example. A company hires a tester to check its online shop. In planning, the two sides agree that only the shop is in scope, and a senior manager signs the approval. In discovery, the tester finds a forgotten test page. In attack, the tester uses that page to reach a staff system. From there, the tester spots a database that had not been visible, and so returns to discovery. Finally, the report explains what happened, how serious it is and how to fix the cause.\n\nA penetration test is a sample in time. It shows what one tester found in those days. It does not prove that nothing else exists.\n\nHere is what to take away. The four phases are planning, discovery, attack and reporting, and attack can lead back to discovery."
+    },
+    {
+      "heading": "Rules of engagement and box types",
+      "body": "In this part, we will look at the limits of a test, and at how much the tester is told before starting.\n\nRules of engagement are the written limits of the test. Senior management must approve them. Without permission, a penetration test is a crime. A spoken yes from one department head is not enough.\n\nThe rules cover the scope, meaning which systems may be tested, and the dates and times. They state which methods are allowed or banned, such as tricking staff or overloading systems. They name emergency contacts, and they say how any data that is found will be handled. If a tester causes an outage or finds signs of a real attacker, the tester stops and calls the named contact.\n\nBox types describe what the tester knows at the start. Learn them as a set.\n\n- White box: full knowledge. The tester has network maps, code and details. It is also called a known environment test.\n- Gray box: partial knowledge. The tester has some details, perhaps a normal user account. It is also called a partially known environment test.\n- Black box: zero knowledge. The tester starts with nothing, like an outsider. It is also called an unknown environment test.\n\nHere is an everyday picture. A locksmith testing your home might be given the floor plans and a key. That is white box. The locksmith might be given only the address and told which room is the bedroom. That is gray box. Or the locksmith might be told nothing but the street name. That is black box.\n\nEach has a purpose. White box covers the most ground in the available time. Gray box is a good copy of an insider, or of an attacker who has stolen a login. Black box is the most realistic copy of an outsider, but it spends much of its time simply finding things out, and it may miss a lot.\n\nA different question is what the defenders know. In a blind test, the tester has only public information, but the defenders know that a test is coming. In a double-blind test, the defenders are not told either, so their real response can be measured. In a targeted test, both sides work openly together.\n\nHere is your takeaway. Written approval comes first, and box color tells you only how much the tester knows."
+    },
+    {
+      "heading": "Red, blue, purple and white teams",
+      "body": "In this final part, we will look at exercises that use teams, and what each color means. The outline names red, blue and purple teams directly.\n\nA red team acts as the attacker. It copies the methods of real criminals, often over a longer period and with a specific goal, such as reaching a particular database.\n\nA blue team defends and responds. It watches the systems, detects the attack and shuts it down.\n\nA purple team is red and blue working together and sharing what they learn. The attacker shows a technique, the defender checks whether it was seen, and together they improve the detection on the spot.\n\nThink about a football team. In a practice match, some players act as the opposing attack. That is the red team. The defenders try to stop them. That is the blue team. Afterwards, the two groups watch the video together and work out why a goal was scored. That is purple.\n\nOne more color causes confusion. A white team acts as the referee in an exercise. It sets the rules, watches both sides and judges the results. Do not mix up a white team with a white box test. A white box test describes how much the tester knows. A white team describes a role.\n\nHow is a red team different from an ordinary penetration test? A penetration test usually tries to find as many weaknesses as possible within a fixed scope. A red team usually has a goal, and it tries to reach that goal quietly. It tests the people and the processes of the defense as much as it tests the technology.\n\nHere is a workplace example. A bank's red team spends a month trying to reach a payments server without being noticed. It succeeds through a fake email, and the blue team never sees it. If the two teams never talk, the bank learns only that it failed. So they run a purple session. The red team replays each step, the blue team finds out which alert was missing, and that alert is added and tested.\n\nThe manager's view is simple. An exercise that ends with a scoreboard is worth less than one that ends with better defenses.\n\nHere is what to take away. Red attacks, blue defends, purple shares the learning and white referees."
+    }
+  ],
+  "practiceQuestions": [
+    {
+      "prompt": "A newly announced software flaw has a Common Vulnerability Scoring System score of 6.9. Which severity band does this score fall into?",
+      "options": [
+        "Low",
+        "High",
+        "Medium",
+        "Critical"
+      ],
+      "correctIndex": 2,
+      "explanation": "Medium runs from 4.0 to 6.9, so 6.9 is at the very top of Medium. High is tempting because the score is so close, but High begins at 7.0."
+    },
+    {
+      "prompt": "A manager sees the label CVE-2024-1234 on a report, with the figure 9.8 beside it. Which statement BEST describes these two items?",
+      "options": [
+        "The label gives the severity of the flaw, and the figure gives its unique name",
+        "The label is the flaw's unique name, and the figure is its CVSS severity score",
+        "Both of the items show how many systems in the company have been affected",
+        "Both of the items are private references created by the scanning tool's vendor"
+      ],
+      "correctIndex": 1,
+      "explanation": "Common Vulnerabilities and Exposures gives a flaw its unique name, and the Common Vulnerability Scoring System gives its severity. The first option is the classic mix-up, with the two roles reversed."
+    },
+    {
+      "prompt": "A penetration tester breaks into a web server and, from that server, can now see an internal network that was not visible before. Following the four phases in NIST Special Publication 800-115, what happens NEXT?",
+      "options": [
+        "The tester goes back to discovery to examine the newly visible systems",
+        "The tester stops work and returns to the planning phase to begin the test again",
+        "The tester moves straight to the final report, because the break-in has succeeded",
+        "The tester deletes all of the server's logs to remain hidden during the test"
+      ],
+      "correctIndex": 0,
+      "explanation": "The attack phase feeds back into discovery when new systems come into view, as long as they are in scope. Going straight to the report is tempting, but the test is not finished and more can be learned."
+    },
+    {
+      "prompt": "A firm has agreed the goals of a penetration test with a client, and senior management has signed the approval and the rules of engagement. Which phase comes NEXT in the NIST four-phase method?",
+      "options": [
+        "Reporting",
+        "Attack",
+        "Remediation",
+        "Discovery"
+      ],
+      "correctIndex": 3,
+      "explanation": "The order is planning, discovery, attack and reporting, so discovery follows planning. Attack is tempting, but the tester must first gather information about the target."
+    },
+    {
+      "prompt": "A company wants a test that copies an attacker who has stolen one ordinary employee's login. The testers will be given that login and nothing else. What type of test is this?",
+      "options": [
+        "White box",
+        "Black box",
+        "Gray box",
+        "Double-blind"
+      ],
+      "correctIndex": 2,
+      "explanation": "Gray box means partial knowledge, such as a normal user account. Black box is tempting because the testers know little, but black box means they start with nothing at all."
+    },
+    {
+      "prompt": "A company has only three days of testing budget for a complex application. It wants the most flaws found in that time and is willing to hand over its source code and network diagrams. Which approach is BEST?",
+      "options": [
+        "White box",
+        "Black box",
+        "Gray box",
+        "Blind"
+      ],
+      "correctIndex": 0,
+      "explanation": "With full knowledge, testers spend their time finding flaws and not learning the target. Black box is tempting because it is realistic, but much of three days would be spent on reconnaissance."
+    },
+    {
+      "prompt": "An organization's attackers and defenders complete separate exercises and hand in separate reports. Detection has not improved in two years. What should the security manager do?",
+      "options": [
+        "Hire a second attacking team to increase the pressure on the defenders",
+        "Run purple team exercises",
+        "Keep the attackers' methods secret from the defenders for a further year",
+        "Reduce the exercises to once every two years in order to save money"
+      ],
+      "correctIndex": 1,
+      "explanation": "A purple team approach has the attackers and defenders share techniques and improve detection together. Another attacking team is tempting, but it adds more findings without fixing the failure to share them."
+    },
+    {
+      "prompt": "A security manager wants the most accurate picture of the missing patches, meaning software fixes, on 400 company servers. Which approach BEST meets this need?",
+      "options": [
+        "An uncredentialed scan from the public internet",
+        "A network discovery scan of all company ports",
+        "A black box penetration test of the servers",
+        "A credentialed vulnerability scan"
+      ],
+      "correctIndex": 3,
+      "explanation": "A credentialed scan logs in and can see installed software and missing patches directly. A black box test is tempting because it sounds thorough, but it only looks at what can be reached and would not list all missing patches."
+    },
+    {
+      "prompt": "A monthly scan reported a server as clean. A week later, attackers used a flaw on that server that had been public for a year and was present at the time of the scan. What did the scan produce?",
+      "options": [
+        "A false negative",
+        "A true negative",
+        "A false positive",
+        "A true positive"
+      ],
+      "correctIndex": 0,
+      "explanation": "A false negative misses a problem that really exists. False positive is tempting because the words sound similar, but a false positive reports a problem that does not exist."
+    },
+    {
+      "prompt": "A company's leaders want to measure how its defenders really respond to an attack. The testers will have only public information. Which type of test BEST meets this goal?",
+      "options": [
+        "A targeted test run openly by both sides",
+        "A blind test that the defenders have been told about",
+        "A double-blind test",
+        "A white box test using the company's own full network diagrams"
+      ],
+      "correctIndex": 2,
+      "explanation": "In a double-blind test, the defenders are not told about the test, so their real response is measured. A blind test is tempting, but the defenders know it is coming and so may behave differently."
+    }
+  ]
+}

@@ -1,0 +1,141 @@
+{
+  "id": "T08",
+  "studyNotes": [
+    {
+      "heading": "Screening and hiring",
+      "body": "In this first part, we are going to look at how personnel security begins, which is before the person has even joined. Personnel means the people who work for an organization.\n\nSecurity starts with the job description. It should state the duties, the access needed and the level of trust required. If you do not know what the job involves, you cannot judge what risk it brings.\n\nCandidate screening means checking a person before hiring. Common checks are references, education, past employment, criminal record and sometimes credit history. A reference is a statement from someone who has worked with the person.\n\nThe check should match the risk of the job. Think about who you would let into your home. You might not ask many questions of someone delivering a parcel. You would ask a great deal more of someone who was going to care for your children, and hold a key to your house.\n\nAt work, a bank hiring a cashier checks that person's past, because they will handle money. A systems administrator, who can reach nearly everything, may need a deeper check than an office assistant who cannot reach any sensitive systems.\n\nChecks must follow local law and treat people fairly. In many places, the candidate must give permission first. Some questions cannot legally be asked. A credit check may be forbidden for some jobs. So human resources, the department that looks after staff matters, should work with legal advisers to set the rules.\n\nConsistency matters too. Applying the same checks to everyone in the same type of job is fair, and it protects the company from claims of discrimination.\n\nHere is a workplace example. A company rushes to fill a finance post. It skips the reference check. Six months later, it learns that the person was dismissed by a former employer for theft. A short phone call could have prevented this. The cheapest time to find a problem is before someone is hired.\n\nHiring may also bring a security clearance, for government work. That is a formal decision on whether someone can be trusted with protected information.\n\nHere is what to take away. Match screening to the risk of the job, follow the law, and obtain consent."
+    },
+    {
+      "heading": "Agreements and policy requirements",
+      "body": "Now we will look at the agreements that new staff sign, and the policies that shape their working lives.\n\nAn employment agreement sets out a person's duties, pay and rules. It is a contract, so both sides are bound by it. It usually refers to the company's policies and says that the person must follow them.\n\nA non-disclosure agreement, or NDA, is a promise to keep information secret. It often continues to apply even after the person leaves the company.\n\nThink of a chef who joins a famous restaurant. The chef learns the secret sauce. On the first day, the chef signs a paper promising not to tell anyone. When the chef moves to a different restaurant five years later, that promise still applies.\n\nAn acceptable use policy says how company systems may be used. It might say whether staff can use work email for personal messages, or whether they can install their own software.\n\nThe outline uses the phrase policy-driven requirements. That simply means that the rules people work under flow from company policy. The employment agreement ties them together. For example, a policy may say that staff must complete security training each year. Then a person's continued access may depend on doing that training.\n\nThe timing of signing matters. Agreements should be signed before the person gets access to systems or sensitive information. Once you have told someone a secret, it is too late to ask for their promise.\n\nHere is a workplace example. A contractor begins work on Monday with full access, and the paperwork arrives on Thursday. If the contractor misuses something on Tuesday, the company has a weak legal position. The fix is a simple one. No signature means no access.\n\nCompanies should keep the signed copies, and they should review and re-acknowledge important policies from time to time. That shows staff have seen the current rules.\n\nThe policies must also be enforced fairly, for everyone, including the most senior people. Otherwise, staff will conclude that the rules are not real.\n\nHere is your takeaway. Agreements come before access, NDAs often last beyond employment, and staff duties flow from approved policy."
+    },
+    {
+      "heading": "Everyday controls on people",
+      "body": "Next we are going to look at four controls that limit the harm any one person can do. These are least privilege, separation of duties, job rotation and mandatory vacation.\n\nLeast privilege means giving only the access needed for the job. A hotel cleaner's key opens the rooms on that floor, and not the manager's safe. In a workplace, a payroll clerk needs the payroll system, but not the programming code behind the company's website.\n\nSeparation of duties means splitting a sensitive task between people, so that one person cannot commit fraud alone. Think of a nuclear submarine in the movies, where two officers must turn two keys. In an accounts office, one person may enter a new supplier, and a different person may approve payments to that supplier. Otherwise, one person could create a fake supplier and pay themselves.\n\nThe weakness of this control is collusion. Collusion is when people secretly work together to get around a control. Separation of duties makes fraud harder, because a person must now find a partner, and asking someone is risky.\n\nJob rotation means moving staff through different roles over time. There are two reasons for it. First, it helps discover fraud, because a new person looks at the work with fresh eyes. Second, it builds backup skills, so that the company does not depend on just one person.\n\nMandatory vacation means requiring time off, so that someone else does the work and may notice wrongdoing. Fraud often needs daily attention to stay hidden. Imagine a shopkeeper who never takes a day off, because they are secretly hiding losses in the books. The moment someone else opens those books, the problem can appear. A common arrangement is at least one week in a row, and often two.\n\nThese two can be confused. Job rotation is a planned move into a different role. Mandatory vacation is a temporary absence from your own role. Both make fraud harder to hide. Separation of duties tends to prevent it, while rotation and vacations tend to detect it.\n\nThe point to take away is this. Limit access, split critical tasks, and make sure that a second person sees everyone's work."
+    },
+    {
+      "heading": "Onboarding and transfers",
+      "body": "In this part we will look at two points in a person's working life where access can go wrong: when they arrive, and when they change roles.\n\nOnboarding means bringing a new person in. They receive accounts with least privilege, which means only the access needed for the job. They get security training, and a copy of the policies. They should know who to call about a problem and how to report something suspicious.\n\nThink about a new pupil at a school. On the first day they get a timetable, a locker key and a tour. They do not get the key to the head teacher's office. And somebody explains what to do if the fire alarm rings.\n\nGood onboarding is a repeatable process. A request comes from the hiring manager, it is approved, and the access is set according to the person's role. Keeping a record of what was approved also makes later reviews much easier.\n\nA transfer means moving to a new role within the same organization. Here you must remove old access and add only what the new role needs. If you only ever add access, you get privilege creep, which is the slow build-up of too much access.\n\nLet us work through a workplace example. A woman starts in accounts, with access to the payments system. Two years later, she moves to purchasing. If nobody removes her payment access, she may now be able to both raise a purchase order and pay for it. That defeats separation of duties, even though no one meant it to.\n\nThe fix is to build access removal into the transfer process itself. Human resources tells the access team about each move. The old role's access ends, and the new role's access begins. Then a regular access review, in which managers confirm who should have what, catches anything that slipped through.\n\nThe exam mindset here is to fix the process and not only the single case. Removing one person's extra access is correct, but it does not stop the next one.\n\nHere is your takeaway. Start people with least privilege, and on every transfer remove the old access, so that privilege creep cannot build up."
+    },
+    {
+      "heading": "Termination",
+      "body": "Now we will look at termination, which means the end of someone's employment. It can be voluntary, when a person resigns, or forced, when the organization dismisses them.\n\nA forced termination is one of the riskier moments in personnel security. The person may be angry, and may still have the ability to do damage.\n\nThink of ending a shared tenancy after a serious argument. You would want the locks changed at about the same moment as the conversation, not a week before, and not a week afterwards.\n\nFor a forced termination, disable all access at the same moment the person is told, or just before. If you disable it long before, you tip them off. If you do it long after, they have time to cause harm.\n\nHold the meeting with a manager and a witness, usually from human resources, the department that deals with staff matters. Collect badges, keys, phones and laptops. Escort the person from the building. Hold an exit interview where possible, and remind them of the agreements they signed, such as a non-disclosure agreement, which is a promise to keep information secret. Afterwards, check accounts and keep records as required.\n\nPlease notice that all of this should be done with respect. A person losing a job is going through a hard moment. Protect people's safety and dignity. Do not humiliate anyone in front of colleagues.\n\nHere is a workplace example of the sequence. A network engineer is being dismissed at two in the afternoon. At that moment, the access team disables the engineer's accounts, which was agreed in advance. Shared passwords the engineer knew are changed. The manager and a human resources officer hold the meeting. Equipment is returned and signed for. Security walks the engineer to the door with personal belongings. Later that day, someone reviews what the engineer did in the final days.\n\nFor a voluntary resignation, the risk is usually lower, but it still needs review. Access still ends promptly on the last day.\n\nHere is what to remember. Coordinate access removal with the moment of notice, keep a witness present, recover company property, and treat people with respect."
+    },
+    {
+      "heading": "Vendors, compliance and privacy",
+      "body": "In this final part, we are going to look at outsiders who work with us, how staff are kept compliant, and the privacy that employees are owed.\n\nVendors, consultants and contractors are people or companies from outside who do work for you. A vendor sells goods or services. A consultant gives expert advice. A contractor carries out work under a contract. They can have real access to your systems, so treat them with the same care as staff.\n\nThink of a plumber who has a key to your house. You would want a written agreement, and you would want the key back when the job is done.\n\nUse written agreements that cover non-disclosure, security duties, access limits and the right to audit, which means your right to check that they are keeping their promises. Review their access regularly, and end it when the work ends. Linking each account to the contract's end date is a simple and effective control.\n\nAlways remember one thing. Your organization stays responsible for its data, even when someone else handles it.\n\nPolicy compliance means that staff really do follow the rules. Train them, ask them to acknowledge the policy, monitor behaviour and apply fair, consistent consequences. Managers must follow the rules as well. If the director is excused, staff notice.\n\nEmployees also have privacy rights. Tell staff in advance if email, internet use or systems are monitored, for example through a policy and a login banner. A login banner is a notice shown when someone signs in. Collect only the personal data that the job needs, and keep it protected.\n\nHere is a workplace example. A company begins to monitor web traffic, and tells nobody. A year later, it tries to discipline someone based on that monitoring. The employee argues that they had a reasonable expectation of privacy. If the company had published a clear policy and shown a banner, its position would have been much stronger. Laws differ between countries, so legal advisers must be involved.\n\nSo here is your takeaway. Treat outsiders with the same discipline as staff, enforce policy fairly, and tell people before you monitor them."
+    }
+  ],
+  "practiceQuestions": [
+    {
+      "prompt": "A company applies an identical light background check to every new hire, including staff who will manage the company's main bank accounts. What should the security adviser recommend?",
+      "options": [
+        "Keep the current process, because treating every candidate the same is the only fair way to hire",
+        "Stop checking candidates entirely, so that the company avoids any possible privacy complaints in future",
+        "Ask new managers to write their own statement confirming that they have no history of financial wrongdoing",
+        "Match the depth of screening to each role's risk, within the law"
+      ],
+      "correctIndex": 3,
+      "explanation": "Screening should fit the risk of the job. Treating everyone identically is tempting because it sounds fair, but fairness means treating similar jobs alike, and high-trust roles justify deeper checks."
+    },
+    {
+      "prompt": "A hiring manager wants to run a criminal record check on a preferred candidate. Local law requires the candidate's agreement before this check can be done. What should the manager do FIRST?",
+      "options": [
+        "Run the check quietly through a friend who works for a screening firm, so that the candidate is not offended",
+        "Skip the check, on the grounds that the candidate has already interviewed well and has good references",
+        "Obtain the candidate's permission and follow the legal process",
+        "Run the check, then ask the candidate to sign a form for it once the job offer has been accepted"
+      ],
+      "correctIndex": 2,
+      "explanation": "Screening must follow local law, which here requires permission first. Getting a signature afterwards is tempting since it seems to satisfy the rule, but consent must come before the check."
+    },
+    {
+      "prompt": "A product designer is resigning to join a competitor. At the exit interview, which reminder is MOST important from a security standpoint?",
+      "options": [
+        "That the non-disclosure agreement continues to apply",
+        "That the company offers a very generous bonus scheme to employees who return within two years",
+        "That all staff are expected to complete a satisfaction survey before they leave the building for the last time",
+        "That the competitor may not offer as many days of paid holiday as the current employer does"
+      ],
+      "correctIndex": 0,
+      "explanation": "An NDA often continues after someone leaves, and the exit interview is the moment to remind them. The other options may matter to human resources, but they do not protect company information."
+    },
+    {
+      "prompt": "A manager plans to dismiss an employee and intends to hold the meeting alone in a private room so as to spare the person embarrassment. What should the security adviser recommend?",
+      "options": [
+        "Carry on as planned, and write up a short note of the discussion at some point later on in the same week",
+        "Include a witness, usually from human resources",
+        "Send the dismissal by email instead, so that there is no need for any meeting to take place",
+        "Ask the employee's closest friend at work to sit in on the meeting and offer personal support"
+      ],
+      "correctIndex": 1,
+      "explanation": "A witness protects both the company and the employee, and it can still be handled with respect. A note afterwards is tempting, but it is only one person's account of what was said."
+    },
+    {
+      "prompt": "An audit finds that one accounts clerk can both create new suppliers and approve payments to them. What is the BEST control to add?",
+      "options": [
+        "A yearly reminder to the clerk about the penalties that apply to financial fraud at the company",
+        "A security camera positioned above the clerk's desk, so that all of the clerk's activity can be observed",
+        "Separating the two tasks between different people",
+        "Longer and more complex passwords for all staff who have access to the accounts system"
+      ],
+      "correctIndex": 2,
+      "explanation": "Splitting the task stops one person from committing fraud alone. A camera is tempting because it sounds strong, but it cannot show what the clerk is doing inside the system or prevent the conflict."
+    },
+    {
+      "prompt": "A bank suspects that long-hidden fraud may be going on, and it wants someone else to handle each employee's work for two weeks in a row each year, in order to reveal any irregularities. Which control BEST fits?",
+      "options": [
+        "Least privilege",
+        "Separation of duties",
+        "Non-disclosure agreements",
+        "Mandatory vacation"
+      ],
+      "correctIndex": 3,
+      "explanation": "Required time off lets someone else see the work, which helps detect fraud. Separation of duties is tempting, but it splits tasks to prevent fraud, and does not require anyone to take a break."
+    },
+    {
+      "prompt": "Two warehouse employees, one who records deliveries and one who approves them, secretly agree to approve goods that never arrived. Which term BEST describes what they have done?",
+      "options": [
+        "Privilege creep",
+        "Collusion",
+        "Job rotation",
+        "Repudiation"
+      ],
+      "correctIndex": 1,
+      "explanation": "Collusion is people secretly working together to defeat a control such as separation of duties. Privilege creep is tempting, but that is a slow build-up of access, and the scenario has none."
+    },
+    {
+      "prompt": "A review finds that the accounts of several contractors stayed active for months after their contracts ended. What is the BEST long-term fix?",
+      "options": [
+        "Link each contractor account to its contract end date",
+        "Disable these particular contractor accounts straight away and send a note to the managers who hired them",
+        "Ask all contractors to promise in writing that they will not log in after their final day of work",
+        "Have the security team search the system each year for any accounts that were not used over the past year"
+      ],
+      "correctIndex": 0,
+      "explanation": "Automatic expiry fixes the cause, which is that access outlives the contract. Disabling those accounts is tempting and should happen, but it does nothing about the next contractor."
+    },
+    {
+      "prompt": "A company has decided to monitor the websites that its staff visit from work computers. What should be done FIRST, before monitoring begins?",
+      "options": [
+        "Set up the monitoring quietly and see what it reveals before deciding what staff need to know about it",
+        "Ask each department manager to choose which members of their team should be watched most closely",
+        "Inform staff in advance through policy and a login banner",
+        "Buy the most comprehensive monitoring product available, so that nothing is ever missed by the company"
+      ],
+      "correctIndex": 2,
+      "explanation": "Staff should be told about monitoring in advance, and legal advice applied, so that expectations of privacy are clear. Monitoring quietly is tempting for catching wrongdoing, but it creates legal and trust problems."
+    },
+    {
+      "prompt": "A company's outsourced payroll provider suffers a breach that exposes staff data. The chief executive says that the breach is entirely the provider's problem. What is the BEST response from the security manager?",
+      "options": [
+        "Agree, because the contract moved all responsibility for the staff data over to the payroll provider",
+        "Agree, but offer to help the provider as a gesture of goodwill between the two companies",
+        "Disagree, and arrange to take over the provider's systems and carry out the investigation directly",
+        "Disagree, because the company remains accountable for its data"
+      ],
+      "correctIndex": 3,
+      "explanation": "Work can be outsourced, but accountability cannot. Agreeing is tempting because the provider failed, but the company chose that provider and still owes a duty to its staff."
+    }
+  ]
+}

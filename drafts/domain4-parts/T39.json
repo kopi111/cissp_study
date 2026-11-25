@@ -1,0 +1,141 @@
+{
+  "id": "T39",
+  "studyNotes": [
+    {
+      "heading": "Denial of service attacks",
+      "body": "In this first part, we are going to look at attacks that try to stop a service from working at all.\n\nA DoS attack, which is short for denial of service, makes a service unavailable. Picture a crowd of people blocking a shop's doorway, so real customers cannot get in. A DDoS attack, or distributed denial of service, does this from many machines at once. These are often a botnet, which is a group of infected computers under one controller.\n\nAttackers multiply their power using two tricks.\n\nIn a reflection attack, the attacker forges the victim's address on a request. The server then sends its reply to the victim. Imagine someone ordering pizzas in your name and giving your home address.\n\nIn amplification, a small request causes a much larger reply. DNS, the Domain Name System, and NTP, the Network Time Protocol, are often abused this way, because they run over UDP, the User Datagram Protocol, which has no handshake.\n\nHere is a worked example. An attacker sends a DNS query of 60 bytes that produces a reply of 3,000 bytes. 3,000 divided by 60 is 50. So every 1 megabit per second that the attacker sends hits the victim as 50 megabits per second.\n\nHere are older attacks that you should recognize. A smurf attack sends ICMP echo requests, or ping messages, to a broadcast address with the victim's address forged. ICMP is the Internet Control Message Protocol. A fraggle attack is the same idea using UDP. Ping of death sends an oversized packet. Teardrop sends overlapping fragments that cannot be reassembled.\n\nThe controls include rate limiting, a CDN or Content Distribution Network, a DDoS scrubbing service from your provider, and a tested response plan. Scrubbing means that traffic is cleaned before it reaches you.\n\nHere is the most important point. Your own firewall cannot help when the internet link itself is full. By the time the flood reaches your firewall, the link has already filled. The filtering has to happen upstream.\n\nHere is a workplace example. An online retailer has a contract with its provider, so that scrubbing starts within minutes of an attack. It rehearsed this before the holiday season, and so it knows exactly who to call.\n\nHere is what to take away. Reflection redirects, amplification multiplies, and a full link has to be cleaned upstream."
+    },
+    {
+      "heading": "SYN flood, step by step",
+      "body": "Now we will study one attack in detail, because it depends upon knowing exactly how a connection starts.\n\nTCP, the Transmission Control Protocol, starts every connection with a three-way handshake. Here is the normal case, with the starting numbers included.\n\n- First, the client sends SYN, meaning synchronize, with its starting number. Let us call that number x.\n- Second, the server replies SYN-ACK, meaning synchronize-acknowledge, with its own starting number y, and an acknowledgement of x plus one.\n- Third, the client sends ACK, meaning acknowledge, of y plus one. The connection is now open.\n\nAfter step two, the server has reserved some memory for this connection and is waiting. We call this a half-open connection. It is like a restaurant that holds a table each time someone phones to book.\n\nA SYN flood abuses this waiting. Here is how it works.\n\n- Step 1: The attacker sends many SYN packets, often from forged addresses.\n- Step 2: The server replies SYN-ACK to each one, and it saves memory for each half-open connection.\n- Step 3: The final ACK never arrives.\n- Step 4: The table of half-open connections fills up, and real users are refused.\n\nThink of a prankster phoning the restaurant all evening to book tables, with false names. The tables are held for no one, and real customers are turned away.\n\nHere is a worked example. A server can hold 1,024 half-open connections, and it holds each one for 60 seconds. 1,024 divided by 60 is about 17. So only about 17 forged packets per second can keep that table full. This is why a SYN flood can succeed without a huge volume of traffic, even though the internet link is nowhere near full.\n\nHere are the controls. SYN cookies are the classic one. The server saves no state until the ACK returns. It encodes the details into its own starting number, so that it can rebuild the connection when a valid ACK arrives. Shorter timeouts help too. So do firewalls and load balancers that absorb the handshake on the server's behalf.\n\nHere is a workplace example. A web team sees thousands of connections stuck in a half-open state. They recognize the pattern, turn on SYN cookies and report the incident.\n\nThe takeaway is this. SYN, SYN-ACK, ACK. A flood never sends that final ACK, and SYN cookies keep the server from holding state."
+    },
+    {
+      "heading": "Spoofing, ARP poisoning and switch attacks",
+      "body": "Next we will look at attacks that pretend to be someone else on the network.\n\nSpoofing means faking an identity. That may be an IP address, where IP is the Internet Protocol. It may be a MAC address, where MAC is Media Access Control, the hardware label on a network card. It may be a caller ID. It is like a person wearing a fake delivery uniform.\n\nIngress and egress filtering drop packets whose source address cannot be right. Ingress means coming in, and egress means going out.\n\nNow ARP poisoning. ARP is the Address Resolution Protocol, and it links IP addresses to MAC addresses on a local network. It has no authentication. Any device can claim anything, and other devices will believe it.\n\nHere is how the attack works.\n\n- Step 1: The attacker sends false replies saying that the gateway's IP address belongs to the attacker's MAC address.\n- Step 2: The victims update their tables.\n- Step 3: Traffic meant for the gateway now flows through the attacker.\n- Step 4: The attacker reads or changes it, and passes it on so that nobody notices.\n\nThink about a neighbour who tells the postman that he has taken over your house number, and then collects all your mail, reads it and puts it back in your box.\n\nThe controls are Dynamic ARP Inspection on switches, supported by DHCP snooping. DHCP is the Dynamic Host Configuration Protocol, which gives out addresses. Snooping records which device received which address. The switch then compares each ARP message with that record. Static entries suit a few critical systems.\n\nAnother switch attack is MAC flooding. A switch has a table of addresses, called a content addressable memory table. It learns which device sits on which port. An attacker floods the switch with fake MAC addresses until the table is full. Many switches then send frames out of all ports, so the attacker can listen, as if the switch had become a hub. Port security fixes this by limiting the number of addresses on a port.\n\nHere is a workplace example. Users on one floor begin to see certificate warnings. An analyst finds that the gateway's IP address maps to a desktop computer's MAC address. The pattern points to ARP poisoning.\n\nYour takeaway is this. ARP believes anyone, so switches must check it. And port security limits what a single port can claim."
+    },
+    {
+      "heading": "DNS poisoning",
+      "body": "In this part, we will look at attacks on the Domain Name System, which most people trust without thinking about it.\n\nDNS, the Domain Name System, turns names into IP addresses, where IP is the Internet Protocol. It works like a phone book. A resolver is the server that finds answers for you, and it stores them for a while in a cache, which is a short-term store.\n\nDNS poisoning puts false records in that cache. Users then visit a fake site, even though they typed the right name. Think of a phone book with one wrong number printed in it. You dial correctly, you reach the wrong person, and you have no idea anything is wrong.\n\nHere is how the classic attack works.\n\n- Step 1: The attacker makes a resolver ask about a name.\n- Step 2: While the resolver is waiting, the attacker sends forged replies.\n- Step 3: If a forged reply matches the request's details and arrives first, the resolver accepts it.\n- Step 4: The false record is cached and served to everybody using that resolver, until it expires.\n\nThis is why DNS uses random query IDs and random source ports. An attacker has to guess both. A query ID has 16 bits, which gives 65,536 possible values. Adding a random port makes guessing far harder.\n\nHere are the controls.\n\n- DNSSEC, or DNS Security Extensions, signs records so that forged answers can be detected.\n- Random query ports and IDs.\n- Patched and restricted resolvers, which only answer your own users.\n\nDo not confuse this with some similar sounding attacks. DNS hijacking means changing the real settings, such as at the domain registrar. Pharming is the general term for sending users to a fake site through false name resolution. A hosts file on a computer can also be altered, which overrides DNS for that machine.\n\nCertificates help here too. If a user reaches a fake site, the site will not normally be able to show a valid certificate for the real name, and the browser will warn them. That is why users must not ignore those warnings.\n\nHere is a workplace example. A company's staff are sent to a fake login page although the address looks right. The team traces this to a poisoned resolver.\n\nHere is what to take away. Poisoning corrupts the phone book, and DNSSEC lets you check the entry."
+    },
+    {
+      "heading": "On-path attacks, sniffing and session hijacking",
+      "body": "Now we will look at attacks where someone gets into the middle of a conversation, or simply listens to it.\n\nAn on-path attack, once called man-in-the-middle, places the attacker between two parties, in order to read or change traffic. Both sides believe that they are talking directly to each other. Imagine a translator who secretly changes what is said in both directions. Rogue access points and ARP poisoning often set this up. ARP is the Address Resolution Protocol.\n\nThe controls are TLS, or Transport Layer Security, with proper certificate checks, VPNs or Virtual Private Networks, and mutual authentication, where both sides prove who they are. Train users not to ignore certificate warnings, because a warning is often the only visible sign of an on-path attack.\n\nThere is also SSL stripping, where the attacker quietly downgrades a connection to unencrypted HTTP, the Hypertext Transfer Protocol. SSL is the Secure Sockets Layer, the older name for this protection. HSTS, or HTTP Strict Transport Security, tells browsers to use only encrypted connections for a site.\n\nSniffing means capturing traffic. It is passive, and hard to detect, because the attacker sends nothing. Encryption is the main control. Also use switches rather than hubs, enable port security and restrict mirror ports. A mirror port copies traffic for analysis, so it should only be used by those who are authorized.\n\nThink of the difference between someone overhearing your phone call on a train and someone who has picked up an extension in your house. Both are listening. One is a matter of luck, and the other is an intrusion.\n\nSession hijacking is when an attacker takes over a connection that has already been authenticated, frequently by stealing a session token, which is a value that identifies you after you log in. Protect tokens with TLS, make them expire, and use random values.\n\nA replay attack captures valid traffic and sends it again later. Think of someone recording the sound of your garage door remote and playing it back. Controls include timestamps, sequence numbers and values that are used only once.\n\nHere is a workplace example. A traveller joins a fake hotel Wi-Fi network. Since the company uses a VPN and enforces TLS, the attacker on the path sees only scrambled data.\n\nYour takeaway is this. Encryption defeats listening, and strong authentication and certificate checks expose the person in the middle."
+    },
+    {
+      "heading": "Thinking like a manager about attacks",
+      "body": "In this final part, we will pull the attacks together, and practise the thinking that the exam rewards.\n\nThe method has three steps. First, name the attack from the symptoms. Second, identify the layer or service affected. Third, choose the control that fixes the cause.\n\nThink about going to the doctor. A good doctor does not prescribe anything until they have worked out what is wrong. In the same way, a security adviser names the problem first.\n\nHere is a list of symptoms and what they usually mean.\n\n- Internet link is completely full: volumetric DDoS, which is distributed denial of service. Clean it upstream.\n- Many half-open connections, link not full: SYN flood. Use SYN cookies.\n- Gateway's address mapped to an ordinary computer: ARP poisoning. Use Dynamic ARP Inspection.\n- Correct name leads to a fake site: DNS poisoning. Use DNSSEC. DNS is the Domain Name System, and DNSSEC is its security extensions.\n- Sudden certificate warnings: on-path attack. Investigate, do not click through.\n- Traffic read without any sign: sniffing. Encrypt it.\n\nNotice how a well-chosen control is specific. A web application firewall, however good, does nothing for an ARP problem. An exam option can be a real and useful security control and still be the wrong answer, because it does not fix this particular problem.\n\nNow the manager's actions. An attack in progress is an incident, so follow the incident response plan. Do not improvise. Contain the damage first. Protect people's safety before anything else. Tell management, using the agreed reporting path. Preserve evidence if the case could go to law. Then find and remove the root cause, and capture the lessons learned so that it does not happen again.\n\nDo not attack back. Striking the attacker's systems is usually illegal, and they may belong to an innocent victim of a botnet.\n\nHere is a workplace example. A hospital's website is flooded during a public health emergency. The first concern is that patients can reach critical services, so the team activates the agreed scrubbing service, informs leaders, and communicates to the public. Only afterwards do they perform a detailed review and strengthen the design.\n\nHere is what to take away. Name the attack, fix the cause, follow the plan, tell management, and never hit back. Above all, remember that people's safety always comes first."
+    }
+  ],
+  "practiceQuestions": [
+    {
+      "prompt": "An attacker sends small queries with a forged sender address to many public DNS servers, and each server sends a much larger answer to the victim. Which description BEST fits this attack?",
+      "options": [
+        "A SYN flood against the DNS servers",
+        "A reflection attack with amplification",
+        "DNS poisoning of a resolver's cache",
+        "A session hijack of a DNS transaction"
+      ],
+      "correctIndex": 1,
+      "explanation": "Forged replies aimed at the victim are reflection, and larger replies are amplification. DNS poisoning is tempting because DNS is involved, but no false records are being stored."
+    },
+    {
+      "prompt": "An attacker's query of 50 bytes produces a reply of 2,500 bytes. If the attacker sends 2 megabits per second of these queries, how much traffic reaches the victim?",
+      "options": [
+        "52 megabits per second",
+        "1,250 megabits per second",
+        "25 megabits per second",
+        "100 megabits per second"
+      ],
+      "correctIndex": 3,
+      "explanation": "2,500 divided by 50 gives an amplification of 50, and 2 times 50 is 100 megabits per second. 52 is tempting, but amplification multiplies and does not add."
+    },
+    {
+      "prompt": "An analyst captures ping requests sent to a network's broadcast address, all showing a single company's server as the sender. Which attack is the MOST likely?",
+      "options": [
+        "Smurf",
+        "Teardrop",
+        "ARP poisoning",
+        "Replay"
+      ],
+      "correctIndex": 0,
+      "explanation": "A smurf attack sends ping requests to a broadcast address with the victim's address forged. Teardrop is tempting as another older attack, but it sends overlapping fragments."
+    },
+    {
+      "prompt": "A web server's table of half-open connections keeps filling, even at a low traffic volume. What is happening in the TCP handshake that makes this attack succeed?",
+      "options": [
+        "The server never sends SYN-ACK in response to the client's request",
+        "The client sends ACK first, and the server cannot process it in order",
+        "The final ACK never arrives while the server holds resources",
+        "The server sends FIN straight after receiving each SYN packet"
+      ],
+      "correctIndex": 2,
+      "explanation": "The attacker sends SYN and never completes the handshake, so the server waits with memory reserved. The first option is tempting, but the server does send SYN-ACK, and that is what ties up its resources."
+    },
+    {
+      "prompt": "A server can hold 2,000 half-open connections, each for 50 seconds. About how many forged SYN packets per second are enough to keep the table full?",
+      "options": [
+        "40",
+        "400",
+        "2,000",
+        "100,000"
+      ],
+      "correctIndex": 0,
+      "explanation": "2,000 divided by 50 is 40 packets per second. 100,000 is tempting if you multiply instead of divide, but the table only needs to be refilled as entries time out."
+    },
+    {
+      "prompt": "A switch is flooded with thousands of fake source MAC addresses, and an attacker then sees traffic intended for other devices. Which control BEST prevents this?",
+      "options": [
+        "Signing the company's DNS zones with DNSSEC",
+        "Configuring port security to limit addresses on a port",
+        "Moving the internet link to a different provider",
+        "Longer certificate lifetimes for internal web servers"
+      ],
+      "correctIndex": 1,
+      "explanation": "MAC flooding fills the switch's table, and port security limits the addresses that a port can claim. DNSSEC is tempting as a good control, but it deals with name records and not with switch tables."
+    },
+    {
+      "prompt": "Users reach a fake banking page although they typed the correct address, and a cached record on the company's resolver points to an unknown server. What is the BEST immediate technical step in the response plan?",
+      "options": [
+        "Flush the poisoned cache and restrict the resolver",
+        "Ask each user to retype the bank's address more carefully",
+        "Increase the size of the resolver's memory for caching",
+        "Add a Dynamic ARP Inspection rule on every access switch"
+      ],
+      "correctIndex": 0,
+      "explanation": "The evidence points to DNS poisoning, so the false record must be removed and the resolver restricted. Dynamic ARP Inspection is tempting as a local network control, but the fault is in the DNS cache."
+    },
+    {
+      "prompt": "An attacker captures an encrypted login message from a remote door controller, and later sends the same message again to open the door. Which control BEST prevents this?",
+      "options": [
+        "A longer encryption key used for the door controller message",
+        "A larger bandwidth link to the door controller's location",
+        "A sign on the door saying that access is being monitored",
+        "A value that is used once and rejected if it is sent again"
+      ],
+      "correctIndex": 3,
+      "explanation": "A replay reuses valid traffic, so a value used only once makes the copy useless. A longer key is tempting, but the attacker does not need to break the encryption to resend the message."
+    },
+    {
+      "prompt": "A traveller's browser is quietly served an unencrypted version of a company login page by someone on the same public network. Which control BEST prevents this type of downgrade?",
+      "options": [
+        "A longer password policy across the company",
+        "A larger proxy server cache for the login page",
+        "HSTS, so that browsers insist on an encrypted connection",
+        "A new DNS name for the company login page"
+      ],
+      "correctIndex": 2,
+      "explanation": "HTTP Strict Transport Security tells browsers to use only encrypted connections. A longer password is tempting, but the attacker would simply capture it from the unencrypted page."
+    },
+    {
+      "prompt": "During a major attack on a company's website, a senior leader tells the security manager to launch a counterattack against the addresses involved. What is the BEST response?",
+      "options": [
+        "Launch the counterattack, but only outside of business hours",
+        "Decline, follow the response plan, and contact the upstream provider",
+        "Launch the counterattack against half the addresses as a test",
+        "Decline, and shut down all of the company's internet connections"
+      ],
+      "correctIndex": 1,
+      "explanation": "Hitting back is usually illegal, and those addresses may belong to innocent victims of a botnet, so the plan should be followed. Shutting down all connections is tempting as a quick stop, but it completes the attacker's goal."
+    }
+  ]
+}

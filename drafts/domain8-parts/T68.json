@@ -1,0 +1,141 @@
+{
+  "id": "T68",
+  "studyNotes": [
+    {
+      "heading": "What a maturity model is, and the five CMMI levels",
+      "body": "In this first part, we are going to learn what a maturity model is, and then the five levels you need to know in exact order.\n\nA maturity model measures how repeatable and how well managed an organization's work is. It is a ladder. It tells you where you stand, and what the next step looks like.\n\nThink of learning to cook. At first, a meal turns out well only by luck. Later you follow a recipe for each meal. Then the family writes one recipe book that everyone uses. Then you weigh everything and time everything. Finally, you keep adjusting the recipes based on those measurements.\n\nThe Capability Maturity Model Integration, or CMMI, grew from the older Capability Maturity Model, or CMM, which was first written for software. Here are the five levels, from lowest to highest.\n\n- Level 1, Initial: work is chaotic and reactive. Success depends on a few heroes.\n- Level 2, Managed: each project is planned and tracked.\n- Level 3, Defined: one standard process is used across the whole organization.\n- Level 4, Quantitatively Managed: the process is measured and controlled with numbers.\n- Level 5, Optimizing: the organization keeps improving, using what it measures.\n\nThere is a memory aid in your notes for this order. I Must Decide Quickly, Often. Initial, Managed, Defined, Quantitatively Managed, Optimizing.\n\nSome newer versions of the model also describe a level zero, called Incomplete. The five levels above are the ladder to learn.\n\nA maturity level describes how good the process is. It does not prove that a particular product is secure. A Level 5 company can still ship a flaw. But it is more likely to catch it, learn from it and stop it happening again.\n\nAlso, you cannot sensibly skip rungs. You cannot measure a standard process with numbers until you actually have a standard process.\n\nHere is what to take away. Maturity is about repeatable process, and the order is Initial, Managed, Defined, Quantitatively Managed, Optimizing."
+    },
+    {
+      "heading": "Climbing the ladder, and the old names",
+      "body": "Now we will climb the ladder with one worked example, and clear up a naming trap that catches many people.\n\nPicture a small company that builds software for pharmacies.\n\nAt first, one brilliant developer holds everything in her head. When she is on holiday, releases fail. That is Level 1, Initial.\n\nThe company's managers begin to plan each project, track its progress and record its requirements. One project may run differently from another, but each is under control. That is Level 2, Managed.\n\nNext, the company writes one standard process, including secure coding rules and code review. Every team follows it, and new projects start from it. That is Level 3, Defined.\n\nThen leaders begin to measure. They track how many defects are found per thousand lines of code, and how long flaws stay open. They use these numbers to control the process and to predict results. That is Level 4, Quantitatively Managed.\n\nFinally, the company studies those numbers and tries improvements. It finds that most flaws come from one type of input handling, so it changes its training and tools. That is Level 5, Optimizing.\n\nNow for the trap. The older CMM used these names: Initial, Repeatable, Defined, Managed, Optimizing. So the word Managed is Level 4 in the old model, and Level 2 in CMMI. Repeatable, in the old model, is Level 2. If a question says Repeatable, it is using the older names.\n\nThere is also a simple model for carrying out improvement, known as IDEAL. Its five phases come in this order.\n\n- Initiating: build the reason and the support for change.\n- Diagnosing: find out where you stand.\n- Establishing: set priorities and a plan.\n- Acting: carry out the plan.\n- Learning: review what happened and prepare for the next round.\n\nAs a manager, remember that the move from one level to the next is a business investment. Not every organization needs Level 5.\n\nHere is your takeaway. Project-by-project is Managed, one standard for all is Defined, and numbers mean Quantitatively Managed. Watch the word Managed in the older model."
+    },
+    {
+      "heading": "SAMM: maturity for software security",
+      "body": "Next we will look at a maturity model made specifically for software security.\n\nCMMI looks at process quality in general. The Software Assurance Maturity Model, or SAMM, looks directly at software security. It comes from OWASP, the Open Worldwide Application Security Project, a community that publishes free security guidance. SAMM is free and open for anyone to use.\n\nSAMM has five business functions. Learn these five.\n\n- Governance.\n- Design.\n- Implementation.\n- Verification.\n- Operations.\n\nEach function holds three security practices, so there are fifteen practices in all. Governance covers strategy and metrics, policy and compliance, and education and guidance. Design covers threat assessment, security requirements and security architecture. Implementation covers secure build, secure deployment and defect management. Verification covers architecture assessment, requirements-driven testing and security testing. Operations covers incident management, environment management and operational management.\n\nEach practice is scored at a maturity level from 1 to 3. A higher score means the activity is more complete and more consistent.\n\nThink of a health check at the doctor. You do not get one single mark for your body. You get readings for heart, blood and eyesight. Then you agree which to improve first.\n\nHere is a worked example of the steps. An insurance company assesses itself. It scores 2 for security requirements, but only 1 for security testing. Its applications handle sensitive medical data, so it sets a target of 2 for security testing within one year. It builds a plan, carries it out and measures again. Notice that the company does not chase a 3 everywhere. A small charity with a simple website could rightly set much lower targets. The target should match the risk.\n\nYou may also meet BSIMM, the Building Security In Maturity Model. BSIMM is descriptive. It reports what real companies are doing. SAMM is prescriptive. It suggests what you should do and how to improve.\n\nHere is what to take away. SAMM measures software security across five functions and fifteen practices, on a scale of 1 to 3, with targets set by risk."
+    },
+    {
+      "heading": "Operations and maintenance",
+      "body": "In this part, we will look at the longest stage in the life of software, the years after it goes live.\n\nMost of the life of software happens after release. This is called operation and maintenance. A common mistake is to treat release day as the end of the security work. It is closer to the beginning.\n\nThink of owning a car. Buying it is a single day. After that come years of oil changes, tire checks, repairs and new rules from the licensing office. If you stop all that, the car does not stay as safe as the day you bought it.\n\nSoftware is the same, even though the code does not wear out. Threats change. A flaw nobody knew about last year may be widely known today. So software that was safe last year may not be safe now.\n\nThe work includes applying patches, which are fixes from the developer or the vendor. It includes monitoring logs and alerts, and scanning for new weaknesses. It includes reviewing who still has access. It includes keeping backups, responding to incidents, and planning for the end of support and for retirement.\n\nHere is a workplace example. A city council runs a parking payment system. A serious flaw is announced in a component that it uses. Because it has good operations, it knows where that component runs. It tests the patch, gets emergency approval and applies it within a day. It then checks the logs for signs that someone used the flaw before it was patched.\n\nEnd of support deserves special attention. When a vendor stops issuing patches for a product, every new flaw stays open forever. The right response is to plan an upgrade or a replacement, and to manage the risk until then, perhaps with network isolation and closer monitoring. Working fine today is not a reason to ignore it.\n\nHot fixes must go back into the main code as well. If they do not, the next release quietly brings the old flaw back.\n\nHere is your takeaway. Security continues after release, through patching, monitoring, access review and planning for the end of support."
+    },
+    {
+      "heading": "Change management",
+      "body": "Now we will look at how changes to software are controlled, because uncontrolled change is one of the most common causes of outages and security failures.\n\nChange management makes sure that each change is requested, approved, tested and recorded. Learn its three parts in this order.\n\n- Request control: users ask for changes. Managers weigh cost and benefit and set priorities.\n- Change control: developers build and test the change in an orderly way, with a way to undo it.\n- Release control: the finished change is approved for production. Acceptance testing happens here, and debugging code must be removed.\n\nThink of having a kitchen wall removed. First you ask, and you decide whether it is worth the cost. Then the builder does the job carefully, with a plan for what to do if a pipe is found. Finally, an inspector approves the work before the family uses the room.\n\nHere is a workplace walk-through. A payroll clerk asks for a new report. That is the request. A manager compares cost and benefit and gives it a priority. A group called the change advisory board reviews the risk. A developer builds the report on a test system, and another person reviews the code. Testers confirm that it works and that nothing else broke. The release team, not the developer, moves it to production. Records are updated, and the change can be undone if necessary.\n\nDevelopers should not move their own code into production. This is separation of duties, which means splitting a task so that no single person can complete it alone. Even small teams can have a second authorized person approve and deploy.\n\nEmergency changes are still controlled. An authorized person approves, the change is tested as far as time allows, and full records and review follow soon after. Speed changes the timing of the paperwork. It does not remove the control.\n\nDo not confuse this with configuration management, which records the exact versions and settings in use. Change management controls how they change.\n\nHere is what to take away. Request, then change, then release. Separate the duties, and keep control even in an emergency."
+    },
+    {
+      "heading": "Integrated product teams",
+      "body": "In this final part, we will look at a way of organizing people, called an integrated product team, and bring this topic together.\n\nAn integrated product team, or IPT, brings people from many fields into one team for the whole project. Members may include developers, security, operations, quality, legal, purchasing and the business owner. They share responsibility for the result.\n\nThink of planning a family wedding. If the cook, the florist, the driver and the person paying all meet from the start, you learn early that the road is closed and the hall has no oven. If each works alone, you find out on the day.\n\nHere is a workplace example. A government department is building a new licensing system. The old way passes the work along a line. Business people write requirements. Developers build. Then, near the end, security reviews it, and the legal team finds that the data cannot be stored overseas. Months of work are wasted.\n\nWith an integrated product team, the lawyer raises the data location rule in the first week. The security specialist helps to shape the design. The purchasing officer checks that the supplier contract includes security duties. The operations lead makes sure that the system can be monitored and patched. Problems surface early, because each point of view is in the room.\n\nHow does this compare with DevOps? DevOps joins mainly development and operations, and leans heavily on automation. An integrated product team is usually wider, and includes business, legal and purchasing roles. It is mostly about how people are organized around a product.\n\nThe team needs a clear leader and clear decision rights, because shared responsibility can turn into nobody's responsibility. Risk acceptance still sits with the accountable manager.\n\nNow let us tie the whole topic together. Maturity models tell you how good your process is. Operations and maintenance keep the software safe through its long working life. Change management stops risky surprises. And integrated teams bring the right people together early.\n\nHere is your takeaway. An integrated product team puts many fields together from the start, so that problems are found while they are cheap to fix."
+    }
+  ],
+  "practiceQuestions": [
+    {
+      "prompt": "An old policy document says that the company aims for Level 2, Repeatable, of the Capability Maturity Model. A manager wants to update the wording to match CMMI. What is Level 2 called in CMMI?",
+      "options": [
+        "Initial",
+        "Defined",
+        "Managed",
+        "Optimizing"
+      ],
+      "correctIndex": 2,
+      "explanation": "Level 2 in CMMI is Managed, which replaced the older name Repeatable. Defined is tempting because it sounds like the next idea, but it is Level 3 in both models."
+    },
+    {
+      "prompt": "A start-up's software releases succeed only when its lead engineer is working. Nothing is written down, and each release is handled differently. Which CMMI level BEST describes this company?",
+      "options": [
+        "Initial",
+        "Managed",
+        "Defined",
+        "Optimizing"
+      ],
+      "correctIndex": 0,
+      "explanation": "Chaotic work that depends on heroes is Level 1, Initial. Managed is tempting because someone is clearly in charge, but Level 2 requires each project to be planned and tracked."
+    },
+    {
+      "prompt": "A company has reached CMMI Level 3, and all of its teams use one standard process. What must the company do to reach the NEXT level?",
+      "options": [
+        "Write one standard process for all of its teams to follow",
+        "Plan and track each of its projects on an individual basis",
+        "Rely on experienced staff to solve problems as they arise",
+        "Measure its process and control it with numbers"
+      ],
+      "correctIndex": 3,
+      "explanation": "Level 4, Quantitatively Managed, means that the process is measured and controlled with numbers. Writing one standard process is tempting, but that is what the company has already done to reach Level 3."
+    },
+    {
+      "prompt": "A security manager wants a free, open model that scores an organization's software security practices and helps it to set improvement targets. Which of these BEST fits?",
+      "options": [
+        "The seven-step NIST Risk Management Framework",
+        "The OWASP Software Assurance Maturity Model",
+        "The Common Vulnerability Scoring System ratings",
+        "A software bill of materials for each product"
+      ],
+      "correctIndex": 1,
+      "explanation": "The Software Assurance Maturity Model is free, comes from OWASP and scores software security practices. The Common Vulnerability Scoring System is tempting because it gives scores, but it rates individual flaws and does not measure an organization's practices."
+    },
+    {
+      "prompt": "A small charity completes a Software Assurance Maturity Model assessment and scores 1 in most practices. Its board asks whether it must reach a score of 3 everywhere. What is the BEST advice?",
+      "options": [
+        "Yes, because any score below 3 means that the model has been failed",
+        "No, because the model applies only to very large software firms",
+        "No, because targets should match its own risk and resources",
+        "Yes, but the charity may take up to ten years to get there"
+      ],
+      "correctIndex": 2,
+      "explanation": "The model expects each organization to set targets that match its risk. Saying that it applies only to large firms is tempting because the charity is small, but any organization may use it."
+    },
+    {
+      "prompt": "An insurer's assessment looks at its threat assessment, security requirements and security architecture practices. Which Software Assurance Maturity Model business function is being assessed?",
+      "options": [
+        "Governance",
+        "Design",
+        "Verification",
+        "Operations"
+      ],
+      "correctIndex": 1,
+      "explanation": "Those three practices make up the Design function. Verification is tempting because it sounds like assessment, but its practices are architecture assessment, requirements-driven testing and security testing."
+    },
+    {
+      "prompt": "A user asks for a new report in a payroll application. A manager has weighed the cost and benefit and has given the request a priority. Which part of change management comes NEXT?",
+      "options": [
+        "Change control",
+        "Release control",
+        "Request control",
+        "Configuration audit"
+      ],
+      "correctIndex": 0,
+      "explanation": "The order is request control, change control, then release control. Request control has just finished, so developers now build and test the change. Release control is tempting, but nothing has been built yet."
+    },
+    {
+      "prompt": "A developer has finished a tested change. The release manager is on leave, so the developer asks to move the code into production personally. What is the BEST response?",
+      "options": [
+        "Allow it, since the code has already passed all of its tests",
+        "Allow it, then have the developer write a short note about it",
+        "Delay every change until the release manager is back from leave",
+        "Have another authorized person approve and deploy the change"
+      ],
+      "correctIndex": 3,
+      "explanation": "A second authorized person keeps separation of duties and lets the work continue. Delaying every change is tempting because it is safe, but it harms the business when a proper alternative exists."
+    },
+    {
+      "prompt": "A vendor has ended support for the platform under a seven-year-old application. The application still works well and has had no incidents. What should the security manager do?",
+      "options": [
+        "Leave it unchanged, because no incident has happened so far",
+        "Record it in the risk register and close the matter for good",
+        "Plan an upgrade or replacement and manage the risk until then",
+        "Ask the application's users to report anything that looks odd"
+      ],
+      "correctIndex": 2,
+      "explanation": "Without vendor patches, each new flaw stays open, so the manager must plan a way out and reduce the risk meanwhile. Recording it in the register is tempting, but recording a risk does nothing to treat it."
+    },
+    {
+      "prompt": "A defense program keeps discovering, late in each project, that legal and purchasing requirements were missed and that security was never consulted. Which approach would BEST address the cause?",
+      "options": [
+        "Form an integrated product team from the start",
+        "Hold a review meeting when each product is finished",
+        "Move all of the developers under the operations manager",
+        "Ask the legal team to write a longer list of requirements"
+      ],
+      "correctIndex": 0,
+      "explanation": "An integrated product team puts legal, purchasing, security and others together from the beginning. A review meeting at the end is tempting, but it finds the same problems at the same late stage."
+    }
+  ]
+}

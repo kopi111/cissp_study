@@ -1,0 +1,141 @@
+{
+  "id": "T31",
+  "studyNotes": [
+    {
+      "heading": "The stages in order",
+      "body": "In this first part, we are going to see the whole life of an information system, and learn its stages in order.\n\nA system lifecycle is the full set of stages in a system's life. Think about building a house and living in it. Somebody wants a home. An architect plans it. Builders construct it. An inspector checks it. The family moves in and looks after it for years. One day, it is pulled down. A system follows the same path.\n\nHere is the order to learn.\n\n- 1. Stakeholder needs and requirements definition\n- 2. Requirements analysis\n- 3. Architectural design\n- 4. Development or implementation\n- 5. Integration\n- 6. Verification and validation\n- 7. Transition or deployment\n- 8. Operations and maintenance, also called sustainment\n- 9. Retirement or disposal\n\nStakeholders are the people with an interest in the system, such as users, owners, regulators and customers.\n\nNow here is the main idea that the exam is testing. Security belongs in every stage, starting at the first. It should not be added at the end.\n\nThink about the cost of a change. Moving a window on a drawing costs almost nothing. Moving a window after the house has been built costs a great deal. Fixing a security flaw at the design stage is cheap. Fixing it after thousands of customers are using the system is expensive, and it may be too late to avoid harm.\n\nHere is what security does in each stage, in short.\n\nIn the needs stage, security identifies the data, the laws and the level of risk that is acceptable.\n\nIn analysis, it turns those needs into testable requirements.\n\nIn design, it models threats and chooses controls.\n\nIn development, it applies secure coding.\n\nIn integration, it tests how the parts work together.\n\nIn verification and validation, it proves that the controls work.\n\nIn transition, it hardens the system and gets formal approval.\n\nIn operations, it patches, monitors and manages change.\n\nIn retirement, it protects and removes the data.\n\nHere is a workplace example. A company rushes a new customer portal to market, and it asks security to look at it one week before launch. Testing finds a basic design flaw. The launch is delayed by months. Had security been involved from the start, the flaw would have been caught on paper.\n\nHere is what to take away. Learn the nine stages in order, and remember that security belongs in every one of them."
+    },
+    {
+      "heading": "Needs and requirements analysis",
+      "body": "Now we will look closely at the first two stages, where the most important decisions are made.\n\nIn the stage of stakeholder needs, you ask what the business wants. Find the data involved, the laws that apply and how much risk the owner accepts. Get management support now, because security needs funds and authority.\n\nThink about asking an architect to build you a house. The architect's first questions are about your family. How many people will live there? Do you need a ramp for a wheelchair? How much can you spend? It would be a mistake to start drawing before asking those things.\n\nFor security, the questions include these. What data will this system hold? How sensitive is it? Which laws apply? Who are the users? What is the harm if the system stops, or if the data is stolen or changed? Who owns this system, and who will accept its risk?\n\nDo not forget to include all of the stakeholders. Users know how the work is really done. Lawyers know the regulations. Operations staff know what is hard to support.\n\nIn requirements analysis, you turn those needs into clear statements that can be tested. Let us look at the difference. The word secure cannot be tested. The sentence, lock the account after five failed logins, can be tested.\n\nHere is a useful habit. For each statement, ask yourself how you would prove that it has been met. If you cannot answer that, then the statement needs rewriting.\n\nHere is a worked example. A clinic wants a new patient booking system.\n\nThe need is this. Patient information must be private, and staff must be able to book appointments quickly.\n\nThe requirements become these. All patient records are encrypted when stored. Each staff member has an individual login. Each view of a record is logged. A booking screen appears within two seconds.\n\nNotice that last requirement. It has nothing to do with security on its face, but it matters. If the secure method is too slow, then staff will look for ways around it.\n\nRequirements also have to be traceable. That means each requirement is linked to the need it came from and to the test that proves it.\n\nHere is your takeaway. Start with what stakeholders need and how much risk they accept, and then write requirements that can be tested and traced."
+    },
+    {
+      "heading": "Architectural design and development",
+      "body": "Next we are going to look at how the plan is drawn up, and how the system is built.\n\nArchitectural design means planning the structure of a system. Think about the drawings for a house. They decide where the walls go, where the electricity runs, and how many doors there are. Changing those things later is very difficult.\n\nDo threat modeling here, which means thinking through what could go wrong. Apply secure design principles such as least privilege, which means only the access needed, and defense in depth, which means several layers of protection. Decide which controls go where.\n\nDesign is where the big decisions are made. Should the system store card numbers at all, or should a specialist payment company hold them instead? Where will the keys be kept? Which parts face the internet? Which parts must be kept apart? A system that never stores card numbers cannot have them stolen.\n\nA design should also be reviewed by someone who did not create it.\n\nThe second stage here is development, also called implementation. It means building the system, using secure coding standards, code reviews and approved libraries. A library is a set of ready-made and tested code that a developer can reuse.\n\nHere are some common practices.\n\nFollow a coding standard, so that developers avoid known mistakes.\n\nHave a second developer review the code. This is a human check.\n\nUse tools to examine the code automatically. Static testing reads the code without running it. Dynamic testing runs the program and tries to break it.\n\nKeep the code in a controlled store, so that every change is recorded and can be traced to a person.\n\nKeep development, testing and live systems apart. And do not use real customer data for testing, unless it has been properly masked. Masking replaces sensitive values with harmless ones.\n\nKeep track of third-party components too, because a flaw in a library becomes a flaw in your product. A software bill of materials is a list of what your product contains.\n\nHere is a workplace example. A team building a hospital application finds at design stage that one service will need to reach every other service. They redesign it, so that each service has only the access it needs.\n\nHere is what to take away. Make the big security decisions at design, and build with standards, reviews and tested components."
+    },
+    {
+      "heading": "Integration, verification and validation",
+      "body": "In this part, we are going to look at how the parts are joined together, and at how we prove that the system is right.\n\nIntegration means joining the parts together, and testing the connections. Parts that are safe alone may be unsafe once joined, for example if one trusts another without checking.\n\nThink about the plumber and the electrician working on a house. Each one's work may be fine alone. But if the pipe goes through the same space as the cable, you have a new problem that neither of them created alone.\n\nIn the workplace, a web application may check the user's identity carefully, and pass the request to a billing service. If the billing service simply accepts anything from anyone on the network, then an attacker who reaches it directly can skip the identity check.\n\nVerification and validation are different, and the exam likes this difference.\n\n- Verification asks: did we build the system right? It checks the system against the written requirements.\n- Validation asks: did we build the right system? It checks that the system meets the real needs of the users.\n\nA memory aid is that verification looks at the document, and validation looks at the people.\n\nHere is an everyday example. You order a cake for a birthday, and you write down chocolate, with one candle. The baker makes exactly that. That passes verification. But your child is allergic to chocolate, and it is the wrong cake for the party. It fails validation. The baker did what the paper said. The paper was wrong.\n\nSo a system can pass verification and still fail validation. It may match a flawed specification perfectly.\n\nHere is a workplace example. A company's specification says that the expense system must require a manager's approval for each claim. Testers confirm that it does. That is verification. In practice, the company's managers are often away travelling, and claims are stuck for weeks. The system does not meet the real need. That is a validation failure.\n\nFor security, verification might include checking that every requirement has a passing test. Validation might include a penetration test, which is an authorized simulated attack, and trials with real users to see whether the controls work in practice.\n\nHere is your takeaway. Parts that are safe alone may be unsafe when joined, verification means built right, and validation means the right thing was built."
+    },
+    {
+      "heading": "Transition, operations and maintenance",
+      "body": "Now we will look at the moment a system goes live, and at the long period that follows.\n\nTransition, also called deployment, means moving the system into live use. Think about moving into a new home. You change the locks, you check the smoke alarms, you learn how the heating works, and you make sure that you can leave quickly in an emergency.\n\nHarden the system, meaning turn off everything not needed. Plan a way back if something fails. This is called a rollback plan. Train the users, and get formal approval. A senior manager accepts the remaining risk. Earlier in this domain we called that authorization, and it comes after the technical assessment.\n\nOperations and maintenance is the next stage, and it is also called sustainment. It is usually the longest stage. A house is built in a few months, and lived in for decades. A system may be in service for many years.\n\nThe work of this stage includes the following.\n\nPatch, which means install updates, after testing them.\n\nMonitor, using logs and alerts.\n\nBack up, and test recovery.\n\nReview who has access, and remove what is no longer needed.\n\nReassess risk regularly, because threats change.\n\nTwo processes deserve particular attention. Change management means each change is reviewed, approved, tested and recorded. Configuration management means keeping systems at a known setup, so that you can notice if something has drifted.\n\nHere is why this matters. Think about someone in a family quietly moving the fuse box without telling anyone. Everything seems fine, until the day there is a problem and nobody can find it. Unrecorded changes cause outages, and they also hide attackers.\n\nHere is the order for a normal change. Someone makes a request. It is reviewed for risk. It is approved. It is tested. It is scheduled and carried out. The records are updated. In an emergency, the steps can be shortened, but the review still happens afterwards.\n\nHere is a workplace example. An administrator changes a firewall rule on a Friday night to fix a problem, without any record. Weeks later, an attacker uses that opening. No one can say who made the change, or why. A proper change process would have shown the risk.\n\nHere is what to take away. A senior manager approves the go-live, operations is usually the longest stage, and every change is reviewed, approved, tested and recorded."
+    },
+    {
+      "heading": "Retirement, and a worked example from start to finish",
+      "body": "In this final part, we will look at how a system's life ends, and then follow one system through every stage.\n\nRetirement, or disposal, means ending the system safely. Think about moving out of a house. You take your valuables, you shred your old letters, you hand back the keys, and you tell the post office.\n\nHere are the steps.\n\n- Check how long the law requires data to be kept.\n- Move or archive the data that must stay.\n- Sanitize or destroy storage. Keep a record.\n- Remove accounts, certificates and firewall rules.\n- Tell the stakeholders and update the inventory.\n\nSanitizing has levels. Clearing overwrites data, to protect against ordinary recovery tools. Purging uses stronger methods, to protect against laboratory recovery. Destroying physically ruins the media. A degausser, which uses a powerful magnetic field, works on magnetic drives, but it does not work on solid state drives. Cryptographic erasure, which means destroying the encryption keys, is another option.\n\nForgotten accounts and firewall rules are common leftovers. An old connection that nobody remembers is a door left open.\n\nNow we will follow one system through the stages. A shop wants to sell online.\n\n- Needs: the owner wants online orders and must follow card payment rules.\n- Analysis: card data must be encrypted, and staff need individual logins.\n- Design: a payment company will handle card numbers, so the shop never stores them.\n- Development: developers use a tested library and review each other's code.\n- Integration: the store is joined to the payment service and tested.\n- Verification: testers confirm each written requirement is met.\n- Validation: real staff and customers confirm it works for them.\n- Deployment: the owner approves the risk, and the store goes live.\n- Operations: patches, monitoring and backups continue.\n- Retirement: data is kept as the law requires, then disks are wiped and accounts removed.\n\nNotice how a single good decision at the design stage made the later stages easier. Because the shop never held card numbers, it had fewer rules to follow in operations, and it had fewer worries at retirement.\n\nAs a manager, plan for the end at the start. Ask the vendor how you will get your data back, and how it will be destroyed.\n\nHere is your takeaway. Retirement means checking retention, moving the data that must stay, sanitizing or destroying storage, and removing all access. Security runs through every stage, from the first idea to the last wiped disk."
+    }
+  ],
+  "practiceQuestions": [
+    {
+      "prompt": "A project team is identifying the data a new system will hold, the laws that apply and how much risk the owner will accept. Which lifecycle stage is this?",
+      "options": [
+        "Architectural design",
+        "Stakeholder needs and requirements definition",
+        "Verification and validation",
+        "Transition"
+      ],
+      "correctIndex": 1,
+      "explanation": "Understanding data, law and risk appetite happens at the first stage. Architectural design is tempting because it is also early, but design depends on knowing these needs first."
+    },
+    {
+      "prompt": "A project's security requirement says only that the system must be secure. What is the BEST action for the security manager?",
+      "options": [
+        "Approve it, as it covers every possible threat",
+        "Add the word strongly to make the requirement firmer",
+        "Rewrite it as specific statements that can be tested",
+        "Remove it, since security belongs in the design stage"
+      ],
+      "correctIndex": 2,
+      "explanation": "Requirements must be clear and testable. Approving it is tempting because it sounds complete, but nobody could ever prove that it had been met."
+    },
+    {
+      "prompt": "At which stage is it generally LEAST expensive to correct a security weakness?",
+      "options": [
+        "Operations and maintenance",
+        "Transition or deployment",
+        "Requirements and design",
+        "Integration testing"
+      ],
+      "correctIndex": 2,
+      "explanation": "The earlier a flaw is found, the cheaper it is to fix, and requirements and design come first. Integration testing is tempting because it finds real faults, but by then the parts have already been built."
+    },
+    {
+      "prompt": "Two components each pass their own security tests. When they are joined, one trusts data from the other without checking it, which creates a weakness. In which stage should this be found?",
+      "options": [
+        "Integration",
+        "Retirement",
+        "Requirements analysis",
+        "Stakeholder needs"
+      ],
+      "correctIndex": 0,
+      "explanation": "Integration tests the connections between parts. Requirements analysis is tempting because it is an early check, but the weakness only exists once the parts have been joined."
+    },
+    {
+      "prompt": "A testing team checks each feature of a new system against the signed specification and confirms that all items pass. What activity have they completed?",
+      "options": [
+        "Validation",
+        "Authorization",
+        "Certification of risk acceptance",
+        "Verification"
+      ],
+      "correctIndex": 3,
+      "explanation": "Checking the system against written requirements is verification. Validation is tempting because it sounds similar, but validation checks the real needs of the users."
+    },
+    {
+      "prompt": "A new expense system meets every line of its specification, but staff report it does not match how the business really works. Which conclusion is BEST?",
+      "options": [
+        "Verification has failed, and validation has passed",
+        "Verification has passed, and validation has failed",
+        "Both verification and validation have passed",
+        "Both verification and validation have failed"
+      ],
+      "correctIndex": 1,
+      "explanation": "Meeting the specification means verification passed, and not meeting the real need means validation failed. The first option is tempting if the two terms are swapped, so remember that verification looks at the document."
+    },
+    {
+      "prompt": "Development has finished and testing has passed. Before going live, who should formally accept the remaining risk?",
+      "options": [
+        "A senior manager with authority over the system",
+        "The lead developer who wrote the code",
+        "The tester who ran the final test",
+        "A representative of the vendor"
+      ],
+      "correctIndex": 0,
+      "explanation": "Accepting risk is a decision for management. The lead developer is tempting because of technical knowledge, but technical staff do not have the authority to accept risk on behalf of the business."
+    },
+    {
+      "prompt": "An administrator makes an urgent, undocumented change to a production firewall to restore a service. What is the BEST next step under good change management?",
+      "options": [
+        "Reverse the change right away, even if the service fails again",
+        "Leave the change alone, as the service has been restored",
+        "Submit the change for review and record it after the fact",
+        "Dismiss the administrator for failing to follow the process"
+      ],
+      "correctIndex": 2,
+      "explanation": "Emergency changes can shorten the process, but they are still reviewed and recorded afterwards. Leaving it alone is tempting because the service works, but an unrecorded change is a hidden risk."
+    },
+    {
+      "prompt": "A company is retiring a system. Which action should be done FIRST?",
+      "options": [
+        "Wipe all of the server's disks",
+        "Remove the firewall rules for the system",
+        "Destroy the encryption keys",
+        "Check how long data must be retained"
+      ],
+      "correctIndex": 3,
+      "explanation": "Retention requirements decide what must be kept, so this comes before anything is destroyed. Wiping the disks is tempting because it is the obvious task, but it could destroy records that the law requires."
+    },
+    {
+      "prompt": "A company must sanitize solid state drives from a retired system. Which method should NOT be relied on?",
+      "options": [
+        "Physical shredding of the drives",
+        "Degaussing the drives",
+        "Cryptographic erasure, if data was encrypted",
+        "A vendor-approved purge command"
+      ],
+      "correctIndex": 1,
+      "explanation": "Degaussing relies on magnetic fields and does not work on solid state drives, which store data electronically. Cryptographic erasure is tempting to doubt, but destroying the keys is an accepted method if the data was properly encrypted."
+    }
+  ]
+}

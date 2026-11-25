@@ -1,0 +1,141 @@
+{
+  "id": "T73",
+  "studyNotes": [
+    {
+      "heading": "What an API exposes",
+      "body": "In this first part, we are going to look at what an API is, and at why attackers like them so much.\n\nAn application programming interface, or API, lets one program ask another for data or action. Picture a bank teller's window. You do not walk into the vault. You make a request at the window, and the teller checks whether it is allowed. An API is that window, built for programs and not for people.\n\nYou use APIs every day, often without knowing it. A weather app on your phone asks a weather service for today's forecast. A shopping site asks a payment company to charge your card. Each of those is one program calling another.\n\nThere are two styles to recognize. REST, which stands for Representational State Transfer, is a common web style. It usually sends simple text over ordinary web connections, and it has no built-in security of its own. SOAP, which stands for Simple Object Access Protocol, is an older style that uses XML, the Extensible Markup Language, a structured text format. SOAP has its own security standard, called Web Services Security. On the exam, you need only know the difference in general terms.\n\nAPIs are often easy to reach and easy to automate, and they frequently lead straight to the data. Web pages can hide things visually, but an API returns whatever it is built to return. An attacker does not need to use your app at all. The attacker can talk straight to the window.\n\nHere is a workplace example. A retailer builds a mobile app. The app shows only a customer's own orders, and the company feels safe. But the API behind the app will return any order number that it is asked for. An attacker, using a simple script, asks for one order after another and collects thousands of records. The app was never the protection. The checks had to be in the API.\n\nSo an API deserves the same care as a website that faces the public. Often it deserves more.\n\nHere is what to take away. An API is a window into your systems, built for programs, and every control must be enforced at that window, on the server."
+    },
+    {
+      "heading": "Proving who is calling, and what they may have",
+      "body": "Next we will look at the two questions that every API must answer on every call. Who are you, and are you allowed to have this?\n\nAuthentication proves who is calling. Authorization decides what that caller may do. Think of a hotel. Showing your identity card at the front desk is authentication. Your room key, which opens only your own room, is authorization.\n\nAn API key identifies a calling program. It is weak proof by itself. It is like a single shared password, and if it is placed inside a mobile app, it can be extracted. Keep it secret and change it regularly.\n\nOAuth 2.0 is a standard for delegated authorization. It lets a user give an app limited access without sharing a password. Here are its steps, in a workplace example where a customer connects a budgeting app to a bank.\n\n- The app sends the customer to the bank's own login page.\n- The customer logs in at the bank and approves limited access, such as reading balances only. That limit is called a scope.\n- The bank gives the app a token, which is a temporary digital pass.\n- The app shows that token to the bank's API, and receives only what the scope allows.\n\nThe app never sees the password, and the customer can cancel the access later.\n\nOAuth by itself answers what the app may do. It does not tell the app who the user is. OpenID Connect, or OIDC, adds authentication on top of OAuth. When you see sign in with an outside account, that is usually OIDC.\n\nA JSON Web Token, or JWT, is a signed package of claims in JSON, JavaScript Object Notation, a simple text format. It has three parts, a header, a payload and a signature. The signature must always be checked, along with who issued it and when it expires. It is signed, not normally encrypted, so never put secrets in it.\n\nNow the leading API risk. Check every request and every object. Being logged in does not give the right to see someone else's record. This failure is called broken object level authorization.\n\nHere is your takeaway. OAuth grants limited access, OIDC adds identity, and every request must be authorized for that specific object."
+    },
+    {
+      "heading": "Protecting the API and its traffic",
+      "body": "Now we will go through the other protections that a well-run API needs.\n\nStart with inventory. Keep a list of every API and retire old versions. Forgotten APIs go unpatched. Think of a building with a side door that nobody remembers. All the guards are at the front.\n\nEncrypt the traffic. Transport Layer Security, or TLS, protects data while it travels. It does not check what a logged-in user is allowed to see, so it never replaces authorization.\n\nValidate input. Accept only the expected format, type and size, and do it on the server. This reduces injection, where input is treated as a command.\n\nLimit the data. Return only the fields that are needed. A common mistake is to return a full customer record and let the app hide most of it on the screen. Think of being handed someone's whole medical file, and being politely asked to read only the first page. An attacker reads all of it.\n\nApply rate limiting, which means capping the number of requests a caller may send in a period. This reduces abuse and denial of service, which means overwhelming a service so that real users cannot reach it. Rate limiting slows an attack down, but it does not fix a missing authorization check.\n\nLog and monitor. Record calls and watch for odd patterns, such as one account asking for thousands of different records.\n\nAn API gateway is a single front door that can apply many of these controls in one place. It can check tokens, enforce rate limits and write logs. Think of a single reception desk for a large office building, in place of one on every floor. It still cannot know whether this customer owns this particular order, so the check for that stays in the application.\n\nHere is a workplace example. An insurer finds that a partner's script is calling its quote API thousands of times a minute. The gateway applies a rate limit straight away. Logs show the source. The insurer then reviews which fields each response returns, and it removes those that the partner does not need.\n\nHere is what to take away. Know all your APIs, encrypt them, validate input, return only what is needed, limit the rate, and watch the logs."
+    },
+    {
+      "heading": "Secure coding standards",
+      "body": "In this part, we will look at why written rules for developers matter, and at what makes them work in real life.\n\nA secure coding standard is a written set of rules for developers. It turns good habits into an organizational requirement. Without one, security depends on what each person happens to remember.\n\nThink of a commercial kitchen. A good cook may wash hands and keep raw meat apart without being told. But a restaurant does not leave food safety to chance. It writes the rules on the wall, it trains the staff, and an inspector checks.\n\nThere are well-known sources that you should recognize. The OWASP Secure Coding Practices come from OWASP, the Open Worldwide Application Security Project. The CERT coding standards are named after the Computer Emergency Response Team at Carnegie Mellon University, and they are written for particular languages, such as C and Java. The Common Weakness Enumeration, or CWE, is a catalog of types of weakness that a standard can be built upon.\n\nA standard works only when it is supported. Management must back it through policy, training, tools and checks in the development process. Let us walk through how a workplace makes that happen.\n\n- Management approves a policy that requires the standard.\n- The security team adapts a public standard to the languages in use.\n- Developers are trained, with examples from their own code.\n- Automatic tools check the rules at every build.\n- Peer review checks what tools cannot.\n- Exceptions are approved and recorded, with an expiry date.\n- Results are measured, and the standard is updated.\n\nWithout those steps, you have a document on a shelf. If an audit finds that developers ignore the standard, simply writing a longer one is the wrong answer. Find out why it is ignored, then make it part of how work is done.\n\nA note on the exam mindset. Standards apply to contractors too. Put them in the contract, and check them on delivery.\n\nHere is your takeaway. A secure coding standard makes safe habits a requirement, and it works only with management support, training, automatic checks and review."
+    },
+    {
+      "heading": "Secure coding practices",
+      "body": "Next we will go through the practices that a secure coding standard normally contains, and see them at work.\n\nThe rules commonly include these. Validate all input on the server. Encode output for the place where it will be displayed. Use parameterized queries, which keep database commands apart from user data. Use proven cryptography libraries, and never invent your own. Fail securely, so that an error does not open access. Show users simple error messages, and keep the details in protected logs. Never hard-code passwords or keys. Remove debugging code and hidden maintenance access before release. Have a second person review code.\n\nLet us take a few of them more slowly.\n\nFail securely means that when something goes wrong, the system ends up in a safe state. Think of a bank vault that locks itself if the power fails. A login service that cannot reach its user database must refuse entry. It must not wave everyone through to keep the business moving. Do note that people's safety can change this. A fire door must open during a power failure, because lives come first.\n\nError handling matters because detailed errors teach attackers. A message that shows table names and internal paths is free research for them. The user needs only a short message. The technical detail goes to a protected log.\n\nNever inventing your own cryptography matters because cryptography is unusually easy to get wrong. A home-made scheme may look strong and fall quickly to an expert. Use well-tested libraries.\n\nHere is a worked example, a short code review at a small insurance firm. The reviewer reads a new login function and finds four problems. The database query joins user text directly, so she asks for a parameterized query. A database password is written in the source, so she asks for it to be moved to a vault, and for the old password to be changed. On a database error, the function returns success, so she asks for it to fail securely. Finally, the page shows the full error, so she asks for a simple message and a log entry.\n\nHere is what to take away. Validate input, encode output, keep secrets out of code, use proven cryptography, fail securely, and have a second person review the work."
+    },
+    {
+      "heading": "Software-defined security",
+      "body": "In this final part, we will look at software-defined security, and at both its strength and its danger.\n\nSoftware-defined security, or SDS, means that security rules are defined and managed centrally through software. They are not fixed to one physical device. Rules can follow a workload, meaning a running application or server, wherever it moves. That suits cloud services and virtual systems, where servers appear, move and vanish all the time.\n\nThink of a store loyalty card and the old paper punch card. The paper card works only at the one shop that stamped it. The digital account follows you to any branch. In the same way, a rule tied to a physical firewall stays in one place. A rule held in software follows the server.\n\nHere is a workplace example. A school adds ten virtual servers for exam week. A central policy automatically gives each server the right firewall rules. Nobody configures them one at a time. When exam week ends and the servers are removed, the rules go with them.\n\nThe benefits are consistent rules, fast change and automation. Micro-segmentation becomes practical too. That means placing tight controls around each small group of workloads, so that an intruder who gets into one cannot move freely to the others.\n\nPolicy as code means writing these rules as version-controlled files, which can be reviewed and tested. Infrastructure as code means doing the same for the servers and networks themselves. So a rule change can go through the same review, testing and approval as an ordinary code change. You also get a full history of who changed what.\n\nThe risk is concentration. An attacker who controls the central console or an automation account can change security everywhere at once. One typing error can also spread everywhere in seconds. Protect the console with strong authentication, least privilege, change control and logging.\n\nNow let us tie the topic together. APIs must check every call. Coding standards make secure habits normal. Software-defined security makes rules consistent and quick to apply. All three replace memory and luck with something repeatable and provable.\n\nHere is your takeaway. Software-defined security manages rules centrally so that they follow workloads, and its central console needs your strongest protection."
+    }
+  ],
+  "practiceQuestions": [
+    {
+      "prompt": "A tester finds that an API accepts a JSON Web Token after changing the role inside it from user to administrator. The API never rejects the altered token. What is the BEST fix?",
+      "options": [
+        "Verify the signature, issuer and expiry of each token",
+        "Make the tokens much longer so they are harder to read",
+        "Send each token in the web address and not in the header",
+        "Encode the token a second time before it is sent back"
+      ],
+      "correctIndex": 0,
+      "explanation": "Checking the signature proves that the token has not been altered. Longer tokens are tempting because length helps with passwords, but a token's contents are protected by its signature and not by its size."
+    },
+    {
+      "prompt": "A company wants its web application to let users sign in through an outside identity provider, and it needs to learn who each user is. Which technology BEST fits?",
+      "options": [
+        "OAuth 2.0 alone, with a broad scope",
+        "A single API key shared among users",
+        "OpenID Connect",
+        "Rate limiting at the API gateway"
+      ],
+      "correctIndex": 2,
+      "explanation": "OpenID Connect adds authentication on top of OAuth 2.0, so the application learns who the user is. OAuth alone is tempting because it is involved, but by itself it deals with authorization and does not establish identity."
+    },
+    {
+      "prompt": "A mobile app contains one API key that all copies of the app use to call a company's service. What is the MOST significant concern?",
+      "options": [
+        "It makes each call take longer over the network",
+        "It forces all users to choose a long new password",
+        "It cannot be sent over Transport Layer Security",
+        "It can be extracted, and it identifies only the app"
+      ],
+      "correctIndex": 3,
+      "explanation": "A key inside an app can be pulled out, and it says nothing about which user is calling. The Transport Layer Security answer is tempting because it concerns protection in transit, but API keys can be sent over encrypted connections."
+    },
+    {
+      "prompt": "A breach occurs through an old version of an API that the current team did not know was still running. What is the BEST long-term control?",
+      "options": [
+        "Raise the rate limit on the current version of the API",
+        "Keep an API inventory and retire old versions",
+        "Change the name of the old version in order to hide it",
+        "Add more fields to the responses of the new version"
+      ],
+      "correctIndex": 1,
+      "explanation": "An inventory and a retirement process deal with forgotten APIs at their source. Renaming the old version is tempting because it seems quick, but hiding something leaves it unpatched and still reachable."
+    },
+    {
+      "prompt": "An API returns the full customer record, including date of birth and home address. The mobile app displays only the customer's name and hides the rest on the screen. What should be done?",
+      "options": [
+        "Tell the app's developers to hide the extra fields better",
+        "Encrypt the whole response and keep sending every field",
+        "Return from the server only the fields that are needed",
+        "Add a rate limit of ten calls per minute for each customer"
+      ],
+      "correctIndex": 2,
+      "explanation": "The server should send only what is required, because anything sent can be read by the caller. Encrypting the response is tempting, but the caller decrypts it at the other end and can still read every field."
+    },
+    {
+      "prompt": "Attackers are sending thousands of login attempts each minute to a company's API. Which control would BEST reduce this abuse?",
+      "options": [
+        "Encrypt the traffic with Transport Layer Security",
+        "Return more detailed error messages to each caller",
+        "Publish a new version of the API at a different address",
+        "Apply rate limiting at the API gateway"
+      ],
+      "correctIndex": 3,
+      "explanation": "Rate limiting caps how many requests a caller may send in a period. Encryption is tempting because it is a basic API control, but it protects data in transit and does not reduce the number of attempts."
+    },
+    {
+      "prompt": "A company has a written secure coding standard, but an audit finds that developers ignore it and that passwords are still hard-coded. What should the security manager do?",
+      "options": [
+        "Back it with policy, training and build checks",
+        "Rewrite the standard so that it is much longer and more detailed",
+        "Send the standard to all developers again by email",
+        "Replace all of the developers with outside contractors"
+      ],
+      "correctIndex": 0,
+      "explanation": "A standard needs management backing, training and enforcement in the process. A longer standard is tempting because it seems more thorough, but the problem is that the current one is not followed."
+    },
+    {
+      "prompt": "A login service cannot reach its user database. To keep the business running, it is programmed to let every user in until the database comes back. Which secure coding principle does this break?",
+      "options": [
+        "Separation of duties",
+        "Fail securely",
+        "Output encoding",
+        "Software composition"
+      ],
+      "correctIndex": 1,
+      "explanation": "An error must leave the system in a safe state, and here the error opens access to everyone. Separation of duties is tempting because it is a well-known principle, but it concerns splitting tasks between people."
+    },
+    {
+      "prompt": "When an error occurs, a web application shows users a full technical trace, including database table names. What is the BEST change?",
+      "options": [
+        "Show the same details only to users who log in first",
+        "Show the details on screen in a small grey font",
+        "Show a simple message and log the details securely",
+        "Turn off all logging so that no details exist anywhere"
+      ],
+      "correctIndex": 2,
+      "explanation": "Users need only a short message, while technical detail belongs in protected logs. Showing the details to logged-in users is tempting because it limits the audience, but any attacker with an account would still see them."
+    },
+    {
+      "prompt": "An organization has adopted software-defined security across its virtual environment. Which item should receive the STRONGEST protection?",
+      "options": [
+        "An individual virtual firewall interface",
+        "The printed copy of the firewall rule set",
+        "The staff information page on the intranet",
+        "The central policy console"
+      ],
+      "correctIndex": 3,
+      "explanation": "Whoever controls the central console can change security everywhere at once. An individual firewall interface is tempting because it enforces the rules, but it affects only a small part of the environment."
+    }
+  ]
+}

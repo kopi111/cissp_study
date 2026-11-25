@@ -1,0 +1,1603 @@
+{
+  "number": 8,
+  "name": "Software Development Security",
+  "weightPercent": 10,
+  "plainMeaning": "This domain is about building security into software from the first idea until the day it is retired. It also teaches you how to judge the safety of software you buy, borrow or rent from others.",
+  "topics": [
+    {
+      "id": "T67",
+      "name": "Software development life cycle and methods",
+      "outlineRef": "8.1",
+      "simpleExplanation": "Software is built in steps. You plan it, design it, write it, test it, release it, run it and finally retire it. That journey is called the software development life cycle. Teams follow different methods, such as waterfall, agile or DevOps. Some move slowly through fixed stages. Others deliver small pieces very often. The method can change, but one rule stays the same. Security must start at the very beginning and continue at every step. Adding it at the end costs more and works less well.",
+      "studyNotes": [
+        {
+          "heading": "The life cycle, stage by stage",
+          "body": "In this first part, we are going to walk through the whole life of a piece of software, from the first idea to the day it is retired.\n\nThe software development life cycle, or SDLC, is that full journey. Books name the stages in slightly different ways, so learn the order of the ideas and not one exact set of labels. Here is the order.\n\n- Plan and gather requirements.\n- Design.\n- Develop.\n- Test.\n- Deploy.\n- Operate and maintain.\n- Retire.\n\nThink of building a house. First you decide what the family needs. Then an architect draws the plans. Builders put it up. An inspector checks it. The family moves in. For years the family repairs it and looks after it. One day it is pulled down, and the site is cleared.\n\nNow let us follow a workplace example, a school fees portal where parents pay online. In planning, the team writes down what the portal must do. It also classifies the data, which means deciding how sensitive it is. Card details and children's records are highly sensitive. In design, the team decides how the parts fit together. In development, programmers write the code. In testing, the team proves that the features work and that the security controls work. In deployment, the portal is released through an approved process. In operation, staff patch it, which means applying fixes, and they watch it and control changes to it. In retirement, the portal is switched off, and its data is kept or destroyed according to policy.\n\nTwo words belong at the deployment stage. Certification is the technical check that the controls meet the requirements. Accreditation is management's formal acceptance of the system and its remaining risk. Someone technical certifies. A senior manager accredits.\n\nNotice that retirement is a real stage. Old software that nobody owns keeps running, goes unpatched and still holds data. A forgotten system is an open door.\n\nHere is what to take away. Software has a whole life, from planning to retirement, and someone must own its security at every stage."
+        },
+        {
+          "heading": "Security at each stage, and shifting left",
+          "body": "Next we will look at the security job that belongs to each stage, and at why doing that job early saves so much money.\n\nIn planning, you write security requirements next to the business requirements. For example, the system must lock an account after repeated failed logins. In design, you do threat modeling, which means listing what could go wrong before anything is built. You also write abuse cases, which describe how someone might misuse a feature. In development, programmers follow secure coding rules, and a second person reviews the code. In testing, you check the security controls on purpose. Do not copy real customer data into a test system without protecting it. Masking, which hides the real values, or made-up data is safer. In deployment, you harden the system, which means removing what is not needed and setting safe options. In operation, you patch, monitor and control change. In retirement, you remove accounts and dispose of the data safely.\n\nNow for the money. Think of moving a wall in a house. On paper, it costs an eraser. After the family moves in, it costs a builder, a plumber and a painter.\n\nHere is a worked example. The figures are made up, simply to show the idea. Suppose a flaw would cost 100 dollars to fix during design. If it is found in testing, the code must be changed and tested again, so suppose it costs 1,500 dollars. If it is found after release, there is an emergency patch, customer notices and perhaps a breach, so suppose it costs 10,000 dollars. Ten thousand divided by one hundred is one hundred. The same flaw has cost one hundred times as much, only because it was found late.\n\nMoving security work to earlier stages is called shifting left. Picture the stages written from left to right on a whiteboard. Planning is on the left.\n\nA workplace team might add one hour of threat modeling to each new feature. That hour is cheap, and it removes whole families of problems.\n\nHere is your takeaway. Every stage has a security task, and the earlier a flaw is found, the less it costs to fix."
+        },
+        {
+          "heading": "Waterfall and spiral",
+          "body": "Now we will look at two older methods that are still tested, waterfall and spiral.\n\nA development method is simply the way a team organizes its work through the life cycle.\n\nWaterfall runs the stages in strict order. Each stage is finished and signed off before the next one begins. Think of water going over a series of ledges. It does not flow back up. A later version allows a step back to the stage just before, but the idea is the same.\n\nWaterfall suits projects where the requirements are stable and well known. It also suits work that needs heavy paperwork and formal approval. A workplace example is a small tax calculation system, where the rules are fixed by law.\n\nIts weakness is that users see the product late, so problems also appear late. Security fits through written requirements at the start and a formal review at the end of each stage.\n\nThe spiral model repeats a loop many times. Picture a spiral on a page, growing wider with each turn. Each loop has four activities, in this order.\n\n- Set the goals for this loop.\n- Study the risks and deal with them.\n- Build and test a prototype, which is an early trial version.\n- Plan the next loop.\n\nThink of a family designing a new kitchen. They first make a cardboard model, and they notice that the door hits the cupboard. They fix that problem before spending real money. Then they try a fuller model, and so on.\n\nA workplace example is a first-of-its-kind medical device. Nobody knows yet whether the design will work. Each loop answers the biggest open risk, and leaders can stop before spending more.\n\nSpiral suits large, uncertain and risky projects. Its weakness is cost and complexity, because the risk analysis needs skilled people.\n\nOn the exam, watch for the clue words. Stable requirements and strict stages suggest waterfall. Risk-driven work and prototypes suggest spiral.\n\nHere is what to take away. Waterfall is strict order for stable needs. Spiral is repeated loops of risk analysis and prototypes for uncertain needs."
+        },
+        {
+          "heading": "Agile and Scrum",
+          "body": "In this part, we will look at agile, which is the way most software teams work today, and at Scrum, its best-known form.\n\nAgile is a family of methods that deliver small working pieces in short cycles and welcome change. It is built on the Agile Manifesto, which states four values. Learn all four.\n\n- Individuals and interactions over processes and tools.\n- Working software over comprehensive documentation.\n- Customer collaboration over contract negotiation.\n- Responding to change over following a plan.\n\nThe things on the right still have value. The things on the left simply have more.\n\nThink of cooking for friends. You could plan the whole menu a month ahead and serve it no matter what. Or you could cook one dish, let them taste it, and adjust the next one. Agile is the tasting approach.\n\nScrum is a popular agile method. Work happens in sprints, which are fixed cycles of one month or less. The backlog is the ordered list of work still to be done. The product owner decides the order of that list. The Scrum master helps the team follow the method and removes obstacles. The developers build the product. Each sprint ends with a review of what was built, and a retrospective, where the team talks about how to work better.\n\nNow for security. Agile does not forbid security, but speed can push it aside. Here is how a workplace team keeps it in. Picture a bank's mobile app team. It places security needs in the backlog as real work items. For a new money transfer feature, it adds an abuse case, such as someone sending a thousand small transfers to hide a theft. Its definition of done, which is the agreed list of what finished means, includes passing the security checks. A security champion, a developer with extra security training, sits inside the team.\n\nDo not read working software over documentation as no documentation. Audits and accountability still need records.\n\nHere is your takeaway. Agile means small pieces and fast feedback, and security must be built into the backlog and the definition of done."
+        },
+        {
+          "heading": "Scaled agile, DevOps and DevSecOps",
+          "body": "Next we will look at how agile grows to fit large organizations, and at how development, operations and security come together.\n\nOne Scrum team is small. A large product may need dozens of teams. The Scaled Agile Framework, or SAFe, coordinates many agile teams working on one product. Teams are grouped into an Agile Release Train, a long-lived team of teams, usually 50 to 125 people. They plan together in a planning interval, usually 8 to 12 weeks.\n\nThink of many cooks preparing one wedding banquet. Each cook has a dish, but the dishes must arrive together and match. Security fits SAFe through shared standards and architecture, so that each team does not invent its own rules.\n\nDevOps joins development and operations into one way of working. In the past, programmers threw finished code over a wall, and the operations staff had to run it. DevOps removes that wall. It relies on automation to build, test and release often. A workplace example is an online shop that releases small changes several times a day. If a change fails, it is quickly rolled back, meaning undone.\n\nDevSecOps adds security as the shared duty of everyone. Security checks run automatically on each change. Security staff write rules and tools, and help the teams use them. Security is no longer one gate at the end.\n\nLet us walk through one change in a DevSecOps team, step by step. A developer saves a change. A tool immediately reads the code for known flaws. Another tool checks the outside components for known problems. The build fails if a serious problem appears, and the developer fixes it within minutes. The change then goes to a test system, where it is attacked by an automated scanner. Only then may it reach production.\n\nBe clear about one thing. Buying tools does not create DevSecOps. It is a change of culture, so it needs management support and shared responsibility.\n\nHere is what to take away. SAFe coordinates many agile teams, DevOps joins building and running, and DevSecOps makes security everyone's automated, everyday work."
+        },
+        {
+          "heading": "Choosing a method and thinking like an adviser",
+          "body": "In this final part, we will bring the methods together and practice the way of thinking that the exam rewards.\n\nFirst, no method is secure on its own. Waterfall can produce insecure software, and so can DevSecOps. What matters is whether security requirements, reviews, testing and sign-off exist inside the method that the team really uses.\n\nSecond, the method is a business decision. You are an adviser. Think of a mechanic asked about a family's choice of car. A good mechanic does not insist that everyone drive the same model. A good mechanic asks how the car will be used, and then makes sure that it is safe.\n\nSo, when a question offers an answer that says to force the team back to a different method, be careful. That answer is usually wrong, unless the scenario shows that the method truly cannot fit. Work with the method the business has chosen, and build security into it.\n\nHere is a workplace example. A hospital runs two projects. One replaces a fixed billing formula required by regulation. The other builds a new patient app whose features will change as patients respond. The adviser accepts a waterfall approach for the first, with reviews at each stage. The adviser accepts an agile approach for the second, with security items in the backlog. Different methods, same security outcomes.\n\nNow here is a simple order of thought for scenario questions.\n\n- Ask where in the life cycle the scenario sits.\n- Ask what security activity belongs at that point.\n- Look for the answer that fixes the cause in the process, not just the single symptom.\n- Make sure that management makes the risk decisions.\n\nPeople come first as well. If software controls a train or a medical pump, safety outweighs the delivery date.\n\nFinally, keep the words straight. Certification is technical. Accreditation is a management decision. Sprints belong to Scrum. Prototypes and risk loops belong to spiral.\n\nHere is your takeaway. Do not argue for one best method. Help the business choose what fits, and make sure that security is built in, whichever method it chooses."
+        }
+      ],
+      "keyTerms": [
+        {
+          "term": "SDLC",
+          "meaning": "Software Development Life Cycle: all the stages of software, from first idea to retirement."
+        },
+        {
+          "term": "Waterfall",
+          "meaning": "A method that runs stages in strict order, one after another."
+        },
+        {
+          "term": "Spiral",
+          "meaning": "A risk-driven method that repeats loops and builds prototypes."
+        },
+        {
+          "term": "Agile",
+          "meaning": "A family of methods that deliver small pieces in short cycles and welcome change."
+        },
+        {
+          "term": "Sprint",
+          "meaning": "A fixed Scrum work cycle of one month or less."
+        },
+        {
+          "term": "SAFe",
+          "meaning": "Scaled Agile Framework: a way to coordinate many agile teams on one large product."
+        },
+        {
+          "term": "DevOps",
+          "meaning": "Development and operations working as one, with heavy automation."
+        },
+        {
+          "term": "DevSecOps",
+          "meaning": "DevOps with security built in as everyone's shared duty."
+        },
+        {
+          "term": "Shift left",
+          "meaning": "Moving security work to earlier stages of the life cycle."
+        },
+        {
+          "term": "Accreditation",
+          "meaning": "Management's formal acceptance of a system and its remaining risk."
+        }
+      ],
+      "keyPoints": [
+        "Security starts at requirements and continues until the software is retired.",
+        "Flaws cost far less to fix when they are found early.",
+        "Spiral is the risk-driven method that uses prototypes.",
+        "DevSecOps makes security a shared and automated duty.",
+        "Accreditation is a management decision, while certification is a technical check."
+      ],
+      "memoryHook": "Build the lock into the door while the house is still on paper. That is shifting left.",
+      "question": {
+        "prompt": "A bank's development team has moved to two-week sprints. The security team's manual review, held just before each release, can no longer keep up. Releases are now being delayed. What is the BEST recommendation?",
+        "options": [
+          "Skip the security review for low-value releases until staffing improves",
+          "Put security needs in the backlog and automate tests in each build",
+          "Return the team to waterfall so that the review stage has enough time",
+          "Hold the security review once a year and accept the risk between reviews"
+        ],
+        "correctIndex": 1,
+        "explanation": "Building security needs and automated tests into the normal work fixes the cause, so security keeps pace with delivery. Going back to waterfall is tempting, but it changes the business's chosen method and does not make security part of the work. Skipping reviews simply removes the control."
+      },
+      "practiceQuestions": [
+        {
+          "prompt": "A government agency is starting a new benefits payment system. The project manager asks when the system's security needs should first be written down. What is the BEST answer?",
+          "options": [
+            "After the code is written, so that testers know what to check",
+            "During requirements, alongside the business needs",
+            "Just before deployment, as part of the accreditation package",
+            "During the first maintenance cycle, once real threats are seen"
+          ],
+          "correctIndex": 1,
+          "explanation": "Security needs belong with the other requirements at the very start, so that they shape the design and cost less. Writing them before accreditation is tempting because that is when management signs, but by then it is far too late to build them in."
+        },
+        {
+          "prompt": "Technical staff have confirmed that the controls on a new claims system meet the requirements. Some risk remains. What must happen BEFORE the system goes live?",
+          "options": [
+            "The developers sign a statement that the remaining risk is small",
+            "The testers repeat the checks until no risk remains at all",
+            "The security team accepts the remaining risk for the business",
+            "A senior manager formally accepts the remaining risk"
+          ],
+          "correctIndex": 3,
+          "explanation": "That formal acceptance is accreditation, and it is a management decision. Having the security team accept the risk is tempting, but security staff advise and do not own business risk. No amount of testing brings risk to zero."
+        },
+        {
+          "prompt": "A utility needs a small billing calculator. The rules are fixed by regulation and will not change. The regulator also expects formal sign-off documents at the end of each stage. Which development method is the BEST fit?",
+          "options": [
+            "Waterfall",
+            "Scrum",
+            "Spiral",
+            "DevOps"
+          ],
+          "correctIndex": 0,
+          "explanation": "Stable requirements and formal sign-off at each stage are what waterfall is built for. Spiral is tempting because the work is regulated, but spiral is meant for uncertain projects with major risks to explore."
+        },
+        {
+          "prompt": "A product owner writes a work item that lets customers reset their passwords by email. Before the team builds it, the security adviser wants the team to think about how the feature could be misused. Which technique BEST does this?",
+          "options": [
+            "A regression test run after the feature has been released",
+            "A service level agreement agreed with the email provider",
+            "An abuse case added alongside the work item",
+            "A change request raised during the maintenance stage"
+          ],
+          "correctIndex": 2,
+          "explanation": "An abuse case describes how someone might misuse a feature, so it shapes the work before it is built. A regression test is tempting because it is a security activity, but it happens after the work and only checks what was already built."
+        },
+        {
+          "prompt": "A car maker has twelve agile teams building one vehicle software platform. Each team has invented its own security rules, and the parts often fail when they are joined together. What should the security manager recommend?",
+          "options": [
+            "Ask each team to write a stronger security policy of its own",
+            "Move every team back onto a single waterfall project plan",
+            "Coordinate the teams under a scaled framework and shared standards",
+            "Let each team keep its rules and test only the final product"
+          ],
+          "correctIndex": 2,
+          "explanation": "A scaled agile approach with shared standards and architecture fixes the cause, which is a lack of coordination. Going back to waterfall is tempting, but it changes the business's chosen method and does not by itself create common security rules."
+        },
+        {
+          "prompt": "A company announces that it has adopted DevSecOps and buys scanning tools. Developers ignore the results, saying that security belongs to the security team. What is the MOST important next step?",
+          "options": [
+            "Gain management backing for shared ownership of security",
+            "Buy a second scanner to confirm the results of the first",
+            "Remove the scanners and return to a final review by security staff",
+            "Have the security staff fix all of the reported flaws themselves"
+          ],
+          "correctIndex": 0,
+          "explanation": "DevSecOps is a change of culture, so leaders must make security a shared duty. Having security staff fix the flaws is tempting because the work gets done, but it keeps the same divide that caused the problem."
+        },
+        {
+          "prompt": "A software firm finds most of its serious flaws during final testing, and the rework regularly delays its releases. Which change would BEST reduce this problem?",
+          "options": [
+            "Add more testers to the final testing stage of each project",
+            "Delay every release by one month to allow more rework",
+            "Hire outside penetration testers to check every release",
+            "Add threat modeling during design"
+          ],
+          "correctIndex": 3,
+          "explanation": "Threat modeling during design finds problems before they are built, which is shifting left. More testers are tempting, but they still find the flaws at the late, expensive stage."
+        },
+        {
+          "prompt": "During testing of a new insurance system, a project team wants to copy live customer records into the test environment to make the tests realistic. What should the security adviser recommend?",
+          "options": [
+            "Allow it, as long as all testers sign a confidentiality agreement",
+            "Use masked or made-up data instead of the real records",
+            "Allow it, because the test network sits inside the firewall",
+            "Copy the records, and delete them when the project closes"
+          ],
+          "correctIndex": 1,
+          "explanation": "Masked or made-up data allows realistic testing without exposing real people's records. A confidentiality agreement is tempting, but test systems usually have weaker controls and wider access, so the data would still be at risk."
+        },
+        {
+          "prompt": "A retailer is replacing an old order system that holds many years of customer data. What should the security manager ensure as the system is retired?",
+          "options": [
+            "Retention rules are applied, and the rest is securely destroyed",
+            "The server is switched off and stored with its disks intact",
+            "The old servers are given to staff after a quick disk format",
+            "The system keeps running in case someone needs an old record"
+          ],
+          "correctIndex": 0,
+          "explanation": "Retirement means keeping only what policy and law require, and safely destroying the rest. Storing the server is tempting because nothing is lost, but the data stays exposed and no one is managing it."
+        },
+        {
+          "prompt": "A project lead insists that every design must be fully documented before anyone writes any working code. Which Agile Manifesto value does this attitude MOST directly conflict with?",
+          "options": [
+            "Individuals and interactions over processes and tools",
+            "Customer collaboration over contract negotiation",
+            "Working software over comprehensive documentation",
+            "Responding to change over following a plan"
+          ],
+          "correctIndex": 2,
+          "explanation": "Putting documents ahead of working code runs against the value of working software over comprehensive documentation. Responding to change is tempting, because the attitude is also rigid, but the conflict stated here is about documentation."
+        }
+      ]
+    },
+    {
+      "id": "T68",
+      "name": "Maturity models and running software",
+      "outlineRef": "8.1",
+      "simpleExplanation": "A maturity model is a ladder. It shows how well an organization builds software and what the next step up looks like. After software goes live, the longest part of its life begins. It must be patched, watched and carefully changed. A change process stops people from making risky changes without permission. An integrated product team brings developers, security staff, operations and business people together from the start. Together, these ideas turn good software work from luck into a habit.",
+      "studyNotes": [
+        {
+          "heading": "What a maturity model is, and the five CMMI levels",
+          "body": "In this first part, we are going to learn what a maturity model is, and then the five levels you need to know in exact order.\n\nA maturity model measures how repeatable and how well managed an organization's work is. It is a ladder. It tells you where you stand, and what the next step looks like.\n\nThink of learning to cook. At first, a meal turns out well only by luck. Later you follow a recipe for each meal. Then the family writes one recipe book that everyone uses. Then you weigh everything and time everything. Finally, you keep adjusting the recipes based on those measurements.\n\nThe Capability Maturity Model Integration, or CMMI, grew from the older Capability Maturity Model, or CMM, which was first written for software. Here are the five levels, from lowest to highest.\n\n- Level 1, Initial: work is chaotic and reactive. Success depends on a few heroes.\n- Level 2, Managed: each project is planned and tracked.\n- Level 3, Defined: one standard process is used across the whole organization.\n- Level 4, Quantitatively Managed: the process is measured and controlled with numbers.\n- Level 5, Optimizing: the organization keeps improving, using what it measures.\n\nThere is a memory aid in your notes for this order. I Must Decide Quickly, Often. Initial, Managed, Defined, Quantitatively Managed, Optimizing.\n\nSome newer versions of the model also describe a level zero, called Incomplete. The five levels above are the ladder to learn.\n\nA maturity level describes how good the process is. It does not prove that a particular product is secure. A Level 5 company can still ship a flaw. But it is more likely to catch it, learn from it and stop it happening again.\n\nAlso, you cannot sensibly skip rungs. You cannot measure a standard process with numbers until you actually have a standard process.\n\nHere is what to take away. Maturity is about repeatable process, and the order is Initial, Managed, Defined, Quantitatively Managed, Optimizing."
+        },
+        {
+          "heading": "Climbing the ladder, and the old names",
+          "body": "Now we will climb the ladder with one worked example, and clear up a naming trap that catches many people.\n\nPicture a small company that builds software for pharmacies.\n\nAt first, one brilliant developer holds everything in her head. When she is on holiday, releases fail. That is Level 1, Initial.\n\nThe company's managers begin to plan each project, track its progress and record its requirements. One project may run differently from another, but each is under control. That is Level 2, Managed.\n\nNext, the company writes one standard process, including secure coding rules and code review. Every team follows it, and new projects start from it. That is Level 3, Defined.\n\nThen leaders begin to measure. They track how many defects are found per thousand lines of code, and how long flaws stay open. They use these numbers to control the process and to predict results. That is Level 4, Quantitatively Managed.\n\nFinally, the company studies those numbers and tries improvements. It finds that most flaws come from one type of input handling, so it changes its training and tools. That is Level 5, Optimizing.\n\nNow for the trap. The older CMM used these names: Initial, Repeatable, Defined, Managed, Optimizing. So the word Managed is Level 4 in the old model, and Level 2 in CMMI. Repeatable, in the old model, is Level 2. If a question says Repeatable, it is using the older names.\n\nThere is also a simple model for carrying out improvement, known as IDEAL. Its five phases come in this order.\n\n- Initiating: build the reason and the support for change.\n- Diagnosing: find out where you stand.\n- Establishing: set priorities and a plan.\n- Acting: carry out the plan.\n- Learning: review what happened and prepare for the next round.\n\nAs a manager, remember that the move from one level to the next is a business investment. Not every organization needs Level 5.\n\nHere is your takeaway. Project-by-project is Managed, one standard for all is Defined, and numbers mean Quantitatively Managed. Watch the word Managed in the older model."
+        },
+        {
+          "heading": "SAMM: maturity for software security",
+          "body": "Next we will look at a maturity model made specifically for software security.\n\nCMMI looks at process quality in general. The Software Assurance Maturity Model, or SAMM, looks directly at software security. It comes from OWASP, the Open Worldwide Application Security Project, a community that publishes free security guidance. SAMM is free and open for anyone to use.\n\nSAMM has five business functions. Learn these five.\n\n- Governance.\n- Design.\n- Implementation.\n- Verification.\n- Operations.\n\nEach function holds three security practices, so there are fifteen practices in all. Governance covers strategy and metrics, policy and compliance, and education and guidance. Design covers threat assessment, security requirements and security architecture. Implementation covers secure build, secure deployment and defect management. Verification covers architecture assessment, requirements-driven testing and security testing. Operations covers incident management, environment management and operational management.\n\nEach practice is scored at a maturity level from 1 to 3. A higher score means the activity is more complete and more consistent.\n\nThink of a health check at the doctor. You do not get one single mark for your body. You get readings for heart, blood and eyesight. Then you agree which to improve first.\n\nHere is a worked example of the steps. An insurance company assesses itself. It scores 2 for security requirements, but only 1 for security testing. Its applications handle sensitive medical data, so it sets a target of 2 for security testing within one year. It builds a plan, carries it out and measures again. Notice that the company does not chase a 3 everywhere. A small charity with a simple website could rightly set much lower targets. The target should match the risk.\n\nYou may also meet BSIMM, the Building Security In Maturity Model. BSIMM is descriptive. It reports what real companies are doing. SAMM is prescriptive. It suggests what you should do and how to improve.\n\nHere is what to take away. SAMM measures software security across five functions and fifteen practices, on a scale of 1 to 3, with targets set by risk."
+        },
+        {
+          "heading": "Operations and maintenance",
+          "body": "In this part, we will look at the longest stage in the life of software, the years after it goes live.\n\nMost of the life of software happens after release. This is called operation and maintenance. A common mistake is to treat release day as the end of the security work. It is closer to the beginning.\n\nThink of owning a car. Buying it is a single day. After that come years of oil changes, tire checks, repairs and new rules from the licensing office. If you stop all that, the car does not stay as safe as the day you bought it.\n\nSoftware is the same, even though the code does not wear out. Threats change. A flaw nobody knew about last year may be widely known today. So software that was safe last year may not be safe now.\n\nThe work includes applying patches, which are fixes from the developer or the vendor. It includes monitoring logs and alerts, and scanning for new weaknesses. It includes reviewing who still has access. It includes keeping backups, responding to incidents, and planning for the end of support and for retirement.\n\nHere is a workplace example. A city council runs a parking payment system. A serious flaw is announced in a component that it uses. Because it has good operations, it knows where that component runs. It tests the patch, gets emergency approval and applies it within a day. It then checks the logs for signs that someone used the flaw before it was patched.\n\nEnd of support deserves special attention. When a vendor stops issuing patches for a product, every new flaw stays open forever. The right response is to plan an upgrade or a replacement, and to manage the risk until then, perhaps with network isolation and closer monitoring. Working fine today is not a reason to ignore it.\n\nHot fixes must go back into the main code as well. If they do not, the next release quietly brings the old flaw back.\n\nHere is your takeaway. Security continues after release, through patching, monitoring, access review and planning for the end of support."
+        },
+        {
+          "heading": "Change management",
+          "body": "Now we will look at how changes to software are controlled, because uncontrolled change is one of the most common causes of outages and security failures.\n\nChange management makes sure that each change is requested, approved, tested and recorded. Learn its three parts in this order.\n\n- Request control: users ask for changes. Managers weigh cost and benefit and set priorities.\n- Change control: developers build and test the change in an orderly way, with a way to undo it.\n- Release control: the finished change is approved for production. Acceptance testing happens here, and debugging code must be removed.\n\nThink of having a kitchen wall removed. First you ask, and you decide whether it is worth the cost. Then the builder does the job carefully, with a plan for what to do if a pipe is found. Finally, an inspector approves the work before the family uses the room.\n\nHere is a workplace walk-through. A payroll clerk asks for a new report. That is the request. A manager compares cost and benefit and gives it a priority. A group called the change advisory board reviews the risk. A developer builds the report on a test system, and another person reviews the code. Testers confirm that it works and that nothing else broke. The release team, not the developer, moves it to production. Records are updated, and the change can be undone if necessary.\n\nDevelopers should not move their own code into production. This is separation of duties, which means splitting a task so that no single person can complete it alone. Even small teams can have a second authorized person approve and deploy.\n\nEmergency changes are still controlled. An authorized person approves, the change is tested as far as time allows, and full records and review follow soon after. Speed changes the timing of the paperwork. It does not remove the control.\n\nDo not confuse this with configuration management, which records the exact versions and settings in use. Change management controls how they change.\n\nHere is what to take away. Request, then change, then release. Separate the duties, and keep control even in an emergency."
+        },
+        {
+          "heading": "Integrated product teams",
+          "body": "In this final part, we will look at a way of organizing people, called an integrated product team, and bring this topic together.\n\nAn integrated product team, or IPT, brings people from many fields into one team for the whole project. Members may include developers, security, operations, quality, legal, purchasing and the business owner. They share responsibility for the result.\n\nThink of planning a family wedding. If the cook, the florist, the driver and the person paying all meet from the start, you learn early that the road is closed and the hall has no oven. If each works alone, you find out on the day.\n\nHere is a workplace example. A government department is building a new licensing system. The old way passes the work along a line. Business people write requirements. Developers build. Then, near the end, security reviews it, and the legal team finds that the data cannot be stored overseas. Months of work are wasted.\n\nWith an integrated product team, the lawyer raises the data location rule in the first week. The security specialist helps to shape the design. The purchasing officer checks that the supplier contract includes security duties. The operations lead makes sure that the system can be monitored and patched. Problems surface early, because each point of view is in the room.\n\nHow does this compare with DevOps? DevOps joins mainly development and operations, and leans heavily on automation. An integrated product team is usually wider, and includes business, legal and purchasing roles. It is mostly about how people are organized around a product.\n\nThe team needs a clear leader and clear decision rights, because shared responsibility can turn into nobody's responsibility. Risk acceptance still sits with the accountable manager.\n\nNow let us tie the whole topic together. Maturity models tell you how good your process is. Operations and maintenance keep the software safe through its long working life. Change management stops risky surprises. And integrated teams bring the right people together early.\n\nHere is your takeaway. An integrated product team puts many fields together from the start, so that problems are found while they are cheap to fix."
+        }
+      ],
+      "keyTerms": [
+        {
+          "term": "CMMI",
+          "meaning": "Capability Maturity Model Integration: a five-level model of process maturity."
+        },
+        {
+          "term": "Level 3, Defined",
+          "meaning": "One standard process is used across the whole organization."
+        },
+        {
+          "term": "Level 4, Quantitatively Managed",
+          "meaning": "The process is measured and controlled with numbers."
+        },
+        {
+          "term": "SAMM",
+          "meaning": "Software Assurance Maturity Model: an open model from OWASP that measures software security practices."
+        },
+        {
+          "term": "Request control",
+          "meaning": "The part of change management where changes are asked for and prioritized."
+        },
+        {
+          "term": "Change control",
+          "meaning": "The part where changes are built and tested in an orderly way."
+        },
+        {
+          "term": "Release control",
+          "meaning": "The part where changes are accepted and approved for production."
+        },
+        {
+          "term": "Separation of duties",
+          "meaning": "Splitting a task so that one person cannot complete it alone."
+        },
+        {
+          "term": "IPT",
+          "meaning": "Integrated Product Team: people from many fields sharing one project from the start."
+        }
+      ],
+      "keyPoints": [
+        "CMMI levels run Initial, Managed, Defined, Quantitatively Managed, Optimizing.",
+        "SAMM has five business functions and focuses on software security.",
+        "Change management runs request control, change control, then release control.",
+        "Emergency changes are still approved, recorded and reviewed.",
+        "An integrated product team includes many fields from the start."
+      ],
+      "memoryHook": "CMMI levels: I Must Decide Quickly, Often. Initial, Managed, Defined, Quantitatively Managed, Optimizing.",
+      "question": {
+        "prompt": "A hospital's software group has written one standard development process. Every project team now follows it. Leaders have not yet started to measure the process with numbers. Which CMMI level BEST describes the group?",
+        "options": [
+          "Initial",
+          "Managed",
+          "Quantitatively Managed",
+          "Defined"
+        ],
+        "correctIndex": 3,
+        "explanation": "One standard process used across the organization is the mark of Level 3, Defined. Managed is tempting, but that level only means each project is planned and tracked. Quantitatively Managed needs numeric measurement, which has not started."
+      },
+      "practiceQuestions": [
+        {
+          "prompt": "An old policy document says that the company aims for Level 2, Repeatable, of the Capability Maturity Model. A manager wants to update the wording to match CMMI. What is Level 2 called in CMMI?",
+          "options": [
+            "Initial",
+            "Defined",
+            "Managed",
+            "Optimizing"
+          ],
+          "correctIndex": 2,
+          "explanation": "Level 2 in CMMI is Managed, which replaced the older name Repeatable. Defined is tempting because it sounds like the next idea, but it is Level 3 in both models."
+        },
+        {
+          "prompt": "A start-up's software releases succeed only when its lead engineer is working. Nothing is written down, and each release is handled differently. Which CMMI level BEST describes this company?",
+          "options": [
+            "Initial",
+            "Managed",
+            "Defined",
+            "Optimizing"
+          ],
+          "correctIndex": 0,
+          "explanation": "Chaotic work that depends on heroes is Level 1, Initial. Managed is tempting because someone is clearly in charge, but Level 2 requires each project to be planned and tracked."
+        },
+        {
+          "prompt": "A company has reached CMMI Level 3, and all of its teams use one standard process. What must the company do to reach the NEXT level?",
+          "options": [
+            "Write one standard process for all of its teams to follow",
+            "Plan and track each of its projects on an individual basis",
+            "Rely on experienced staff to solve problems as they arise",
+            "Measure its process and control it with numbers"
+          ],
+          "correctIndex": 3,
+          "explanation": "Level 4, Quantitatively Managed, means that the process is measured and controlled with numbers. Writing one standard process is tempting, but that is what the company has already done to reach Level 3."
+        },
+        {
+          "prompt": "A security manager wants a free, open model that scores an organization's software security practices and helps it to set improvement targets. Which of these BEST fits?",
+          "options": [
+            "The seven-step NIST Risk Management Framework",
+            "The OWASP Software Assurance Maturity Model",
+            "The Common Vulnerability Scoring System ratings",
+            "A software bill of materials for each product"
+          ],
+          "correctIndex": 1,
+          "explanation": "The Software Assurance Maturity Model is free, comes from OWASP and scores software security practices. The Common Vulnerability Scoring System is tempting because it gives scores, but it rates individual flaws and does not measure an organization's practices."
+        },
+        {
+          "prompt": "A small charity completes a Software Assurance Maturity Model assessment and scores 1 in most practices. Its board asks whether it must reach a score of 3 everywhere. What is the BEST advice?",
+          "options": [
+            "Yes, because any score below 3 means that the model has been failed",
+            "No, because the model applies only to very large software firms",
+            "No, because targets should match its own risk and resources",
+            "Yes, but the charity may take up to ten years to get there"
+          ],
+          "correctIndex": 2,
+          "explanation": "The model expects each organization to set targets that match its risk. Saying that it applies only to large firms is tempting because the charity is small, but any organization may use it."
+        },
+        {
+          "prompt": "An insurer's assessment looks at its threat assessment, security requirements and security architecture practices. Which Software Assurance Maturity Model business function is being assessed?",
+          "options": [
+            "Governance",
+            "Design",
+            "Verification",
+            "Operations"
+          ],
+          "correctIndex": 1,
+          "explanation": "Those three practices make up the Design function. Verification is tempting because it sounds like assessment, but its practices are architecture assessment, requirements-driven testing and security testing."
+        },
+        {
+          "prompt": "A user asks for a new report in a payroll application. A manager has weighed the cost and benefit and has given the request a priority. Which part of change management comes NEXT?",
+          "options": [
+            "Change control",
+            "Release control",
+            "Request control",
+            "Configuration audit"
+          ],
+          "correctIndex": 0,
+          "explanation": "The order is request control, change control, then release control. Request control has just finished, so developers now build and test the change. Release control is tempting, but nothing has been built yet."
+        },
+        {
+          "prompt": "A developer has finished a tested change. The release manager is on leave, so the developer asks to move the code into production personally. What is the BEST response?",
+          "options": [
+            "Allow it, since the code has already passed all of its tests",
+            "Allow it, then have the developer write a short note about it",
+            "Delay every change until the release manager is back from leave",
+            "Have another authorized person approve and deploy the change"
+          ],
+          "correctIndex": 3,
+          "explanation": "A second authorized person keeps separation of duties and lets the work continue. Delaying every change is tempting because it is safe, but it harms the business when a proper alternative exists."
+        },
+        {
+          "prompt": "A vendor has ended support for the platform under a seven-year-old application. The application still works well and has had no incidents. What should the security manager do?",
+          "options": [
+            "Leave it unchanged, because no incident has happened so far",
+            "Record it in the risk register and close the matter for good",
+            "Plan an upgrade or replacement and manage the risk until then",
+            "Ask the application's users to report anything that looks odd"
+          ],
+          "correctIndex": 2,
+          "explanation": "Without vendor patches, each new flaw stays open, so the manager must plan a way out and reduce the risk meanwhile. Recording it in the register is tempting, but recording a risk does nothing to treat it."
+        },
+        {
+          "prompt": "A defense program keeps discovering, late in each project, that legal and purchasing requirements were missed and that security was never consulted. Which approach would BEST address the cause?",
+          "options": [
+            "Form an integrated product team from the start",
+            "Hold a review meeting when each product is finished",
+            "Move all of the developers under the operations manager",
+            "Ask the legal team to write a longer list of requirements"
+          ],
+          "correctIndex": 0,
+          "explanation": "An integrated product team puts legal, purchasing, security and others together from the beginning. A review meeting at the end is tempting, but it finds the same problems at the same late stage."
+        }
+      ]
+    },
+    {
+      "id": "T69",
+      "name": "Security controls in development ecosystems",
+      "outlineRef": "8.2",
+      "simpleExplanation": "Software is made in a kind of workshop. The workshop holds languages, ready-made code, tools, automatic build lines and storerooms for code. If an attacker gets into the workshop, every product leaving it can be harmed. So you protect the whole workshop, not only the final product. Limit who may change things. Check where tools and parts come from. Keep passwords out of the code. Test the code both while it sits still and while it runs.",
+      "studyNotes": [
+        {
+          "heading": "Programming languages and libraries",
+          "body": "In this first part, we are going to look at the raw materials of the software workshop, the languages and the ready-made parts.\n\nA programming language shapes the risk. Source code is the set of human-written instructions. Compiled languages, such as C, are turned into machine code before they run, so customers usually receive only the machine code. Interpreted languages, such as Python, are read and run by another program, so the source code is often visible. Some languages sit in between. Java is compiled into an in-between form called bytecode, which a virtual machine then runs. Compiled programs are not secret either. A decompiler can turn them back into something readable, so never rely on hidden code to protect a password.\n\nC and C plus plus let programmers control memory directly. That gives speed, but it also allows buffer overflows, where a program writes more data than a memory space can hold. Memory-safe languages, such as Java, C sharp and Rust, check or manage memory for the programmer. No language removes all flaws. Bad logic and injection can happen in any of them.\n\nThink of two kitchens. In one, the knives are sharp and have no guards. An expert works very fast, and one slip is serious. In the other, the knives have guards. It is harder to cut yourself, but you can still burn the dinner.\n\nA library is ready-made code that a program reuses. Think of buying pastry and not making your own. Most modern programs are mostly libraries. A flaw in a library becomes your flaw, and libraries pull in other libraries, so you may be using code that you have never heard of.\n\nHere is a workplace example. A delivery company uses a free image library. A flaw is announced. Because the company pins its versions, meaning it names the exact version that it uses, it knows exactly what to update. So use approved sources, pin the version, verify what you download and keep libraries up to date.\n\nHere is what to take away. Choose languages knowing their risks, and treat every library as part of your own product."
+        },
+        {
+          "heading": "Tool sets, the IDE and the runtime",
+          "body": "Next we will look at the tools that build the software, and at the place where the software finally runs.\n\nTool sets include compilers, which turn source code into machine code, along with build tools and package managers, which fetch libraries. A poisoned tool can infect everything built with it. Think of a contaminated flour mill. Every bakery that buys the flour has a problem, however clean the bakery is.\n\nSo approve the tools you use, keep them patched and check their digital signatures or hashes. A hash is a short fingerprint of a file that changes if the file changes. A digital signature proves who issued the file and that it was not altered. There is also a risk called dependency confusion, where a package manager is tricked into fetching a public package with the same name as a private one. Using a private, controlled source helps to prevent it.\n\nAn integrated development environment, or IDE, is the program where developers write and debug code. Debugging means finding and fixing faults. Plug-ins add features to it. A bad plug-in can steal code or passwords, because it sits right beside both. In a workplace, allow only approved plug-ins, and manage them centrally. Also protect the developer's own computer, because it holds access to everything that matters.\n\nThe runtime is the environment where code executes. Examples are the Java Virtual Machine and containers. A container is a sealed package that holds an application and what it needs. Three controls matter most at runtime.\n\nFirst, run software with least privilege, meaning only the access that it needs. A web application should not run as the all-powerful administrator. Second, patch the runtime and the container base images, the starting layers that a container is built from. Third, turn off debugging features in production, because they can reveal secrets and internal details.\n\nHere is a workplace example. An online shop's container runs as the administrator with debugging switched on. An attacker who finds one small flaw now owns the whole system. Removing both problems greatly limits the harm.\n\nHere is your takeaway. Trust no tool by default. Approve it, verify it, patch it, and run everything with least privilege."
+        },
+        {
+          "heading": "Continuous integration and continuous delivery",
+          "body": "Now we will look at the automatic production line that carries code from a developer's computer towards customers.\n\nContinuous integration, often shortened to CI, means that developers merge code often, and each merge is built and tested automatically. Continuous delivery, often shortened to CD, keeps code ready to release, and a person approves the release. Continuous deployment goes one step further and releases automatically, with no person pressing the button.\n\nThe set of automatic steps is called a pipeline. Think of a bottling plant. Bottles move along a belt, and they are filled, checked and labeled by machines. A worker may press the final button to ship the batch. If someone tampers with the machine, every bottle is affected.\n\nThe pipeline holds the keys to production, so attackers want it. Controlling it is one of the most valuable things that a development organization can do. Here are the controls to remember.\n\n- Limit who can edit the pipeline.\n- Keep secrets in a protected vault.\n- Sign what is built.\n- Stop the build when security tests fail.\n- Log every run.\n\nLet me say why each one matters. A secret is a password, key or token. If it sits in a build script, anyone who can read the script has it. A vault is a protected store that hands out secrets only when they are needed. Signing what is built means that production can refuse anything which did not come from the real pipeline. Stopping the build makes security tests matter, because a warning that nobody has to act on is soon ignored.\n\nNow here is a workplace walk-through. At a bank, a developer merges a change. The pipeline builds it and runs automatic tests. A security tool fails the build because of a known flaw in a library. The developer updates the library. The build passes and is signed. A manager approves the release. Because a person approves, this is continuous delivery and not continuous deployment. The pipeline logs every step, and those records go to a separate system.\n\nHere is what to take away. The pipeline is a high-value target. Control who can change it, protect its secrets and let failed security tests stop the line."
+        },
+        {
+          "heading": "Configuration management and code repositories",
+          "body": "In this part, we will look at how a team keeps track of exactly what it has built, and where its code is stored.\n\nSoftware configuration management, or SCM, records exactly which versions of code and settings make up each release. It lets you rebuild an old release or roll back to one. Its four classic parts, in order, are these.\n\n- Configuration identification: naming and labeling each item.\n- Configuration control: making sure that items change only in an authorized way.\n- Configuration status accounting: recording the state and history of each item.\n- Configuration audit: checking that what exists matches what the records say.\n\nThink of a recipe book in a restaurant chain. Each dish has a version number. If customers fall ill, the chain can see exactly which recipe and which supplier were used that week.\n\nHere is a workplace example. A release goes badly wrong on a Friday night. With good configuration management, the team knows exactly which versions made up last week's good release, and it can return to that within minutes. Without it, people guess.\n\nA code repository stores code and its full history of changes. It is a very attractive target, because whoever can change the code can change the product. Protect it with least privilege, and with multifactor authentication, which means proof of identity by two or more kinds of evidence. Require peer review, so that a second person approves each change before it is merged. Sign commits where you can, a commit being one saved change. And keep backups.\n\nNow for one of the most tested points. Never store passwords in code. Deleting a password from the latest version does not remove it from the history. Think of a page in a diary. Tearing out the newest page does not remove what you wrote in last year's volume. A leaked password must be changed first of all. Then you may clean the history, and add automatic secret scanning so that it does not happen again.\n\nHere is your takeaway. Configuration management tells you exactly what you shipped. Repositories need strong access control and review, and any password committed to one must be treated as exposed."
+        },
+        {
+          "heading": "Static testing versus dynamic testing",
+          "body": "Next we come to the part the exam loves, how static and dynamic testing differ.\n\nStatic application security testing, or SAST, reads source code without running it. Static means standing still. Dynamic application security testing, or DAST, attacks the running application from outside. Dynamic means moving.\n\nThink of inspecting a car. Static testing is walking around it in the garage with the engine off and reading the design. You can find a cracked part and say exactly where it is. Dynamic testing is driving it on the road. You discover that it pulls to the left at high speed, but you cannot say which bolt is responsible.\n\nLet us take the strengths and the limits of each.\n\nStatic testing works early, even before the application can run. It can point to the exact line of code. It is a kind of white box testing, because the tester can see inside. Its limits are these. It produces many false alarms, which are warnings about problems that are not real. It needs tooling that understands the language. And it cannot see problems that appear only at run time, such as a wrongly configured server.\n\nDynamic testing needs a running application, so it comes later. It finds run-time and setup problems, and it does not need the source code, so it works on purchased software. It is a kind of black box testing, because the tester sees only the outside. Its limits are these. It cannot name the line of code, and it tests only what it manages to reach.\n\nHere is a workplace example. A company has built a staff portal. Static testing in the first week finds a database query built unsafely, and it names the file and the line. Dynamic testing in the staging environment, a copy of production used for final checks, finds that the session cookie is sent without protection. Neither tool would have found the other's problem.\n\nSo use both. Each sees what the other misses. On the exam, if parts cannot run yet, choose static. If the source code is unavailable, choose dynamic.\n\nHere is what to take away. Static reads code at rest and names the line. Dynamic attacks the running application and finds what only appears at run time."
+        },
+        {
+          "heading": "Interactive testing, composition analysis and fuzzing",
+          "body": "In this final part, we will look at the remaining kinds of testing, and at how to choose among them.\n\nInteractive application security testing, or IAST, watches from inside the application while it is being tested. A small piece of monitoring software, called an agent, is placed inside the running application. While normal tests use the application, the agent watches what the code really does.\n\nThink of a car with a mechanic's sensors attached to the engine while it is being driven. You get the road conditions of dynamic testing and the inside view of static testing. So interactive testing can report the exact line of code, with fewer false alarms. Its limits are these. It needs an agent that supports your language, and it can see only the code which the tests actually exercise. It runs in test environments. Do not confuse it with runtime application self-protection, which sits inside a production application and blocks attacks. Interactive testing finds. Self-protection defends.\n\nSoftware composition analysis, or SCA, lists third-party components and their known flaws. It can also report their license terms. Think of a tool that reads the ingredients on a packet and checks them against a recall list. Composition analysis does not judge your own code. It is about what you borrowed. It can also produce a software bill of materials, a formal list of the components in a product.\n\nFuzzing feeds in random or unexpected input to cause failures. Mutation fuzzing changes valid input at random. Generation fuzzing builds input based on knowledge of the expected format. Fuzzing is especially good at finding crashes and memory errors.\n\nHere is a simple way to choose, with a workplace example. A payment company uses each tool at its proper point.\n\n- When code is saved, static testing and composition analysis run.\n- In the test environment, interactive testing runs during the normal tests.\n- In staging, dynamic testing attacks the complete application.\n- For the file upload parser, fuzzing runs overnight.\n\nAs an adviser, remember that one tool never covers everything.\n\nHere is your takeaway. Interactive testing watches from inside during tests, composition analysis checks borrowed parts, and fuzzing throws unexpected input to make software fail."
+        }
+      ],
+      "keyTerms": [
+        {
+          "term": "IDE",
+          "meaning": "Integrated Development Environment: the program where developers write and debug code."
+        },
+        {
+          "term": "CI/CD",
+          "meaning": "Continuous Integration and Continuous Delivery: automatic building, testing and preparing of software for release."
+        },
+        {
+          "term": "SCM",
+          "meaning": "Software Configuration Management: tracking the exact versions that make up each release."
+        },
+        {
+          "term": "Code repository",
+          "meaning": "A controlled store for code and its full change history."
+        },
+        {
+          "term": "SAST",
+          "meaning": "Static Application Security Testing: examining code without running it."
+        },
+        {
+          "term": "DAST",
+          "meaning": "Dynamic Application Security Testing: testing the application while it runs."
+        },
+        {
+          "term": "SCA",
+          "meaning": "Software Composition Analysis: finding third-party components and their known flaws."
+        },
+        {
+          "term": "Fuzzing",
+          "meaning": "Sending random or unexpected input to make software fail."
+        },
+        {
+          "term": "Runtime",
+          "meaning": "The environment in which code executes."
+        }
+      ],
+      "keyPoints": [
+        "Protect the whole software workshop, not only the final product.",
+        "SAST reads code at rest, while DAST tests the running application.",
+        "The CI/CD pipeline is a high-value target and needs strict access control.",
+        "A password committed to a repository stays in its history and must be changed.",
+        "Memory-safe languages reduce memory flaws but do not remove all flaws."
+      ],
+      "memoryHook": "Static is a parked car you inspect. Dynamic is the same car on the road.",
+      "question": {
+        "prompt": "A software company wants to find coding flaws as early as possible. Parts of its new product cannot yet be run. Which testing approach BEST meets this need?",
+        "options": [
+          "Static application security testing of the source code",
+          "Dynamic application security testing of the staging site",
+          "Penetration testing of the production environment",
+          "Fuzz testing of the finished login service"
+        ],
+        "correctIndex": 0,
+        "explanation": "Static testing reads source code, so the application does not need to run. Dynamic testing is tempting because it finds real run-time problems, but it needs a running application. The other two choices also need finished, running software."
+      },
+      "practiceQuestions": [
+        {
+          "prompt": "A team is about to write new firmware for a network device and wants to choose a language that greatly reduces the risk of buffer overflows. Which choice BEST meets this goal?",
+          "options": [
+            "C, because it gives programmers direct control of memory",
+            "Assembly, because each instruction can be reviewed by hand",
+            "C plus plus, because it supports classes and object-oriented design",
+            "Rust, because it enforces memory safety"
+          ],
+          "correctIndex": 3,
+          "explanation": "Rust enforces memory safety, which greatly reduces this kind of flaw. C is tempting because direct control sounds powerful, but that same control is what makes buffer overflows possible."
+        },
+        {
+          "prompt": "A product depends on many open libraries. The security team is worried that a new version of a library could silently add malicious code to the next build. What is the BEST control?",
+          "options": [
+            "Always download the newest version during every build",
+            "Pin approved versions and verify their hashes",
+            "Copy code from public forums instead of using libraries",
+            "Let each developer choose the versions that work best"
+          ],
+          "correctIndex": 1,
+          "explanation": "Pinning approved versions and checking their hashes stops an unexpected version from entering the build. Always using the newest version is tempting because it picks up fixes, but it also pulls in whatever was published last, without review."
+        },
+        {
+          "prompt": "A developer's plug-in for the integrated development environment is found sending source code to an unknown server. Which control would BEST prevent this from happening again?",
+          "options": [
+            "Allow only approved plug-ins, managed centrally",
+            "Ask developers to read the reviews of each plug-in",
+            "Stop developers from using any such tool on their computers",
+            "Scan the production servers for signs of the plug-in"
+          ],
+          "correctIndex": 0,
+          "explanation": "Central approval controls what can be installed, so it fixes the cause. Reading reviews is tempting and cheap, but reviews are no proof of safety and the decision is left to each person."
+        },
+        {
+          "prompt": "A review finds that a production web application runs in a container with full administrator rights and with debugging switched on. What is the BEST change?",
+          "options": [
+            "Move the container to a larger host that has more memory",
+            "Keep debugging on, but limit who may read its output",
+            "Run it with least privilege and turn off debugging",
+            "Put a notice on the site telling users about the testing"
+          ],
+          "correctIndex": 2,
+          "explanation": "Least privilege limits the harm of any flaw, and removing debugging removes a source of leaked information. Limiting who reads the debug output is tempting, but the feature would still be active and could still be abused."
+        },
+        {
+          "prompt": "At a software company, each code change is automatically built and tested and is kept ready for release. A manager must approve before anything reaches production. What is this practice called?",
+          "options": [
+            "Continuous deployment",
+            "Continuous delivery",
+            "Software composition analysis",
+            "Waterfall release control"
+          ],
+          "correctIndex": 1,
+          "explanation": "Continuous delivery keeps code ready, and a person approves each release. Continuous deployment is tempting because the words are similar, but it releases automatically, with no person approving."
+        },
+        {
+          "prompt": "A build script holds a cloud administrator key in plain text, and every developer can edit the script. What should the security manager recommend?",
+          "options": [
+            "Rename the variable so that the key is harder to find",
+            "Tell developers not to read the build script from now on",
+            "Encode the key in Base64 before storing it in the script",
+            "Move the key to a vault and restrict pipeline edits"
+          ],
+          "correctIndex": 3,
+          "explanation": "A vault protects the secret, and limiting who may edit the pipeline protects the process. Base64 encoding is tempting because the key no longer looks readable, but encoding is not encryption and anyone can reverse it."
+        },
+        {
+          "prompt": "After a failed release, a team cannot tell which versions of code and settings made up the last good release, so it cannot roll back. Which practice is MOST clearly missing?",
+          "options": [
+            "Threat modeling",
+            "Dynamic application testing",
+            "Software configuration management",
+            "Rate limiting"
+          ],
+          "correctIndex": 2,
+          "explanation": "Software configuration management records exactly which versions make up each release. Dynamic testing is tempting because it was a failed release, but testing finds problems and does not keep a record of what was shipped."
+        },
+        {
+          "prompt": "A company has bought a web application and has no access to its source code. It wants to find server setup weaknesses and session handling problems in a staging copy. Which approach BEST fits?",
+          "options": [
+            "Dynamic application security testing",
+            "Static application security testing",
+            "Software composition analysis of the source",
+            "Peer code review of the login module"
+          ],
+          "correctIndex": 0,
+          "explanation": "Dynamic testing attacks the running application and needs no source code. Static testing is tempting because it is thorough, but it must be able to read the code, and it cannot see run-time setup problems."
+        },
+        {
+          "prompt": "A team wants security findings during its existing automated functional tests. It wants an agent inside the application to report the exact line of code, with few false alarms. Which approach BEST fits?",
+          "options": [
+            "Static application security testing",
+            "Interactive application security testing",
+            "Software composition analysis of its packages",
+            "Manual penetration testing"
+          ],
+          "correctIndex": 1,
+          "explanation": "Interactive testing uses an agent inside the running application during tests, and can name the line of code. Static testing is tempting because it also names the line, but it does not run the application and it produces more false alarms."
+        },
+        {
+          "prompt": "An auditor asks which third-party packages inside a product have known flaws, and what license terms apply to them. Which tool would answer this MOST directly?",
+          "options": [
+            "Fuzz testing of the input fields",
+            "Static analysis of the in-house code",
+            "Dynamic scanning of the login page",
+            "Software composition analysis"
+          ],
+          "correctIndex": 3,
+          "explanation": "Software composition analysis identifies third-party components, their known flaws and their licenses. Static analysis is tempting because it reads code, but here it is aimed at the company's own code and not at what it borrowed."
+        }
+      ]
+    },
+    {
+      "id": "T70",
+      "name": "Assessing software security effectiveness",
+      "outlineRef": "8.3",
+      "simpleExplanation": "How do you know your software security really works? You look for evidence. First, keep records of every change: who made it, what changed, when it happened and who approved it. Then compare those records with what was allowed. Second, study the risks in your software and decide what to do about each one. Some risks are reduced, some are shared, some are avoided and some are accepted. Management decides. Then check again, because an untested control is only a hope.",
+      "studyNotes": [
+        {
+          "heading": "Why we assess software security",
+          "body": "In this first part, we are going to look at why we must check that software security really works, and what counts as good proof.\n\nSecurity controls can fail without anyone noticing. A test may be switched off to meet a deadline. A developer may find a way around review. A scanning tool may stop running after an upgrade, and nobody sees it. Assessment asks one simple question. Is the control working as intended, and what proves it?\n\nThink of a shop owner. Having a cash register is not enough. The owner also compares the money in the till with the sales records at the end of the day. Without that daily count, a shortfall could go on for months.\n\nThere are three common kinds of proof, and they are not equally strong. The first is a statement, where somebody tells you that the control works. The second is a document, such as a policy that says what should happen. The third is direct evidence of what really did happen, such as protected logs and test results. Direct evidence is the strongest.\n\nHere is a workplace example. A company's development manager says that every change is peer reviewed. The policy says so too. An assessor takes a sample of twenty recent changes and looks at the system records. Three have no second reviewer. The statement and the policy were both comforting, and neither was true for those three changes.\n\nThe independence of the assessor matters as well. People should not be the only ones to mark their own work. Internal audit, a separate team or an outside firm gives a more trustworthy view.\n\nThis objective of the exam outline names two things that you must be able to do. The first is auditing and logging of changes. The second is risk analysis and mitigation. Mitigation means reducing the risk. The rest of this topic takes these two in turn.\n\nHere is what to take away. A control that has not been tested is only a hope. Ask for direct evidence, and have someone independent look at it."
+        },
+        {
+          "heading": "Auditing and logging of changes",
+          "body": "Next we will look at what must be recorded every time software changes.\n\nAn audit trail is a record that lets someone trace what happened. Think of the visitors' book at a front desk, along with the guard's notes on who let each person in. For each software change, the record should show these things.\n\n- Who made the change.\n- What changed, including the old and new versions.\n- When and where it happened.\n- Who approved it, and which ticket or request it belongs to.\n- Whether testing passed.\n\nLet us take a workplace example. A change to an interest rate calculation goes live at a credit union. The record shows that a named developer changed one file. It shows the old and new versions of the code. It shows the time, the system involved, and the change request number. It shows that a different person approved it, and that the tests passed. If a customer complains six months later, the credit union can reconstruct the whole story.\n\nIndividual accounts matter here. Shared accounts break accountability, because you cannot prove who acted. If five developers all use one account for deployment, then the log only tells you that one of the five did it. Non-repudiation means that a person cannot believably deny an action. Individual accounts and strong authentication help to provide it. Digital signatures provide it more strongly.\n\nDo not log everything without thought. Logs should not contain passwords, full card numbers or other secrets. A log that holds secrets becomes a target of its own.\n\nWhere do these records come from? They come from several places at once. The code repository records who changed what. The pipeline, the automatic line that builds and releases software, records each build and each release. The ticketing system records who asked and who approved. Production servers record what really arrived. An assessor joins these together to see the whole picture.\n\nHere is your takeaway. For every change, record who, what, when, who approved and whether it passed its tests, and tie each action to one named person."
+        },
+        {
+          "heading": "Protecting the records and reviewing them",
+          "body": "Now we will look at how to keep those records trustworthy, and at how they should be reviewed.\n\nIf the people being logged can alter the logs, the logs prove very little. Think of a student marking the attendance register for himself. So send the records straight to a separate system that developers and administrators cannot alter. This often means a security information and event management system, or SIEM, which collects logs in one place and looks for patterns. Control who can read the records. Keep them as long as policy and law require. Use accurate, synchronized clocks, so that events on different systems can be placed in the right order.\n\nLogs have no value if nobody reads them. Here are the review steps, using a monthly review at a retail company as a worked example.\n\nStep one. Take the list of everything that reached production this month. Suppose there were 120 changes.\n\nStep two. Take the list of approved change requests. Suppose there were 118.\n\nStep three. Compare the two lists. Two changes have no matching request. Each one needs investigation. Who made it, what changed and why?\n\nStep four. Sample the approved changes. Was the approver a different person from the author? Did the required tests and reviews really happen?\n\nStep five. Check that emergency changes were reviewed afterward.\n\nStep six. Report the results, and fix the cause of anything found. If a developer had direct access to production, remove that access.\n\nDo not delete anything, and do not approve anything after the fact just to tidy up the records. An unexplained change could be an innocent mistake, or it could be an attack.\n\nAlso assess the results of security work over time. Useful measures include how long flaws stay open, how many flaws return after being fixed, and how many escape into production. A regression test is a repeat test that proves a fix did not break something else or bring an old flaw back.\n\nHere is what to take away. Store logs where the people being logged cannot change them, and regularly compare what reached production with what was approved."
+        },
+        {
+          "heading": "Risk analysis in software",
+          "body": "In this part, we will look at how to decide which software flaws matter most.\n\nNot every flaw can be fixed today. Risk analysis helps you to spend limited time on what counts. Think of a car with several faults. A worn seat cover can wait. Failing brakes cannot.\n\nThreat modeling lists what could go wrong. One well-known way to organize the list is STRIDE. Its six letters stand for these.\n\n- Spoofing: pretending to be someone else.\n- Tampering: changing data without permission.\n- Repudiation: denying that you did something.\n- Information disclosure: exposing data.\n- Denial of service: stopping real users from getting service.\n- Elevation of privilege: gaining more access than allowed.\n\nFor flaws already known, there are public systems. Common Vulnerabilities and Exposures, or CVE, gives each publicly known flaw an identifying number. The Common Vulnerability Scoring System, or CVSS, rates a flaw's severity from 0 to 10. In the current ratings, 0.1 to 3.9 is low, 4.0 to 6.9 is medium, 7.0 to 8.9 is high, and 9.0 to 10.0 is critical.\n\nSeverity is not the whole risk. Severity describes the flaw. Risk also depends on your own data, on your exposure, and on whether anyone is actually using the flaw in real attacks.\n\nHere is a workplace example. A scan reports two flaws. Flaw A scores 9.8, but it sits on an isolated test machine with no real data. Flaw B scores 7.5, and it sits on an internet-facing payment system. With limited staff, the sensible choice is to deal with flaw B first, even though its score is lower.\n\nThat is the reasoning the exam wants. A scanner gives you a technical number. A manager and adviser turns it into a business decision.\n\nRisk analysis can also be qualitative, which means using words such as high, medium and low, or quantitative, which means using money and numbers. The next part works through the numbers.\n\nHere is your takeaway. Threat modeling finds what could go wrong, severity scores rate the flaw, and your own data and exposure decide the real risk."
+        },
+        {
+          "heading": "The numbers method, with a worked example",
+          "body": "Now we will work through the arithmetic of risk, one step at a time.\n\nThere are two formulas to know. Say them aloud.\n\nSingle loss expectancy equals asset value times exposure factor.\n\nAnnualized loss expectancy equals single loss expectancy times annualized rate of occurrence.\n\nSingle loss expectancy, or SLE, is the cost of one event. The exposure factor is the share of the value lost in one event. The annualized rate of occurrence, or ARO, is how many times per year the event is expected. Annualized loss expectancy, or ALE, is the expected loss per year.\n\nThink of a phone worth 400 dollars. One drop damages a quarter of its value, so one drop costs 100 dollars. If you drop it twice a year, you lose 200 dollars a year.\n\nNow a workplace example. A shop's online system is worth 200,000 dollars. A flaw, if exploited, would damage 25 percent of its value.\n\nStep one. 200,000 dollars times 0.25 is 50,000 dollars. That is the single loss expectancy.\n\nStep two. The event is expected once every two years. That is 1 divided by 2, so the rate is 0.5 per year.\n\nStep three. 50,000 dollars times 0.5 is 25,000 dollars. That is the annualized loss expectancy.\n\nNow we can test whether a fix is worth buying. A fix costs 10,000 dollars a year, and it lowers the rate to 0.1 per year.\n\nStep four. 50,000 dollars times 0.1 is 5,000 dollars. That is the new yearly loss.\n\nStep five. Use this formula. The value of the fix equals the old yearly loss, minus the new yearly loss, minus the yearly cost of the fix. So 25,000 minus 5,000 is 20,000. Then 20,000 minus 10,000 is 10,000 dollars a year.\n\nA positive answer means that the fix is worth buying. If the answer is negative, the fix costs more than it saves, on the numbers alone. The common mistake is to forget to subtract the cost of the fix.\n\nHere is what to take away. Value times exposure gives one event. One event times the rate gives the yearly loss. Then subtract the new loss and the cost of the fix."
+        },
+        {
+          "heading": "Mitigation and decisions",
+          "body": "In this final part, we will look at what is done about a risk once it is understood, and who makes that decision.\n\nThere are four accepted responses to a risk. Learn all four.\n\n- Mitigate: reduce the risk, for example by fixing the code.\n- Transfer or share: move some of the financial impact, for example through insurance.\n- Avoid: stop the risky activity or remove the feature.\n- Accept: live with the risk, knowingly and in writing.\n\nThink about a dangerous stretch of road on your way to work. You can drive slowly and wear a seat belt. That is mitigation. You can buy insurance. That is transfer. You can take a different road. That is avoidance. Or you can use the road anyway, fully aware of the danger. That is acceptance.\n\nIgnoring a risk is never acceptable. Acceptance is a conscious and recorded decision. Ignoring it is simply pretending.\n\nHere is a workplace example. An application has a rarely used file upload feature with a serious flaw. Rewriting it would be costly. The product owner checks, and very few people use it. Removing the feature is the cheapest and safest answer, and that is avoidance. A second flaw, in the main payment page, is fixed. That is mitigation. A third, minor flaw is low risk and cannot be fixed before launch. The business owner accepts it in writing, with a date for review.\n\nThe risk that is left after controls is called residual risk. Senior management owns the decision to accept it. Security staff and developers advise, and they should explain the risk in business terms. Developers should not quietly accept risk by deciding not to fix a flaw.\n\nAfter a fix, test again to confirm that it worked. Then run regression tests to make sure that nothing else has broken. Keep a register of the risks, along with the owner of each and its review date, and go back to it, because threats and business needs both change.\n\nHere is your takeaway. Choose among mitigate, transfer, avoid and accept. Senior management accepts residual risk, and every fix must be tested again."
+        }
+      ],
+      "keyTerms": [
+        {
+          "term": "Audit trail",
+          "meaning": "A record that lets someone trace who did what and when."
+        },
+        {
+          "term": "Non-repudiation",
+          "meaning": "Proof that stops a person from believably denying an action."
+        },
+        {
+          "term": "Regression test",
+          "meaning": "A repeat test showing that a change did not break anything or restore an old flaw."
+        },
+        {
+          "term": "CVSS",
+          "meaning": "Common Vulnerability Scoring System: a 0 to 10 rating of how severe a flaw is."
+        },
+        {
+          "term": "SLE",
+          "meaning": "Single Loss Expectancy: the cost of one event, equal to asset value x exposure factor."
+        },
+        {
+          "term": "ARO",
+          "meaning": "Annualized Rate of Occurrence: how many times per year an event is expected."
+        },
+        {
+          "term": "ALE",
+          "meaning": "Annualized Loss Expectancy: expected yearly loss, equal to SLE x ARO."
+        },
+        {
+          "term": "Residual risk",
+          "meaning": "The risk that remains after controls are applied."
+        }
+      ],
+      "keyPoints": [
+        "Change logs must show who, what, when and who approved.",
+        "Store logs where the people being logged cannot alter them.",
+        "Compare production changes with approved requests.",
+        "Value of a fix is old ALE minus new ALE minus yearly fix cost.",
+        "Senior management decides whether to accept residual risk."
+      ],
+      "memoryHook": "Trust, but check the till. Controls need proof, just as a shop needs its daily count.",
+      "question": {
+        "prompt": "An auditor must decide whether changes to a live payroll application were properly authorized. Which evidence would BEST support this decision?",
+        "options": [
+          "A signed statement from the development manager that the policy was followed",
+          "The results of a recent vulnerability scan of the payroll application",
+          "Protected deployment logs compared with the approved change requests",
+          "A copy of the written change management policy and its training records"
+        ],
+        "correctIndex": 2,
+        "explanation": "Comparing protected logs with approved requests directly proves what happened. The signed statement is tempting, but it is only a claim and comes from someone with an interest in the result. A policy shows what should happen, not what did happen."
+      },
+      "practiceQuestions": [
+        {
+          "prompt": "All of the developers at a company deploy software to production using one shared account. What is the MOST significant security problem with this?",
+          "options": [
+            "It uses too much storage in the logging system",
+            "Actions cannot be traced to one person",
+            "It makes the deployment tool run more slowly",
+            "It breaks the clock synchronization of the servers"
+          ],
+          "correctIndex": 1,
+          "explanation": "A shared account breaks accountability, because no one can prove who acted. The storage answer is tempting because the scenario is about logging, but the amount of log data is not the issue."
+        },
+        {
+          "prompt": "System administrators at a bank can edit the audit logs stored on the servers that they manage. What is the BEST way to make these records trustworthy?",
+          "options": [
+            "Ask administrators to sign a code of conduct every year",
+            "Review the logs more often on those same servers",
+            "Send logs at once to a separate, protected system",
+            "Reduce the amount of detail recorded in each log"
+          ],
+          "correctIndex": 2,
+          "explanation": "Sending logs to a separate system removes the ability of those being logged to alter them. Reviewing them more often is tempting, but a reviewer cannot trust records that could already have been changed."
+        },
+        {
+          "prompt": "Investigators cannot work out the order of events from application, database and pipeline logs, because the times on the systems differ by several minutes. What would BEST solve this for the future?",
+          "options": [
+            "Synchronize all systems to a trusted time source",
+            "Keep the logs for a longer retention period",
+            "Encrypt the logs while they are in transit",
+            "Increase the number of fields in each log entry"
+          ],
+          "correctIndex": 0,
+          "explanation": "Synchronized clocks allow events on different systems to be placed in order. Longer retention is tempting because investigators want more records, but extra time does not correct timestamps that disagree."
+        },
+        {
+          "prompt": "A monthly review finds a production change that has no matching approved request. What should the reviewer do FIRST?",
+          "options": [
+            "Delete the entry, since no ticket supports it",
+            "Approve the change afterward to keep the records neat",
+            "Dismiss all developers who had production access",
+            "Investigate who made it, what changed and why"
+          ],
+          "correctIndex": 3,
+          "explanation": "An unexplained change may be a mistake or an attack, so the facts must be found first. Approving it afterward is tempting because it tidies the records, but it hides the very problem the review exists to find."
+        },
+        {
+          "prompt": "An application is worth 600,000 dollars. A breach would damage 20 percent of its value, and one is expected every four years. What is the annualized loss expectancy?",
+          "options": [
+            "120,000 dollars",
+            "150,000 dollars",
+            "30,000 dollars",
+            "24,000 dollars"
+          ],
+          "correctIndex": 2,
+          "explanation": "One event costs 600,000 times 0.20, which is 120,000 dollars. The rate is 1 divided by 4, which is 0.25. So 120,000 times 0.25 is 30,000 dollars. 120,000 dollars is tempting, but that is the cost of one event."
+        },
+        {
+          "prompt": "A flaw has an annualized loss expectancy of 90,000 dollars. A fix costing 45,000 dollars a year would lower that to 30,000 dollars. What is the yearly value of the fix?",
+          "options": [
+            "15,000 dollars",
+            "45,000 dollars",
+            "60,000 dollars",
+            "105,000 dollars"
+          ],
+          "correctIndex": 0,
+          "explanation": "90,000 minus 30,000 is 60,000 dollars. Then 60,000 minus 45,000 is 15,000 dollars. 60,000 dollars is tempting, but it leaves out the cost of the fix."
+        },
+        {
+          "prompt": "A scan reports two flaws. Flaw A scores 9.8 on an isolated test machine holding no real data. Flaw B scores 7.5 on an internet-facing payment system. With limited staff, which should be dealt with FIRST?",
+          "options": [
+            "Flaw A, because the highest score must always go first",
+            "Flaw B, because its exposure and data matter more",
+            "Neither, because both scores are below the critical range",
+            "Both at once, by stopping all other development work"
+          ],
+          "correctIndex": 1,
+          "explanation": "Risk depends on exposure and on the data involved, not on severity alone, so the payment system comes first. Flaw A is tempting because of its score, but it sits where it can do little harm."
+        },
+        {
+          "prompt": "A serious flaw cannot be fixed before a product's launch date. Who should make the decision to accept the remaining risk?",
+          "options": [
+            "The developer who wrote the affected code",
+            "The security analyst who found the flaw",
+            "The tester assigned to this release",
+            "The senior business owner"
+          ],
+          "correctIndex": 3,
+          "explanation": "Senior management owns the decision to accept residual risk. The security analyst is tempting because that person understands the flaw, but security staff advise and do not accept risk for the business."
+        },
+        {
+          "prompt": "After a flaw is fixed, testers rerun an established set of tests to confirm that the fix did not break other features or bring back earlier flaws. What is this called?",
+          "options": [
+            "Regression testing",
+            "Fuzz testing",
+            "Threat modeling",
+            "Composition analysis"
+          ],
+          "correctIndex": 0,
+          "explanation": "Regression testing is a repeat test that shows a change did not break anything or restore an old flaw. Fuzz testing is tempting because it is also testing, but it sends random input to cause failures."
+        },
+        {
+          "prompt": "A company removes a rarely used document upload feature from its website, because securing it would cost more than the feature is worth. Which risk response is this?",
+          "options": [
+            "Mitigate",
+            "Transfer",
+            "Avoid",
+            "Accept"
+          ],
+          "correctIndex": 2,
+          "explanation": "Removing the feature stops the risky activity, which is avoidance. Mitigate is tempting because the risk goes down, but mitigation keeps the feature and adds controls to it."
+        }
+      ]
+    },
+    {
+      "id": "T71",
+      "name": "Security impact of acquired software",
+      "outlineRef": "8.4",
+      "simpleExplanation": "Most organizations do not write all their own software. They buy it, download it, pay someone to write it, or rent it online. You can hand over the work, but you cannot hand over accountability for your data. Before using acquired software, check the supplier, the contract and the product. Know which parts you must secure yourself. Keep a list of what is inside your software, so you can act quickly when a new flaw is announced.",
+      "studyNotes": [
+        {
+          "heading": "Check before you buy",
+          "body": "In this first part, we are going to look at why software that comes from someone else still needs your careful attention.\n\nMost organizations do not write all of their own software. They buy it, download it, pay someone to write it, or rent it online. The exam outline names five kinds, and we will take each in turn. They are commercial products, open source, third-party software, managed services and cloud services.\n\nOne rule covers all five. You can hand over the work, but you cannot hand over accountability for your data.\n\nThink of a school buying food for its canteen. It checks the supplier, it reads the label and it watches for recalls. If a child falls ill, parents will not accept the excuse that the food came from somewhere else. Software needs the same care. Assess it before purchase, while it is in use and when it is retired.\n\nSecurity requirements belong in the contract. It is much harder to add them after signing, because you no longer have any bargaining power. A contract might set how quickly the supplier must patch flaws, how it must report a breach, and what happens to your data when the agreement ends.\n\nHere are useful checks before you buy. Send a supplier security questionnaire. Ask for independent audit reports. Ask for test results and a patch history. Ask for a right to audit, which lets you inspect the supplier's controls. Also check the supplier's own suppliers, because risk travels down the chain. This is known as supply chain risk.\n\nVerify every download with a digital signature or a hash, to prove that the software was not altered. A hash is a short fingerprint of a file, and it must be compared with a value from the vendor's trusted source. A digital signature proves who issued the file.\n\nHere is a workplace example. A hospital wants a new appointments product. Before signing, it reviews the audit report, tests a trial copy and writes patching deadlines into the contract. The risk decision is recorded and signed by the business owner.\n\nHere is what to take away. Check the supplier, the contract and the product before you depend on them, because accountability stays with you."
+        },
+        {
+          "heading": "Commercial off-the-shelf software",
+          "body": "Next we will look at the most familiar kind of acquired software, the ready-made product.\n\nCommercial off-the-shelf software, or COTS, is a ready-made product sold to many customers. Think of an office suite or an accounting package. It is like buying a suit from a rack. It is cheap and it is available today, but you did not choose the cloth, and you cannot see how it was stitched.\n\nYou usually cannot see its source code, which is the human-written instructions. So you depend on the vendor for fixes. That brings several risks to watch.\n\nThe first is insecure default settings. Products are often shipped so that they work easily, not so that they are safe. Default passwords and unneeded features should be changed or turned off before use.\n\nThe second is end of support. When the vendor stops issuing patches, every new flaw stays open.\n\nThe third is vendor failure. If the vendor goes out of business, nobody can fix the product. The answer to this is software escrow. A neutral third party holds the source code and releases it to you if agreed events occur, such as the vendor closing down. Make sure that the escrow copy is kept current and that it could really be built. A five-year-old copy may be of little use.\n\nHow can you test what you cannot see? You can run a dynamic scan, which attacks the running product from the outside. You can review the vendor's independent audit reports and certifications. The Common Criteria is an international scheme for evaluating security products. It gives assurance levels from 1 to 7, called evaluation assurance levels. A certificate applies only to the evaluated version and configuration, so check that yours matches.\n\nHere is a workplace example. A small logistics firm depends on a specialist tracking product from a tiny vendor. Management's main fear is that the vendor could vanish. A service level agreement would be worthless if the vendor no longer exists. Software escrow answers that exact fear.\n\nHere is your takeaway. With ready-made products, harden the defaults, watch the end of support, and use software escrow when the vendor might fail."
+        },
+        {
+          "heading": "Open source software",
+          "body": "Now we will look at open source software, which is inside nearly every modern application.\n\nOpen source software has public source code that anyone can inspect, use and change, under the terms of its license. Think of a community cookbook. Anyone can read the recipes and suggest changes. That sounds very safe, and sometimes it is. But the fact that anyone can check a recipe does not prove that anyone did.\n\nAvoid two opposite mistakes. One is believing that open source is automatically secure because many eyes are on it. The other is believing that it is automatically unsafe because anyone can see it. The truth depends on the particular project.\n\nThere may be no vendor to call and no contract promising a fix. So your organization carries the job of watching for flaws and applying updates. Before adopting a project, check these things. How active is it? How many people look after it? How quickly are flaws fixed? Are there known flaws today? Does the license allow your use?\n\nThat last point catches many companies. Permissive licenses, such as MIT and Apache, ask for little in return. Copyleft licenses, such as the GNU General Public License, can require you to share your own source code if you distribute a product built on them. That is a legal risk, and the lawyers need to know about it.\n\nThere are also attacks on the supply of open source. In typosquatting, an attacker publishes a harmful package with a name very like a popular one, and hopes that a developer mistypes it. An attacker can also gain the trust of a tired volunteer maintainer and later add hidden malicious code.\n\nSoftware composition analysis tools help here. They list the third-party components that you use, along with known flaws and license terms.\n\nHere is a workplace example. A developer wants a free library that has one maintainer and has not been updated in four years. The team finds a better-supported alternative. Using approved sources and an internal package store keeps these decisions under control.\n\nHere is what to take away. Open source is neither safe nor unsafe by nature. You own the checking, the updating and the license."
+        },
+        {
+          "heading": "Third-party software and managed services",
+          "body": "In this part, we will look at software written for you by outsiders, and at systems that outsiders run for you.\n\nThird-party software is built or supplied by an outside party, such as a contractor writing a custom system, or a partner providing a component. Think of hiring a builder to add a room. You agree on the plans and the standards first, and you inspect the work before paying the final bill.\n\nSo set secure coding duties in the contract. Decide who owns the code. Require evidence of testing. Then test what is delivered, and do not rely only on the supplier's word. A letter saying that everything is fine is a claim and not evidence. Independent testing before acceptance is much stronger. Also make sure that no hidden maintenance access, sometimes called a backdoor, has been left in.\n\nWith managed services, an outside provider runs a system for you, often a large enterprise application, such as payroll or customer management. Think of hiring a company to run your staff cafeteria. It does the daily work, but it is still your cafeteria, and your staff who get sick.\n\nUse a service level agreement, or SLA, which sets the agreed performance and duties. Review the provider's audit reports. The most common are System and Organization Controls reports, known as SOC reports. A SOC 1 report concerns controls over financial reporting. A SOC 2 report concerns security and related areas. A SOC 3 report is a short summary for the public.\n\nThe word Type matters too. A Type 1 report looks at whether controls were properly designed at one point in time. A Type 2 report tests whether they actually worked over a period, often a year. For proof that controls really operated, ask for Type 2.\n\nPlan how to get your data back when the contract ends. Also plan what the provider must delete. Getting out is part of getting in.\n\nHere is a workplace example. A retailer outsources payroll. It reviews the provider's SOC 2 Type 2 report, sets breach notification times in the contract, and agrees the format in which its data will be returned.\n\nHere is your takeaway. Test what contractors deliver, ask managed providers for Type 2 evidence, and plan your exit before you sign."
+        },
+        {
+          "heading": "Cloud services and shared responsibility",
+          "body": "Next we will look at cloud services, and at the question that the exam asks most often about them, which is who is responsible for what.\n\nCloud services divide the work by shared responsibility. Think of housing. If you rent bare land, you build and maintain everything on it. If you rent an empty apartment, the landlord looks after the building, and you furnish and manage the inside. If you stay in a hotel, nearly everything is done for you, but you must still lock your door and look after your passport.\n\nThose are the three service models. Learn them in this order.\n\n- Infrastructure as a Service, or IaaS: the provider runs the hardware, the network and virtualization, the software that splits one machine into many virtual ones. You secure the operating system, applications, data and access.\n- Platform as a Service, or PaaS: the provider also runs the operating system and the platform. You secure your code, data and access.\n- Software as a Service, or SaaS: the provider runs the whole application. You secure your data, user accounts and settings.\n\nAs you move from infrastructure to platform to software, the provider takes on more, and you have less direct control.\n\nCheck the provider's exact contract, because the split can vary. In every model, your organization stays accountable for its data. Some duties never leave you, such as deciding who may have access, classifying your data, and meeting your legal duties.\n\nHere are three workplace examples. A company rents virtual servers, and an unpatched operating system is attacked. That is infrastructure, so the patch was the customer's job. A team publishes its code on a hosted platform, and the code has an injection flaw. That is platform, and the code is the team's job. A firm uses a hosted email product, and a former employee's account was never disabled. That is software as a service, and managing users is the customer's job.\n\nAlso ask where the data is physically stored, because the laws of that country may apply.\n\nHere is what to take away. The provider takes on more from infrastructure to platform to software, but the data and the accountability are always yours."
+        },
+        {
+          "heading": "Software bill of materials",
+          "body": "In this final part, we will look at a simple idea that has become very important, the software bill of materials.\n\nA software bill of materials, or SBOM, is a formal list of the components inside a product, including their versions and suppliers. It is like the ingredient list on a packet of food. If you have a nut allergy, you read the label. If there is a recall on one batch of flour, the label tells you whether you are affected.\n\nThere are two common formats. SPDX is the Software Package Data Exchange, and CycloneDX is a format that came from the OWASP community. OWASP is the Open Worldwide Application Security Project. A good list records the supplier, the component name, the version, how the components depend on one another, who created the list and when.\n\nDependencies come in two kinds. A direct dependency is a part that your product chose to use. A transitive dependency is a part that was pulled in by one of those parts. Many flaws hide in the transitive ones, deep down where nobody looks.\n\nLet us work through the steps of a real kind of event. A serious flaw is announced in a popular logging library.\n\n- Step one. The security team searches its stored lists for that library and those versions.\n- Step two. Within minutes, it knows which products contain it, including those where it is a transitive dependency.\n- Step three. It checks whether each product really uses the flawed function, and how exposed each product is.\n- Step four. It patches the most exposed products first.\n- Step five. It updates the lists, and tells customers what they need to know.\n\nWithout these lists, the team must inspect each product by hand while attackers are already busy.\n\nNow for the limit that catches people. An SBOM lists parts. It does not prove the parts are safe. It says what is inside, and nothing more. You also need to keep it current, or it becomes misleading.\n\nAs a buyer, you can require a list from your suppliers in the contract.\n\nHere is your takeaway. A software bill of materials is an ingredient list. It speeds up your response to a new flaw, but it does not prove that anything is secure."
+        }
+      ],
+      "keyTerms": [
+        {
+          "term": "COTS",
+          "meaning": "Commercial Off-The-Shelf: ready-made software sold to many customers."
+        },
+        {
+          "term": "Software escrow",
+          "meaning": "A neutral party holds source code and releases it if agreed events occur."
+        },
+        {
+          "term": "Open source",
+          "meaning": "Software whose source code is publicly available under a license."
+        },
+        {
+          "term": "SLA",
+          "meaning": "Service Level Agreement: a contract section that sets agreed service levels and duties."
+        },
+        {
+          "term": "IaaS",
+          "meaning": "Infrastructure as a Service: rented computing, where the customer secures the operating system and above."
+        },
+        {
+          "term": "PaaS",
+          "meaning": "Platform as a Service: a rented platform, where the customer secures its code, data and access."
+        },
+        {
+          "term": "SaaS",
+          "meaning": "Software as a Service: a rented application, where the customer secures data, users and settings."
+        },
+        {
+          "term": "SBOM",
+          "meaning": "Software Bill of Materials: a formal list of the components in a product."
+        },
+        {
+          "term": "Shared responsibility",
+          "meaning": "The division of security duties between a cloud provider and its customer."
+        }
+      ],
+      "keyPoints": [
+        "You can outsource the work but not accountability for your data.",
+        "Put security requirements in the contract before signing.",
+        "Software escrow protects you if a vendor can no longer support its product.",
+        "From IaaS to PaaS to SaaS, the provider takes on more.",
+        "An SBOM speeds up the search when a component flaw is announced."
+      ],
+      "memoryHook": "Read the label, check the supplier, and keep the list of ingredients.",
+      "question": {
+        "prompt": "A retailer uses a human resources application delivered as SaaS. A former employee logs in months after leaving and copies staff records. The provider's platform worked as designed. Who is MOST responsible for preventing this event?",
+        "options": [
+          "The provider, because it operates the complete application",
+          "The retailer, because it manages its own users and their access",
+          "The former employee's manager, because that person ended the employment",
+          "The provider's auditor, because it reviewed the service controls"
+        ],
+        "correctIndex": 1,
+        "explanation": "In SaaS, the customer still manages its users, access and data. The provider is the tempting answer because it runs the application, but it cannot know who has left the retailer unless the retailer acts. The organization holds this duty, not one manager or an auditor."
+      },
+      "practiceQuestions": [
+        {
+          "prompt": "A hospital has chosen a commercial scheduling product, and the contract has not yet been signed. The security team wants the vendor to commit to patching critical flaws quickly. What is the BEST approach?",
+          "options": [
+            "Wait until go-live, and then ask the vendor for a patch plan",
+            "Rely on the security statements on the vendor's website",
+            "Write patching duties into the contract before signing",
+            "Plan to build its own patches whenever a flaw appears"
+          ],
+          "correctIndex": 2,
+          "explanation": "Requirements carry the most weight when they are in the contract before signing. Relying on website statements is tempting because they sound reassuring, but they do not bind the vendor to anything."
+        },
+        {
+          "prompt": "An administrator downloads a software installer from a mirror site. What is the BEST way to confirm that the file has not been altered?",
+          "options": [
+            "Compare its hash with the one the vendor publishes",
+            "Scan it once with a free antivirus tool at home",
+            "Check that the mirror site shows a padlock in the browser",
+            "Check the size of the file against the vendor's web page"
+          ],
+          "correctIndex": 0,
+          "explanation": "A matching hash from the vendor's trusted source shows that the file is unchanged. The padlock is tempting, but it only protects the connection to the mirror and says nothing about the file itself."
+        },
+        {
+          "prompt": "A team wants to adopt an open source library with one maintainer and no updates in four years. A developer says that because the code is public, it has surely been well reviewed. What is the BEST response?",
+          "options": [
+            "Agree, because public code is always reviewed by many people",
+            "Agree, because open source licenses guarantee code security",
+            "Reject all open source across the organization from now on",
+            "Check its maintenance, known flaws and license before use"
+          ],
+          "correctIndex": 3,
+          "explanation": "Being able to inspect code does not prove that anyone did, so the project needs to be checked on its merits. Rejecting all open source is tempting because it looks safe, but it is out of proportion and is not practical."
+        },
+        {
+          "prompt": "A company plans to include a library under a copyleft license in a commercial product that it will sell without sharing its source code. Which concern is MOST important?",
+          "options": [
+            "The library may run too slowly on smaller devices",
+            "The license may require sharing its source code",
+            "The library may not use a modern programming language",
+            "The library's author may charge a yearly support fee"
+          ],
+          "correctIndex": 1,
+          "explanation": "Copyleft licenses can require the company to share its own source code when it distributes the product. A support fee is tempting because the product is commercial, but the license duty is the real legal risk here."
+        },
+        {
+          "prompt": "A contractor delivers a custom customer portal along with a letter stating that all security testing was passed. What should the organization do BEFORE accepting the portal?",
+          "options": [
+            "Accept the letter, since the contract makes the contractor liable",
+            "Ask for a second letter signed by the contractor's director",
+            "Deploy it, then ask the contractor to fix anything that fails",
+            "Test the delivered code independently"
+          ],
+          "correctIndex": 3,
+          "explanation": "Independent testing provides direct evidence, while a letter is only a claim. Relying on the contract is tempting because liability seems to be covered, but accountability for the organization's data stays with the organization."
+        },
+        {
+          "prompt": "A company is evaluating a payroll provider. It wants independent evidence that the provider's security controls actually worked over the past year. Which report BEST meets this need?",
+          "options": [
+            "A SOC 2 Type 2 report",
+            "A SOC 2 Type 1 report",
+            "A SOC 3 public summary",
+            "The provider's marketing brochure"
+          ],
+          "correctIndex": 0,
+          "explanation": "A Type 2 report tests whether controls operated effectively over a period. A Type 1 report is tempting because it comes from the same family, but it covers only the design of the controls at one point in time."
+        },
+        {
+          "prompt": "A company is negotiating a five-year managed service for its customer management system. Management's main concern is being able to leave the provider without losing its information. What should be added to the contract?",
+          "options": [
+            "A higher target for uptime in the service agreement",
+            "A requirement for a yearly penetration test report",
+            "Terms for data return and deletion at exit",
+            "A signed privacy notice from each of the provider's staff"
+          ],
+          "correctIndex": 2,
+          "explanation": "Exit terms directly answer the worry about getting data back and having the rest deleted. A higher uptime target is tempting because it improves the service, but it does nothing for the day the contract ends."
+        },
+        {
+          "prompt": "A company rents virtual servers under Infrastructure as a Service. An attacker breaks in through an unpatched operating system on one of the servers. Who was responsible for that patch?",
+          "options": [
+            "The cloud provider, because it owns the physical hardware",
+            "The customer, because it manages the operating system",
+            "The virtualization vendor, because its software was involved",
+            "Both equally, unless a regulator decides otherwise"
+          ],
+          "correctIndex": 1,
+          "explanation": "In Infrastructure as a Service, the customer secures the operating system and everything above it. The cloud provider is tempting because it owns the hardware, but its duty stops at the virtualization layer."
+        },
+        {
+          "prompt": "Developers publish a web application on a Platform as a Service offering. Which of the following is the customer MOST clearly responsible for securing?",
+          "options": [
+            "The physical data center and its power supply",
+            "The network switches at the provider's site",
+            "The operating system of the platform's hosts",
+            "The application code and its access settings"
+          ],
+          "correctIndex": 3,
+          "explanation": "In Platform as a Service, the customer secures its code, data and access. The operating system is tempting, because the customer would handle it under Infrastructure as a Service, but here the provider runs it."
+        },
+        {
+          "prompt": "A supplier provides a complete software bill of materials. A purchasing officer says that this proves the product is safe to buy. What is the BEST response?",
+          "options": [
+            "It lists the parts, but it does not prove they are safe",
+            "It proves that the product had no known flaws when sold",
+            "It removes the need for any security testing by the vendor",
+            "It is useful only for open source and never for paid products"
+          ],
+          "correctIndex": 0,
+          "explanation": "The list says what is inside and nothing more. Saying that it proves no known flaws is tempting, because the list can be used to look for flaws, but someone still has to do that checking."
+        }
+      ]
+    },
+    {
+      "id": "T72",
+      "name": "Software weaknesses at source-code level",
+      "outlineRef": "8.5",
+      "simpleExplanation": "Many attacks work because code trusts something it should not. It may trust a long input, a typed command, a web page, or the idea that nothing changes between two steps. The fixes follow the same logic. Check the size of input. Keep data separate from commands. Make output safe before showing it. Prove that a request really was intended. Make critical steps happen as one action. On the exam, know each flaw, how it works and its best fix.",
+      "studyNotes": [
+        {
+          "heading": "How software weaknesses are listed",
+          "body": "In this first part, we are going to look at the main lists of software weaknesses, and at the single idea behind nearly all of them.\n\nMost code-level flaws have one cause. The code trusts something that it should not. Think of a doorman who lets in anyone who says that they are on the guest list, without looking at the list.\n\nOWASP, the Open Worldwide Application Security Project, publishes a list of serious web application risks, called the Top 10. The list changes every few years, so learn the kinds of flaw and not the rank numbers. The 2021 list has these ten.\n\n- Broken access control.\n- Cryptographic failures.\n- Injection.\n- Insecure design.\n- Security misconfiguration.\n- Vulnerable and outdated components.\n- Identification and authentication failures.\n- Software and data integrity failures.\n- Security logging and monitoring failures.\n- Server-side request forgery.\n\nIn server-side request forgery, a server is tricked into making requests on behalf of an attacker, often to internal systems that the attacker could not reach directly. A newer 2025 edition keeps most of these ideas, and gives more attention to software supply chain failures and to the mishandling of unusual error conditions.\n\nAnother catalog is the Common Weakness Enumeration, or CWE. It names types of weakness in code. Be clear on the difference from Common Vulnerabilities and Exposures, or CVE. A CWE entry describes a kind of mistake, such as a missing length check. A CVE entry is one specific known flaw in one specific product.\n\nHere is a workplace example. A company reviews its last year of security bugs and groups them by weakness type. Forty percent turn out to be injection. So it does not just fix those bugs one by one. It changes its coding standard, adds a safe database library and trains its developers.\n\nThat is the manager's mindset, and it matters for this whole topic. Fix the cause, not only the symptom. A firewall rule can buy time as a compensating control, which is a stand-in for the real fix. But the real fix belongs in the code.\n\nHere is what to take away. Learn the kinds of flaw, know that CWE names a type and CVE names one instance, and fix causes."
+        },
+        {
+          "heading": "Buffer overflow",
+          "body": "Next we will look at one of the oldest and most dangerous flaws, the buffer overflow.\n\nA buffer is a fixed space in memory. A buffer overflow happens when a program writes more data than the space can hold. Think of pouring a large jug into a small cup on a table full of papers. The extra spills over and ruins whatever is next to it.\n\nIn memory, what sits next to the buffer may be important. There are two main areas. The stack is memory that is used for a running function, including the return address, which tells the program where to go next. The heap is memory that the program asks for while it is running.\n\nLet us walk through a stack attack. A program sets aside 64 bytes for a name, and it does not check the length. An attacker sends 200 bytes. The first 64 fill the buffer. The rest overwrite what comes after it, including the return address. If the attacker has chosen those bytes carefully, the program jumps to the attacker's own instructions. So the result may be a crash, or the attacker may run code with the program's privileges.\n\nThis flaw is mainly found in languages such as C and C plus plus, which let programmers handle memory directly and do not check boundaries for them.\n\nNow the fixes, starting with the most important.\n\nThe primary fix is in the code. Check the length of all input against the size of the buffer. This is known as bounds checking. Use safe functions, which require a length limit, and avoid old unsafe ones that have none. Better still, use memory-safe languages where you can.\n\nThen add the defenses that make attacks harder. A stack canary is a secret value placed before the return address, and if it has changed, the program stops. Address Space Layout Randomization, or ASLR, moves memory locations around, so the attacker cannot predict addresses. Data Execution Prevention, or DEP, blocks code from running in data areas.\n\nThese defenses make an attack harder. They do not remove the flaw. Making the buffer bigger does not fix it either.\n\nHere is your takeaway. A buffer overflow is writing beyond the end of a fixed space. Check the length first, and treat the operating system defenses as extra layers."
+        },
+        {
+          "heading": "SQL injection",
+          "body": "Now we will look at injection, and at its most famous form, which attacks databases.\n\nInjection happens when user input is treated as a command. Think of a clerk who is told to read out whatever is written on a form. Someone writes on the form, and also please open the safe. If the clerk cannot tell the form's data from an instruction, trouble follows.\n\nStructured Query Language, or SQL, is the language used to talk to databases. Imagine a login page. The program builds a database command by joining together fixed text and whatever the user types. The command says, find the user whose name matches the text that was typed.\n\nAn attacker does not type a name. The attacker types a quote mark, which ends the name early, then the word OR, and then a condition that is always true, such as one equals one. The database now reads the command as, find the user whose name is blank, or where one equals one. That is true for every row, so the database may return every user.\n\nWorse commands can change or delete data. In blind SQL injection, the attacker sees no data on the screen, and instead works things out from yes or no behavior, or from delays.\n\nThe best fix is a parameterized query, also called a prepared statement. The command is sent first with blank slots. The user's input is sent separately, as data only. Even if it contains a quote mark, it can never become part of the command. The clerk now has a form with a box, and nothing written inside the box is ever treated as an order.\n\nStored procedures, which are commands saved inside the database, help only if they do not build commands by joining text inside them.\n\nThen add these layers. Use server-side input validation, preferably with an allow list of what is permitted. Give the database account least privilege, meaning only the access it needs, so that a mistake does less harm. Show simple error messages, and keep the details in protected logs.\n\nChecks in the browser alone are useless, because an attacker can bypass them. A web application firewall can help for a while, but it is a compensating control.\n\nHere is what to take away. SQL injection mixes data with commands, and the primary fix is parameterized queries on the server."
+        },
+        {
+          "heading": "Cross-site scripting: stored, reflected and DOM-based",
+          "body": "In this part, we will look at cross-site scripting, and learn exactly how its three types differ.\n\nCross-site scripting, or XSS, puts an attacker's script into a page that other people view. A script is a small program that a browser runs. The victim's browser trusts it, because it appears to come from the real site. The script can steal session data, change what the victim sees, or act as the victim.\n\nThink of a town notice board that everyone trusts. If someone pins up a false notice, people believe it, because of where it is.\n\nThere are three types. The difference is where the script comes from.\n\nStored cross-site scripting is saved on the server, for example in a comment or a product review. Every visitor who opens that page gets the script. Nobody needs to be tricked into clicking anything unusual. That makes it especially dangerous. It is also called persistent.\n\nReflected cross-site scripting is not saved. It bounces back from a request, often through a crafted link. Picture a search page that says, you searched for, and then repeats whatever was typed. An attacker emails a link with a script in the search term. The victim clicks it, the site echoes the script into the page, and the browser runs it. Only people who follow the link are affected.\n\nDOM-based cross-site scripting happens in the browser's own page code. DOM means Document Object Model, the browser's working copy of a page. The page's own script takes input and writes it unsafely into the page. The server may never see the attack.\n\nHere are the fixes. The primary fix is output encoding, which means changing special characters so that a browser shows them as text and does not run them. The encoding must suit the place where the data appears. Also validate input on the server. Use a Content Security Policy, which limits which scripts may run. Mark session cookies, the small records that keep a user logged in, as HttpOnly, so that scripts cannot read them.\n\nHttpOnly protects the cookie only. The script can still run and do other harm.\n\nHere is your takeaway. Stored is saved on the server, reflected bounces back from a request, DOM-based lives in the page's own code, and output encoding is the main fix."
+        },
+        {
+          "heading": "Cross-site request forgery, and telling it apart",
+          "body": "Next we will look at cross-site request forgery, and at how to separate it from cross-site scripting, because these two are very often confused.\n\nCross-site request forgery, or CSRF, tricks a logged-in user's browser into sending an unwanted request. Think of a signed blank check. You have already proved who you are. Someone slips a piece of paper in front of your hand, and your signature goes on it without your noticing.\n\nHere is how it works, step by step, in a workplace example. An employee is logged in to the company's staff portal in one browser tab. The employee opens another website. That site holds a hidden form, which automatically sends a request to the staff portal to change the employee's bank details. The browser attaches the login cookie automatically, as it always does. The portal sees a valid session and carries out the request.\n\nNotice what the attacker did not need. The attacker never saw the password. No script ran inside the portal. The attacker usually cannot even read the reply. The attack simply causes an action.\n\nHere are the fixes. Put a unique, secret anti-CSRF token in each form. The server checks it, and a forged request does not know its value. Use SameSite cookies, a setting that tells the browser not to attach the cookie to requests that begin on other sites. Ask the user to confirm sensitive actions, for example by entering the password again.\n\nNow let us tell the two apart. Cross-site scripting abuses the user's trust in the site. Script runs in the victim's browser, as if it came from the site. Cross-site request forgery abuses the site's trust in the user's browser. A request is sent that the user never meant to send.\n\nAsk yourself one question. Did the attacker's code run inside the trusted page? If yes, it is scripting. If a request was forged and no code ran in the page, it is forgery.\n\nThe fixes differ too. Output encoding stops scripting, not forgery. Tokens stop forgery, not scripting. In fact, a working script inside the page can often read the token. Encryption of traffic and longer passwords stop neither.\n\nHere is what to take away. Scripting runs code in the page. Forgery sends a request the user did not intend, and it is stopped by tokens and SameSite cookies."
+        },
+        {
+          "heading": "Race conditions and other coding flaws",
+          "body": "In this final part, we will look at timing flaws, and then at some other weaknesses you should recognize.\n\nA race condition occurs when the result depends on the timing of events. The most common type is time of check to time of use, or TOCTOU. A program checks something, and it changes before the program uses it.\n\nThink of checking that a parking space is empty, then walking back to your car. By the time you drive over, someone else is in it. The check was true when you made it.\n\nHere is a worked example. An account holds 100 dollars. Two withdrawals of 100 dollars arrive together. Request one checks the balance and sees 100 dollars. Request two checks the balance and also sees 100 dollars. Both are approved, and 200 dollars leave an account that held only 100 dollars.\n\nFile systems give another example. A privileged program checks that a user may write to a file, and then opens that file by name. In the tiny gap between, an attacker replaces it with a link to an important system file.\n\nThe fix is to close the gap. Make the check and the use a single atomic action, which cannot be interrupted. Use locks or database transactions. For files, open the file first, and then check the file that you actually opened. Input validation does not help here, because the input was perfectly valid.\n\nNow for some other weaknesses, each with its fix. Hard-coded passwords live inside the code, so keep them in a vault. Backdoors, also called maintenance hooks, are hidden ways in, so remove them through code review before release. Path traversal uses input such as dot dot slash to climb out of a permitted folder, so validate file names against an allow list. Integer overflow happens when a number grows too large for its space and wraps around, so check ranges. Insecure deserialization happens when a program rebuilds objects from untrusted data, so do not accept such data or verify its integrity first.\n\nAs an adviser, fix the coding cause and train developers. A firewall rule alone only treats a symptom.\n\nHere is your takeaway. A race condition is a gap between check and use. Close that gap with atomic actions, locks or transactions."
+        }
+      ],
+      "keyTerms": [
+        {
+          "term": "OWASP",
+          "meaning": "Open Worldwide Application Security Project: a community that publishes web security guidance."
+        },
+        {
+          "term": "Buffer overflow",
+          "meaning": "Writing more data than a memory space can hold."
+        },
+        {
+          "term": "SQL injection",
+          "meaning": "Input treated as a database command because data and command are mixed."
+        },
+        {
+          "term": "Parameterized query",
+          "meaning": "A database query that keeps the command separate from user data."
+        },
+        {
+          "term": "XSS",
+          "meaning": "Cross-Site Scripting: an attacker's script runs in a victim's browser through a trusted site."
+        },
+        {
+          "term": "Output encoding",
+          "meaning": "Changing special characters so that a browser shows them as text and does not run them."
+        },
+        {
+          "term": "CSRF",
+          "meaning": "Cross-Site Request Forgery: a logged-in user's browser is tricked into sending an unwanted request."
+        },
+        {
+          "term": "TOCTOU",
+          "meaning": "Time Of Check To Time Of Use: a race where something changes between checking and using it."
+        },
+        {
+          "term": "Atomic action",
+          "meaning": "An operation that completes as one step and cannot be interrupted."
+        }
+      ],
+      "keyPoints": [
+        "Check the length of input to stop buffer overflows.",
+        "Parameterized queries are the primary fix for SQL injection.",
+        "Output encoding is a primary fix for cross-site scripting.",
+        "Anti-CSRF tokens prove that a request came from the real form.",
+        "Atomic actions and locks fix race conditions."
+      ],
+      "memoryHook": "XSS: the user trusts the site. CSRF: the site trusts the user's browser.",
+      "question": {
+        "prompt": "A tester types ' OR '1'='1 into a shop's search box, and the page displays every customer record. A developer offers to block quote marks with a script in the browser. What should the security adviser recommend as the BEST fix?",
+        "options": [
+          "Accept the proposed browser script, since it stops the tested input",
+          "Add a firewall rule that blocks the exact text used by the tester",
+          "Hide database error messages from all visitors to the site",
+          "Use parameterized queries on the server and validate input there"
+        ],
+        "correctIndex": 3,
+        "explanation": "Parameterized queries fix the cause by keeping data apart from commands. The browser script is tempting, but an attacker can bypass it easily. A firewall rule treats only one known attack, and hiding errors does not remove the flaw."
+      },
+      "practiceQuestions": [
+        {
+          "prompt": "A code review of a network service written in C finds that it copies incoming data into a fixed-size array without looking at how much data has arrived. What is the BEST fix?",
+          "options": [
+            "Encrypt the incoming data using Transport Layer Security",
+            "Check the data length against the size of the array",
+            "Increase the size of the array to a very large value",
+            "Run the service at night, when fewer users are online"
+          ],
+          "correctIndex": 1,
+          "explanation": "Bounds checking removes the cause of a buffer overflow. A larger array is tempting because it seems to leave more room, but an attacker can simply send more data."
+        },
+        {
+          "prompt": "A legacy application cannot be rewritten this year. The security team wants an operating system feature that stops code from running in areas of memory meant only for data. Which feature BEST fits?",
+          "options": [
+            "Address Space Layout Randomization",
+            "Output encoding in the browser",
+            "Transport Layer Security on the network",
+            "Data Execution Prevention"
+          ],
+          "correctIndex": 3,
+          "explanation": "Data Execution Prevention blocks code from running in data areas. Address Space Layout Randomization is tempting because it is also a memory defense, but it moves memory locations around and does not stop execution."
+        },
+        {
+          "prompt": "A developer moves a database query into a stored procedure to stop SQL injection. Inside the procedure, the command is still built by joining user text to fixed text. Testing shows that the attack still works. Why?",
+          "options": [
+            "Stored procedures can never be called from web applications",
+            "The database account has too few privileges for the work",
+            "Joining user text still mixes data with the command",
+            "Stored procedures must be encrypted before they are run"
+          ],
+          "correctIndex": 2,
+          "explanation": "The flaw is the mixing of data and command, and moving it inside a procedure does not change that. The privileges answer is tempting because least privilege matters for injection, but too few privileges would not make an attack succeed."
+        },
+        {
+          "prompt": "A company has converted its main queries to parameterized form. It wants to limit the damage if an injection flaw is ever found in a part of the application that was missed. What is the BEST additional control?",
+          "options": [
+            "Give the application's database account least privilege",
+            "Apply a longer password policy for customers of the site",
+            "Encrypt web traffic with Transport Layer Security",
+            "Use the database administrator account for all queries"
+          ],
+          "correctIndex": 0,
+          "explanation": "Least privilege limits what a successful injection can do. Encrypting web traffic is tempting because it is a sound control, but injection arrives inside a perfectly valid encrypted request."
+        },
+        {
+          "prompt": "An attacker posts a product review containing a script on a shopping site. The site saves the review, and the script runs for every visitor who opens that product page. What type of attack is this?",
+          "options": [
+            "Reflected cross-site scripting",
+            "Cross-site request forgery",
+            "SQL injection",
+            "Stored cross-site scripting"
+          ],
+          "correctIndex": 3,
+          "explanation": "The script is saved on the server and is served to every visitor, which makes it stored. Reflected is tempting because it is also cross-site scripting, but a reflected script is not saved and reaches only people who follow a crafted link."
+        },
+        {
+          "prompt": "An email contains a link to a real website, with a script placed in the search term. The site repeats the search term in its results page without saving it, and the script runs in the browser of whoever clicks. What type of attack is this?",
+          "options": [
+            "Stored cross-site scripting",
+            "Reflected cross-site scripting",
+            "Cross-site request forgery",
+            "A time of check to time of use race"
+          ],
+          "correctIndex": 1,
+          "explanation": "The script comes back from a request and is never saved, which makes it reflected. Stored is tempting because the script does run on the page, but nothing was kept on the server."
+        },
+        {
+          "prompt": "Scripts submitted in customer comments are running in other visitors' browsers on a community site. What is the BEST primary fix?",
+          "options": [
+            "Require a secret token in each comment form",
+            "Use parameterized queries for each comment saved",
+            "Encode comment output for the browser",
+            "Require longer passwords for those who comment"
+          ],
+          "correctIndex": 2,
+          "explanation": "Output encoding makes the browser show the text and not run it, which fixes cross-site scripting. A secret token is tempting, but tokens stop forged requests and do not stop a script stored in a comment."
+        },
+        {
+          "prompt": "An employee logged in to a payroll portal visits another website. The portal then records a change to the employee's bank details that the employee never made. No script ran on the portal, and the server saw a valid session. What is the MOST likely attack?",
+          "options": [
+            "Cross-site request forgery",
+            "Stored cross-site scripting",
+            "SQL injection",
+            "Buffer overflow"
+          ],
+          "correctIndex": 0,
+          "explanation": "A valid session sent an unwanted request, and no code ran in the portal, which is request forgery. Stored scripting is tempting because a browser is involved, but that attack needs a script running inside the trusted page."
+        },
+        {
+          "prompt": "A tester shows that a forged request can change the email address on a logged-in user's account. A developer replies that output encoding was added last week, so this cannot be a real problem. What is the BEST reply?",
+          "options": [
+            "Correct, because output encoding blocks all forged requests",
+            "Correct, provided that traffic is also sent with encryption",
+            "Encoding stops scripts, not forged requests, so add tokens",
+            "Incorrect, because the real fix is a parameterized query"
+          ],
+          "correctIndex": 2,
+          "explanation": "Output encoding addresses cross-site scripting, and forged requests need anti-forgery tokens or SameSite cookies. A parameterized query is tempting because it is a strong fix, but it solves injection and has nothing to do with forged requests."
+        },
+        {
+          "prompt": "A privileged program checks that a user may write to a temporary file, and then opens the file by name. An attacker swaps the file for a link to a system file between those two steps. What is the flaw and its BEST fix?",
+          "options": [
+            "Buffer overflow, fixed by checking the length of all input",
+            "Race condition, fixed by making check and use atomic",
+            "Injection, fixed with parameterized queries on the server",
+            "Cross-site scripting, fixed by output encoding of file names"
+          ],
+          "correctIndex": 1,
+          "explanation": "The gap between check and use is a time of check to time of use race, and an atomic action closes it. Buffer overflow is tempting because the program is privileged, but the input size has nothing to do with this attack."
+        }
+      ]
+    },
+    {
+      "id": "T73",
+      "name": "APIs and secure coding standards",
+      "outlineRef": "8.5",
+      "simpleExplanation": "An application programming interface, or API, is a service window that lets programs talk to each other. Every open window must check who is asking and what they may have. Secure coding standards are the written rules developers follow, so that safety does not depend on memory or luck. Software-defined security means controls are set and applied by software and policy, not tied to one physical box. Together, these ideas make security consistent, repeatable and easier to prove.",
+      "studyNotes": [
+        {
+          "heading": "What an API exposes",
+          "body": "In this first part, we are going to look at what an API is, and at why attackers like them so much.\n\nAn application programming interface, or API, lets one program ask another for data or action. Picture a bank teller's window. You do not walk into the vault. You make a request at the window, and the teller checks whether it is allowed. An API is that window, built for programs and not for people.\n\nYou use APIs every day, often without knowing it. A weather app on your phone asks a weather service for today's forecast. A shopping site asks a payment company to charge your card. Each of those is one program calling another.\n\nThere are two styles to recognize. REST, which stands for Representational State Transfer, is a common web style. It usually sends simple text over ordinary web connections, and it has no built-in security of its own. SOAP, which stands for Simple Object Access Protocol, is an older style that uses XML, the Extensible Markup Language, a structured text format. SOAP has its own security standard, called Web Services Security. On the exam, you need only know the difference in general terms.\n\nAPIs are often easy to reach and easy to automate, and they frequently lead straight to the data. Web pages can hide things visually, but an API returns whatever it is built to return. An attacker does not need to use your app at all. The attacker can talk straight to the window.\n\nHere is a workplace example. A retailer builds a mobile app. The app shows only a customer's own orders, and the company feels safe. But the API behind the app will return any order number that it is asked for. An attacker, using a simple script, asks for one order after another and collects thousands of records. The app was never the protection. The checks had to be in the API.\n\nSo an API deserves the same care as a website that faces the public. Often it deserves more.\n\nHere is what to take away. An API is a window into your systems, built for programs, and every control must be enforced at that window, on the server."
+        },
+        {
+          "heading": "Proving who is calling, and what they may have",
+          "body": "Next we will look at the two questions that every API must answer on every call. Who are you, and are you allowed to have this?\n\nAuthentication proves who is calling. Authorization decides what that caller may do. Think of a hotel. Showing your identity card at the front desk is authentication. Your room key, which opens only your own room, is authorization.\n\nAn API key identifies a calling program. It is weak proof by itself. It is like a single shared password, and if it is placed inside a mobile app, it can be extracted. Keep it secret and change it regularly.\n\nOAuth 2.0 is a standard for delegated authorization. It lets a user give an app limited access without sharing a password. Here are its steps, in a workplace example where a customer connects a budgeting app to a bank.\n\n- The app sends the customer to the bank's own login page.\n- The customer logs in at the bank and approves limited access, such as reading balances only. That limit is called a scope.\n- The bank gives the app a token, which is a temporary digital pass.\n- The app shows that token to the bank's API, and receives only what the scope allows.\n\nThe app never sees the password, and the customer can cancel the access later.\n\nOAuth by itself answers what the app may do. It does not tell the app who the user is. OpenID Connect, or OIDC, adds authentication on top of OAuth. When you see sign in with an outside account, that is usually OIDC.\n\nA JSON Web Token, or JWT, is a signed package of claims in JSON, JavaScript Object Notation, a simple text format. It has three parts, a header, a payload and a signature. The signature must always be checked, along with who issued it and when it expires. It is signed, not normally encrypted, so never put secrets in it.\n\nNow the leading API risk. Check every request and every object. Being logged in does not give the right to see someone else's record. This failure is called broken object level authorization.\n\nHere is your takeaway. OAuth grants limited access, OIDC adds identity, and every request must be authorized for that specific object."
+        },
+        {
+          "heading": "Protecting the API and its traffic",
+          "body": "Now we will go through the other protections that a well-run API needs.\n\nStart with inventory. Keep a list of every API and retire old versions. Forgotten APIs go unpatched. Think of a building with a side door that nobody remembers. All the guards are at the front.\n\nEncrypt the traffic. Transport Layer Security, or TLS, protects data while it travels. It does not check what a logged-in user is allowed to see, so it never replaces authorization.\n\nValidate input. Accept only the expected format, type and size, and do it on the server. This reduces injection, where input is treated as a command.\n\nLimit the data. Return only the fields that are needed. A common mistake is to return a full customer record and let the app hide most of it on the screen. Think of being handed someone's whole medical file, and being politely asked to read only the first page. An attacker reads all of it.\n\nApply rate limiting, which means capping the number of requests a caller may send in a period. This reduces abuse and denial of service, which means overwhelming a service so that real users cannot reach it. Rate limiting slows an attack down, but it does not fix a missing authorization check.\n\nLog and monitor. Record calls and watch for odd patterns, such as one account asking for thousands of different records.\n\nAn API gateway is a single front door that can apply many of these controls in one place. It can check tokens, enforce rate limits and write logs. Think of a single reception desk for a large office building, in place of one on every floor. It still cannot know whether this customer owns this particular order, so the check for that stays in the application.\n\nHere is a workplace example. An insurer finds that a partner's script is calling its quote API thousands of times a minute. The gateway applies a rate limit straight away. Logs show the source. The insurer then reviews which fields each response returns, and it removes those that the partner does not need.\n\nHere is what to take away. Know all your APIs, encrypt them, validate input, return only what is needed, limit the rate, and watch the logs."
+        },
+        {
+          "heading": "Secure coding standards",
+          "body": "In this part, we will look at why written rules for developers matter, and at what makes them work in real life.\n\nA secure coding standard is a written set of rules for developers. It turns good habits into an organizational requirement. Without one, security depends on what each person happens to remember.\n\nThink of a commercial kitchen. A good cook may wash hands and keep raw meat apart without being told. But a restaurant does not leave food safety to chance. It writes the rules on the wall, it trains the staff, and an inspector checks.\n\nThere are well-known sources that you should recognize. The OWASP Secure Coding Practices come from OWASP, the Open Worldwide Application Security Project. The CERT coding standards are named after the Computer Emergency Response Team at Carnegie Mellon University, and they are written for particular languages, such as C and Java. The Common Weakness Enumeration, or CWE, is a catalog of types of weakness that a standard can be built upon.\n\nA standard works only when it is supported. Management must back it through policy, training, tools and checks in the development process. Let us walk through how a workplace makes that happen.\n\n- Management approves a policy that requires the standard.\n- The security team adapts a public standard to the languages in use.\n- Developers are trained, with examples from their own code.\n- Automatic tools check the rules at every build.\n- Peer review checks what tools cannot.\n- Exceptions are approved and recorded, with an expiry date.\n- Results are measured, and the standard is updated.\n\nWithout those steps, you have a document on a shelf. If an audit finds that developers ignore the standard, simply writing a longer one is the wrong answer. Find out why it is ignored, then make it part of how work is done.\n\nA note on the exam mindset. Standards apply to contractors too. Put them in the contract, and check them on delivery.\n\nHere is your takeaway. A secure coding standard makes safe habits a requirement, and it works only with management support, training, automatic checks and review."
+        },
+        {
+          "heading": "Secure coding practices",
+          "body": "Next we will go through the practices that a secure coding standard normally contains, and see them at work.\n\nThe rules commonly include these. Validate all input on the server. Encode output for the place where it will be displayed. Use parameterized queries, which keep database commands apart from user data. Use proven cryptography libraries, and never invent your own. Fail securely, so that an error does not open access. Show users simple error messages, and keep the details in protected logs. Never hard-code passwords or keys. Remove debugging code and hidden maintenance access before release. Have a second person review code.\n\nLet us take a few of them more slowly.\n\nFail securely means that when something goes wrong, the system ends up in a safe state. Think of a bank vault that locks itself if the power fails. A login service that cannot reach its user database must refuse entry. It must not wave everyone through to keep the business moving. Do note that people's safety can change this. A fire door must open during a power failure, because lives come first.\n\nError handling matters because detailed errors teach attackers. A message that shows table names and internal paths is free research for them. The user needs only a short message. The technical detail goes to a protected log.\n\nNever inventing your own cryptography matters because cryptography is unusually easy to get wrong. A home-made scheme may look strong and fall quickly to an expert. Use well-tested libraries.\n\nHere is a worked example, a short code review at a small insurance firm. The reviewer reads a new login function and finds four problems. The database query joins user text directly, so she asks for a parameterized query. A database password is written in the source, so she asks for it to be moved to a vault, and for the old password to be changed. On a database error, the function returns success, so she asks for it to fail securely. Finally, the page shows the full error, so she asks for a simple message and a log entry.\n\nHere is what to take away. Validate input, encode output, keep secrets out of code, use proven cryptography, fail securely, and have a second person review the work."
+        },
+        {
+          "heading": "Software-defined security",
+          "body": "In this final part, we will look at software-defined security, and at both its strength and its danger.\n\nSoftware-defined security, or SDS, means that security rules are defined and managed centrally through software. They are not fixed to one physical device. Rules can follow a workload, meaning a running application or server, wherever it moves. That suits cloud services and virtual systems, where servers appear, move and vanish all the time.\n\nThink of a store loyalty card and the old paper punch card. The paper card works only at the one shop that stamped it. The digital account follows you to any branch. In the same way, a rule tied to a physical firewall stays in one place. A rule held in software follows the server.\n\nHere is a workplace example. A school adds ten virtual servers for exam week. A central policy automatically gives each server the right firewall rules. Nobody configures them one at a time. When exam week ends and the servers are removed, the rules go with them.\n\nThe benefits are consistent rules, fast change and automation. Micro-segmentation becomes practical too. That means placing tight controls around each small group of workloads, so that an intruder who gets into one cannot move freely to the others.\n\nPolicy as code means writing these rules as version-controlled files, which can be reviewed and tested. Infrastructure as code means doing the same for the servers and networks themselves. So a rule change can go through the same review, testing and approval as an ordinary code change. You also get a full history of who changed what.\n\nThe risk is concentration. An attacker who controls the central console or an automation account can change security everywhere at once. One typing error can also spread everywhere in seconds. Protect the console with strong authentication, least privilege, change control and logging.\n\nNow let us tie the topic together. APIs must check every call. Coding standards make secure habits normal. Software-defined security makes rules consistent and quick to apply. All three replace memory and luck with something repeatable and provable.\n\nHere is your takeaway. Software-defined security manages rules centrally so that they follow workloads, and its central console needs your strongest protection."
+        }
+      ],
+      "keyTerms": [
+        {
+          "term": "API",
+          "meaning": "Application Programming Interface: a defined way for one program to request data or action from another."
+        },
+        {
+          "term": "API gateway",
+          "meaning": "A single entry point that applies controls to API traffic."
+        },
+        {
+          "term": "Rate limiting",
+          "meaning": "Capping how many requests a caller may send in a period."
+        },
+        {
+          "term": "OAuth 2.0",
+          "meaning": "A standard for delegated authorization that avoids sharing the user's password."
+        },
+        {
+          "term": "OIDC",
+          "meaning": "OpenID Connect: an authentication layer built on OAuth 2.0."
+        },
+        {
+          "term": "JWT",
+          "meaning": "JSON Web Token: a compact, signed package of claims."
+        },
+        {
+          "term": "Secure coding standard",
+          "meaning": "Written rules that developers must follow to avoid known flaws."
+        },
+        {
+          "term": "SDS",
+          "meaning": "Software-Defined Security: security rules managed centrally through software instead of fixed devices."
+        },
+        {
+          "term": "Policy as code",
+          "meaning": "Security rules written as files that can be version-controlled, reviewed and tested."
+        }
+      ],
+      "keyPoints": [
+        "Authorize every API request for the specific data being requested.",
+        "OAuth 2.0 is for delegated authorization, and OIDC adds authentication.",
+        "Rate limiting reduces abuse and denial of service.",
+        "Secure coding standards need management support and enforcement.",
+        "Software-defined security is flexible, but its central console is a prime target."
+      ],
+      "memoryHook": "At the teller's window, showing your ID does not open someone else's account.",
+      "question": {
+        "prompt": "A bank wants customers to let a budgeting app read their balances. The customers must not give their bank passwords to the app. The app should get only limited access. Which approach BEST meets these needs?",
+        "options": [
+          "OAuth 2.0 delegated access with a limited scope",
+          "A single shared API key issued to all app users",
+          "Basic authentication using each customer's bank password",
+          "A secure coding standard for the app's developers"
+        ],
+        "correctIndex": 0,
+        "explanation": "OAuth 2.0 lets the customer grant limited access without sharing a password. A shared API key is tempting because it hides the password, but it cannot limit access per customer or show who acted. A coding standard is useful but does not solve delegated access."
+      },
+      "practiceQuestions": [
+        {
+          "prompt": "A tester finds that an API accepts a JSON Web Token after changing the role inside it from user to administrator. The API never rejects the altered token. What is the BEST fix?",
+          "options": [
+            "Verify the signature, issuer and expiry of each token",
+            "Make the tokens much longer so they are harder to read",
+            "Send each token in the web address and not in the header",
+            "Encode the token a second time before it is sent back"
+          ],
+          "correctIndex": 0,
+          "explanation": "Checking the signature proves that the token has not been altered. Longer tokens are tempting because length helps with passwords, but a token's contents are protected by its signature and not by its size."
+        },
+        {
+          "prompt": "A company wants its web application to let users sign in through an outside identity provider, and it needs to learn who each user is. Which technology BEST fits?",
+          "options": [
+            "OAuth 2.0 alone, with a broad scope",
+            "A single API key shared among users",
+            "OpenID Connect",
+            "Rate limiting at the API gateway"
+          ],
+          "correctIndex": 2,
+          "explanation": "OpenID Connect adds authentication on top of OAuth 2.0, so the application learns who the user is. OAuth alone is tempting because it is involved, but by itself it deals with authorization and does not establish identity."
+        },
+        {
+          "prompt": "A mobile app contains one API key that all copies of the app use to call a company's service. What is the MOST significant concern?",
+          "options": [
+            "It makes each call take longer over the network",
+            "It forces all users to choose a long new password",
+            "It cannot be sent over Transport Layer Security",
+            "It can be extracted, and it identifies only the app"
+          ],
+          "correctIndex": 3,
+          "explanation": "A key inside an app can be pulled out, and it says nothing about which user is calling. The Transport Layer Security answer is tempting because it concerns protection in transit, but API keys can be sent over encrypted connections."
+        },
+        {
+          "prompt": "A breach occurs through an old version of an API that the current team did not know was still running. What is the BEST long-term control?",
+          "options": [
+            "Raise the rate limit on the current version of the API",
+            "Keep an API inventory and retire old versions",
+            "Change the name of the old version in order to hide it",
+            "Add more fields to the responses of the new version"
+          ],
+          "correctIndex": 1,
+          "explanation": "An inventory and a retirement process deal with forgotten APIs at their source. Renaming the old version is tempting because it seems quick, but hiding something leaves it unpatched and still reachable."
+        },
+        {
+          "prompt": "An API returns the full customer record, including date of birth and home address. The mobile app displays only the customer's name and hides the rest on the screen. What should be done?",
+          "options": [
+            "Tell the app's developers to hide the extra fields better",
+            "Encrypt the whole response and keep sending every field",
+            "Return from the server only the fields that are needed",
+            "Add a rate limit of ten calls per minute for each customer"
+          ],
+          "correctIndex": 2,
+          "explanation": "The server should send only what is required, because anything sent can be read by the caller. Encrypting the response is tempting, but the caller decrypts it at the other end and can still read every field."
+        },
+        {
+          "prompt": "Attackers are sending thousands of login attempts each minute to a company's API. Which control would BEST reduce this abuse?",
+          "options": [
+            "Encrypt the traffic with Transport Layer Security",
+            "Return more detailed error messages to each caller",
+            "Publish a new version of the API at a different address",
+            "Apply rate limiting at the API gateway"
+          ],
+          "correctIndex": 3,
+          "explanation": "Rate limiting caps how many requests a caller may send in a period. Encryption is tempting because it is a basic API control, but it protects data in transit and does not reduce the number of attempts."
+        },
+        {
+          "prompt": "A company has a written secure coding standard, but an audit finds that developers ignore it and that passwords are still hard-coded. What should the security manager do?",
+          "options": [
+            "Back it with policy, training and build checks",
+            "Rewrite the standard so that it is much longer and more detailed",
+            "Send the standard to all developers again by email",
+            "Replace all of the developers with outside contractors"
+          ],
+          "correctIndex": 0,
+          "explanation": "A standard needs management backing, training and enforcement in the process. A longer standard is tempting because it seems more thorough, but the problem is that the current one is not followed."
+        },
+        {
+          "prompt": "A login service cannot reach its user database. To keep the business running, it is programmed to let every user in until the database comes back. Which secure coding principle does this break?",
+          "options": [
+            "Separation of duties",
+            "Fail securely",
+            "Output encoding",
+            "Software composition"
+          ],
+          "correctIndex": 1,
+          "explanation": "An error must leave the system in a safe state, and here the error opens access to everyone. Separation of duties is tempting because it is a well-known principle, but it concerns splitting tasks between people."
+        },
+        {
+          "prompt": "When an error occurs, a web application shows users a full technical trace, including database table names. What is the BEST change?",
+          "options": [
+            "Show the same details only to users who log in first",
+            "Show the details on screen in a small grey font",
+            "Show a simple message and log the details securely",
+            "Turn off all logging so that no details exist anywhere"
+          ],
+          "correctIndex": 2,
+          "explanation": "Users need only a short message, while technical detail belongs in protected logs. Showing the details to logged-in users is tempting because it limits the audience, but any attacker with an account would still see them."
+        },
+        {
+          "prompt": "An organization has adopted software-defined security across its virtual environment. Which item should receive the STRONGEST protection?",
+          "options": [
+            "An individual virtual firewall interface",
+            "The printed copy of the firewall rule set",
+            "The staff information page on the intranet",
+            "The central policy console"
+          ],
+          "correctIndex": 3,
+          "explanation": "Whoever controls the central console can change security everywhere at once. An individual firewall interface is tempting because it enforces the rules, but it affects only a small part of the environment."
+        }
+      ]
+    }
+  ],
+  "reviewSession": [
+    {
+      "heading": "Domain 8 in one view",
+      "body": "Let us go back over Domain 8, Software Development Security, as you would on the last evening before the exam. It carries 10 percent of the exam. The whole domain has one message. Security is built into software from the first idea until the day that software is retired, and that is true whether you write the software or buy it. When you read a scenario, ask three things. Where in the life cycle are we? What security activity belongs at this point? And does this answer fix the cause, or only a symptom? Most wrong answers in this domain are real controls that are simply in the wrong place, or that arrive too late. Remember that you are an adviser and a manager. You are not the person who writes the patch. Your answers should build security into the process, and leave risk decisions with management."
+    },
+    {
+      "heading": "Life cycle and methods",
+      "body": "Now the methods. Waterfall runs the stages in strict order, and it suits stable requirements. Spiral repeats loops of goals, risk analysis, prototype and planning, and it suits large, uncertain projects. When you see the words risk-driven or prototype, think spiral. Agile delivers small pieces in short cycles, and Scrum works in sprints of one month or less. The Scaled Agile Framework coordinates many agile teams on one product. DevOps joins development and operations through automation. DevSecOps makes security everyone's shared and automated duty. People often mix up certification and accreditation. Certification is the technical check. Accreditation is management's formal acceptance of the remaining risk. The usual trap is an answer that forces a team back to waterfall. Prefer the answer that builds security into the method the business has already chosen. And prefer finding flaws early, because that is where they cost least."
+    },
+    {
+      "heading": "Maturity models",
+      "body": "Maturity models are often tested on exact order, so say this aloud. The five CMMI levels, from lowest to highest, are Initial, Managed, Defined, Quantitatively Managed, Optimizing. CMMI stands for Capability Maturity Model Integration. Initial depends on heroes. Managed plans and tracks each project. Defined means one standard process across the organization. Quantitatively Managed means measured and controlled with numbers. Optimizing means continual improvement. Here is what people mix up. In the older model, Level 2 was called Repeatable, and Level 4 was called Managed. So the word Managed moves. The Software Assurance Maturity Model, or SAMM, comes from OWASP, the Open Worldwide Application Security Project. It is about software security specifically. It has five business functions, Governance, Design, Implementation, Verification and Operations, with three practices in each, scored from 1 to 3. Targets should match the organization's risk, so top scores everywhere are not the goal."
+    },
+    {
+      "heading": "Change management and running software",
+      "body": "Next, life after release. Most of a program's life comes after it goes live, so patching, monitoring and access reviews never stop. When a vendor ends support, plan an upgrade or a replacement, and manage the risk until then. Change management has three parts in a fixed order. Request control, then change control, then release control. Users ask, developers build and test, and then the change is approved for production. Developers should not move their own code into production, because that breaks separation of duties. In an emergency, the paperwork may come afterward, but authorized approval, a way to undo the change and a later review do not go away. So be wary of any answer that lets someone deploy directly because the matter is urgent. Finally, an integrated product team brings together many fields from the start, including legal, purchasing and the business owner. It is wider than DevOps."
+    },
+    {
+      "heading": "The development workshop",
+      "body": "Now the development ecosystem. Protect the whole workshop and not only the finished product. Memory-safe languages reduce memory flaws, but they do not remove bad logic or injection. Libraries become part of your product, so use approved sources, pin versions and verify hashes. Allow only approved plug-ins in the integrated development environment. Run software with least privilege, and turn off debugging in production. Continuous delivery has a person approve each release, while continuous deployment releases automatically. The pipeline holds the keys to production, so restrict who can change it, keep secrets in a vault, sign what is built and stop the build when security tests fail. Configuration management tells you exactly which versions were shipped. Here is a favorite scenario. A password was committed to a repository and then deleted from the latest version. It remains in the history. The first action is to change the password."
+    },
+    {
+      "heading": "Choosing the right test",
+      "body": "Testing tools are a classic source of confusion, so let us be exact. Static application security testing, or SAST, reads the source code without running it. It works early, names the exact line and gives more false alarms. Dynamic application security testing, or DAST, attacks the running application from outside. It finds run-time and setup problems, needs no source code and cannot name the line. Interactive application security testing, or IAST, puts an agent inside the application while tests are running. It can name the line, with fewer false alarms, but it sees only the code that the tests reach. Software composition analysis checks third-party components, their known flaws and their licenses. Fuzzing sends unexpected input to cause failures. So look for the clue in the question. If the code cannot run yet, choose static. If you have no source code, choose dynamic. If the concern is borrowed parts, choose composition analysis."
+    },
+    {
+      "heading": "Proving that it works",
+      "body": "Assessing software security means looking for direct evidence. Change records should show who, what, when, who approved and whether testing passed. Shared accounts break accountability, and logs must be kept where the people being logged cannot alter them. Clocks must be synchronized. Then the key activity is to compare what reached production with what was approved. Statements and policies are weaker evidence than protected records. For the numbers, single loss expectancy equals asset value times exposure factor. Annualized loss expectancy equals single loss expectancy times the annualized rate of occurrence. The value of a fix equals the old yearly loss, minus the new yearly loss, minus the yearly cost of the fix. The most common mistake is forgetting that last subtraction. Severity scores rate the flaw, but your own data and exposure decide the real risk. Senior management accepts residual risk, and ignoring a risk is never acceptable."
+    },
+    {
+      "heading": "Software from someone else",
+      "body": "Now acquired software. You can outsource the work, but not the accountability for your data. Put security requirements in the contract before signing. With commercial products, you depend on the vendor, so harden the default settings and watch for end of support. Software escrow protects you if the vendor closes down, and a service level agreement does not, because a closed vendor cannot honor it. Open source can be inspected, but that does not prove that anyone did, and its license may carry legal duties. Test what contractors deliver. For managed providers, a Type 2 report shows that controls worked over a period. In the cloud, the provider takes on more as you go from infrastructure, to platform, to software as a service. In every model, you manage your data and your users. A software bill of materials lists the parts in a product, which speeds up your response to a new flaw. It does not prove that the parts are safe."
+    },
+    {
+      "heading": "Memory and injection flaws",
+      "body": "Let us review two code flaws and their exact fixes. A buffer overflow writes more data than a fixed memory space can hold. The primary fix is checking the length of input against the size of the buffer, along with safe functions or memory-safe languages. Address Space Layout Randomization moves memory locations around. Data Execution Prevention blocks code from running in data areas. Those two make attacks harder, but they do not remove the flaw. SQL injection happens when user input is treated as a database command. SQL is Structured Query Language. The primary fix is a parameterized query, also called a prepared statement, which keeps the command and the data apart. Add server-side validation and least privilege on the database account. Be wary of three tempting answers. Checks only in the browser can be bypassed. A firewall rule treats a symptom. And a stored procedure helps only if it does not join user text into a command."
+    },
+    {
+      "heading": "Scripting, forgery and race conditions",
+      "body": "These are the flaws people mix up most. In cross-site scripting, an attacker's script runs in the victim's browser through a trusted site. Stored scripting is saved on the server and reaches every visitor. Reflected scripting bounces back from a request, often through a crafted link, and nothing is saved. DOM-based scripting happens in the page's own code. The main fix is output encoding. In cross-site request forgery, a logged-in user's browser is tricked into sending a request that the user never intended. The fix is an anti-forgery token, SameSite cookies and confirmation of sensitive actions. Remember the trust. Scripting abuses the user's trust in the site. Forgery abuses the site's trust in the user's browser. A race condition, such as time of check to time of use, is a gap between checking something and using it. The fix is an atomic action, a lock or a database transaction. Input validation does not help."
+    },
+    {
+      "heading": "APIs, standards and choosing the best answer",
+      "body": "Finally, application programming interfaces, or APIs. Check every request for the specific object being requested, because being logged in does not give the right to see another person's record. OAuth 2.0 is delegated authorization, and OpenID Connect adds authentication. Rate limiting slows abuse, but it does not fix a missing authorization check. Secure coding standards work only with management support, training and automated checks. Fail securely, keep error details in protected logs and never invent your own cryptography. Software-defined security manages rules centrally so that they follow workloads, which makes the central console a prime target. Now, how to choose. Look for the answer that fixes the cause, in the code or in the process. Prefer early over late, and automatic over manual. Prefer evidence over promises. Let management accept the risk, and put people's safety first. Trust your preparation, read each question carefully, and take your time."
+    }
+  ],
+  "examQuestions": [
+    {
+      "prompt": "A transport authority is planning a large, first-of-its-kind control system. Requirements are unclear, and failure would be dangerous. Leaders want each development cycle to analyze major risks and test a prototype before more money is spent. Which method is the BEST fit?",
+      "options": [
+        "Waterfall",
+        "DevOps",
+        "Spiral",
+        "Scrum"
+      ],
+      "correctIndex": 2,
+      "explanation": "Spiral is built around repeated risk analysis and prototypes. Waterfall is tempting for a safety project, but it needs stable requirements and reveals problems late. Scrum and DevOps focus on frequent delivery, not risk-led funding decisions.",
+      "testsTopics": [
+        "T67"
+      ]
+    },
+    {
+      "prompt": "A critical flaw is being actively exploited in a live online banking service. A developer has a tested fix and wants to place it in production immediately, without any paperwork. What should the security manager do FIRST?",
+      "options": [
+        "Use the emergency change process, with authorized approval and rollback",
+        "Let the developer deploy now, because customer funds are currently at risk",
+        "Submit the fix to the next scheduled change advisory board meeting",
+        "Shut down the service permanently until a full code audit has been finished"
+      ],
+      "correctIndex": 0,
+      "explanation": "The emergency process allows speed while keeping approval, rollback and records. Direct deployment is tempting because the threat is urgent, but it bypasses separation of duties. Waiting for a routine meeting is too slow, and permanent shutdown is out of proportion.",
+      "testsTopics": [
+        "T68"
+      ]
+    },
+    {
+      "prompt": "A developer discovers that a production database password was committed to the company's code repository six months ago. The password has now been removed from the latest version. What should be done FIRST?",
+      "options": [
+        "Rewrite the repository history to remove every copy of the password",
+        "Add automatic secret scanning to the build pipeline for future commits",
+        "Send all developers on a secure coding refresher course this month",
+        "Change the database password and review its use for signs of misuse"
+      ],
+      "correctIndex": 3,
+      "explanation": "The password must be treated as exposed, so changing it removes the immediate danger. Cleaning the history is tempting and useful, but the old password would still work until it is changed. Scanning and training are good follow-up steps that prevent a repeat.",
+      "testsTopics": [
+        "T69"
+      ]
+    },
+    {
+      "prompt": "A flaw in an online ordering system would cost $40,000 each time it is exploited. It is expected twice a year. A code fix costs $30,000 per year and lowers the expected rate to 0.5 times a year. What is the yearly value of the fix?",
+      "options": [
+        "$20,000",
+        "$30,000",
+        "$50,000",
+        "$60,000"
+      ],
+      "correctIndex": 1,
+      "explanation": "The annualized loss expectancy (ALE) before the fix is $40,000 x 2, or $80,000. The ALE after it is $40,000 x 0.5, or $20,000. The value is $80,000 minus $20,000 minus $30,000, which is $30,000. $60,000 is tempting, but it forgets to subtract the cost of the fix.",
+      "testsTopics": [
+        "T70"
+      ]
+    },
+    {
+      "prompt": "A serious flaw is announced in a widely used code component. A manufacturer sells dozens of products and must quickly learn which ones are affected. Which item would help MOST?",
+      "options": [
+        "A list of the vendor contracts that include a right to audit",
+        "The latest network vulnerability scan of the corporate office",
+        "A current software bill of materials for every product",
+        "The most recent penetration test report for the main website"
+      ],
+      "correctIndex": 2,
+      "explanation": "A software bill of materials lists the components and versions in each product, so a team can search for the flawed one. A penetration test is tempting, but it covers one system at one moment. The other choices do not list what is inside the products.",
+      "testsTopics": [
+        "T71"
+      ]
+    },
+    {
+      "prompt": "A customer stays logged in to an online store. While browsing another site, a hidden form causes the customer's browser to change the delivery address on the store account. Which control would BEST prevent this?",
+      "options": [
+        "Encoding all output shown on the store's pages",
+        "Requiring a unique secret token with each state-changing form",
+        "Encrypting the store's traffic with Transport Layer Security",
+        "Increasing the required length of customer passwords"
+      ],
+      "correctIndex": 1,
+      "explanation": "This is cross-site request forgery. A secret token proves that the request came from the store's real form. Output encoding is tempting, but it mainly stops cross-site scripting. Encryption and longer passwords do not stop a forged request from a logged-in browser.",
+      "testsTopics": [
+        "T72"
+      ]
+    },
+    {
+      "prompt": "A customer using a retailer's mobile app has a valid login token. By changing the order number in an API request, the customer can view another person's order. What is the BEST way to fix this problem?",
+      "options": [
+        "Require a longer and more complex password at customer login",
+        "Add rate limiting so that each user can send fewer requests",
+        "Encrypt the order number while it travels over the network",
+        "Check on the server that the caller owns each order"
+      ],
+      "correctIndex": 3,
+      "explanation": "The flaw is a missing authorization check on the object, so the server must verify ownership on each request. Rate limiting is tempting because it slows the attack, but one request can still expose an order. Encryption and passwords do not address what a valid user may access.",
+      "testsTopics": [
+        "T73"
+      ]
+    },
+    {
+      "prompt": "A bank's application reads an account balance, approves a withdrawal and later updates the balance as a separate step. Two simultaneous requests overdraw an account. What is the BEST coding fix?",
+      "options": [
+        "Perform the check and update as one atomic transaction",
+        "Add a daily report of accounts that have been overdrawn",
+        "Validate the format of the amount entered by the customer",
+        "Scan the application every week with a dynamic testing tool"
+      ],
+      "correctIndex": 0,
+      "explanation": "This is a race condition, and an atomic transaction removes the gap between check and use. A daily report is tempting, but it only detects the loss afterward. Input validation does not help because the amounts are valid.",
+      "testsTopics": [
+        "T72"
+      ]
+    },
+    {
+      "prompt": "A company plans to run its critical payroll on a commercial product from a small vendor. Management's main concern is being unable to get code fixes if the vendor goes out of business. Which measure BEST addresses this concern?",
+      "options": [
+        "A service level agreement with penalties for missed response times",
+        "A requirement for a yearly independent audit of the vendor's offices",
+        "A software escrow agreement covering the current source code",
+        "A security questionnaire completed before the purchase is approved"
+      ],
+      "correctIndex": 2,
+      "explanation": "Escrow gives the company access to source code if an agreed event, such as vendor closure, occurs. A service level agreement is tempting, but a closed vendor cannot honor it. Audits and questionnaires measure the vendor today and give no code tomorrow.",
+      "testsTopics": [
+        "T71"
+      ]
+    },
+    {
+      "prompt": "A university moves its applications to virtual servers that are created and moved many times a day. Staff cannot update device firewall rules quickly enough, and rules differ between servers. What should the security manager recommend?",
+      "options": [
+        "Assign more staff to update each firewall by hand after every change",
+        "Manage reviewed security policies centrally and apply them automatically",
+        "Stop moving the virtual servers until each one has been audited",
+        "Buy a larger hardware firewall for the university's main data center"
+      ],
+      "correctIndex": 1,
+      "explanation": "Software-defined security applies central, reviewed rules that follow the workloads, which fixes the cause. More staff is tempting, but manual work remains slow and inconsistent. Stopping server movement harms the business, and a bigger box does not follow moving workloads.",
+      "testsTopics": [
+        "T73"
+      ]
+    }
+  ]
+}

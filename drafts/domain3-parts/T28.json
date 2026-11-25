@@ -1,0 +1,141 @@
+{
+  "id": "T28",
+  "studyNotes": [
+    {
+      "heading": "Attacks grouped by what the attacker holds",
+      "body": "In this first part, we are going to look at attacks on the mathematics of encryption. They are grouped by what the attacker has to work with.\n\nCryptanalysis means trying to break protection without having the key. Think of a locked diary. How you might attack it depends on what you can get hold of. A single page in code gives you little to go on. If you also have that page in plain words, you can compare the two.\n\nHere are the main types.\n\n- Brute force: try every possible key.\n- Ciphertext only: the attacker has only scrambled text.\n- Known plaintext: the attacker has some original text and its scrambled version.\n- Chosen plaintext: the attacker chooses text to encrypt and studies the output.\n- Chosen ciphertext: the attacker chooses scrambled text to decrypt and studies the output.\n\nCiphertext only is the hardest case for the attacker, because there is the least to work with. Chosen attacks are the most powerful, because the attacker can run experiments.\n\nLet us work through brute force with some numbers. A key of 8 bits has 256 possible values. Each extra bit doubles that number. The Data Encryption Standard, or DES, has a 56-bit key, which gives two to the power of 56 possible keys. That is about 72 quadrillion. It sounds huge, but modern hardware can get through it. A 128-bit key has two to the power of 128 possible keys, and that is far beyond any practical search. So a long key makes brute force impractical.\n\nPasswords are attacked in a similar way, often with a dictionary of likely words. A rainbow table is a large precomputed list of hashes, which are short fingerprints of data. A salt is a random value added to each password before hashing, and it makes such tables useless.\n\nHere is a workplace example of known plaintext. Every email from a company ends with the same long footer. An attacker who knows that footer has a piece of known plaintext to compare against the encrypted message. Modern algorithms are designed to resist this. Older ones are not.\n\nHere is what to take away. Attacks on the mathematics are named after what the attacker holds, ciphertext only is the hardest for the attacker, and long keys defeat brute force."
+    },
+    {
+      "heading": "Frequency analysis, birthdays and meeting in the middle",
+      "body": "Now we will look at three more attacks on the mathematics, each one of which is well worth knowing by name.\n\nFrequency analysis means counting how often letters appear. In English, the letter E is the most common, followed by T and A. If a message has been scrambled by swapping each letter for another, the most common symbol in the scrambled message probably stands for E. This defeats simple substitution ciphers, which swap each letter for another. Modern ciphers are not vulnerable to it, because good diffusion spreads every letter across the output.\n\nThe birthday attack looks for hash collisions. A hash is a short fingerprint of data, and a collision is two inputs with the same hash. The name comes from a surprising fact. In a room of only 23 people, there is slightly better than an even chance that two people share a birthday. That is because you are comparing every person with every other person, and not with one chosen date.\n\nThe same maths applies to hashes. For a hash of a given length, you expect to find a collision after trying about as many inputs as two raised to half of that length. So a 160-bit hash gives only about 80 bits of collision strength. A 256-bit hash gives about 128 bits. That is why short hashes such as MD5, or Message Digest 5, at 128 bits, are not safe. Forged signatures are the danger. If two different documents share a hash, a signature on one is valid for the other.\n\nA meet-in-the-middle attack works from both ends of a double encryption. The attacker encrypts a known piece of text with every possible first key, and decrypts the ciphertext with every possible second key. Then the attacker looks for a match in the middle. It is the reason that Double DES, the idea of using DES twice with two keys, was never adopted.\n\nDo not confuse meet in the middle with man in the middle. They sound alike. Meet in the middle is a mathematical attack on double encryption. Man in the middle is an attack on a live conversation, which we will come to soon.\n\nHere is your takeaway. Frequency analysis breaks simple substitution, the birthday attack finds hash collisions at about half the bits, and meet in the middle is the reason Double DES failed."
+    },
+    {
+      "heading": "Attacks on how it was built",
+      "body": "In this part, we are going to look at attacks that go around strong mathematics, by attacking how the system was built.\n\nThink about a very strong safe. A burglar may not be able to crack the lock. But the burglar may listen to the clicks of the dial, or notice that it takes longer to reject some combinations than others, or shake the safe until something goes wrong. None of these attacks the steel.\n\nHere are the types to know.\n\nAn implementation attack exploits a mistake in the software or hardware, such as weak random numbers, or a key left in memory. The algorithm may be perfectly good. It was just built badly.\n\nA side-channel attack studies physical signs, such as power use, heat, sound or radio signals. Nobody is cooperating with the attacker. The device simply gives away information as it works.\n\nA timing attack is a side-channel attack that measures how long operations take. Imagine a program that checks a password one letter at a time, and stops at the first wrong letter. An attacker can measure tiny differences in response time. A slightly slower response means more letters were correct. So the attacker can work out the password letter by letter.\n\nFault injection deliberately causes errors, for example with a power spike, heat or a laser, in order to make a device give up secrets or skip checks. Imagine pulling the plug at just the right moment, so that a door's lock skips its check.\n\nThe difference is important. Side-channel and timing attacks only observe. Fault injection actively disturbs.\n\nHere are the defenses to know. Use tested libraries, and do not write your own. Make operations always take the same time, known as constant-time code. Use shielding, and tamper-resistant hardware that detects a voltage or temperature attack and erases its keys.\n\nHere is a workplace example. A bank issues smart cards to its customers. A researcher measures the tiny variations in power that a card uses while signing, and recovers the key. This is called power analysis. The manufacturer responds by making the card's power use more uniform, and by adding random noise.\n\nA manager should remember that a strong algorithm does not mean a strong product.\n\nHere is what to take away. These attacks target the device or code, not the mathematics. Side channels observe, and fault injection disturbs."
+    },
+    {
+      "heading": "Man in the middle and pass the hash",
+      "body": "Next we are going to look at two attacks on real-world communications and logins.\n\nIn a man-in-the-middle attack, or MITM, the attacker secretly sits between two parties. Each party thinks it is talking to the other. Think about passing notes through a third person. If that person is dishonest, they can read every note, and rewrite it before passing it on. You would never know.\n\nHere is a workplace example. An employee connects to a fake wireless network in a coffee shop, set up by an attacker. All of the employee's traffic travels through the attacker's laptop. The attacker can read or change anything that is not properly protected.\n\nThe main defenses are digital certificates, which vouch for who owns a public key, and having both sides prove who they are. That is why staff must not click through browser certificate warnings. A warning may be the only sign that someone is in the middle. A related technique is replay, where the attacker captures a valid message and sends it again later. Timestamps and one-time values stop this.\n\nPass the hash is a credential attack on Windows networks. Windows can accept a stored password hash for authentication with the older NTLM method, which stands for NT LAN Manager. An attacker who steals the hash from memory can log in without ever knowing the password.\n\nThink of a hotel that lets you collect your key if you show a photocopy of your booking form. The thief does not need your identity. A copy of the form is enough.\n\nThe hash is usually taken from the memory of a computer where a powerful account has recently logged in. The attacker then uses the hash to reach another computer, and repeats the process. This is called lateral movement.\n\nThe defenses are these.\n\n- Least privilege, and separate admin accounts.\n- Do not log in with admin accounts on ordinary computers.\n- Use unique local admin passwords.\n- Limit or turn off NTLM.\n\nAn attacker with the hash does not need to know what the password is.\n\nA manager should see that the fix is mostly about administrative practice, and not about a new product.\n\nHere is your takeaway. Man in the middle is defeated by certificates and mutual proof of identity, and pass the hash uses the hash itself, so limit where powerful accounts log in."
+    },
+    {
+      "heading": "Kerberos exploitation",
+      "body": "In this part, we are going to look at attacks on Kerberos, which is the login system used by most Windows networks.\n\nKerberos is a network login system that uses tickets, like a wristband at a fair. You prove who you are once at the entrance, and you get a wristband. You then show that wristband at each ride, and you get a ticket for that ride.\n\nA central server, the Key Distribution Center, or KDC, gives out the tickets. The wristband is called a ticket-granting ticket. It lets you ask for service tickets, which are the tickets for each individual service.\n\nThe tickets are protected by encryption, using keys derived from account passwords. That is what the attacks go after. Here are the four to know.\n\nKerberoasting: request a service ticket, take it offline and crack the service account's password. Any ordinary user can request such a ticket, which is why the attack is so popular. The defense is a long, random password on each service account.\n\nGolden ticket: forge a ticket-granting ticket using the hash of the KRBTGT account, which is the account that signs those tickets. This gives wide control over the whole domain, the managed group of Windows computers and accounts. It is like stealing the machine that prints the wristbands.\n\nSilver ticket: forge a service ticket with a service account's hash. This gives access to that one service. Because the forged ticket goes straight to the service, the central server may never see it, so it is harder to detect.\n\nPass the ticket: steal and reuse a valid ticket from a computer's memory.\n\nThe defenses are these. Keep tight control of domain controllers, the servers that handle logins. Monitor for unusual ticket activity. And after a compromise, reset the KRBTGT password twice, because the account remembers its previous password and tickets signed with either one remain valid until both have changed.\n\nHere is a workplace example. An investigator finds that an attacker has copied the domain controller's database. The manager has to assume that the KRBTGT hash has been stolen. So the password must be reset twice, carefully and with a gap between the two resets, so that ordinary services are not broken.\n\nHere is what to take away. Golden ticket uses the KRBTGT hash and controls the domain, while silver ticket uses a service hash and reaches one service."
+    },
+    {
+      "heading": "Ransomware",
+      "body": "In this final part, we are going to look at ransomware, which is encryption being used against you.\n\nRansomware is malicious software that encrypts your files and demands payment. Think of a burglar who does not steal your furniture, but changes all the locks and then offers to sell you the key. Many gangs also steal the data first, and threaten to publish it. That is called double extortion. So even an organization with perfect backups can still be pressured.\n\nIt usually arrives through a phishing email, which is a message designed to trick someone, through stolen remote access accounts, or through a flaw that has not been patched.\n\nHere is the best preparation.\n\n- Offline or unchangeable backups, tested regularly.\n- Patching, multi-factor login and staff awareness.\n- Network segmentation, which divides the network into separate parts, to slow the spread.\n- A rehearsed incident response plan.\n\nMulti-factor login means proving who you are in more than one way, such as a password and a code from your phone.\n\nBackups deserve special attention. Attackers now go looking for backups so that they can destroy them first. A widely taught approach is the 3-2-1 rule. Keep three copies of your data, on two different types of media, with one copy off site. A backup that has never been restored is only a hope, so test the restore.\n\nDuring an attack, follow the plan. Isolate infected systems first. Do not simply switch everything off, because memory may hold useful evidence, and the plan should say how to handle this. Then tell the right people, including legal advisers, senior management, and regulators where the law requires.\n\nWhether to pay is a decision for senior management, with legal advice. It is not a decision for the technical team. Paying does not guarantee recovery, and in some cases it may be illegal, for example if the group is under sanctions.\n\nAfter recovery, find the root cause so that it does not happen again.\n\nHere is a workplace example. A hospital is hit on a Sunday night. Staff follow a practised plan. Infected servers are cut off, clinics move to paper, and patient safety stays the first priority. Clean backups are restored over the following days, once the entry point has been closed.\n\nHere is your takeaway. Prepare with tested offline backups, isolate first, leave payment to senior management, and fix the root cause."
+    }
+  ],
+  "practiceQuestions": [
+    {
+      "prompt": "An attacker has captured a large amount of encrypted traffic, but has no matching original text and cannot make the system encrypt anything. Which type of attack is the attacker limited to?",
+      "options": [
+        "Ciphertext only",
+        "Known plaintext",
+        "Chosen plaintext",
+        "Chosen ciphertext"
+      ],
+      "correctIndex": 0,
+      "explanation": "Having only the scrambled text is a ciphertext only attack, which is the hardest case for the attacker. Known plaintext is tempting, but that needs some original text as well."
+    },
+    {
+      "prompt": "A tester persuades a system to encrypt several messages of the tester's own choosing and then studies the results. Which attack is this?",
+      "options": [
+        "Known plaintext",
+        "Frequency analysis",
+        "Chosen plaintext",
+        "Brute force"
+      ],
+      "correctIndex": 2,
+      "explanation": "Choosing text to be encrypted and studying the results is a chosen plaintext attack. Known plaintext is tempting, but in that attack the attacker merely holds some original text and has no say in what it is."
+    },
+    {
+      "prompt": "An investigator studies an old coded letter and notices that one symbol appears far more often than the others. Which technique will MOST likely help the investigator decode it?",
+      "options": [
+        "A birthday attack",
+        "A timing attack",
+        "A pass the hash attack",
+        "Frequency analysis"
+      ],
+      "correctIndex": 3,
+      "explanation": "Counting how often symbols appear is frequency analysis, and it defeats simple substitution. A birthday attack is tempting because it also relies on statistics, but it is used to find hash collisions."
+    },
+    {
+      "prompt": "A company still uses an older 128-bit hash for signing contracts. What is the MAIN concern with its short output?",
+      "options": [
+        "It cannot be used on documents of more than one page",
+        "A birthday attack could find two documents with one hash",
+        "An attacker could read the original document from the hash",
+        "The hash reveals the private key of the signer"
+      ],
+      "correctIndex": 1,
+      "explanation": "A short hash offers weak collision resistance, so two documents with the same hash could allow a forged signature. Reading the document from the hash is tempting, but hashes are one-way."
+    },
+    {
+      "prompt": "A program checks a stored code one character at a time and stops at the first wrong one. A tester uses small differences in response time to work out the code. What is the BEST fix?",
+      "options": [
+        "Compare every character in a constant amount of time",
+        "Encrypt the network link between client and server",
+        "Add more characters to the code and rotate it monthly",
+        "Move the comparison to a more powerful server"
+      ],
+      "correctIndex": 0,
+      "explanation": "Constant-time comparison removes the timing differences that leak information. A longer code is tempting, but it only slows the attacker slightly, because the leak would still reveal one character at a time."
+    },
+    {
+      "prompt": "A security researcher uses a brief voltage drop to make a device skip its signature check during startup. How is this attack BEST classified?",
+      "options": [
+        "A timing attack",
+        "A known plaintext attack",
+        "Fault injection",
+        "A meet-in-the-middle attack"
+      ],
+      "correctIndex": 2,
+      "explanation": "Deliberately disturbing a device to cause errors is fault injection. A timing attack is tempting because it is also a physical attack, but it only observes the device and does not disturb it."
+    },
+    {
+      "prompt": "An attacker takes a stored password hash from a workstation's memory and uses it to log in to a server, without ever learning the password. What should the security manager do to BEST reduce this risk?",
+      "options": [
+        "Require users to choose much longer passwords",
+        "Install a stronger firewall at the network edge",
+        "Force every user to change passwords each week",
+        "Keep admin accounts off ordinary workstations and limit NTLM"
+      ],
+      "correctIndex": 3,
+      "explanation": "Pass the hash uses the hash itself, so the defense is limiting where powerful accounts leave hashes and reducing NTLM. Longer passwords are tempting, but the attacker never needs to know the password."
+    },
+    {
+      "prompt": "Investigators conclude that attackers have obtained the hash of a domain's KRBTGT account. Which threat does this MOST directly enable?",
+      "options": [
+        "A silver ticket for a single service",
+        "A golden ticket giving wide control of the domain",
+        "A chosen plaintext attack on the mail server",
+        "A rainbow table attack on staff passwords"
+      ],
+      "correctIndex": 1,
+      "explanation": "The KRBTGT hash lets an attacker forge ticket-granting tickets, which is a golden ticket. A silver ticket is tempting because it also forges tickets, but it uses a service account's hash and reaches only one service."
+    },
+    {
+      "prompt": "During a security review, a team learns that any domain user can request tickets for a service account whose password is short. Which attack does this situation MOST invite?",
+      "options": [
+        "Fault injection",
+        "Kerberoasting",
+        "Frequency analysis",
+        "Golden ticket"
+      ],
+      "correctIndex": 1,
+      "explanation": "Kerberoasting requests a service ticket and cracks a weak service account password offline. Golden ticket is tempting because it is the best known Kerberos attack, but it needs the KRBTGT hash."
+    },
+    {
+      "prompt": "A company is designing its defenses against ransomware. Which single measure gives the BEST chance of recovering data without paying?",
+      "options": [
+        "A cyber insurance policy that covers ransom payments",
+        "Antivirus software on every staff workstation",
+        "Offline or unchangeable backups that are regularly tested",
+        "Annual awareness training on suspicious email"
+      ],
+      "correctIndex": 2,
+      "explanation": "Tested offline backups cannot be encrypted by the attacker and can be relied upon. Antivirus software is tempting because it helps prevention, but the question is about recovery when prevention has failed."
+    }
+  ]
+}

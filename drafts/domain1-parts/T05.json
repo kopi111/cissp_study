@@ -1,0 +1,141 @@
+{
+  "id": "T05",
+  "studyNotes": [
+    {
+      "heading": "Why the type of investigation matters",
+      "body": "In this first part, we are going to look at why it matters what kind of investigation you are dealing with. There are five types in the outline, and you need to know them as a set.\n\n- Administrative.\n- Criminal.\n- Civil.\n- Regulatory.\n- Industry standards.\n\nThe type decides three things. It decides who leads the investigation. It decides how evidence must be handled. And it decides how much proof is needed. That amount of proof is called the standard of proof, or the burden of proof.\n\nThink of a school. A teacher looking into who broke a window can reach a sensible conclusion from a couple of conversations. The worst outcome is a detention. Now imagine a court trying someone for arson, which is the crime of deliberately setting a fire. A person could go to prison. Because the result is far more serious, the proof must be much stronger.\n\nThat is the central idea. The more serious the possible punishment, the more proof you normally need.\n\nHere is the same idea at work. Suppose an employee has been deleting files. If the company only wants to know what went wrong, it may simply look at the logs and fix the process. If the company wants to dismiss the person, it needs a fair and documented inquiry. If the company wants to recover money through the courts, it needs enough evidence to satisfy a judge. If the police bring charges, the evidence must be strong enough to convict. That is one set of facts and four very different levels of effort.\n\nSo the first question a manager asks is what kind of case this is, or might become. The answer shapes every step that follows.\n\nThere is one more thing to keep in mind from the beginning. You often cannot tell at the start which type it will become. We will come back to that later.\n\nHere is what to take away. Learn the five types. The type decides who leads, how evidence is treated and how much proof is required, and more serious consequences demand stronger proof."
+    },
+    {
+      "heading": "Administrative investigations",
+      "body": "Let us now look at the first type, the administrative investigation. This is the one you are most likely to meet in ordinary working life.\n\nAn administrative investigation is an internal inquiry. It is run inside the organization, often by human resources, which is the department that looks after staff matters, or by the security team. It looks at operational problems and staff behaviour.\n\nIt can be about two broad kinds of thing. One is a technical or operational issue, such as why a server failed during the night. The other is about how people behaved, such as misuse of company email, or breaking the acceptable use policy. An acceptable use policy is the document telling staff what they may and may not do with company systems.\n\nThe standard of proof is the lowest of the five types. The aim is usually to find the cause and solve the problem. Consequences are things like a warning, retraining or dismissal.\n\nHere is an everyday comparison. A family notices that money has gone missing from a kitchen jar. Nobody calls a judge. The family asks some questions, finds out what happened, and changes how the money is kept.\n\nAt work, imagine that a help desk worker has been giving out passwords without checking who is calling. The investigation looks at call records and interviews the worker. It may find that the training was poor and that the procedure was unclear. So the fix is partly about the person, but mostly about the process. That is the exam mindset. You look for the cause, and you fix the cause.\n\nEven though the standard is lower, the inquiry must still be fair. You follow company policy and employment law. You respect privacy. You do not jump to conclusions. Staff should already have been told, in policy, that company systems can be monitored.\n\nThere is one trap to avoid. A low standard of proof does not mean that you can be careless with evidence.\n\nThe point to take away is this. Administrative means internal. It has the lowest standard of proof, it aims to find and fix the cause, and it must still be done fairly and carefully."
+    },
+    {
+      "heading": "Criminal investigations",
+      "body": "Next we will look at criminal investigations. This is the most serious type, and the one with the strictest rules.\n\nA criminal investigation looks into a suspected crime. It is run by law enforcement, such as the police, and the case is brought by the state on behalf of society. Examples are computer fraud, theft of data and extortion. Extortion means demanding money by threats.\n\nThe standard of proof is beyond a reasonable doubt. This is the highest standard. It means the evidence must leave no reasonable doubt in the mind of the court that the person did it. It does not mean absolute certainty, and that is a common mistake. Absolute certainty is hardly ever possible.\n\nThe consequences can include prison, fines and a criminal record. Because someone's freedom is at stake, the rules on evidence are very strict. Evidence that is badly collected may be thrown out.\n\nAn everyday way to think about it: imagine a very careful jury of neighbours. Each one needs to be convinced enough that no sensible doubt remains.\n\nNow a workplace example. A company discovers that an outsider has been blackmailing it, threatening to publish stolen data. Senior management and legal advisers decide to call the police.\n\nThis decision has consequences that a manager must understand. Once law enforcement is involved, the company may lose control of the investigation. Systems could be held as evidence for some time. The matter may become public. These are reasons to involve senior management and legal advisers first. They are not reasons to hide a crime. In many cases there is a legal duty to report, and legal advisers will know when that applies.\n\nYour role, if you are in a company, is usually to preserve evidence and to support the investigators. You do not question suspects yourself, and you do not take actions that could spoil the case. You should also avoid acting as an agent of the police without legal advice.\n\nHere is your takeaway. Criminal cases are led by law enforcement, require proof beyond a reasonable doubt, and call for strict evidence handling and early involvement of senior management and legal advisers."
+    },
+    {
+      "heading": "Civil cases",
+      "body": "Now we are going to look at civil cases. These are quite different from criminal cases, and the exam often asks you to tell them apart.\n\nA civil case is a dispute between two parties. A party can be a person or an organization. Common examples are a company and a supplier arguing over a contract, or one firm accusing another of copying its software. The party bringing the case is called the plaintiff, and the party defending it is called the defendant.\n\nThe standard of proof is preponderance of the evidence. That is a long phrase with a simple meaning, which is more likely than not. Think of it as just over 50 percent. Picture a set of balance scales. If the evidence tips the scales even slightly toward one side, that side wins.\n\nHere is a worked comparison to make it stick. Imagine evidence that makes it 70 percent likely that a former employee copied a customer list. In a civil case, 70 percent is more than 50 percent, so the company can win. In a criminal case, a 30 percent chance that the person did not do it could well be a reasonable doubt, so a conviction may fail. The same evidence can succeed in one kind of court and fail in the other.\n\nThe usual result of a civil case is payment of money, called damages. A court can also order someone to do something, or to stop doing something. A civil case does not normally send anyone to prison.\n\nAt work, a civil case often brings electronic discovery, or e-discovery for short. This is the process of finding and handing over electronic information for a legal case. When a lawsuit is expected, the organization has to preserve anything relevant. This is called a legal hold. Routine deletion of those records must stop. Destroying them, even by an automatic clean-up job, can bring serious penalties.\n\nA lawyer leads the work, and technical staff support it by locating and preserving the data.\n\nSo remember this. Civil means a dispute between parties, more likely than not is enough, the remedy is usually money, and a legal hold stops routine deletion."
+    },
+    {
+      "heading": "Regulatory and industry standards investigations",
+      "body": "In this part we will look at the last two types, which both ask whether rules were followed. Regulatory investigations are about government rules. Industry standards investigations are about rules set by an industry.\n\nA regulator is a government body that oversees a particular area of work, such as banking, health care or privacy. A regulatory investigation is run by the regulator, or by people working for it, to check whether regulations were broken. Everyday life offers a good picture. A food inspector visits a restaurant, looks in the kitchen and checks the records. The inspector is there to enforce the rules, not to settle an argument between customers.\n\nThe standard of proof varies with the regulator and with the rule involved. The exam may test exactly that point. The consequences can include fines, orders to change how you work, and sometimes the loss of a licence to operate.\n\nAt work, suppose a privacy regulator receives complaints about a retailer's marketing. It asks for records showing how consent was obtained. The retailer should cooperate through its legal advisers, and supply accurate records. Refusing or hiding information makes things much worse.\n\nAn industry standards investigation checks compliance with rules that an industry has set for itself. The best-known example is the Payment Card Industry Data Security Standard, which applies to organizations that handle payment cards. Here the authority comes from a contract, and not from the government.\n\nAfter a suspected card breach, the card companies may require a specialist outside assessor to investigate. The way it works is shaped by the contract. The consequences can include penalties, higher fees or loss of the right to take card payments.\n\nHere is how to tell these two apart in a scenario. Ask who has the authority. If it is a government agency, it is regulatory. If it is an industry body, or a contract with one, it is an industry standards investigation.\n\nSo here is what to take away. Regulators enforce government rules with a standard of proof that varies. Industry standards investigations enforce private rules through contracts. Either way, cooperate honestly, and bring in your legal advisers."
+    },
+    {
+      "heading": "Protecting evidence and acting as a manager",
+      "body": "In this final part, we will look at what ties all five types together, which is careful evidence handling and sensible management.\n\nEvidence must be collected in a way that can be trusted later. Chain of custody is the written record of who held the evidence, when they held it, and what they did with it. If the record has gaps, a court may not trust the evidence.\n\nThink of a relay race where each runner signs for the baton. If nobody can say who held the baton for two minutes, somebody might have swapped it.\n\nAn administrative investigation can quickly become something much bigger. Let us work through an example. You are looking into an employee who wastes time online. On the work computer, you find records suggesting that the person has been selling customer data. What happens now?\n\nStep one, stop what you were doing. Do not keep digging, and do not turn the computer off or on without guidance.\n\nStep two, preserve what you found, and begin a chain of custody record.\n\nStep three, inform management and legal advisers, following the procedure that was agreed in advance.\n\nStep four, let them decide whether to involve law enforcement.\n\nNotice the things you did not do. You did not delete anything. You did not confront the suspect, who might destroy evidence or become dangerous. And you did not go directly to the police on your own initiative, because the decision belongs to senior management and legal advisers.\n\nThis is why you handle every case from the very start as if it might end up in court. It costs a little more care, and it keeps every option open. Respect privacy throughout, and gather only what the investigation needs.\n\nThe procedure should exist before anything goes wrong. It should say who leads, who is told, and how evidence is stored. In a crisis, nobody should be inventing the process.\n\nAnd here is your takeaway. Treat every investigation as if it could reach a court, keep a chain of custody, and escalate to management and legal advisers through the agreed procedure."
+    }
+  ],
+  "practiceQuestions": [
+    {
+      "prompt": "Human resources asks the security team to find out whether an employee has been breaking the company's email rules. The likely outcome is a written warning. Which type of investigation is this?",
+      "options": [
+        "Administrative",
+        "Criminal",
+        "Civil",
+        "Regulatory"
+      ],
+      "correctIndex": 0,
+      "explanation": "It is an internal inquiry into staff behaviour, so it is administrative. Regulatory is tempting because rules are mentioned, but those are the company's own rules and no government body is involved."
+    },
+    {
+      "prompt": "Police charge a former administrator with deliberately destroying a company's servers. At trial, which standard of proof must the prosecution MOST likely meet?",
+      "options": [
+        "Preponderance of the evidence",
+        "Absolute and complete certainty",
+        "A reasonable suspicion",
+        "Beyond a reasonable doubt"
+      ],
+      "correctIndex": 3,
+      "explanation": "Criminal cases need proof beyond a reasonable doubt. Absolute certainty is tempting, because the standard is so high, but the law does not require certainty, only the absence of reasonable doubt."
+    },
+    {
+      "prompt": "After a suspected card data breach at a large retailer, the payment card companies require an outside assessor to examine the retailer under its merchant agreement. Which type of investigation is this?",
+      "options": [
+        "Criminal",
+        "Administrative",
+        "Industry standards",
+        "Civil"
+      ],
+      "correctIndex": 2,
+      "explanation": "The authority comes from industry rules enforced by contract. Civil is tempting because a contract is mentioned, but this is a compliance check against an industry standard and not a court dispute between parties."
+    },
+    {
+      "prompt": "A national banking supervisor writes to a bank saying that it will examine whether the bank followed the rules on protecting customer records. What type of investigation has begun?",
+      "options": [
+        "Civil",
+        "Regulatory",
+        "Administrative",
+        "Criminal"
+      ],
+      "correctIndex": 1,
+      "explanation": "A government oversight body is checking compliance with its rules, so it is regulatory. Administrative is tempting because the bank will gather its own records, but the inquiry is led from outside."
+    },
+    {
+      "prompt": "A hard drive is seized during an incident. It sat for a day on a desk, and two people handled it, but nobody recorded who had it or when. What is the GREATEST concern?",
+      "options": [
+        "The drive could have suffered damage from the heat and dust of the office during that day",
+        "The two staff members may be disciplined for failing to complete the company's standard paperwork",
+        "The incident response team will now have to buy another drive before it can begin its analysis",
+        "The gap in chain of custody may make the evidence untrustworthy"
+      ],
+      "correctIndex": 3,
+      "explanation": "Gaps in the record mean nobody can show the evidence was not altered, so a court may reject it. Physical damage is tempting to worry about, but the main problem described is the missing record."
+    },
+    {
+      "prompt": "A manager finds strong signs that an employee has been stealing from customers and wants to telephone the police immediately. What should happen BEFORE the police are contacted?",
+      "options": [
+        "Consult senior management and legal advisers",
+        "Interview the employee to obtain a full written confession that can be handed to the police",
+        "Remove the employee's files from the system so that they cannot be altered or destroyed by anyone",
+        "Announce the discovery to the staff so that any other witnesses are encouraged to come forward"
+      ],
+      "correctIndex": 0,
+      "explanation": "Involving law enforcement has serious consequences, so senior management and legal advisers should decide. Interviewing the employee is tempting, but it can warn the suspect and spoil the case."
+    },
+    {
+      "prompt": "A company receives notice that a former partner is suing it over a failed project. The company's email system automatically deletes messages after 90 days. What should the company do FIRST?",
+      "options": [
+        "Let the automatic deletion continue, because it is part of a normal and approved retention policy",
+        "Place a legal hold and suspend deletion of relevant records",
+        "Ask all staff involved in the project to delete personal messages that might embarrass the company",
+        "Wait until the court issues a specific written order listing each of the records to be kept"
+      ],
+      "correctIndex": 1,
+      "explanation": "Once a lawsuit is expected, relevant records must be preserved. Continuing normal deletion is tempting, as the policy is legitimate, but carrying on could destroy evidence and bring penalties."
+    },
+    {
+      "prompt": "A technician believes a coworker is copying confidential designs onto a personal drive. The technician wants to confront the coworker and take the drive away. What is the BEST action?",
+      "options": [
+        "Confront the coworker privately, as this gives the person a fair opportunity to explain what happened",
+        "Take the drive from the coworker's desk during lunch and carry out an examination of it at home",
+        "Report it through the agreed procedure and leave the evidence undisturbed",
+        "Post a general warning on the staff noticeboard about the penalties for taking confidential designs"
+      ],
+      "correctIndex": 2,
+      "explanation": "Following the procedure protects evidence, people and fairness. Confronting the coworker is tempting because it seems fair, but it could lead to evidence being destroyed or to a dangerous situation."
+    },
+    {
+      "prompt": "A company is deciding whether to give an employee a written warning for repeated late logins to a secure system. How much proof will the company MOST likely need?",
+      "options": [
+        "Enough to meet its own fair internal process",
+        "Proof beyond a reasonable doubt, as the company must treat this as seriously as a court does",
+        "A clear decision from a judge that the employee has breached the terms of the contract of employment",
+        "An external assessor's signed statement confirming that each of the late logins took place"
+      ],
+      "correctIndex": 0,
+      "explanation": "This is an administrative matter, which has the lowest standard of proof, though it must still be fair. Beyond a reasonable doubt is tempting because it sounds thorough, but that standard belongs to criminal cases."
+    },
+    {
+      "prompt": "A privacy regulator opens an inquiry into how a health insurer stored customer records. A manager asks what standard of proof will apply. What is the MOST accurate answer?",
+      "options": [
+        "Beyond a reasonable doubt, because every investigation by a government body is treated as criminal",
+        "Preponderance of the evidence, because every regulatory case is always treated the same as a civil case",
+        "There is no standard of proof, because a regulator can make any decision that it wishes to make",
+        "It varies with the regulator and the rule involved"
+      ],
+      "correctIndex": 3,
+      "explanation": "Regulatory standards are not fixed, and depend on the body and the rule. Preponderance of the evidence is tempting because it sometimes applies, but it is not always the standard."
+    }
+  ]
+}

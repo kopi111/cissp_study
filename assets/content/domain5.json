@@ -1,0 +1,1616 @@
+{
+  "number": 5,
+  "name": "Identity and Access Management",
+  "weightPercent": 13,
+  "plainMeaning": "This domain is about knowing exactly who or what is asking for something, proving it, and giving only the access that is needed. It also covers changing and removing that access as people join, move and leave.",
+  "topics": [
+    {
+      "id": "T40",
+      "name": "Controlling physical and logical access to assets: information, systems, devices, facilities, applications, services",
+      "outlineRef": "5.1",
+      "simpleExplanation": "Access control decides who can reach what. Think of a house. The front door lock is a physical control, because it stops a body. The password on your laptop is a logical control, because it stops someone through software. A good company uses both kinds to protect six things: information, systems, devices, facilities, applications and services. Each person gets only what the job needs. If one control fails, another is still there. And when a rule about doors could trap people in a fire, people's safety always wins.",
+      "studyNotes": [
+        {
+          "heading": "Subjects, objects and the two kinds of access",
+          "body": "In this first part, we will look at what access really means, and at the two kinds of control that protect everything else in this domain.\n\nAccess is a flow of information between two things. The subject is the active thing that asks. It could be a person, a program or a device. The object is the passive thing being reached, such as a file, a printer or a room.\n\nHere is an everyday picture. You walk up to a library shelf and take a book. You are the subject and the book is the object. Now a small twist. A program that reads a file is a subject. If another program then starts that first program, the first program has become the object. So the labels depend on who is asking at that moment.\n\nThere are two broad kinds of access. Physical access means a body reaches something. A door lock, a fence and a guard all control physical access. Logical access means someone reaches something through software or a network. A login, a file permission and encryption, which is scrambling data so that only key holders can read it, all control logical access. Logical controls are also called technical controls.\n\nThe two kinds depend on each other. Think about your home laptop. A strong password stops a stranger on the internet. It does little against a burglar who carries the laptop away.\n\nNow a workplace example. A company has excellent passwords on its servers, but the server room door is left open. A visitor can walk in, pull out a disk and leave. Anyone who can touch a machine can steal its disks, damage it, or start it from their own software and get around the login. Strong logical controls mean little without physical controls, and the reverse is also true. A locked room does not stop an attacker who comes in over the network.\n\nThe aim is to control access in both worlds at once, so that a failure in one does not open everything.\n\nHere is what to take away. A subject asks and an object is reached. Physical controls stop bodies, logical controls stop software and network access, and you always need both."
+        },
+        {
+          "heading": "Information, systems and devices",
+          "body": "Now we will walk through the first three of the six assets the outline names, and see how access is controlled for each one.\n\nThe outline lists six assets, and exam questions may use any of them. Here is the set.\n\n- Information.\n- Systems.\n- Devices.\n- Facilities.\n- Applications.\n- Services.\n\nStart with information, because information is usually what all the other controls are protecting. First it is classified, which means labeled by how sensitive it is. Then the owner decides who should see it, based on need to know. Technical tools carry out that decision. Encryption protects the data when it is stored and when it travels. Data loss prevention, or DLP, is a tool that watches for sensitive data leaving the organization and stops it.\n\nThink of a medical file. It needs the same protection whether it sits in a paper folder, on a server or in an email. The protection follows the information, wherever it goes.\n\nNext come systems, meaning servers, computers and the operating systems that run them. Give each person a named login, so that actions can be traced. Keep the number of administrators small. Apply hardening, which means removing or switching off anything the system does not need. A smaller system has fewer ways in.\n\nThen come devices, such as phones, laptops, printers and sensors. A device can be lost, stolen or infected, so it needs its own controls. Screen locks and disk encryption protect a device that goes missing. Mobile device management, or MDM, gives central control of phone settings, and it can erase a lost phone. Network access control, or NAC, checks that a device is allowed and healthy before it joins the network.\n\nHere is a workplace example. A sales manager's laptop is left in a taxi. Because the disk is encrypted, the customer list cannot be read. Because the laptop is managed, the company can lock it remotely. Because the login belongs to one named person, the company knows whose access to cancel.\n\nHere is your takeaway. Protect information according to its value, harden and limit systems, and treat every device as something that can be lost."
+        },
+        {
+          "heading": "Facilities, applications and services",
+          "body": "In this part we will finish the six assets, with facilities, applications and services.\n\nFacilities are buildings, floors and rooms. They are protected by fences, guards, badge readers, visitor logs and escorts. A visitor should be signed in, given a visible badge, and kept with an escort in sensitive areas. Think about visiting a friend in a hospital ward. You stop at the desk, you say who you are seeing, and you do not wander into the pharmacy.\n\nDifferent rooms need different levels of protection. A lobby can be open. The finance office needs a badge. The data center, which is the room that holds the servers, needs a badge and something more, such as a code or a fingerprint.\n\nApplications are the programs people use. Getting into an application is only the beginning. What matters next is what each person can do inside it. Applications use roles and permissions to separate these abilities. In a bank's loan program, a clerk may enter a loan, while a supervisor may approve it. The clerk cannot approve, and the supervisor should not enter and approve the same loan.\n\nServices are things one system offers another. Cloud storage is a service. So is a program that checks a credit score when another program asks. No person is typing here, so people often forget to control this access. A service needs its own identity, separate from any person. It also needs limits on what it can call. A program that only reads a price list should not hold a key that can delete the whole database. An application programming interface, or API, is the doorway one program uses to make requests of another, and those doorways need authentication and limits too.\n\nHere is a workplace example. A shop's website calls a payment service. The website has its own identity with the payment provider. That identity can request a payment, but it cannot download the list of past payments. If the website is broken into, the damage is limited.\n\nSo here is the point to take away. Facilities are protected in layers, applications control what people do once inside, and services need their own identities and narrow limits."
+        },
+        {
+          "heading": "The principles behind every access decision",
+          "body": "Now we will look at the principles that sit behind every access decision. The exam expects you to tell them apart.\n\nLeast privilege means giving only the rights the job needs, and no more. Need to know means that even if you are trusted with a level of information, you see only what your current task requires. Clearance and need to know are different things. Clearance says you are trusted to handle a certain level. Need to know says you have a reason to see this particular item.\n\nHere is an everyday picture. A hotel housekeeper has a key to the rooms on one floor, and only during a shift. That is least privilege. A bank manager may be trusted with every file, but she should not open a neighbor's account out of interest. That is need to know.\n\nSeparation of duties means splitting a sensitive task so that one person cannot complete it alone. People would then have to work together to commit fraud, which is called collusion. A person who sets up a new supplier should not also be the person who pays that supplier.\n\nDefense in depth means using layers, so that one failure does not open everything. Implicit deny means that if no rule allows the access, the answer is no. Silence is a refusal. A guest list works this way. If your name is not on it, you do not get in.\n\nNext, think about who decides. The asset owner is the senior person accountable for that asset, and the owner decides who should have access. The custodian, often a technical team, carries out that decision and keeps the controls running. Security advises and checks. Technical staff should not decide on their own who sees the payroll.\n\nHere is a workplace example. A new analyst asks for access to all customer records, because it would be convenient. The data owner approves only the one region she works on. The request is recorded, the technical team applies it, and it is checked at the next review.\n\nThe manager's view is simple. Every asset should have a named owner, and every right should have a reason.\n\nHere is what to take away. Least privilege limits what you can do, need to know limits what you can see, and the owner decides."
+        },
+        {
+          "heading": "Physical layers and what doors do when power fails",
+          "body": "In this part we will look at physical layers, and at what a door should do when the power fails, which is a favorite exam subject.\n\nThink from the outside in. Fence, gate, guard, badge door, locked room, locked rack. Each layer slows an intruder and gives you more time to notice. A castle worked the same way, with a moat, an outer wall and an inner keep.\n\nThese controls have different purposes. A fence prevents. A camera detects, and it may also deter. A guard can do all three, and can use judgment, which a machine cannot.\n\nTailgating is following someone through a secured door without using your own badge. Piggybacking is a close relative, where the person who opened the door knowingly lets you through. An access control vestibule, often called a mantrap, stops both. It is a small space with two doors, and only one door can open at a time. One person enters, the first door closes, that person is checked, and only then does the second door open.\n\nNow for power failure. A fail-safe door unlocks when the power is lost, so that people can get out. A fail-secure door stays locked when the power is lost, so that assets stay protected. Notice the trap in the words. Safe here means safe for people. Secure means secure for the assets.\n\nPeople's safety always comes first. Where people could be trapped, choose fail-safe. Then cover the added risk with alarms and cameras. A cash box or a supply cage can be fail-secure, because nobody needs to escape from it. Many secure doors also allow free exit from the inside at all times, using a push bar, while staying locked from the outside.\n\nHere is a workplace example. A company's server room has a single exit. A fire would cut the power. The door must let people out, even if that means the room is briefly unprotected. An alarm on the door tells the guards, and a camera shows who leaves.\n\nHere is your takeaway. Build physical layers from the outside in, use a vestibule to stop tailgating, and when people could be trapped, fail-safe wins every time."
+        },
+        {
+          "heading": "Worked example: one file at a bank, and the manager's view",
+          "body": "To finish, we will follow one customer file through every layer, and then see how a manager should think about all of this.\n\nA clerk at a bank needs to look up a customer's loan. Let us go through it in order.\n\n- Facility: her badge opens the door to the branch.\n- Device: the company laptop passes a health check before it joins the network.\n- System: she signs in with her own personal account.\n- Application: her role lets her view a loan, but not approve it.\n- Service: the loan application calls a credit check service, using its own identity.\n- Information: the file is labeled confidential, and it is encrypted.\n\nNow count how many separate checks had to succeed. If she left her badge at home, she would be stopped at the door. If someone stole her password, that person would still need a healthy company laptop. If the application were broken into, the credit service identity could do only a small part of the work. That is defense in depth in practice.\n\nNow think about two common failures. First, the controls exist, but no one owns them. A rule that nobody reviews slowly goes out of date. So a manager makes sure that each asset has a named owner, and that owners review who has access. Second, a control gets in the way of the work, so people go around it. Staff prop open a heavy door because they carry boxes all day. The answer is not only a stern reminder. Find out why it happens and fix the cause, perhaps with a powered door and a badge reader.\n\nWhen an exam question asks for the best action, think in this order. Are people safe? Is there a policy? Who is the owner, and have they decided? Does the control fix the real cause, or only a symptom?\n\nAlso remember that a control can be too strong for its asset. A fingerprint reader on the stationery cupboard costs more than it saves. Protection should match value.\n\nHere is what to take away. Access is checked at many layers, the owner decides, and a good manager fixes causes and matches protection to value."
+        }
+      ],
+      "keyTerms": [
+        {
+          "term": "Subject",
+          "meaning": "The active thing asking for access, such as a person, program or device."
+        },
+        {
+          "term": "Object",
+          "meaning": "The passive thing being reached, such as a file, printer or room."
+        },
+        {
+          "term": "Physical access",
+          "meaning": "A body reaching something, controlled by doors, locks, guards and fences."
+        },
+        {
+          "term": "Logical access",
+          "meaning": "Reaching something through software or a network, controlled by logins, permissions and encryption."
+        },
+        {
+          "term": "Least privilege",
+          "meaning": "Giving only the rights needed to do the job."
+        },
+        {
+          "term": "Need to know",
+          "meaning": "Seeing only the information your current task requires, even if your clearance is high enough for more."
+        },
+        {
+          "term": "Implicit deny",
+          "meaning": "If no rule allows the access, it is refused."
+        },
+        {
+          "term": "Access control vestibule",
+          "meaning": "A two-door space, also called a mantrap, where only one door opens at a time."
+        },
+        {
+          "term": "Fail-safe",
+          "meaning": "On power loss the door unlocks, so people can get out."
+        },
+        {
+          "term": "Fail-secure",
+          "meaning": "On power loss the door stays locked, so assets stay protected."
+        }
+      ],
+      "keyPoints": [
+        "Physical and logical controls must work together.",
+        "The outline's six assets are information, systems, devices, facilities, applications and services.",
+        "Clearance alone is not enough; need to know is also required.",
+        "Where people could be trapped, life safety beats asset protection.",
+        "The asset owner decides who should have access."
+      ],
+      "memoryHook": "I Saw Dogs Fetching Apple Slices: Information, Systems, Devices, Facilities, Applications, Services.",
+      "question": {
+        "prompt": "A company is fitting electronic locks on the staff corridor that leads out of its data center. To protect the servers, a contractor proposes that these doors stay locked if the power fails. What should the security manager recommend?",
+        "options": [
+          "Accept the proposal, because the servers hold the company's most sensitive data",
+          "Give one guard a master key to open the doors during any power failure",
+          "Have the doors release on power loss, and add alarms and cameras to cover them",
+          "Replace the locks with fingerprint readers that run on a backup battery"
+        ],
+        "correctIndex": 2,
+        "explanation": "People's safety comes first, so an escape route must be fail-safe, and alarms and cameras cover the added risk. Keeping the doors locked protects the servers but can trap people. A guard with a key is tempting, but one person cannot be relied on in an emergency."
+      },
+      "practiceQuestions": [
+        {
+          "prompt": "A scheduled reporting program opens a database table and copies some rows into a file. In access control terms, what is the program during this action?",
+          "options": [
+            "The object, because it is a passive piece of software",
+            "The subject, because it is the active requester",
+            "The data owner, because it holds the table open",
+            "The custodian, because it stores the copied rows"
+          ],
+          "correctIndex": 1,
+          "explanation": "The subject is the active thing that asks for access, and a running program can be a subject. Object is tempting because software can feel like a thing, but here the table is the passive thing being reached."
+        },
+        {
+          "prompt": "An analyst holds a Secret clearance. She asks to read a Secret report from a project she has no part in, saying it would be interesting background. What should happen?",
+          "options": [
+            "Grant it, because her clearance matches the label on the report",
+            "Grant it for a limited time, and log everything that she reads",
+            "Ask the security team to review her clearance before granting it",
+            "Refuse it, because she has no need to know"
+          ],
+          "correctIndex": 3,
+          "explanation": "Clearance is not enough. She also needs a reason connected to her work, and interest is not one. Granting it because the clearance matches is tempting, but that ignores need to know."
+        },
+        {
+          "prompt": "Staff at a data center often hold the badge door open for the person behind them, and unknown people have been seen inside. Reminders have not worked. Which control BEST addresses this?",
+          "options": [
+            "An access control vestibule at the entrance",
+            "Longer retention of the footage from the door camera",
+            "A stronger type of badge with an embedded smart chip",
+            "A written warning for anyone caught holding the door open"
+          ],
+          "correctIndex": 0,
+          "explanation": "A vestibule lets one person through at a time, so following someone in becomes very hard. A stronger badge is tempting, but the problem is people entering without using a badge at all."
+        },
+        {
+          "prompt": "A contractor must repair an air conditioning unit inside a server room for one day. What is the BEST way to allow this?",
+          "options": [
+            "Lend the contractor a spare staff badge so the work is not delayed",
+            "Let the contractor work alone after signing a confidentiality agreement",
+            "Log the visit, issue a visitor badge and keep an escort present",
+            "Allow entry only outside business hours, when fewer staff are nearby"
+          ],
+          "correctIndex": 2,
+          "explanation": "A logged and escorted visit lets the work happen and keeps a record and a watchful person in the room. A confidentiality agreement is tempting, but a signature does not stop someone from touching the racks."
+        },
+        {
+          "prompt": "An online shop's website uses one key with full rights over the entire cloud account, although it only needs to read a product list. Which change is BEST?",
+          "options": [
+            "Keep the same key, but store it in an encrypted file on the web server",
+            "Keep the same key, but replace it with a new one every 30 days",
+            "Give the website its own identity that can only read that list",
+            "Require multi-factor authentication for every cloud administrator login"
+          ],
+          "correctIndex": 2,
+          "explanation": "A narrow identity applies least privilege, so a broken website can do very little. Replacing the key often is tempting, but each new key would still hold full rights over the account."
+        },
+        {
+          "prompt": "Employees have started connecting personal laptops to the office network, and some have no security updates. Which control would BEST keep unhealthy devices off the network?",
+          "options": [
+            "Network access control with a health check",
+            "A policy asking staff to update their laptops",
+            "A stronger password rule for all network accounts",
+            "An intrusion detection sensor in the server room network"
+          ],
+          "correctIndex": 0,
+          "explanation": "Network access control checks a device before it joins, and refuses it if it is not healthy. A policy is tempting and is still useful, but on its own it cannot stop an unpatched laptop from connecting."
+        },
+        {
+          "prompt": "In a purchasing application, one clerk can create a new supplier and can also approve payments to that supplier. Which change BEST reduces the risk of fraud?",
+          "options": [
+            "Review the clerk's activity at the end of each year",
+            "Require the clerk to use a longer password for the application",
+            "Move the application to a more secure server and encrypt its data",
+            "Separate creating suppliers from approving payments"
+          ],
+          "correctIndex": 3,
+          "explanation": "Separation of duties means one person cannot complete the whole sensitive task alone. A yearly review is tempting, but it only finds fraud long after the money has gone."
+        },
+        {
+          "prompt": "A new access system is being configured. A request arrives that matches no rule in the policy. How should a well-designed system respond?",
+          "options": [
+            "Allow it and write an entry in the log for later review",
+            "Refuse it, because nothing explicitly allows it",
+            "Pass it to the administrator on duty for a manual decision",
+            "Allow it only during normal business hours on weekdays"
+          ],
+          "correctIndex": 1,
+          "explanation": "Implicit deny means that if no rule allows the access, the answer is no. Asking an administrator is tempting, but it depends on one person making a choice that the policy never authorized."
+        },
+        {
+          "prompt": "A sales director asks a database administrator to give a new employee access to the customer database. The administrator is unsure whose decision this is. Who should decide?",
+          "options": [
+            "The data owner of the customer database",
+            "The database administrator who manages the system",
+            "The security team that writes the access standards",
+            "The new employee's colleagues who use the database every day"
+          ],
+          "correctIndex": 0,
+          "explanation": "The owner is accountable for the data, and so decides who should have access. The administrator is tempting because that person applies the change, but a custodian carries out decisions and does not make them."
+        },
+        {
+          "prompt": "A locked cage inside a warehouse holds spare hard drives, and nobody works inside it. The company must choose how its electronic lock behaves if the power fails. Which choice is MOST appropriate?",
+          "options": [
+            "Fail-safe, because all electronic locks must release in an outage",
+            "Fail-safe, provided that a camera records the cage door",
+            "Fail-secure, because nobody needs to escape from the cage",
+            "Remove the electronic lock and rely on the warehouse guards"
+          ],
+          "correctIndex": 2,
+          "explanation": "With no one inside, there is no life safety concern, so the assets can stay locked. Fail-safe is tempting because people's safety comes first, but that rule applies where people could be trapped."
+        }
+      ]
+    },
+    {
+      "id": "T41",
+      "name": "Identification and authentication: factors, MFA, passwords, biometrics, FRR, FAR, CER, passwordless",
+      "outlineRef": "5.2",
+      "simpleExplanation": "Identification is saying who you are, like giving your name at a bank. Authentication is proving it, like showing your ID card. Proof comes in types: something you know, something you have, and something you are. Using two different types is much stronger than using one. Fingerprint readers make two kinds of mistake: they can reject the right person or accept the wrong one. The best readers make few of both. Newer logins need no password at all, because a device proves who you are using a secret key.",
+      "studyNotes": [
+        {
+          "heading": "Claim, prove, permit, record",
+          "body": "In this first part, we will look at the four steps that happen whenever someone uses a system, and the order they happen in.\n\nHere are the steps, in their exact order.\n\n- Identification: you claim an identity, such as a username.\n- Authentication: you prove the claim.\n- Authorization: the system decides what you may do.\n- Accounting: the system records what you did.\n\nThe last three are often shortened to AAA, which stands for authentication, authorization and accounting.\n\nThink about checking in at a hotel. You give your name. That is identification. You show your passport. That is authentication. The clerk gives you a key that opens only your room. That is authorization. The hotel's system notes when your key was used. That is accounting.\n\nThe common mistake is to mix up the first two. Typing a username proves nothing. Anyone can type your name. Only when you give the proof have you authenticated.\n\nAuthentication and authorization are also easy to confuse. Authentication answers the question, who are you? Authorization answers the question, what may you do? A valid login does not mean you can open every file.\n\nThe outline says that this strategy covers people, devices and services. So people are not the only ones with identities. A laptop can prove itself with a certificate, which is a digital identity card, signed by a trusted issuer. A program can prove itself with a key or a token. A managed company phone can prove that it is the device it claims to be.\n\nHere is a workplace example. A nurse scans her badge and enters a code at a shared computer. Her identity is claimed and proven. The medical records program then shows only the charts for her ward. Every chart she opens is written to a log, under her name. All four steps have taken place, and if a patient later asks who read the chart, the hospital can answer.\n\nHere is what to take away. The order is identify, authenticate, authorize, account. A claim is not a proof, and proving who you are does not decide what you may do."
+        },
+        {
+          "heading": "The authentication factors and multi-factor authentication",
+          "body": "Now we will look at the types of proof, which are called factors, and at what really counts as using more than one.\n\nThere are three main factors, and you need to know their type numbers.\n\n- Type 1, something you know: a password, or a personal identification number, called a PIN.\n- Type 2, something you have: a smart card, a phone or a hardware token.\n- Type 3, something you are or do: a fingerprint, a face, or the way you sign your name.\n\nThere are extra signals too. Somewhere you are means your location, such as a building or a country. Location is useful, but on its own it is treated as an added signal and not as a main factor.\n\nMFA stands for multi-factor authentication. It means using two or more factors of different types. The word different is the whole test. Two passwords are still only one factor.\n\nThink about a cash machine. Your bank card is something you have. Your PIN is something you know. A thief who steals the card alone cannot use it, and someone who watched you type the PIN cannot use it without the card.\n\nLet us work through some examples, counting by type, not by items.\n\nA password plus a PIN are both something you know. That is single-factor. A fingerprint plus a face scan are both something you are. That is also single-factor. A smart card plus a PIN is have plus know, so it is MFA. A password plus a code from a phone app is know plus have, so it is MFA. A password plus the answer to a security question is know plus know, so it is single-factor.\n\nHere is a trap to watch for. Type 1 and Type 2 also appear in biometric error rates, where they mean something entirely different. We will come to those shortly. When you see a type number, read which subject the question is about.\n\nFor a workplace view, think about remote staff logging in from home. Requiring a second factor means that a stolen password alone is no longer enough.\n\nHere is your takeaway. Know, have, are. MFA means different types, so count the types and not the number of items."
+        },
+        {
+          "heading": "Passwords and how they should be stored",
+          "body": "In this part we will look at passwords, which are still everywhere, and at what good practice looks like today.\n\nLength matters more than odd symbols. A long sentence that you can remember is harder to guess than a short word with a number and a symbol on the end. Each extra character multiplies the number of possibilities that an attacker must try.\n\nCurrent guidance from NIST, the National Institute of Standards and Technology, a United States standards body, says this.\n\n- Allow long passphrases.\n- Check new passwords against lists of leaked and common ones.\n- Do not force changes on a fixed schedule.\n- Force a change when there is evidence of compromise.\n- Do not demand mixtures of character types.\n\nWhy no scheduled changes? Think about what people do. When forced to change every month, they move from Summer1 to Summer2. The password changes, but it does not get stronger.\n\nMany older policies still demand complexity and regular change, and many exam scenarios describe them. Follow the policy in the scenario, and choose the current guidance only when the question asks what is best practice.\n\nNow for storage. Systems should never store the password itself. They store a hash. A hash is a one-way scramble. You can turn a password into a hash, but you cannot turn the hash back into the password. At login, the system hashes what you typed and compares the two results.\n\nA salt is random data added to each password before hashing. Think about two users who both choose the same password. Without a salt, their hashes would match, and an attacker would notice. With a different salt for each, the hashes look different. Salts also defeat ready-made lists of hashes.\n\nThe hashing should also be deliberately slow, using a method such as bcrypt or Argon2. A real user logs in once and hardly notices the delay. An attacker trying billions of guesses suffers badly.\n\nFor a workplace example, a stolen database of salted, slowly hashed passwords gives the attacker very little quickly, while plain text gives everything at once.\n\nHere is what to take away. Favor length and leaked-password checks, change passwords on evidence of compromise, and store only slow, salted hashes."
+        },
+        {
+          "heading": "Tokens and one-time codes",
+          "body": "Next we will look at one-time codes, which are the most common form of the second factor.\n\nA one-time password is a code that works once, or for a very short time. If someone sees it after it has been used, it is worthless. Think about a paper raffle ticket that is torn when it is used. No one can hand it in a second time.\n\nThere are two main kinds, and the exam likes the difference.\n\nThe first is TOTP, which stands for time-based one-time password. The token and the server share a secret, and both use the current time to work out the code. Because both sides calculate it separately, the code changes on a fixed cycle, commonly every 30 seconds. This is also called a synchronous token, because the two sides must keep their clocks in step. Most phone authenticator apps work this way.\n\nThe second is HOTP, which stands for HMAC-based one-time password. HMAC means hash-based message authentication code, a hash that uses a secret key. HOTP uses a counter and not the clock. The code changes each time the button is pressed or a code is used. So it is event-based, and the counters on the two sides have to stay close together.\n\nBecause it needs no clock, HOTP is called an asynchronous token. A challenge and response token is also asynchronous. The server sends a random challenge, and the token uses its secret to work out the answer.\n\nNow to the weaker choices. Codes sent by text message can be intercepted. In SIM swapping, an attacker persuades a mobile phone company to move your number to their own SIM card, which is the small chip that links a phone to a number. From then on, your codes go to the attacker. A text message code is still better than no second factor, but a phone app or a hardware key is stronger.\n\nPush approval has its own weakness. Attackers can send prompt after prompt until a tired user taps yes. This is called MFA fatigue. Asking the user to type a number shown on the login screen reduces it.\n\nHere is your takeaway. TOTP uses time, HOTP uses a counter, and text message codes are the weakest of the common second factors."
+        },
+        {
+          "heading": "Biometrics and the error rates",
+          "body": "Now we will look at biometrics, which means measuring something about your body or behavior, and at the error rates the exam asks about.\n\nFirst you go through enrollment, where your sample is recorded. Later scans are compared with that sample. Biometric readers never match perfectly, so they work with a threshold, a level of similarity that counts as a match. A stolen fingerprint also cannot be replaced like a password. And retina scans are intrusive and can reveal health details, so they raise privacy concerns.\n\nThere are two kinds of mistake and one measure, and you must have them exactly right.\n\n- FRR, false rejection rate, is a Type 1 error: the right person is refused.\n- FAR, false acceptance rate, is a Type 2 error: the wrong person is let in.\n- CER, crossover error rate, also called equal error rate: the setting where FRR equals FAR.\n\nFAR is the more dangerous error, because an impostor gets in. FRR is the more annoying one, because honest staff are stopped at the door.\n\nThink about a nightclub doorman. If he is strict, he turns away some real guests. That is FRR. If he is relaxed, he lets in people who should not be there. That is FAR.\n\nThe two move in opposite directions. Raising the sensitivity makes FRR go up and FAR go down. Lowering it does the reverse.\n\nLet us work through the numbers. In a test, 200 real staff try the reader, and 6 are refused. FRR is 6 divided by 200, which is 3 percent. Then 1,000 impostors try, and 10 get in. FAR is 10 divided by 1,000, which is 1 percent. These two are not equal, so this setting is not the crossover point.\n\nTo compare products, use the CER, because any vendor can make one error rate look good just by changing the setting. A reader with a CER of 2 percent beats one with a CER of 4 percent. Lower is better.\n\nCER is for comparing products. In use, you may set the reader away from it. A bank vault would favor a low FAR and accept more rejections.\n\nHere is what to take away. FRR is Type 1, FAR is Type 2, and the lowest CER is the most accurate product."
+        },
+        {
+          "heading": "Passwordless authentication",
+          "body": "To finish this topic, we will look at passwordless login, which removes the thing attackers most like to steal.\n\nPasswordless means nothing is typed that can be stolen and reused. The main example today is the passkey, built on FIDO2, which stands for Fast Identity Online 2. It uses public key cryptography, a method with two matching keys. A private key is kept secret, and a public key can be shared with anyone.\n\nHere are the steps, in order.\n\n- You register, and your device creates a key pair for that website.\n- The website keeps the public key, and the private key stays on your device.\n- Later, the website sends a challenge, which is a random value.\n- You unlock the device with a fingerprint or a PIN.\n- The device signs the challenge with the private key and sends it back.\n- The website checks the signature with the public key.\n\nThink of a wax seal on a letter. Everyone can recognize your seal, but only you own the ring that makes it. And you never hand over the ring.\n\nThis gives some real advantages. A website break-in reveals only public keys, which do not help an attacker to log in. And the key works only for the real site, because the device checks the address that it is talking to. So a fake site cannot capture a usable login. That is what phishing resistance means. Phishing is tricking someone into giving away a secret, often through a fake page.\n\nHow many factors is this? Having the device is one. Unlocking it with a fingerprint or PIN is another. So a passkey on your own device gives two factors in one action.\n\nHere is a workplace example. A company issues hardware security keys to its finance staff. An attacker sends a convincing fake login page. The employee goes to it and tries to sign in, but the key refuses, because the address is wrong.\n\nA caution for the manager. Attackers look for the weakest path. If a forgotten device can be replaced by a simple phone call to the help desk, the strong login has been bypassed. Protect account recovery as strongly as the login.\n\nHere is your takeaway. Passkeys remove the stealable secret, resist phishing, and must have equally strong recovery."
+        }
+      ],
+      "keyTerms": [
+        {
+          "term": "Identification",
+          "meaning": "Claiming an identity, such as typing a username."
+        },
+        {
+          "term": "Authentication",
+          "meaning": "Proving that the claimed identity is really yours."
+        },
+        {
+          "term": "MFA",
+          "meaning": "Multi-factor authentication: proof using two or more different factor types."
+        },
+        {
+          "term": "FRR",
+          "meaning": "False rejection rate, a Type 1 error: how often the right person is refused."
+        },
+        {
+          "term": "FAR",
+          "meaning": "False acceptance rate, a Type 2 error: how often the wrong person is accepted."
+        },
+        {
+          "term": "CER",
+          "meaning": "Crossover error rate: the point where FRR and FAR are equal. Lower is better."
+        },
+        {
+          "term": "Salt",
+          "meaning": "Random data added to a password before hashing, so equal passwords give different results."
+        },
+        {
+          "term": "TOTP",
+          "meaning": "Time-based one-time password: a code that changes every short period."
+        },
+        {
+          "term": "Passkey",
+          "meaning": "A login built on a private key kept on your device, with no password to type."
+        }
+      ],
+      "keyPoints": [
+        "Identification is the claim; authentication is the proof.",
+        "MFA needs different factor types, not just two items.",
+        "FRR is Type 1 and FAR is Type 2.",
+        "Use CER to compare biometric products; lower is better.",
+        "Passkeys resist phishing because the key works only on the real site."
+      ],
+      "memoryHook": "Know, Have, Are. Type 1 turns away a friend; Type 2 welcomes a thief.",
+      "question": {
+        "prompt": "A medical clinic must add multi-factor authentication for doctors who open patient records. Which login method meets this requirement?",
+        "options": [
+          "A password and a code from a hardware token",
+          "A password and a secret memorized PIN",
+          "A fingerprint scan and a palm scan",
+          "A password and the answer to a personal security question"
+        ],
+        "correctIndex": 0,
+        "explanation": "A password is something you know and a token is something you have, so two different types are used. Two biometric scans feel strong, but both are the same type, something you are. A PIN and a security answer are also only something you know."
+      },
+      "practiceQuestions": [
+        {
+          "prompt": "A fingerprint reader is trialed at a laboratory door. Of 400 attempts by real staff, 8 are refused. What is the false rejection rate for this trial?",
+          "options": [
+            "0.5 percent",
+            "2 percent",
+            "4 percent",
+            "8 percent"
+          ],
+          "correctIndex": 1,
+          "explanation": "The false rejection rate is refused real staff divided by attempts by real staff, so 8 divided by 400 is 2 percent. 8 percent is tempting, but that uses the count of refusals as if it were already a rate."
+        },
+        {
+          "prompt": "During a test of a facial recognition gate, a person who is not enrolled is accepted as an employee. What has occurred?",
+          "options": [
+            "A Type 1 error, which is measured by the false rejection rate",
+            "A crossover error, which is measured at the equal error rate",
+            "An enrollment failure, which is measured by the throughput rate",
+            "A Type 2 error, measured by the false acceptance rate"
+          ],
+          "correctIndex": 3,
+          "explanation": "Accepting the wrong person is a false acceptance, which is a Type 2 error. Type 1 is the tempting choice, but a Type 1 error is refusing the right person."
+        },
+        {
+          "prompt": "A company requires staff to tap an employee badge and then insert a USB security key to sign in. Both items are physical objects carried by the employee. How should this design be described?",
+          "options": [
+            "Single-factor, because both are something you have",
+            "Multi-factor, because two separate items are required",
+            "Multi-factor, because a key and a badge use different technology",
+            "Single-factor, because neither item can be used without the network"
+          ],
+          "correctIndex": 0,
+          "explanation": "The test is the factor type, and both items are something you have. Calling it multi-factor because two items are used is tempting, but two items of one type are still one factor."
+        },
+        {
+          "prompt": "An administrator raises the sensitivity of a palm reader to improve security. What change in the error rates should be expected?",
+          "options": [
+            "False rejections fall and false acceptances rise",
+            "Both false rejections and false acceptances fall",
+            "False rejections rise and false acceptances fall",
+            "The crossover error rate of the product falls"
+          ],
+          "correctIndex": 2,
+          "explanation": "A stricter reader refuses more real users and admits fewer impostors. The crossover error rate is tempting, but it is a property of the product and does not improve just by changing a setting."
+        },
+        {
+          "prompt": "An organization has no written password rule and wants to follow current best practice. Which approach is BEST?",
+          "options": [
+            "Short passwords, changed every month, with a symbol required",
+            "Long passphrases, checked against known leaked passwords",
+            "Passwords of exactly eight characters, reused only once a year",
+            "Complex passwords written in a notebook kept by each manager"
+          ],
+          "correctIndex": 1,
+          "explanation": "Current guidance favors length and screening against leaked passwords. Monthly changes with a symbol are tempting, because many older policies demand them, but people respond with small predictable changes."
+        },
+        {
+          "prompt": "After a break-in, investigators study a stolen password file and see that many users have exactly the same stored value. What weakness does this MOST clearly indicate?",
+          "options": [
+            "Passwords were hashed without a unique salt",
+            "The password file was not stored on an encrypted disk",
+            "Users were not required to change passwords often enough",
+            "The hashing method used was a two-way algorithm"
+          ],
+          "correctIndex": 0,
+          "explanation": "With a different salt for each user, identical passwords give different stored values, so identical values point to missing salts. Disk encryption is tempting, but it does not affect the values that are held in the file."
+        },
+        {
+          "prompt": "A hardware token shows a new code each time its button is pressed. The code does not change with the passage of time. What kind of token is it?",
+          "options": [
+            "Time-based, using a synchronized clock on each side",
+            "Certificate-based, using a key stored on a smart card",
+            "Biometric, using a sample captured during enrollment",
+            "Event-based, using a counter on each side"
+          ],
+          "correctIndex": 3,
+          "explanation": "A code that changes on each use comes from a counter, as HOTP does. Time-based is tempting because it is the most familiar type, but a time-based code changes on a schedule whether or not anyone presses a button."
+        },
+        {
+          "prompt": "Attackers have been taking over staff accounts at a company by persuading a mobile carrier to move victims' phone numbers. Staff currently receive login codes by text message. What is the BEST improvement?",
+          "options": [
+            "Send each login code to two phone numbers instead of one",
+            "Shorten the time that each text message code remains valid",
+            "Move staff to hardware security keys for the second factor",
+            "Train staff to report text messages that seem to be suspicious"
+          ],
+          "correctIndex": 2,
+          "explanation": "A hardware key does not depend on the phone number, so moving a number gains the attacker nothing. A shorter code life is tempting, but the attacker receives the code in real time and can use it at once."
+        },
+        {
+          "prompt": "A bank is installing an iris reader at its main vault and may set the reader's threshold. What setting is MOST appropriate for this door?",
+          "options": [
+            "The crossover point, because equal error rates are always the goal",
+            "A setting that favors a low false acceptance rate",
+            "A setting that favors a low false rejection rate for staff comfort",
+            "The lowest available sensitivity, to keep queues at the door short"
+          ],
+          "correctIndex": 1,
+          "explanation": "For a high-value door, keeping impostors out matters most, even if some staff must try again. The crossover point is tempting, but it is mainly a way of comparing products and need not be the setting used."
+        },
+        {
+          "prompt": "A company rolls out passkeys for all staff. Soon afterwards, attackers gain access by phoning the help desk and asking for a new device to be registered. What should the security manager do FIRST?",
+          "options": [
+            "Strengthen identity checks in the account recovery process",
+            "Return to passwords until the help desk has been replaced",
+            "Add a second passkey for each member of the staff",
+            "Ask the passkey vendor for a more advanced product"
+          ],
+          "correctIndex": 0,
+          "explanation": "The attackers are using the recovery path, so that is where the fix belongs. Returning to passwords is tempting because the trouble started after the change, but passwords are weaker and the recovery process would still be open."
+        }
+      ]
+    },
+    {
+      "id": "T42",
+      "name": "Accountability, sessions and credentials: session management, registration and proofing, credential management systems, single sign-on, just-in-time access",
+      "outlineRef": "5.2",
+      "simpleExplanation": "Once you are in, the system must keep track of you. Accountability means every action can be tied to one real person, so everyone needs their own account. A session is the time between logging in and logging out, and it must end safely. Before anyone gets an account, the company must check they are who they say they are. A password vault stores secrets safely. Single sign-on means one login opens many systems. Just-in-time access gives powerful rights only when needed, then takes them away.",
+      "studyNotes": [
+        {
+          "heading": "Accountability, groups and roles",
+          "body": "In this first part, we will look at how a system ties actions to real people, and how groups and roles make access easier to manage.\n\nAccountability means you can prove who did what. It rests on three things. Each person has a unique identity. That identity is backed by strong authentication, which is the proof of who you are. And there are logs that cannot easily be changed. Take away any one of these and accountability fails.\n\nThink of a shared car with no record of who drove it. A speeding fine arrives in the post. Five people had the keys that week, and each one says it was not them.\n\nShared accounts cause exactly the same problem. If five cashiers use one login, the log cannot say which one took the money. Non-repudiation is a closely related idea. It means a person cannot believably deny an action. It also depends on unique identities.\n\nNow for groups and roles, which the outline names. A group is a collection of users, such as all teachers. A role is a set of permissions needed for a job, such as exam marker. People often use the two words loosely, and in practice many systems use groups to deliver roles.\n\nThe key idea is this. Give rights to the group or role, and then add each person's own account to it. You do not give rights to individuals one at a time, and you do not share a single account. So management stays simple, and each person stays accountable.\n\nHere is a workplace example. A school has two hundred teachers. The administrator creates a group called teachers, and that group has access to the grade system. A new teacher joins the group and has what she needs on the first day. When she leaves, she is removed from the group. And the log still shows her own name beside every grade she entered.\n\nA manager should treat shared accounts as a finding that needs fixing. If a system truly cannot support individual logins, use a compensating control, such as checking the password out of a vault, so that the log shows who held it.\n\nHere is what to take away. One person, one account, with rights given through groups and roles."
+        },
+        {
+          "heading": "Session management",
+          "body": "Now we will look at sessions, because what happens after login matters just as much as the login itself.\n\nA session starts after login, and ends at logout or timeout. The website gives your browser a session token, which is a temporary pass saying that you have already logged in. You do not need to type your password on every page.\n\nThink of a wristband at a swimming pool. You pay once at the gate, and then the band gets you back in all day. If someone steals the band, that person gets in as you. So the band must be hard to copy, and it must stop working at the end of the day.\n\nSession hijacking means stealing a valid token and acting as that user. Session fixation is a different trick. The attacker plants a known token on the victim before login, and then uses that same token after the victim logs in.\n\nHere is good practice.\n\n- Make tokens long and random, so they cannot be guessed.\n- Send them only over TLS, which stands for Transport Layer Security and encrypts traffic.\n- Issue a new token at every login, which stops session fixation.\n- Set an idle timeout and a maximum session length.\n- Destroy the session on the server at logout, not just in the browser.\n- Ask for login again before risky actions, such as moving money.\n\nThat last point is called reauthentication. It means an unattended open session cannot be used to do the most harmful things.\n\nHere is a workplace example. A bank's website keeps a customer signed in while reading statements. When the customer tries to send money to a new person, the site asks for a fresh code. An attacker who stole the session can read statements, which is bad, but cannot empty the account.\n\nSession control is not only about websites. On desktops, automatic screen locks do a similar job to timeouts. A shared terminal in a hospital should lock quickly, and a remote access connection should end when idle. Shorter is safer, but very short timeouts annoy people, so risk should set the length.\n\nHere is your takeaway. Protect the token, replace it at login, end it properly on the server, and ask again before risky actions."
+        },
+        {
+          "heading": "Registration, proofing and establishing identity",
+          "body": "In this part we will look at what must happen before anyone gets an account. If this stage is weak, everything built on top of it is weak too.\n\nThe outline names three activities. Here they are, in order.\n\n- Registration: collect the person's details.\n- Identity proofing: check evidence that the person is real and is who they claim to be.\n- Establishment of identity: create the account and tie credentials to that person.\n\nA credential is whatever proves an identity later, such as a password, a key or a certificate.\n\nThink about opening a bank account. You fill in a form. That is registration. A clerk looks at your passport and compares the photo with your face. That is proofing. The bank then opens the account and gives you a card and a PIN, which is your personal identification number. That is establishment.\n\nThe strength of the proofing should match the risk. A free forum needs very little. A government benefits system needs a great deal. NIST, the National Institute of Standards and Technology, a United States standards body, describes Identity Assurance Levels, from IAL1, the lowest, with little proofing and in older editions none at all, up to IAL3, the strongest, which needs a physically present or closely supervised check.\n\nWorked example. A new teacher brings a passport to the school's human resources office, or HR. The office compares the photo with her face and records that the check was done. Her HR record triggers the creation of an account. She sets a password and enrolls a second factor, and the school now knows that the account belongs to her.\n\nFor people who cannot attend in person, remote proofing may use a photo of an identity document, a live video and a check against trusted records.\n\nBeware of knowledge-based authentication. It means asking questions such as your mother's maiden name or your first school. The answers can often be found online, and they are weak proof.\n\nThe same care applies to devices and services. A device should be registered and tied to a named owner before it joins the network.\n\nHere is the point to take away. Register, prove, then establish, with proofing strength that matches the risk."
+        },
+        {
+          "heading": "Credential management systems",
+          "body": "Next we will look at how organizations store and control credentials once they have been issued.\n\nA credential management system stores and controls credentials such as passwords, keys and certificates. The most common example, and the one the outline names, is the password vault. It is a strongly encrypted store. It holds secrets, it logs who took each one, and it can change passwords automatically.\n\nThink of a key cabinet at a car hire office. Staff do not keep car keys in their pockets. They sign out a key, use it, and return it. The cabinet shows who has which key at any moment.\n\nNow a personal password manager does this for one person. It lets you use a different long password for every site, while remembering only one. An enterprise vault does the same job for a whole organization, with central control, approvals and reports.\n\nA vault brings real benefits. People no longer write passwords on sticky notes or keep them in a shared document. Each password can be long and unique, because no one needs to remember it. If an employee leaves, the shared passwords that person used can be changed automatically. And an auditor can see who obtained what, and when.\n\nThe drawback is plain. All the secrets now sit in one place, so the vault is a very valuable target. It must be protected to match. Use MFA, which stands for multi-factor authentication, meaning proof of two different types. Keep the list of vault administrators short. Test backups, because a vault that cannot be restored locks everyone out. And send its logs to a place the vault administrators cannot change.\n\nHere is a workplace example. A hospital has several shared accounts for old medical machines that cannot support individual logins. Technicians sign out the password from the vault, giving a ticket number. The vault changes the password as soon as the work is done. So the log shows who held the password at the time, which restores accountability even with an account that is shared.\n\nThe manager's question is always the same. Who can reach this secret, and how would we know?\n\nHere is your takeaway. A vault makes unique passwords and traceable use possible, and since it holds everything, it needs the strongest protection you have."
+        },
+        {
+          "heading": "Single sign-on",
+          "body": "In this part we will look at SSO, which stands for single sign-on, and weigh what it gives against what it risks.\n\nSSO means that one login opens many systems. You sign in once in the morning, and your email, your calendar and your expense system all accept that login.\n\nThink of a theme park pass. You show your identification once at the gate, and each ride then accepts your pass. Nobody asks for your identification again at every ride.\n\nThe benefits are easy to see.\n\nUsers have fewer passwords to remember, so they are less likely to reuse or write them down. The help desk gets fewer password reset calls. There is one strong front door to protect and to monitor. And there is one place to disable a user when that person leaves, which is a real gain in safety.\n\nNow the risks. One stolen login opens everything. An attacker no longer needs to break into each system. And an outage of the login service blocks everything too. If the single sign-on service is down, nobody can reach anything.\n\nSo SSO should be paired with MFA, which stands for multi-factor authentication, and it should be built to stay available, with more than one server and a tested plan for failure.\n\nSSO and federation are related but different. SSO generally means one login for many systems within one organization. Federation extends that trust across separate organizations, and we will cover it in the next topic.\n\nSSO is not the same as using the same password on many systems either. With password synchronization, each system still does its own check, and the password is copied around. True SSO means the systems accept a ticket or a token from one trusted login service.\n\nHere is a workplace example. A company connects forty applications to SSO. It requires a phone app code at sign-in, and it adds a second server in another building. When staff leave, one action closes all forty doors. Before, the technical team had to remember each system one at a time, and sometimes they forgot one.\n\nHere is what to take away. SSO means fewer passwords and one place to disable users, but it concentrates risk, so add MFA and plan for availability."
+        },
+        {
+          "heading": "Just-in-time access",
+          "body": "To finish this topic, we will look at just-in-time access, the idea that powerful rights should be borrowed and not kept.\n\nStanding privilege means holding powerful rights all the time. If that account is stolen, the attacker has those rights all the time too. Think about a security guard who keeps the master key at home every night. Most nights it is not needed, but it can be stolen every night.\n\nJIT, which stands for just-in-time access, removes standing privilege. Here is the sequence.\n\n- The person asks for access and gives a reason.\n- The request is approved, by a person or by a rule.\n- Rights are given for a short period.\n- Rights end by themselves.\n- All use is logged.\n\nThe automatic ending is the important part. A human who has to remember to remove rights will sometimes forget. With a time limit built in, nothing needs to be remembered.\n\nThe everyday picture is borrowing a tool from a hardware library. You ask, you get it for the afternoon, and it goes back. It does not stay in your garage for years.\n\nHere is a workplace example. A database administrator needs to fix a problem at two in the morning. She requests administrator rights for two hours and links the request to the incident ticket. The on-call manager approves it. She gets the rights, the session is recorded, and after two hours the rights disappear. The next day, her account is an ordinary account again. If an attacker steals her login next week, the attacker gets very little.\n\nThe exam may use JIT in a second way, so read carefully. In federation, just-in-time provisioning creates a local account the first time a person signs in, using details sent by their home organization. No one has to set up the account in advance. So one meaning is about granting rights for a short time, and the other is about creating accounts on first use.\n\nFor a manager, JIT reduces risk without stopping the work. The work still gets done. What changes is how long the power exists.\n\nHere is your takeaway. Replace standing privilege with short, approved, logged access, and check which meaning of just-in-time the question intends."
+        }
+      ],
+      "keyTerms": [
+        {
+          "term": "Accountability",
+          "meaning": "Being able to tie every action to one identified person."
+        },
+        {
+          "term": "Non-repudiation",
+          "meaning": "A person cannot believably deny having done something."
+        },
+        {
+          "term": "Session token",
+          "meaning": "A temporary value that shows a browser has already logged in."
+        },
+        {
+          "term": "Session fixation",
+          "meaning": "An attacker plants a known token on a victim, then uses it after the victim logs in."
+        },
+        {
+          "term": "Identity proofing",
+          "meaning": "Checking evidence that a person is real and is who they claim to be."
+        },
+        {
+          "term": "Password vault",
+          "meaning": "An encrypted store that holds, controls and logs the use of passwords."
+        },
+        {
+          "term": "SSO",
+          "meaning": "Single sign-on: one login gives access to many systems."
+        },
+        {
+          "term": "JIT access",
+          "meaning": "Just-in-time access: powerful rights given only when needed, for a short time."
+        },
+        {
+          "term": "Standing privilege",
+          "meaning": "Powerful rights that a person holds all the time."
+        }
+      ],
+      "keyPoints": [
+        "Shared accounts destroy accountability.",
+        "Issue a new session token at every login.",
+        "Proof of identity comes before an account is created.",
+        "SSO reduces passwords but concentrates risk, so add MFA.",
+        "JIT access replaces standing privilege with short, approved access."
+      ],
+      "memoryHook": "One person, one account, one trail. Powerful keys are borrowed, never kept.",
+      "question": {
+        "prompt": "At a school, four technicians keep full administrator rights on all systems, but use them only a few times a month. The school wants to reduce the damage a stolen technician account could cause while still letting the work get done. Which approach is BEST?",
+        "options": [
+          "Require all four technicians to use much longer passwords",
+          "Put the four technicians on one shared administrator account and keep it in a vault",
+          "Have the head of the school review the administrator list once every year",
+          "Grant administrator rights on approved request, for a short time only"
+        ],
+        "correctIndex": 3,
+        "explanation": "Just-in-time access removes standing rights, so a stolen account has little power most of the time. Longer passwords help against guessing, but a stolen account would still hold full rights. A shared account in a vault is tempting, but it destroys accountability."
+      },
+      "practiceQuestions": [
+        {
+          "prompt": "Six help desk staff use one login called helpdesk to reset customer passwords. An auditor cannot tell which of them made a disputed change. What is the BEST corrective action?",
+          "options": [
+            "Give each person an individual account with the same rights",
+            "Change the shared password immediately and then every week",
+            "Ask all six staff to sign a statement of responsibility",
+            "Keep a paper sign-in sheet beside the shared terminal"
+          ],
+          "correctIndex": 0,
+          "explanation": "Unique accounts tie each action to one person, while a role can still give everyone the same rights. A paper sheet is tempting, but people can forget it or lie on it, and it does not bind the actions to a person."
+        },
+        {
+          "prompt": "A university has 900 lecturers who all need the same access to the course system, and many join or leave each term. Which approach is BEST?",
+          "options": [
+            "Assign the rights to each lecturer's account one at a time",
+            "Assign the rights to a group and manage group membership",
+            "Create a single lecturer account and share it with everyone",
+            "Let the course system owner add each lecturer by request"
+          ],
+          "correctIndex": 1,
+          "explanation": "Giving rights to a group keeps management simple, and each lecturer keeps a personal account. A single shared account is tempting because it is even simpler, but it destroys accountability."
+        },
+        {
+          "prompt": "A penetration test shows that a company's web application sends its session tokens over unencrypted connections, and a test user's token was captured on shared Wi-Fi. Which change BEST addresses this?",
+          "options": [
+            "Shorten the password expiry period for every user account",
+            "Add multi-factor authentication at the login page only",
+            "Warn users in the application not to use shared Wi-Fi",
+            "Send all application traffic, including tokens, over TLS"
+          ],
+          "correctIndex": 3,
+          "explanation": "Encrypting the traffic stops the token from being read in transit. Multi-factor authentication at login is tempting, but a stolen token is used after login, so it passes straight through that check."
+        },
+        {
+          "prompt": "A tester logs out of a web application, then replays the old session token and finds it still works. Which fix should the development team apply?",
+          "options": [
+            "Clear the token from the browser when the user logs out",
+            "Make each session token twice as long as it is at present",
+            "Invalidate the session on the server at logout",
+            "Add a confirmation message that logout has succeeded"
+          ],
+          "correctIndex": 2,
+          "explanation": "The server must stop accepting the token once the session ends. Clearing the browser is tempting, but it only removes the user's copy, so a copy held by anyone else would still work."
+        },
+        {
+          "prompt": "An online bank wants to reduce the harm if an attacker takes over a customer's session that is already logged in. Which control is BEST?",
+          "options": [
+            "A longer idle timeout for customers who are using the site",
+            "Require reauthentication before sending money to a new payee",
+            "Stronger password rules at the original login page",
+            "A notice on the login page reminding users to log out"
+          ],
+          "correctIndex": 1,
+          "explanation": "Asking for fresh proof before a risky action limits what a hijacked session can do. Stronger passwords are tempting, but the attacker in this scenario is already past the login, and does not need the password."
+        },
+        {
+          "prompt": "A caller claims to be a new employee and asks a help desk to create an account. The caller correctly gives a date of birth and mother's maiden name. What should the help desk do?",
+          "options": [
+            "Create the account, because two personal facts have been verified",
+            "Create the account with limited rights until a manager agrees",
+            "Ask one more personal question before creating the account",
+            "Refuse until identity is proven through the approved process"
+          ],
+          "correctIndex": 3,
+          "explanation": "Personal facts can often be found by anyone, so they are weak proof, and proofing must come before an account exists. Limited rights is tempting, but it still creates an account for a person whose identity is unproven."
+        },
+        {
+          "prompt": "A company has just moved all shared administrator passwords into a new enterprise password vault. Which additional step is MOST important?",
+          "options": [
+            "Print a copy of each password and lock it in the office safe",
+            "Require multi-factor authentication to open the vault",
+            "Give every technician administrator rights over the vault",
+            "Reduce the length of the stored passwords so staff can recall them"
+          ],
+          "correctIndex": 1,
+          "explanation": "The vault holds every secret in one place, so access to it needs strong protection. A printed copy is tempting as a way to avoid lockout, but it creates an unprotected second store, and tested backups do the job properly."
+        },
+        {
+          "prompt": "A company's single sign-on service is its only way into 60 business applications. The service runs on one server, which failed last month and stopped all work. What is the BEST recommendation?",
+          "options": [
+            "Build a redundant service and test its failover",
+            "Remove half of the applications from single sign-on",
+            "Give each user a backup local password for each application",
+            "Ask staff to save their work more often during the day"
+          ],
+          "correctIndex": 0,
+          "explanation": "The fault is a single point of failure, so availability is what must be built in. Backup local passwords are tempting, but they bring back many passwords and many doors to protect."
+        },
+        {
+          "prompt": "A hospital's new just-in-time system grants administrators rights after approval, yet an audit finds that many of those rights are still active months later. Which feature MOST needs correcting?",
+          "options": [
+            "The approval step that managers complete for each request",
+            "The list of approved reasons that administrators may choose",
+            "The automatic expiry of rights when the period ends",
+            "The strength of the passwords on the administrators' accounts"
+          ],
+          "correctIndex": 2,
+          "explanation": "Just-in-time access depends on rights ending by themselves, and these are not ending. The approval step is tempting because it is the visible part of the process, but the finding is about what happens after approval."
+        },
+        {
+          "prompt": "A partner company's staff sign in through federation to a supplier portal. The portal creates a local account for each person automatically the first time that person signs in. What is this called?",
+          "options": [
+            "Just-in-time provisioning",
+            "Standing privilege assignment",
+            "Delegated access review",
+            "Identity proofing at enrollment"
+          ],
+          "correctIndex": 0,
+          "explanation": "Creating a local account at first sign-in, from details sent by the home organization, is just-in-time provisioning. Identity proofing is tempting because it also happens early, but proofing checks evidence of who a person is and does not create the account."
+        }
+      ]
+    },
+    {
+      "id": "T43",
+      "name": "Federated identity: on-premises, cloud, hybrid, SAML, OAuth, OpenID Connect, identity providers and service providers",
+      "outlineRef": "5.3",
+      "simpleExplanation": "Federation lets one organization trust the logins of another. A passport is a good picture. Your own country checks who you are and issues the passport. Another country does not check you again, because it trusts your country. Online, an identity provider checks you, and a service provider accepts its word. Your password never goes to the service. SAML, OAuth and OpenID Connect are the common sets of rules for this trust. Federation can run in your own building, in the cloud, or as a mix of both.",
+      "studyNotes": [
+        {
+          "heading": "What federation means",
+          "body": "In this first part, we will look at what federation is, who the parties are, and why organizations use it.\n\nFIM stands for federated identity management. It is an agreement that lets separate organizations trust each other's identities. The two main parties are these.\n\n- The identity provider, or IdP, checks who you are.\n- The service provider, or SP, offers the application and relies on the IdP.\n\nThe SP is also called the relying party, because it relies on what the IdP says.\n\nThink about a passport. Your own country checks who you are and issues the passport. When you land abroad, border staff do not visit your home town to investigate you. They trust the country that issued the document. Your country is the identity provider, and the country you visit is the service provider.\n\nBefore any of this can happen, the two sides set up trust. They exchange technical details and certificates, which are signed digital identity documents, so that each can recognize messages from the other. They also agree, usually in a contract, what each side is responsible for.\n\nSSO, which stands for single sign-on, means one login for many systems. Federation extends that idea across organizations.\n\nHere is a workplace example. A business uses a third-party payroll service. Staff sign in with their normal company login. The payroll company never receives or stores their passwords. The company's IdP checks the person and sends a signed statement. The payroll company reads the statement and lets the person in.\n\nThe benefits are clear. Staff have fewer passwords. The supplier holds fewer secrets. And when someone leaves, disabling that one identity closes the door everywhere the federation reaches.\n\nNotice the words everywhere the federation reaches. If the supplier also keeps some local accounts that do not go through the IdP, those are separate doors. Each one needs its own removal when a person leaves. Local accounts are often kept for emergencies, and they are easily forgotten.\n\nFederation also supports people outside your staff, such as customers or partners who sign in with an account they already have.\n\nHere is what to take away. The IdP proves identity, the SP relies on it, the password stays with the IdP, and any local accounts must be handled separately."
+        },
+        {
+          "heading": "On-premises, cloud and hybrid",
+          "body": "Now we will look at the three ways federation can be deployed, which the outline names directly, and at how a manager should choose.\n\nHere is the set.\n\n- On-premises: you run the federation servers yourself, in your own buildings.\n- Cloud: a vendor runs the service, which is often called IDaaS, or identity as a service.\n- Hybrid: both of these work together.\n\nThink about where to keep your food. You could grow it all in your own garden. You have full control, but all the work is yours. You could order everything from a delivery service. It is quick and easy, but if the service fails you go hungry. Or you could do a little of each.\n\nOn-premises gives you full control over data and configuration, and it can satisfy strict rules about where identity data is kept. But you pay for the equipment, you patch everything, and you must build your own backup systems.\n\nCloud is quick to start and scales well, because the vendor adds capacity as you grow. The vendor also handles patching. But you depend on the vendor's availability and security, and your access to logs and settings is limited to what the vendor offers.\n\nHybrid is the most common in larger organizations. Usually a company directory in the building is copied to a cloud identity service, which is known as directory synchronization. It is common during a move to the cloud, when some applications are still in the building and some have moved. The link between the two sides becomes a key asset. If an attacker controls the synchronization server, the attacker may be able to affect both sides. So it must be protected and monitored like any other critical system.\n\nHere is a workplace example. A regional hospital keeps its medical systems on site, but it has moved email to the cloud. Staff use one identity for both, through a hybrid design.\n\nAs a manager, treat a federated third party as a supplier. Check its audit reports. Put security duties, service levels, incident notice and access to logs in the contract. You can pass on the work, but you cannot pass on the accountability.\n\nHere is your takeaway. On-premises means control, cloud means convenience, hybrid means both, and the link between them needs protection."
+        },
+        {
+          "heading": "SAML step by step",
+          "body": "In this part we will look at SAML, and walk through one login from start to finish.\n\nSAML stands for Security Assertion Markup Language. Version 2.0 is the common one. It uses XML, which stands for Extensible Markup Language, a text format with labeled tags. SAML is widely used for logging in to business websites through a browser.\n\nThree parties take part. The principal is the user. The IdP is the identity provider, and the SP is the service provider.\n\nThe IdP sends an assertion, which is a signed statement of facts about the user. There are three types of statement, and you should know them.\n\n- Authentication: this person logged in, at this time, by this method.\n- Attribute: facts about the person, such as department.\n- Authorization decision: this person may or may not use this resource.\n\nThink of a letter of introduction from a trusted friend, sealed with a stamp. It says who you are, a little about you, and what you are allowed to do. You carry the letter yourself, but you cannot change it without breaking the seal.\n\nHere is a typical login, in order. It is called SP-initiated, because the user starts at the service.\n\n- The user opens the SP's website.\n- The SP sends the browser to the IdP with an authentication request.\n- The IdP authenticates the user, if the user has not already logged in.\n- The IdP signs an assertion and sends it through the browser.\n- The SP checks the signature and the details, and lets the user in.\n\nNotice that the browser carries the messages, and the IdP and SP need not talk directly during the login. Notice too that the SP never sees the password. The signature is what the SP trusts.\n\nIn the other variation, called IdP-initiated, the user begins at a company portal and clicks on an application.\n\nHere is a workplace example. An employee opens a cloud expense system. The system sends her browser to the company's login page. She signs in there. A moment later she is back at the expense system, logged in, and the system never handled her password.\n\nHere is what to take away. SAML uses signed XML assertions passed through the browser, for business web logins."
+        },
+        {
+          "heading": "OAuth 2.0 and delegated authorization",
+          "body": "Now we will look at OAuth, which is often misunderstood, because it does something quite different from logging you in.\n\nOAuth 2.0 is a framework for authorization, and the word to remember is delegated. It lets an application do limited things on your behalf, without ever learning your password.\n\nThink of a valet key for a car. It lets the attendant drive the car and park it, but it will not open the glove box or the trunk. You did not hand over your full set of keys. Most important of all, the key does not say who you are.\n\nThere are four roles to know.\n\n- The resource owner: you, the person whose data it is.\n- The client: the application that wants access.\n- The authorization server: it issues the tokens.\n- The resource server: it holds the data.\n\nAn access token is a limited permission slip. Its limits are called scopes, such as read photos but not delete photos.\n\nHere is the most common flow, called the authorization code flow, in order.\n\n- The client sends your browser to the authorization server.\n- You sign in there and approve the scopes requested.\n- The authorization server sends a short-lived code back to the client.\n- The client exchanges that code for an access token.\n- The client presents the token to the resource server to get the data.\n\nA refresh token may also be issued. It is a longer-lived credential that lets the client get a new access token without asking you again, so it needs careful protection.\n\nHere is a workplace example. A printing website wants to use your online photos. It sends you to your photo provider, where you agree that it may read them. The printing site gets a token that can read your photos but cannot delete them. You can cancel its access later, and you never gave it your password.\n\nNow the most important point. OAuth alone does not prove who you are. An access token says what an application may do. It does not reliably tell the application who the person is, and it is not meant to.\n\nHere is your takeaway. OAuth 2.0 is delegated authorization, using limited tokens in place of shared passwords, and it is not authentication."
+        },
+        {
+          "heading": "OpenID Connect, and telling the three apart",
+          "body": "In this part we will add OpenID Connect, and then place all three standards side by side, because the exam loves the difference.\n\nOIDC, which stands for OpenID Connect, adds authentication on top of OAuth 2.0. In other words, it uses the same flows as OAuth, and it adds a way to prove who the user is.\n\nIt does this with an ID token. The ID token is a JWT, which stands for JSON Web Token. JSON stands for JavaScript Object Notation, a simple text format for data. A JWT is a small signed package of facts called claims, such as the user's identifier, who issued the token, who it is meant for, and when it expires. Signing proves that it has not been changed, but it does not hide the contents, so anyone holding the token can read it.\n\nIn OIDC, the identity provider is called the OpenID Provider, and the application is called the relying party.\n\nThink again about the valet key. OAuth gives the valet a key that moves the car. OIDC also gives the attendant a name badge saying who owns the car.\n\nNow here are the three, side by side.\n\n- SAML: authentication and authorization statements, in XML, mainly for business web logins through a browser.\n- OAuth 2.0: delegated authorization, using access tokens. It is not authentication.\n- OIDC: authentication built on OAuth 2.0, using a signed JWT, common for web and mobile logins.\n\nSo how do you choose on the exam? Look at what the scenario needs. If an application needs permission to reach your data, think of OAuth. If an application needs to know who you are, especially on a mobile phone or a consumer website, think of OIDC. If it is an older or enterprise web application trading signed XML statements with a partner, think of SAML.\n\nThe sign in with your existing account button on many websites is usually OIDC at work. An application that posts to your calendar with your permission is usually OAuth.\n\nHere is a workplace example. A company's staff portal uses SAML with a long-standing partner, and its new mobile app uses OIDC.\n\nHere is what to take away. SAML is XML login, OAuth is permission, and OIDC is identity on top of OAuth."
+        },
+        {
+          "heading": "Where federation can fail",
+          "body": "To finish this topic, we will look at how federation goes wrong and how a manager keeps it safe.\n\nTrust spreads risk. Federation means that one party's decision is accepted by many others. That is the benefit, and also the danger. If the identity provider, or IdP, is broken into, every connected service is exposed.\n\nThink back to passports. If a criminal steals the machine that prints a country's passports, those documents will look real at every border in the world.\n\nThe signing key is that machine. If an attacker steals the IdP's private signing key, the attacker can forge assertions for anyone, including senior administrators. No password is needed, and multi-factor authentication, or MFA, does not help, because the forged statement says that the login has already happened.\n\nHere are the main controls.\n\n- Require MFA, meaning proof of two different types, at the IdP.\n- Guard signing keys in protected hardware, and change them on a plan.\n- Keep token and assertion life short.\n- Check each token's signature, audience and expiry.\n- Send logs from both sides to one place.\n\nThe audience check deserves a moment. Audience means who the token was issued for. If a token issued for the payroll system is accepted by the expense system, someone can carry it to the wrong door. Think of a train ticket for one route. The inspector looks at the route, and not just at whether it is a real ticket.\n\nNow think about response. If a signing key is stolen, resetting user passwords will not help, because forged assertions do not use passwords. The first priority is to replace the key and to update the trust at each service provider, so that anything signed with the old key is refused.\n\nThere are also business failures. If the IdP goes down, no one can reach any connected service, so the IdP needs high availability. And a supplier's outage can become your outage, so the contract and your continuity plans should cover it.\n\nHere is a workplace example. A company reviews its federation yearly, removes connections to services no longer in use, and tests its plan for replacing a signing key.\n\nHere is your takeaway. Protect the IdP and its signing keys above all else, and always check signature, audience and expiry."
+        }
+      ],
+      "keyTerms": [
+        {
+          "term": "Federation",
+          "meaning": "A trust agreement that lets separate organizations accept each other's identities."
+        },
+        {
+          "term": "IdP",
+          "meaning": "Identity provider: the party that checks who the user is."
+        },
+        {
+          "term": "SP",
+          "meaning": "Service provider: the party that offers the application and relies on the IdP."
+        },
+        {
+          "term": "SAML",
+          "meaning": "Security Assertion Markup Language: an XML standard for sending signed identity statements."
+        },
+        {
+          "term": "Assertion",
+          "meaning": "A signed SAML statement about a user's authentication, attributes or authorization."
+        },
+        {
+          "term": "OAuth 2.0",
+          "meaning": "A framework for delegated authorization, using tokens instead of sharing passwords."
+        },
+        {
+          "term": "OIDC",
+          "meaning": "OpenID Connect: an authentication layer built on top of OAuth 2.0."
+        },
+        {
+          "term": "JWT",
+          "meaning": "JSON Web Token: a small signed package of facts, used for ID tokens."
+        },
+        {
+          "term": "Hybrid federation",
+          "meaning": "Using on-premises and cloud identity services together, usually with directory synchronization."
+        }
+      ],
+      "keyPoints": [
+        "The IdP proves identity and the SP relies on it.",
+        "SAML uses XML assertions and suits business web logins.",
+        "OAuth is authorization; OIDC adds authentication.",
+        "A compromised IdP or signing key affects every connected service."
+      ],
+      "memoryHook": "OAuth gives the valet key: it can move the car, but it does not say who you are. OIDC adds the name badge.",
+      "question": {
+        "prompt": "A shop is building a mobile app. Customers should sign in with an account they already hold at a large online provider, and the app must receive verified details of who the customer is. Which technology is the BEST fit?",
+        "options": [
+          "OAuth 2.0 on its own, because it issues access tokens to applications",
+          "OpenID Connect, because it adds identity proof on top of OAuth",
+          "Kerberos, because tickets can pass between the shop and the provider",
+          "Lightweight Directory Access Protocol, so the app can read the provider's directory of customers"
+        ],
+        "correctIndex": 1,
+        "explanation": "OpenID Connect gives an ID token that says who the customer is, and it suits mobile apps. OAuth alone is the tempting choice, but it only grants permission and does not prove identity. Kerberos and directory protocols are built for inside an organization, not across the internet."
+      },
+      "practiceQuestions": [
+        {
+          "prompt": "A company's staff log in to a third-party expense service using their normal company login. The company's own server checks each person's password and second factor. In federation terms, what is the company's server?",
+          "options": [
+            "The service provider",
+            "The identity provider",
+            "The resource server",
+            "The relying party"
+          ],
+          "correctIndex": 1,
+          "explanation": "The identity provider is the party that checks who the user is. Relying party is tempting, but that is another name for the expense service, which relies on the company's word."
+        },
+        {
+          "prompt": "A partner's web portal needs to know which department a federated user belongs to before it shows certain pages. Which part of a SAML message carries this kind of information?",
+          "options": [
+            "An authentication statement",
+            "An authorization decision statement",
+            "An attribute statement",
+            "A browser session cookie"
+          ],
+          "correctIndex": 2,
+          "explanation": "Facts about a user, such as department, travel in an attribute statement. An authorization decision is tempting because the portal is deciding what to show, but the portal needs a fact here and is making the decision itself."
+        },
+        {
+          "prompt": "A photo printing website wants to read pictures from a customer's account at another cloud provider. It must not learn the customer's password and must not be able to delete anything. Which approach is BEST?",
+          "options": [
+            "OAuth 2.0 with a read-only scope",
+            "OpenID Connect with an ID token alone",
+            "SAML with an attribute statement for each photo",
+            "LDAP queries against the provider's user directory"
+          ],
+          "correctIndex": 0,
+          "explanation": "OAuth 2.0 delegates limited access with a scope, and the password stays with the provider. OpenID Connect is tempting, but an ID token only says who the customer is and gives no permission to read photos."
+        },
+        {
+          "prompt": "A user approves a scheduling application to read her calendar. The application then receives an access token. In OAuth 2.0 terms, which party issues the token?",
+          "options": [
+            "The scheduling application, acting as the client",
+            "The user, acting as the resource owner",
+            "The server that holds the calendar entries",
+            "The authorization server"
+          ],
+          "correctIndex": 3,
+          "explanation": "The authorization server issues tokens. The resource owner is tempting because the user gives approval, but the user only agrees to the request and does not create the token."
+        },
+        {
+          "prompt": "A development team treats the receipt of any OAuth 2.0 access token as proof that a particular user has signed in. What should the security adviser recommend?",
+          "options": [
+            "Encrypt each access token before it is stored on the device",
+            "Issue access tokens with a much shorter life than at present",
+            "Request a broader set of scopes for each new access token",
+            "Use OpenID Connect and validate its ID token"
+          ],
+          "correctIndex": 3,
+          "explanation": "OAuth gives permission and does not prove identity, so the team needs OpenID Connect and its ID token. Shorter token life is tempting and generally good, but a short-lived access token still does not say who the user is."
+        },
+        {
+          "prompt": "A government agency is required by law to keep its identity data, and the servers that check logins, inside its own buildings. Which federation deployment BEST fits this requirement?",
+          "options": [
+            "On-premises federation",
+            "Cloud identity as a service",
+            "Hybrid, with a directory copied to the cloud",
+            "Social login through a large consumer provider"
+          ],
+          "correctIndex": 0,
+          "explanation": "On-premises keeps both the data and the servers in the agency's own hands. Hybrid is tempting because it is common, but copying the directory to the cloud would break the requirement."
+        },
+        {
+          "prompt": "An investigation shows that an attacker has stolen the private key an identity provider uses to sign its assertions. What should be done FIRST?",
+          "options": [
+            "Force all users to choose a new password at their next sign-in",
+            "Tell service providers to watch their logs more closely this month",
+            "Replace the key and update trust at each service provider",
+            "Shorten the life of all assertions that are issued in the future"
+          ],
+          "correctIndex": 2,
+          "explanation": "Until the old key stops being trusted, the attacker can forge an assertion for anyone. Password resets are tempting, but forged assertions do not use passwords at all."
+        },
+        {
+          "prompt": "A company is about to federate its staff logins with a cloud human resources supplier. What should the security manager do BEFORE the agreement is signed?",
+          "options": [
+            "Rely on the security statements in the supplier's sales material",
+            "Review audit reports and set security duties in the contract",
+            "Ask the supplier to hold a copy of all staff password hashes",
+            "Ask a small team of staff to try the service for one week"
+          ],
+          "correctIndex": 1,
+          "explanation": "A federated third party is a supplier, so due care means checking evidence and setting duties in the contract. A trial is tempting, but it tests convenience and shows nothing about the supplier's security."
+        },
+        {
+          "prompt": "An assertion issued for a payroll application is presented to an expense application that uses the same identity provider, and the expense application accepts it. Which check is missing?",
+          "options": [
+            "Password complexity at the identity provider",
+            "Encryption of the browser connection to the service",
+            "Validation of the audience value in each assertion",
+            "A shorter idle timeout in the expense application"
+          ],
+          "correctIndex": 2,
+          "explanation": "The audience states who the assertion was issued for, and the expense application should have refused one meant for payroll. Encryption is tempting, but this assertion was not stolen in transit; it was accepted at the wrong door."
+        },
+        {
+          "prompt": "Two large companies want staff at one to sign in through a browser to the other's business web portal. Both already run enterprise products that exchange signed XML identity statements. Which standard is the BEST fit?",
+          "options": [
+            "SAML 2.0",
+            "OAuth 2.0 on its own",
+            "Kerberos across the internet",
+            "RADIUS with a shared secret"
+          ],
+          "correctIndex": 0,
+          "explanation": "SAML 2.0 exchanges signed XML assertions and is built for business web sign-in across organizations. OAuth is tempting because it is widely used, but on its own it grants permission and does not prove who the user is."
+        }
+      ]
+    },
+    {
+      "id": "T44",
+      "name": "Authorization models: RBAC, rule-based, MAC, DAC, ABAC, risk-based access control, non-discretionary, access control matrix, policy enforcement and decision points",
+      "outlineRef": "5.4",
+      "simpleExplanation": "After you prove who you are, the system decides what you may do. There are several ways to decide. The owner of a thing can choose who uses it. Security labels can decide, as in the military. Your job can decide, like a nurse or a cashier. General rules can decide, such as no entry after closing time. Detailed facts about you and the situation can decide. Or the system can work out how risky this moment looks. One part of the system makes the decision, and another part carries it out.",
+      "studyNotes": [
+        {
+          "heading": "Discretionary access control, and what non-discretionary means",
+          "body": "In this first part, we will look at the model where the owner decides, and at the word that covers every model where the owner does not.\n\nAuthorization is deciding what a person may do once we know who they are. An authorization model is a way of making that decision. Each model answers one question differently. Who or what decides?\n\nDAC stands for discretionary access control. Here, the owner of the object decides who gets access. Discretion simply means freedom to choose.\n\nThink about your own car. You can lend it to your brother and refuse to lend it to your neighbor. Nobody else makes that decision for you.\n\nDAC usually uses an ACL, which stands for access control list. An ACL is a list attached to the object saying who may do what. When you right-click a file on your own computer and share it with a colleague, that is DAC.\n\nDAC is flexible, and it is easy for ordinary users. Its weakness comes from the same place. Owners can share too much, and they often do. There is no central view of who has been given what. A malicious program run by a user acts with that user's rights, so it can read or pass on whatever the user can.\n\nHere is a workplace example. A project manager creates a folder on a shared drive and adds her team. A month later she adds a friend in another department, just to be helpful. The folder holds pay figures. Nothing stopped her, because under DAC she is allowed to make that choice.\n\nNow for the word non-discretionary. It simply means that owners do not decide. A central authority or the system does. Roles, rules, attributes and labels are all non-discretionary. So mandatory access control, role-based, rule-based and attribute-based are all non-discretionary models. Only DAC leaves the choice to the owner.\n\nA small point to be careful with. An ACL is just a list. Firewalls also use lists called ACLs, and they enforce rules that no owner chooses. So seeing the letters ACL does not prove that a system uses DAC. Ask who decides.\n\nHere is what to take away. In DAC, the owner decides and it is flexible but leaky, and non-discretionary means the owner does not decide."
+        },
+        {
+          "heading": "Mandatory access control",
+          "body": "Now we will look at the strictest model, where labels decide and users have no say.\n\nMAC stands for mandatory access control. The system decides by comparing labels. Subjects, which are the active things asking for access, have clearances. Objects, which are the things being reached, have classifications, such as Confidential, Secret or Top Secret.\n\nThe word mandatory means users cannot change it. A user cannot change a label or decide to share a document at will. Even the person who wrote a document does not own it in the DAC sense.\n\nThink of a secure government building with colored zones. Your pass is yellow. You can enter yellow areas. You cannot paint your pass red, and you cannot lend it to anyone.\n\nThe label level alone is not enough. Need to know still applies, and it is often enforced through compartments, which are named groups within a level. A person with Top Secret clearance who has not been briefed into a compartment cannot read what is in it. So there are two tests. Is your clearance high enough? And are you in the right compartment?\n\nMAC environments are usually described in three ways.\n\n- Hierarchical: levels stacked one above another.\n- Compartmentalized: separate groups with no ordering between them.\n- Hybrid: levels and compartments combined.\n\nMAC is also called lattice-based, because the levels and compartments form a structure like a garden trellis, with upper and lower limits for each subject. Models such as Bell-LaPadula apply these labels to protect confidentiality. Its short form is no read up and no write down.\n\nMAC is strict and costly. Everything must be labeled and kept labeled. It is hard to change quickly. It suits military and government work, where a leak could cost lives.\n\nHere is a workplace example. An intelligence agency holds reports at several levels. An analyst with Secret clearance opens a Secret report on her own project. She cannot open a Top Secret report, and she cannot lower the label on one to pass it to a colleague.\n\nHere is your takeaway. In MAC, the system compares labels and users cannot change them. Clearance is necessary, but need to know must also be met."
+        },
+        {
+          "heading": "Role-based and rule-based access control",
+          "body": "In this part we will look at two models that share the same short name, and learn how to keep them apart.\n\nRole-based access control ties rights to job roles. People are placed in roles, and they get the rights of each role they hold. A new cashier gets the cashier role and all its rights on the first day. When that cashier leaves, the person is removed from the role, and the role carries on.\n\nThink about a school. There is a teacher role, a caretaker role and a head teacher role. When a new teacher arrives, nobody sits down and works out her access one item at a time. She simply becomes a teacher.\n\nRole-based control suits companies with a lot of staff turnover, and it fits least privilege when roles are well designed. Its weakness is that some organizations end up with far too many narrow roles, which is known as role explosion. Another weakness is that a role describes a job, but it does not consider the time, the place or the device.\n\nRule-based access control applies global rules to everyone, whoever they are. The rules do not care about your job. A firewall is the classic example, where traffic is allowed or blocked by rules. Another example is a rule that says no logins between 10 at night and 6 in the morning.\n\nThink of a town's speed limit. It applies to the doctor, the mayor and the student alike.\n\nBoth of these can be shortened to the letters RBAC, so you need to read the scenario. If a question talks about jobs or positions, it means roles. If it talks about one set of rules for everybody, it means rules.\n\nHere is a workplace example that uses both. A store gives its supervisors a role that lets them approve refunds. Separately, a rule stops all refunds from being approved when the store is closed. The role says who may do it. The rule says when no one may.\n\nThe two are often combined in this way, and exam questions may describe one layered on the other.\n\nHere is what to take away. Roles follow the job, and rules apply to everyone. Read the scenario, because the same letters can stand for both."
+        },
+        {
+          "heading": "Attribute-based and risk-based access control",
+          "body": "Now we will look at two more flexible models, which make their decisions from facts about the moment.\n\nABAC stands for attribute-based access control. It makes decisions from many facts, called attributes. There are four groups to remember.\n\n- Subject: the person's department or training.\n- Object: how sensitive the item is.\n- Action: read or change.\n- Environment: time, location or device.\n\nThink about renting a car. The company checks your age, whether you hold a license, which country you are in, which car you want and whether you have a card. It is a combination of facts, and not a single job title.\n\nFor example, nurses may read charts for their own ward, during their shift, on a hospital device. A rule like that would need a huge number of roles if you tried to do it with roles alone. So ABAC can be the cure for role explosion.\n\nABAC is very fine-grained, which means it can make very precise decisions. But it needs accurate attribute data. If the human resources system shows the wrong department, the decision will be wrong. XACML, the Extensible Access Control Markup Language, is a standard for writing these policies.\n\nRisk-based access control works out how risky this particular request is, at this moment. It uses signals such as location, device health, unusual behavior and the sensitivity of the data. The result may be allow, ask for more proof, or block.\n\nThink of your bank card. A small purchase near your home goes through. A large purchase at midnight in a country you have never visited gets blocked until you confirm it.\n\nHere is a worked example, with a scale the company sets for itself, from 0 to 100.\n\nA login from the usual laptop in the usual town scores 10, so it is allowed. A login from a new phone in a new country scores 70, so the user is asked for extra proof. A login from a known bad network scores 95, so it is blocked. The numbers are not a standard. What matters is that the response rises with the risk.\n\nHere is your takeaway. ABAC combines facts about the subject, object, action and environment, and risk-based control adjusts its answer to the danger of this request."
+        },
+        {
+          "heading": "The access control matrix",
+          "body": "In this part we will look at a simple way to picture all access in one place, and at the two lists that come from it.\n\nAn access control matrix is a grid. Subjects, the people or programs, run down the side. Objects, the files or resources, run along the top. Each cell where a row meets a column holds the rights that subject has over that object.\n\nThink about a school attendance sheet. Pupils run down the side and dates run across the top. To see everything about one pupil, you read across a row. To see everything about one date, you read down a column.\n\nNow we will work through an example in words.\n\nAna has read and write on the grades file. She has no access to the payroll file.\n\nBen has read on the grades file. He has read and write on the payroll file.\n\nNow take one person and read across. For Ana, you get grades file, read and write, and payroll file, none. Reading one subject's row gives you a capability list. A capability list says everything this subject can reach.\n\nNow take one file and read down. For the grades file, you get Ana, read and write, and Ben, read. Reading one object's column gives you an access control list, or ACL. An ACL says everyone who can reach this object.\n\nThis gives you a simple rule to remember. Capability lists go with subjects, and ACLs go with objects. Row and capability both refer to the subject. Column and ACL both refer to the object.\n\nA real company would have thousands of people and millions of files. A complete matrix would be enormous and mostly empty. So in practice, systems do not store the whole grid. They store it as lists instead, usually ACLs on each object.\n\nSo why does the manager care? Because the two views answer different audit questions. If an investigator asks what this contractor could reach, you need the row. If an owner asks who can open the merger file, you need the column. Many systems find the second question easy and the first question hard, which is why identity tools are often bought.\n\nHere is what to take away. A matrix row is a capability list for a subject, and a column is an ACL for an object."
+        },
+        {
+          "heading": "Decision points, enforcement points, and choosing a model",
+          "body": "To finish this topic, we will look at how decisions are made and carried out, and then bring all of the models together.\n\nThink of a nightclub. The manager decides who may enter. The door staff carry it out. Those are two different jobs.\n\nThe PDP, or policy decision point, evaluates the policy and makes the decision. The PEP, or policy enforcement point, sits in front of the resource and permits or blocks the request. Here is the order.\n\n- The request arrives at the PEP.\n- The PEP asks the PDP.\n- The PDP checks the policy and facts about the request.\n- The PDP answers.\n- The PEP allows or blocks.\n\nThe outline names these two. You may also meet a policy administration point, where policies are written and managed.\n\nZero trust designs rely on this split. Zero trust means that no request is trusted just because of where it comes from. Each request is checked each time.\n\nWhat if the PEP cannot reach the PDP? For sensitive systems, the safe default is to deny the request until a decision can be made.\n\nNow let us set the models side by side. Ask who or what decides.\n\n- DAC, discretionary: the owner decides.\n- MAC, mandatory: the system compares labels.\n- Role-based: the person's job decides.\n- Rule-based: global rules decide, for everyone.\n- ABAC, attribute-based: a combination of facts decides.\n- Risk-based: the calculated danger of this request decides.\n\nHow should you pick on the exam? Look for the clue. An owner sharing a file points to DAC. Labels and clearances point to MAC. Jobs or staff turnover point to role-based. A rule for all, or a firewall, points to rule-based. Several conditions joined together, such as department and time and device, point to ABAC. Changing behavior based on unusual signals points to risk-based.\n\nHere is a workplace example. A company's gateway is the PEP in front of a finance application. A central engine is the PDP, and it weighs the user's role, the device and the risk of the sign-in before answering.\n\nHere is your takeaway. The PDP decides and the PEP enforces. To name a model, ask who or what makes the decision."
+        }
+      ],
+      "keyTerms": [
+        {
+          "term": "DAC",
+          "meaning": "Discretionary access control: the object's owner decides who has access."
+        },
+        {
+          "term": "MAC",
+          "meaning": "Mandatory access control: the system compares clearances and classification labels."
+        },
+        {
+          "term": "RBAC",
+          "meaning": "Role-based access control: rights are tied to job roles."
+        },
+        {
+          "term": "Rule-based access control",
+          "meaning": "Global rules apply to all subjects, as on a firewall."
+        },
+        {
+          "term": "ABAC",
+          "meaning": "Attribute-based access control: decisions use facts about the subject, object, action and environment."
+        },
+        {
+          "term": "Risk-based access control",
+          "meaning": "Access changes according to the risk calculated at the time of the request."
+        },
+        {
+          "term": "Non-discretionary",
+          "meaning": "Any model where the owner does not decide; a central authority or the system does."
+        },
+        {
+          "term": "Access control matrix",
+          "meaning": "A table of subjects, objects and the rights between them."
+        },
+        {
+          "term": "PDP",
+          "meaning": "Policy decision point: the part that evaluates policy and decides."
+        },
+        {
+          "term": "PEP",
+          "meaning": "Policy enforcement point: the part that permits or blocks the request."
+        }
+      ],
+      "keyPoints": [
+        "DAC is owner-led; MAC is label-led.",
+        "Roles fit jobs, while rules apply to everyone.",
+        "ABAC uses many attributes, including the environment.",
+        "A matrix row is a capability list; a column is an ACL.",
+        "The PDP decides and the PEP enforces."
+      ],
+      "memoryHook": "Owner, Label, Job, Rule, Facts, Risk: DAC, MAC, RBAC, rule-based, ABAC, risk-based.",
+      "question": {
+        "prompt": "A hospital wants this rule: staff may open a patient chart only if they work on that patient's ward, are on shift at that moment, and are using a hospital-owned device. Which access control model BEST supports this?",
+        "options": [
+          "Discretionary access control",
+          "Role-based access control",
+          "Attribute-based access control",
+          "Mandatory access control"
+        ],
+        "correctIndex": 2,
+        "explanation": "The rule combines facts about the person, the time and the device, which is what attribute-based control does. Role-based control is tempting, because staff have jobs, but a role alone cannot weigh shift time or device. Discretionary and mandatory control do not use these facts."
+      },
+      "practiceQuestions": [
+        {
+          "prompt": "An engineer creates a design document on a shared drive and personally decides which colleagues can open it by adding them to the file's permissions. Which access control model is in use?",
+          "options": [
+            "Mandatory access control",
+            "Rule-based access control",
+            "Discretionary access control",
+            "Risk-based access control"
+          ],
+          "correctIndex": 2,
+          "explanation": "The owner chooses who has access, which is the mark of discretionary control. Rule-based is tempting because a permissions list looks like a set of rules, but in rule-based control no owner makes the choice."
+        },
+        {
+          "prompt": "A user with Top Secret clearance is refused access to a Top Secret document held in a named compartment she has not been briefed into. Why was access refused?",
+          "options": [
+            "She is outside the compartment, so she has no need to know",
+            "Her clearance is one level lower than the document's label",
+            "The document's owner has not yet added her name to its list",
+            "Her job role does not cover any documents at the Top Secret level"
+          ],
+          "correctIndex": 0,
+          "explanation": "Her level is sufficient, but compartments enforce need to know within a level. The owner's list is tempting, but in mandatory access control users do not decide who gets access."
+        },
+        {
+          "prompt": "A retail chain has high staff turnover. New cashiers across hundreds of stores must get the same rights on their first day, with little administrative effort. Which model is the BEST fit?",
+          "options": [
+            "Discretionary control, with each store manager sharing files",
+            "Role-based access control",
+            "Mandatory control with a label on every cash register",
+            "Risk-based control that scores each individual sale"
+          ],
+          "correctIndex": 1,
+          "explanation": "Rights tied to a cashier role can be given to each new person at once. Discretionary control is tempting because store managers know their staff, but it would produce inconsistent access across hundreds of stores."
+        },
+        {
+          "prompt": "A policy says that nobody at all may connect to the payments network between 8 at night and 6 in the morning, regardless of job title or seniority. Which model does this describe?",
+          "options": [
+            "Role-based access control",
+            "Discretionary access control",
+            "Mandatory access control",
+            "Rule-based access control"
+          ],
+          "correctIndex": 3,
+          "explanation": "One global rule applies to every subject, whoever they are. Role-based control is tempting because the letters are the same, but this policy deliberately ignores job title."
+        },
+        {
+          "prompt": "A company decides that file owners may no longer choose who has access, and a central security team will assign all access in future. Which term BEST describes the new approach?",
+          "options": [
+            "Non-discretionary access control",
+            "Discretionary access control with delegated file owners",
+            "Federated identity management across business units",
+            "Single sign-on with central control of all passwords"
+          ],
+          "correctIndex": 0,
+          "explanation": "When owners no longer decide and a central authority does, the approach is non-discretionary. Federation is tempting because it sounds like central control, but it concerns trust in identities between organizations."
+        },
+        {
+          "prompt": "A sign-in from a user's usual laptop is allowed. The same user signing in from a new phone in another country is asked for additional proof, and a sign-in from a known malicious network is blocked. Which model is in use?",
+          "options": [
+            "Rule-based access control",
+            "Role-based access control",
+            "Risk-based access control",
+            "Discretionary access control"
+          ],
+          "correctIndex": 2,
+          "explanation": "The response changes with the calculated risk of each attempt. Rule-based is tempting because rules may be involved in the scoring, but rule-based control applies the same fixed rule to everyone and does not rise with the level of danger."
+        },
+        {
+          "prompt": "An investigator needs a single view of everything that one contractor can reach across all systems. Thinking of an access control matrix, what does the investigator need?",
+          "options": [
+            "A single column of the matrix, read from top to bottom",
+            "The classification label attached to each object",
+            "The role definition written for the contractor's job",
+            "The contractor's row, which is a capability list"
+          ],
+          "correctIndex": 3,
+          "explanation": "One subject's row shows everything that subject can reach, and that is a capability list. A column is tempting, but a column shows everyone who can reach one object."
+        },
+        {
+          "prompt": "A gateway protecting a sensitive finance application cannot contact the central engine that evaluates policy, because of an outage. What should the gateway do?",
+          "options": [
+            "Allow all requests, to keep the finance team working",
+            "Deny requests until a decision can be obtained",
+            "Allow any users who were permitted earlier the same day",
+            "Let each application owner decide during the outage"
+          ],
+          "correctIndex": 1,
+          "explanation": "The enforcement point should not permit what it cannot get a decision on, especially for a sensitive system. Allowing users who passed earlier is tempting, but their situation may have changed, and that would bypass the policy."
+        },
+        {
+          "prompt": "A global firm has built over 3,000 roles to cover combinations of department, country, device type and project. Administrators can no longer manage them. Which approach BEST addresses this?",
+          "options": [
+            "Create further roles for each new combination that appears",
+            "Let the data owners share their own files as they see fit",
+            "Apply one single rule set to all subjects alike, for simplicity",
+            "Evaluate attributes of the user, data and context"
+          ],
+          "correctIndex": 3,
+          "explanation": "Attribute-based control handles combinations of facts without a separate role for each one. One rule set is tempting because it is simple, but it cannot express the differences that this firm needs."
+        },
+        {
+          "prompt": "An audit finds that employees using a discretionary model share folders too widely, and sensitive data has been exposed several times. Which change BEST addresses the cause?",
+          "options": [
+            "Move to centrally managed role-based access",
+            "Send all staff a reminder to be careful when sharing folders",
+            "Ask every folder owner to correct their own sharing settings",
+            "Add encryption to the folder contents held on the file server"
+          ],
+          "correctIndex": 0,
+          "explanation": "The root cause is that owners decide, so moving the decision to a central model fixes it. Asking owners to correct their settings is tempting, but it leaves the same people making the same choices."
+        }
+      ]
+    },
+    {
+      "id": "T45",
+      "name": "Identity and access lifecycle: provisioning, deprovisioning, role definition and transition, access reviews, privilege escalation, privileged access management, service accounts",
+      "outlineRef": "5.5",
+      "simpleExplanation": "Access has a life, just like a school pupil's library card. It is created when someone joins, changed when they move class, and cancelled when they leave. Companies must do the same for every account. The biggest danger is forgetting: people move jobs and keep old rights, or leave and keep their login. Regular reviews catch these mistakes. Powerful accounts need extra care, and so do accounts used by programs instead of people. Nobody should hold more access than the job needs today.",
+      "studyNotes": [
+        {
+          "heading": "The lifecycle and provisioning new joiners",
+          "body": "In this first part, we will look at the life of an account from start to finish, and then focus on what should happen when a person joins.\n\nAccess has a life, just as a library card does. The card is issued when you join, updated when you move, and cancelled when you leave. The order of the stages is this.\n\n- Request.\n- Approve.\n- Create.\n- Use and review.\n- Change.\n- Disable.\n- Delete.\n\nThe outline describes three main events, called on-boarding, transfers and off-boarding. People often call them joiners, movers and leavers.\n\nHR, which stands for human resources, should trigger each stage, because HR is the part of the business that knows who joins, moves and leaves. If accounts depend on someone remembering to send an email, some will be missed.\n\nProvisioning means creating an account and giving it the rights that were approved. Access needs approval by someone who has the authority to give it, and it starts at least privilege, which means only what the job needs. The person does not get everything a colleague happens to have.\n\nThe common shortcut is to copy another employee's access. It feels quick. But if that colleague has built up years of extra rights, those rights are copied too. Provision from a defined role, and not from another person.\n\nThink about moving to a new school. The office registers you, the head teacher approves your class, and only then do you get a timetable and a locker. You do not get the keys to every classroom.\n\nHere is a worked example of a joiner.\n\n- HR enters a new accountant, with a start date.\n- The system creates an account and adds the accountant role.\n- The finance manager approves any additional access.\n- The new person proves who they are and enrolls a second factor.\n- A record of the approval is kept for the next audit.\n\nAutomating this through an identity management system saves effort and also reduces mistakes. And the records it produces are what auditors ask for.\n\nHere is what to take away. Access follows the order of request, approve, create, use and review, change, disable, delete. HR events should drive it, and new access starts at least privilege from a defined role."
+        },
+        {
+          "heading": "Deprovisioning and people who leave",
+          "body": "Now we will look at deprovisioning, which is the removal of access. It is where forgetting does the most damage.\n\nDeprovisioning removes access when it is no longer needed. The first rule to learn is the order. Disable the account first, and delete it later. A disabled account cannot be used, but its records and files stay available. Investigators, managers and lawyers may need them.\n\nThink of a member who leaves a gym. The gym stops the card at once. The membership record stays on file for a while, in case of a dispute about fees. It is thrown away later.\n\nTiming matters too. For a normal departure, access is removed on the agreed leaving date. For a hostile termination, which means dismissal where the person may be angry or may do harm, disable access at or before the moment the person is told. A person who has just been dismissed and still has administrator rights is a serious risk. So the human resources team, known as HR, and security must plan this together. Someone may also need to escort the person out, with care and respect.\n\nAlso collect badges, tokens and laptops. Change any shared passwords that the person knew, because disabling one account does not change a secret the person remembers. And check for access that does not go through your main directory, such as local accounts at a cloud supplier.\n\nHere is a worked example of a normal leaver, in order.\n\n- HR gives notice of the leaving date.\n- Access is disabled on that date.\n- Equipment is returned.\n- The manager takes over the files.\n- The account is deleted after the retention period.\n\nThe retention period is the length of time that records must be kept, under policy or law.\n\nHere is a workplace example of what goes wrong. A contractor's work ends in March. Nobody told the technology team, because contractors are not in the HR system. In November the old login is used to copy customer data. The cause is a process that left contractors out. A manager fixes that process, and does not just remove one account.\n\nHere is your takeaway. Disable first and delete later, move fast for hostile terminations, and make sure every kind of person is included."
+        },
+        {
+          "heading": "Role definition and role transition",
+          "body": "In this part we will look at how roles are defined, and at what must happen when a person moves to a new one.\n\nA role definition lists the rights that a job needs. The business owner agrees it, because the business knows what the job requires. Security checks it for conflicts with separation of duties, which means that no single person should be able to complete a sensitive task alone. A person who can create a supplier should not also be able to pay that supplier.\n\nThink about a restaurant. The cook has a key to the kitchen. The cashier has a key to the till. Writing that down in advance means nobody has to work it out for each new person.\n\nThere is a balance to find. Too few roles and people get more than they need. Too many narrow roles become hard to manage, which is called role explosion. Roles also go out of date as jobs change, so every role needs a named owner and an occasional review.\n\nRole transition is when a person moves to a new job, and the outline names this directly. The rule is simple. Remove the old rights and add the new ones together.\n\nThe common failure is that the new rights are added quickly, because someone is waiting for them. Nobody is waiting for the old rights to go, so they stay. Privilege creep is the slow build-up of rights over the years, and it happens when transfers only ever add access. After several moves, one long-serving employee may be able to do things that no single job should allow.\n\nSometimes a person really must help with a handover. In that case, approve a short overlap, with a fixed end date, and make sure the end date is enforced.\n\nHere is a workplace example. A payroll officer moves to marketing. On the day of the transfer, HR, which means human resources, updates the record. The system removes the payroll role and adds the marketing role. She is needed for two weeks to train her replacement, so the payroll manager approves read access for those two weeks, and it then ends by itself.\n\nHere is what to take away. Owners define roles, security checks for conflicts, and a transfer removes the old rights as it adds the new ones."
+        },
+        {
+          "heading": "Access reviews",
+          "body": "Now we will look at access reviews, which are how we find the mistakes that everything else has missed.\n\nAn access review is a regular check that current access is still right. The outline names three kinds of account to review, and here they are.\n\n- User accounts.\n- System accounts, used by the operating system and by other software.\n- Service accounts, used by applications and programs.\n\nThink about the keys to a house that you have owned for ten years. A neighbor has one. A cleaner you no longer use has one. Your brother has one from a visit years ago. Unless you stop and count, you will not know who can still walk in.\n\nHere is how a good review works.\n\nThe manager or data owner confirms the access. People do not review their own access, because nobody thinks that they have too much. The security team organizes the review and checks that it happened, but it does not decide whether the sales team needs a report. That is the owner's call.\n\nRisky access is reviewed more often. Administrator accounts might be reviewed every quarter, and ordinary accounts every year.\n\nLook for two kinds of account in particular. An orphan account has no current owner, often because the person has left. A dormant account has not been used for a long time. Each is an unlocked door that no one is watching.\n\nRemove what is not needed, and keep evidence of the review. An auditor will ask to see it.\n\nThere is a trap here, which is approving everything. A busy manager given a list of five hundred items may click approve on all of them. That is called rubber stamping, and it makes a review worthless. Keep the lists short, show what has changed, and send them to people who actually know the job.\n\nHere is a workplace example. A quarterly review at a hospital finds three accounts belonging to people who left in the spring. Removing these accounts is only the start. Why were they still active? If reviews keep finding the same problem, fix the process that caused it. Cleaning up one account at a time only treats the symptom.\n\nHere is your takeaway. Owners review, risky access is reviewed more often, and repeated findings mean a process must change."
+        },
+        {
+          "heading": "Privilege escalation, sudo and privileged access management",
+          "body": "In this part we will look at how people gain higher rights, the right way and the wrong way, and how powerful accounts should be controlled.\n\nPrivilege escalation means gaining more rights. There are two directions.\n\n- Vertical escalation: moving up, such as from user to administrator.\n- Horizontal escalation: reaching another user's data at the same level.\n\nThink of a hotel. If a guest gets hold of the manager's master key, that is vertical. If a guest gets into the next room, that is horizontal. For example, a customer who changes a number in a web address and sees someone else's bank statement has escalated horizontally.\n\nThere is also a legitimate form, and the outline names it. On Linux, the sudo tool lets an approved user run a single command as root, which is the all-powerful account. The name is usually read as superuser do. The rules sit in a file called sudoers.\n\nThe point of sudo is that people do not need to log in as root. Each person uses their own account, and each command can be traced to them.\n\nThree practices make it safe. First, limit people to the commands they need, and do not write a rule that allows all commands. Second, watch out for commands that open a full shell, which is a command-line session, because then the individual commands that follow may not be logged by sudo at all. Third, audit its use. Send sudo logs to a central server that administrators cannot change, and review them. An administrator who can edit the only copy of the log can erase the evidence.\n\nThe equivalent idea on Windows is run as administrator, and the same principles apply.\n\nPAM stands for privileged access management, a set of tools for powerful accounts. It offers vaulted passwords, approval steps, short-lived access and recorded sessions. Administrators should also have a separate account for daily work such as email, so that a phishing message, which is a trick message, does not land on a powerful account.\n\nHere is a workplace example. An outside engineer needs to work on a server. She connects through the PAM tool, the password is never shown to her, and the session is recorded.\n\nHere is your takeaway. Know vertical from horizontal, limit and audit sudo, and use PAM to control powerful accounts."
+        },
+        {
+          "heading": "Service accounts",
+          "body": "To finish this topic, we will look at accounts that belong to programs and not to people, which are among the most neglected in any organization.\n\nA service account is used by a program, and not by a person. A backup job is an example, and so is a website that connects to its database.\n\nThink of a robot in a factory that has its own security pass. Nobody talks to it, nobody thinks about it, and it keeps working. Meanwhile, the pass is still valid, and it may open many doors.\n\nThese accounts tend to have three problems. They are forgotten, because no human uses them. They are over-powerful, because giving broad rights was the quick way to make the software work. And their passwords are never changed, because no one wants to break a running system.\n\nGood practice is a set of habits, and the exam expects you to recognize them.\n\n- Keep an inventory, with a named human owner for each.\n- Give least privilege, meaning only the rights the program needs.\n- Block interactive login, so no person can sign in with the account.\n- Use one account per application.\n- Store secrets in a vault and rotate them, or use identities the platform manages.\n- Include them in access reviews.\n- Alert if one is used in an unusual way.\n\nRotate simply means changing the secret on a schedule. A platform-managed identity is better still, because the cloud or the operating system handles the secret and no person ever sees it.\n\nOne account per application matters for damage and for tracing. If one is stolen, only one application is affected, and you can tell which one was misused.\n\nHere is a workplace example. A monitoring alert shows that the service account for the overnight batch job has just signed in from a staff member's desktop at lunchtime. That account should only ever run on one server, at night. A real person, or an attacker, is using it. Treat this as a possible compromise, and investigate. Do not simply delete the account first, because that may stop an important job and also destroy useful evidence.\n\nHere is what to take away. Every service account needs a human owner, least privilege, no interactive login, managed secrets and regular review."
+        }
+      ],
+      "keyTerms": [
+        {
+          "term": "Provisioning",
+          "meaning": "Creating an account and giving it the approved rights."
+        },
+        {
+          "term": "Deprovisioning",
+          "meaning": "Removing access when it is no longer needed."
+        },
+        {
+          "term": "Privilege creep",
+          "meaning": "Rights building up over time as a person changes jobs."
+        },
+        {
+          "term": "Orphan account",
+          "meaning": "An account with no current owner."
+        },
+        {
+          "term": "Access review",
+          "meaning": "A regular check by an owner or manager that access is still needed."
+        },
+        {
+          "term": "Vertical escalation",
+          "meaning": "Gaining higher rights, such as moving from user to administrator."
+        },
+        {
+          "term": "Horizontal escalation",
+          "meaning": "Reaching another user's data at the same level."
+        },
+        {
+          "term": "sudo",
+          "meaning": "A Linux tool that lets an approved user run a command with higher rights, and logs it."
+        },
+        {
+          "term": "PAM",
+          "meaning": "Privileged access management: tools that vault, approve and record the use of powerful accounts."
+        },
+        {
+          "term": "Service account",
+          "meaning": "A non-human account that a program uses to run."
+        }
+      ],
+      "keyPoints": [
+        "HR events should drive account changes.",
+        "Disable first, delete later.",
+        "On a transfer, remove old rights as new ones are added.",
+        "Owners and managers review access, not the users themselves.",
+        "Every service account needs a named human owner."
+      ],
+      "memoryHook": "Join, Move, Leave: at every door, ask what must be added and what must be taken away.",
+      "question": {
+        "prompt": "An audit finds that an employee who moved from payroll to marketing a year ago can still approve payments. Two similar cases were found last year. What should the security manager do to BEST address this finding?",
+        "options": [
+          "Remove the employee's payroll rights and close the audit finding",
+          "Ask the employee to sign a statement promising never to use the old payroll rights again",
+          "Run the same audit each month to catch any more cases of this kind",
+          "Change the transfer process so old access is removed when a role changes"
+        ],
+        "correctIndex": 3,
+        "explanation": "The same fault keeps coming back, so the process must be fixed. Removing this person's rights is needed, but on its own it treats only the symptom. Monthly audits find problems after they happen and do not stop them from occurring."
+      },
+      "practiceQuestions": [
+        {
+          "prompt": "A manager plans to dismiss a system administrator at 3 in the afternoon today because of serious misconduct. When should the administrator's access be disabled?",
+          "options": [
+            "At the end of the person's final day of notice",
+            "At or just before the moment the person is told",
+            "Within 24 hours of the meeting taking place",
+            "As soon as the exit interview has been completed"
+          ],
+          "correctIndex": 1,
+          "explanation": "In a hostile termination, access must be gone before the person can react. Within 24 hours is tempting because it sounds prompt, but it leaves a powerful and angry user with access for a full day."
+        },
+        {
+          "prompt": "An employee has resigned and left the company. The legal department may need to examine her mailbox and files later this year. What should be done with her account?",
+          "options": [
+            "Delete it at once, so that it cannot be misused by anyone",
+            "Keep it active so her manager can sign in and check her email",
+            "Hand the login over to the person who is replacing her in the job",
+            "Disable it now and delete it after the retention period"
+          ],
+          "correctIndex": 3,
+          "explanation": "Disabling blocks use and keeps the records available. Deleting at once is tempting because it feels secure, but it could destroy the very evidence that the legal department needs."
+        },
+        {
+          "prompt": "New staff regularly wait a week for accounts, because requests are passed around by email, and leavers are sometimes missed entirely. Which change would BEST address both problems?",
+          "options": [
+            "Drive account changes from the HR system of record",
+            "Ask new staff to use a colleague's login until theirs is ready",
+            "Hire more help desk staff to process requests sent by email",
+            "Create accounts for all possible new staff well in advance"
+          ],
+          "correctIndex": 0,
+          "explanation": "HR knows who joins and leaves, so linking account changes to HR events fixes both delays and missed leavers. More help desk staff is tempting, but the process would still depend on someone remembering to send an email."
+        },
+        {
+          "prompt": "While a new role is being defined, a security analyst notices that it lets one developer write code and also release that code to production without anyone else being involved. What should the analyst recommend?",
+          "options": [
+            "Approve it, because developers are trusted members of staff",
+            "Approve it and review the role again in a year's time",
+            "Split the abilities so that a different person releases",
+            "Limit the role to senior developers with long service"
+          ],
+          "correctIndex": 2,
+          "explanation": "One person should not be able to complete a sensitive task alone, so the duties must be separated. Limiting the role to senior staff is tempting, but seniority does not remove the conflict."
+        },
+        {
+          "prompt": "A company has 4,000 roles for 2,500 employees, and many roles differ by a single permission. Which action is BEST?",
+          "options": [
+            "Consolidate them into fewer, owner-approved roles",
+            "Create a new role for each remaining difference in rights",
+            "Pause all access reviews until the roles have become stable",
+            "Let managers grant individual permissions to staff directly"
+          ],
+          "correctIndex": 0,
+          "explanation": "This is role explosion, and the remedy is a smaller set of roles agreed by the business. Letting managers grant permissions directly is tempting because it is quick, but it brings back inconsistent access that nobody can track."
+        },
+        {
+          "prompt": "An employee moves from accounts to internal audit, but must help her replacement through the month-end close for the next two weeks. What is the BEST way to handle her access?",
+          "options": [
+            "Keep all of her old rights in case she is ever needed again",
+            "Remove the old rights today and decline to allow any handover",
+            "Approve a short overlap that has a fixed end date",
+            "Let her borrow her replacement's login whenever she needs it"
+          ],
+          "correctIndex": 2,
+          "explanation": "A short overlap with an enforced end date meets the need without leaving old rights behind. Removing everything today is tempting because it is tidy, but it ignores a real business need that can be managed safely."
+        },
+        {
+          "prompt": "A company is planning its next review of access to the claims system. Who should confirm that each person's access is still appropriate?",
+          "options": [
+            "Each employee, reviewing their own list of rights",
+            "The help desk team that handles access requests",
+            "An external auditor, once a year, for all accounts",
+            "The claims manager or the data owner"
+          ],
+          "correctIndex": 3,
+          "explanation": "The manager or owner knows what the job needs and is accountable for the data. An external auditor is tempting because auditors are independent, but auditors check that the review happens and do not make these decisions."
+        },
+        {
+          "prompt": "A customer of an online store changes a number in the address bar and finds that she can view another customer's order history. Her own account has no special rights. What has occurred?",
+          "options": [
+            "Vertical privilege escalation",
+            "Horizontal privilege escalation",
+            "Session fixation during the login process",
+            "Credential stuffing from a leaked password list"
+          ],
+          "correctIndex": 1,
+          "explanation": "She has reached another user's data at the same level. Vertical is tempting because she has gained access she should not have, but vertical means moving up to a higher level, such as administrator."
+        },
+        {
+          "prompt": "Administrators use sudo on Linux servers. The sudo logs are held only on each server, and those same administrators can act as root there. Which improvement is BEST?",
+          "options": [
+            "Turn off sudo logging, to protect the privacy of administrators",
+            "Have the administrators check one another's local logs each week",
+            "Give all of the administrators a single shared root password",
+            "Send sudo logs to a central server they cannot alter"
+          ],
+          "correctIndex": 3,
+          "explanation": "Logs that the administrators cannot change can be trusted as evidence. Having them check each other is tempting, but anyone with root could already have edited the local log before the check."
+        },
+        {
+          "prompt": "A monitoring tool shows that the service account for an overnight batch job, which should run only on one server, has just signed in from an employee's desktop at noon. What should be done FIRST?",
+          "options": [
+            "Treat it as a possible compromise and investigate",
+            "Delete the account immediately, whatever the batch job needs",
+            "Wait for the next quarterly access review of this account",
+            "Ask the employee at that desk to stop using this account"
+          ],
+          "correctIndex": 0,
+          "explanation": "Unusual use of a service account is a warning sign that calls for incident handling. Deleting the account is tempting, but it could stop a business process and destroy evidence before anyone knows what happened."
+        }
+      ]
+    },
+    {
+      "id": "T46",
+      "name": "Authentication systems and access attacks: Kerberos step by step, RADIUS, TACACS+, LDAP, with password attacks and how to stop them",
+      "outlineRef": "5.6",
+      "simpleExplanation": "Kerberos works like a fair. You prove who you are once at the main gate and get a wristband. You show the wristband at a booth to get a ticket for each ride. Your password never travels across the network. RADIUS and TACACS+ are services that check logins for network equipment. LDAP is a searchable phone book of users. Attackers try to guess, steal or reuse passwords. Long unique passwords, multi-factor authentication and watching the logs stop most of these attacks.",
+      "studyNotes": [
+        {
+          "heading": "Kerberos: the parts and the big idea",
+          "body": "In this first part, we will look at what Kerberos is for and what its pieces are called, before we walk through it step by step.\n\nKerberos is a login system based on tickets. It lets you prove who you are once, and then reach many services, without your password crossing the network. It is the standard way of signing in on Windows domains, which are groups of computers managed together, and it runs on port 88.\n\nKerberos uses symmetric keys, meaning one shared secret key that both sides hold. Every user and every service shares a secret key with one trusted central party.\n\nThink of a large fair. You go to the main gate and prove who you are, once. They give you a wristband. Then you take the wristband to a ticket booth, and the booth gives you a ticket for one ride. You give the ticket to the ride attendant, who knows it is genuine because the booth issued it. The attendant never had to check your identity herself.\n\nHere are the names you must know.\n\n- The KDC, or key distribution center, is the trusted core. It knows the secret keys.\n- The AS, or authentication service, is the part of the KDC that checks you first.\n- The TGS, or ticket-granting service, is the part of the KDC that issues service tickets.\n- The TGT, or ticket-granting ticket, is your proof of login, the wristband.\n- A service ticket is your pass to one particular service, the ride ticket.\n- An authenticator is a fresh, time-stamped proof, sent along with a ticket, to stop replay.\n\nNotice that the KDC is made up of the AS and the TGS. People often think these are three separate things.\n\nA principal is any identity known to Kerberos, such as a user or a service. A realm is the group of principals that one KDC looks after. In a Windows domain, the domain controller, which is the main login server, plays the part of the KDC.\n\nReplay means capturing a valid message and sending it again later. The authenticator exists to defeat this.\n\nHere is what to take away. The KDC holds the keys and contains the AS and the TGS. The TGT is the wristband, and the service ticket is the ride ticket."
+        },
+        {
+          "heading": "Kerberos step by step",
+          "body": "Now we will walk through a Kerberos login in order. The exam expects you to know this sequence, so go slowly.\n\nHere is the whole process.\n\n- Step one, the request. The user logs in. The client software turns the password into a secret key and sends a request to the AS, the authentication service. The request normally includes a time stamp locked with that key, which shows that the user knows the password. The password itself is never sent.\n- Step two, the TGT. The AS checks the request and returns two things. One is a session key, a temporary secret for this login, locked with the user's key. The other is the TGT, the ticket-granting ticket, locked with the KDC's own key. The client can carry the TGT, but it cannot read or change it.\n- Step three, asking for a ticket. To reach a service, the client sends three things to the TGS, the ticket-granting service. These are the TGT, the name of the service, and an authenticator locked with the session key.\n- Step four, the service ticket. The TGS opens the TGT with the KDC's own key, finds the session key inside, and checks the authenticator. It then returns a service ticket locked with the service's own key, and a new session key for talking to that service.\n- Step five, presenting the ticket. The client gives the service ticket and a new authenticator to the service.\n- Step six, the check. The service opens the ticket with its own key, checks the authenticator, and lets the client in. If asked, the service can prove itself back to the client, which is called mutual authentication.\n\nNotice the pattern of locks. The client can open only what is locked with a key it holds. It cannot open the TGT or the service ticket. Those are sealed for someone else to open.\n\nNotice also that the service never has to contact the KDC during the login. The ticket is proof enough, because only the KDC could have locked it with the service's key.\n\nThink about the fair again. Wristband first, then a ride ticket, and then the ride.\n\nHere is your takeaway. AS gives the TGT, TGS gives the service ticket, the service checks that ticket, and the password never travels."
+        },
+        {
+          "heading": "Kerberos exam facts and attacks",
+          "body": "In this part we will look at the facts about Kerberos that the exam likes, and at the ways attackers abuse it.\n\nFirst, the clocks must match. Kerberos relies on time stamps, so a client and server whose clocks disagree by too much will be refused. The default allowance is five minutes. That is why problems after server maintenance are so often clock problems.\n\nSecond, the KDC is a single point of failure. If it stops, nobody can get new tickets. So organizations run more than one, with protected replicas. It also holds the keys for everybody, so a compromised KDC is a disaster.\n\nThird, Kerberos proves identity. The service still decides what you may do. In the language of this domain, Kerberos handles authentication and not authorization.\n\nThink about a concert ticket. It proves you paid and may enter, but the venue still decides which areas you can go into.\n\nNow for attacks.\n\nPass-the-ticket means stealing a valid Kerberos ticket from one computer and using it on another.\n\nA golden ticket is a forged TGT, made using the secret key of the KDC's own account. In Windows, that account is called krbtgt. With that key, an attacker can create a ticket for anyone, including an administrator, for as long as the attacker likes. Resetting users' passwords does not help, since the forged ticket does not depend on them. The response is to remove the attacker's access first and then reset that account's key twice, because the previous key is also kept and still accepted.\n\nA silver ticket is a forged service ticket, made with one service's key. It reaches only that service, so it is narrower than a golden ticket.\n\nKerberoasting is requesting a service ticket for a service account, and then guessing that account's password offline, because the ticket is locked with a key derived from it. The defense is very long random passwords on service accounts, or passwords the platform manages.\n\nGuard the domain controllers very closely.\n\nHere is a workplace example. Administrators log in to domain controllers only from special protected computers, and alerts watch for unusual ticket requests.\n\nHere is what to take away. Remember clocks, a single point of failure, and authentication only. Golden tickets come from the KDC's key."
+        },
+        {
+          "heading": "RADIUS and TACACS Plus",
+          "body": "Now we will compare two services that handle logins for network equipment. Ports, transport and encryption are all testable here.\n\nBoth are AAA services, meaning authentication, authorization and accounting. A device such as a Wi-Fi access point does not hold the user list itself. It asks a central server. Think of a nightclub door where staff phone the office to check each name.\n\nRADIUS stands for Remote Authentication Dial-In User Service. Here are its exact facts.\n\n- Transport: UDP, the User Datagram Protocol, which is connectionless.\n- Ports: 1812 for authentication and 1813 for accounting.\n- Encryption: only the password is protected. The rest of the message can be read.\n- Design: authentication and authorization are combined.\n- Typical use: Wi-Fi and remote access for ordinary users.\n\nOlder equipment may use ports 1645 and 1646 for the same purposes. The device asking the question is called the network access server, or RADIUS client, and it shares a secret with the RADIUS server. RADIUS can also be wrapped in TLS, or Transport Layer Security, to protect the whole message. Its successor, Diameter, is mostly used by mobile phone networks.\n\nTACACS Plus stands for Terminal Access Controller Access-Control System Plus. It began at Cisco, and it is not compatible with the older TACACS. Here are its exact facts.\n\n- Transport: TCP, the Transmission Control Protocol, which is connection-based.\n- Port: 49.\n- Encryption: the whole message body is encrypted. Only a short header stays readable.\n- Design: authentication, authorization and accounting are separate.\n- Typical use: administrators logging in to routers and switches.\n\nBecause the three functions are separate, TACACS Plus can allow or refuse each single command that an administrator types.\n\nHere is a workplace example that uses both. A company's staff connect to Wi-Fi using RADIUS, because it works with nearly every wireless product. Its network engineers log in to routers through TACACS Plus, so a junior engineer can view settings but cannot change them, and every command is recorded.\n\nA simple way to remember it. RADIUS, UDP, hides only the password. TACACS Plus, TCP, hides the whole body.\n\nHere is your takeaway. RADIUS is UDP 1812 and 1813 with the password protected. TACACS Plus is TCP 49 with the body protected and the three functions separate."
+        },
+        {
+          "heading": "LDAP and how the systems fit together",
+          "body": "In this part we will look at LDAP, and then see how the systems in this topic fit together.\n\nLDAP stands for Lightweight Directory Access Protocol. It is the language used to read and update a directory. A directory is a tree-shaped store of users, groups and devices. It is built to be read very often and changed much less often.\n\nThink about a phone book for a large company, arranged by country, then office, then department, then person. To find someone, you follow the branches.\n\nEach entry in the tree has a distinguished name, which is its full path from the top. It is built from short parts, such as the common name of the person, the organizational unit they belong to, and the domain components. Two people may share a common name, but their distinguished names will differ, because they sit in different places in the tree.\n\nHere are the port facts.\n\n- Port 389: plain LDAP.\n- Port 636: LDAPS, which is LDAP inside TLS from the very beginning.\n\nTLS stands for Transport Layer Security, and it encrypts traffic. There is a second choice called StartTLS, which begins on port 389 and then upgrades that same connection to TLS.\n\nA bind is the LDAP word for logging in to the directory. A simple bind sends the password in clear text. On a plain connection, anyone capturing the traffic can read it. An anonymous bind asks for no identity at all, and it should usually be turned off.\n\nAlso watch out for LDAP injection, where an attacker places special characters in a search box to change the query. Validating input stops it.\n\nHere is a workplace example. A web application checks staff passwords against the directory. A packet capture shows the passwords on the network, so the team moves the application to LDAPS on port 636.\n\nNow let us place these systems together. Windows Active Directory uses LDAP to look up information and Kerberos to log people in. RADIUS and TACACS Plus often sit in front of a directory for network devices. And across organizations, SAML and OpenID Connect from the federation topic do the job, because Kerberos and LDAP are built for inside the organization.\n\nHere is what to take away. LDAP reads a directory, port 389 is plain, port 636 is protected, and simple binds need encryption."
+        },
+        {
+          "heading": "Password attacks and how to stop them",
+          "body": "To finish, we will look at how attackers go after passwords, and at the matching defense for each attack. The exam often describes an attack and asks you to choose the best control.\n\nHere is the set.\n\n- Brute force tries every combination. Stop it with length, lockouts and slowing attempts.\n- Dictionary attacks try common words. Stop them by banning known weak passwords.\n- Password spraying tries one common password against many accounts, staying under lockout limits. Stop it with MFA, or multi-factor authentication, and with alerts that look across accounts.\n- Credential stuffing reuses logins leaked from other sites. Stop it with MFA and unique passwords from a password manager.\n- Rainbow tables are ready-made lists of password hashes, which are one-way scrambles. Stop them with salts, random data added to each password before hashing.\n- Offline cracking means guessing against a stolen password file. Stop it with slow salted hashes, such as bcrypt or Argon2, and by protecting the file.\n- Pass-the-hash replays a stolen hash in place of the password. Stop it with limited administrator logins and well-protected computers.\n- Phishing and keyloggers trick or spy on the user. A keylogger is software or a device that records what is typed. Stop them with awareness training and passkeys.\n\nThink about a thief and a door. Brute force tries every key on the ring, in order. Spraying tries the one commonest key on every door in the street. Stuffing uses a key copied from your other house.\n\nThe clue on the exam is the pattern. Many attempts on one account suggests brute force. One attempt on many accounts suggests spraying. Correct passwords on the first try, right after a breach at another site, suggests stuffing.\n\nFor online attacks, watch the logs. For offline attacks, lockouts do nothing, since the attacker is working on a copy. That is why storage matters so much.\n\nHere is a workplace example. A company brings in MFA, a list of banned passwords and salted hashing, and it sends login failures to one monitoring tool. Most of these attacks now fail, and the rest are seen early.\n\nHere is your takeaway. Match the defense to the attack. MFA stops most online password attacks, and salts and slow hashes protect stored passwords."
+        }
+      ],
+      "keyTerms": [
+        {
+          "term": "KDC",
+          "meaning": "Key distribution center: the trusted core of Kerberos, made up of the AS and TGS."
+        },
+        {
+          "term": "TGT",
+          "meaning": "Ticket-granting ticket: proof of login, used to ask for service tickets."
+        },
+        {
+          "term": "Authenticator",
+          "meaning": "A fresh, time-stamped proof sent with a ticket to stop replay."
+        },
+        {
+          "term": "RADIUS",
+          "meaning": "Remote Authentication Dial-In User Service: AAA over UDP that encrypts only the password."
+        },
+        {
+          "term": "TACACS+",
+          "meaning": "Terminal Access Controller Access-Control System Plus: AAA over TCP that encrypts the whole body."
+        },
+        {
+          "term": "LDAP",
+          "meaning": "Lightweight Directory Access Protocol: reads and updates a directory. Port 389, or 636 with TLS."
+        },
+        {
+          "term": "Password spraying",
+          "meaning": "Trying one common password across many accounts to avoid lockouts."
+        },
+        {
+          "term": "Credential stuffing",
+          "meaning": "Trying username and password pairs leaked from another site."
+        },
+        {
+          "term": "Rainbow table",
+          "meaning": "A ready-made list of hashes, defeated by salting."
+        }
+      ],
+      "keyPoints": [
+        "Kerberos needs synchronized clocks and a protected KDC.",
+        "Kerberos authenticates; the service still authorizes.",
+        "RADIUS encrypts only the password, while TACACS+ encrypts the whole body.",
+        "Salts defeat rainbow tables.",
+        "MFA stops most attacks that rely on stolen or guessed passwords."
+      ],
+      "memoryHook": "Wristband, then ride ticket: TGT first, service ticket second. TACACS+ Totally hides the message; RADIUS Really only hides the password.",
+      "question": {
+        "prompt": "After a weekend of server maintenance, many staff at a company cannot reach file shares on the Windows domain. Their passwords are correct, but their Kerberos tickets are being rejected. What should the administrator check FIRST?",
+        "options": [
+          "Whether the time on the servers still matches the time on the clients",
+          "Whether the LDAP directory has reached its limit of stored entries",
+          "Whether port 49 is now blocked between the staff network and the servers",
+          "Whether the file server is missing a current certificate from a public authority"
+        ],
+        "correctIndex": 0,
+        "explanation": "Kerberos uses time stamps, so clocks that differ by more than the allowed amount cause valid tickets to be refused. Port 49 is tempting, but it belongs to TACACS+, while Kerberos uses port 88. A public certificate is not part of standard Kerberos ticket checks."
+      },
+      "practiceQuestions": [
+        {
+          "prompt": "At the start of the day, an employee's workstation receives a ticket-granting ticket after her first login. Which Kerberos component issued it?",
+          "options": [
+            "The authentication service",
+            "The ticket-granting service",
+            "The file server she wants to reach",
+            "The directory's LDAP service"
+          ],
+          "correctIndex": 0,
+          "explanation": "The authentication service, part of the key distribution center, issues the ticket-granting ticket. The ticket-granting service is tempting because of its name, but it issues service tickets to clients that already hold a ticket-granting ticket."
+        },
+        {
+          "prompt": "A client already holds a valid ticket-granting ticket and now needs to reach a database server. What does the client send to the ticket-granting service?",
+          "options": [
+            "The user's password and the database server's name",
+            "Only the user's name and the database server's name",
+            "The ticket-granting ticket, an authenticator and the service name",
+            "A service ticket and a new session key for the database server"
+          ],
+          "correctIndex": 2,
+          "explanation": "The client presents its ticket-granting ticket with a fresh authenticator and names the service. A service ticket is tempting, but that is what the client receives from this step, not what it sends."
+        },
+        {
+          "prompt": "An architect is explaining why a client application cannot read or alter a Kerberos service ticket that it carries to a server. Which key locks that ticket?",
+          "options": [
+            "The user's own secret key",
+            "The target service's secret key",
+            "The workstation's secret key",
+            "A certificate authority's public key"
+          ],
+          "correctIndex": 1,
+          "explanation": "The ticket is locked with the service's key, so only the service and the key distribution center can open it. The user's key is tempting, but the client could then read and alter the ticket."
+        },
+        {
+          "prompt": "An attacker captures a Kerberos service ticket on the network and sends it to the server a few minutes later, without holding the session key. The server refuses the attempt. What is the MOST likely reason?",
+          "options": [
+            "Each ticket is valid for a single use only",
+            "The firewall blocks repeated connections from one address",
+            "The directory has already recorded the user's logout",
+            "The attacker cannot produce a valid fresh authenticator"
+          ],
+          "correctIndex": 3,
+          "explanation": "An authenticator must be fresh and locked with the session key, which the attacker does not have. Single use is tempting, but a Kerberos ticket can be reused until it expires, by someone who holds the session key."
+        },
+        {
+          "prompt": "A company has one key distribution center for all of its offices. A failure last month prevented anyone from signing in for three hours. Which action is BEST?",
+          "options": [
+            "Extend the life of all tickets so work can continue in an outage",
+            "Add a protected replica at a second site",
+            "Move all users to local accounts on each of the servers",
+            "Save copies of all issued tickets on a shared network drive"
+          ],
+          "correctIndex": 1,
+          "explanation": "A replica removes the single point of failure while keeping central login. Longer ticket life is tempting, but it only delays the problem, and it gives a stolen ticket more time to be useful."
+        },
+        {
+          "prompt": "Investigators find forged ticket-granting tickets created with the secret key of the key distribution center's own account. Which response is MOST appropriate?",
+          "options": [
+            "Force every user in the company to choose a new password",
+            "Shorten the default ticket lifetime across the whole domain",
+            "Restart all of the servers that run the key distribution center",
+            "Contain the attacker, then reset that key twice"
+          ],
+          "correctIndex": 3,
+          "explanation": "The forged tickets rely on that key, and the previous key stays valid after one reset, so two resets are needed once the attacker is out. A company-wide password reset is tempting, but forged tickets do not depend on user passwords."
+        },
+        {
+          "prompt": "During a network test, an assessor captures RADIUS authentication traffic between a wireless access point and its server. Assuming no extra tunnel is used, what can the assessor read?",
+          "options": [
+            "The user name and attributes, but not the password",
+            "Nothing, because the whole message body is encrypted",
+            "Only the packet header, because the rest is protected",
+            "The password in clear text, as RADIUS has no protection"
+          ],
+          "correctIndex": 0,
+          "explanation": "RADIUS protects only the password, so the other fields remain readable. The whole body being encrypted is tempting, but that describes TACACS Plus."
+        },
+        {
+          "prompt": "A firewall administrator is asked to allow network devices to reach a new TACACS Plus server. What should the firewall rule permit?",
+          "options": [
+            "UDP port 1812",
+            "UDP port 88",
+            "TCP port 49",
+            "TCP port 636"
+          ],
+          "correctIndex": 2,
+          "explanation": "TACACS Plus runs over TCP on port 49. UDP port 1812 is tempting because it also carries central login traffic, but that port belongs to RADIUS authentication."
+        },
+        {
+          "prompt": "A web application checks staff passwords using simple binds to a directory on port 389. A packet capture shows the passwords on the network. Which change is BEST?",
+          "options": [
+            "Change the directory to listen on a different port",
+            "Protect the connection using LDAPS or StartTLS",
+            "Require staff to choose longer directory passwords",
+            "Give the application read-only access to the directory"
+          ],
+          "correctIndex": 1,
+          "explanation": "TLS encrypts the connection, so the simple bind is no longer readable. Longer passwords are tempting, but a password in clear text can be read at any length."
+        },
+        {
+          "prompt": "Customers of an online retailer report account takeovers just after a large breach at an unrelated website. Most of the fraudulent logins succeed on the first attempt. Which control BEST addresses this?",
+          "options": [
+            "Add a unique salt to every customer password hash",
+            "Encrypt the whole database that holds customer accounts",
+            "Lock each account after five failed login attempts",
+            "Multi-factor authentication for customer logins"
+          ],
+          "correctIndex": 3,
+          "explanation": "This is credential stuffing, and a second factor means a reused password is not enough. Lockouts are tempting, but these attempts succeed the first time, so there are no failures to count."
+        }
+      ]
+    }
+  ],
+  "examQuestions": [
+    {
+      "prompt": "A bank is choosing a fingerprint reader. One vendor advertises a very low false acceptance rate. Another advertises a very low false rejection rate. How can the security manager compare the two products MOST fairly?",
+      "options": [
+        "Choose the product with the lower false acceptance rate, as it best stops impostors",
+        "Compare the crossover error rate of each product",
+        "Compare how many fingerprints each product can hold in storage",
+        "Set both products to their highest sensitivity and count how many staff complain"
+      ],
+      "correctIndex": 1,
+      "explanation": "The crossover error rate is the point where both error rates are equal, so it gives one fair number for each product. Lower is better. A low false acceptance rate alone is tempting, but a vendor can reach it just by raising sensitivity, which rejects more real users.",
+      "testsTopics": [
+        "T41"
+      ]
+    },
+    {
+      "prompt": "A company's staff sign in to a cloud payroll service through SAML federation. The vendor also keeps a few local logins on the service that bypass federation. A payroll officer is being dismissed today. What action BEST ensures this person loses access?",
+      "options": [
+        "Ask the cloud vendor to reset the shared payroll password next month",
+        "Disable the person's company account at the identity provider only",
+        "Wait for the next quarterly access review to catch any remaining accounts",
+        "Disable the account at the identity provider and remove local logins"
+      ],
+      "correctIndex": 3,
+      "explanation": "Both paths must be closed, because a local login does not depend on the identity provider. Disabling only the company account is tempting, and it does stop federated sign-in, but a local login would still work. A later review leaves the door open.",
+      "testsTopics": [
+        "T43",
+        "T45"
+      ]
+    },
+    {
+      "prompt": "A defense agency stores documents labeled Confidential, Secret and Top Secret. Staff hold matching clearances. Policy states that users must never be able to change labels or pass documents to people at lower levels. Which access control model should be used?",
+      "options": [
+        "Mandatory access control",
+        "Discretionary access control",
+        "Role-based access control",
+        "Risk-based access control"
+      ],
+      "correctIndex": 0,
+      "explanation": "Mandatory control compares labels and clearances, and users cannot change them. Role-based control is tempting because agencies have job roles, but it does not enforce labels. Discretionary control would let owners share at will, which the policy forbids.",
+      "testsTopics": [
+        "T44"
+      ]
+    },
+    {
+      "prompt": "In a new zero trust design, a gateway sits in front of each application. The gateway sends every request to a central engine that evaluates policy, then allows or blocks the traffic according to the answer. What role does the gateway play?",
+      "options": [
+        "Policy decision point",
+        "Identity provider",
+        "Policy enforcement point",
+        "Policy administration point"
+      ],
+      "correctIndex": 2,
+      "explanation": "The gateway carries out the decision, so it is the enforcement point. The central engine is the decision point. That is the tempting wrong choice, because the gateway handles the request, but the gateway does not evaluate the policy itself.",
+      "testsTopics": [
+        "T44"
+      ]
+    },
+    {
+      "prompt": "An auditor visits a small company. Its servers use strong passwords and encrypted disks, but the server room door is propped open and cleaners and visitors walk past the racks. What is the BEST recommendation?",
+      "options": [
+        "Make the server passwords longer and change them more often",
+        "Restrict and log physical entry to the room, with escorts for visitors",
+        "Add a second layer of encryption to the most sensitive server disks",
+        "Install more monitoring software on the servers to detect any tampering"
+      ],
+      "correctIndex": 1,
+      "explanation": "The gap is physical, so the fix must be physical. Someone who can touch the racks can damage or remove equipment, however strong the logins are. More encryption is tempting, but it does nothing to stop theft or damage to the servers.",
+      "testsTopics": [
+        "T40"
+      ]
+    },
+    {
+      "prompt": "A testing team finds that an online shop gives a visitor a session value before login and keeps the same value after login. An attacker could send a victim a link containing a value the attacker already knows. Which change BEST fixes this weakness?",
+      "options": [
+        "Issue a new session value at every successful login",
+        "Log every session value to a central monitoring server for later checking",
+        "Force all customers to choose much longer and more complex passwords",
+        "Add a picture puzzle to the login page to block automated login attempts"
+      ],
+      "correctIndex": 0,
+      "explanation": "This is session fixation, and a new value at login makes the attacker's known value useless. Longer passwords are tempting, but the attacker does not need the password here, as the victim logs in for them. Logging only records the problem.",
+      "testsTopics": [
+        "T42"
+      ]
+    },
+    {
+      "prompt": "A security team sees failed logins from one source across thousands of staff accounts. Each account is tried only once with the same common password, so no lockouts occur. Which control would BEST reduce the risk from this activity?",
+      "options": [
+        "Lock every account after a single failed login attempt from any source",
+        "Add a random salt to every stored password",
+        "Force every user to change their password every 30 days",
+        "Require multi-factor authentication on all staff accounts"
+      ],
+      "correctIndex": 3,
+      "explanation": "This is password spraying. Multi-factor authentication means a guessed password is not enough to get in. A one-try lockout is tempting, but any typing error would block staff, and attackers could lock everyone out. Salts protect stored hashes, not live logins.",
+      "testsTopics": [
+        "T46"
+      ]
+    },
+    {
+      "prompt": "A network team needs a central service for administrators who log in to routers and switches. It must control which commands each administrator can run and must encrypt the whole message body. Which option BEST meets these needs?",
+      "options": [
+        "RADIUS",
+        "LDAP",
+        "TACACS+",
+        "Kerberos"
+      ],
+      "correctIndex": 2,
+      "explanation": "TACACS+ separates the three A's, supports per-command control and encrypts the whole body. RADIUS is the tempting choice, because it also provides central login, but it encrypts only the password and combines authentication with authorization.",
+      "testsTopics": [
+        "T46"
+      ]
+    },
+    {
+      "prompt": "A review finds that an overnight backup job runs under an account with full domain administrator rights. Its password has not changed in five years, and the person who created it has left. Which action plan is BEST?",
+      "options": [
+        "Delete the account at once so that it can no longer be misused by anybody",
+        "Assign an owner, limit it to backup rights, and vault and rotate its password",
+        "Change the password today and record the new one in the team's shared notes document",
+        "Convert the account into a named login for the backup administrator to use from now on"
+      ],
+      "correctIndex": 1,
+      "explanation": "This fixes all three faults: no owner, too much power and a stale secret, while backups keep running. Deleting the account is tempting, but it could stop the backups and harm availability. A named person's login would tie a critical job to one person.",
+      "testsTopics": [
+        "T45"
+      ]
+    },
+    {
+      "prompt": "A company is about to roll out single sign-on for all of its business applications. The chief executive asks what added control matters MOST now that one login will open everything. What should the security manager advise?",
+      "options": [
+        "Keep a separate password for each application as a fallback in case of outage",
+        "Require every user to change their password each month",
+        "Reduce the number of applications joined to the service",
+        "Require multi-factor authentication at the single sign-on login"
+      ],
+      "correctIndex": 3,
+      "explanation": "With single sign-on, one stolen login exposes everything, so the single login must be strongly protected. Separate passwords are tempting, but they remove the benefit of single sign-on and bring back password reuse problems. Monthly changes do not stop a stolen login from being used.",
+      "testsTopics": [
+        "T42",
+        "T41"
+      ]
+    }
+  ],
+  "reviewSession": [
+    {
+      "heading": "The whole domain in one picture",
+      "body": "Let us go back over Domain 5 as a whole, before we look at the details. This domain follows one person through one chain of events. First, we find out who is asking. Then we make them prove it. Then we decide what they may do. Then we record what they did. And over time, we keep that access correct as they join, move and leave. Physical and logical controls both play a part, and they cover six assets: information, systems, devices, facilities, applications and services. When a question seems confusing, ask yourself which link in that chain it is really about. Most wrong answers solve a problem from a different link. A stronger password will not help if the real fault is that a person moved jobs and kept the old rights. Find the link, and the answer usually becomes clear."
+    },
+    {
+      "heading": "Factors, and counting them correctly",
+      "body": "Now let us review the authentication factors, because this is tested again and again. Type 1 is something you know. Type 2 is something you have. Type 3 is something you are or do. Multi-factor authentication means two or more different types. So when you see a scenario, count the types and not the items. A password and a PIN are both known, so that is one factor. Two biometric scans are one factor as well. A smart card and a PIN are two. People mix this up because two steps feel like two factors, and they are not. Remember too that identification is only a claim, and authentication is the proof. When you must choose the best login method, prefer different types of factor, and prefer something that cannot be phished, such as a passkey, over a text message code."
+    },
+    {
+      "heading": "Biometric errors",
+      "body": "Next come the biometric error rates. Say these aloud until they are automatic. The false rejection rate, or FRR, is a Type 1 error, and it refuses the right person. The false acceptance rate, or FAR, is a Type 2 error, and it lets the wrong person in. The crossover error rate, or CER, is the point where those two are equal. Raising the sensitivity makes FRR go up and FAR go down. To compare two products, use the CER, and remember that lower is better. People go wrong in two ways. They mix up which type is which, or they choose the product with the best single rate, which any vendor can achieve by changing the setting. For a very sensitive door, you may deliberately accept more false rejections to reduce false acceptances. FAR is the error that lets an impostor in."
+    },
+    {
+      "heading": "Sessions, single sign-on and just-in-time",
+      "body": "Let us now go back over what happens after login. Each person needs one account, because shared accounts destroy accountability. Sessions must end properly. Make tokens random, send them only over encrypted connections, issue a new token at login to stop session fixation, and destroy the session on the server at logout. Ask for fresh proof before risky actions. Single sign-on means fewer passwords and one place to disable a user, but one stolen login opens everything, and an outage stops everything. So pair it with multi-factor authentication, and build it to stay available. Just-in-time access replaces standing privilege with short, approved, logged access that ends by itself. Watch for the second meaning, just-in-time provisioning, which creates an account the first time someone signs in through federation. The exam may use either, so read the scenario closely."
+    },
+    {
+      "heading": "SAML, OAuth and OpenID Connect",
+      "body": "Now we come to federation, where three names cause endless confusion. The identity provider checks who you are, and the service provider relies on that. SAML is the Security Assertion Markup Language. It uses signed XML assertions, passed through the browser, and is common for business web logins. OAuth 2.0 is delegated authorization. It gives an application a limited access token, without giving it your password, and it does not prove who you are. OpenID Connect adds authentication on top of OAuth 2.0, using an ID token in the form of a signed JSON Web Token, and is common for web and mobile logins. So ask what the scenario needs. Permission to reach data means OAuth. Knowing who the person is means OpenID Connect. Signed XML with a business partner means SAML. If a signing key is stolen, replace the key and update trust first, because password resets will not help."
+    },
+    {
+      "heading": "Choosing the authorization model",
+      "body": "Let us review the authorization models, and one question will separate them all. Who or what decides? In discretionary access control, the owner decides. In mandatory access control, the system compares labels and clearances, and users cannot change them. In role-based control, the person's job decides. In rule-based control, global rules decide for everyone, as on a firewall. In attribute-based control, a combination of facts decides, about the subject, the object, the action and the environment. In risk-based control, the calculated danger of this request decides. Non-discretionary means simply that the owner does not decide, so only discretionary control falls outside it. The common trap is that role-based and rule-based share the same letters, so read the scenario for jobs or for rules. Remember also that clearance alone is never enough. Need to know must also be met."
+    },
+    {
+      "heading": "Matrix, decision and enforcement",
+      "body": "Two more ideas are short, and easy marks if you keep them straight. In an access control matrix, subjects are the rows and objects are the columns. A row gives you a capability list, which is everything one subject can reach. A column gives you an access control list, which is everyone who can reach one object. So capabilities go with subjects, and access control lists go with objects. Next, the policy decision point evaluates the policy and decides. The policy enforcement point sits in front of the resource and carries out that decision. The picture to hold on to is the manager and the door staff. A gateway in front of an application is usually the enforcement point, even though the request reaches it first. And if the decision point cannot be reached, a sensitive system should deny the request and not simply let it pass."
+    },
+    {
+      "heading": "The access lifecycle",
+      "body": "Now let us go back over the lifecycle, which is where the manager's mindset shows most clearly. Joiners, movers and leavers should be driven by human resources events. Disable first and delete later, so that records survive. In a hostile termination, disable access at or before the moment the person is told. On a transfer, remove the old rights as the new ones arrive, or privilege creep builds up. Owners and managers review access, and people never review their own. Look for orphan and dormant accounts. Every service account needs a named human owner, least privilege, no interactive login and managed secrets. Sudo should be limited to the commands needed, and its logs should go to a central place that administrators cannot alter. When the same audit finding keeps coming back, the best answer fixes the process. Removing one person's rights only treats the symptom."
+    },
+    {
+      "heading": "Kerberos in order",
+      "body": "Let us walk through Kerberos one more time, in order. The key distribution center, or KDC, contains the authentication service and the ticket-granting service. The client proves itself to the authentication service and receives a ticket-granting ticket, along with a session key. The client then presents that ticket and an authenticator to the ticket-granting service, and receives a service ticket. Finally, the client presents the service ticket and a new authenticator to the service itself. The password is never sent across the network. Three facts are tested most often. Clocks must match, within five minutes by default. The KDC is a single point of failure and a very valuable target. And Kerberos proves identity, while the service still decides what you may do. It runs on port 88. If forged tickets were made with the KDC's own key, password resets will not help."
+    },
+    {
+      "heading": "RADIUS, TACACS Plus and LDAP",
+      "body": "Now for the exact facts on network authentication. RADIUS runs over UDP, on port 1812 for authentication and port 1813 for accounting. It protects only the password, and it combines authentication and authorization. It is typically used for Wi-Fi and remote access. TACACS Plus runs over TCP, on port 49. It encrypts the whole message body, and it keeps authentication, authorization and accounting separate, so it can control each command. It is typically used for administrators on routers and switches. The trap is to remember the right facts for the wrong product, so link them together. RADIUS, UDP, password only. TACACS Plus, TCP, whole body. LDAP reads and updates a directory. Port 389 is plain and port 636 is protected with TLS. A simple bind on a plain connection sends the password in clear text, so encrypt it."
+    },
+    {
+      "heading": "Password attacks and thinking like a manager",
+      "body": "To close, let us match attacks with their defenses, and then remember how to choose the best answer. Spraying is one password against many accounts. Stuffing is reusing leaked logins. Multi-factor authentication stops most of both. Rainbow tables are defeated by salts, and offline cracking is slowed by deliberately slow salted hashes. Lockouts do nothing against an attacker working on a stolen copy. Now the mindset. People's safety comes first, so an escape door fails safe. The asset owner decides who has access, and technical staff carry it out. Prefer the answer that fixes the cause over the one that cleans up a single case. Prefer a control that fits the actual weakness, rather than one that simply sounds strong. Follow the policy in the scenario, and ask which link in the identity chain is really broken. Then choose calmly, like an adviser."
+    }
+  ]
+}

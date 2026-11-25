@@ -1,0 +1,141 @@
+{
+  "id": "T24",
+  "studyNotes": [
+    {
+      "heading": "Cloud service models and deployment models",
+      "body": "In this first part, we are going to look at what cloud computing is, and at the different ways of buying it.\n\nCloud computing means renting computing power over a network, instead of owning it. There are three main service models. Let us think about housing first.\n\nImagine you need somewhere to live. You could rent an empty plot and build on it yourself. You could rent a house that has already been built, and bring your own furniture. Or you could stay in a furnished hotel room, where everything is done for you. Cloud services work the same way. The more you rent, the less you look after.\n\n- IaaS, or Infrastructure as a Service: you rent virtual servers, storage and networks. You manage the operating system, applications and data.\n- PaaS, or Platform as a Service: you rent a ready platform to build and run your code. You manage your application and data.\n- SaaS, or Software as a Service: you use a finished application, such as web email. You manage your users, settings and data.\n\nHere are workplace examples. A company that rents virtual servers and installs its own software on them is using Infrastructure as a Service. A team that uploads its web application to a managed hosting platform, without ever touching the operating system, is using Platform as a Service. A business that signs up for an online payroll product is using Software as a Service.\n\nDeployment models say who shares the cloud.\n\n- Public: run by a provider and open to anyone who pays.\n- Private: used by one organization only.\n- Community: shared by a group with shared needs, such as several hospitals.\n- Hybrid: a mix of these, joined together.\n\nDo not confuse the two groups. Service models are about what you rent. Deployment models are about who shares it. A company may use Software as a Service from a public cloud, or Infrastructure as a Service in a private cloud.\n\nNIST, the United States National Institute of Standards and Technology, describes the essential qualities of a cloud. Customers can help themselves to services, reach them over a network, share a pool of resources, grow and shrink quickly, and pay according to what they use.\n\nHere is what to take away. The service models are Infrastructure, Platform and Software, and the deployment models are public, private, community and hybrid."
+    },
+    {
+      "heading": "Shared responsibility in the cloud",
+      "body": "Now we will look at who does what in the cloud. This is one of the most tested ideas in this topic.\n\nThe provider always looks after the buildings and the physical hardware. The customer always looks after its data, its users and their access. Between those two, duties move depending on the service model. Here is how.\n\n- Infrastructure as a Service: the customer patches the operating system.\n- Platform as a Service: the provider patches the operating system, and the customer secures its own code.\n- Software as a Service: the provider runs the application, and the customer controls settings and accounts.\n\nGo back to our housing picture. If you rent an empty plot, you build the walls yourself. If you stay in a hotel, the hotel looks after the walls and cleans the room. But in every case, your jewellery is your responsibility. If you leave it on the bed with the door open, you cannot blame the owner of the building.\n\nThis detail is tested often. You can hand over tasks, but you cannot hand over accountability for your data. If a cloud storage area is open to the world because of your setting, that is your failure, even though the provider's hardware is involved.\n\nCloud risks include wrong settings, stolen accounts, data stored in the wrong country, and difficulty collecting evidence. Stored in the wrong country can matter a great deal, because a country's data laws may follow the data. You may also find it hard to examine a provider's systems after an incident.\n\nBefore signing, read the contract, and check the provider's independent audit reports. A common report is the SOC 2, where SOC stands for System and Organization Controls. Ask where data will be stored, how it will be returned when the contract ends, and how you will be told about an incident.\n\nHere is a workplace example. A retailer stores customer invoices in a cloud storage service. A developer changes a setting to help with testing, and makes the storage public. A newspaper finds the files. The provider's hardware worked perfectly. The retailer remains accountable to its customers and to its regulator. The fix is a process problem as much as a technical one, with reviews of settings and automated checks.\n\nHere is your takeaway. The provider handles the physical layer, the customer always handles data and access, and accountability can never be handed over."
+    },
+    {
+      "heading": "Virtual machines and hypervisors",
+      "body": "Next we are going to look at virtualization, the technology that makes most of the cloud possible.\n\nA virtual machine, or VM, is a software computer running on a real one. A hypervisor is the software that creates and runs virtual machines. Think of a large house divided into separate flats. The house is the real computer. The building manager who keeps the flats separate is the hypervisor. Each flat thinks that it is a whole home.\n\nThere are two types of hypervisor.\n\n- Type 1, or bare metal: runs directly on the hardware. Common in data centres.\n- Type 2, or hosted: runs on top of a normal operating system. Common on desktops.\n\nType 1 is generally more secure, because there is less software underneath it. A Type 2 hypervisor depends on the health of the operating system it sits on.\n\nThe main virtual machine risks are these.\n\nVirtual machine escape means an attacker breaks out of a virtual machine to reach the host or other virtual machines. This is the most serious one. Imagine someone in one flat finding a hidden door into the building manager's office, and from there into all of the other flats. Protect against this by patching the hypervisor quickly.\n\nVirtual machine sprawl means too many forgotten, unpatched virtual machines. Because new ones are so easy to create, nobody keeps track of them. A proper inventory and an approval process are the controls here.\n\nThere are other concerns too. Snapshots are saved copies of a virtual machine at a moment in time, and they may hold sensitive data. Dormant virtual machines miss their updates, and they can come back to life with old flaws. Traffic between virtual machines on the same host may never cross a physical network, so a traditional firewall will not see it. Virtual firewalls can deal with that.\n\nHere is a workplace example. A company has one powerful server hosting twenty virtual machines. Its payroll system runs on the same host as a public web server. A flaw in the hypervisor lets an attacker move from the web server to payroll. The manager decides that systems of very different sensitivity should run on separate hosts.\n\nHere is what to take away. A Type 1 hypervisor runs directly on the hardware, a Type 2 runs on an operating system, escape is the serious risk, and sprawl comes from poor control."
+    },
+    {
+      "heading": "Containers",
+      "body": "In this part, we are going to look at containers, and at how they differ from virtual machines.\n\nA container packages an application with everything it needs to run. Think about a lunchbox. Everything you need for your meal is inside. You can carry it to work or to the park, and the meal is the same in both places. A container behaves in the same way. The application runs the same on a developer's laptop as it does on a cloud server.\n\nThe important difference is this. Each virtual machine has its own complete operating system. Containers on one host share the host's operating system kernel, which is the core of the system. Because of that, they start quickly and take up less room. But they are less isolated than virtual machines. A flaw in the kernel can affect them all.\n\nGo back to the housing picture. Virtual machines are separate flats with their own walls and plumbing. Containers are rooms in a shared house, with one shared kitchen. They are cheaper, but what goes wrong in the kitchen affects everyone.\n\nA container image is the template from which containers are made. Images are often downloaded from public stores, and that creates a supply chain risk, which means that a weakness can arrive through something you obtained from someone else.\n\nThe main container controls are these.\n\n- Use trusted images that have been scanned for known weaknesses.\n- Do not run containers as the most powerful user.\n- Keep the host patched, because all containers depend on its kernel.\n- Keep secrets, such as passwords, out of images.\n- Limit what each container can reach on the network.\n\nContainers are usually managed by an orchestration tool, which is software that starts, stops and moves large numbers of containers. Kubernetes is the well known example. If the orchestration tool is compromised, then every container it manages is at risk, so it must be strongly protected.\n\nHere is a workplace example. A development team downloads a popular image from a public store. A scan shows that it contains a program with a known flaw. The security manager requires the team to use a company-approved store of scanned images.\n\nHere is your takeaway. Containers share a kernel, so they are fast but less isolated. Scan your images, avoid the most powerful user, and keep the host patched."
+    },
+    {
+      "heading": "Serverless, microservices and distributed systems",
+      "body": "Now we are going to look at three newer ways of building applications.\n\nServerless means that you upload small functions, and the provider runs them when needed. Servers do exist, but you do not manage them. Think about a taxi. You do not own, insure or service the car. You ask for a trip, and you pay for that trip only.\n\nServerless removes the job of patching servers. But you still secure your code, its permissions and its data. Each function should have only the rights it needs. A common mistake is to give every function very wide permissions, because it is easier. Functions also pass data to each other through events, and those events must be treated as untrusted input.\n\nMicroservices split one application into many small services that talk through APIs. An API, or Application Programming Interface, is a defined way for programs to talk to each other. Think of a restaurant where each station does one job. One cooks, one bakes, and one makes drinks, and they pass orders to each other using slips of paper.\n\nMicroservices can be updated independently. But more APIs mean more doors to guard. So each service must prove who is calling, and it should give the caller only limited rights. Inside the application, traffic must not be trusted just because it comes from another service. A common way of doing this is mutual authentication, where both sides of a connection prove their identity, usually with digital certificates.\n\nDistributed systems spread work across many computers. Think about a chain of shops that must all keep the same stock figures. They are harder to keep consistent, and a weak member can harm the group. Data may also be copied to many places, including places with different laws. Keeping accurate time across all of the members matters, because logs and security decisions depend on it.\n\nHere is a workplace example. A company runs an online shop as thirty microservices. The stock service is compromised. Because it can only reach two other services, and because every call must be authenticated, the attacker cannot reach the payment service.\n\nA manager should ask for an inventory of services, and should ask who owns each one.\n\nHere is what to take away. In all of these designs, the customer still secures code, permissions and data, and every connection must be authenticated."
+    },
+    {
+      "heading": "Embedded, high-performance and edge systems",
+      "body": "In this final part, we will look at three more kinds of system: embedded systems, high-performance computing and edge computing.\n\nAn embedded system is a computer built into a product, such as a car or a medical pump. It has a single job, its software is often fixed at the factory, and it may stay in use for many years.\n\nEmbedded systems are often hard to update. Some have no means of being updated at all. They often have limited memory and processing power, so strong protections may not fit. In the workplace, think about a hospital with infusion pumps that were built ten years ago. They may run old software that can no longer be patched. Because a failure could harm a patient, the hospital places them on a separate network, and restricts who can reach them. It also asks the vendor for a support commitment before it buys the next set.\n\nHigh-performance computing, or HPC, joins many processors together to do huge calculations. Weather forecasting and scientific research are examples. Speed is the priority, so security tools are sometimes left out, because they might slow down the work. Protect it by isolating the cluster, which is the group of joined computers, and by controlling who may submit jobs.\n\nHere is an everyday picture. Think of a very large team of workers doing one enormous job at top speed. You do not stop to search each one at every step, so you put a strong fence around the whole site, and you check people carefully at the gate.\n\nEdge computing processes data close to where it is created, such as in a shop or a factory. Think of a shop that counts its till receipts on site at the end of the day, without sending every receipt to head office first. This is quick, and it saves on network traffic. But devices sit in places that are less physically secure.\n\nPlan for theft, tampering and patching across many small sites. Encrypt stored data, make sure that devices identify themselves, and manage them centrally.\n\nA manager's task with all of these systems is to plan for a long life and limited updates, and to compensate where a system cannot protect itself.\n\nHere is your takeaway. Embedded systems are hard to update, high-performance systems trade security for speed, and edge devices are physically exposed."
+    }
+  ],
+  "practiceQuestions": [
+    {
+      "prompt": "A development team wants to deploy its own web application without having to install or patch any operating system. Which service model BEST fits?",
+      "options": [
+        "Infrastructure as a Service",
+        "Platform as a Service",
+        "Software as a Service",
+        "Private hosted co-location"
+      ],
+      "correctIndex": 1,
+      "explanation": "Platform as a Service runs your code on a platform the provider maintains. Software as a Service is tempting because it also removes patching, but that gives you a finished application and not a place to run your own."
+    },
+    {
+      "prompt": "Several regional hospitals agree to share one cloud environment built to meet their common health data rules. Which deployment model is this?",
+      "options": [
+        "Community",
+        "Public",
+        "Private",
+        "Hybrid"
+      ],
+      "correctIndex": 0,
+      "explanation": "A cloud shared by a group with common needs is a community cloud. Private is tempting because outsiders are excluded, but a private cloud serves one organization only."
+    },
+    {
+      "prompt": "A company using Software as a Service asks who remains responsible for controlling which staff members can see customer records. Who is responsible?",
+      "options": [
+        "The cloud provider's support team",
+        "The provider's data centre manager",
+        "The customer company",
+        "The independent auditor"
+      ],
+      "correctIndex": 2,
+      "explanation": "The customer always manages its own users and their access. The support team is tempting because the provider runs the application, but the provider does not decide who in your company should see what."
+    },
+    {
+      "prompt": "A customer's cloud storage is exposed because of a setting the customer's own administrator chose. Regulators ask who is accountable. What is the BEST answer?",
+      "options": [
+        "The provider, because it owns the storage hardware",
+        "The customer, because accountability for its data stays with it",
+        "The administrator personally, because of the specific action taken",
+        "Nobody, because cloud services are shared by their nature"
+      ],
+      "correctIndex": 1,
+      "explanation": "Tasks can be handed over, but accountability for your own data cannot. Blaming the provider is tempting because the hardware is theirs, but the fault lies in a setting that the customer controls."
+    },
+    {
+      "prompt": "A company finds dozens of virtual machines that nobody remembers creating, most of them missing patches. What is this problem called, and what is the BEST control?",
+      "options": [
+        "Virtual machine escape, and patching the hypervisor",
+        "Container breakout, and scanning all images",
+        "Hypervisor drift, and adding a Type 2 hypervisor",
+        "Virtual machine sprawl, and an approved inventory"
+      ],
+      "correctIndex": 3,
+      "explanation": "Too many unmanaged virtual machines is sprawl, and inventory and approval control it. Escape is tempting because it is the famous virtual machine risk, but escape means breaking out of a machine, which is not described here."
+    },
+    {
+      "prompt": "An architect must choose between containers and virtual machines for two applications of very different sensitivity on the same physical host. Which concern about containers is MOST important?",
+      "options": [
+        "Containers on one host share one operating system kernel",
+        "Containers start too slowly for this kind of application",
+        "Containers cannot be scanned for any known weaknesses",
+        "Containers cannot be moved between different hosts"
+      ],
+      "correctIndex": 0,
+      "explanation": "A shared kernel means less isolation, so one flaw can affect both applications. Slow startup is tempting as a practical worry, but containers are in fact known for starting quickly."
+    },
+    {
+      "prompt": "A company adopts serverless functions from its cloud provider. A manager says the company no longer has any security duties for that application. What is the BEST response?",
+      "options": [
+        "That is correct, as the provider now manages everything for that application",
+        "That is correct, once a suitable contract has been signed",
+        "The company must still patch the provider's underlying servers",
+        "The company must still secure its code, permissions and data"
+      ],
+      "correctIndex": 3,
+      "explanation": "The provider takes on the servers, but the code, its permissions and its data remain the customer's. Saying the company must patch the servers is tempting because patching is a common duty, but the servers are the part that is handed over."
+    },
+    {
+      "prompt": "A company's application is split into many small services. An attacker takes over one service. Which design decision would MOST limit the damage?",
+      "options": [
+        "Combining all services into a single large application",
+        "Publishing every API on the internet for easy testing",
+        "Limiting each service to only the calls it really needs",
+        "Using a single shared account for all service calls"
+      ],
+      "correctIndex": 2,
+      "explanation": "Limited rights for each service restrict how far an attacker can move. A single large application is tempting because it reduces the number of APIs, but it would give an attacker everything in one place."
+    },
+    {
+      "prompt": "A hospital has infusion pumps with software that cannot be updated, and the vendor no longer supports them. Replacement is two years away. What should the security manager recommend?",
+      "options": [
+        "Connect them to the main network so they can be monitored",
+        "Isolate them on a restricted network until replaced",
+        "Take every pump out of service immediately",
+        "Accept the risk with no further action"
+      ],
+      "correctIndex": 1,
+      "explanation": "Isolation is a compensating control that reduces risk while keeping patient care running. Removing every pump is tempting because it removes the security risk, but it would harm patients who need the treatment."
+    },
+    {
+      "prompt": "A retailer processes camera data on small computers placed in each of its stores, to reduce the traffic sent to the head office. What is the MOST significant security concern with this design?",
+      "options": [
+        "The devices are physically exposed at many sites",
+        "The devices cannot run any type of encryption",
+        "The cameras cannot record while processing occurs",
+        "The head office will have too much spare capacity"
+      ],
+      "correctIndex": 0,
+      "explanation": "Edge devices sit in places that are less physically secure, across many sites. Saying they cannot use encryption is tempting as a worry about small devices, but edge computers can and should encrypt their data."
+    }
+  ]
+}

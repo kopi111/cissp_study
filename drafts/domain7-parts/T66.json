@@ -1,0 +1,141 @@
+{
+  "id": "T66",
+  "studyNotes": [
+    {
+      "heading": "Safety comes first, and how doors should fail",
+      "body": "In this first part, we are going to look at the most important rule in physical security, and at how it applies to doors.\n\nHuman life is always the top priority. Security controls must never trap people. On the exam, if one answer protects people and another protects equipment or data, the answer that protects people is correct.\n\nThink of a shop that locks its back door to stop shoplifters. If a fire starts and customers cannot get out through that door, the shop has traded lives for stock. No manager should ever make that choice.\n\nThis rule matters for door locks. Electronic locks depend on power, so you must decide what they do when power fails.\n\n- Fail-safe: the door unlocks so that people can get out. Use this on exit routes.\n- Fail-secure: the door stays locked. Use this for a cash store or an equipment room where nobody is trapped.\n\nHere is an easy way to remember it. Fail-safe saves people. Fail-secure secures things. Note that the word safe here refers to the safety of people.\n\nFire exits must work from the inside, even if this lowers security. A common design is a door that always opens from the inside, using a bar that you push, and that remains locked from the outside. Everybody can escape, but nobody can walk in. An alarm can warn staff that the door has been opened.\n\nPhysical security works in layers, starting at the outer edge and moving inwards. Think of a bank, with a fence outside, a guard at the door, cameras in the hall and a locked vault inside. This is known as defence in depth. Layers slow an intruder down, and make that person easier to catch.\n\nGood planning follows a sequence: deter, then delay, then detect, then assess, then respond. You want to put off an intruder if you can, slow them down if you cannot, notice them quickly, and work out what is happening so that the right response can be sent.\n\nHere is a workplace example. A data centre's main exit door unlocks in a power failure. The inner cage that holds its servers stays locked, because no one would be trapped inside it.\n\nHere is what to take away. People come first, exits fail safe, and physical security is built in layers."
+    },
+    {
+      "heading": "Perimeter security controls",
+      "body": "Now we will look at perimeter security, which means the outer edge of your property.\n\nThink of a castle. It has a moat, a high wall, a gate with a guard, and a clear stretch of open ground around it, so that nobody can sneak up. Modern sites use the same ideas in a less dramatic way.\n\nFences are the most obvious control, and the exam expects you to know these heights.\n\n- 3 to 4 feet deters casual walkers.\n- 6 to 7 feet is hard to climb.\n- 8 feet with three strands of barbed wire deters a determined intruder.\n\nThese are the usual figures in a United States context, and one foot is about 30 centimetres.\n\nBollards are short, strong posts that stop vehicles. They protect entrances from cars being driven at them, whether by accident or on purpose.\n\nLighting deters people and helps cameras. A commonly quoted standard is that critical areas should be lit to two foot-candles at a height of eight feet. A foot-candle is a measure of brightness. Lights should not leave dark gaps, and should not point at guards and cameras so as to dazzle them.\n\nGates control where people and vehicles can enter. Guards can use judgement, which no machine can, and they can respond to something unexpected. Dogs are a strong deterrent, but they bring liability concerns, as they can injure someone.\n\nCCTV, or closed-circuit television, means cameras that record and deter. They work best when someone watches them, or when recordings are kept and reviewed.\n\nMotion sensors and intrusion alarms detect someone crossing the boundary.\n\nCPTED, or crime prevention through environmental design, means shaping the site to discourage crime. Low plants and open views give fewer hiding places. Well-used, visible spaces feel watched, so that a would-be intruder feels exposed.\n\nA further point is that the perimeter also includes things like delivery areas, side gates, roof access and air vents. A strong front gate does not help if the loading bay is left open every lunchtime.\n\nHere is a workplace example. A government building places bollards at the front, keeps its shrubs low, lights all its paths, and has one guarded vehicle gate. A camera system records all approaches.\n\nHere is your takeaway. Learn the three fence heights, use bollards for vehicles, and design the site so that intruders have nowhere to hide."
+    },
+    {
+      "heading": "Internal security controls",
+      "body": "Next we are going to look at the controls inside the building.\n\nThink of a hospital. Anyone may walk into the reception area. Only staff can go through to the wards. Only certain staff can get into the pharmacy. The security increases as the space becomes more sensitive.\n\nThat idea is called secure zones. The more sensitive the room, the fewer people may enter. A data centre usually sits at the very centre of these layers.\n\nBadges and access cards identify people and open doors, and they keep logs of who entered. Biometric readers use a part of the body, such as a fingerprint, to confirm identity.\n\nAn access control vestibule, once called a mantrap, is a small space with two doors where only one can open at a time. It stops tailgating, which is following someone through a door. A closely related word is piggybacking. In that case, the person who has access knowingly lets someone else through. Think of holding the door for a friendly stranger carrying a box.\n\nVisitors should sign in and wear a badge that clearly shows they are visitors. They should be escorted at all times in secure areas. Visitor records should be kept.\n\nLocks and cabinets need strict key control. Know who has each key, and change the locks if a key goes missing.\n\nCameras inside sensitive rooms deter misuse, and they support investigations. Be aware of privacy, because cameras in some places are not appropriate or lawful.\n\nA clean desk policy means that sensitive papers and devices are locked away at the end of the day.\n\nThe data centre itself needs extra care. Power should be conditioned and backed up, the temperature and humidity should be controlled, and the fire suppression should be suited to the equipment. Wiring closets should be locked, since they give direct access to the network.\n\nUse several layers, so that one failure does not expose everything. This is defence in depth.\n\nHere is a workplace example. A research firm requires a badge at the lobby, a badge and a code at the laboratory corridor, and a vestibule at the server room. A receptionist notices a visitor walking without an escort and acts on it at once.\n\nHere is what to take away. Security tightens as you move inward, stop tailgating, and always escort visitors."
+    },
+    {
+      "heading": "Emergency management and duress",
+      "body": "In this part, we will look at how to keep people safe in an emergency, and at what to do under duress.\n\nEmergency management plans for fires, storms, medical events and violence. Think of a family that has agreed on a meeting place across the street in case of a fire. Everyone simply goes to the place that was agreed.\n\nStaff should know the exits and the meeting points. Floor wardens help people to leave and count them at the meeting point. Practise with drills. Think also about people who need extra help, such as staff who use a wheelchair and cannot use the stairs. Someone must be assigned to help them.\n\nA written plan for this is sometimes called an occupant emergency plan. It covers what the people in a building should do. Note that it is about the safety of people, whereas a disaster recovery plan is about restoring systems.\n\nThe emergency plan also needs a means of giving instructions, such as alarms, loudspeakers, or text messages to everybody at once. Staff should never go back into a building to collect their belongings or equipment.\n\nDuress means being forced to act under threat. Staff may have a duress code, which is a word or personal code that looks normal, but silently calls for help. A panic button does the same job. Some door systems allow a person to enter a special code that opens the door as normal, while at the same time alerting the guards.\n\nThink of a shop worker being held up. The worker opens the till, as demanded, and presses a button under the counter with a knee. The robber sees nothing unusual. Help is already on its way.\n\nThe guidance is simple. Comply with the attacker, stay calm, and raise the alarm silently if it is safe to do so. No data is worth a life. Staff are not expected to be heroes, and a good policy says so.\n\nHere is a workplace example. A bank employee is forced by armed men to open the back door. The employee enters the duress code and opens the door as demanded. The guards call the police and do not attempt to confront the attackers.\n\nHere is your takeaway. Plan, drill and count people in an emergency, and under duress, comply and raise the alarm silently."
+    },
+    {
+      "heading": "Travel",
+      "body": "Now we are going to look at the risks of working while travelling, and at what the organisation should do about them.\n\nThink about going on holiday. You would not leave your passport lying around in a café. You would keep your valuables close, and you would find out in advance which parts of the city are safe. Work travel needs the same thinking, and there are additional risks because you are carrying the organisation's information.\n\nHere are the main practices.\n\nCheck travel advice for the destination first. Governments publish warnings about the risks in each country.\n\nTake a clean loaner laptop or phone, with only the data needed. Then, if it is lost or seized, little is at risk. A loaner is a device that is lent for the trip.\n\nUse a VPN, or virtual private network, which is a protected tunnel across the internet, on public Wi-Fi. Wi-Fi is a wireless network, and a public one could be run by, or watched by, anyone.\n\nNever leave devices unattended, including in hotel rooms.\n\nCheck import and export rules for encryption and for any data carried. Encryption is the scrambling of data so that only key holders can read it. Some countries restrict encryption products. Some can require you to unlock a device at the border. So the less you carry, the better.\n\nCheck loaner devices for tampering on return, or simply wipe them. Do not plug them straight into the company network.\n\nBe careful of conversations too. A crowded train is not the place to discuss a confidential deal, and shoulder surfing, which means someone looking over your shoulder, is easy in an airport lounge. A privacy screen helps.\n\nPeople's safety still comes first. If a member of staff is threatened at a border, the right course of action is to comply and report later. Any policy that asks people to take risks with their own safety is a bad policy.\n\nHere is a workplace example. An executive visits a high-risk country. The company issues a clean phone and laptop with only the required documents, briefs her on the risks, and wipes the devices when she returns.\n\nHere is what to take away. Travel with as little data as possible, protect it well, check the rules, and treat returning devices with suspicion."
+    },
+    {
+      "heading": "Security training and awareness",
+      "body": "In this final part, we will look at security training and awareness, and at the three subjects that the outline names.\n\nTraining teaches people how to do something. Awareness reminds them why it matters. Think of road safety. A driving lesson teaches you how to use the brakes. A roadside poster reminds you not to drink and drive.\n\nThe outline names three specific subjects.\n\nInsider threat. People inside can do great harm, and they already have access. Some act on purpose, for money or out of anger. Others do damage through carelessness. Staff should know how to report concerns, and managers should be aware of warning signs, such as serious unhappiness, unexplained money, or unusual interest in matters outside the person's role.\n\nSocial media. Posting about work, travel or a new badge can help attackers. A photo of your first day at work, showing your badge, can help someone make a copy. Attackers use social media to learn names, roles and relationships for social engineering, which means tricking people into giving something away. Staff need clear guidance about what may be shared.\n\nTwo-factor authentication fatigue. Two-factor authentication means two kinds of proof at login, such as a password and an approval on a phone. In this attack, the attacker already has the password. So the attacker sends approval prompts again and again, hoping that a tired or annoyed person will approve one. It is also called push bombing. Never approve a prompt that you did not start, and report it. Technical fixes help too, such as number matching, where the person must type a number shown on the login screen.\n\nRepeat training regularly, and test how well it works. A simple measure is the percentage of staff who report a practice phishing email. Phishing is a trick message that fools people. It is better to measure behaviour than to count how many people attended a course. Make the training suit each role, and never humiliate someone who gets it wrong, as that discourages reporting.\n\nHere is a workplace example. A staff member receives eight phone prompts at midnight. She denies them all, and she reports them. The team finds a stolen password and resets it.\n\nHere is your takeaway. Train by role, teach insider threat, social media and prompt fatigue, and measure behaviour."
+    }
+  ],
+  "practiceQuestions": [
+    {
+      "prompt": "A company is fitting electronic locks to a store room that holds only spare equipment. Nobody works in the room. What should the lock do during a power failure?",
+      "options": [
+        "Unlock, because every door must fail safe",
+        "Stay locked, because nobody would be trapped",
+        "Unlock for one hour and then lock again",
+        "Sound an alarm and then unlock"
+      ],
+      "correctIndex": 1,
+      "explanation": "A fail-secure lock suits a room where no one can be trapped. Unlocking is tempting because of the safety rule, but this rule is about exit routes and places where people could be trapped."
+    },
+    {
+      "prompt": "A company wants a fence around its site that will deter a determined intruder. What is the MINIMUM it should choose?",
+      "options": [
+        "3 feet high",
+        "4 feet high",
+        "6 feet high",
+        "8 feet high with three strands of barbed wire"
+      ],
+      "correctIndex": 3,
+      "explanation": "8 feet with three strands of barbed wire deters a determined intruder. 6 feet is tempting, as it is hard to climb, but it is not the level given for a determined intruder."
+    },
+    {
+      "prompt": "A government office is concerned that a vehicle could be driven through its glass front entrance. Which control is BEST suited to this threat?",
+      "options": [
+        "Motion sensors in the lobby",
+        "A security guard at the reception desk",
+        "Bollards in front of the entrance",
+        "A higher number of indoor cameras"
+      ],
+      "correctIndex": 2,
+      "explanation": "Bollards are short, strong posts built to stop vehicles. A guard is tempting because guards use judgement, but a guard cannot physically stop a moving vehicle."
+    },
+    {
+      "prompt": "A company wants to stop unauthorised people from following staff through a secure door into its data centre. Which control BEST addresses this?",
+      "options": [
+        "An access control vestibule",
+        "A stronger lock on the door",
+        "A sign warning about tailgating",
+        "A longer door access code"
+      ],
+      "correctIndex": 0,
+      "explanation": "A vestibule allows only one door to open at a time, which stops people following behind. A stronger lock is tempting, but the door is opened by a legitimate user and the follower simply walks through."
+    },
+    {
+      "prompt": "A site designer suggests trimming shrubs and placing windows that overlook the car park to reduce crime. Which approach is this?",
+      "options": [
+        "Defence in depth",
+        "Crime prevention through environmental design",
+        "Separation of duties",
+        "Zero trust"
+      ],
+      "correctIndex": 1,
+      "explanation": "Shaping the site to discourage crime is crime prevention through environmental design. Defence in depth is tempting because it is also about physical protection, but it refers to using several layers."
+    },
+    {
+      "prompt": "A fire alarm sounds. One employee wants to return to the office to collect a laptop holding sensitive data. What should happen?",
+      "options": [
+        "Allow it if the laptop is close to the exit",
+        "Allow it, so long as the employee is quick",
+        "Ask a security guard to collect the laptop instead",
+        "Leave the laptop and go to the meeting point"
+      ],
+      "correctIndex": 3,
+      "explanation": "People's lives come before any equipment or data. Asking a guard is tempting because the employee stays safe, but it only sends a different person into danger."
+    },
+    {
+      "prompt": "A staff member is being forced by an intruder to open a secure door. The staff member enters a special code that opens the door as normal and quietly alerts the guards. What is this code called?",
+      "options": [
+        "A duress code",
+        "A one-time password",
+        "A master key",
+        "An M of N code"
+      ],
+      "correctIndex": 0,
+      "explanation": "A duress code looks normal but silently calls for help. A one-time password is tempting because it is also a special code, but it is used for logging in and gives no alert."
+    },
+    {
+      "prompt": "An employee is travelling to a country where devices are often searched at the border. What is the BEST way to protect company data?",
+      "options": [
+        "Carry the normal work laptop and be ready to refuse any search",
+        "Take a clean loaner device that holds only the data needed",
+        "Post the laptop to the hotel in a padded envelope",
+        "Hide the normal work laptop inside checked luggage"
+      ],
+      "correctIndex": 1,
+      "explanation": "A clean device with minimal data means little is at risk if it is searched or seized. Refusing a search is tempting as a way to protect the data, but it can put the employee in danger."
+    },
+    {
+      "prompt": "An employee receives repeated login approval prompts on their phone at night, and did not try to log in. What should the employee do?",
+      "options": [
+        "Approve one so that the prompts stop",
+        "Turn off the phone and do nothing else",
+        "Deny the prompts and report them",
+        "Ignore them until the next working week"
+      ],
+      "correctIndex": 2,
+      "explanation": "Unexpected prompts suggest that an attacker has the password, so deny them and report it. Turning off the phone is tempting because the noise stops, but the security team would remain unaware of the attack."
+    },
+    {
+      "prompt": "A company wants to find out whether its awareness training has changed staff behaviour. Which measure is BEST?",
+      "options": [
+        "The number of staff who attended the course",
+        "The length of the course in hours",
+        "The cost of the training per person",
+        "The percentage of staff who report a practice phishing email"
+      ],
+      "correctIndex": 3,
+      "explanation": "Reporting a test phishing email shows real behaviour. Attendance is tempting because it is easy to count, but it shows only that people were present."
+    }
+  ]
+}

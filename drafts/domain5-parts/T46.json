@@ -1,0 +1,141 @@
+{
+  "id": "T46",
+  "studyNotes": [
+    {
+      "heading": "Kerberos: the parts and the big idea",
+      "body": "In this first part, we will look at what Kerberos is for and what its pieces are called, before we walk through it step by step.\n\nKerberos is a login system based on tickets. It lets you prove who you are once, and then reach many services, without your password crossing the network. It is the standard way of signing in on Windows domains, which are groups of computers managed together, and it runs on port 88.\n\nKerberos uses symmetric keys, meaning one shared secret key that both sides hold. Every user and every service shares a secret key with one trusted central party.\n\nThink of a large fair. You go to the main gate and prove who you are, once. They give you a wristband. Then you take the wristband to a ticket booth, and the booth gives you a ticket for one ride. You give the ticket to the ride attendant, who knows it is genuine because the booth issued it. The attendant never had to check your identity herself.\n\nHere are the names you must know.\n\n- The KDC, or key distribution center, is the trusted core. It knows the secret keys.\n- The AS, or authentication service, is the part of the KDC that checks you first.\n- The TGS, or ticket-granting service, is the part of the KDC that issues service tickets.\n- The TGT, or ticket-granting ticket, is your proof of login, the wristband.\n- A service ticket is your pass to one particular service, the ride ticket.\n- An authenticator is a fresh, time-stamped proof, sent along with a ticket, to stop replay.\n\nNotice that the KDC is made up of the AS and the TGS. People often think these are three separate things.\n\nA principal is any identity known to Kerberos, such as a user or a service. A realm is the group of principals that one KDC looks after. In a Windows domain, the domain controller, which is the main login server, plays the part of the KDC.\n\nReplay means capturing a valid message and sending it again later. The authenticator exists to defeat this.\n\nHere is what to take away. The KDC holds the keys and contains the AS and the TGS. The TGT is the wristband, and the service ticket is the ride ticket."
+    },
+    {
+      "heading": "Kerberos step by step",
+      "body": "Now we will walk through a Kerberos login in order. The exam expects you to know this sequence, so go slowly.\n\nHere is the whole process.\n\n- Step one, the request. The user logs in. The client software turns the password into a secret key and sends a request to the AS, the authentication service. The request normally includes a time stamp locked with that key, which shows that the user knows the password. The password itself is never sent.\n- Step two, the TGT. The AS checks the request and returns two things. One is a session key, a temporary secret for this login, locked with the user's key. The other is the TGT, the ticket-granting ticket, locked with the KDC's own key. The client can carry the TGT, but it cannot read or change it.\n- Step three, asking for a ticket. To reach a service, the client sends three things to the TGS, the ticket-granting service. These are the TGT, the name of the service, and an authenticator locked with the session key.\n- Step four, the service ticket. The TGS opens the TGT with the KDC's own key, finds the session key inside, and checks the authenticator. It then returns a service ticket locked with the service's own key, and a new session key for talking to that service.\n- Step five, presenting the ticket. The client gives the service ticket and a new authenticator to the service.\n- Step six, the check. The service opens the ticket with its own key, checks the authenticator, and lets the client in. If asked, the service can prove itself back to the client, which is called mutual authentication.\n\nNotice the pattern of locks. The client can open only what is locked with a key it holds. It cannot open the TGT or the service ticket. Those are sealed for someone else to open.\n\nNotice also that the service never has to contact the KDC during the login. The ticket is proof enough, because only the KDC could have locked it with the service's key.\n\nThink about the fair again. Wristband first, then a ride ticket, and then the ride.\n\nHere is your takeaway. AS gives the TGT, TGS gives the service ticket, the service checks that ticket, and the password never travels."
+    },
+    {
+      "heading": "Kerberos exam facts and attacks",
+      "body": "In this part we will look at the facts about Kerberos that the exam likes, and at the ways attackers abuse it.\n\nFirst, the clocks must match. Kerberos relies on time stamps, so a client and server whose clocks disagree by too much will be refused. The default allowance is five minutes. That is why problems after server maintenance are so often clock problems.\n\nSecond, the KDC is a single point of failure. If it stops, nobody can get new tickets. So organizations run more than one, with protected replicas. It also holds the keys for everybody, so a compromised KDC is a disaster.\n\nThird, Kerberos proves identity. The service still decides what you may do. In the language of this domain, Kerberos handles authentication and not authorization.\n\nThink about a concert ticket. It proves you paid and may enter, but the venue still decides which areas you can go into.\n\nNow for attacks.\n\nPass-the-ticket means stealing a valid Kerberos ticket from one computer and using it on another.\n\nA golden ticket is a forged TGT, made using the secret key of the KDC's own account. In Windows, that account is called krbtgt. With that key, an attacker can create a ticket for anyone, including an administrator, for as long as the attacker likes. Resetting users' passwords does not help, since the forged ticket does not depend on them. The response is to remove the attacker's access first and then reset that account's key twice, because the previous key is also kept and still accepted.\n\nA silver ticket is a forged service ticket, made with one service's key. It reaches only that service, so it is narrower than a golden ticket.\n\nKerberoasting is requesting a service ticket for a service account, and then guessing that account's password offline, because the ticket is locked with a key derived from it. The defense is very long random passwords on service accounts, or passwords the platform manages.\n\nGuard the domain controllers very closely.\n\nHere is a workplace example. Administrators log in to domain controllers only from special protected computers, and alerts watch for unusual ticket requests.\n\nHere is what to take away. Remember clocks, a single point of failure, and authentication only. Golden tickets come from the KDC's key."
+    },
+    {
+      "heading": "RADIUS and TACACS Plus",
+      "body": "Now we will compare two services that handle logins for network equipment. Ports, transport and encryption are all testable here.\n\nBoth are AAA services, meaning authentication, authorization and accounting. A device such as a Wi-Fi access point does not hold the user list itself. It asks a central server. Think of a nightclub door where staff phone the office to check each name.\n\nRADIUS stands for Remote Authentication Dial-In User Service. Here are its exact facts.\n\n- Transport: UDP, the User Datagram Protocol, which is connectionless.\n- Ports: 1812 for authentication and 1813 for accounting.\n- Encryption: only the password is protected. The rest of the message can be read.\n- Design: authentication and authorization are combined.\n- Typical use: Wi-Fi and remote access for ordinary users.\n\nOlder equipment may use ports 1645 and 1646 for the same purposes. The device asking the question is called the network access server, or RADIUS client, and it shares a secret with the RADIUS server. RADIUS can also be wrapped in TLS, or Transport Layer Security, to protect the whole message. Its successor, Diameter, is mostly used by mobile phone networks.\n\nTACACS Plus stands for Terminal Access Controller Access-Control System Plus. It began at Cisco, and it is not compatible with the older TACACS. Here are its exact facts.\n\n- Transport: TCP, the Transmission Control Protocol, which is connection-based.\n- Port: 49.\n- Encryption: the whole message body is encrypted. Only a short header stays readable.\n- Design: authentication, authorization and accounting are separate.\n- Typical use: administrators logging in to routers and switches.\n\nBecause the three functions are separate, TACACS Plus can allow or refuse each single command that an administrator types.\n\nHere is a workplace example that uses both. A company's staff connect to Wi-Fi using RADIUS, because it works with nearly every wireless product. Its network engineers log in to routers through TACACS Plus, so a junior engineer can view settings but cannot change them, and every command is recorded.\n\nA simple way to remember it. RADIUS, UDP, hides only the password. TACACS Plus, TCP, hides the whole body.\n\nHere is your takeaway. RADIUS is UDP 1812 and 1813 with the password protected. TACACS Plus is TCP 49 with the body protected and the three functions separate."
+    },
+    {
+      "heading": "LDAP and how the systems fit together",
+      "body": "In this part we will look at LDAP, and then see how the systems in this topic fit together.\n\nLDAP stands for Lightweight Directory Access Protocol. It is the language used to read and update a directory. A directory is a tree-shaped store of users, groups and devices. It is built to be read very often and changed much less often.\n\nThink about a phone book for a large company, arranged by country, then office, then department, then person. To find someone, you follow the branches.\n\nEach entry in the tree has a distinguished name, which is its full path from the top. It is built from short parts, such as the common name of the person, the organizational unit they belong to, and the domain components. Two people may share a common name, but their distinguished names will differ, because they sit in different places in the tree.\n\nHere are the port facts.\n\n- Port 389: plain LDAP.\n- Port 636: LDAPS, which is LDAP inside TLS from the very beginning.\n\nTLS stands for Transport Layer Security, and it encrypts traffic. There is a second choice called StartTLS, which begins on port 389 and then upgrades that same connection to TLS.\n\nA bind is the LDAP word for logging in to the directory. A simple bind sends the password in clear text. On a plain connection, anyone capturing the traffic can read it. An anonymous bind asks for no identity at all, and it should usually be turned off.\n\nAlso watch out for LDAP injection, where an attacker places special characters in a search box to change the query. Validating input stops it.\n\nHere is a workplace example. A web application checks staff passwords against the directory. A packet capture shows the passwords on the network, so the team moves the application to LDAPS on port 636.\n\nNow let us place these systems together. Windows Active Directory uses LDAP to look up information and Kerberos to log people in. RADIUS and TACACS Plus often sit in front of a directory for network devices. And across organizations, SAML and OpenID Connect from the federation topic do the job, because Kerberos and LDAP are built for inside the organization.\n\nHere is what to take away. LDAP reads a directory, port 389 is plain, port 636 is protected, and simple binds need encryption."
+    },
+    {
+      "heading": "Password attacks and how to stop them",
+      "body": "To finish, we will look at how attackers go after passwords, and at the matching defense for each attack. The exam often describes an attack and asks you to choose the best control.\n\nHere is the set.\n\n- Brute force tries every combination. Stop it with length, lockouts and slowing attempts.\n- Dictionary attacks try common words. Stop them by banning known weak passwords.\n- Password spraying tries one common password against many accounts, staying under lockout limits. Stop it with MFA, or multi-factor authentication, and with alerts that look across accounts.\n- Credential stuffing reuses logins leaked from other sites. Stop it with MFA and unique passwords from a password manager.\n- Rainbow tables are ready-made lists of password hashes, which are one-way scrambles. Stop them with salts, random data added to each password before hashing.\n- Offline cracking means guessing against a stolen password file. Stop it with slow salted hashes, such as bcrypt or Argon2, and by protecting the file.\n- Pass-the-hash replays a stolen hash in place of the password. Stop it with limited administrator logins and well-protected computers.\n- Phishing and keyloggers trick or spy on the user. A keylogger is software or a device that records what is typed. Stop them with awareness training and passkeys.\n\nThink about a thief and a door. Brute force tries every key on the ring, in order. Spraying tries the one commonest key on every door in the street. Stuffing uses a key copied from your other house.\n\nThe clue on the exam is the pattern. Many attempts on one account suggests brute force. One attempt on many accounts suggests spraying. Correct passwords on the first try, right after a breach at another site, suggests stuffing.\n\nFor online attacks, watch the logs. For offline attacks, lockouts do nothing, since the attacker is working on a copy. That is why storage matters so much.\n\nHere is a workplace example. A company brings in MFA, a list of banned passwords and salted hashing, and it sends login failures to one monitoring tool. Most of these attacks now fail, and the rest are seen early.\n\nHere is your takeaway. Match the defense to the attack. MFA stops most online password attacks, and salts and slow hashes protect stored passwords."
+    }
+  ],
+  "practiceQuestions": [
+    {
+      "prompt": "At the start of the day, an employee's workstation receives a ticket-granting ticket after her first login. Which Kerberos component issued it?",
+      "options": [
+        "The authentication service",
+        "The ticket-granting service",
+        "The file server she wants to reach",
+        "The directory's LDAP service"
+      ],
+      "correctIndex": 0,
+      "explanation": "The authentication service, part of the key distribution center, issues the ticket-granting ticket. The ticket-granting service is tempting because of its name, but it issues service tickets to clients that already hold a ticket-granting ticket."
+    },
+    {
+      "prompt": "A client already holds a valid ticket-granting ticket and now needs to reach a database server. What does the client send to the ticket-granting service?",
+      "options": [
+        "The user's password and the database server's name",
+        "Only the user's name and the database server's name",
+        "The ticket-granting ticket, an authenticator and the service name",
+        "A service ticket and a new session key for the database server"
+      ],
+      "correctIndex": 2,
+      "explanation": "The client presents its ticket-granting ticket with a fresh authenticator and names the service. A service ticket is tempting, but that is what the client receives from this step, not what it sends."
+    },
+    {
+      "prompt": "An architect is explaining why a client application cannot read or alter a Kerberos service ticket that it carries to a server. Which key locks that ticket?",
+      "options": [
+        "The user's own secret key",
+        "The target service's secret key",
+        "The workstation's secret key",
+        "A certificate authority's public key"
+      ],
+      "correctIndex": 1,
+      "explanation": "The ticket is locked with the service's key, so only the service and the key distribution center can open it. The user's key is tempting, but the client could then read and alter the ticket."
+    },
+    {
+      "prompt": "An attacker captures a Kerberos service ticket on the network and sends it to the server a few minutes later, without holding the session key. The server refuses the attempt. What is the MOST likely reason?",
+      "options": [
+        "Each ticket is valid for a single use only",
+        "The firewall blocks repeated connections from one address",
+        "The directory has already recorded the user's logout",
+        "The attacker cannot produce a valid fresh authenticator"
+      ],
+      "correctIndex": 3,
+      "explanation": "An authenticator must be fresh and locked with the session key, which the attacker does not have. Single use is tempting, but a Kerberos ticket can be reused until it expires, by someone who holds the session key."
+    },
+    {
+      "prompt": "A company has one key distribution center for all of its offices. A failure last month prevented anyone from signing in for three hours. Which action is BEST?",
+      "options": [
+        "Extend the life of all tickets so work can continue in an outage",
+        "Add a protected replica at a second site",
+        "Move all users to local accounts on each of the servers",
+        "Save copies of all issued tickets on a shared network drive"
+      ],
+      "correctIndex": 1,
+      "explanation": "A replica removes the single point of failure while keeping central login. Longer ticket life is tempting, but it only delays the problem, and it gives a stolen ticket more time to be useful."
+    },
+    {
+      "prompt": "Investigators find forged ticket-granting tickets created with the secret key of the key distribution center's own account. Which response is MOST appropriate?",
+      "options": [
+        "Force every user in the company to choose a new password",
+        "Shorten the default ticket lifetime across the whole domain",
+        "Restart all of the servers that run the key distribution center",
+        "Contain the attacker, then reset that key twice"
+      ],
+      "correctIndex": 3,
+      "explanation": "The forged tickets rely on that key, and the previous key stays valid after one reset, so two resets are needed once the attacker is out. A company-wide password reset is tempting, but forged tickets do not depend on user passwords."
+    },
+    {
+      "prompt": "During a network test, an assessor captures RADIUS authentication traffic between a wireless access point and its server. Assuming no extra tunnel is used, what can the assessor read?",
+      "options": [
+        "The user name and attributes, but not the password",
+        "Nothing, because the whole message body is encrypted",
+        "Only the packet header, because the rest is protected",
+        "The password in clear text, as RADIUS has no protection"
+      ],
+      "correctIndex": 0,
+      "explanation": "RADIUS protects only the password, so the other fields remain readable. The whole body being encrypted is tempting, but that describes TACACS Plus."
+    },
+    {
+      "prompt": "A firewall administrator is asked to allow network devices to reach a new TACACS Plus server. What should the firewall rule permit?",
+      "options": [
+        "UDP port 1812",
+        "UDP port 88",
+        "TCP port 49",
+        "TCP port 636"
+      ],
+      "correctIndex": 2,
+      "explanation": "TACACS Plus runs over TCP on port 49. UDP port 1812 is tempting because it also carries central login traffic, but that port belongs to RADIUS authentication."
+    },
+    {
+      "prompt": "A web application checks staff passwords using simple binds to a directory on port 389. A packet capture shows the passwords on the network. Which change is BEST?",
+      "options": [
+        "Change the directory to listen on a different port",
+        "Protect the connection using LDAPS or StartTLS",
+        "Require staff to choose longer directory passwords",
+        "Give the application read-only access to the directory"
+      ],
+      "correctIndex": 1,
+      "explanation": "TLS encrypts the connection, so the simple bind is no longer readable. Longer passwords are tempting, but a password in clear text can be read at any length."
+    },
+    {
+      "prompt": "Customers of an online retailer report account takeovers just after a large breach at an unrelated website. Most of the fraudulent logins succeed on the first attempt. Which control BEST addresses this?",
+      "options": [
+        "Add a unique salt to every customer password hash",
+        "Encrypt the whole database that holds customer accounts",
+        "Lock each account after five failed login attempts",
+        "Multi-factor authentication for customer logins"
+      ],
+      "correctIndex": 3,
+      "explanation": "This is credential stuffing, and a second factor means a reused password is not enough. Lockouts are tempting, but these attempts succeed the first time, so there are no failures to count."
+    }
+  ]
+}

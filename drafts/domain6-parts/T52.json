@@ -1,0 +1,141 @@
+{
+  "id": "T52",
+  "studyNotes": [
+    {
+      "heading": "What an audit involves",
+      "body": "In this first part, we will look at what a security audit really is, how one runs, and why the auditor must be independent.\n\nAn audit is a formal check against a fixed standard, based on evidence, done by someone independent. It checks controls, which are safeguards that reduce risk. Evidence is the proof behind a conclusion.\n\nThink about the people who check a charity's accounts. They do not simply ask the treasurer whether the money is safe. They look at the bank statements, compare them with the books and write down what they found.\n\nAn audit usually follows these steps, in this order.\n\n- Agree the purpose and scope, which means what is included.\n- Plan the work and get management support.\n- Collect evidence.\n- Compare the evidence with the standard.\n- Report the findings.\n- Follow up to see that problems were fixed.\n\nNow let us talk about independence. An auditor must be free from influence. Otherwise, the results cannot be trusted. Auditors must not audit their own work. They should report high up, ideally to the audit committee, which is a group of board members who oversee auditing. They should have no money or personal interest in the result. And they must be independent in fact, and also appear independent to anyone looking in.\n\nThink about a student who marks their own exam. Even if the student is perfectly honest, nobody else will trust the grade.\n\nAuditors report and advise. Management owns the decision and the fix. If an auditor designs the control, chooses the fix and then checks it, the auditor is reviewing their own work.\n\nHere is a workplace example. A company's audit team plans to review how staff access is approved. One auditor helped build the access process two years ago. The audit manager gives that review to someone else. That auditor is honest and skilled, but the independence of the audit comes first.\n\nThe exam may test what an audit is not. It is not a friendly chat, and it is not a technical test on its own. A test may be part of an audit, but the audit is the wider, formal, evidence-based check against a standard.\n\nHere is your takeaway. An audit is formal, independent and based on evidence, it follows a clear sequence, and auditors must never audit their own work."
+    },
+    {
+      "heading": "Internal, external and third-party audits",
+      "body": "Next, we will look at who carries out an audit. The exam outline uses the same three groups for audits as it does for testing.\n\n- Internal audit: within your organization's control. Your own audit staff do it.\n- External audit: outside your organization's control. An outside firm does it.\n- Third-party audit: outside your enterprise's control. It is done by or for another party, such as a regulator or a customer. It can also be an independent audit of a vendor.\n\nThink about a sports club. A committee member checks each month that the first aid kit is full. That is internal. The club pays a safety company to inspect the grounds each year. That is external. The national sports body arrives, on its own schedule, to decide whether the club may keep its license. That is third-party.\n\nLet us look at each one more closely.\n\nAn internal audit team is employed by the company, but it should stand apart from the teams it checks. It often reports to the board's audit committee. Internal audit is flexible, and it knows the business. However, outsiders may place less weight on its findings.\n\nAn external audit is carried out by an outside firm. It carries more independence, and it is often needed for official purposes, such as a certificate. It costs more, and the firm will need time to understand the business.\n\nA third-party audit often comes from someone with power over you, such as a regulator. You may not choose the auditor, the date or the focus. Customers may also demand an audit of their suppliers as part of a contract. In that case, your company is the vendor being checked.\n\nAs with testing, books use these labels in slightly different ways. So read the scenario, and ask who ordered the audit and who is doing the work.\n\nHere is a workplace example. A payments company has its internal audit team check access controls each quarter, to find problems early. An external firm audits the company against a security standard once a year. And a large bank that uses its services sends its own auditors, under the contract, to examine how the bank's data is handled.\n\nHere is what to take away. Internal is your own team, external is an outside firm, and third-party is outside your enterprise's control, on behalf of someone else."
+    },
+    {
+      "heading": "Location and facilitating an audit",
+      "body": "In this part, we will look at how location changes an audit, and what it means to help one go smoothly.\n\nThe outline lists on-premises, cloud and hybrid locations. On-premises means the systems are in your own building. Auditors can visit the site, see the locks, watch staff at work and pull records directly.\n\nCloud means a provider runs the systems in its own data centers. Auditors usually cannot walk in, and large providers will not admit every customer's auditor. So cloud audits rely more on contracts, the provider's independent reports and the customer's own settings. The customer can still audit the parts it controls, such as who has access and how data is protected.\n\nHybrid means a mix of both. Hybrid audits must cover both sides, and the link between them.\n\nThink about checking the safety of your family's possessions. In your own house, you can open every cupboard. For things you keep in a storage company's unit, you read the agreement, look at the company's safety certificate and check your own padlock.\n\nNow, the outline says conduct or facilitate. To conduct an audit is to carry it out. To facilitate an audit means to help the auditors do their job. As a security manager, you will often be the one facilitating.\n\nHere is what that looks like. Name one contact person, so that requests do not get lost. Give the auditors the access and the evidence they need, and only what is in scope. Escort them in secure areas. Be honest, and answer what is asked. Never hide anything, and never change records to look better. Afterwards, track each finding until it is closed.\n\nHere is a workplace example. An auditor asks for a list of system administrators and the last review of their access. The security manager finds that one review is overdue. The tempting response is to carry out the review and date it last month. That would be falsifying a record. The right response is to give the honest evidence, accept the finding and fix the process. A finding can be repaired. A loss of trust is very much harder to repair.\n\nHere is your takeaway. Location changes the evidence you can get, and facilitating an audit means giving honest help, organized access and a plan to close every finding."
+    },
+    {
+      "heading": "Audit evidence",
+      "body": "Now we will look at audit evidence, because the entire value of an audit rests on the quality of its proof.\n\nEvidence is the proof behind a finding. Good evidence has three qualities, and you should remember the set.\n\n- Sufficient: there is enough of it.\n- Reliable: it can be trusted.\n- Relevant: it relates to the control being checked.\n\nThink about a claim that you paid a bill. Saying that you paid is weak. A note in your own diary is a little better. A bank statement showing the payment is strong, because it comes from an independent source. An auditor thinks in exactly the same way.\n\nStronger evidence includes records taken directly from a system by the auditor, direct observation, and performing a control again to see whether it works. That last one is called reperformance. Weaker evidence includes a spoken statement, or a screenshot handed over by the person being audited. A screenshot can be useful, but it can also be edited. It comes from the very person being checked.\n\nAn auditor usually cannot look at everything, so auditors use sampling, which means checking some items to judge the whole group.\n\nHere is a worked example. A company made 1,000 changes to its systems this year. The auditor selects 25 of them to check. Three of the 25 have no recorded approval. To find the failure rate, divide 3 by 25, which gives 0.12. Then multiply by 100, which gives 12 percent. The auditor reports this and may look at more items, to see whether the problem is wider.\n\nThe sample must be chosen fairly. If the auditee picks the sample, the auditee can simply choose the good ones. The auditee is the person or group being audited. Think of a restaurant inspector who only tastes the one dish the chef chooses to serve. So the auditor selects the sample, often at random.\n\nAuditors also look at population, which is the whole group of items. If the list of 1,000 changes is itself incomplete, then a perfect sample still tells you little. So the auditor checks that the list is complete.\n\nProtect audit evidence, because it can be sensitive. It may show exactly where the weaknesses are.\n\nHere is what to take away. Evidence must be sufficient, reliable and relevant, and the auditor, not the auditee, chooses the sample."
+    },
+    {
+      "heading": "SOC 1, SOC 2 and SOC 3",
+      "body": "In this part, we will look at SOC reports. These come up often, and the numbers are easy to mix up, so we will go slowly.\n\nSOC stands for System and Organization Controls. These are reports that a service company obtains so that it can show its controls to its customers, without every customer having to audit it separately. Independent certified public accountants issue them. Those are licensed professional accountants. In the United States, the work follows a standard called SSAE 18, the Statement on Standards for Attestation Engagements, number 18.\n\nThink about a restaurant that displays its food hygiene certificate. Instead of every customer inspecting the kitchen, one trusted inspector does it, and everyone relies on the result.\n\nThere are three reports to know.\n\n- SOC 1: controls that affect financial reporting.\n- SOC 2: controls for security, availability, processing integrity, confidentiality and privacy.\n- SOC 3: a general summary on the same subjects as SOC 2, which may be shared with the public.\n\nSOC 1 is about money. Picture an outsourced payroll company. Its customers' financial auditors need to know that it handles the numbers correctly. SOC 1 is restricted to those customers and their auditors.\n\nSOC 2 is about the security detail. Those five subjects are called the Trust Services Criteria. Security is always included. The other four are added when they are relevant. SOC 2 describes the tests performed and the results, so it is detailed and sensitive. It is shared only with permitted readers, who often sign a non-disclosure agreement, which is a promise to keep it confidential.\n\nSOC 3 is for the general public. It covers the same criteria, but it leaves out the details of the tests. A cloud provider might post it on its website. It is useful for marketing, but it gives too little detail for a serious security review.\n\nHere is a workplace example. A hospital's finance team needs comfort about an outsourced billing company's effect on its accounts, so it asks for a SOC 1. The hospital's security team wants to know how a cloud provider protects patient records, so it asks for a SOC 2. A member of the public wanting a general assurance can read that provider's SOC 3.\n\nHere is your takeaway. SOC 1 is for the money, SOC 2 is for the security detail, and SOC 3 is for the public."
+    },
+    {
+      "heading": "Type 1, Type 2 and reading a report",
+      "body": "In this final part, we will look at the difference between Type 1 and Type 2, and how to read a report properly.\n\nFor SOC 1 and SOC 2, which are the financial and detailed security reports, there are two types.\n\n- Type 1: checks the design of controls at one point in time.\n- Type 2: checks both the design and the operating effectiveness of controls over a period, often 6 to 12 months.\n\nOperating effectiveness means whether the control really worked throughout that time.\n\nThink about a photograph and a video. A photograph shows that you were standing at the gym door on one particular day. A video shows that you turned up and exercised, week after week. Type 1 is the photograph. Type 2 is the video.\n\nType 2 gives stronger assurance, because it shows controls working over time. A new service provider may only have a Type 1 at first, because it has no history yet to test. Unlike the other two, a SOC 3 is not normally described as Type 1 or Type 2. It is a general summary, usually based on the same work as a SOC 2 Type 2.\n\nA good manager reads the report, and looks for five things.\n\nFirst, does the scope cover the service you actually use?\n\nSecond, what period does it cover? If the period ended nine months ago, ask for a bridge letter. That is a letter from the provider, stating that nothing significant has changed since the report ended.\n\nThird, what is the auditor's opinion? An unqualified opinion is a clean result. A qualified opinion means the auditor found a significant problem.\n\nFourth, are there exceptions? An exception means a control failed in a test.\n\nFifth, what does the report say you must do? These are called complementary user entity controls. They are the duties left to the customer, such as reviewing your own users.\n\nHere is a workplace example. A company is offered a SOC 2 Type 2 from a provider. The security manager sees that the scope covers only one of the two data centers the company would use. The report may be excellent, but it does not answer the question.\n\nHere is what to take away. Type 1 is a photograph of design, Type 2 is a video of operation, and every report must be read and matched to your needs."
+    }
+  ],
+  "practiceQuestions": [
+    {
+      "prompt": "A new cloud start-up has just put its security controls in place. A prospective customer wants an independent opinion now on whether those controls are suitably designed. The start-up has no operating history. Which report is BEST to obtain at this stage?",
+      "options": [
+        "SOC 1 Type 2",
+        "SOC 2 Type 1",
+        "SOC 3",
+        "SOC 2 Type 2"
+      ],
+      "correctIndex": 1,
+      "explanation": "SOC 2 addresses security, and Type 1 examines design at one point in time, which suits a provider with no operating history. SOC 2 Type 2 is tempting because it is stronger, but it needs a period of operation to examine."
+    },
+    {
+      "prompt": "A cloud provider wants to place a report on its public website to give potential customers general assurance about its security. Which report is designed for this use?",
+      "options": [
+        "SOC 3",
+        "SOC 1 Type 2",
+        "SOC 2 Type 1",
+        "SOC 2 Type 2"
+      ],
+      "correctIndex": 0,
+      "explanation": "SOC 3 is a general summary that may be shared with the public. SOC 2 is tempting because it covers security, but it is detailed and restricted to permitted readers."
+    },
+    {
+      "prompt": "A customer's security team needs proof that a vendor's access controls operated properly for the past twelve months. The vendor offers its SOC 2 Type 1 report. What should the security team do?",
+      "options": [
+        "Accept it, because any SOC 2 report covers controls in full detail",
+        "Accept it, because Type 1 is a higher level of assurance than Type 2",
+        "Ask for a SOC 2 Type 2 covering the period",
+        "Ask for a SOC 1 Type 1 instead, because it covers security controls"
+      ],
+      "correctIndex": 2,
+      "explanation": "Type 2 tests whether controls operated effectively over a period, which is exactly what is needed. Accepting the Type 1 is tempting because it is a SOC 2, but it only examines design at one moment."
+    },
+    {
+      "prompt": "A government regulator sends its own inspectors to examine a bank's security controls on a date the regulator has chosen. Which kind of audit is this?",
+      "options": [
+        "Self-assessment",
+        "Internal audit",
+        "Peer review",
+        "Third-party audit"
+      ],
+      "correctIndex": 3,
+      "explanation": "The audit is carried out by another party, outside the bank's control. An internal audit is tempting only if you think about where the work takes place, but what matters is who controls and performs it."
+    },
+    {
+      "prompt": "An auditor is testing whether disabled accounts really cannot sign in. Which piece of evidence is the MOST reliable?",
+      "options": [
+        "An email in which the administrator says that all accounts are disabled",
+        "A screenshot provided by the team being audited",
+        "A verbal assurance given to the auditor by the head of technology",
+        "The auditor's own attempt to sign in with a disabled account"
+      ],
+      "correctIndex": 3,
+      "explanation": "Repeating the control directly gives the most reliable proof. A screenshot is tempting because it looks like a record, but it comes from the people being audited and can be altered."
+    },
+    {
+      "prompt": "An auditor selects 40 changes out of 2,000 made during the year. Two of the 40 have no recorded approval. What is the failure rate in the sample?",
+      "options": [
+        "2 percent",
+        "5 percent",
+        "20 percent",
+        "40 percent"
+      ],
+      "correctIndex": 1,
+      "explanation": "2 divided by 40 is 0.05, and 0.05 times 100 is 5 percent. 2 percent is tempting because it repeats the number of failures, but the figure must be divided by the size of the sample."
+    },
+    {
+      "prompt": "During an audit, a manager discovers that a required review was never performed. The manager suggests performing it now and writing last month's date on it. What should the security manager do?",
+      "options": [
+        "Provide honest evidence and accept the finding",
+        "Agree to the idea, but only for this one occasion",
+        "Delay the auditors until the backdated review has been filed",
+        "Tell the auditors that the review record has been lost"
+      ],
+      "correctIndex": 0,
+      "explanation": "Falsifying a record is dishonest and worse than the original finding. Saying that the record is lost is tempting because it avoids a confrontation, but it is still a lie to the auditors."
+    },
+    {
+      "prompt": "A company is setting up its internal audit function. To protect the auditors' independence, to whom should the head of internal audit report?",
+      "options": [
+        "The chief information officer, who runs the systems being audited",
+        "The manager of the security operations team",
+        "The audit committee of the board",
+        "The head of the application development team"
+      ],
+      "correctIndex": 2,
+      "explanation": "Reporting to the audit committee keeps auditors away from the management they examine. Reporting to the chief information officer is tempting because of that role's seniority, but it would put auditors under the person they audit."
+    },
+    {
+      "prompt": "A vendor's SOC 2 Type 2 report covers a period that ended nine months ago. A customer is about to renew the contract and is concerned about the time since then. What should the customer request?",
+      "options": [
+        "A SOC 1 Type 1 report covering only today's date",
+        "A bridge letter covering the period since the report ended",
+        "An unannounced penetration test of the vendor's systems",
+        "Last year's completed security questionnaire from the vendor"
+      ],
+      "correctIndex": 1,
+      "explanation": "A bridge letter is the provider's statement about the gap since the report ended, until a new report is issued. A new SOC 1 is tempting because it sounds current, but it covers financial reporting and not security."
+    },
+    {
+      "prompt": "A company's large cloud provider will not allow individual customers to visit its data centers. The company still needs to audit its use of the service. What is the BEST approach?",
+      "options": [
+        "Review the provider's independent reports and audit the company's own settings",
+        "Send a team to the data center without an appointment to see what happens",
+        "Stop auditing the service, because the provider now holds all accountability",
+        "Ask a member of the provider's staff to take photographs of the server rooms"
+      ],
+      "correctIndex": 0,
+      "explanation": "Independent reports provide evidence on the provider's side, and the company can audit what it controls. Stopping the audit is tempting because the provider runs the service, but accountability stays with the company."
+    }
+  ]
+}

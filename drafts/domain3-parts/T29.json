@@ -1,0 +1,141 @@
+{
+  "id": "T29",
+  "studyNotes": [
+    {
+      "heading": "Plan the site first",
+      "body": "In this first part, we are going to look at how physical security starts before the first wall goes up.\n\nThink about choosing a house. You look at the neighbourhood. You ask whether the river floods, how far the fire station is, and whether the road is safe at night. You would not buy first and ask later. Choosing a site for a building is exactly the same.\n\nBegin with a risk assessment of the site. Good questions include these.\n\nIs the area prone to floods, storms or earthquakes?\n\nWhat is the local crime rate?\n\nHow close are the police, the fire service and the hospital?\n\nAre there reliable power and network links, ideally from more than one provider?\n\nCan visitors and vehicles be controlled?\n\nIs a neighbour a danger, such as a chemical plant?\n\nA few of these need explaining. If two network links enter the building through the same trench, one digger can cut both. So real redundancy means separate paths from separate providers. Redundancy simply means having a spare.\n\nDo not forget about visibility, either. A site that is very easy to see from the road may invite unwanted attention. For a data centre, a plain and unmarked building is often the better choice, so that it does not advertise what is inside.\n\nInvolve security staff early. Changes are much cheaper at the drawing stage than after the building is finished. Security must also follow fire codes and building laws. Local law may decide things such as the number of exits, and a security design has to fit within that law.\n\nHere is a workplace example. A company is choosing between two buildings for a new office and data room. The cheaper one sits on a flood plain and has one power supply. The more expensive one is on higher ground, near a fire station and has two separate power feeds. The security manager puts this comparison in plain business terms and presents it to the directors. The decision belongs to them, but the manager's job is to make sure they understand the risks.\n\nAs with all security work, the best time to deal with a problem is before it has been built in.\n\nHere is what to take away. Assess the site before building or leasing it, check hazards, services and neighbours, and bring security into the plans from the very start."
+    },
+    {
+      "heading": "CPTED",
+      "body": "Now we are going to look at a way of designing places so that crime becomes less attractive.\n\nCPTED stands for Crime Prevention Through Environmental Design. It is usually said as sep-ted. It means shaping a place so that wrongdoing is harder and more likely to be noticed, without needing a guard on every corner. It has three main strategies.\n\n- Natural access control: guide people with paths, fences, lighting and landscaping toward the correct entrance.\n- Natural surveillance: make it easy to see and be seen. Use low bushes, open sightlines and windows facing the car park.\n- Natural territorial reinforcement: show that the space is owned and cared for, with signs, tidy grounds and clear borders.\n\nThink about a home with a garden. A clear front path leads visitors to your door, and that is access control. Low front hedges let neighbours see who is there, and that is surveillance. A tidy lawn and a name on the gate tell strangers that someone cares about this place, and that is territorial reinforcement.\n\nThe word natural is important. These strategies use the design of the place itself, and not extra guards or technology.\n\nA well-kept site also signals that someone is paying attention. Broken lights and rubbish signal the opposite. So maintenance is often considered part of the approach.\n\nHere is a workplace example. A school trims its hedges, puts one clear visitor path past the office window, and adds its name and signs along the fence. Fewer people wander in, and no extra guards were hired. Staff in the office can now see every visitor. The clearly marked boundary means a stranger is more likely to feel out of place.\n\nHere is a second one. An office car park has a problem with break-ins, and it is hidden behind tall hedges and poorly lit. Before spending money on guards, the manager looks at the design. The hedges come down, lights go up, and the path to the entrance becomes the only obvious route.\n\nAs a manager, remember that this is often the cheapest and longest-lasting answer, because it deals with the cause and does not add a running cost.\n\nHere is your takeaway. CPTED uses natural access control, natural surveillance and natural territorial reinforcement, so that the design of a place does much of the work of protecting it."
+    },
+    {
+      "heading": "Layers, zones and the order of defense",
+      "body": "Next we are going to look at how to arrange security in layers. Think of a castle, with several rings of walls and the most valuable things at the centre.\n\nUse zones, with more control the deeper you go. A typical layout is this.\n\n- Public: car park and lobby.\n- Reception or controlled: visitors signed in and escorted.\n- Restricted: staff work areas needing a badge.\n- High security: server rooms and evidence stores, with strict access and logging.\n\nEach boundary should delay and detect. It is rarely possible to stop every attacker. But each layer can slow an attacker down, and give the defenders a chance to notice and respond.\n\nA common way of teaching the order of physical defense runs like this.\n\n- Deter: discourage the attempt.\n- Deny: make entry difficult.\n- Detect: notice the attempt.\n- Delay: slow the attacker down.\n- Respond: send people to deal with it.\n\nThink about your home. A security sign deters. A locked door denies. An alarm detects. A strong inner door delays. And the police, or a neighbour, respond.\n\nHere is a useful way of checking whether a design works. Add up how long the barriers will delay an intruder. Compare that with how long it will take someone to respond. If the police take ten minutes, and your barriers delay an intruder for three, then the design will not hold. You need more delay, or a faster response.\n\nThere is one more piece. An access control vestibule, also called a mantrap, is a small room with two doors. Only one door can open at a time. A person enters, the first door locks, identity is checked, and only then does the second door open. It stops tailgating, which is following an authorized person through a door. Piggybacking is a similar word, used when the authorized person knowingly lets someone through.\n\nHere is a workplace example. A bank's head office has a public lobby. A receptionist signs visitors in and gives them a badge. Staff floors require an access card. The data room is behind a mantrap, and it requires both a card and a fingerprint. Each step in is more controlled than the last.\n\nHere is what to take away. Controls should get stricter the deeper you go, and each layer should give you time to detect and respond."
+    },
+    {
+      "heading": "Perimeter protection",
+      "body": "In this part, we are going to look at the outer edge of a site, where physical security first meets the outside world.\n\nThe perimeter is the outer boundary of the property. Its first job is to mark that boundary, and to make it clear that crossing it is a deliberate act.\n\nFences are often taught by height, in feet, since that is how the exam usually states them.\n\n- Three to four feet: deters casual trespassers.\n- Six to seven feet: too hard to climb easily.\n- Eight feet or more, with barbed wire on top: deters determined intruders.\n\nThink about a garden wall. A low wall tells a passing child that this is someone's garden. A very high wall tells a thief that getting in is going to be hard work.\n\nA bollard is a short, solid post that stops vehicles. They let people walk through, but they prevent a vehicle from being driven into the building.\n\nLighting does two jobs. It deters, and it lets people see. It should be continuous, with no dark gaps. Lights must not point in a way that blinds the guards or the cameras.\n\nGuards are flexible, and they can use judgment, which no machine can do. But they are costly, and they make mistakes. Dogs are a good deterrent, but they raise liability and safety concerns.\n\nCameras can deter, detect and record. Cameras that nobody watches, however, only help you after the event. CCTV, or closed-circuit television, is the usual term.\n\nA perimeter intrusion detection system senses when someone touches or crosses the boundary, for example by detecting vibrations in a fence.\n\nGates should be few in number, and each one should be watched. Deliveries should be kept apart from staff and visitor entrances, so that a delivery lorry cannot simply follow a car inside.\n\nHere is a workplace example. A warehouse has an eight foot fence, bollards in front of its main doors, continuous lighting and cameras on every side. A single vehicle gate is staffed by a guard who checks each driver against the day's delivery list. Each control supports the others.\n\nAs always, a manager needs to choose the mix based on risk, and not simply buy the most impressive equipment.\n\nHere is your takeaway. Mark the boundary, slow people and vehicles down, light the area, and remember that human judgment is what guards add."
+    },
+    {
+      "heading": "Secure layout inside the building",
+      "body": "Now we are going to look at how the inside of a building should be laid out.\n\nThink about where you would put your valuables at home. You would not leave them on a shelf by the front window. You would not store them under a leaking pipe. You would keep them in the middle of the house, somewhere dry and out of sight.\n\nGood layout rules are these.\n\nPut the server room near the centre of the building, away from outside walls.\n\nAvoid basements, where floods reach, and top floors, where roofs leak.\n\nDo not place it next to kitchens, toilets or water pipes.\n\nKeep its walls running from the true floor to the true ceiling, so that nobody can climb over through the ceiling space or crawl under through a raised floor.\n\nGive those walls a fire rating, which is usually at least one hour. That is how long they are expected to hold back a fire.\n\nLimit entrances. Use few windows on sensitive areas.\n\nDo not put up signs saying where the server room is.\n\nSeparate deliveries from staff entry.\n\nLet us take one of these further. Many offices have a suspended ceiling, made of light tiles, with an empty space above it. If the wall of a secure room stops at the tiles, a person can lift a tile and climb across the top. That is why the wall must reach the true ceiling, which is the real structure of the building.\n\nDoors matter too. A door to a secure room should be as strong as the wall around it. Think about which way a door should fail if power is lost. Fail-safe means it unlocks so that people can leave. Fail-secure means it stays locked to protect what is inside.\n\nSafety comes first. Exits must be marked, and escape routes kept clear. Where a door's security and a person's life conflict, life wins. Emergency exits can be fitted with alarms, so that anyone using one is noticed.\n\nHere is a workplace example. A company planning a new office wants the server room at the front, because the view is good for visitors. The security manager recommends a central room with no windows, away from plumbing.\n\nHere is what to take away. Put sensitive rooms centrally, away from water and outside walls, build the walls full height, and never let security block escape."
+    },
+    {
+      "heading": "Bringing it together: a worked site review",
+      "body": "In this final part, we are going to bring all of the ideas in this topic together by walking through a review of a real kind of site.\n\nImagine that a company has asked you to review a new branch office. You approach it as a manager, and you work from the outside in.\n\nStep one is the site itself. You ask about flood history and local crime. You find that the building is on a slight hill, and that the nearest fire station is five minutes away. Good.\n\nStep two is the perimeter. There is a car park at the side, screened by tall shrubs and poorly lit. That is a concern. You recommend trimming the shrubs and improving the lighting. That applies natural surveillance, from Crime Prevention Through Environmental Design.\n\nStep three is the approach. Visitors are confused about where to go, and some walk to the side door. You recommend one clear path to the front entrance. That is natural access control.\n\nStep four is the entrance. The lobby is public. Behind it, staff areas are opened with an access card. You find that one door is regularly propped open by smokers. You recommend an alarm on any door held open, and a place for them to go that does not defeat the control. You fix the cause, and not just the symptom.\n\nStep five is the sensitive room. The server room sits against an outer wall, next to the staff kitchen. There is a wall that stops at the ceiling tiles. You recommend moving the room if possible. If that is not possible, then you recommend extending the walls to the true ceiling, and adding leak detection. Those are compensating controls.\n\nStep six is life safety. An exit in the stockroom is blocked by boxes. You raise this first, because people's safety comes before everything else. The boxes are moved that same day.\n\nStep seven is reporting. You give the directors a short list, ordered by risk, with costs and recommendations. You remind them that the decision to accept any remaining risk is theirs.\n\nNotice what this review did. It did not begin with buying equipment. It looked at the design, it worked inward, and it fixed safety first.\n\nHere is your takeaway. Review a site from the outside in, use design before adding cost, fix what endangers people first, and leave risk acceptance with management."
+    }
+  ],
+  "practiceQuestions": [
+    {
+      "prompt": "A company is choosing a site for a new data centre. Which activity should be carried out FIRST?",
+      "options": [
+        "Selecting the access control vendor",
+        "Assessing risks at the proposed locations",
+        "Designing the layout of the server room",
+        "Calculating the size of backup generators"
+      ],
+      "correctIndex": 1,
+      "explanation": "A site risk assessment comes before any detailed design or purchasing. Designing the server room is tempting because it is important, but there is no point designing for a site that should not be used."
+    },
+    {
+      "prompt": "A hospital trims its shrubs and places windows so that staff can easily see the car park. Which CPTED strategy does this BEST represent?",
+      "options": [
+        "Natural access control",
+        "Natural territorial reinforcement",
+        "Natural surveillance",
+        "Target hardening"
+      ],
+      "correctIndex": 2,
+      "explanation": "Making it easy to see and be seen is natural surveillance. Natural access control is tempting because it also concerns the car park, but it is about guiding where people go."
+    },
+    {
+      "prompt": "A college adds its name along a boundary, keeps the grounds tidy, and marks clearly where campus property begins. Which CPTED strategy is being applied?",
+      "options": [
+        "Natural territorial reinforcement",
+        "Natural surveillance",
+        "Natural access control",
+        "Defense in depth"
+      ],
+      "correctIndex": 0,
+      "explanation": "Showing that a space is owned and cared for is territorial reinforcement. Natural surveillance is tempting because tidy grounds can be easier to see, but the aim here is to show ownership."
+    },
+    {
+      "prompt": "Staff are observed holding secure doors open for colleagues who forgot their badges. Which control would MOST directly prevent people from following others through?",
+      "options": [
+        "A printed reminder placed next to the doors",
+        "A camera recording the doorway",
+        "A higher perimeter fence around the site",
+        "An access control vestibule"
+      ],
+      "correctIndex": 3,
+      "explanation": "A vestibule lets one person through at a time and physically stops tailgating. A camera is tempting because it records the event, but it only detects after the fact and does not prevent anyone from following."
+    },
+    {
+      "prompt": "A security manager calculates that barriers at a warehouse would delay an intruder for three minutes, but that the response team takes ten minutes to arrive. What is the BEST conclusion?",
+      "options": [
+        "The design is sound, as barriers are in place",
+        "Delay must be increased, or response made faster",
+        "The response team should be disbanded as too slow",
+        "Barriers can be removed, as they are not effective"
+      ],
+      "correctIndex": 1,
+      "explanation": "Barriers should hold an intruder until the response arrives. The first option is tempting because the barriers exist, but three minutes of delay does not match a ten minute response."
+    },
+    {
+      "prompt": "A site needs a fence that will discourage determined intruders. Which option BEST fits that need?",
+      "options": [
+        "A three foot fence",
+        "A four foot fence",
+        "A six foot fence",
+        "An eight foot fence with barbed wire"
+      ],
+      "correctIndex": 3,
+      "explanation": "Eight feet or more with barbed wire is the level taught for determined intruders. A six foot fence is tempting because it is hard to climb, but it is not the level described for a determined attacker."
+    },
+    {
+      "prompt": "A building manager wants to stop a vehicle from being driven through the glass front of an office, while allowing people to walk freely. Which control is BEST?",
+      "options": [
+        "Bollards",
+        "Turnstiles",
+        "A mantrap",
+        "Motion sensors"
+      ],
+      "correctIndex": 0,
+      "explanation": "Bollards stop vehicles while allowing people through. A mantrap is tempting because it is a strong entry control, but it controls individual people at a door and does nothing to stop a vehicle."
+    },
+    {
+      "prompt": "A company is deciding where to place a new server room in a multi-storey office. Which location is BEST?",
+      "options": [
+        "The basement, because it is out of public view",
+        "The top floor, because it is hard to reach",
+        "A central room on a middle floor, away from plumbing",
+        "A room by the main entrance, for easy deliveries"
+      ],
+      "correctIndex": 2,
+      "explanation": "A central room on a middle floor avoids floods, roof leaks and outside walls. The basement is tempting because it is hidden, but basements are at risk from flooding."
+    },
+    {
+      "prompt": "A secure room's walls stop at the suspended ceiling tiles. An auditor flags this as a weakness. What is the MOST appropriate correction?",
+      "options": [
+        "Add a brighter light above the secure room door",
+        "Extend the walls up to the true ceiling",
+        "Install a sign restricting entry to authorized staff",
+        "Change the ceiling tiles to a darker colour"
+      ],
+      "correctIndex": 1,
+      "explanation": "Full-height walls stop someone climbing over through the ceiling space. A sign is tempting because it is cheap, but it is a deterrent and does not close the physical gap."
+    },
+    {
+      "prompt": "A site review finds a blocked fire exit, a weak lock on a store cupboard and old security cameras. What should the security manager address FIRST?",
+      "options": [
+        "The old cameras, since they provide evidence",
+        "The weak lock, as theft might occur",
+        "All three items, ordered by purchase cost",
+        "The blocked fire exit, since lives are at risk"
+      ],
+      "correctIndex": 3,
+      "explanation": "People's safety comes first, so the blocked exit must be fixed before anything else. The cameras are tempting because they support investigations, but no security benefit outweighs a risk to life."
+    }
+  ]
+}

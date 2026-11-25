@@ -1,0 +1,141 @@
+{
+  "id": "T50",
+  "studyNotes": [
+    {
+      "heading": "What process data is",
+      "body": "In this first part, we will look at what security process data is, and why a security program needs it.\n\nProcess data is the record that security activities are happening as they should. Technical tests check machines. Process data checks routines and people. The exam outline says this data can be technical or administrative. Technical data comes from systems, such as the result of a backup job. Administrative data comes from business activity, such as a signed approval or a training record.\n\nThink about a school that has excellent fire doors and a sensible fire plan. Are the drills really happening? How long did the last one take? Was anyone missing? Without those records, the principal is only hoping. The records are what turn hope into knowledge.\n\nThe outline names several areas, and you should know the set.\n\n- Account management\n- Management review and approval\n- Management reporting and metrics, including key performance and risk indicators\n- Backup verification data\n- Training and awareness\n- Disaster recovery and business continuity\n\nWe will take each of these in turn in this topic.\n\nA metric is simply a number that measures something. Good process data has a few qualities. It must be accurate, so that people can trust it. It must be complete, so that it does not hide the awkward cases. It must be collected regularly and in the same way each time, so that one month can be compared with the next. And it must help someone make a decision. A number that nobody uses is only a cost.\n\nHere is a workplace example. A company reports each month that 99 percent of its laptops are protected. A closer look shows that the figure only counts laptops already registered in the management tool. Laptops bought by departments on their own are never counted. The number looked excellent, but it was incomplete, and it hid the real risk.\n\nThink like a manager here. Before you trust a number, ask where it came from, what it leaves out and what decision it supports. Also protect the data, because it can reveal exactly where the organization is weak.\n\nHere is your takeaway. Process data proves that security routines are really happening, and it is only useful if it is accurate, complete, consistent and used for decisions."
+    },
+    {
+      "heading": "Account management",
+      "body": "Next, we will look at account management, which means checking who has access to what, and whether they still should.\n\nEvery account should belong to a real person with a real need. Think about the keys to an apartment building. New tenants get a key to their own flat. A tenant who moves upstairs should give back the old key. A tenant who leaves should hand in every key. Keys that nobody can account for are a danger to everyone in the building.\n\nThere are four groups to check.\n\nJoiners, who are new staff, should get only the access that has been approved.\n\nMovers, who change jobs inside the company, should lose the access they no longer need. If they do not, access builds up over time. That is called privilege creep.\n\nLeavers, who have departed, should be disabled quickly.\n\nPrivileged accounts have powerful rights, such as those of system administrators. These should be few in number, closely watched and reviewed more often than the others.\n\nGood data for this area includes the number of accounts with no clear owner, how long it takes to disable a leaver's account, and how many access reviews were finished on time.\n\nA particular word to know is recertification, or attestation. It means that a manager regularly confirms that each person on the team still needs the access they have.\n\nNow here is a worked example, step by step. A company wants to test whether its leaver process works.\n\nFirst, it takes a sample of 200 accounts.\n\nSecond, it compares them with the staff list held by human resources.\n\nThird, it finds that 6 of the accounts belong to people who have left.\n\nFourth, it calculates the failure rate. That is 6 divided by 200, which is 0.03. And 0.03 times 100 is 3 percent.\n\nFifth, it disables those 6 accounts straight away. That deals with the symptom.\n\nSixth, it looks at why the accounts stayed active, and it finds that human resources never tells the technical team when somebody resigns. Linking those two steps fixes the cause.\n\nThe exam mindset here is clear. Deleting the accounts is necessary, but it does not stop the same thing from happening next quarter. Always fix the process.\n\nHere is what to take away. Check joiners, movers, leavers and privileged accounts, and when you find a failure, fix the process behind it."
+    },
+    {
+      "heading": "Management review and approval",
+      "body": "In this part, we will look at management review and approval, and at how results are reported upward.\n\nManagers must look at security results, decide what to do and record that decision. This shows oversight, which means that someone responsible is really watching.\n\nThink about a parent signing a child's school report. If the parent signs without reading it, the signature is worthless. If the parent reads it, talks about the poor math grade and arranges help, the signature means something. Security approvals work in the same way. A signature given without reading adds no value.\n\nManagers review policies, access requests, test results, changes to systems and accepted risks. The record of each review should show who reviewed it, when, what they decided and why.\n\nTwo rules protect the quality of an approval. First, the approver needs real authority, which means the power to make that decision for the business. Second, the approver should not be the person who made the request. This is separation of duties, which means that no one person controls a whole task. If an engineer could request and approve their own access, the approval would prove nothing.\n\nThere is also a formal management review in many standards. ISO 27001, an international standard for managing information security, requires top management to review its security management system at planned intervals. ISO stands for the International Organization for Standardization.\n\nManagement reporting and metrics are how the results get to those managers. Good reporting is written for its reader. Senior leaders do not need a list of 4,000 scanner findings. They need to know whether risk is going up or down, whether targets are being met and what decisions they must make.\n\nHere is a workplace example. A security manager's monthly report once listed dozens of technical figures, and nobody on the executive team read it. The manager replaced it with a single page showing five measures, the target for each, the trend over six months and the one decision required this month. Executives began to ask questions and to approve funding.\n\nFrom the exam's point of view, a manager's review is itself a piece of evidence. An auditor may ask to see the record that a review took place.\n\nHere is your takeaway. Reviews must be real, recorded and done by someone with authority who is independent of the request, and reports must be written for their reader."
+    },
+    {
+      "heading": "KPIs and KRIs",
+      "body": "Now we will look at two measures that are easy to confuse: key performance indicators and key risk indicators. The difference is direction.\n\nA Key Performance Indicator, or KPI, looks back. It asks: how well did we do? A Key Risk Indicator, or KRI, looks ahead. It is an early warning. It asks: is danger growing?\n\nThink about driving a car. The rear-view mirror shows the road you have already covered. The headlights show what is coming. A KPI is the mirror, and a KRI is the headlights. Or think about your health. Having run three times last week is a performance measure. A blood pressure reading that is creeping up is a warning about what may happen later.\n\nLet us work through an example. A patch is a software fix.\n\nHere is a KPI. In one month, 950 of 1,000 computers were patched on time. That is 950 divided by 1,000, which is 0.95. And 0.95 times 100 is 95 percent. The target was 98 percent, so the team missed the target by 3 percentage points.\n\nHere is a KRI. The number of unpatched servers facing the internet rose from 2 to 9 in three months. Nothing bad has happened yet, but the risk is growing, and it should raise a flag.\n\nOther common KPIs are the percentage of incidents closed on time, the mean time to detect an incident, and the mean time to respond to one. Mean simply means the average. Other common KRIs are a rising number of privileged accounts, more systems that are no longer supported by their vendor, and more overdue audit findings.\n\nA useful test is to ask what the number tells you to do. If it reports a finished result, it is probably a KPI. If it warns you to act before harm happens, it is probably a KRI. The same raw figure can sometimes serve as either one, depending on how it is used, so look carefully at what the scenario is asking.\n\nA good measure links to a business goal, is measured the same way each time, has a target or threshold and makes sense to its reader. A threshold is the level at which someone must take action.\n\nHere is what to take away. A KPI tells you how you did, and a KRI warns you where risk is heading."
+    },
+    {
+      "heading": "Backups, training and awareness",
+      "body": "In this part, we will look at two more kinds of evidence: proof that backups work, and proof that people are learning.\n\nA backup is a copy of data that is kept so that it can be restored. A backup log shows that a job ran. Only a test restore proves that data can be recovered.\n\nThink about a spare tire in the trunk of your car. Having one is reassuring. But if it has gone flat, or the jack is missing, you only find out at the side of the road. The sensible thing is to check it before you need it.\n\nUseful backup verification data includes job success or failure, the results of test restores, the time that each restore took and the location of offsite copies. A common guideline is three copies of your data, on two different kinds of storage, with one copy offsite. Copies that cannot be altered are also valuable, because ransomware, which is software that locks files and demands payment, often attacks backups first.\n\nHere is a workplace example. A company's backup report has shown success every day for a year. In a test restore, the files come back, but one database is damaged, and the whole restore takes nine hours. The business had assumed two hours. The report was accurate, but it did not answer the question that mattered.\n\nNow let us turn to people. There are three levels of learning, and the exam may test them as a set.\n\n- Awareness: helps people notice danger. It answers the question what.\n- Training: teaches a skill for a job. It answers the question how.\n- Education: builds deep understanding. It answers the question why.\n\nUseful data includes course completion, how many staff click on test phishing emails and how many report them. Phishing means tricking people through false messages.\n\nLet us work one through. A company sends a test phishing email to 1,000 staff, and 120 click. That is 120 divided by 1,000, times 100, which is 12 percent. Six months after training, only 60 click. That is 6 percent. Reports of suspicious emails also go up. This is a real improvement in behavior.\n\nCompletion alone proves only that people attended. Trends over time matter more than one result.\n\nHere is your takeaway. Backups are proven by restoring them, and training is proven by changed behavior."
+    },
+    {
+      "heading": "Disaster recovery and business continuity",
+      "body": "In this final part, we will look at the data that shows whether an organization can survive a serious event.\n\nDisaster recovery, or DR, brings technology back after a serious event. Business continuity, or BC, keeps important work going during and after that event. People's safety always comes first, ahead of any system or any data.\n\nThink about a family whose kitchen is damaged by a fire. Getting everyone out safely comes first. Eating at a relative's home for a few weeks is continuity. Rebuilding the kitchen is recovery.\n\nThe data to collect includes test dates, plan review dates, recovery times achieved, problems found and lessons learned, and whether those lessons were acted upon. A plan with no recent test is only a theory.\n\nPlan tests run from the least to the most disruptive. You should know this order exactly.\n\n- Read-through, also called a checklist test: people read the plan and check that it is correct.\n- Structured walk-through, also called a tabletop test: the team talks through a scenario together around a table.\n- Simulation: people act out their response to a pretend event, without moving real work.\n- Parallel: systems are brought up at the recovery site while the main site keeps running.\n- Full interruption: the main site is really shut down and work moves to the recovery site.\n\nA full interruption gives the most certainty, and it carries the most risk to the business. It needs senior management's approval, and it should come only after the less disruptive tests have gone well.\n\nTwo measures are key. The Recovery Time Objective, or RTO, is the longest a system may stay down. The Recovery Point Objective, or RPO, is the most data the business can afford to lose, measured in time.\n\nHere is a worked example. A company's order system has an RTO of 4 hours and an RPO of 1 hour. In a parallel test, the system took 6 hours to come back. So the time goal was missed by 2 hours. The restored data was 30 minutes old. That is inside the 1 hour limit, so the data goal was met. The company should report both results honestly, and then find out what caused the delay.\n\nHere is what to take away. Know the five test types in order, report recovery times against the targets, and put people's safety first."
+    }
+  ],
+  "practiceQuestions": [
+    {
+      "prompt": "A security manager's report includes this figure: 92 percent of last quarter's incidents were closed within the agreed time. What kind of measure is this?",
+      "options": [
+        "A Key Risk Indicator, because it warns of harm that is coming",
+        "A clipping level, because it sets a limit for reporting",
+        "A Key Performance Indicator",
+        "A Recovery Time Objective, because it measures how long something took"
+      ],
+      "correctIndex": 2,
+      "explanation": "The figure reports how well the team did over a past period, so it is a performance measure. A risk indicator is tempting, but that would warn that danger is growing and would not report a finished result."
+    },
+    {
+      "prompt": "A board asks for an early warning that the company's exposure to outdated technology is growing. Which measure is the BEST Key Risk Indicator?",
+      "options": [
+        "The rising number of systems that their vendors no longer support",
+        "The total number of laptops the company bought over the last financial year",
+        "The percentage of last month's help desk calls that were answered on time",
+        "The number of technology staff who finished their training courses last year"
+      ],
+      "correctIndex": 0,
+      "explanation": "A growing number of unsupported systems warns that risk is increasing before any harm occurs. The training and help desk figures are tempting, but they measure past activity and say little about this risk."
+    },
+    {
+      "prompt": "An employee has moved through three departments in five years and still has all the access rights from each job. Which activity would BEST prevent this from continuing?",
+      "options": [
+        "Requiring the employee to change passwords more often",
+        "Regular access reviews, with access removed when a person changes jobs",
+        "Giving the employee a separate login for each past department",
+        "Increasing the size of the logs kept on each of the systems"
+      ],
+      "correctIndex": 1,
+      "explanation": "This is privilege creep, and regular reviews linked to job changes remove access that is no longer needed. Stronger passwords are tempting, but they do nothing to reduce excess rights."
+    },
+    {
+      "prompt": "During a review, an auditor sees that a database engineer requested elevated access and then approved the same request. Which principle has been broken?",
+      "options": [
+        "Defense in depth",
+        "Due care",
+        "Data minimization",
+        "Separation of duties"
+      ],
+      "correctIndex": 3,
+      "explanation": "Separation of duties means that no one person controls a whole task, so the requester must not be the approver. Due care is tempting as a general idea, but the specific failure here is one person doing both parts."
+    },
+    {
+      "prompt": "A sample of 400 active accounts is compared with the human resources staff list. Eight of the accounts belong to people who have left. What is the failure rate?",
+      "options": [
+        "0.5 percent",
+        "2 percent",
+        "8 percent",
+        "20 percent"
+      ],
+      "correctIndex": 1,
+      "explanation": "8 divided by 400 is 0.02, and 0.02 times 100 is 2 percent. 8 percent is tempting because it repeats the number of accounts, but the figure must be divided by the size of the sample."
+    },
+    {
+      "prompt": "A system has a Recovery Time Objective of 8 hours and a Recovery Point Objective of 2 hours. In a test, the system was restored in 5 hours, and the restored data was 3 hours old. What should the report say?",
+      "options": [
+        "Both of the recovery objectives were met during the test",
+        "The time objective was missed, but the data objective was met",
+        "Both of the recovery objectives were missed during the test",
+        "The time objective was met, but the data objective was missed"
+      ],
+      "correctIndex": 3,
+      "explanation": "Five hours is inside the 8 hour time limit, but data that is 3 hours old is outside the 2 hour data limit. The second option is tempting, but it reverses the two results."
+    },
+    {
+      "prompt": "A company has just written its first disaster recovery plan. It has never been tested, and managers are nervous about disturbing the business. Which test should come FIRST?",
+      "options": [
+        "Read-through",
+        "Simulation",
+        "Parallel",
+        "Full interruption"
+      ],
+      "correctIndex": 0,
+      "explanation": "A read-through is the least disruptive test and checks that the plan is correct. Full interruption is tempting because it gives the most certainty, but it carries the most risk and comes last."
+    },
+    {
+      "prompt": "A company brings its payment system up at the recovery site and confirms that it works, while the main site keeps processing live payments. Which type of test is this?",
+      "options": [
+        "Full interruption",
+        "Structured walk-through",
+        "Parallel",
+        "Read-through"
+      ],
+      "correctIndex": 2,
+      "explanation": "In a parallel test, the recovery site is brought up while the main site continues to run. Full interruption is tempting, but that would mean really shutting the main site down."
+    },
+    {
+      "prompt": "All staff completed the phishing awareness course this year, but the number of staff who fall for false messages has not changed. What is the BEST conclusion for the security manager to draw?",
+      "options": [
+        "Completion figures do not show that behavior has changed, so the program needs review",
+        "The training was successful, because every member of staff finished the course",
+        "The course should be dropped, because no training can ever change what people do",
+        "The phishing test results must be wrong, because attendance reached 100 percent"
+      ],
+      "correctIndex": 0,
+      "explanation": "Completion proves attendance, and the unchanged behavior shows the program is not achieving its goal. Calling it a success is tempting, but it mistakes activity for results."
+    },
+    {
+      "prompt": "A security manager is preparing a monthly report for the executive team. The scanner has produced 4,000 lines of findings. What is the BEST content for this report?",
+      "options": [
+        "The complete list of findings, so that executives can read every detail",
+        "A count of how many scans the team ran last month, with no other figures",
+        "A list of the scanning tool's software version numbers and license dates",
+        "Trends against targets, business risk and the decisions that are needed"
+      ],
+      "correctIndex": 3,
+      "explanation": "Executives need to understand the direction of risk and what they must decide. The full list is tempting because it seems complete, but it does not help them make decisions."
+    }
+  ]
+}

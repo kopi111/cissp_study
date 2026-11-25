@@ -1,0 +1,141 @@
+{
+  "id": "T53",
+  "studyNotes": [
+    {
+      "heading": "Kinds of investigation and the proof each one needs",
+      "body": "In this first part, we are going to look at the different kinds of investigation, because the kind of investigation decides how strong your proof must be.\n\nThink of a quarrel at home about who broke a window. A parent only needs to be fairly sure before deciding who will pay. A court that could send somebody to prison must be far more certain. The higher the consequence, the stronger the proof must be.\n\nThere are five kinds to know.\n\n- Administrative: inside the organisation, such as a staff matter or a system fault. The proof needed is low, and the aim is usually to find out what happened and put it right.\n- Criminal: carried out by law enforcement because a law may have been broken. The standard is beyond a reasonable doubt, which is the highest one.\n- Civil: one party sues another, usually for money. The standard is preponderance of the evidence, which means more likely true than not.\n- Regulatory: a government body checks whether its rules were followed. The standard depends on that body.\n- Industry standards: a contract or an industry group sets the rules, such as the rules for shops that accept payment cards.\n\nHere is a workplace example. A bank notices that a member of staff has been looking at customer accounts for no good reason. It begins as an administrative matter. Then the team finds that money has been moved. Now it may be criminal. So the way evidence was handled in the very first hour suddenly matters a great deal.\n\nThis gives us the manager's rule. If a case might reach a court, involve the legal team early, and treat everything as evidence from the start. You cannot go back later and collect it properly.\n\nAlso decide early whether to call law enforcement. That decision belongs to senior management, with legal advice. It is not for a technician acting alone. Calling the police can bring publicity, and they may take equipment away, so the business needs to weigh that.\n\nHere is what to take away. The kind of investigation sets the standard of proof, criminal is the highest, and legal advice comes early."
+    },
+    {
+      "heading": "Evidence: what kinds exist and what a court will accept",
+      "body": "Now we will look at evidence itself. We will cover the kinds of evidence, and what makes a court willing to accept it.\n\nImagine that you are telling a friend that your neighbour's dog dug up your garden. A muddy paw print is something you can point to. A photo is a record. Your neighbour saying that she saw it happen is a statement. Courts sort evidence in much the same way.\n\n- Real evidence is a physical thing, such as a hard drive or a laptop.\n- Documentary evidence is written or recorded information, such as logs, emails and contracts.\n- Testimonial evidence is what a witness says under oath.\n- Demonstrative evidence helps explain other evidence, such as a chart or a timeline.\n\nEvidence must be admissible, which means that a court will accept it. There are three tests. It must be relevant, meaning it helps to prove a fact. It must be material, meaning that fact matters in this case. It must be competent, meaning it was collected legally and reliably.\n\nTwo older rules also appear on the exam. The best evidence rule prefers the original document over a copy. The parol evidence rule says that when an agreement has been put in writing, the written version is taken as the whole agreement.\n\nThe hearsay rule limits second-hand statements. A person cannot normally repeat what somebody else said as proof that it was true. Computer logs could fall under this rule, because a machine cannot be questioned. But there is an exception for business records. If logs are made routinely, as a normal part of the business, and someone can explain how the system works, they can usually be accepted.\n\nHere is a workplace example. A company wants to rely on its door access logs in court. It shows that the logs are created automatically every day, that nobody can change them, and that the security manager can explain the system. That makes them far easier to accept.\n\nGood evidence should also be authentic, accurate, complete and convincing.\n\nHere is your takeaway. Know real, documentary, testimonial and demonstrative evidence, and remember that admissible means relevant, material and competent."
+    },
+    {
+      "heading": "Chain of custody",
+      "body": "Next we are going to look at chain of custody, which is one of the most important ideas in this topic.\n\nChain of custody is a written record of who held the evidence, when, where and why, from the moment it was collected until it reaches the court. Think of tracking a parcel. Every time the parcel changes hands, a scan is recorded. If the parcel disappears for two days and turns up again, you would wonder what happened to it.\n\nEach entry in the record should show these things.\n\n- What the item is, with its description and serial number.\n- Who collected it, and from where.\n- The date and time of collection and of every transfer.\n- Who released it and who received it, with signatures.\n- Why it was moved.\n- Where and how it was stored.\n- The hash value, if it is a digital item. A hash is a digital fingerprint, and if the data changes, the hash changes.\n\nThe evidence must stay under control the whole time. It should be sealed in a tamper-evident bag, which shows clearly if anyone has opened it. It should be labelled and kept in a locked store with limited access. Each person who touches it signs the log.\n\nHere is a workplace example. An investigator seizes a laptop on Monday morning, and records its serial number and the time. She seals it and hands it to the evidence custodian, and both of them sign. On Tuesday, a forensic examiner signs it out, makes a copy, and signs it back in. Anyone reading that record can account for every minute.\n\nNow change the story. Suppose the laptop sat on an open desk over lunch, and nobody wrote that down. The defence can argue that somebody could have altered it. One gap can make the evidence useless, even if nothing really happened to it.\n\nNotice that the chain of custody does not prove that the evidence is true. It proves that the evidence has been controlled.\n\nHere is what to take away. Record who, what, when, where and why for every hand-over, and leave no gaps."
+    },
+    {
+      "heading": "The order of volatility, with a worked example",
+      "body": "In this part, we will look at the order in which digital evidence should be collected.\n\nVolatile means something that disappears quickly. Think of a detective at a beach. Footprints near the waves must be photographed first, because the tide is coming. The carved initials on the rock can wait. So we collect the most short-lived evidence first. The accepted order comes from an internet guidance document called RFC 3227. RFC stands for Request for Comments.\n\nLearn this exact order, from most volatile to least.\n\n- Central processing unit registers and cache. The central processing unit, or CPU, is the chip that does the computer's work.\n- Routing table, ARP cache, process table, kernel statistics and main memory.\n- Temporary file systems.\n- Disk.\n- Remote logging and monitoring data.\n- Physical configuration and network topology.\n- Archival media, such as backup tapes.\n\nLet us explain the new words. The routing table tells a computer where to send network traffic. ARP stands for Address Resolution Protocol, and its cache matches network addresses to devices. The process table lists the programs that are running. The kernel is the core of the operating system. Network topology means how the network is laid out.\n\nNow a worked example. An investigator arrives at a server that is still running, and that may have been used to steal data.\n\nStep one, she photographs the screen and the room. Registers and cache change too fast to capture separately in most cases, so step two, she captures memory, using a trusted tool. That brings in the routing table, running processes and network connections as well. Step three, she copies temporary files if they will not survive. Step four, she makes a full copy of the disk. Step five, she requests the logs held on the central log server. Step six, she records how the machine was connected. Step seven, she collects any backup tapes.\n\nA common trap is to shut the machine down first. Pulling the plug destroys everything in memory, including encryption keys and running malware. Do not power off before you have decided what you are willing to lose.\n\nHere is your takeaway. Collect what will vanish first, so memory comes before disk, and disk comes before backup tapes."
+    },
+    {
+      "heading": "Forensic tools, tactics and procedures",
+      "body": "Now we will look at how digital forensics is actually done, including the tools and the working steps.\n\nDigital forensics is the careful science of collecting and examining computer evidence so that it stands up in court. Think of a doctor taking a blood sample. The sample is labelled and stored carefully, and the tests are run on portions of it, so that the original stays available.\n\nThese are the main tools.\n\nA write blocker is a device that lets you read a disk, but stops any change to it. Imaging software makes a bit-for-bit copy, also called a forensic image, including deleted areas of the disk. A hash tool calculates the digital fingerprint, often with SHA-256, which stands for Secure Hash Algorithm with a 256-bit result. Memory capture tools record what is in the main memory. A packet capture tool records network traffic. A Faraday bag is a pouch that blocks radio signals, so a seized phone cannot be wiped remotely.\n\nHere is the usual procedure. It is a set of steps, but practitioners may adjust the detail to the case.\n\n- Identify what may hold evidence.\n- Preserve it, so it cannot change.\n- Collect it, in order of volatility.\n- Examine the copy for relevant data.\n- Analyse what it means.\n- Present the findings.\n\nThe golden rule is to work on a verified copy, and to protect the original. Make the image, hash the original, hash the image, and compare. If the two fingerprints match, the copy is exact.\n\nThe main tactics include building a timeline of events, recovering deleted files, and looking at slack space, which is the unused end of a storage block where old data can remain. Examiners also compare the clocks of different systems, because logs in different time zones can seem out of order.\n\nHere is a workplace example. A company suspects that a contractor copied designs to a USB stick, a small plug-in storage device. The examiner images the contractor's laptop through a write blocker, verifies the hashes, and searches the copy. She finds a record of the USB stick being connected at the time of the theft.\n\nHere is what to take away. Protect the original, work on a verified copy, and record every step."
+    },
+    {
+      "heading": "Investigative techniques, artifacts and the report",
+      "body": "In this final part, we will look at the techniques investigators use, the traces they look for, and how the work is written up.\n\nAn interview is a conversation that gathers facts from someone willing to help. An interrogation questions a suspect. It carries legal risk, so leave it to trained staff or to the police.\n\nInvestigators often think about MOM, which stands for motive, opportunity and means. Motive is why a person did it. Opportunity is the chance to do it. Means is the ability to do it. Locard's exchange principle says that a criminal always leaves something behind and takes something away. Think of a burglar who leaves a footprint and carries off some mud on a shoe. Computers work the same way.\n\nEnticement leaves a lure for someone already planning harm, and it is legal. Entrapment persuades someone to commit a crime they did not plan, and it is illegal.\n\nArtifacts are the traces left behind. The outline names four places to look.\n\n- Data: files and their metadata, which is data about data, such as the date a file was created.\n- Computer: deleted files, browser history, memory and system settings.\n- Network: traffic captures, firewall logs and records of connections.\n- Mobile device: call logs, messages, location history and app data.\n\nThe report is where the work becomes useful. It states the facts, the tools used, the steps taken and the times. It avoids guesses and opinions on guilt. Another expert should be able to repeat the work and reach the same result. Write it clearly enough for a judge or a manager who is not technical.\n\nHere is a workplace example. A weak report says that the employee obviously stole the files. A strong report says that at a stated time, the account named in the log copied 300 files to an external drive with a stated serial number. The second report shows what happened, and leaves the conclusion to the people who are entitled to decide.\n\nKeep the documents secure as well, and share them only with those who need them.\n\nHere is your takeaway. Know motive, opportunity and means, know the four artifact types, and report only facts that another expert could repeat."
+    }
+  ],
+  "practiceQuestions": [
+    {
+      "prompt": "An investigator is collecting evidence from a running server. Time is short. Which of these should be collected FIRST?",
+      "options": [
+        "Temporary files on the server",
+        "The routing table and the list of running processes",
+        "A complete bit-for-bit image of the server's main disk",
+        "The offsite backup tapes for that server"
+      ],
+      "correctIndex": 1,
+      "explanation": "The routing table and process table sit near the top of the order of volatility. Temporary files are tempting because they also change quickly, but they come after memory and related data."
+    },
+    {
+      "prompt": "A seized hard drive was left unattended on an examiner's desk for two hours, and nothing was recorded. The drive and its hash are unchanged. What is the MOST serious concern for a later court case?",
+      "options": [
+        "The drive may have become slower",
+        "The examiner should have used a different hashing tool",
+        "The disk image may be too large to present",
+        "There is a gap in the chain of custody"
+      ],
+      "correctIndex": 3,
+      "explanation": "An unrecorded period out of control is a gap in the chain of custody, and it can be challenged in court. Changing the hashing tool is tempting, but the method was not the problem. Control of the item was."
+    },
+    {
+      "prompt": "An examiner has made a forensic image of a disk. Which step BEST shows that the image is an exact copy of the original?",
+      "options": [
+        "Compare the hash of the image with the hash of the original",
+        "Compare the file sizes of the image and the disk",
+        "Open a sample of the files and read them",
+        "Ask a second examiner to review and sign the chain of custody form"
+      ],
+      "correctIndex": 0,
+      "explanation": "Matching hashes show that the two are identical, bit for bit. Comparing sizes is tempting, but two sets of data can be the same size and still differ."
+    },
+    {
+      "prompt": "A software company sues a former partner for misusing its code. Which standard of proof will the court MOST likely apply?",
+      "options": [
+        "Beyond a reasonable doubt",
+        "Whatever standard the company's own policy sets",
+        "Preponderance of the evidence",
+        "Absolute certainty"
+      ],
+      "correctIndex": 2,
+      "explanation": "A civil case between two parties uses preponderance of the evidence, meaning more likely true than not. Beyond a reasonable doubt is tempting because it is the best-known standard, but it applies to criminal cases."
+    },
+    {
+      "prompt": "A company wants to use its server logs in court, but the other side argues that the logs are hearsay. Which fact would BEST help the company?",
+      "options": [
+        "The logs are created routinely as a normal part of the business",
+        "The logs were printed on company letterhead",
+        "The logs were stored for longer than the law requires",
+        "The logs were carefully checked and summarised by a senior manager"
+      ],
+      "correctIndex": 0,
+      "explanation": "Records made routinely in the normal course of business can fall under the business records exception. A summary by a manager is tempting, but it adds another layer of second-hand statement."
+    },
+    {
+      "prompt": "Investigators seize a smartphone that is switched on. They are concerned that the suspect could erase it remotely. What should they do FIRST?",
+      "options": [
+        "Remove the battery and throw away the SIM card",
+        "Browse the phone quickly to find the key messages",
+        "Ask the mobile network to send a software update",
+        "Place it in a Faraday bag and keep it powered"
+      ],
+      "correctIndex": 3,
+      "explanation": "A Faraday bag blocks signals, so a remote wipe cannot arrive, and keeping power preserves volatile data. Browsing the phone is tempting, but it changes the evidence."
+    },
+    {
+      "prompt": "A manager suspects an employee of fraud and wants to confront the employee at once in a closed room. What should the security professional advise?",
+      "options": [
+        "Record the confrontation secretly so that it can be used later",
+        "Leave any questioning of a suspect to trained staff or the police",
+        "Hold the meeting straight away, before the employee can hide evidence",
+        "Ask the employee's colleagues to question the employee informally"
+      ],
+      "correctIndex": 1,
+      "explanation": "Questioning a suspect is an interrogation, which carries legal risk and needs trained people. Acting at once feels decisive, but an unskilled confrontation can spoil the case."
+    },
+    {
+      "prompt": "An examiner finds a tool left on a server by an intruder and also finds that customer files were copied away. Which idea does this finding BEST illustrate?",
+      "options": [
+        "The best evidence rule",
+        "The order of volatility",
+        "Locard's exchange principle",
+        "The parol evidence rule"
+      ],
+      "correctIndex": 2,
+      "explanation": "Locard's principle says that an intruder leaves something behind and takes something away. The best evidence rule is tempting because this is evidence, but that rule is about preferring originals."
+    },
+    {
+      "prompt": "Which statement BEST belongs in a forensic report that may be read in court?",
+      "options": [
+        "At the logged time, this account copied 300 files to the listed drive",
+        "The employee clearly intended to harm the company",
+        "In my experience, staff with money problems are likely to steal",
+        "The suspect probably deleted more files that we could not find"
+      ],
+      "correctIndex": 0,
+      "explanation": "A report states facts that another expert could check and repeat. Comments on intent can sound convincing, but they are opinions on matters the examiner cannot show."
+    },
+    {
+      "prompt": "An examiner builds a timeline from three systems, and the events appear to be out of order. The servers are in different countries. What should the examiner do FIRST?",
+      "options": [
+        "Remove the events that do not fit the expected pattern",
+        "Use only the logs from the most important server",
+        "Record each system's clock setting and convert the times to one standard",
+        "Ask administrators to reset the clocks on the three servers now"
+      ],
+      "correctIndex": 2,
+      "explanation": "Recording each clock setting and converting to a common time puts events in true order without changing evidence. Resetting the clocks sounds helpful, but it alters the systems and does not explain earlier records."
+    }
+  ]
+}

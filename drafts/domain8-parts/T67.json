@@ -1,0 +1,141 @@
+{
+  "id": "T67",
+  "studyNotes": [
+    {
+      "heading": "The life cycle, stage by stage",
+      "body": "In this first part, we are going to walk through the whole life of a piece of software, from the first idea to the day it is retired.\n\nThe software development life cycle, or SDLC, is that full journey. Books name the stages in slightly different ways, so learn the order of the ideas and not one exact set of labels. Here is the order.\n\n- Plan and gather requirements.\n- Design.\n- Develop.\n- Test.\n- Deploy.\n- Operate and maintain.\n- Retire.\n\nThink of building a house. First you decide what the family needs. Then an architect draws the plans. Builders put it up. An inspector checks it. The family moves in. For years the family repairs it and looks after it. One day it is pulled down, and the site is cleared.\n\nNow let us follow a workplace example, a school fees portal where parents pay online. In planning, the team writes down what the portal must do. It also classifies the data, which means deciding how sensitive it is. Card details and children's records are highly sensitive. In design, the team decides how the parts fit together. In development, programmers write the code. In testing, the team proves that the features work and that the security controls work. In deployment, the portal is released through an approved process. In operation, staff patch it, which means applying fixes, and they watch it and control changes to it. In retirement, the portal is switched off, and its data is kept or destroyed according to policy.\n\nTwo words belong at the deployment stage. Certification is the technical check that the controls meet the requirements. Accreditation is management's formal acceptance of the system and its remaining risk. Someone technical certifies. A senior manager accredits.\n\nNotice that retirement is a real stage. Old software that nobody owns keeps running, goes unpatched and still holds data. A forgotten system is an open door.\n\nHere is what to take away. Software has a whole life, from planning to retirement, and someone must own its security at every stage."
+    },
+    {
+      "heading": "Security at each stage, and shifting left",
+      "body": "Next we will look at the security job that belongs to each stage, and at why doing that job early saves so much money.\n\nIn planning, you write security requirements next to the business requirements. For example, the system must lock an account after repeated failed logins. In design, you do threat modeling, which means listing what could go wrong before anything is built. You also write abuse cases, which describe how someone might misuse a feature. In development, programmers follow secure coding rules, and a second person reviews the code. In testing, you check the security controls on purpose. Do not copy real customer data into a test system without protecting it. Masking, which hides the real values, or made-up data is safer. In deployment, you harden the system, which means removing what is not needed and setting safe options. In operation, you patch, monitor and control change. In retirement, you remove accounts and dispose of the data safely.\n\nNow for the money. Think of moving a wall in a house. On paper, it costs an eraser. After the family moves in, it costs a builder, a plumber and a painter.\n\nHere is a worked example. The figures are made up, simply to show the idea. Suppose a flaw would cost 100 dollars to fix during design. If it is found in testing, the code must be changed and tested again, so suppose it costs 1,500 dollars. If it is found after release, there is an emergency patch, customer notices and perhaps a breach, so suppose it costs 10,000 dollars. Ten thousand divided by one hundred is one hundred. The same flaw has cost one hundred times as much, only because it was found late.\n\nMoving security work to earlier stages is called shifting left. Picture the stages written from left to right on a whiteboard. Planning is on the left.\n\nA workplace team might add one hour of threat modeling to each new feature. That hour is cheap, and it removes whole families of problems.\n\nHere is your takeaway. Every stage has a security task, and the earlier a flaw is found, the less it costs to fix."
+    },
+    {
+      "heading": "Waterfall and spiral",
+      "body": "Now we will look at two older methods that are still tested, waterfall and spiral.\n\nA development method is simply the way a team organizes its work through the life cycle.\n\nWaterfall runs the stages in strict order. Each stage is finished and signed off before the next one begins. Think of water going over a series of ledges. It does not flow back up. A later version allows a step back to the stage just before, but the idea is the same.\n\nWaterfall suits projects where the requirements are stable and well known. It also suits work that needs heavy paperwork and formal approval. A workplace example is a small tax calculation system, where the rules are fixed by law.\n\nIts weakness is that users see the product late, so problems also appear late. Security fits through written requirements at the start and a formal review at the end of each stage.\n\nThe spiral model repeats a loop many times. Picture a spiral on a page, growing wider with each turn. Each loop has four activities, in this order.\n\n- Set the goals for this loop.\n- Study the risks and deal with them.\n- Build and test a prototype, which is an early trial version.\n- Plan the next loop.\n\nThink of a family designing a new kitchen. They first make a cardboard model, and they notice that the door hits the cupboard. They fix that problem before spending real money. Then they try a fuller model, and so on.\n\nA workplace example is a first-of-its-kind medical device. Nobody knows yet whether the design will work. Each loop answers the biggest open risk, and leaders can stop before spending more.\n\nSpiral suits large, uncertain and risky projects. Its weakness is cost and complexity, because the risk analysis needs skilled people.\n\nOn the exam, watch for the clue words. Stable requirements and strict stages suggest waterfall. Risk-driven work and prototypes suggest spiral.\n\nHere is what to take away. Waterfall is strict order for stable needs. Spiral is repeated loops of risk analysis and prototypes for uncertain needs."
+    },
+    {
+      "heading": "Agile and Scrum",
+      "body": "In this part, we will look at agile, which is the way most software teams work today, and at Scrum, its best-known form.\n\nAgile is a family of methods that deliver small working pieces in short cycles and welcome change. It is built on the Agile Manifesto, which states four values. Learn all four.\n\n- Individuals and interactions over processes and tools.\n- Working software over comprehensive documentation.\n- Customer collaboration over contract negotiation.\n- Responding to change over following a plan.\n\nThe things on the right still have value. The things on the left simply have more.\n\nThink of cooking for friends. You could plan the whole menu a month ahead and serve it no matter what. Or you could cook one dish, let them taste it, and adjust the next one. Agile is the tasting approach.\n\nScrum is a popular agile method. Work happens in sprints, which are fixed cycles of one month or less. The backlog is the ordered list of work still to be done. The product owner decides the order of that list. The Scrum master helps the team follow the method and removes obstacles. The developers build the product. Each sprint ends with a review of what was built, and a retrospective, where the team talks about how to work better.\n\nNow for security. Agile does not forbid security, but speed can push it aside. Here is how a workplace team keeps it in. Picture a bank's mobile app team. It places security needs in the backlog as real work items. For a new money transfer feature, it adds an abuse case, such as someone sending a thousand small transfers to hide a theft. Its definition of done, which is the agreed list of what finished means, includes passing the security checks. A security champion, a developer with extra security training, sits inside the team.\n\nDo not read working software over documentation as no documentation. Audits and accountability still need records.\n\nHere is your takeaway. Agile means small pieces and fast feedback, and security must be built into the backlog and the definition of done."
+    },
+    {
+      "heading": "Scaled agile, DevOps and DevSecOps",
+      "body": "Next we will look at how agile grows to fit large organizations, and at how development, operations and security come together.\n\nOne Scrum team is small. A large product may need dozens of teams. The Scaled Agile Framework, or SAFe, coordinates many agile teams working on one product. Teams are grouped into an Agile Release Train, a long-lived team of teams, usually 50 to 125 people. They plan together in a planning interval, usually 8 to 12 weeks.\n\nThink of many cooks preparing one wedding banquet. Each cook has a dish, but the dishes must arrive together and match. Security fits SAFe through shared standards and architecture, so that each team does not invent its own rules.\n\nDevOps joins development and operations into one way of working. In the past, programmers threw finished code over a wall, and the operations staff had to run it. DevOps removes that wall. It relies on automation to build, test and release often. A workplace example is an online shop that releases small changes several times a day. If a change fails, it is quickly rolled back, meaning undone.\n\nDevSecOps adds security as the shared duty of everyone. Security checks run automatically on each change. Security staff write rules and tools, and help the teams use them. Security is no longer one gate at the end.\n\nLet us walk through one change in a DevSecOps team, step by step. A developer saves a change. A tool immediately reads the code for known flaws. Another tool checks the outside components for known problems. The build fails if a serious problem appears, and the developer fixes it within minutes. The change then goes to a test system, where it is attacked by an automated scanner. Only then may it reach production.\n\nBe clear about one thing. Buying tools does not create DevSecOps. It is a change of culture, so it needs management support and shared responsibility.\n\nHere is what to take away. SAFe coordinates many agile teams, DevOps joins building and running, and DevSecOps makes security everyone's automated, everyday work."
+    },
+    {
+      "heading": "Choosing a method and thinking like an adviser",
+      "body": "In this final part, we will bring the methods together and practice the way of thinking that the exam rewards.\n\nFirst, no method is secure on its own. Waterfall can produce insecure software, and so can DevSecOps. What matters is whether security requirements, reviews, testing and sign-off exist inside the method that the team really uses.\n\nSecond, the method is a business decision. You are an adviser. Think of a mechanic asked about a family's choice of car. A good mechanic does not insist that everyone drive the same model. A good mechanic asks how the car will be used, and then makes sure that it is safe.\n\nSo, when a question offers an answer that says to force the team back to a different method, be careful. That answer is usually wrong, unless the scenario shows that the method truly cannot fit. Work with the method the business has chosen, and build security into it.\n\nHere is a workplace example. A hospital runs two projects. One replaces a fixed billing formula required by regulation. The other builds a new patient app whose features will change as patients respond. The adviser accepts a waterfall approach for the first, with reviews at each stage. The adviser accepts an agile approach for the second, with security items in the backlog. Different methods, same security outcomes.\n\nNow here is a simple order of thought for scenario questions.\n\n- Ask where in the life cycle the scenario sits.\n- Ask what security activity belongs at that point.\n- Look for the answer that fixes the cause in the process, not just the single symptom.\n- Make sure that management makes the risk decisions.\n\nPeople come first as well. If software controls a train or a medical pump, safety outweighs the delivery date.\n\nFinally, keep the words straight. Certification is technical. Accreditation is a management decision. Sprints belong to Scrum. Prototypes and risk loops belong to spiral.\n\nHere is your takeaway. Do not argue for one best method. Help the business choose what fits, and make sure that security is built in, whichever method it chooses."
+    }
+  ],
+  "practiceQuestions": [
+    {
+      "prompt": "A government agency is starting a new benefits payment system. The project manager asks when the system's security needs should first be written down. What is the BEST answer?",
+      "options": [
+        "After the code is written, so that testers know what to check",
+        "During requirements, alongside the business needs",
+        "Just before deployment, as part of the accreditation package",
+        "During the first maintenance cycle, once real threats are seen"
+      ],
+      "correctIndex": 1,
+      "explanation": "Security needs belong with the other requirements at the very start, so that they shape the design and cost less. Writing them before accreditation is tempting because that is when management signs, but by then it is far too late to build them in."
+    },
+    {
+      "prompt": "Technical staff have confirmed that the controls on a new claims system meet the requirements. Some risk remains. What must happen BEFORE the system goes live?",
+      "options": [
+        "The developers sign a statement that the remaining risk is small",
+        "The testers repeat the checks until no risk remains at all",
+        "The security team accepts the remaining risk for the business",
+        "A senior manager formally accepts the remaining risk"
+      ],
+      "correctIndex": 3,
+      "explanation": "That formal acceptance is accreditation, and it is a management decision. Having the security team accept the risk is tempting, but security staff advise and do not own business risk. No amount of testing brings risk to zero."
+    },
+    {
+      "prompt": "A utility needs a small billing calculator. The rules are fixed by regulation and will not change. The regulator also expects formal sign-off documents at the end of each stage. Which development method is the BEST fit?",
+      "options": [
+        "Waterfall",
+        "Scrum",
+        "Spiral",
+        "DevOps"
+      ],
+      "correctIndex": 0,
+      "explanation": "Stable requirements and formal sign-off at each stage are what waterfall is built for. Spiral is tempting because the work is regulated, but spiral is meant for uncertain projects with major risks to explore."
+    },
+    {
+      "prompt": "A product owner writes a work item that lets customers reset their passwords by email. Before the team builds it, the security adviser wants the team to think about how the feature could be misused. Which technique BEST does this?",
+      "options": [
+        "A regression test run after the feature has been released",
+        "A service level agreement agreed with the email provider",
+        "An abuse case added alongside the work item",
+        "A change request raised during the maintenance stage"
+      ],
+      "correctIndex": 2,
+      "explanation": "An abuse case describes how someone might misuse a feature, so it shapes the work before it is built. A regression test is tempting because it is a security activity, but it happens after the work and only checks what was already built."
+    },
+    {
+      "prompt": "A car maker has twelve agile teams building one vehicle software platform. Each team has invented its own security rules, and the parts often fail when they are joined together. What should the security manager recommend?",
+      "options": [
+        "Ask each team to write a stronger security policy of its own",
+        "Move every team back onto a single waterfall project plan",
+        "Coordinate the teams under a scaled framework and shared standards",
+        "Let each team keep its rules and test only the final product"
+      ],
+      "correctIndex": 2,
+      "explanation": "A scaled agile approach with shared standards and architecture fixes the cause, which is a lack of coordination. Going back to waterfall is tempting, but it changes the business's chosen method and does not by itself create common security rules."
+    },
+    {
+      "prompt": "A company announces that it has adopted DevSecOps and buys scanning tools. Developers ignore the results, saying that security belongs to the security team. What is the MOST important next step?",
+      "options": [
+        "Gain management backing for shared ownership of security",
+        "Buy a second scanner to confirm the results of the first",
+        "Remove the scanners and return to a final review by security staff",
+        "Have the security staff fix all of the reported flaws themselves"
+      ],
+      "correctIndex": 0,
+      "explanation": "DevSecOps is a change of culture, so leaders must make security a shared duty. Having security staff fix the flaws is tempting because the work gets done, but it keeps the same divide that caused the problem."
+    },
+    {
+      "prompt": "A software firm finds most of its serious flaws during final testing, and the rework regularly delays its releases. Which change would BEST reduce this problem?",
+      "options": [
+        "Add more testers to the final testing stage of each project",
+        "Delay every release by one month to allow more rework",
+        "Hire outside penetration testers to check every release",
+        "Add threat modeling during design"
+      ],
+      "correctIndex": 3,
+      "explanation": "Threat modeling during design finds problems before they are built, which is shifting left. More testers are tempting, but they still find the flaws at the late, expensive stage."
+    },
+    {
+      "prompt": "During testing of a new insurance system, a project team wants to copy live customer records into the test environment to make the tests realistic. What should the security adviser recommend?",
+      "options": [
+        "Allow it, as long as all testers sign a confidentiality agreement",
+        "Use masked or made-up data instead of the real records",
+        "Allow it, because the test network sits inside the firewall",
+        "Copy the records, and delete them when the project closes"
+      ],
+      "correctIndex": 1,
+      "explanation": "Masked or made-up data allows realistic testing without exposing real people's records. A confidentiality agreement is tempting, but test systems usually have weaker controls and wider access, so the data would still be at risk."
+    },
+    {
+      "prompt": "A retailer is replacing an old order system that holds many years of customer data. What should the security manager ensure as the system is retired?",
+      "options": [
+        "Retention rules are applied, and the rest is securely destroyed",
+        "The server is switched off and stored with its disks intact",
+        "The old servers are given to staff after a quick disk format",
+        "The system keeps running in case someone needs an old record"
+      ],
+      "correctIndex": 0,
+      "explanation": "Retirement means keeping only what policy and law require, and safely destroying the rest. Storing the server is tempting because nothing is lost, but the data stays exposed and no one is managing it."
+    },
+    {
+      "prompt": "A project lead insists that every design must be fully documented before anyone writes any working code. Which Agile Manifesto value does this attitude MOST directly conflict with?",
+      "options": [
+        "Individuals and interactions over processes and tools",
+        "Customer collaboration over contract negotiation",
+        "Working software over comprehensive documentation",
+        "Responding to change over following a plan"
+      ],
+      "correctIndex": 2,
+      "explanation": "Putting documents ahead of working code runs against the value of working software over comprehensive documentation. Responding to change is tempting, because the attitude is also rigid, but the conflict stated here is about documentation."
+    }
+  ]
+}

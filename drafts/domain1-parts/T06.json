@@ -1,0 +1,141 @@
+{
+  "id": "T06",
+  "studyNotes": [
+    {
+      "heading": "The layers of security documents",
+      "body": "In this first part, we are going to look at the family of documents that organizations use to set out their security rules. There are five, and you need to know them as a set.\n\n- Policy.\n- Standard.\n- Baseline.\n- Guideline.\n- Procedure.\n\nThink of a school. The school rule says that pupils must dress neatly and safely. That is the policy. The uniform list says exactly which colour of shirt and what kind of shoes. That is the standard. The minimum dress code says what every child must be wearing to be let through the gate. That is the baseline. A note suggesting that children bring a raincoat in the wet season is a guideline. The step-by-step instructions for a fire drill are the procedure.\n\nEach document answers a different question. A policy answers what must be achieved and why. A standard answers which specific technology or level must be used. A baseline answers what the minimum settings are. A guideline offers advice on what you might consider doing. A procedure answers exactly how to do a task.\n\nHere is the fact the exam tests most often. Everything is mandatory except guidelines. Mandatory means required. If a document is optional, it is a guideline. If you are asked which one is not compulsory, there is only one answer.\n\nThe usual order, from general to specific, is policy, standards, baselines, guidelines and procedures. Sometimes people write them in a slightly different order, but the principle holds. Policy sits at the top. Everything else exists to carry it out.\n\nNow think about the people who use each one. Executives care about policy. Architects and engineers care about standards and baselines. Staff doing a particular job care about procedures. Anyone may find a guideline useful.\n\nIn a scenario, look for the clues. Does the document name a product? It is probably a standard. Does it list numbered steps? It is a procedure. Does it use the word should, or suggest something? It is a guideline.\n\nHere is what to take away. There are five documents in a layered family, and only the guideline is optional."
+    },
+    {
+      "heading": "Policy",
+      "body": "Now let us look more closely at the top layer, the policy.\n\nA policy is a high-level statement of what the organization wants to achieve and why. It is mandatory. It is approved by senior management, and that approval is what gives it authority. Without senior approval, a policy is just someone's opinion on paper.\n\nA good policy does not name products. Here is why. Think about a family rule that says everyone must get home safely at night. That rule holds, whether you take a bus, a taxi or a lift from a friend. If the rule named one taxi company, you would have to change the rule whenever that company closed. A policy should last, so it stays general.\n\nA workplace example would be a statement like this. Customer data must be protected wherever it is stored. Notice what it leaves out. It does not mention a type of encryption, which is the scrambling of data so that only someone with the key can read it. Nor does it mention a brand of software. Those details belong lower down.\n\nPolicies come in several kinds. It helps to know the scope first.\n\n- Organizational policy: the overall security program and its purpose.\n- Issue-specific policy: one topic, such as email use or remote working.\n- System-specific policy: the rules for one system.\n\nAn acceptable use policy is a common issue-specific example. It tells staff what they may and may not do with company systems.\n\nPolicies can also be described by their purpose.\n\n- Regulatory: needed by law or regulation.\n- Advisory: tells staff what behaviour is expected and what happens if they break the rule.\n- Informative: gives information only, with no enforcement.\n\nThe word advisory can mislead you. It sounds optional, but an advisory policy is still mandatory, and it spells out consequences. Be careful with that one.\n\nA new policy usually starts with a draft from the security team, reviewed by legal, human resources and the business, and approved at the top.\n\nA well-written policy also says who it applies to, who is responsible for what, and what happens if it is broken.\n\nHere is your takeaway. A policy is high-level, mandatory and approved by senior management, and it does not name products."
+    },
+    {
+      "heading": "Standards and baselines",
+      "body": "Next we will look at the two layers that make a policy specific, which are standards and baselines.\n\nA standard says what specific technology, method or level must be used. It is mandatory, and it applies across the organization. It gives everybody the same answer, so that each team does not make its own choice.\n\nHere is an everyday example. A family agrees to use one kind of phone charger, so that any charger in the house fits any phone. That is the value of a standard. Things work together, they are simpler to look after, and they are cheaper to buy.\n\nAt work, a standard might say that all staff must log in using multi-factor authentication. That means proving who you are in at least two different ways, such as a password and a code on your phone. Another might say that all company laptops must use a particular approved encryption product. Unlike a policy, a standard may well name a product or an exact level.\n\nA baseline is the minimum security setting for a type of system. It is also mandatory. It answers the question of what every machine of this kind must look like before it is put into use. Think of a car's roadworthiness check. Every car must have working brakes, lights and tyres to be allowed on the road. Better brakes are fine. Worse ones are not.\n\nA workplace example is a list of settings that every new web server must start with. Unused services are switched off. Default passwords are changed. Logging is switched on. Teams may go higher than the baseline if a system needs it, but they cannot go lower without a formal, approved exception.\n\nThat word exception matters. Sometimes a system cannot meet a standard, perhaps because it is old. The right approach is to document the exception, have the right manager approve it, add a compensating control, and set a review date. A compensating control is an alternative safeguard used when the main one cannot be applied.\n\nSo here is what to take away. A standard names what must be used. A baseline sets the minimum you must meet. Both are mandatory, and departures need formal approval."
+    },
+    {
+      "heading": "Guidelines and procedures",
+      "body": "In this part we will look at the two remaining layers, guidelines and procedures. In a sense, they are opposites.\n\nA guideline is advice and recommended good practice. It is optional. It is the only one of the five documents that is not mandatory. It helps people when a rule would be too rigid.\n\nThink about a travel guide that recommends visiting a market early in the morning, before it gets hot. You do not have to follow that advice, but you will probably have a better day if you do.\n\nAt work, a guideline might say that staff should consider using a phrase for their password, so that it is easy to remember. Or it may offer suggestions for staying safe on public Wi-Fi. The wording tends to be gentle, with words like should, consider and recommended.\n\nA procedure is the exact opposite in style. It gives step-by-step instructions for doing one task. It is mandatory. Think of the instructions a pilot follows before take-off. Nobody wants a creative pilot during the checklist. Everyone wants the same steps, in the same order, each time.\n\nHere is a workplace example of a procedure for encrypting a new laptop. Step one, plug in the laptop. Step two, open the encryption tool. Step three, record the recovery key in the approved system. Step four, confirm that encryption has finished, and sign the record.\n\nProcedures do three helpful things. They make a task repeatable, so that different people get the same result. They make training easier, because a new person can follow them. And they create a record that an auditor can check, by comparing what people actually did against what the procedure said.\n\nThe most common mix-up is between a standard and a procedure. A standard says what must be used. A procedure says how to do something, step by step. If a document says to use a named encryption product, it is a standard. If it says to click here and then type this, it is a procedure.\n\nThis is the point to take away. Guidelines suggest and are optional. Procedures instruct, step by step, and they are mandatory."
+    },
+    {
+      "heading": "How the layers work together",
+      "body": "Now we are going to see how all five documents work together, with one full worked example.\n\nEach layer supports the layer above it. A standard exists to carry out a policy. A baseline applies that standard to a type of system. A procedure explains how to meet the standard. If two documents conflict, the higher one wins, and the lower one should be corrected.\n\nThink of a family again. The parents say that the family must save money. That is the top rule. An older child then says that everyone must walk to school to save bus fare. If that means crossing a dangerous road, a higher rule about safety overrides it, and the walking rule gets changed.\n\nHere is a worked example from a bank. Follow it from the top to the bottom.\n\nThe policy says that only allowed staff may reach customer accounts.\n\nThe standard says that everyone must use multi-factor authentication, which, you will remember, means proving who you are in at least two different ways.\n\nThe baseline says that every staff computer locks after ten minutes without use.\n\nThe guideline says to keep your phone close, so that login codes arrive quickly.\n\nThe procedure sets out the steps the help desk follows to enrol a new employee's phone.\n\nNow suppose the bank replaces its phone-based code system with a hardware key. What has to change? The policy does not change, because the aim is the same. The standard may change, if it named the old method. The procedure certainly changes, because the steps are different. That is the benefit of a layered design. Technology can change at the bottom, while the top stays stable, and nobody has to go back to the board.\n\nHere is the opposite case. Suppose you find a procedure that tells staff to email customer records without encryption, while the policy says customer data must be protected. You do not change the policy to match. You correct the procedure.\n\nSo remember this. Lower documents must support higher ones. When technology changes, update the lower layers. When documents conflict, the higher one wins."
+    },
+    {
+      "heading": "Keeping documents alive",
+      "body": "In this final part, we will look at what it takes to develop, document and implement these rules, so that they really work in practice. The outline uses those three verbs on purpose.\n\nThink about a rule on a dusty noticeboard that nobody has read in ten years. It exists, but it does not do anything. Documents are the same.\n\nDeveloping a policy means understanding what the business needs and what the law requires. You involve the people who will be affected, such as legal advisers, human resources and department heads. A policy written alone by the technology team will miss things, and people will resist it.\n\nDocumenting means writing it clearly, giving it an owner, a version number, an approval date and a next review date. Plain language matters. People cannot follow what they do not understand.\n\nImplementing means putting it into practice. Staff should read the policy and acknowledge that they have accepted it. They need training that explains what it means for their job. Managers must follow it as well. Consequences for ignoring it must be fair and applied consistently.\n\nDocuments also need regular review. A yearly review is common. Reviews should also happen after big changes in the law, in the business or in technology, and after any serious incident that shows a gap.\n\nHere is a workplace example. A company has had a remote working policy for six years. It was written before staff began using personal devices. A review finds that the procedure mentions equipment the company no longer owns, and nobody can remember who approved it. The fix is to name an owner, to update the lower-level documents, to get the policy formally re-approved, and to tell staff about the changes through training.\n\nThe exam mindset applies here too. If a scenario describes staff ignoring a rule, do not jump to punishment. First ask whether the rule was approved, communicated and understood.\n\nHere is your takeaway. A policy works only when it is approved, clearly written, communicated, acknowledged, enforced fairly and reviewed on a regular schedule."
+    }
+  ],
+  "practiceQuestions": [
+    {
+      "prompt": "A company's intranet page says that staff should consider using a password manager at home and offers some suggestions for choosing one. Which type of document is this?",
+      "options": [
+        "A baseline",
+        "A guideline",
+        "A standard",
+        "A procedure"
+      ],
+      "correctIndex": 1,
+      "explanation": "It gives optional advice, so it is a guideline. A standard is tempting because it mentions a type of tool, but a standard is mandatory and this text only makes a suggestion."
+    },
+    {
+      "prompt": "A help desk document tells staff to open the identity tool, enter the employee number, confirm two personal details, and then press reset. What type of document is this MOST likely to be?",
+      "options": [
+        "A policy",
+        "A standard",
+        "A procedure",
+        "A guideline"
+      ],
+      "correctIndex": 2,
+      "explanation": "Exact, ordered steps for a single task make it a procedure. A standard is tempting because the steps are compulsory, but a standard says what must be used and does not give steps."
+    },
+    {
+      "prompt": "A security engineer publishes a list of required settings that every new database server must have before it can go into service. Which type of document BEST describes this list?",
+      "options": [
+        "A baseline",
+        "A policy",
+        "A guideline",
+        "An exception"
+      ],
+      "correctIndex": 0,
+      "explanation": "Minimum required settings for a type of system form a baseline. A policy is tempting because the list is mandatory, but a policy is high level and would not list technical settings."
+    },
+    {
+      "prompt": "A security manager has written a strong new information security policy. Which of these steps is MOST important in giving it authority across the organization?",
+      "options": [
+        "Having the technology team review it carefully for any technical errors or omissions",
+        "Publishing it on the intranet and mentioning it in the next staff newsletter",
+        "Asking an external consulting firm to compare it with those of other companies",
+        "Having it approved by senior management"
+      ],
+      "correctIndex": 3,
+      "explanation": "Policies get their authority from senior management approval. Publishing it is tempting and is needed later, but publishing a policy that leaders have not approved gives it no authority."
+    },
+    {
+      "prompt": "An auditor finds that a procedure allows staff to send customer records by unencrypted email. The approved policy says customer data must be protected wherever it travels. What is the BEST corrective action?",
+      "options": [
+        "Revise the policy so that it matches what the staff have been doing for a long time in practice",
+        "Keep both of the documents as they are, and let each department decide which of them it will follow",
+        "Correct the procedure so that it supports the policy",
+        "Add a guideline advising staff that encrypting their email would be a good idea whenever possible"
+      ],
+      "correctIndex": 2,
+      "explanation": "Lower documents must support higher ones, so the procedure should be changed. Adding a guideline is tempting, but a guideline is optional and would leave the conflict in place."
+    },
+    {
+      "prompt": "A company replaces its approved disk encryption product with a different one. Its goal of protecting stored data is unchanged. Which document will MOST likely need to change, and which should stay as it is?",
+      "options": [
+        "The policy changes, and the standard stays as it is",
+        "The standard changes, and the policy stays as it is",
+        "Both the policy and the standard need to be replaced",
+        "Neither document changes, only the guideline does"
+      ],
+      "correctIndex": 1,
+      "explanation": "Standards name technologies, and policies state lasting goals. The first option is tempting if you think of policy as the main document, but policies should not name products, so a product change does not touch them."
+    },
+    {
+      "prompt": "A draft security policy says that all servers must run one specific brand of antivirus software at a specific version. What advice should the security adviser give about this draft?",
+      "options": [
+        "Approve it, since detail makes a policy much easier to follow for staff in every department",
+        "Approve it, but ask the technology team to review the named version at the end of each year",
+        "Rewrite it as a guideline, so that departments may choose whether or not to use the product",
+        "Keep the policy general and put the product in a standard"
+      ],
+      "correctIndex": 3,
+      "explanation": "Policies stay high level, and specifics belong in a standard. A guideline is tempting since it is a lower document, but this requirement is mandatory, and a guideline would make it optional."
+    },
+    {
+      "prompt": "A company wants a document covering only how staff may use social media while at work. Which kind of policy BEST fits this need?",
+      "options": [
+        "Issue-specific",
+        "System-specific",
+        "Organizational",
+        "Informative"
+      ],
+      "correctIndex": 0,
+      "explanation": "A single topic across the organization calls for an issue-specific policy. System-specific is tempting because social media is a kind of system, but that type sets rules for one of the company's own systems."
+    },
+    {
+      "prompt": "A document describes how the company's security committee came to be formed and when it meets. It places no duties on staff and has no enforcement. Which kind of policy does this MOST closely resemble?",
+      "options": [
+        "Regulatory",
+        "Advisory",
+        "Informative",
+        "Issue-specific"
+      ],
+      "correctIndex": 2,
+      "explanation": "An informative policy gives information only, without enforcement. Advisory is tempting because the word sounds gentle, but an advisory policy does set expected behaviour and consequences."
+    },
+    {
+      "prompt": "Months after a remote working policy was posted on the intranet, a review shows that most staff do not know it exists. What should the security manager do FIRST?",
+      "options": [
+        "Discipline the staff who have broken the policy, so that everyone sees that the rules are taken seriously",
+        "Communicate it through training and obtain staff acknowledgement",
+        "Rewrite the policy so that it contains much more technical detail on how each device should be set up",
+        "Remove the policy from the intranet until a new policy can be approved by the board of directors"
+      ],
+      "correctIndex": 1,
+      "explanation": "People cannot follow a rule they do not know, so communication and acknowledgement come first. Discipline is tempting, but it is unfair when the organization has not told staff about the rule."
+    }
+  ]
+}

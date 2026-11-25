@@ -1,0 +1,141 @@
+{
+  "id": "T71",
+  "studyNotes": [
+    {
+      "heading": "Check before you buy",
+      "body": "In this first part, we are going to look at why software that comes from someone else still needs your careful attention.\n\nMost organizations do not write all of their own software. They buy it, download it, pay someone to write it, or rent it online. The exam outline names five kinds, and we will take each in turn. They are commercial products, open source, third-party software, managed services and cloud services.\n\nOne rule covers all five. You can hand over the work, but you cannot hand over accountability for your data.\n\nThink of a school buying food for its canteen. It checks the supplier, it reads the label and it watches for recalls. If a child falls ill, parents will not accept the excuse that the food came from somewhere else. Software needs the same care. Assess it before purchase, while it is in use and when it is retired.\n\nSecurity requirements belong in the contract. It is much harder to add them after signing, because you no longer have any bargaining power. A contract might set how quickly the supplier must patch flaws, how it must report a breach, and what happens to your data when the agreement ends.\n\nHere are useful checks before you buy. Send a supplier security questionnaire. Ask for independent audit reports. Ask for test results and a patch history. Ask for a right to audit, which lets you inspect the supplier's controls. Also check the supplier's own suppliers, because risk travels down the chain. This is known as supply chain risk.\n\nVerify every download with a digital signature or a hash, to prove that the software was not altered. A hash is a short fingerprint of a file, and it must be compared with a value from the vendor's trusted source. A digital signature proves who issued the file.\n\nHere is a workplace example. A hospital wants a new appointments product. Before signing, it reviews the audit report, tests a trial copy and writes patching deadlines into the contract. The risk decision is recorded and signed by the business owner.\n\nHere is what to take away. Check the supplier, the contract and the product before you depend on them, because accountability stays with you."
+    },
+    {
+      "heading": "Commercial off-the-shelf software",
+      "body": "Next we will look at the most familiar kind of acquired software, the ready-made product.\n\nCommercial off-the-shelf software, or COTS, is a ready-made product sold to many customers. Think of an office suite or an accounting package. It is like buying a suit from a rack. It is cheap and it is available today, but you did not choose the cloth, and you cannot see how it was stitched.\n\nYou usually cannot see its source code, which is the human-written instructions. So you depend on the vendor for fixes. That brings several risks to watch.\n\nThe first is insecure default settings. Products are often shipped so that they work easily, not so that they are safe. Default passwords and unneeded features should be changed or turned off before use.\n\nThe second is end of support. When the vendor stops issuing patches, every new flaw stays open.\n\nThe third is vendor failure. If the vendor goes out of business, nobody can fix the product. The answer to this is software escrow. A neutral third party holds the source code and releases it to you if agreed events occur, such as the vendor closing down. Make sure that the escrow copy is kept current and that it could really be built. A five-year-old copy may be of little use.\n\nHow can you test what you cannot see? You can run a dynamic scan, which attacks the running product from the outside. You can review the vendor's independent audit reports and certifications. The Common Criteria is an international scheme for evaluating security products. It gives assurance levels from 1 to 7, called evaluation assurance levels. A certificate applies only to the evaluated version and configuration, so check that yours matches.\n\nHere is a workplace example. A small logistics firm depends on a specialist tracking product from a tiny vendor. Management's main fear is that the vendor could vanish. A service level agreement would be worthless if the vendor no longer exists. Software escrow answers that exact fear.\n\nHere is your takeaway. With ready-made products, harden the defaults, watch the end of support, and use software escrow when the vendor might fail."
+    },
+    {
+      "heading": "Open source software",
+      "body": "Now we will look at open source software, which is inside nearly every modern application.\n\nOpen source software has public source code that anyone can inspect, use and change, under the terms of its license. Think of a community cookbook. Anyone can read the recipes and suggest changes. That sounds very safe, and sometimes it is. But the fact that anyone can check a recipe does not prove that anyone did.\n\nAvoid two opposite mistakes. One is believing that open source is automatically secure because many eyes are on it. The other is believing that it is automatically unsafe because anyone can see it. The truth depends on the particular project.\n\nThere may be no vendor to call and no contract promising a fix. So your organization carries the job of watching for flaws and applying updates. Before adopting a project, check these things. How active is it? How many people look after it? How quickly are flaws fixed? Are there known flaws today? Does the license allow your use?\n\nThat last point catches many companies. Permissive licenses, such as MIT and Apache, ask for little in return. Copyleft licenses, such as the GNU General Public License, can require you to share your own source code if you distribute a product built on them. That is a legal risk, and the lawyers need to know about it.\n\nThere are also attacks on the supply of open source. In typosquatting, an attacker publishes a harmful package with a name very like a popular one, and hopes that a developer mistypes it. An attacker can also gain the trust of a tired volunteer maintainer and later add hidden malicious code.\n\nSoftware composition analysis tools help here. They list the third-party components that you use, along with known flaws and license terms.\n\nHere is a workplace example. A developer wants a free library that has one maintainer and has not been updated in four years. The team finds a better-supported alternative. Using approved sources and an internal package store keeps these decisions under control.\n\nHere is what to take away. Open source is neither safe nor unsafe by nature. You own the checking, the updating and the license."
+    },
+    {
+      "heading": "Third-party software and managed services",
+      "body": "In this part, we will look at software written for you by outsiders, and at systems that outsiders run for you.\n\nThird-party software is built or supplied by an outside party, such as a contractor writing a custom system, or a partner providing a component. Think of hiring a builder to add a room. You agree on the plans and the standards first, and you inspect the work before paying the final bill.\n\nSo set secure coding duties in the contract. Decide who owns the code. Require evidence of testing. Then test what is delivered, and do not rely only on the supplier's word. A letter saying that everything is fine is a claim and not evidence. Independent testing before acceptance is much stronger. Also make sure that no hidden maintenance access, sometimes called a backdoor, has been left in.\n\nWith managed services, an outside provider runs a system for you, often a large enterprise application, such as payroll or customer management. Think of hiring a company to run your staff cafeteria. It does the daily work, but it is still your cafeteria, and your staff who get sick.\n\nUse a service level agreement, or SLA, which sets the agreed performance and duties. Review the provider's audit reports. The most common are System and Organization Controls reports, known as SOC reports. A SOC 1 report concerns controls over financial reporting. A SOC 2 report concerns security and related areas. A SOC 3 report is a short summary for the public.\n\nThe word Type matters too. A Type 1 report looks at whether controls were properly designed at one point in time. A Type 2 report tests whether they actually worked over a period, often a year. For proof that controls really operated, ask for Type 2.\n\nPlan how to get your data back when the contract ends. Also plan what the provider must delete. Getting out is part of getting in.\n\nHere is a workplace example. A retailer outsources payroll. It reviews the provider's SOC 2 Type 2 report, sets breach notification times in the contract, and agrees the format in which its data will be returned.\n\nHere is your takeaway. Test what contractors deliver, ask managed providers for Type 2 evidence, and plan your exit before you sign."
+    },
+    {
+      "heading": "Cloud services and shared responsibility",
+      "body": "Next we will look at cloud services, and at the question that the exam asks most often about them, which is who is responsible for what.\n\nCloud services divide the work by shared responsibility. Think of housing. If you rent bare land, you build and maintain everything on it. If you rent an empty apartment, the landlord looks after the building, and you furnish and manage the inside. If you stay in a hotel, nearly everything is done for you, but you must still lock your door and look after your passport.\n\nThose are the three service models. Learn them in this order.\n\n- Infrastructure as a Service, or IaaS: the provider runs the hardware, the network and virtualization, the software that splits one machine into many virtual ones. You secure the operating system, applications, data and access.\n- Platform as a Service, or PaaS: the provider also runs the operating system and the platform. You secure your code, data and access.\n- Software as a Service, or SaaS: the provider runs the whole application. You secure your data, user accounts and settings.\n\nAs you move from infrastructure to platform to software, the provider takes on more, and you have less direct control.\n\nCheck the provider's exact contract, because the split can vary. In every model, your organization stays accountable for its data. Some duties never leave you, such as deciding who may have access, classifying your data, and meeting your legal duties.\n\nHere are three workplace examples. A company rents virtual servers, and an unpatched operating system is attacked. That is infrastructure, so the patch was the customer's job. A team publishes its code on a hosted platform, and the code has an injection flaw. That is platform, and the code is the team's job. A firm uses a hosted email product, and a former employee's account was never disabled. That is software as a service, and managing users is the customer's job.\n\nAlso ask where the data is physically stored, because the laws of that country may apply.\n\nHere is what to take away. The provider takes on more from infrastructure to platform to software, but the data and the accountability are always yours."
+    },
+    {
+      "heading": "Software bill of materials",
+      "body": "In this final part, we will look at a simple idea that has become very important, the software bill of materials.\n\nA software bill of materials, or SBOM, is a formal list of the components inside a product, including their versions and suppliers. It is like the ingredient list on a packet of food. If you have a nut allergy, you read the label. If there is a recall on one batch of flour, the label tells you whether you are affected.\n\nThere are two common formats. SPDX is the Software Package Data Exchange, and CycloneDX is a format that came from the OWASP community. OWASP is the Open Worldwide Application Security Project. A good list records the supplier, the component name, the version, how the components depend on one another, who created the list and when.\n\nDependencies come in two kinds. A direct dependency is a part that your product chose to use. A transitive dependency is a part that was pulled in by one of those parts. Many flaws hide in the transitive ones, deep down where nobody looks.\n\nLet us work through the steps of a real kind of event. A serious flaw is announced in a popular logging library.\n\n- Step one. The security team searches its stored lists for that library and those versions.\n- Step two. Within minutes, it knows which products contain it, including those where it is a transitive dependency.\n- Step three. It checks whether each product really uses the flawed function, and how exposed each product is.\n- Step four. It patches the most exposed products first.\n- Step five. It updates the lists, and tells customers what they need to know.\n\nWithout these lists, the team must inspect each product by hand while attackers are already busy.\n\nNow for the limit that catches people. An SBOM lists parts. It does not prove the parts are safe. It says what is inside, and nothing more. You also need to keep it current, or it becomes misleading.\n\nAs a buyer, you can require a list from your suppliers in the contract.\n\nHere is your takeaway. A software bill of materials is an ingredient list. It speeds up your response to a new flaw, but it does not prove that anything is secure."
+    }
+  ],
+  "practiceQuestions": [
+    {
+      "prompt": "A hospital has chosen a commercial scheduling product, and the contract has not yet been signed. The security team wants the vendor to commit to patching critical flaws quickly. What is the BEST approach?",
+      "options": [
+        "Wait until go-live, and then ask the vendor for a patch plan",
+        "Rely on the security statements on the vendor's website",
+        "Write patching duties into the contract before signing",
+        "Plan to build its own patches whenever a flaw appears"
+      ],
+      "correctIndex": 2,
+      "explanation": "Requirements carry the most weight when they are in the contract before signing. Relying on website statements is tempting because they sound reassuring, but they do not bind the vendor to anything."
+    },
+    {
+      "prompt": "An administrator downloads a software installer from a mirror site. What is the BEST way to confirm that the file has not been altered?",
+      "options": [
+        "Compare its hash with the one the vendor publishes",
+        "Scan it once with a free antivirus tool at home",
+        "Check that the mirror site shows a padlock in the browser",
+        "Check the size of the file against the vendor's web page"
+      ],
+      "correctIndex": 0,
+      "explanation": "A matching hash from the vendor's trusted source shows that the file is unchanged. The padlock is tempting, but it only protects the connection to the mirror and says nothing about the file itself."
+    },
+    {
+      "prompt": "A team wants to adopt an open source library with one maintainer and no updates in four years. A developer says that because the code is public, it has surely been well reviewed. What is the BEST response?",
+      "options": [
+        "Agree, because public code is always reviewed by many people",
+        "Agree, because open source licenses guarantee code security",
+        "Reject all open source across the organization from now on",
+        "Check its maintenance, known flaws and license before use"
+      ],
+      "correctIndex": 3,
+      "explanation": "Being able to inspect code does not prove that anyone did, so the project needs to be checked on its merits. Rejecting all open source is tempting because it looks safe, but it is out of proportion and is not practical."
+    },
+    {
+      "prompt": "A company plans to include a library under a copyleft license in a commercial product that it will sell without sharing its source code. Which concern is MOST important?",
+      "options": [
+        "The library may run too slowly on smaller devices",
+        "The license may require sharing its source code",
+        "The library may not use a modern programming language",
+        "The library's author may charge a yearly support fee"
+      ],
+      "correctIndex": 1,
+      "explanation": "Copyleft licenses can require the company to share its own source code when it distributes the product. A support fee is tempting because the product is commercial, but the license duty is the real legal risk here."
+    },
+    {
+      "prompt": "A contractor delivers a custom customer portal along with a letter stating that all security testing was passed. What should the organization do BEFORE accepting the portal?",
+      "options": [
+        "Accept the letter, since the contract makes the contractor liable",
+        "Ask for a second letter signed by the contractor's director",
+        "Deploy it, then ask the contractor to fix anything that fails",
+        "Test the delivered code independently"
+      ],
+      "correctIndex": 3,
+      "explanation": "Independent testing provides direct evidence, while a letter is only a claim. Relying on the contract is tempting because liability seems to be covered, but accountability for the organization's data stays with the organization."
+    },
+    {
+      "prompt": "A company is evaluating a payroll provider. It wants independent evidence that the provider's security controls actually worked over the past year. Which report BEST meets this need?",
+      "options": [
+        "A SOC 2 Type 2 report",
+        "A SOC 2 Type 1 report",
+        "A SOC 3 public summary",
+        "The provider's marketing brochure"
+      ],
+      "correctIndex": 0,
+      "explanation": "A Type 2 report tests whether controls operated effectively over a period. A Type 1 report is tempting because it comes from the same family, but it covers only the design of the controls at one point in time."
+    },
+    {
+      "prompt": "A company is negotiating a five-year managed service for its customer management system. Management's main concern is being able to leave the provider without losing its information. What should be added to the contract?",
+      "options": [
+        "A higher target for uptime in the service agreement",
+        "A requirement for a yearly penetration test report",
+        "Terms for data return and deletion at exit",
+        "A signed privacy notice from each of the provider's staff"
+      ],
+      "correctIndex": 2,
+      "explanation": "Exit terms directly answer the worry about getting data back and having the rest deleted. A higher uptime target is tempting because it improves the service, but it does nothing for the day the contract ends."
+    },
+    {
+      "prompt": "A company rents virtual servers under Infrastructure as a Service. An attacker breaks in through an unpatched operating system on one of the servers. Who was responsible for that patch?",
+      "options": [
+        "The cloud provider, because it owns the physical hardware",
+        "The customer, because it manages the operating system",
+        "The virtualization vendor, because its software was involved",
+        "Both equally, unless a regulator decides otherwise"
+      ],
+      "correctIndex": 1,
+      "explanation": "In Infrastructure as a Service, the customer secures the operating system and everything above it. The cloud provider is tempting because it owns the hardware, but its duty stops at the virtualization layer."
+    },
+    {
+      "prompt": "Developers publish a web application on a Platform as a Service offering. Which of the following is the customer MOST clearly responsible for securing?",
+      "options": [
+        "The physical data center and its power supply",
+        "The network switches at the provider's site",
+        "The operating system of the platform's hosts",
+        "The application code and its access settings"
+      ],
+      "correctIndex": 3,
+      "explanation": "In Platform as a Service, the customer secures its code, data and access. The operating system is tempting, because the customer would handle it under Infrastructure as a Service, but here the provider runs it."
+    },
+    {
+      "prompt": "A supplier provides a complete software bill of materials. A purchasing officer says that this proves the product is safe to buy. What is the BEST response?",
+      "options": [
+        "It lists the parts, but it does not prove they are safe",
+        "It proves that the product had no known flaws when sold",
+        "It removes the need for any security testing by the vendor",
+        "It is useful only for open source and never for paid products"
+      ],
+      "correctIndex": 0,
+      "explanation": "The list says what is inside and nothing more. Saying that it proves no known flaws is tempting, because the list can be used to look for flaws, but someone still has to do that checking."
+    }
+  ]
+}

@@ -1,0 +1,1392 @@
+{
+  "number": 2,
+  "name": "Asset Security",
+  "weightPercent": 10,
+  "plainMeaning": "This domain is about knowing what valuable information and equipment you have and deciding how much protection each item needs. It also covers looking after each item from the day it is created or bought until it is safely destroyed.",
+  "topics": [
+    {
+      "id": "T13",
+      "name": "Identify and classify information and assets",
+      "outlineRef": "2.1",
+      "simpleExplanation": "Not everything you own needs the same protection. At home, you lock your passport in a safe, but you leave a magazine on the table. Organizations do the same. First they find out what information and equipment they have. Then they put each item into a group, called a class, based on how much harm its loss would cause. Each class has its own protection rules. Money goes to what really matters, and nobody has to guess how to treat an item.",
+      "studyNotes": [
+        {
+          "heading": "Why we classify at all",
+          "body": "In this first part, we are going to look at why organizations sort their information into groups at all, because every later step in this domain depends on it.\n\nClassification means sorting information by the harm that would follow if it were exposed, changed or lost. Each group is called a class. Each class comes with its own protection rules.\n\nThink about your own home. Your passport goes in a safe. Your shopping list stays on the fridge. If you guarded both in the same way, you would either spend far too much protecting the list, or far too little protecting the passport. You already classify things without using the word.\n\nNow think about a workplace. A bank holds customer account numbers, staff payroll, a public list of branch opening hours, and plans for a merger that nobody outside may know about. Treating all four the same would be wasteful and dangerous at once. The opening hours need almost nothing. The merger plans need a great deal.\n\nThis gives classification its main benefit. It makes the cost of protection match the value of what is protected. It gives staff clear instructions, so nobody has to guess. It helps leaders to spend money where the harm would be greatest. And it helps to show regulators, which are the official bodies that enforce rules, that the organization takes proper care of what it holds.\n\nClassification looks at all three goals of security. Confidentiality means keeping information away from the wrong people. Integrity means keeping it correct. Availability means having it there when it is needed. Most class names focus on confidentiality, but a good program considers all three.\n\nHere is one important warning. Classification is not a control by itself. A control is anything that reduces risk, such as a lock, a password or a rule. A label on a file stops nobody. It is a decision that tells us which controls to apply.\n\nHere is what to take away. Classification sorts things by harm, it matches protection to value, and it tells people what to do. It is the decision that comes before the controls."
+        },
+        {
+          "heading": "Building a classification program, step by step",
+          "body": "Next we will walk through how an organization sets up classification, because the exam likes to ask what comes first and what comes next.\n\nImagine sorting a family's papers after moving house. First, the family agrees on the piles: keep safe, keep handy, throw away. Then someone finds all the boxes. Then someone decides which pile each paper belongs in. Only then do you buy the safe. A business works in much the same way.\n\nA sensible order for a classification program is this.\n\n- Step 1: Get senior management support and set the class levels in a policy.\n- Step 2: Find the information and assets you have.\n- Step 3: Name an owner for each one.\n- Step 4: The owner assigns a class, using agreed criteria.\n- Step 5: Apply the protection rules for that class.\n- Step 6: Train staff and review the classes regularly.\n\nLet us follow a hospital through those steps. The board approves a policy with three classes. Staff then search for information, including the forgotten copies on old file shares. Software called a data discovery tool helps, by searching storage for patterns such as patient numbers. The director of nursing is named owner of the ward records. She assigns them the highest class. The security team and the technical teams then apply the rules for that class. Staff are trained, and the owner looks at the class again each year.\n\nNotice why senior management comes first. A classification program costs money and changes how people work. Without support from the top, it fades away within months.\n\nNotice also that finding the information comes before deciding on controls. You cannot protect what you do not know you have. If an answer offers to buy a tool before you know what you hold, be suspicious of it.\n\nThink like a manager here. Your job is to make sure the process exists and that the right people make the decisions. You are not there to label every file yourself.\n\nHere is your takeaway. Policy and management support first, then find it, name an owner, classify, protect, train and review."
+        },
+        {
+          "heading": "Government classes and the idea of clearance",
+          "body": "In this part we will look at the class names used by the United States government, because the exam expects you to know them in order and to know what each one means.\n\nFrom highest to lowest, the levels are these.\n\n- Top Secret: disclosure could cause exceptionally grave damage to national security.\n- Secret: disclosure could cause serious damage.\n- Confidential: disclosure could cause damage.\n- Unclassified: not covered by the three levels above.\n\nThe words to remember are grave, serious, and plain damage. Say them to yourself in that order. Exceptionally grave belongs to Top Secret. Serious belongs to Secret. Damage, with no extra word, belongs to Confidential.\n\nUnclassified does not always mean free for anyone to read. The United States also uses a category called Controlled Unclassified Information, or CUI. This is information that is not classified, but which laws or policies still require to be protected.\n\nNow we need a second idea. Information has a classification. A person has a clearance. A clearance is official approval, after a background check, to see information up to a certain level. But clearance alone is never enough. The person must also have a need to know, which means that their job really requires this particular information.\n\nThink about a hotel. A staff key card may open every floor. That does not mean that a cook should be walking through guests' rooms. The card shows what the person could reach. The job decides where the person should go.\n\nHere is a workplace example. A defense analyst holds a Secret clearance. A colleague on another project has a Secret report. The analyst's clearance is high enough. But the report has nothing to do with her work, so she has no need to know, and she should not read it.\n\nThis matters for the exam because a wrong answer will often say that the person's clearance is high enough, so access is fine. It is not fine unless the job requires it.\n\nHere is what to take away. Know the order: Top Secret, Secret, Confidential, Unclassified. And remember that access needs clearance and need to know together."
+        },
+        {
+          "heading": "Business classes and how the owner decides",
+          "body": "Now we move from government to business, and we will look at who chooses a class and what they base the choice on.\n\nBusinesses have no single required scheme. A common one, from highest to lowest, is this.\n\n- Confidential or Proprietary: trade secrets and the most valuable company data.\n- Private: personal details about staff or customers.\n- Sensitive: internal data that needs some care.\n- Public: safe for anyone to see.\n\nWatch the trap with these names. Confidential is the lowest of the three secret government levels, but it is often the top level in a company. When two organizations work together, or merge, the same word may mean very different things. The answer is to map one scheme to the other, in writing.\n\nKeep the number of levels small. Three or four is common. Too many levels confuse people, and confused people make mistakes.\n\nThe person who chooses the class is the owner. The owner is a senior business person who answers for the information. Technical staff can advise, and they carry out the rules, but they do not decide. Think of a family deciding which papers go in the safe. The family decides, even though a locksmith fits the safe.\n\nOwners use criteria such as these.\n\n- Value: what it is worth to the organization.\n- Sensitivity: the harm if the wrong people see it.\n- Criticality: how much the business depends on it being correct and available.\n- Legal and contract rules: for example, laws on personally identifiable information, or PII, which is any data that can point to a particular person.\n- Age and useful life: value often falls over time.\n\nSensitivity and criticality are not the same thing. A hospital's bed schedule would embarrass nobody if it leaked, so its sensitivity is low. But wards cannot admit patients without it, so its criticality is high. Protected health information, or PHI, the medical data about a person, is usually high on both.\n\nThink like a manager. Classifying too high wastes money, and staff stop taking the labels seriously. Classifying too low leaves valuable things exposed.\n\nHere is your takeaway. The owner decides, using written criteria, and three or four clear levels work best."
+        },
+        {
+          "heading": "Classifying assets and the high-water mark",
+          "body": "In this part we will turn from the information itself to the things that hold it, and we will see the rule that decides their level.\n\nData classification is about the information, such as a customer list or a payroll file. Asset classification is about the things that hold or handle that information, such as laptops, servers, paper files and backup tapes. A server is a central computer that serves many users. The two go together, and the data comes first. You decide how sensitive the data is, and that tells you how to treat what it sits on.\n\nThe key rule is that an asset takes the class of the most sensitive information on it. This is often called the high-water mark. Think of the line that a flood leaves on a wall. It records the highest level the water reached, however low the water usually is.\n\nHere is a worked example. A school laptop holds 500 public newsletters and one file of student medical notes. The medical notes are the highest class. So the whole laptop gets that level of protection. Counting files does not matter. One sensitive file sets the level. If the school wants a cheaper level for that laptop, it can move the medical file somewhere else.\n\nAsk also where copies go. A test system loaded with real customer records holds real customer data, so it takes the same class, even if the project calls it low value. The safest fix is to test with made-up data instead.\n\nDo not forget less obvious assets. Office printers often keep images of what they have scanned on an internal drive. Those printers hold whatever class they have copied.\n\nYou may also meet the word categorization. In United States government practice, a standard called Federal Information Processing Standard 199 groups systems as low, moderate or high impact. It looks separately at confidentiality, integrity and availability. The overall rating for the system then follows the highest of the three results. So categorization groups systems by impact, and classification labels information by sensitivity. They are close cousins, and the high-water idea appears in both.\n\nHere is what to take away. The data sets the class, and one sensitive item lifts the whole asset to its level."
+        },
+        {
+          "heading": "Aggregation, inference, downgrading and review",
+          "body": "In this final part we will look at how a class can change, either because facts are combined, or because time has passed.\n\nStart with aggregation. Aggregation means combining many low-value facts, so that together they become more sensitive. One delivery time for one truck is harmless. A full year of delivery times can reveal exactly when a cash shipment is easiest to rob. So the combined collection may need a higher class than any of its parts.\n\nInference is related, but it is different. Inference means working out a hidden fact from the facts you are allowed to see. Suppose a report shows only the total pay of each team. Last month a team had a total of 90,000 dollars. This month one person joined, and the total is 95,000 dollars. Now take 90,000 from 95,000. The answer is 5,000 dollars, and you have just learned the new person's monthly pay. Nobody showed it to you. You worked it out.\n\nSo aggregation is about the collection becoming sensitive. Inference is about deducing one protected fact.\n\nNow think about time. A school exam paper is highly secret the day before the exam. A week later it may be public. People often call moving an item to a lower class declassification or downgrading. In strict government language, downgrading means moving to a lower level, while declassification means removing the classification altogether.\n\nThe decision belongs to the owner. A deadline, a cost problem or an awkward process is not a reason to lower a class. The only proper reason is that the harm of exposure has really fallen.\n\nHere is a workplace example. A product launch plan was the company's most protected document for a year. The product is now on sale and its details are on the website. The owner reviews the plan, and lowers the class. Money is no longer spent guarding something that the whole world can read.\n\nThat is why classes need a regular review. Value changes, laws change, and data gets combined in new ways.\n\nHere is your takeaway. Combining facts can raise a class, time can lower it, and the owner makes the call at a regular review."
+        }
+      ],
+      "keyTerms": [
+        {
+          "term": "Classification",
+          "meaning": "Sorting information and assets into groups by the harm their loss or exposure would cause."
+        },
+        {
+          "term": "Sensitivity",
+          "meaning": "How much harm would follow if the wrong people saw the information."
+        },
+        {
+          "term": "Criticality",
+          "meaning": "How much the organization depends on the information or asset to keep working."
+        },
+        {
+          "term": "High-water mark",
+          "meaning": "The rule that a system is protected at the level of the most sensitive information it holds."
+        },
+        {
+          "term": "PII",
+          "meaning": "Personally Identifiable Information: any data that can point to a particular person."
+        },
+        {
+          "term": "Aggregation",
+          "meaning": "Combining many low-value facts so that together they become more sensitive."
+        },
+        {
+          "term": "Declassification",
+          "meaning": "Moving information to a lower class when it no longer needs so much protection."
+        }
+      ],
+      "keyPoints": [
+        "Find what you have first, because you cannot protect what you do not know about.",
+        "The owner assigns the class, not the technical staff.",
+        "An asset takes the class of the most sensitive information it holds.",
+        "Classification makes the cost of protection match the value of the item.",
+        "Review classes regularly, because value changes over time."
+      ],
+      "memoryHook": "Passport in the safe, shopping list on the fridge: protect each thing by what it would cost you to lose it.",
+      "question": {
+        "prompt": "Senior management at a growing chain of shops has approved a new classification program and a policy setting the class levels. The security manager is planning the next stage. What should happen FIRST?",
+        "options": [
+          "Buy labeling software so that each new file can be marked automatically",
+          "Find out what information and assets the company actually holds",
+          "Encrypt every file server so that the data stays safe during the project",
+          "Train all staff on how to handle each of the new classification levels"
+        ],
+        "correctIndex": 1,
+        "explanation": "You cannot classify or protect what you have not found, so finding the information and assets comes next. Training is tempting, but staff need real classes and rules first. Software and encryption are controls, and controls are chosen after the classes are known."
+      },
+      "practiceQuestions": [
+        {
+          "prompt": "An employee at a defense contractor holds a Secret clearance. He asks to read a Secret report from a project he does not work on, and says that his clearance already allows it. What is the BEST response?",
+          "options": [
+            "Give him the report, because his clearance level matches the class of the report exactly",
+            "Refuse for now, because he has no need to know what is in a report for that project",
+            "Ask him to sign a confidentiality form and then give him a printed copy of the report",
+            "Raise his clearance to Top Secret so that the same question does not come up again"
+          ],
+          "correctIndex": 1,
+          "explanation": "Access needs both clearance and need to know, and his job does not require this report. Handing it over is tempting because the levels match, but matching levels are only half of the test. A form or a higher clearance does not create a need to know."
+        },
+        {
+          "prompt": "Two companies are merging. In one, Confidential is the highest class. In the other, Confidential is a middle class and Restricted is the highest. Staff have begun sharing files between the two. What would BEST prevent mishandling?",
+          "options": [
+            "Tell all staff to treat shared files as Public until the merger is complete and the policies agree",
+            "Let each company go on using its own meaning of the words for as long as it wishes to do so",
+            "Rename every class in both companies to a number so that nobody is confused by the old words",
+            "Map the two schemes to each other in an approved policy, and tell staff how they line up"
+          ],
+          "correctIndex": 3,
+          "explanation": "A written mapping tells people exactly how a class in one company translates into the other. Renaming the classes is tempting, but numbers alone do not say which level equals which. Treating files as Public under-protects them."
+        },
+        {
+          "prompt": "A logistics firm publishes each delivery in a separate public notice. An analyst combines a full year of notices and finds that the collection reveals the exact routine of its cash shipments. Each single notice is harmless. What is the BEST response?",
+          "options": [
+            "Have the owner review the combined collection and assign it a higher class than its parts",
+            "Leave it as it is, because each single notice that went into it was already classed as Public",
+            "Delete the analyst's work and ask the analyst not to combine public information in the future",
+            "Make every individual notice Top Secret so that nobody can ever combine them again in any form"
+          ],
+          "correctIndex": 0,
+          "explanation": "This is aggregation, where a combined collection becomes more sensitive than its parts, so the collection needs its own higher class. Leaving it alone is tempting because each part is public, but the harm comes from the combination. Raising every single notice is out of proportion."
+        },
+        {
+          "prompt": "A staff portal shows only the total pay of each small team, and a list of who joined each team this month. An employee compares last month's total with this month's and works out the exact pay of a new colleague. Which problem does this show MOST clearly?",
+          "options": [
+            "Data remanence, because old pay data was left behind",
+            "Aggregation, because many records are held in one place",
+            "Inference, because a protected fact was worked out",
+            "Declassification, because the pay data was moved down"
+          ],
+          "correctIndex": 2,
+          "explanation": "Inference means deducing a hidden fact from facts you are allowed to see. Aggregation is tempting, but aggregation describes a collection becoming sensitive, and here one particular protected fact was worked out."
+        },
+        {
+          "prompt": "A new product plan was given a company's highest class before launch. The product launched six months ago, and the details are now on its website. The plan is still stored under the strictest and most costly controls. What is the BEST next step?",
+          "options": [
+            "Leave the class unchanged, because a class once given should never be lowered by anybody",
+            "Ask the owner to review the class, and to lower it if the harm has really fallen",
+            "Let the storage administrator lower the class now, in order to reduce this quarter's costs",
+            "Delete the plan right away, since all of its contents have already been made public"
+          ],
+          "correctIndex": 1,
+          "explanation": "Value falls over time, and the owner is the person who may change a class. It is tempting to let the administrator act, since the saving is real, but technical staff carry out class decisions and do not make them. Deleting it ignores any retention need."
+        },
+        {
+          "prompt": "An audit finds that nearly every document in a company is marked at the highest class. Staff admit that they ignore the markings and email these files freely. What is the BEST corrective action?",
+          "options": [
+            "Have the owners reclassify items against clear criteria, and then retrain the staff on them",
+            "Discipline every employee who emailed a marked file and make them sign the policy once again",
+            "Buy stronger encryption for all documents, because all of them are marked at the highest class",
+            "Remove all of the markings, since the staff have already shown that they do not read them"
+          ],
+          "correctIndex": 0,
+          "explanation": "Over-classification is the cause, because staff stop believing the labels when everything is top level. Discipline is tempting, but it punishes the symptom and leaves the broken scheme in place. Encryption would spend more money on the same mistake."
+        },
+        {
+          "prompt": "A finance director asks why the company should spend time on a classification program when it already has good firewalls, which filter network traffic. What is the BEST answer from the security manager?",
+          "options": [
+            "It removes the need for most other controls, because a labeled file cannot be misused by staff",
+            "It is a technical requirement of every modern firewall and cannot be avoided by any company",
+            "It places every item under the same strong level of protection, which makes the rules much simpler",
+            "It lets the company match its protection spending to the value of each item that it holds"
+          ],
+          "correctIndex": 3,
+          "explanation": "The main business benefit is matching the cost of protection to the value of what is protected, which is language a finance director can use. Equal protection for everything sounds simple, but it is the exact waste that classification is meant to avoid."
+        },
+        {
+          "prompt": "Developers copied the live customer database to a test system so that they could try a new feature with realistic data. The test system has weak controls, because the project labeled it as low value. What is the BEST action?",
+          "options": [
+            "Keep the test system as it is, since test systems are by definition low in value and low in risk",
+            "Ask the developers to promise not to look at any of the customer details while they test the feature",
+            "Protect it at the customer data's class, or replace the real data with made-up values",
+            "Move the test system to a different building so that it is further away from the live database"
+          ],
+          "correctIndex": 2,
+          "explanation": "A copy keeps the class of the data it holds, whatever a project calls the system. Replacing the real data removes the problem, and protecting it properly also meets the rule. A promise from the developers is tempting because it is cheap, but it is not a control over the data."
+        },
+        {
+          "prompt": "A hospital's bed-scheduling data would embarrass nobody if outsiders saw it. However, wards cannot admit patients if the data is wrong or unavailable. Which factor should MOST drive the protection of this data?",
+          "options": [
+            "Criticality, because the hospital depends on it",
+            "Sensitivity, because outsiders might read it",
+            "Age, because schedules soon go out of date",
+            "Marking, because schedules must carry a banner"
+          ],
+          "correctIndex": 0,
+          "explanation": "Criticality measures how much the organization depends on data being correct and available. Sensitivity is tempting because it is the factor most often discussed, but the scenario says that exposure would cause little harm."
+        },
+        {
+          "prompt": "A government analyst is reviewing a new report. Its unauthorized disclosure could reasonably be expected to cause serious damage to national security, but not exceptionally grave damage. Which United States classification level fits BEST?",
+          "options": [
+            "Top Secret",
+            "Secret",
+            "Confidential",
+            "Unclassified"
+          ],
+          "correctIndex": 1,
+          "explanation": "Serious damage is the test for Secret. Top Secret is tempting because the report is clearly important, but it is reserved for exceptionally grave damage. Confidential is for damage without the word serious."
+        }
+      ]
+    },
+    {
+      "id": "T14",
+      "name": "Information and asset handling requirements: marking, labeling, storage, transport",
+      "outlineRef": "2.2",
+      "simpleExplanation": "Once something has a class, people need to know how to treat it. Handling rules say exactly that. Think of a bank moving cash. The bags are marked, the cash sits in a vault, and an armored van carries it with a signature at each stop. Information needs the same care. It is marked so people know its class. It is stored safely. It is moved safely. The rules for each class are written down, so that staff never have to guess.",
+      "studyNotes": [
+        {
+          "heading": "What handling requirements are",
+          "body": "In this first part, we are going to look at what handling rules are and where they come from.\n\nA handling requirement is a written rule that says how people must treat an item of a given class. The rules cover the item at every moment: when it is marked, used, stored, moved, copied and thrown away.\n\nThink about medicine in a family home. The label tells you what it is. The strong tablets go on a high shelf, out of reach of children. You carry them home in a closed bag. When they expire, you take them back to the pharmacy and you do not tip them in the bin. Each stage has its rule, and the rule depends on how dangerous the medicine is.\n\nNow think about a law firm. It might have three classes. Public items may go anywhere. Internal items stay within the firm's systems. Client Confidential items must be encrypted, may be seen only by the people working on that case, and must be shredded when they are finished with. Encryption means scrambling data so that only someone with the key can read it. A person who picks up a file needs only to see the class to know what the rules are.\n\nThe rules come from policy, and policy needs management support. Under the policy sit standards and procedures, which spell out the exact steps. Staff then need training, because a rule that nobody knows protects nothing.\n\nThe most important idea in this topic is that protection must stay with the information. A secret stays a secret when it is printed, emailed, photographed or copied to a backup. A backup needs the same protection as the original. A printout of a confidential report is still confidential, even if it is just lying on a desk.\n\nThink like a manager. If three departments treat the same class in three different ways, the people are not the problem. The missing written rule is the problem, and that is what you fix.\n\nHere is what to take away. Handling rules are written per class, they cover the whole life of the item, and the protection follows the information wherever it goes."
+        },
+        {
+          "heading": "Marking and labeling",
+          "body": "Next we will look at how people and computers can tell what class an item belongs to.\n\nMarking and labeling both show the class of an item. Many people use the two words to mean the same thing. In the more exact language of United States government security standards, marking is what people can read, such as a stamp on a page. A label is often a tag held inside the system that computers can read and act on.\n\nThink about food in a shop. The words on the packet are for you to read. The barcode is for the machine at the till. Both describe the same product, and each serves a different reader.\n\nItems should be marked in every form they take.\n\n- Paper: the class at the top and bottom of each page.\n- Screens: a banner that shows the class.\n- Files and emails: a tag in the file details or a note in the subject line.\n- Removable media: a physical sticker.\n\nRemovable media means storage that you can carry, such as tapes and disks. The file details just mentioned are often called metadata, which means data about data, such as the author or the date.\n\nThe computer-readable tag matters more every year. Automated tools can only act on a class that they can read. A class that appears only as a picture of a stamp on a scanned page is invisible to those tools. So a modern program uses both a visible marking for people and a label in the metadata for machines.\n\nGood practice is to mark public items too. Then a missing mark stands out as a mistake. If you find an item with no mark, treat it as the highest class until the owner confirms what it is.\n\nHere is a workplace example. A staff member finds an unmarked folder in a meeting room. He does not assume that it is harmless. He hands it to the proper person, and the owner works out what it is.\n\nHere is your takeaway. Marking is for people, labels are for machines, mark everything including public items, and treat anything unmarked as the highest class."
+        },
+        {
+          "heading": "Safe storage",
+          "body": "In this part we will look at how to store sensitive items, both on paper and in digital form.\n\nStorage rules cover both the physical place and the digital protection. The common controls are these.\n\n- Keep sensitive items in locked rooms, cabinets or safes.\n- Allow access only to people with a need to know, which means their job requires it.\n- Use encryption, so that a stolen item cannot be read.\n- Protect backups as strongly as the live data.\n- Protect media from heat, damp and magnetic fields, so that it can still be read later.\n\nThink about how you keep your valuables at home. You put jewelry in a locked box. You do not leave the key sitting on top of the box. And you do not keep your only family photographs in a damp garage.\n\nThat image gives us the three ideas that the exam likes.\n\nThe first idea is that locks work in layers. A locked cabinet inside a locked room inside a guarded building is harder to defeat than any one of them alone. This is called defense in depth.\n\nThe second idea is about keys. Keep encryption keys apart from the data they protect. Leaving them together is like taping your house key to your front door. If a thief carries off the cabinet with the disks and the keys inside it, the encryption has given you nothing.\n\nThe third idea is that storage is also about availability. Availability means that the information is there when you need it. Tapes kept in a hot, damp shed may be unreadable when you need them. If the law says that a record must be kept for ten years, you must still be able to read it after ten years. So keep media in a controlled environment, and test-read a sample from time to time.\n\nHere is a workplace example. A bank encrypts its backup disks, keeps them in a fireproof safe in a separate building, keeps the keys under a different person's control, and tests a restore every three months.\n\nHere is what to take away. Lock it up in layers, keep the keys apart from the data, and make sure you can still read it years from now."
+        },
+        {
+          "heading": "Safe transport",
+          "body": "Now we will look at what happens when information has to move, because this is when it is at extra risk.\n\nThink about moving house with something precious. You pack it carefully, and you may carry it yourself. If you must use a delivery company, you choose one you trust, you get a receipt, and you check the seal when it arrives.\n\nThe common controls for moving information follow the same logic.\n\n- Encrypt it before it leaves.\n- Use an approved, trusted courier.\n- Use tamper-evident packaging, which shows clearly if someone has opened it.\n- Keep a chain of custody, which is a signed record of who held the item, when and why.\n\nEncryption is the most important of these, because it protects the information even when everything else goes wrong. If a box of encrypted tapes falls off a van, you have lost some tapes. You have not lost the data.\n\nChain of custody answers one simple question. Who had it, at every moment? Each person signs when they receive the item and when they pass it on. If a record has a gap, nobody can say what happened during that gap.\n\nNow here is a detail that catches people out. For highly sensitive items, the outer wrapping often carries no class marking. A marking on the outside tells a thief which parcel to steal. The class is shown on an inner wrapping instead. So this is one place where we deliberately do not advertise the class to the world.\n\nInformation also moves electronically, and the same thinking applies. Use an approved encrypted service. Make sure that the person receiving it has to prove who they are. Do not put a password in the same email as the file it protects. That is just the house key taped to the door again.\n\nHere is a workplace example. A hospital sends old disks for destruction. They are encrypted, packed in sealed crates, collected by an approved company, and signed for at the hospital and at the destruction site. The record has no gaps.\n\nHere is your takeaway. Encrypt it, seal it, sign for it at every handover, and keep the class off the outer wrapping."
+        },
+        {
+          "heading": "Handling during daily use",
+          "body": "In this part we will look at the moments when information is simply being used, because most mistakes happen during ordinary work.\n\nThink about reading a private letter on a crowded bus. Nothing has been stolen and nobody has broken in, but the person beside you can read every word. Daily use is like that. The threat is usually a careless moment, and not a clever attacker.\n\nHere are the common situations and the sensible rules.\n\nPrinting is the first. Sensitive pages left in a printer tray can be read by anyone who walks past. A good fix is to hold each print job until the person who sent it shows a staff badge at the printer. Reminding staff is weaker, because it relies on memory.\n\nScreens are the second. Use automatic screen locks, and privacy filters in public areas. A privacy filter is a thin sheet that makes a screen unreadable from the side.\n\nDesks are the third. A clean desk policy says that sensitive papers are locked away whenever you leave your desk.\n\nCopying is the fourth. Every copy increases the risk and needs the same protection. Handling rules may limit copying for the highest class, and they may require a record of each copy.\n\nSharing is the fifth. Before information goes to a supplier or partner, the handling rules should travel with it, usually through a contract. An outside party that receives your data must protect it to the agreed level.\n\nDisposal is the last. Each class has its own rule for the end of an item's life. Paper may go through a cross-cut shredder, which cuts in two directions so that strips cannot be rejoined. We will study the methods for electronic media in a later topic.\n\nHere is a workplace example. An insurance office has shared printers, and an auditor finds claims forms left in the trays. The manager does not simply send out a reminder. She turns on badge release at the printer, so the page does not appear until the sender is standing there.\n\nHere is what to take away. Most handling failures are small daily habits, so build the safe behavior into the process and do not rely on people remembering."
+        },
+        {
+          "heading": "A worked example and the downgrade trap",
+          "body": "In this final part we will put all of this together with one example, and then look at the trap that the exam most likes to set.\n\nA bank has a printed loan report, classed as Confidential. Let us follow it through its handling rules.\n\n- Marking: Confidential appears at the top and bottom of every page.\n- Storage: it stays in a locked cabinet in a restricted room.\n- Transport: it goes in a sealed tamper-evident envelope by approved courier, with a signature at each handover.\n- Disposal: it goes through a cross-cut shredder, never the normal bin.\n\nNow suppose that a manager needs a copy for a branch in another city. The copy gets the same marking and the same protection. If a scanned version goes by email, the file gets a label in its metadata, it is encrypted, and only the named person can open it. The format has changed, but the rules have not.\n\nNow for the trap. Staff are sometimes tempted to mark an item lower so that it is easier to send. Imagine a parent writing the word cheap on a valuable parcel to save on insurance. The parcel is still valuable, and the risk has not changed.\n\nOnly the owner may change a class, and convenience is not a reason to change it. If the secure method is slow, the answer is to use it anyway, or to ask the owner whether the information really is still at that level. A good adviser may also suggest improving the secure method, so that staff are not tempted next time.\n\nIf something goes wrong, handling rules connect to incident response. A lost envelope or a misdirected email should be reported at once. Early reporting matters far more than blame. A person who fears punishment hides the mistake, and then nobody can reduce the harm.\n\nThink like a manager. Ask whether the rule is written, whether people know it, whether the secure way is workable, and whether the owner made the decision.\n\nHere is your takeaway. The rules follow the class through every format, only the owner changes a class, and a deadline never does."
+        }
+      ],
+      "keyTerms": [
+        {
+          "term": "Handling requirements",
+          "meaning": "Written rules on how to treat an item of each class throughout its life."
+        },
+        {
+          "term": "Marking",
+          "meaning": "Showing the class of an item in a form people can read, such as a stamp or banner."
+        },
+        {
+          "term": "Label",
+          "meaning": "A tag showing the class. In exact usage, often a tag inside a system that computers can read."
+        },
+        {
+          "term": "Need to know",
+          "meaning": "A person may see information only if their job truly requires it."
+        },
+        {
+          "term": "Encryption",
+          "meaning": "Scrambling data so that only someone with the key can read it."
+        },
+        {
+          "term": "Chain of custody",
+          "meaning": "A signed record of who held an item, when and why."
+        },
+        {
+          "term": "Tamper-evident packaging",
+          "meaning": "Packaging that shows clearly if someone has opened it."
+        }
+      ],
+      "keyPoints": [
+        "Handling rules are written per class and cover the item's whole life.",
+        "Copies and backups need the same protection as the original.",
+        "Treat an unmarked item as the highest class until the owner confirms it.",
+        "Encrypt and track sensitive items while they are moving.",
+        "Only the owner may change an item's class."
+      ],
+      "memoryHook": "Think of cash at a bank: Mark the bag, Store it in the vault, Move it with signatures.",
+      "question": {
+        "prompt": "A law firm sends backup tapes of client files to a storage site each week by courier. Last month a box went missing for several hours before it was found. Which action would BEST protect the client files on future trips?",
+        "options": [
+          "Print CONFIDENTIAL in large letters on the outside of each box so that couriers take extra care",
+          "Run backups once a month instead of weekly so that fewer boxes are on the road at any time",
+          "Ask a partner of the firm to drive the tapes to the site in a private car",
+          "Encrypt the tapes before they leave and log each handover"
+        ],
+        "correctIndex": 3,
+        "explanation": "Encryption keeps the files unreadable if a box is lost, and a custody log shows who held it. Outside markings are tempting, but they tell a thief which box is valuable. Fewer trips or a private car still leave readable files at risk."
+      },
+      "practiceQuestions": [
+        {
+          "prompt": "To save time, a manager proposes that staff stop marking Public documents and mark only the sensitive ones. What is the BEST advice from the security adviser?",
+          "options": [
+            "Agree, because Public documents carry no risk of any kind and need no handling rules at all",
+            "Agree, and ask staff to store all of the unmarked documents together in one shared folder",
+            "Disagree, and require every Public document to be encrypted in the same way as sensitive ones",
+            "Disagree, because when every item carries a mark, a missing mark stands out as a mistake"
+          ],
+          "correctIndex": 3,
+          "explanation": "When everything carries a mark, an unmarked item is clearly a mistake and can be treated with caution. Agreeing is tempting because Public items need little care, but then nobody can tell a harmless blank from a sensitive item that was never marked."
+        },
+        {
+          "prompt": "A company stamps its class in large text on the first page of each scanned document. Its new monitoring software, which should act automatically on the class, cannot tell which files are sensitive. What would BEST solve this?",
+          "options": [
+            "Add a machine-readable label to the metadata of each file that can be read by the software",
+            "Make the printed stamp larger, and place it in a bolder color on every page of the document",
+            "Ask staff to read each file and to tell the monitoring team when a sensitive one is being sent",
+            "Stop using the monitoring software and rely on the printed stamp as the only form of marking"
+          ],
+          "correctIndex": 0,
+          "explanation": "A stamp is for people, and automated tools need a label they can read in the file's details. A bigger stamp is tempting, but a picture on a page is still invisible to the software. Relying on staff to report each file does not scale."
+        },
+        {
+          "prompt": "A company encrypts its archive disks before placing them in a fireproof cabinet. An auditor notices that the printed encryption keys are in an envelope inside the same cabinet. What is the BEST corrective action?",
+          "options": [
+            "Buy a second, stronger fireproof cabinet, and keep both the disks and the keys inside that one",
+            "Seal the envelope with tamper-evident tape and then leave it where it is in the cabinet",
+            "Store the keys separately from the disks, under the control of a different authorized person",
+            "Encrypt the disks a second time using a longer key, and leave the rest of the process unchanged"
+          ],
+          "correctIndex": 2,
+          "explanation": "Anyone who takes the cabinet's contents gets both the disks and the means to read them, so the keys must be kept apart. Tamper-evident tape is tempting, but it only shows that someone opened the envelope after the harm is done."
+        },
+        {
+          "prompt": "A customer database sits in a locked, monitored data center and is encrypted. Its nightly backup disks, which hold the same data, are unencrypted on an open shelf in the IT (information technology) office. What is the BEST recommendation?",
+          "options": [
+            "Make backups less often, so that fewer disks are sitting on the shelf at any one time",
+            "Give the backup disks the same protection that the original database already has",
+            "Put a sign on the shelf telling all staff and visitors that the backup disks are confidential",
+            "Leave the disks there, since the live database is the one that attackers would want to reach"
+          ],
+          "correctIndex": 1,
+          "explanation": "A backup holds the same information, so it needs the same protection. Making backups less often is tempting because it reduces the number of disks, but the remaining disks are still exposed and recovery becomes worse."
+        },
+        {
+          "prompt": "A hospital sends old drives to a destruction company. During an audit, it cannot show who held the drives between its loading dock and the destruction site. Which control was MOST clearly missing?",
+          "options": [
+            "A class marking on the outside of every shipping crate",
+            "A review of the destruction company's financial accounts",
+            "An extra overwrite of each drive before it left the building",
+            "A signed chain of custody record at every handover point"
+          ],
+          "correctIndex": 3,
+          "explanation": "A chain of custody records who held an item, when and why, which is precisely what the hospital cannot show. An extra overwrite is tempting because it reduces the data at risk, but it would not answer who held the drives."
+        },
+        {
+          "prompt": "An agency must send a highly classified paper document by approved courier. Which packaging approach is BEST?",
+          "options": [
+            "One envelope with the class printed clearly on the outside, so that the courier knows to take special care",
+            "One plain envelope with the class marked nowhere at all, including on the document inside it",
+            "A plain outer wrapping with no class shown, and the class marked on an inner wrapping",
+            "A clear plastic bag, so the courier can see at a glance that the document is still inside it"
+          ],
+          "correctIndex": 2,
+          "explanation": "The plain outer layer does not tell a thief what is valuable, and the inner wrapping tells the authorized receiver how to treat it. Printing the class outside is tempting because it seems to encourage care, but it advertises the target."
+        },
+        {
+          "prompt": "Sensitive reports are often left in the tray of a shared office printer for hours. Staff say that they simply forget to collect them. What would BEST address the cause?",
+          "options": [
+            "Hold each print job on the system until the person who sent it badges in at the printer",
+            "Send a reminder email each month asking all staff to collect their printing more quickly",
+            "Move the printer into the manager's office so that the manager can watch what is printed on it",
+            "Empty the tray at the end of each day and put whatever is found into the ordinary waste bin"
+          ],
+          "correctIndex": 0,
+          "explanation": "Holding the job until the person is standing at the printer removes the dependence on memory. A reminder is tempting because it is cheap, but staff have already said that forgetting is the problem. Ordinary waste bins would create a new exposure."
+        },
+        {
+          "prompt": "Three departments handle the same class of report in three different ways. One emails it openly, one encrypts it, and one will only hand over paper. Staff say that nobody has told them the rules. What is the BEST action?",
+          "options": [
+            "Choose the strictest department and tell the other two departments to copy it without any written rules",
+            "Buy an email encryption product and install it for all of the staff in those three departments",
+            "Ask each of the three department heads to write their own handling rules for their own staff",
+            "Publish written handling rules for each class, and then train the staff in all departments"
+          ],
+          "correctIndex": 3,
+          "explanation": "The cause is that no shared written rule exists and nobody has been trained on one. Buying encryption is tempting, but a tool cannot fix a missing rule. Separate department rules would keep the inconsistency."
+        },
+        {
+          "prompt": "A company must be able to read its archive tapes for ten years. The tapes are currently stored in a hot, damp shed beside a large electric motor. What is the BEST recommendation?",
+          "options": [
+            "Move the tapes into the main office, and ask the staff to keep a close eye on them during the day",
+            "Store them in a controlled environment, and test-read a sample of the tapes from time to time",
+            "Keep them in the shed, but wrap each tape in plastic and label it carefully with the current year",
+            "Make a second copy and store it in the same shed so that there is always one spare tape available"
+          ],
+          "correctIndex": 1,
+          "explanation": "Heat, damp and magnetic fields can make media unreadable, and only testing proves that it can still be read. A second copy is tempting, but a copy in the same shed suffers from the same conditions."
+        },
+        {
+          "prompt": "An accountant must send a Confidential file to an outside auditor today. Which method BEST meets typical handling rules for that class?",
+          "options": [
+            "Email the file in a password-protected archive and put the password in the same email message",
+            "Upload the file to a personal online storage account, then share a public link with the auditor",
+            "Use the approved encrypted transfer service, and require the auditor to sign in to collect it",
+            "Change the class to Public, email the file, then change the class back once it has been received"
+          ],
+          "correctIndex": 2,
+          "explanation": "An approved encrypted service protects the file on its way and proves who collects it. The password-protected archive is tempting because it looks like encryption, but the password travels with the file, so anyone who gets the email can open it."
+        }
+      ]
+    },
+    {
+      "id": "T15",
+      "name": "Provision information and assets securely: ownership, inventory, asset management",
+      "outlineRef": "2.3",
+      "simpleExplanation": "To provision means to supply something to someone. When a shop gives a new worker keys and a uniform, it writes that down, and it gets them back when the worker leaves. Organizations must do the same with laptops, software and access to information. Every item needs a named owner. Every item goes on a list, called an inventory. Asset management is the ongoing work of tracking each item from the day it arrives until the day it is retired.",
+      "studyNotes": [
+        {
+          "heading": "Provisioning securely",
+          "body": "In this first part, we are going to look at what it means to provision something securely, which is the first idea in this objective.\n\nTo provision means to supply. Secure provisioning means giving people the information and equipment they need in a controlled way, and nothing extra. Two ideas guide it.\n\n- Need to know: you see information only if your job requires it.\n- Least privilege: you get the smallest set of rights that lets you do your job.\n\nThese two sound alike, but they answer different questions. Need to know is about which information you may see. Least privilege is about what you may do, such as read, change or delete.\n\nThink about a babysitter. You give the babysitter the front door key. You do not hand over the key to your safe, or your bank card. The babysitter gets what the job needs, and you take the key back at the end of the evening.\n\nNow think about a workplace. A new payroll clerk needs to read and enter pay details. The clerk does not need to change the structure of the payroll database. And the clerk does not need the records of the board of directors.\n\nThe business owner of the information approves access. The technical team carries out the decision. The person asking for access should not be the person approving it. Keeping those jobs apart is called separation of duties. It means that no single person can complete a sensitive task alone.\n\nA common shortcut causes real harm. The help desk sets up a new person by copying a colleague's rights. Those rights may be years out of date and far too wide. A better way is to give rights according to a defined role, which has been approved in advance.\n\nProvisioning also needs a way back. When someone changes jobs or leaves, the organization must remove rights and collect equipment. People who move jobs and keep their old rights slowly collect far more access than they need. This is called privilege creep. Regular access reviews catch it.\n\nHere is what to take away. Give only what the job needs, have the owner approve it, and take it back when the job changes."
+        },
+        {
+          "heading": "Ownership and accountability",
+          "body": "Next we will look at ownership, because the exam treats it as the foundation of everything else in this domain.\n\nEvery asset needs a named owner. An asset is anything of value, such as information, a system or a piece of equipment. The owner is a person with authority in the business, and the owner answers for how the asset is protected.\n\nAn owner may hand out the daily work. An owner cannot hand away the accountability. Think of a landlord who hires a cleaner. The cleaner does the work, but the landlord still answers for the building. If a tenant is hurt on a wet floor, nobody is going to accept that the landlord had forgotten about it.\n\nThe exam uses two words with care. Accountable means that you answer for the result. Responsible means that you carry out the task. You can share responsibility among many people. Accountability stays with one named person.\n\nWhat does an owner actually do? The owner decides the class of the information. The owner approves who may have access. The owner agrees the level of protection, and accepts the risk that is left over. The owner also makes sure that access is reviewed.\n\nHere is a workplace example. The finance director owns the payroll data. She asks an assistant to carry out the quarterly access reviews. The assistant forgets for six months. The assistant failed in a task, but the finance director is still accountable for the fact that it did not happen.\n\nThe owner should be a business person, and not simply someone from the technical team. The business knows what the information is worth and what it is used for. A system owner, by contrast, answers for a particular system, such as the payroll application, and for making sure that it is protected. In a small company, one person may hold both roles.\n\nAn asset with no owner is an asset nobody protects. Nobody approves its access, nobody budgets for it, and nobody notices when it is out of date. When you find such an asset, your first job is to find out who uses it, and to have management name an owner.\n\nHere is your takeaway. Owners can delegate the work, but they keep the accountability."
+        },
+        {
+          "heading": "The inventory: tangible assets",
+          "body": "In this part we will begin looking at the inventory, and we will start with the things that you can touch.\n\nAn inventory is a complete, current list of what the organization has. The outline splits assets into two kinds, tangible and intangible. Tangible assets can be touched. They include laptops, servers, phones, network equipment, paper records and buildings. A server is a central computer that serves many users.\n\nThink about the home insurance form that asks what you own. If your television is stolen and you have no idea of the make, the model or when you bought it, you will struggle to claim. You must know what you have before you can protect it or replace it.\n\nA useful inventory record shows what the item is, who owns it, where it is, its class and its current state. For a laptop, that may include the serial number, the person it was issued to, the software on it, and whether it is in use, in repair or retired.\n\nHere is why this matters for security. The inventory supports nearly everything else.\n\nYou need it to assess risk, because you cannot weigh the risk to something you have forgotten. You need it to find what must be patched, which means fixed with an update from the maker. You need it to learn what was affected during an incident. And you need it when you retire equipment, so that nothing leaves the building with data still on it.\n\nHere is a workplace example. A police station keeps a register of its radios and laptops. Each item has an asset tag, which is a numbered label, and each one is signed out to a named officer. When a radio goes missing, the register shows who last held it and which channels it could reach, so the right people are told and the radio can be locked out.\n\nInventories go stale quickly. A list that was correct in January may be badly wrong by July. So the inventory must be kept current as a normal part of work, and not rebuilt in a rush for each audit.\n\nHere is what to take away. Record what it is, who owns it, where it is and what class it is, and keep that record current."
+        },
+        {
+          "heading": "The inventory: intangible assets",
+          "body": "Now we will look at the other half of the inventory, the things you cannot touch, which are the ones that people most often forget.\n\nIntangible assets cannot be touched. They include data, software licenses, patents, trademarks, brand and reputation. A patent is a legal right over an invention. A trademark is a protected name or symbol.\n\nThink about a small family bakery. The ovens are tangible. But the secret recipe, the name that the town knows and trusts, and the list of regular customers are all intangible. If the ovens break, you can buy new ones. If the recipe leaks or the name is ruined, you may not recover. Intangible assets are frequently worth more than the physical ones.\n\nFour kinds of intangible asset are worth thinking about at work.\n\nData comes first. It belongs in the inventory like anything else, with its owner, class and location.\n\nSoftware and licenses come next. A license is the legal permission to use a product. If a company is using 500 copies but holds licenses for only 300, it is 200 short. That is a legal and financial risk, and it is the kind of problem that a software inventory exposes.\n\nA related idea is the software bill of materials, or SBOM. It is a list of the components inside a software product, much like the list of ingredients on a food packet. When a flaw is announced in a popular component, the list tells you where that component is.\n\nThen comes intellectual property, meaning creations of the mind that have value, such as designs, trade secrets, patents and trademarks. A trade secret is protected only as long as it stays secret, so handling rules matter a great deal.\n\nLast come brand and reputation. You cannot list them with a serial number, but they belong in risk discussions, because a breach can damage them for years.\n\nHere is a workplace example. A company's register lists every laptop and phone, and nothing else. A manager points out that its customer data, its licenses and its product designs are worth many times more than the hardware, and none of them are listed.\n\nHere is your takeaway. An inventory that only counts hardware is only half an inventory."
+        },
+        {
+          "heading": "Finding what is really out there",
+          "body": "In this part we will look at how to check the inventory against reality, and what to do when the two do not agree.\n\nThink about checking your kitchen cupboards against your shopping list. The list says that you have rice. The cupboard says that you do not. And there is a jar at the back that you have never seen before. The difference between the list and the shelf is the part that deserves your attention.\n\nAutomated discovery tools do this job for an organization. They scan the network and report on what they find. The team compares what they find with the list, and then investigates any difference.\n\nThere are two kinds of difference. An item may be on the list but not found. It could be lost, stolen, switched off, or sitting in a drawer. Or an item may be found but not on the list. It may be a personal device, a forgotten old server, or even an intruder's equipment.\n\nThe right first step in both cases is to investigate. Do not delete the results. Do not add the unknown items to the list just to make the numbers match. And do not rip everything off the network without knowing what it does, because it may be supporting something important.\n\nAn item found on the network but missing from the list may be shadow IT. That means technology that staff use without approval from the information technology, or IT, team. Cloud services, which are computing bought online from another company, make this easy, because anyone with a payment card can start one.\n\nShadow IT usually means that staff have a real need that is not being met. So a wise manager does two things. The manager brings the service under control, with a named owner and a place in the inventory. And the manager asks why people felt that they had to go around the approved route.\n\nHere is a workplace example. A marketing team has started using an online design tool, and has uploaded a customer list to it. The security manager records the tool, finds an owner, checks the contract and moves the customer list to an approved place.\n\nHere is what to take away. Compare the list with reality, investigate every difference, and deal with the cause of shadow IT."
+        },
+        {
+          "heading": "Asset management and a worked example",
+          "body": "In this final part we will look at asset management as a whole, and we will follow one laptop from the day it was requested to the day it comes back.\n\nAsset management is the ongoing process of tracking each asset through its whole life. A common order is: request, approve, buy, record, configure, issue, maintain, retire, and dispose. Many organizations keep this in a configuration management database, or CMDB, a central record of assets and how they are set up.\n\nThink about a library book. It is bought, it is catalogued, it is lent, it is returned, it is repaired, and one day it is withdrawn. At any moment the library can tell you where it is.\n\nHere is the worked example. A new bank teller needs a laptop.\n\n- Step 1: The teller's manager requests it.\n- Step 2: The owner approves access to the account system.\n- Step 3: The IT team, meaning information technology, records the laptop's serial number in the inventory.\n- Step 4: IT sets it up to the secure standard, with only the needed software.\n- Step 5: The teller signs for it.\n- Step 6: Access is reviewed each year.\n- Step 7: On leaving, rights are removed and the laptop is returned and checked off.\n\nNotice that the steps depend on each other, and that the leaving step depends on someone telling IT. If human resources does not tell IT that a person has left, the laptop and the access both go on existing. The proper fix is to link the leaving process to asset return and access removal.\n\nThe same is true of changes. If a system is changed but nobody updates the record, then the record is wrong when it matters most, in the middle of an incident. The fix is to make the update a required step of change management, which is the controlled process for approving and recording changes.\n\nThink like a manager. If an audit finds items missing, the fix is a better process, not simply buying replacements.\n\nHere is your takeaway. Track every asset from request to disposal, and fix the process whenever the record and reality drift apart."
+        }
+      ],
+      "keyTerms": [
+        {
+          "term": "Provisioning",
+          "meaning": "Supplying information, equipment or access to someone in a controlled way."
+        },
+        {
+          "term": "Asset owner",
+          "meaning": "The person with business authority who answers for an asset and its protection."
+        },
+        {
+          "term": "Inventory",
+          "meaning": "A complete, current list of the organization's assets."
+        },
+        {
+          "term": "Tangible asset",
+          "meaning": "An asset you can touch, such as a laptop or a building."
+        },
+        {
+          "term": "Intangible asset",
+          "meaning": "An asset you cannot touch, such as data, a patent or a good reputation."
+        },
+        {
+          "term": "Least privilege",
+          "meaning": "Giving a person only the smallest set of rights needed for the job."
+        },
+        {
+          "term": "Shadow IT",
+          "meaning": "Technology that staff use without approval from the information technology team."
+        },
+        {
+          "term": "CMDB",
+          "meaning": "Configuration Management Database: a central record of assets and how they are set up."
+        }
+      ],
+      "keyPoints": [
+        "Every asset needs a named owner who stays accountable.",
+        "The inventory must cover both tangible and intangible assets.",
+        "Give only what the job needs, and take it back when the job changes.",
+        "Compare discovery scans with the inventory and investigate any difference.",
+        "An accurate inventory supports risk work, patching and incident response."
+      ],
+      "memoryHook": "Keys and uniform: sign them out, write them down, get them back.",
+      "question": {
+        "prompt": "A school's security manager learns that several departments have signed up for online file-sharing services without telling the IT (information technology) team. Student records may be stored in them. What is the BEST next step?",
+        "options": [
+          "Find these services, record them in the inventory, and give each one an owner",
+          "Block all internet access from school computers until a full investigation has been carried out",
+          "Tell the departments to stop and delete their accounts at once, without keeping any record of them",
+          "Buy a larger approved file server so that staff will have no reason to look elsewhere"
+        ],
+        "correctIndex": 0,
+        "explanation": "You must first know what exists and who answers for it, and then decisions can follow. Deleting accounts at once is tempting, but it could lose student records and it hides the size of the problem. Blocking everything stops the school working, and a bigger server does not deal with the records already out there."
+      },
+      "practiceQuestions": [
+        {
+          "prompt": "A developer emails the database team asking for access to the live payroll database. An administrator grants it, because the developer seems to have a good reason. What was the MAIN failure?",
+          "options": [
+            "The developer should have asked in person rather than by sending an email to the database team",
+            "The administrator should have waited until the next planned maintenance window to grant the access",
+            "The data owner did not approve the access before the administrator granted it",
+            "The access should have been granted only after the developer had finished security awareness training"
+          ],
+          "correctIndex": 2,
+          "explanation": "The business owner approves access, and the technical team carries the decision out. Waiting for a maintenance window is tempting because it sounds like good process, but timing does not fix the fact that the wrong person made the decision."
+        },
+        {
+          "prompt": "Over eight years, an employee has worked in four departments. A review shows that she still has access rights from all four jobs. Which control would BEST prevent this from happening again?",
+          "options": [
+            "Remove the old rights at each job change, and review everyone's access on a regular schedule",
+            "Require her and all other long-serving staff to change their passwords more often than others",
+            "Give her a new account at each job change, and leave the old accounts in place in case they are needed",
+            "Record every action that long-serving staff take and keep those records for seven years"
+          ],
+          "correctIndex": 0,
+          "explanation": "This is privilege creep, and it is stopped by removing rights when a job changes and by regular reviews to catch what is missed. Recording actions is tempting because it creates evidence, but the excess access would remain."
+        },
+        {
+          "prompt": "The finance director owns the company's payroll data. She asks an assistant to carry out the quarterly access reviews. The assistant misses two reviews, and an auditor reports the gap. Who is accountable for the missed reviews?",
+          "options": [
+            "The assistant, because accountability moved when the task was handed over",
+            "The finance director, because owners cannot delegate accountability for their data",
+            "The auditor, because the auditor did not report the missing reviews sooner",
+            "The IT (information technology) team, because the access rights are held on its systems"
+          ],
+          "correctIndex": 1,
+          "explanation": "An owner may hand over the work but keeps the accountability. The assistant is tempting, since the assistant did fail in a task, but that is responsibility for the task and not accountability for the result."
+        },
+        {
+          "prompt": "A company's asset register lists every laptop, server and phone, and nothing else. The security manager is asked what the register is MOST seriously missing. Which answer is BEST?",
+          "options": [
+            "Furniture and other office items that are physically present in each of the buildings",
+            "A column giving the color and the weight of each laptop, server and telephone in the list",
+            "The personal phones and home computers of each member of staff and of their families",
+            "Intangible assets, such as the company's data, its software licenses and its patents"
+          ],
+          "correctIndex": 3,
+          "explanation": "An inventory should cover tangible and intangible assets, and intangible ones are often worth the most. Furniture is tempting because it is an asset too, but it adds little to security compared with data, licenses and patents."
+        },
+        {
+          "prompt": "An automated network scan finds 14 devices that do not appear in the inventory. What should the security team do FIRST?",
+          "options": [
+            "Investigate each one to learn what the device is, what it does and who is responsible for it",
+            "Disconnect all 14 devices from the network at once and then destroy them as unknown equipment",
+            "Add all 14 devices to the inventory with no further checks, so that the two lists will agree",
+            "Delete the scan results, because the inventory is the approved record and takes priority"
+          ],
+          "correctIndex": 0,
+          "explanation": "Every difference must be understood before anyone acts. Disconnecting at once is tempting because unknown devices are worrying, but one of them may support something important, and destroying them would also destroy evidence."
+        },
+        {
+          "prompt": "Several departing staff have left without returning their laptops. Each time, the IT (information technology) team learns of the departure weeks later. What would BEST fix the cause?",
+          "options": [
+            "Buy laptops at a cheaper price so that each one lost costs the company rather less money",
+            "Send a stronger letter reminding former staff that laptops belong to the company",
+            "Link the human resources leaving process to equipment return and to access removal",
+            "Ask line managers to keep a spreadsheet of laptops that they think are in their own teams"
+          ],
+          "correctIndex": 2,
+          "explanation": "The cause is that the leaving process does not tell the people who collect equipment and remove access. A stronger letter is tempting, but it comes after the laptop has already gone, and it does nothing about the access that remained."
+        },
+        {
+          "prompt": "During an audit, a server is found that runs an old application. Nobody claims it, no budget covers it, and it has not been updated for years. What is the BEST next step?",
+          "options": [
+            "Switch it off right away and wipe its disks, because nobody has come forward to claim it",
+            "Leave it running untouched, because changing it could harm a process that nobody knows about",
+            "Ask the newest member of the IT (information technology) team to look after it from now on",
+            "Find out who uses the server in the business, and have management name an owner for it"
+          ],
+          "correctIndex": 3,
+          "explanation": "Without an owner, nobody can decide on its protection, its budget or its future. Wiping it is tempting because it looks like an easy way to remove the risk, but it could stop a real business process and destroy needed data."
+        },
+        {
+          "prompt": "A software maker's audit finds that a company is using 500 copies of a product but holds licenses for only 300. Staff installed the extra copies over time, and nobody kept count. Which action would BEST prevent this from happening again?",
+          "options": [
+            "Buy an additional 1,000 licenses so that the company will always have far more than it needs",
+            "Track all software and its licenses as assets in the inventory, and keep the count current",
+            "Ban all software purchases across the company until the next audit has been carried out",
+            "Uninstall the product from every computer and ask staff to find a free alternative product"
+          ],
+          "correctIndex": 1,
+          "explanation": "Licenses are intangible assets, and tracking them is what prevents the count from drifting. Buying a large surplus is tempting because it removes the shortage for now, but it wastes money and nobody would still be counting."
+        },
+        {
+          "prompt": "During an incident, responders relied on the configuration management database, a central record of assets and how they are set up. It was wrong, because recent changes were never recorded. What is the BEST corrective action?",
+          "options": [
+            "Stop using the database, and ask staff to keep their own personal notes about every system",
+            "Rebuild the database by hand once every year and keep the rest of the process just as it is",
+            "Make updating the record a required step of the change management process for every system",
+            "Buy a second database and keep a copy there so that the responders have two records to compare"
+          ],
+          "correctIndex": 2,
+          "explanation": "The cause is that changes do not update the record, so the update must become part of the change process. A yearly rebuild is tempting because it does correct the data, but the record would drift again the next day."
+        },
+        {
+          "prompt": "To save time, the help desk sets up each new employee by copying the access rights of a colleague in the same team. What is the BEST replacement for this practice?",
+          "options": [
+            "Grant only the rights that have been approved in advance for the person's defined role",
+            "Copy the rights from the most senior person on the team, so that nobody ever lacks any access",
+            "Give each new employee full access for thirty days and then remove whatever was not used by them",
+            "Keep copying rights, and ask each new employee to tell the help desk about any they do not need"
+          ],
+          "correctIndex": 0,
+          "explanation": "Rights based on an approved role follow least privilege and do not inherit a colleague's old access. Asking new staff to report extra rights is tempting because it seems to involve them, but they cannot know what they should not have."
+        }
+      ]
+    },
+    {
+      "id": "T16",
+      "name": "Data lifecycle and data roles: owners, controllers, custodians, processors, users, subjects; collection, location, maintenance",
+      "outlineRef": "2.4",
+      "simpleExplanation": "Data has a life, a bit like a library book. It arrives, it is stored, people use it, and one day it leaves. At each stage, somebody has a job to do. One person decides the rules. Another looks after the data every day. Others just use it. And the data may be about a real person, who has rights. The exam expects you to know each role exactly. You must also know what to collect, where to keep it, and how to maintain it.",
+      "studyNotes": [
+        {
+          "heading": "The data lifecycle",
+          "body": "In this first part, we are going to look at the life of a piece of data, from the moment it appears until the moment it is gone.\n\nA lifecycle is the set of stages something goes through. A common model for data has six stages, in this order.\n\n- Create or collect\n- Store\n- Use\n- Share\n- Archive\n- Destroy\n\nTo archive means to move data to long-term storage, because it is no longer in daily use but must still be kept.\n\nThink about a library book. It arrives and is catalogued. It is put on a shelf. People read it in the building. It is lent to someone else. When it is rarely wanted, it moves to a store room. And one day it is withdrawn and pulped. At every stage, the library knows what should happen to it.\n\nNow let us follow something real. A job applicant fills in an online form. That is the create or collect stage. The form is saved to a database. That is store. A recruiter reads it. That is use. The recruiter sends it to the hiring manager. That is share. After the post is filled, the record moves to cheaper storage for the period the law requires. That is archive. When that period ends, the record is securely removed. That is destroy.\n\nThree ideas apply across the whole cycle.\n\nThe first is that security applies at every stage. Many organizations protect the store stage very well, and then forget about the copies shared by email.\n\nThe second is that the class follows the data from start to finish. An archived record is not less sensitive just because nobody is looking at it. The class should be decided as early as possible, ideally when the data is created or collected, so that the right rules apply from the first day.\n\nThe third is that different people have different duties at each stage. That brings us to the roles, which the exam tests very closely.\n\nHere is what to take away. Create or collect, store, use, share, archive, destroy. The class travels with the data all the way through, and nothing is finished until the data has been properly destroyed."
+        },
+        {
+          "heading": "Inside the organization: owner, custodian and user",
+          "body": "Next we will look at the three data roles found inside an organization. These are the owner, the custodian and the user.\n\nThink about leaving your car with a hotel parking attendant. You own the car, and you decide who may drive it. The attendant parks it, keeps it safe and hands it back, following your wishes. The attendant does not decide to lend it to a friend. Your passenger simply rides in it, and must behave.\n\nThe data owner is a senior manager who is accountable for the data. The owner sets its class, decides who may access it, and decides how much protection it needs. The owner usually comes from the business side. The head of sales would own customer sales data, for example.\n\nThe data custodian is usually technical staff. The custodian does the daily care the owner asks for, such as making backups, applying security settings and restoring data when needed. The custodian does not decide what the class is, or who should get access. The custodian carries out those decisions.\n\nThe data user is anyone who uses the data for their job and must follow the rules. Users only use data for the approved purpose. Users also report anything that looks wrong.\n\nThe key sentence for the exam is this. The owner is accountable, and the custodian is responsible for doing the work. Accountable means that you answer for the result. Responsible means that you carry out the task.\n\nHere is a workplace example. In a bank, the head of lending owns the loan records and decides that loan officers may read them. A database administrator is the custodian, and sets up the permissions and runs the backups. A loan officer is the user, and looks up a customer's loan.\n\nIf a question asks who decides, look for the owner. If it asks who runs the backups, look for the custodian.\n\nYou may also meet the words data steward and system owner. A steward looks after the quality and meaning of data on behalf of the business. A system owner answers for a particular system. Neither replaces the data owner.\n\nHere is your takeaway. The owner decides and is accountable, the custodian carries it out, and the user follows the rules."
+        },
+        {
+          "heading": "Privacy roles: controller, processor and subject",
+          "body": "In this part we will look at three roles that come from privacy law, and then we will place all six roles in one example.\n\nThese terms are strongly linked to the General Data Protection Regulation, or GDPR, the European Union privacy law. Personal data means any information about an identifiable living person.\n\nThe data controller is the person or organization that decides why personal data is used and how. In practice, it is usually the organization, not one employee. Two organizations that decide together are joint controllers.\n\nThe data processor is a separate party that handles personal data for the controller and follows the controller's instructions. The word separate matters. A company's own IT department, meaning its information technology staff, is not a processor. It is part of the controller, and it acts as a custodian.\n\nThe data subject is the living person the personal data is about. Subjects have rights, including the right to see their data, to have errors corrected, and in some cases to have it erased. The controller must see that those rights are met.\n\nThink about a dry cleaner. You decide that your suit needs cleaning, and why. The dry cleaner does the work on your instructions. If the dry cleaner starts wearing your suit to parties, it has stopped following instructions. In the same way, a processor that decides for itself why and how data is used is treated as a controller for that use.\n\nUnder GDPR, hiring a processor does not end the controller's accountability. The processor has its own legal duties too. There must be a written contract. A processor needs the controller's permission to use another processor. If a processor has a breach, it must tell the controller without undue delay. The controller must normally tell the regulator within 72 hours of becoming aware of it, where that is feasible.\n\nHere is a worked example. A shop runs a loyalty card scheme.\n\n- The shop is the controller.\n- The marketing director is the data owner.\n- The database team is the custodian.\n- An outside mailing company is the processor.\n- The cashier who looks up points is a user.\n- The customer with the card is the subject.\n\nHere is what to take away. The controller decides why and how, the processor follows instructions, and accountability stays with the controller."
+        },
+        {
+          "heading": "Data collection",
+          "body": "Now we will look at the first stage of the lifecycle more closely, which is deciding what to collect in the first place.\n\nCollect only what you really need for a stated purpose. This is called data minimization. Data you never collected cannot be stolen from you.\n\nThink about someone at your front door asking to read the meter. You show them the meter. You do not also hand them your bank statements. They have no reason to see those, and the more you give out, the more can go wrong.\n\nA school needs a parent's phone number. It does not need the parent's salary. Four ideas should guide every collection.\n\nThe first idea is notice. People should be told what is being collected, why it is being collected, and who will receive it.\n\nThe second idea is lawful basis. There must be a lawful reason to collect personal data. Under the General Data Protection Regulation, or GDPR, the European Union privacy law, consent is only one possible basis. Others include carrying out a contract and meeting a legal duty.\n\nThe third idea is purpose limitation. Do not quietly use data for a new purpose later. If phone numbers were collected to arrange deliveries, then sending sales messages to them is a new purpose, and it needs its own lawful basis.\n\nThe fourth idea is quality. Data should be accurate and relevant when it is collected, because every later decision depends on it.\n\nHere is a workplace example. A gym's sign-up form asks for name, phone number, date of birth, salary and employer. The gym uses only the first three. The right action is to remove the last two questions. Making them optional does not solve the problem, because the gym would still be holding data that it has no use for. And encrypting those answers would be protecting something that should not exist.\n\nCollection also has a security side. Forms must send data safely, input should be checked, and a class should be assigned to the data as soon as it arrives.\n\nThink like an adviser. The cheapest and strongest control for unneeded data is not to have it.\n\nHere is your takeaway. Collect the minimum, tell people why, have a lawful basis, and keep to the stated purpose."
+        },
+        {
+          "heading": "Data location",
+          "body": "In this part we will look at where data is kept, and why the answer can be a legal question as well as a technical one.\n\nThink about taking something across a national border. The moment you cross, a different set of laws applies to you and to what you are carrying. Data is much the same.\n\nThe laws of a country can apply to data stored there. Data sovereignty is the idea that data is subject to the laws of the place where it is held. Data residency means an organization or a law requires the data to stay in a certain place. Some countries go further and pass data localization laws, which require certain data to be stored or processed inside the country.\n\nSo sovereignty is about whose law applies. Residency is about where the data must sit.\n\nA court in the country where your data is held may be able to order its disclosure, whatever your home country thinks about that. That is a real risk, and it belongs in the decision about where to store data.\n\nThe cloud, which means computers run by another company, makes this harder. You may choose one region for your data, while the provider's default setting copies backups to another continent. So before moving data to the cloud, check which countries will hold it, including backups, logs and support staff access. Support staff in another country who can read the data may count as a transfer.\n\nPersonal data leaving the European Union needs a legal route under the General Data Protection Regulation, or GDPR. Examples are a formal decision that the other country gives adequate protection, or an approved set of contract terms.\n\nEncryption is a good protection, but it does not cancel these legal rules. Check the law and the contract first, and involve legal advisers.\n\nHere is a workplace example. A bank's contract says that customer data stays in its home country. The cloud provider's main storage is in that country, but its backups are not. The security manager has the backups restricted to in-country locations, and has this written into the contract.\n\nHere is what to take away. Know every place your data sits, including backups, and check the law and contracts before you move it."
+        },
+        {
+          "heading": "Data maintenance",
+          "body": "In this final part we will look at what happens during the long middle of the lifecycle, when data simply has to be looked after.\n\nMaintenance means keeping data correct, useful and safe while you hold it. It is like looking after a house. Nothing dramatic happens most days. But if you stop checking the roof and the pipes, you find out about it at the worst possible moment.\n\nMaintenance includes these jobs.\n\n- Correcting errors and keeping records up to date.\n- Making and testing backups.\n- Reviewing who has access.\n- Applying updates to the systems that hold the data.\n- Checking that the class is still right.\n\nLet us look at why each one matters.\n\nCorrect data is part of integrity, which means keeping data accurate. Under privacy law, people may also have the right to have mistakes corrected. Wrong data can cause real harm. Think of a hospital record with the wrong allergy on it.\n\nBackups are only useful if they work. A backup that has never been restored is a hope and not a plan. So test restores on a regular schedule. A company might run backups every night for three years, and learn only when a disk fails that none of them can be restored.\n\nAccess reviews catch people who have changed jobs or left. The owner should confirm that each person still needs access.\n\nUpdates, also called patches, fix known weaknesses in the systems that hold data.\n\nClass checks matter because value changes with time, and because new combinations of data can become more sensitive.\n\nHere is a workplace example that brings the roles together. A health insurer's customer data needs yearly care. The data owner confirms the class and signs off the access list. The custodian runs the backups, tests a restore and applies the patches. Users correct errors as they find them. An outside processor follows the insurer's written instructions. The people that the data is about can ask to see it and correct it.\n\nThe owner stays accountable for this work, even though the custodian carries it out.\n\nThink like a manager. Maintenance is a routine with named people and dates, and not a task left for when something breaks.\n\nHere is your takeaway. Keep data accurate, test your restores, review access, patch systems, and recheck the class."
+        }
+      ],
+      "keyTerms": [
+        {
+          "term": "Data owner",
+          "meaning": "The senior manager accountable for data, who sets its class and approves access."
+        },
+        {
+          "term": "Data controller",
+          "meaning": "The person or organization that decides why personal data is used and how."
+        },
+        {
+          "term": "Data custodian",
+          "meaning": "The person or team, usually technical, doing the daily care of the data."
+        },
+        {
+          "term": "Data processor",
+          "meaning": "A separate party that handles personal data on the controller's instructions."
+        },
+        {
+          "term": "Data user",
+          "meaning": "A person who uses the data for their work and must follow the rules."
+        },
+        {
+          "term": "Data subject",
+          "meaning": "The living person that the personal data is about."
+        },
+        {
+          "term": "GDPR",
+          "meaning": "General Data Protection Regulation: the European Union law on personal data."
+        },
+        {
+          "term": "Data minimization",
+          "meaning": "Collecting and keeping only the personal data you really need."
+        },
+        {
+          "term": "Data sovereignty",
+          "meaning": "The idea that data falls under the laws of the place where it is held."
+        }
+      ],
+      "keyPoints": [
+        "The owner is accountable, and the custodian does the daily work.",
+        "The controller decides why and how, and the processor follows instructions.",
+        "A controller stays accountable even when it uses a processor.",
+        "Collect only the data you need for a stated purpose.",
+        "Check the law before you decide where data will be kept."
+      ],
+      "memoryHook": "Owner rules, Controller chooses why, Custodian cares, Processor performs, User uses, Subject is the person it is about.",
+      "question": {
+        "prompt": "A clinic decides which patient details it collects and why. It pays an outside company to print and post patient letters, and that company works only on the clinic's instructions. The outside company then suffers a data breach. Which statement is MOST accurate?",
+        "options": [
+          "The outside company became the controller when it received the data, so the clinic has no further duty",
+          "The clinic alone is at fault, because a processor never has any legal duties of its own",
+          "The clinic stays accountable as controller, and the company also has duties as processor",
+          "The patients are custodians of their own details, so each patient must manage the breach"
+        ],
+        "correctIndex": 2,
+        "explanation": "The clinic decides why and how, so it is the controller and stays accountable. The company follows instructions, so it is the processor, and processors have duties too. It is tempting to think hiring a company passes on the blame, but accountability does not move that way. Patients are data subjects."
+      },
+      "practiceQuestions": [
+        {
+          "prompt": "A database administrator at a bank runs the backups, applies the security settings and restores data, all according to rules set by the head of lending. Which data role does the administrator hold?",
+          "options": [
+            "Data owner",
+            "Data custodian",
+            "Data subject",
+            "Data controller"
+          ],
+          "correctIndex": 1,
+          "explanation": "The custodian does the daily care that the owner asks for. Data owner is tempting because the administrator has great technical power over the data, but the head of lending sets the rules."
+        },
+        {
+          "prompt": "A company's own IT (information technology) department runs the servers that hold the staff records. The company decides what is collected and why. A consultant describes the department as the company's data processor. Which statement is MOST accurate?",
+          "options": [
+            "The consultant is right, because anyone who touches personal data is legally a processor",
+            "The department is the controller, because it physically holds all of the staff records",
+            "The department is the data subject, because its own staff appear in the records it holds",
+            "The department acts as a custodian, because a processor is always a separate party"
+          ],
+          "correctIndex": 3,
+          "explanation": "A processor is a separate party acting for the controller, so an internal department is part of the controller and acts as a custodian. The consultant's view is tempting because the department does handle the data, but handling alone does not make a processor."
+        },
+        {
+          "prompt": "A retailer hires a mailing company to send its customer newsletter, under a contract limiting the company to that task. The mailing company secretly uses the customer list to advertise its own services. Which statement is MOST accurate?",
+          "options": [
+            "It is still only a processor, because a contract with the retailer exists and has not ended",
+            "The customers have become its custodians, because they received its advertising in the post",
+            "For that use it has acted as a controller, and it has to answer for that decision",
+            "The retailer has become a processor, because the mailing company now makes the decisions"
+          ],
+          "correctIndex": 2,
+          "explanation": "A processor that decides for itself why and how data is used is treated as a controller for that use. The first option is tempting because the contract still exists, but the mailing company went outside it. The retailer does not become a processor."
+        },
+        {
+          "prompt": "A customer notices that a shop's records show her old address, and she asks the shop to correct it. The shop decides what customer data is collected and why, and an outside firm hosts the records on the shop's instructions. Who must see that her request is met?",
+          "options": [
+            "The shop, because the controller must see that a data subject's rights are met",
+            "The customer, as the data subject, by logging in and fixing the records herself",
+            "The outside firm, which must decide by itself whether the request should be met",
+            "The cashier who last served her, as the data user who happens to know her address"
+          ],
+          "correctIndex": 0,
+          "explanation": "The controller must see that the subject's rights are met, even if a processor does the technical work. The outside firm is tempting because it holds the records, but a processor acts on instructions and does not decide."
+        },
+        {
+          "prompt": "An outside company processes customer data on an insurer's instructions. The company discovers that its system has been breached and the insurer's data exposed. Under the General Data Protection Regulation, which notification duty applies to the company?",
+          "options": [
+            "Contact each affected customer directly and decide the message, without informing the insurer",
+            "Wait for the results of a full investigation, which can take several months, and then report",
+            "Say nothing, because the duty to report a breach falls only on the controller and never on a processor",
+            "Tell the insurer without undue delay, so that the insurer can meet its own duties"
+          ],
+          "correctIndex": 3,
+          "explanation": "A processor must tell its controller without undue delay, and the controller then deals with the regulator, normally within 72 hours of becoming aware. Waiting for a full investigation is tempting because the facts would be clearer, but it would use up the controller's time."
+        },
+        {
+          "prompt": "A gym's online sign-up form asks for name, phone number, date of birth, salary and employer. The gym uses only the name, phone number and date of birth. What is the BEST action?",
+          "options": [
+            "Keep the form as it is and encrypt the salary and employer fields in the database",
+            "Remove the questions about salary and employer from the form, and stop collecting both",
+            "Keep the form as it is and add a line telling members the fields may be useful one day",
+            "Make the salary and employer questions optional, and keep all of the answers that are given"
+          ],
+          "correctIndex": 1,
+          "explanation": "Data minimization means collecting only what is needed for a stated purpose. Encryption is tempting because it is a strong control, but the gym should not hold the data at all. Optional questions would still collect data it has no use for."
+        },
+        {
+          "prompt": "An online shop collected phone numbers only to arrange deliveries. The marketing team now wants to send sales messages to those numbers. What should the privacy adviser recommend FIRST?",
+          "options": [
+            "Go ahead, because the shop already holds the numbers and they were collected lawfully",
+            "Go ahead, but send sales messages only once a month so that customers are not disturbed",
+            "Check whether there is a lawful basis for using the numbers for this new purpose",
+            "Delete all of the phone numbers, because any thought of new use has already made them unlawful"
+          ],
+          "correctIndex": 2,
+          "explanation": "Purpose limitation means data collected for one purpose cannot simply be reused for another. It is tempting to go ahead because the numbers were lawfully collected, but that lawful reason covered deliveries only."
+        },
+        {
+          "prompt": "A contract requires a bank's customer data to stay within its home country. The cloud provider's main storage is in that country, but its default backup setting copies data to another continent. What is the BEST action?",
+          "options": [
+            "Accept the setting, because only the main copy counts for the purposes of this type of contract",
+            "Encrypt the backups, as encrypted copies are exempt from any limit on where data may be kept",
+            "Stop taking backups altogether, so that no copy of the data can ever leave the home country",
+            "Restrict the backups to locations in that country, and confirm this in the contract"
+          ],
+          "correctIndex": 3,
+          "explanation": "Backups are copies of the data, so the residency requirement applies to them as well. Encryption is tempting, but it does not cancel a legal or contract rule about location. Stopping backups would put availability at serious risk."
+        },
+        {
+          "prompt": "A company's legal team warns that because its files are held on servers in a certain foreign country, that country's courts may be able to order their disclosure. Which concept does this warning BEST describe?",
+          "options": [
+            "Data sovereignty",
+            "Data minimization",
+            "Purpose limitation",
+            "Data remanence"
+          ],
+          "correctIndex": 0,
+          "explanation": "Data sovereignty is the idea that data falls under the laws of the place where it is held. Data remanence is tempting because the words sound technical and related, but it means data left behind after an attempt to remove it."
+        },
+        {
+          "prompt": "A company has run nightly backups of its customer records for three years. When a disk failed last week, it learned that the backups could not be restored. Which maintenance step would BEST have prevented this?",
+          "options": [
+            "Buying larger backup disks, so that the nightly backup could hold several more years of data",
+            "Testing a full restore from those backups on a regular, recorded schedule",
+            "Running the backup twice each night and keeping each of the copies on the same backup system",
+            "Reviewing who has access to the backup system every three months"
+          ],
+          "correctIndex": 1,
+          "explanation": "Only a test restore proves that backups work. Running two backups a night is tempting because it sounds safer, but two copies made by the same faulty process would both fail. An access review is useful, but it does not prove that restores work."
+        }
+      ]
+    },
+    {
+      "id": "T17",
+      "name": "Asset retention and end of life: EOL, EOS, data remanence, destruction methods such as clearing, purging, destroying, degaussing, crypto-erase",
+      "outlineRef": "2.4, 2.5",
+      "simpleExplanation": "Nothing should be kept forever. Keep data for as long as the law and the business need it, and then remove it safely. Equipment and software also get old, and makers stop fixing them. Removing data is harder than it sounds. Deleting a file is like tearing the index card out of a library drawer while the book stays on the shelf. Someone can still find it. So we choose a removal method that matches how sensitive the data is.",
+      "studyNotes": [
+        {
+          "heading": "Retention and legal holds",
+          "body": "In this first part, we are going to look at how long information should be kept, and what can interrupt the normal timetable.\n\nRetention means keeping data for a set period. A retention policy lists each type of data and how long to keep it, based on laws, contracts and business need.\n\nThink about the papers in your own home. You keep tax papers for a certain number of years, because you may be asked for them. You keep your birth certificate for life. You throw away last month's flyers. Each kind of paper has its own sensible period.\n\nKeeping data forever feels safe, but it is not. It costs money. It gives thieves more to steal. And it gives the other side in a court case more to ask for. Old data that has no remaining use is all risk and no value. Under many privacy laws, personal data must not be kept longer than it is needed.\n\nThere are two ways to get this wrong. Destroying data too early can break the law. Keeping data too long can also break the law. So a retention schedule needs input from legal advisers and from the data owners.\n\nHere is a worked example. Suppose a tax law requires invoices to be kept for seven years. An invoice from March 2020 must be kept until March 2027. After that date, with no other reason to keep it, it should be securely destroyed.\n\nNow for the interruption. A legal hold is an order to keep certain data because of a court case or investigation. It overrides normal deletion until it is lifted. Suppose that the same invoice is part of a dispute, and a lawsuit begins in February 2027. Automatic deletion must be suspended for the relevant data, and the invoice stays even when March 2027 arrives. Deleting evidence after a duty to preserve it has arisen can bring serious penalties.\n\nRemember that retention applies to every copy, including backups and archives. Backups usually hold data for far less time than archives do, and they should not be treated as a substitute for an archive.\n\nHere is what to take away. Keep data as long as law, contract and business require, and no longer, and let a legal hold override the schedule."
+        },
+        {
+          "heading": "End of life and end of support",
+          "body": "Next we will look at what happens when products grow old, because the exam expects you to know the difference between two dates.\n\nEnd of life, or EOL, is when the maker stops making or selling the product. Help may continue for a while. End of support, or EOS, is when the maker stops giving updates and help. No more security fixes will come.\n\nThink about a car model. One year, the factory stops building it. That is like end of life. You can still drive it, and the garage still gets parts. Some years later the parts run out and nobody can repair it. That is like end of support.\n\nEOS is the more dangerous date. After it, a newly found flaw stays unfixed forever. Attackers know this and they look for such systems. Exact dates and even the meaning of the words differ by maker, so read the notice. Some makers also say end of service life.\n\nHere is a worked example. A maker announces end of life for a network switch in June 2027 and end of support in June 2029. A switch is a device that connects computers on a network. The company needs 12 months to plan, buy and install replacements. So it must begin by June 2028 at the very latest, and it should really start sooner and budget for it now. Replacing it all on the day of the notice would be needless panic. Ignoring the notice would be worse.\n\nIf an old system must stay after EOS, management should accept the risk formally. Add compensating controls, which are extra protections that reduce the risk, such as separating the system from the network, restricting who can reach it and watching it closely. Treat this as a temporary state with a replacement plan.\n\nAsset retention also means thinking ahead. Keep equipment or software that you need to read old records. A record held for ten years is useless if the only program that opens it has gone.\n\nThink like a manager. Your inventory should show these dates, so that replacement is planned and budgeted, not a surprise.\n\nHere is your takeaway. End of life stops the sales, end of support stops the fixes, so plan to replace before end of support."
+        },
+        {
+          "heading": "Data remanence",
+          "body": "In this part we will look at why removing data is so much harder than it sounds.\n\nData remanence is data left behind after an attempt to remove it. To remain is to stay, and remanence is what stays.\n\nDeleting and normal formatting usually remove only the pointers to the data. Think of a library drawer full of index cards. If you tear out the card for a book, the book is still on the shelf. Anybody who walks along the shelf can find it. A computer's delete command is much the same. It marks the space as free, and the data sits there until something writes over it.\n\nDifferent kinds of storage leave data behind in different ways.\n\nA hard disk drive, or HDD, stores data magnetically on spinning platters. A deleted file stays there until it is overwritten. Also, a file may not fill all of the space given to it, and bits of older data can stay in the leftover area, which is called slack space.\n\nA solid-state drive, or SSD, stores data on chips, and it is a special problem. It moves data around to spread wear across its chips. This is called wear leveling. It also keeps spare areas that the computer cannot normally reach. So when you overwrite a file, the drive may write to a different place, and the old copy can stay where it was. Overwriting can therefore miss some copies.\n\nRandom access memory, or RAM, is a computer's short-term memory. It can hold data for a short time after power is lost. An attacker with physical access may try to read it in that short period, and this is known as a cold boot attack.\n\nData also hides in places that people forget. Office printers and copiers often have internal drives that hold images of what was scanned. Phones, network devices and old backup tapes hold data as well.\n\nHere is a workplace example. A company returns a leased copier without thinking about it. The internal drive still holds images of contracts and staff records. Nobody broke in. The data simply left the building inside the machine.\n\nHere is what to take away. Deleting is not removing, SSDs make overwriting unreliable, and any device that stores data must be sanitized before it leaves."
+        },
+        {
+          "heading": "Clear, purge and destroy",
+          "body": "Now we come to the three levels of sanitization, and the exam expects you to be exact about what each one means.\n\nSanitization is the general word for removing data from media, which is anything that stores data, so that it cannot reasonably be recovered. The National Institute of Standards and Technology, or NIST, a United States standards body, uses three levels, in this order from weakest to strongest.\n\n- Clear: protects against recovery with normal software tools, usually by overwriting.\n- Purge: makes recovery infeasible even with laboratory tools.\n- Destroy: makes recovery infeasible and also leaves the media unusable.\n\nBelow all of these sits ordinary erasing, which is a normal delete. It is not sanitization at all.\n\nThink about a whiteboard. Wiping it with a dry cloth is like erasing. You can still make out the words. Cleaning it properly so nobody in the room can read it is like clearing. Treating it so that no expert could ever bring the words back is like purging. Breaking it up and burning it is like destroying.\n\nClearing suits reuse inside the organization, at the same level of sensitivity. On a modern magnetic hard disk, one overwriting pass is generally treated as enough. The old advice to overwrite many times comes from much older drives.\n\nPurging suits media that will leave your control or be reused for less sensitive work. Examples are the drive's own secure-erase command, degaussing of magnetic media, and crypto-erase. Note that a purge can leave the device working, as a secure-erase command does, or it can ruin it, as degaussing does to a hard drive. What defines a purge is that laboratory recovery is not feasible.\n\nDestroying means physically ruining the media by shredding, disintegrating, melting or burning. It is the surest method. Choose it for the most sensitive data, and for media that cannot be purged, or when the media is cheap compared with the harm of a leak.\n\nYou may also see the word declassification used about media. It means preparing media so that it can be reused at a lower level. If there is any doubt, many organizations refuse to do this.\n\nHere is your takeaway. Erase is not enough. Clear beats software tools, purge beats the laboratory, and destroy leaves nothing to reuse."
+        },
+        {
+          "heading": "Degaussing and crypto-erase: the limits",
+          "body": "In this part we will look closely at two purge methods, because the exam tests when each one does not work.\n\nDegaussing uses a very strong magnetic field to scramble magnetically stored data. It works only on magnetic media, such as hard disk drives and tapes. It does not work on SSDs, which are solid-state drives that store data as electrical charge on chips. It does not work on optical discs, such as CDs and DVDs, which store data as marks read by a laser. A stronger magnet does not change this.\n\nA simple way to hold on to it is that magnets only beat magnets.\n\nDegaussing has other limits as well. The machine must be strong enough for the type of media, because modern drives resist magnetic fields more strongly than old ones. It usually ruins a hard drive, because the drive's own control information is wiped too. And a hybrid drive, which has both magnetic platters and a memory chip, keeps whatever is on its chip.\n\nCrypto-erase, or cryptographic erasure, means destroying the keys for data that was encrypted. Encrypted data has been scrambled, so that only a key holder can read it. Think of a safe that can never be cracked. If every key is thrown into the sea, the contents are gone for all practical purposes, even though the safe is still there.\n\nCrypto-erase is fast, and it works on SSDs. It is very useful in the cloud, which means computers run by another company, because you cannot touch the disks. Many drives, called self-encrypting drives, do this with one command.\n\nBut it only works under certain conditions.\n\n- The encryption must be strong.\n- It must have been on from the start.\n- Every copy of the key must be gone.\n\nIf a laptop ran for a year without encryption, and encryption was turned on later, old data may still sit unencrypted in places such as spare areas. If a copy of the key sits in a recovery safe, or in a backup, then the data can still be read, so that copy must be destroyed and recorded too.\n\nHere is what to take away. Degaussing is for magnetic media only. Crypto-erase needs strong encryption from the start and the end of every copy of the key."
+        },
+        {
+          "heading": "Worked examples: choosing a method",
+          "body": "In this final part we will practice choosing a method, and we will see what must happen after the data has gone.\n\nAsk three questions. How sensitive is the data? Will the media leave our control? And what type of media is it? The type matters because it rules some methods out.\n\nLet us work through some cases.\n\nA hard disk drive is being reused in the same department, for data at the same class. Clear it. There is no need to spend more, because the media stays under your control.\n\nA hard drive is being sold to the public, and it must still work afterwards. Purge it, for example by a secure-erase command, then verify. Degaussing would not suit this case, because the buyer would receive a dead drive.\n\nOld laptops with SSDs are being donated. Use the maker's secure-erase or crypto-erase, if the conditions for it are met. Do not degauss.\n\nA box of old DVDs holds confidential files. Shred them, in a machine built for optical discs. Degaussing does nothing to them.\n\nA drive held the most secret data, and it will not be reused. Destroy it. A drive costs very little compared with the harm of a leak.\n\nData sits on a cloud provider's disks. Crypto-erase it, because you have no physical access.\n\nPaper needs a method too. A cross-cut shredder cuts in two directions, which makes rebuilding a page much harder than with long strips. Pulping and burning are also used for the most sensitive paper.\n\nThere are always two steps after the sanitization. First, verify the result, because a tool may fail silently. Second, keep a record, such as a certificate of destruction, which is a signed statement of what was destroyed, when and how.\n\nIf a contractor does the work, the responsibility to get it right is still yours. Use an approved company, keep a chain of custody, which is a signed record of who held the media at each handover, and get the certificate. You may also want to watch it happen.\n\nThink like a manager. Choose the method by the sensitivity and the destination, not by habit, and follow your written policy.\n\nHere is your takeaway. Match the method to the sensitivity, the destination and the type of media. Then verify and record."
+        }
+      ],
+      "keyTerms": [
+        {
+          "term": "Legal hold",
+          "meaning": "An order to keep certain data for a legal matter, overriding normal deletion."
+        },
+        {
+          "term": "EOL",
+          "meaning": "End of Life: the maker stops making or selling a product."
+        },
+        {
+          "term": "EOS",
+          "meaning": "End of Support: the maker stops giving updates and help for a product."
+        },
+        {
+          "term": "Data remanence",
+          "meaning": "Data left behind on media after an attempt to remove it."
+        },
+        {
+          "term": "Clearing",
+          "meaning": "Overwriting data so that normal software tools cannot recover it."
+        },
+        {
+          "term": "Purging",
+          "meaning": "Removing data so that even laboratory methods cannot practically recover it."
+        },
+        {
+          "term": "Destroying",
+          "meaning": "Physically ruining media so it can never be used or read again."
+        },
+        {
+          "term": "Degaussing",
+          "meaning": "Removing data from magnetic media with a very strong magnetic field."
+        },
+        {
+          "term": "Crypto-erase",
+          "meaning": "Destroying all copies of the keys so that encrypted data can never be read."
+        },
+        {
+          "term": "SSD",
+          "meaning": "Solid-State Drive: storage that keeps data on chips and has no magnetic disks."
+        }
+      ],
+      "keyPoints": [
+        "Keep data as long as law and business require, and no longer.",
+        "A legal hold overrides normal deletion.",
+        "EOS means no more security fixes, so plan replacement before it arrives.",
+        "The order from weakest to strongest is clear, purge, destroy.",
+        "Degaussing works only on magnetic media, not on SSDs or optical discs."
+      ],
+      "memoryHook": "Clear for here, Purge for leaving, Destroy for the deepest secrets. Magnets only beat magnets.",
+      "question": {
+        "prompt": "A charity is donating old laptops to a local school. The laptops have solid-state drives that held donor records. The IT (information technology) lead plans to degauss the drives before handing them over. What is the BEST advice?",
+        "options": [
+          "Use a stronger degaussing machine so that the magnetic field reaches every part of the drive",
+          "Use the maker's secure-erase function or crypto-erase, then verify the result and record it",
+          "Format each drive twice, because two full formats will remove all of the donor records",
+          "Delete the donor folders, empty the recycle bin, and give the laptops to the school"
+        ],
+        "correctIndex": 1,
+        "explanation": "Solid-state drives store data on chips, so a magnetic field does not sanitize them. A purge method such as secure erase or crypto-erase leaves the laptop usable. Degaussing is tempting because it works well on hard disks, but a stronger magnet does not change this. Formatting and deleting leave data behind."
+      },
+      "practiceQuestions": [
+        {
+          "prompt": "A company's policy deletes email after three years. Its lawyers report that a lawsuit has begun, and some of the affected email is nearly three years old. What should happen FIRST?",
+          "options": [
+            "Suspend deletion of the relevant email by placing it under a legal hold from the lawyers",
+            "Let the deletion run as scheduled, because the written policy has to be followed in every case",
+            "Delete the relevant email sooner, so that the company has less to hand over to the other side",
+            "Move the relevant email to a personal drive belonging to one of the company's senior lawyers"
+          ],
+          "correctIndex": 0,
+          "explanation": "A legal hold overrides normal deletion until it is lifted. Following the schedule is tempting, since policy usually wins on this exam, but the policy itself gives way to a duty to preserve evidence. Early deletion could bring serious penalties."
+        },
+        {
+          "prompt": "A company has kept every record since it was founded, just in case. A recent breach exposed customer files that were 15 years old and had no remaining use. What is the BEST long-term fix?",
+          "options": [
+            "Buy more storage, so that the old records can be spread over a larger number of encrypted disks",
+            "Keep the old records, but move all of them to a folder that most staff do not know exists",
+            "Delete everything older than one year at once, without asking what the law or contracts require",
+            "Adopt a retention schedule based on law, contracts and real business need for each record type"
+          ],
+          "correctIndex": 3,
+          "explanation": "A retention schedule keeps each type of data for as long as required and no longer. Deleting everything old is tempting because it removes risk quickly, but it could break laws and contracts that require certain records to be kept."
+        },
+        {
+          "prompt": "Hard disk drives from an accountant's computer will be reused by another accountant in the same department, at the same class. The drives never leave the company's control. Which option BEST fits?",
+          "options": [
+            "Destroy the drives in an approved shredder and buy new ones",
+            "Clear the drives with an approved overwriting software tool",
+            "Degauss the drives and put them straight back into service",
+            "Delete the accountant's files and empty the recycle bin"
+          ],
+          "correctIndex": 1,
+          "explanation": "Clearing suits reuse inside the organization at the same class. Destruction is tempting because it is the surest method, but it wastes usable drives when the risk is low. Degaussing usually ruins a hard drive, and deleting is not sanitization."
+        },
+        {
+          "prompt": "A company is selling used hard disk drives that held internal business records. The buyers are members of the public, and the drives must still work after the sale. Which approach is BEST?",
+          "options": [
+            "Reformat each drive with the normal operating system tool and then check that it appears empty",
+            "Degauss each drive with a rated machine and then test that it can still be read by a computer",
+            "Purge each drive using its own secure-erase command, then verify that the data has gone",
+            "Delete all visible folders, then fill the drive with harmless files and delete those files as well"
+          ],
+          "correctIndex": 2,
+          "explanation": "Media leaving the organization's control should be purged, and a secure-erase command leaves the drive usable. Degaussing is tempting because it is a true purge method for hard drives, but it usually ruins them, so the buyer would get a dead drive."
+        },
+        {
+          "prompt": "A records office has boxes of old recordable DVDs, which are optical discs, holding confidential case files. A technician offers to run them through the office's degausser. What is the BEST advice?",
+          "options": [
+            "Use the degausser, but run each box through it twice so that the field reaches the inner discs",
+            "Erase each disc using the computer's normal delete function and then reuse them as blank discs",
+            "Store the discs in a locked room for ten years, after which the data will have faded away",
+            "Do not use the degausser at all, and physically shred the discs in a suitable machine"
+          ],
+          "correctIndex": 3,
+          "explanation": "Optical discs do not store data magnetically, so degaussing has no effect, and shredding is the right method. Repeating the degauss is tempting because it sounds thorough, but no amount of magnetism changes marks read by a laser."
+        },
+        {
+          "prompt": "A laptop's drive was used without encryption for a year. Full-disk encryption was then turned on, and the laptop will now be given to an outside charity. A technician proposes crypto-erase by destroying the key. What is the BEST advice?",
+          "options": [
+            "It may not be enough, because data written before encryption began may remain unencrypted",
+            "It is sufficient, because destroying a key always removes every trace of data from a drive",
+            "It is sufficient, provided that the technician also empties the recycle bin before giving it away",
+            "It is not needed, because the encryption that was turned on has already erased all earlier data"
+          ],
+          "correctIndex": 0,
+          "explanation": "Crypto-erase depends on encryption having been in place from the start, because data written earlier may remain unencrypted, for example in spare areas of the drive. The second option is tempting, but destroying a key only affects data that the key protects."
+        },
+        {
+          "prompt": "A company performs crypto-erase on a cloud database by deleting its encryption key from its key management system. Later, a review finds a copy of that key in a recovery safe. What is the MOST important next step?",
+          "options": [
+            "Do nothing, because the copy of the key in the recovery safe is protected by a physical lock",
+            "Ask the cloud provider to degauss the disks that hold the company's encrypted database",
+            "Destroy that remaining copy of the key as well, and record that it has been destroyed",
+            "Move the copy of the key to a different safe in another building that has better locks"
+          ],
+          "correctIndex": 2,
+          "explanation": "Crypto-erase is complete only when every copy of the key has gone, and the record proves it. Moving the key to a better safe is tempting because it adds protection, but the data can still be read for as long as a copy exists."
+        },
+        {
+          "prompt": "A maker announces that a network switch has reached end of life and will no longer be sold. Security fixes will continue for three more years. What is the BEST response?",
+          "options": [
+            "Replace every switch this week, because the product became unsafe on the day of the notice",
+            "Take no action at all, because the maker will surely extend the support date when the time comes",
+            "Buy several spare switches and plan to keep using them for as long as they continue to work",
+            "Plan and budget for replacing the switches well before the end of support date arrives"
+          ],
+          "correctIndex": 3,
+          "explanation": "End of life stops sales, while end of support stops the fixes, so the replacement should be planned ahead of the later date. Replacing them this week is tempting because it feels safe, but the switches are still supported and the cost is not justified."
+        },
+        {
+          "prompt": "A company's lease on a multi-function printer is ending, and the leasing firm will collect it next week. The printer scans contracts and holds images of them on an internal drive. What should be done before collection?",
+          "options": [
+            "Clear the print queue shown on the screen and print a test page to confirm that it still works",
+            "Sanitize the internal drive using an approved method, and record that it was done",
+            "Ask the leasing firm to confirm by telephone that it never looks at returned equipment",
+            "Unplug the printer for a full day so that any stored information is lost from its memory"
+          ],
+          "correctIndex": 1,
+          "explanation": "The internal drive holds data remanence and is about to leave the company's control, so it must be sanitized, and that must be recorded. Unplugging is tempting because short-term memory does fade, but an internal drive keeps its data without power."
+        },
+        {
+          "prompt": "Hard drives held a company's most valuable trade secrets. They are old, they will not be reused, and they cost very little compared with the harm of a leak. What is the BEST way to dispose of them?",
+          "options": [
+            "Physically destroy them and keep a signed certificate",
+            "Clear them with a single overwrite and donate them",
+            "Format them and store them in an unlocked cupboard",
+            "Give them to the cheapest recycler and trust its care"
+          ],
+          "correctIndex": 0,
+          "explanation": "The data is highly sensitive and the media has no reuse value, so destruction with a record is the right match. Clearing is tempting because it is cheap and quick, but clearing only stops normal software tools, and the drives would then leave the company's control."
+        }
+      ]
+    },
+    {
+      "id": "T18",
+      "name": "Data security controls and compliance: data states, scoping and tailoring, standards selection, data protection methods such as DRM, DLP, CASB",
+      "outlineRef": "2.6",
+      "simpleExplanation": "Data is always in one of three states. It is resting somewhere, moving somewhere, or being used. Each state needs different protection, just as money needs a vault, an armored van, and a careful cashier. Organizations do not invent their controls from nothing. They pick a published standard, remove what does not apply, and adjust the rest to fit. They then add tools that follow sensitive data, watch for leaks, and watch how staff use cloud services.",
+      "studyNotes": [
+        {
+          "heading": "The three data states",
+          "body": "In this first part, we are going to look at the three states that data can be in, because each one needs its own kind of protection.\n\nThink about money. In a vault, it is at rest. In an armored van, it is in transit. And when a cashier is counting it on a counter, it is in use. The vault's thick door does nothing to protect the van, and the van's guards do nothing for the cashier.\n\nData at rest is stored, as on a disk or a backup tape. Protect it with encryption, which is scrambling so only a key holder can read it, and with access controls and physical locks. The usual encryption choice is the Advanced Encryption Standard, or AES. It can be applied to a whole disk, to a database or to single files.\n\nData in transit, also called data in motion, is moving across a network. Protect it with Transport Layer Security, or TLS, which secures web traffic, or with a virtual private network, or VPN, which is a protected tunnel across another network.\n\nData in use is being worked on in a computer's memory or shown on a screen. It is often unencrypted at this moment, so it is the hardest state to protect. Use strict access limits, screen locks and clean desk rules. Newer hardware can keep data protected while it is being processed. This is often called confidential computing, and it relies on a sealed area of the processor known as a trusted execution environment.\n\nHere is a workplace example. A hospital encrypts its disks, which protects data at rest. It uses TLS between the ward computers and the server, which protects data in transit. Then a nurse leaves a patient record open on a screen at the reception desk, where visitors can see it. Neither of those controls helps. That is data in use, and it calls for a privacy filter and an automatic screen lock.\n\nWatch the common mistake. A company proud of its website security may leave its database and backups unencrypted. One state is covered, and another is wide open.\n\nHere is what to take away. Data is at rest, in transit or in use, each state needs its own controls, and data in use is the hardest to protect."
+        },
+        {
+          "heading": "Baselines, scoping and tailoring",
+          "body": "Next we will look at how organizations adapt a published list of controls to fit, and at two words that the exam loves to swap.\n\nA baseline is a starting list of minimum security controls. A control is anything that reduces risk. It is like a builder's standard checklist for a new house.\n\nScoping means removing the controls that do not apply. A house with no pool can skip the pool fence rules.\n\nTailoring means adjusting the remaining controls to fit the organization. A house in a storm area may need stronger windows.\n\nHere is the worked example. A clinic adopts a baseline of 200 controls. It has no wireless network, so it removes 15 wireless controls. That is scoping, and 200 minus 15 leaves 185. The baseline says screens lock after 15 minutes. Ward computers are in public areas, so the clinic changes this to 5 minutes. That is tailoring. The number of controls did not change, only how one of them works.\n\nA simple way to remember it is that scoping cuts, and tailoring fits.\n\nIn United States government guidance, scoping is treated as one part of the wider tailoring process. That guidance comes from the National Institute of Standards and Technology, or NIST. So you may see tailoring used as the bigger word. It can include setting values for controls, adding extra controls, and using compensating controls, which are alternatives used when a normal control cannot be applied. On the exam, when the two words appear side by side, scoping is removing and tailoring is adjusting.\n\nKeep a written reason for every change, and get management approval. An auditor will ask why each control was removed or changed. A sound reason recorded at the time is your answer. An honest shrug is not.\n\nThere is one firm limit. Laws and contracts cannot be scoped away. If a health privacy law requires a control, then it stays, however expensive it is. Cost alone is not a reason to scope out a legal duty.\n\nThink like a manager. Scoping and tailoring are decisions about risk, so the right people approve them and the reasons are kept.\n\nHere is your takeaway. Scoping removes what does not apply, tailoring adjusts what is left, record why, and never scope out the law."
+        },
+        {
+          "heading": "Selecting standards",
+          "body": "In this part we will look at how to choose which standards to follow, and at the common names that you should recognize.\n\nThink about opening a small restaurant. First you must follow the health and fire laws. Next you must follow the terms of your lease and your supplier agreements. Then you may choose to follow a respected cookery school's kitchen guidelines, because they help you run things well. The order matters.\n\nChoose in this order.\n\n- First, what you must follow by law or regulation.\n- Next, what you must follow by contract.\n- Then, voluntary good practice that fits your risks.\n\nHere are examples that you should recognize.\n\n- General Data Protection Regulation, or GDPR: European Union personal data law.\n- Health Insurance Portability and Accountability Act, or HIPAA: United States health data law.\n- Payment Card Industry Data Security Standard, or PCI DSS: a card industry standard, usually required by contract, for anyone handling payment cards.\n- International Organization for Standardization, or ISO, 27001: a standard for running a security management program.\n- National Institute of Standards and Technology, or NIST, Special Publication 800-53: a United States catalog of security controls.\n- Center for Internet Security, or CIS, Benchmarks: secure settings for particular products.\n\nA few details are worth holding on to. PCI DSS is not a law, even though it can feel like one. It comes from the card industry and it binds you through your contracts. ISO 27001 is the standard that an organization can be certified against, while its companion ISO 27002 gives guidance on the controls. NIST publishes baselines at low, moderate and high impact, and an organization picks one based on how much harm a loss would cause.\n\nStandards overlap, so many organizations map them together. One control can then satisfy several sets of rules.\n\nHere is a workplace example. An online retailer starts selling to customers in Europe and taking card payments directly. Before anything else, its security manager identifies what the law and contracts require. GDPR and PCI DSS are not optional. Only then does it choose a voluntary framework to organize the work.\n\nHere is what to take away. Law first, then contract, then voluntary good practice that fits your risks."
+        },
+        {
+          "heading": "Digital Rights Management",
+          "body": "Now we will look at the first of three named tools in the outline. It is the one that stays with the file.\n\nDigital Rights Management, or DRM, controls what someone can do with a file they already have, such as view, print, copy or forward. Access can also expire. When used inside companies, it is often called Information Rights Management, or IRM.\n\nThink about renting a film online. You can watch it on your screen, but you cannot copy it for a friend, and after 48 hours it stops playing. You have the file, but the rules came with it.\n\nThat is the key difference from ordinary access control. Ordinary access control is like a locked door. Once you are through the door and you have picked up the document, the door no longer matters. DRM is like a document that has its own rules, wherever it travels.\n\nDRM usually works by encrypting the file, and then releasing the key only to permitted people, under stated conditions. Common features include these.\n\nA license says what a particular person may do. A check back to a central server confirms that the license is still valid. An expiry date ends access automatically. An audit record shows who opened the file and when. Some systems also place a visible or hidden mark on the file, called a watermark, so that a leak can be traced.\n\nHere is a workplace example. An engineering firm shares drawings with a partner. The partner can open them, but cannot print or forward them, and access ends on the day the contract ends. If the relationship goes badly, the firm can withdraw access to the copies already sent.\n\nDRM has limits. Someone who can see a file on a screen can still photograph the screen. It needs software on the receiving side, which can frustrate partners. And if the central server is unavailable, permitted people may be locked out, so there is an availability cost.\n\nPick DRM when the need is to control a file after it has been handed to someone else. If the need is to stop a file leaving at all, that is a different tool, and we turn to it next.\n\nHere is your takeaway. DRM follows the file and controls what people can do with it, even after they have received it."
+        },
+        {
+          "heading": "Data Loss Prevention",
+          "body": "In this part we will look at the second tool, which guards the ways out of the organization.\n\nData Loss Prevention, or DLP, looks for sensitive data, such as card numbers, and alerts on or blocks it when it tries to leave.\n\nThink about the security gate at a shop, or a guard who checks bags as people leave a warehouse. The guard does not care what you did inside. The guard cares about what you are carrying out.\n\nDLP can run in three places, and each one matches a data state.\n\n- On the network: it watches data in transit.\n- On staff computers, also called endpoints: it watches data in use.\n- In storage: it scans data at rest to find sensitive files.\n\nThe placement decides what it can see. Network DLP cannot see a file being copied to a Universal Serial Bus, or USB, storage stick, because that copy never crosses the network. Endpoint DLP can see it. Storage DLP is valuable for finding sensitive files in places where they should not be.\n\nHow does it recognize sensitive data? It may look for patterns, such as the format of a card number. It may look for particular words. It may compare files with exact fingerprints of known sensitive documents. And it may read the class label in a file's metadata, which is the data about the file. This is another reason why classification comes first. DLP can only protect what it can recognize.\n\nDLP has a well-known blind spot. Encrypted traffic can hide data from it. If an employee uploads a file to a personal website over an encrypted connection, network DLP may see nothing at all. The fix is to inspect encrypted traffic at an approved point, or to use DLP on the staff computers, where the data can be seen before it is encrypted.\n\nFalse alarms are the other challenge. A rule that is too broad blocks honest work. So many organizations begin by only alerting, tune the rules, and then begin to block.\n\nHere is a workplace example. A bank's email system stops a message containing 300 account numbers, and tells the sender and the security team.\n\nHere is what to take away. DLP guards the exits, the placement decides what it sees, and encrypted traffic can blind it."
+        },
+        {
+          "heading": "CASB, and methods that change the data",
+          "body": "In this final part we will look at the third tool, and then at methods that change the data itself.\n\nA Cloud Access Security Broker, or CASB, sits between users and cloud services, which are online services run by another company. It shows which services are used, including unapproved ones, and applies rules to them.\n\nThink of a building's reception desk. Everyone going to any office passes it. It knows who goes where, and it can stop someone carrying what they should not.\n\nA CASB can work in two ways. Inline means it sits in the path of the traffic, so it can act at the moment an upload happens. The other way uses a software connection into the cloud service itself, often called an application programming interface, or API. That way, it can inspect data already stored there, but it usually acts after the event.\n\nA typical need is to stop files labeled Restricted being uploaded from home computers, while allowing the service for other work. That is a job for a CASB.\n\nOther methods change the data itself.\n\nMasking hides parts of it, as on a receipt showing only the last four card digits.\n\nTokenization swaps it for a meaningless stand-in value called a token. The real value is kept in a secure vault. A retailer's order systems can hold only tokens, so a breach of those systems exposes nothing usable.\n\nPseudonymization replaces names and other details with codes, and the link between them is kept separately. Because the link exists, the data can be traced back to the person, so it is still personal data under privacy law.\n\nAnonymization removes the link permanently, so that nobody can be identified. Truly anonymous data falls outside privacy law such as the General Data Protection Regulation, the European Union law. Doing it properly is harder than it sounds, because combined facts can often identify someone.\n\nPick by the need. DRM, which is Digital Rights Management, follows the file. DLP, which is Data Loss Prevention, guards the exits. And CASB watches the cloud.\n\nThink like an adviser. Start from what must be protected, and where it is, and only then choose the tool.\n\nHere is your takeaway. CASB controls cloud use, masking hides, tokens replace, and pseudonymized data is still personal data."
+        }
+      ],
+      "keyTerms": [
+        {
+          "term": "Data at rest",
+          "meaning": "Data that is stored, such as on a disk or tape."
+        },
+        {
+          "term": "Data in transit",
+          "meaning": "Data moving across a network. Also called data in motion."
+        },
+        {
+          "term": "Data in use",
+          "meaning": "Data being worked on in memory or shown on a screen."
+        },
+        {
+          "term": "Baseline",
+          "meaning": "A starting list of minimum security controls."
+        },
+        {
+          "term": "Scoping",
+          "meaning": "Removing the baseline controls that do not apply to you."
+        },
+        {
+          "term": "Tailoring",
+          "meaning": "Adjusting the remaining controls to fit your organization."
+        },
+        {
+          "term": "DRM",
+          "meaning": "Digital Rights Management: controls what a person can do with a file they already have."
+        },
+        {
+          "term": "DLP",
+          "meaning": "Data Loss Prevention: finds sensitive data and alerts on or blocks it when it tries to leave."
+        },
+        {
+          "term": "CASB",
+          "meaning": "Cloud Access Security Broker: sits between users and cloud services to see use and apply rules."
+        },
+        {
+          "term": "PCI DSS",
+          "meaning": "Payment Card Industry Data Security Standard: security rules for anyone handling payment cards."
+        }
+      ],
+      "keyPoints": [
+        "Data is at rest, in transit or in use, and each state needs its own controls.",
+        "Data in use is the hardest state to protect.",
+        "Scoping removes what does not apply, and tailoring adjusts what is left.",
+        "Meet law and contract needs first, then choose voluntary standards.",
+        "DRM follows the file, DLP guards the exits, and CASB watches the cloud."
+      ],
+      "memoryHook": "Vault, van, cashier: at rest, in transit, in use. Scoping cuts, tailoring fits.",
+      "question": {
+        "prompt": "A design firm shares drawings with outside partners. The partners should be able to open the drawings, but not print or forward them, and their access must stop when the contract ends. Which control BEST meets this need?",
+        "options": [
+          "Data Loss Prevention on the firm's outgoing email and network connections",
+          "A Cloud Access Security Broker placed between the firm's staff and its cloud services",
+          "Full-disk encryption on every computer the firm's own designers use",
+          "Digital Rights Management applied to the drawing files"
+        ],
+        "correctIndex": 3,
+        "explanation": "Digital Rights Management stays with the file and controls what the partner can do after receiving it, including expiry. Data Loss Prevention is tempting, but it guards the firm's own exits and cannot limit a partner's printer. The other two do not control a file once it is in a partner's hands."
+      },
+      "practiceQuestions": [
+        {
+          "prompt": "A nurse has a patient's record open on a screen at a reception desk, where visitors can see it. The hospital's disks are encrypted and its network traffic is protected. Which state of data is exposed, and which control BEST fits it?",
+          "options": [
+            "Data at rest, which calls for a stronger encryption setting on the disks in the reception computer",
+            "Data in transit, which calls for a private network link between the reception desk and the server",
+            "Data in use, which calls for a privacy filter and an automatic lock on the reception screen",
+            "Data at rest, which calls for a review of who can enter the data center holding the patient records"
+          ],
+          "correctIndex": 2,
+          "explanation": "Data shown on a screen is in use, and disk or network encryption does nothing for it. Data at rest is tempting because the record is stored somewhere, but the exposure here comes from its being displayed."
+        },
+        {
+          "prompt": "An auditor confirms that a shop's website protects all traffic with Transport Layer Security. The same auditor finds that the customer database and its backups are stored without encryption. Which data state is MOST clearly unprotected?",
+          "options": [
+            "Data in transit",
+            "Data at rest",
+            "Data in use",
+            "Data in motion"
+          ],
+          "correctIndex": 1,
+          "explanation": "Stored databases and backups are data at rest. Data in use is tempting because a database is busy all the time, but the finding is about how the data is stored. Data in motion is another name for data in transit."
+        },
+        {
+          "prompt": "A clinic is applying a baseline of controls. One control is expensive, and it is required by the health privacy law that applies to the clinic. A manager wants to scope it out. What is the BEST advice?",
+          "options": [
+            "Remove it, and write down the cost as the reason for doing so in the records of the baseline",
+            "Remove it, provided that senior management signs a form accepting the risk of breaking the law",
+            "Remove it for now, and then add it back in if a regulator happens to ask about it at an inspection",
+            "Keep it, because a control that the law requires does apply and cannot be scoped out"
+          ],
+          "correctIndex": 3,
+          "explanation": "Scoping removes controls that do not apply, and a control required by law does apply. Formal risk acceptance is tempting because it is the usual route for risk decisions, but management cannot accept away a legal duty."
+        },
+        {
+          "prompt": "A team adopted a published baseline and removed or changed many of its controls. When an auditor asks why, nobody can explain the changes. What is the BEST corrective action?",
+          "options": [
+            "Document the reason for each change, and obtain management approval for each one",
+            "Return to the full baseline at once and apply each control exactly, whether it is relevant or not",
+            "Tell the auditor that baselines are only advice, and so no record of the changes is ever needed",
+            "Choose a different published baseline so that the auditor's questions about this one fall away"
+          ],
+          "correctIndex": 0,
+          "explanation": "Changes to a baseline need a recorded reason and management approval. Returning to the full baseline is tempting because it removes the question, but it would apply controls that do not fit and would waste money."
+        },
+        {
+          "prompt": "A growing online retailer begins selling to customers in Europe and accepting card payments directly. It wants to choose which security standards to adopt. What should the security manager do FIRST?",
+          "options": [
+            "Adopt the most popular voluntary framework, then check whether it also happens to meet any laws",
+            "Ask the web development team which standards it would find the easiest to put into practice",
+            "Identify which laws and contracts bind the company in each of its new markets",
+            "Buy the security product that advertises compliance with the largest number of different standards"
+          ],
+          "correctIndex": 2,
+          "explanation": "Legal and contract duties are not optional, so they are identified first, and voluntary standards follow. Adopting a popular framework is tempting because it gives a quick structure, but it may not satisfy what the retailer is actually bound to do."
+        },
+        {
+          "prompt": "A company approves one cloud storage service. It wants to stop staff uploading files labeled Restricted from unmanaged home computers at the moment the upload happens, while allowing other use of the service. Which control BEST meets this need?",
+          "options": [
+            "Full-disk encryption on each laptop that the company owns and manages",
+            "A Cloud Access Security Broker that works inline on each upload",
+            "A written policy sent by email to all staff once each quarter",
+            "A firewall rule that allows all traffic to the approved service"
+          ],
+          "correctIndex": 1,
+          "explanation": "An inline broker sits in the path of the traffic and can apply rules to each upload as it happens. A firewall rule is tempting because it controls traffic, but it sees only where the traffic is going, and it knows nothing of the label on a file."
+        },
+        {
+          "prompt": "A research team replaces patient names with codes and keeps the table linking codes to names in a separate secure system. A manager says the data is now anonymous, so privacy law no longer applies. What is the BEST response?",
+          "options": [
+            "Agree, because replacing a name with a code always removes the data from all privacy laws",
+            "Agree, as long as the table that links the codes to the names is kept in a locked server room",
+            "Disagree, because a record that contains a code must always be treated as Top Secret",
+            "Disagree, because the data is only pseudonymized and can still be linked back to patients"
+          ],
+          "correctIndex": 3,
+          "explanation": "While the link exists, the data can be traced back to a person, so it is pseudonymized and remains personal data. Keeping the table locked is tempting because it is good security, but it does not make the data anonymous."
+        },
+        {
+          "prompt": "A company's network Data Loss Prevention tool catches card numbers in ordinary email. An employee then uploads a file of card numbers to a personal website over an encrypted connection, and the tool sees nothing. What would BEST close this gap?",
+          "options": [
+            "Turn the tool off, because it has shown that it cannot catch every attempt to send data out",
+            "Ask all staff to agree that they will never use encrypted websites while they are at work",
+            "Inspect encrypted traffic at an approved point, or add the tool on staff computers",
+            "Buy a second network tool of the same type, and place it beside the first one on the same link"
+          ],
+          "correctIndex": 2,
+          "explanation": "Encryption hides the content from a network tool, so the data must be examined where it can be seen. A second network tool is tempting because it sounds like extra coverage, but it would be just as blind."
+        },
+        {
+          "prompt": "A company wants to stop staff copying customer lists from their laptops to USB (Universal Serial Bus) storage sticks. The copying never crosses the network. Which control BEST fits?",
+          "options": [
+            "Network Data Loss Prevention on the link to the internet",
+            "Endpoint Data Loss Prevention running on staff computers",
+            "A Cloud Access Security Broker in front of cloud services",
+            "Transport Layer Security on all of the web servers"
+          ],
+          "correctIndex": 1,
+          "explanation": "Endpoint tools run on the computer where the copying happens, so they can see it and block it. Network Data Loss Prevention is tempting because it is the same type of tool, but a copy to a USB stick never passes through the network."
+        },
+        {
+          "prompt": "A retailer wants to keep card numbers out of its own order systems, so that a breach of those systems exposes nothing usable and fewer systems fall under the card industry's rules. Which method BEST meets this goal?",
+          "options": [
+            "Tokenization, with real numbers held in a secure vault",
+            "Masking the card number on all of the cashiers' screens",
+            "Digital Rights Management on all of the exported reports",
+            "Stronger passwords for all of the order system's users"
+          ],
+          "correctIndex": 0,
+          "explanation": "Tokenization replaces the card number with a meaningless value, and the real number stays in a secure vault. Masking is tempting because it also hides digits, but the full number would still be held behind the screen."
+        }
+      ]
+    }
+  ],
+  "examQuestions": [
+    {
+      "prompt": "A school's shared server holds thousands of public newsletters and one folder of student medical notes, which is at the school's highest class. The principal asks for lighter, cheaper protection, because almost all the files are public. What is the BEST advice?",
+      "options": [
+        "Protect the server at the level of most of its files, because public files are the majority",
+        "Protect the server at a middle level as a fair balance between cost and risk",
+        "Protect it at the level of its most sensitive file, or move that folder elsewhere",
+        "Keep the lower level and ask all staff to sign a promise not to open the medical folder"
+      ],
+      "correctIndex": 2,
+      "explanation": "A system takes the level of the most sensitive data it holds. Moving the folder is a good business option, because the server could then be protected at a lower cost. A middle level sounds reasonable, but it under-protects the medical notes.",
+      "testsTopics": [
+        "T13"
+      ]
+    },
+    {
+      "prompt": "A company has built a new customer database. The database administrator asks who should decide its classification. The head of sales is the senior manager accountable for customer information. Who should make the decision?",
+      "options": [
+        "The head of sales, who is accountable for the customer information",
+        "The database administrator, who knows exactly where the data is stored and how it is backed up",
+        "The security manager, who is responsible for the risks across the whole organization",
+        "The internal auditor, who can give an independent view of the correct level"
+      ],
+      "correctIndex": 0,
+      "explanation": "The data owner is the accountable business manager and sets the class. The administrator is the custodian and carries out the rules. The security manager is tempting and can advise, but the decision belongs to the owner. An auditor must stay independent.",
+      "testsTopics": [
+        "T13",
+        "T16"
+      ]
+    },
+    {
+      "prompt": "A cleaner finds a USB (Universal Serial Bus) storage stick with no marking on the floor of a bank's restricted records room. What should happen FIRST?",
+      "options": [
+        "Open it on an isolated computer so staff can decide which class it belongs to",
+        "Mark it as Public until a member of staff comes forward to claim it",
+        "Wipe it at once so that nothing on it can possibly leak out of the bank",
+        "Give it to the security team and treat it as the highest class"
+      ],
+      "correctIndex": 3,
+      "explanation": "An unmarked item is treated as the highest class until the facts are known, and security staff follow the proper process. Opening it on an isolated computer is tempting, but it skips that process. Wiping it destroys evidence of what happened.",
+      "testsTopics": [
+        "T14"
+      ]
+    },
+    {
+      "prompt": "A project manager has a deadline today. She wants to change a report from Confidential to Public so it can go to a supplier by ordinary email. The report still contains current pricing. What should the security adviser recommend?",
+      "options": [
+        "Allow the change this one time, and record it as an exception for the next audit to look at",
+        "Keep the class and use the approved secure method, since only the owner may change it",
+        "Remove the marking from the report and send it without any class shown at all",
+        "Ask the email team to place the supplier's address on a list of trusted contacts"
+      ],
+      "correctIndex": 1,
+      "explanation": "The content has not changed, so the class should not change, and the decision belongs to the owner anyway. An exception sounds like a practical manager's choice, but a deadline does not reduce the harm of exposing current prices.",
+      "testsTopics": [
+        "T14",
+        "T13"
+      ]
+    },
+    {
+      "prompt": "A serious flaw is announced in a widely used web server product. The security team needs five days just to learn which of the company's systems use it. Which action would BEST fix the underlying problem?",
+      "options": [
+        "Keep an accurate inventory with named owners, updated by automated discovery",
+        "Subscribe to a faster alert service for news of flaws",
+        "Hire more analysts to check every system by hand",
+        "Patch all servers automatically on each release"
+      ],
+      "correctIndex": 0,
+      "explanation": "The cause is that the company does not know what it has, so an accurate inventory fixes the cause. Faster alerts and more analysts treat symptoms. Automatic patching is tempting, but untested updates can break systems, and unknown systems would still be missed.",
+      "testsTopics": [
+        "T15"
+      ]
+    },
+    {
+      "prompt": "An online shop in Europe plans to move its customer records to a cheaper cloud location in another country, to cut costs. What should the security manager do FIRST?",
+      "options": [
+        "Test whether customers will notice any slowdown in the website after the move",
+        "Encrypt the records, because encrypted data is free of any rules on where it is kept",
+        "Check what the law and customer contracts allow for keeping the data in that country",
+        "Ask the cloud provider's sales team to confirm in an email that the location is suitable"
+      ],
+      "correctIndex": 2,
+      "explanation": "The location of personal data can carry legal limits, so the law and contracts come first. Encryption is tempting and is a good control, but it does not remove those legal duties. A sales team cannot give the organization legal assurance.",
+      "testsTopics": [
+        "T16"
+      ]
+    },
+    {
+      "prompt": "A factory's machine controller runs software whose maker ended all support last year. No more security fixes will come. A replacement cannot arrive for 14 months, and the factory cannot run without the machine. What is the BEST approach?",
+      "options": [
+        "Keep it running as it is, because it has been stable for years and has never had an incident",
+        "Shut the machine down today and stop the factory until the replacement has finally arrived",
+        "Ask the operators to take extra care and to report anything strange that they happen to notice",
+        "Isolate it, add compensating controls, and have management formally accept the risk"
+      ],
+      "correctIndex": 3,
+      "explanation": "The business must keep running, and the risk must be reduced and owned by management. Past stability is tempting, but it says nothing about future attacks on a system that can no longer be fixed. Shutting down harms the business more than the risk requires.",
+      "testsTopics": [
+        "T17"
+      ]
+    },
+    {
+      "prompt": "A company is ending its contract with a cloud storage provider. The company cannot reach the provider's physical disks. Its data was strongly encrypted from the first day, using keys that only the company controls. What is the BEST way to sanitize the data?",
+      "options": [
+        "Ask the provider to degauss all of its disks",
+        "Destroy every copy of the encryption keys and record that this was done",
+        "Delete the files and rely on the provider's recycling",
+        "Overwrite each file once through the web console"
+      ],
+      "correctIndex": 1,
+      "explanation": "Crypto-erase fits the cloud, because it needs no physical access and the data cannot be read without the keys. Overwriting through the console is tempting, but the customer cannot confirm that all copies were reached. Providers do not degauss shared disks for one customer.",
+      "testsTopics": [
+        "T17"
+      ]
+    },
+    {
+      "prompt": "A small clinic adopts a published list of security controls. It has no wireless network, so it removes the wireless controls. It also shortens the screen lock time on computers in public areas from 15 minutes to 5. Which statement BEST describes these two actions?",
+      "options": [
+        "Removing the wireless controls is tailoring, and changing the lock time is scoping",
+        "Both actions are scoping, because each one makes the list smaller for the clinic",
+        "Removing the wireless controls is scoping, and changing the lock time is tailoring",
+        "Both actions are risk transfer, because each one changes who must carry the risk"
+      ],
+      "correctIndex": 2,
+      "explanation": "Scoping removes controls that do not apply, and tailoring adjusts the remaining ones to fit. The swapped option is tempting because the two words are so close. Changing the lock time does not remove any control, so it is not scoping.",
+      "testsTopics": [
+        "T18"
+      ]
+    },
+    {
+      "prompt": "Staff at a company are using many cloud applications that were never approved. Management wants to see which applications are in use and apply company rules to uploads into approved ones, without stopping cloud use altogether. Which solution BEST meets this goal?",
+      "options": [
+        "A Cloud Access Security Broker placed between staff and their cloud services",
+        "Digital Rights Management applied to every document that staff create or receive at work",
+        "A firewall rule blocking all outbound traffic to every known cloud service address",
+        "Full-disk encryption on all of the laptops and desktop computers that staff use"
+      ],
+      "correctIndex": 0,
+      "explanation": "A Cloud Access Security Broker sits between users and cloud services, shows what is used, and applies rules. Blocking is tempting, but management does not want cloud use stopped, and it gives no view of how approved services are used. The other two do not show cloud use.",
+      "testsTopics": [
+        "T18"
+      ]
+    }
+  ],
+  "reviewSession": [
+    {
+      "heading": "Classifying information and assets: objective 2.1",
+      "body": "Let us go back over Domain 2 together, one objective at a time, starting with classification. Classification sorts things by the harm that exposure, change or loss would cause, so that the cost of protection matches the value. The order to remember is management support and policy, find what you have, name an owner, classify, protect, then train and review. The owner chooses the class, and technical staff carry it out. People mix up the word Confidential, because it is the lowest secret government level and often the highest company level. They also forget that an asset takes the class of the most sensitive item on it. Government levels from the top are Top Secret, Secret, Confidential, Unclassified. When an answer offers to buy a tool before you know what you hold, it is usually wrong."
+    },
+    {
+      "heading": "Handling rules: objective 2.2",
+      "body": "Now for handling. Rules are written per class, and they cover marking, storage, use, transport and disposal. The protection follows the information into every copy and every format, so a backup needs the same care as the original. Marking is for people to read, and a label is for machines. Mark public items too, so that a missing mark stands out, and treat anything unmarked as the highest class until the owner confirms it. In transport, encrypt, seal, and keep a chain of custody, which is a signed record of who held the item. Keep the class off the outer wrapping of highly sensitive items. Keep keys apart from the data. The favorite trap is lowering a class to meet a deadline. Only the owner may change a class, and convenience is never the reason."
+    },
+    {
+      "heading": "Provisioning, ownership and inventory: objective 2.3",
+      "body": "Next comes secure provisioning. Give people only what the job needs. Need to know decides which information they may see, and least privilege decides what they may do with it. The owner approves, the technical team carries out, and the rights come back when the job changes. Owners can delegate the work, but they keep the accountability. An asset with no owner is an asset nobody protects, so have management name one. The inventory must hold tangible assets, which you can touch, and intangible ones, such as data, licenses and patents. People forget the intangible half, and it is often worth the most. When a discovery scan disagrees with the list, investigate first. And if an audit finds things missing, choose the answer that fixes the process, not the answer that buys replacements."
+    },
+    {
+      "heading": "The six data roles: objective 2.4",
+      "body": "This is the most tested part of the domain, so let us be exact. The owner is a senior manager who is accountable, sets the class and decides on access. The custodian, usually technical staff, carries out the daily care, such as backups. The user follows the rules. Those three are found inside the organization. The controller decides why and how personal data is used. The processor is a separate party that follows the controller's instructions. The subject is the living person the data is about. People wrongly call an internal technical team a processor, when it is a custodian. A processor that decides purposes for itself is treated as a controller for that use. Hiring a processor never ends the controller's accountability. If a question asks who decides, look for the owner or the controller."
+    },
+    {
+      "heading": "Lifecycle, collection, location and maintenance: objective 2.4",
+      "body": "Let us review the lifecycle. The six stages are create or collect, store, use, share, archive and destroy, and the class travels with the data throughout. On collection, gather only what you need for a stated purpose, tell people why, have a lawful basis, and do not quietly reuse data for something new. The best control for unneeded data is not to have it, so be wary of answers that encrypt what should never have been collected. On location, data sovereignty is about whose law applies, and data residency is about where data must sit. Check backups as well as the main copy, and check the law and contracts before moving anything. Encryption does not cancel those rules. On maintenance, keep data accurate, review access, patch systems, recheck the class, and test your restores."
+    },
+    {
+      "heading": "Retention and product age: objectives 2.4 and 2.5",
+      "body": "Now retention. Keep data as long as law, contract and business need require, and no longer. Destroying too early and keeping too long can both break the law. A legal hold overrides normal deletion until it is lifted, even when the written policy says to delete. On product age, end of life means the maker stops making or selling the product. End of support means the maker stops giving updates, so no more security fixes will come. End of support is the more dangerous date, and replacement should be planned and budgeted before it. If an old system has to stay, the best answer combines isolation or other compensating controls with formal risk acceptance by management. Do not choose an answer that keeps it running because it has always been stable, or one that shuts the business down."
+    },
+    {
+      "heading": "Remanence and the three sanitization levels: objective 2.4",
+      "body": "Let us go over removing data. Data remanence is what is left behind after an attempt to remove it. Deleting and normal formatting usually remove only the pointers, so neither one is sanitization. The three levels, from weakest to strongest, are clear, purge and destroy. Clearing defeats normal software tools, and it suits reuse inside the organization at the same class. Purging makes recovery infeasible even in a laboratory, and it suits media leaving your control. Destroying also leaves the media unusable, and it suits the most sensitive data. People assume that a purge always ruins a device, but a secure-erase command leaves the drive working. To choose, ask how sensitive the data is, whether the media will leave your control, and what type of media it is. Then verify the result and keep a record."
+    },
+    {
+      "heading": "Degaussing, crypto-erase and solid-state drives",
+      "body": "These two methods have limits that the exam loves. Degaussing uses a strong magnetic field, and it works only on magnetic media, such as hard disk drives and tapes. It does nothing to solid-state drives, which store data on chips, or to optical discs. A stronger machine does not change that. It also usually ruins a hard drive, so it cannot be the answer when the drive must keep working. Solid-state drives move data around and keep spare areas, so overwriting can miss copies. Use the maker's secure-erase function, crypto-erase, or physical destruction. Crypto-erase means destroying the keys, and it needs strong encryption from the start and the removal of every copy of the key, including any in a recovery safe. It is the natural answer for cloud storage, where you cannot touch the disks."
+    },
+    {
+      "heading": "Data states, scoping and tailoring: objective 2.6",
+      "body": "Now objective 2.6. Data is at rest when stored, in transit when moving across a network, and in use when in memory or on a screen. Data in use is the hardest to protect, and disk or network encryption does nothing for a record on a visible screen. A baseline is a starting list of minimum controls. Scoping removes the controls that do not apply. Tailoring adjusts what is left to fit. So scoping cuts and tailoring fits, and the exam will try to swap them. In United States government guidance, tailoring is the wider word that includes scoping. Keep a written reason and management approval for each change, and remember that a legal duty cannot be scoped out. When choosing standards, law comes first, then contract, then voluntary good practice. Payment card rules usually bind you through contracts, not law."
+    },
+    {
+      "heading": "Choosing between DRM, DLP and CASB: objective 2.6",
+      "body": "Let us finish the tools. Digital Rights Management, or DRM, follows the file, and controls what someone can do after receiving it. Data Loss Prevention, or DLP, guards the exits, and looks for sensitive data trying to leave. It can run on the network, on staff computers or in storage, and encrypted traffic can hide data from it. A Cloud Access Security Broker, or CASB, sits between users and cloud services, shows what is being used, and applies rules. So read the need closely. If a partner already has the file, choose DRM. If something must not leave, choose DLP. If the concern is unapproved or uncontrolled cloud use, choose CASB. Remember too that masking hides, tokenization swaps data for a stand-in, and pseudonymized data is still personal data, because it can be linked back."
+    },
+    {
+      "heading": "How to choose the best answer in this domain",
+      "body": "Here is how to think when a Domain 2 question looks hard. First, ask who should decide. Very often the right answer is the owner, and the tempting answer is a capable technical person. Second, ask what comes first. Knowing what you have comes before buying tools, and checking the law comes before moving data. Third, look for the cause. If a process is failing, fix the process and do not just treat the single event. Fourth, match the protection to the value, so be cautious of answers that protect everything the same way. Fifth, check the media type before choosing a sanitization method. And finally, think like a manager and adviser. People's safety comes first, then follow policy and the law, and make sure that the right person has made and recorded the decision."
+    }
+  ]
+}

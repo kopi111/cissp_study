@@ -1,0 +1,141 @@
+{
+  "id": "T61",
+  "studyNotes": [
+    {
+      "heading": "Why change management matters",
+      "body": "In this first part, we are going to look at why organisations bother to control change at all.\n\nChange management makes sure that nobody changes a system without thinking first. Think of building work on a school. You do not knock down a wall because one teacher would like more space. Someone asks, someone checks whether that wall holds up the roof, someone approves, the work is planned for the holidays, and the plans are updated afterwards.\n\nComputer systems are connected, so a small change can cause a large failure. A change that looks harmless can also remove a security control. An engineer who opens a firewall port to fix an urgent problem may leave a door open for years. A firewall is a device that controls what network traffic may pass, and a port is a numbered doorway to a program.\n\nMany outages come from changes that were made carelessly, not from attackers. That is why this topic sits among security operations. Change management gives every change a review, an approval, a plan and a record. It protects availability, which means keeping systems working, and integrity, which means keeping them correct. It also stops people from hiding unauthorised changes.\n\nThe group that reviews important changes is often called a CAB, or change advisory board. It has members from security, operations and the business. A security person on the board can spot risks that others miss. A business person can say that Friday afternoon is the worst time of the week to touch the payment system.\n\nHere is a workplace example. A database administrator wants to change a setting to make reports run faster. Under the change process, the review shows that the setting also turns off audit logging, which the company must keep for its regulators. So a different solution is found. Without the review, nobody would have noticed until an auditor came to visit.\n\nIt is also worth knowing who does what. Security does not usually own this process alone. It is a shared business process, in which security provides advice about risk. The person who asks for a change should not be the only one who approves it.\n\nHere is what to take away. Changes cause many failures, so every change needs a review, an approval, a plan and a record, and security should take part."
+    },
+    {
+      "heading": "The steps of change management",
+      "body": "Now we will look at the steps of the change process, in the usual order.\n\nThink of planning a kitchen renovation in a house you share. You tell the others what you would like and why. They look at the cost and the disruption. Everyone agrees, or says no. You try a small sample of the tiles. You pick a week when nobody is cooking for guests. When it is finished, you update the house insurance.\n\nLearn this order.\n\n- Request: someone asks for the change and gives the reason.\n- Review: experts look at the effect, the cost and the risk.\n- Approve or reject: the right authority decides.\n- Test: try it in a place that is not production.\n- Schedule and implement: do it at a quiet time, with a rollback plan.\n- Document: update records and diagrams.\n\nProduction means the live systems that the business really uses. A rollback plan is the prepared way to undo the change if it goes wrong. No rollback plan usually means that the change is not ready.\n\nLet us look more closely at each step.\n\nThe request should say what is changing, why, who is affected, and what will happen if the change does not go ahead.\n\nThe review looks at side effects, including security. Will this weaken a control? Will it stop another system working?\n\nThe decision should be made by someone with the authority to accept the risk. Rejection is a real outcome, and the reason should be recorded.\n\nTesting should use an environment that is as much like production as possible. It should include a test of the rollback plan.\n\nScheduling means choosing a period when disruption will be least, often called a maintenance window. Users should be told in advance.\n\nDocumenting makes the record complete. Diagrams, the configuration baseline, and the procedures are all brought up to date. The baseline is the approved record of how a system should be set up.\n\nSome versions of this process add a final post-change review, to confirm that the change worked and had no bad effects.\n\nHere is a workplace example. A company wants to upgrade the operating system on an email server. It raises a request and the board reviews it, tests on a copy, and schedules it for a Sunday.\n\nHere is your takeaway. Request, review, approve or reject, test, schedule and implement, then document."
+    },
+    {
+      "heading": "Types of change and emergency changes",
+      "body": "Next we are going to look at the different types of change, and especially at emergencies.\n\nNot every change needs the same level of attention. Think about a family. Buying milk does not need a family meeting. Buying a house certainly does. And if a pipe bursts at midnight, one person turns off the water right away, and tells everyone else in the morning.\n\nThere are three types of change to know.\n\nA standard change is low risk, common and approved in advance, such as adding a user to a known group. There is a written procedure, and it does not go back to the board each time.\n\nA normal change goes through the full process, from request to document.\n\nAn emergency change is needed at once to stop serious harm, such as stopping an active attack or restoring a failed service.\n\nEmergency changes are not a way to skip control. A named person still authorises the change. The team records what was done as soon as possible. Afterwards the change goes through review, so that it is formally approved or undone.\n\nOften a small group, sometimes called an emergency change advisory board, can make the decision quickly. In a real crisis, the approval may be given over the phone by the duty manager.\n\nFrom the exam's point of view, the correct answer in an emergency is rarely to do nothing. It is to act, and then to document and review.\n\nThere is a warning sign to watch for, though. If a team uses the emergency process all the time, then something is wrong. Perhaps people are using it to avoid scrutiny, or perhaps planning is poor. A manager should track the number of emergency changes, and ask why they are happening.\n\nHere is a workplace example. At two in the morning, a web server is under attack. The on-call engineer phones the duty manager, gets verbal approval, and adds a rule to the firewall that blocks the attack. The engineer notes the time and details. The next day, a ticket is raised to record the change, and the board reviews it at its next meeting. The board decides to keep the rule, and asks for the baseline to be updated.\n\nHere is what to take away. Standard changes are pre-approved, normal changes go through the full process, and emergency changes are authorised, done quickly, then documented and reviewed."
+    },
+    {
+      "heading": "Worked example: a firewall rule",
+      "body": "In this part, we are going to walk through a single normal change from start to finish.\n\nThink of asking the council to put a new gate in a shared fence. You would fill in a form, and they would check where the gate leads. They might say yes, but only if it is narrow and it has a lock. Then the work is done on a set day and the map is updated. A firewall rule is rather like a new gate in a fence.\n\nThe sales team needs a new connection to a supplier, so that they can see stock levels in real time.\n\nRequest. The sales manager logs the need in the change system. The request gives the business reason, the supplier's address, the date when this is needed, and who will be affected.\n\nReview. The network team and the security team check the risk. The first draft asked for all traffic to be allowed to the supplier. The security analyst points out that this breaks the principle of least privilege, so they limit the rule to one address and one port.\n\nApprove. The CAB, or change advisory board, reviews the updated request, and approves it.\n\nTest. The rule is tried on a test firewall, and the team confirms that the connection works and that nothing else is affected. They also confirm that the rollback works.\n\nSchedule and implement. The rule goes live on Sunday at six in the morning, when the business is quiet. The old rule set is saved first, so that it can be restored.\n\nDocument. The rule list and network diagram are updated, and the configuration baseline is changed to match. An expiry date is placed on the rule, so that it will be reviewed in twelve months, in case the business relationship ends.\n\nNotice three things about this example.\n\nThe security review changed the request. That is the review stage doing its job.\n\nThe rollback was prepared and tested before it was needed.\n\nThe change was not finished when the rule went live. It was finished only after the records were updated.\n\nExam questions often describe a change that was successful but never recorded. That is still a failure of the process.\n\nHere is your takeaway. Follow every step, let security improve the request, prepare the rollback, and finish by updating the records."
+    },
+    {
+      "heading": "Links with configuration management and separation of duties",
+      "body": "Now we are going to look at how change management connects with some other controls.\n\nThink of a town. The planning office decides what may be built. The land registry records what actually stands where. They are separate jobs. But if they do not talk to each other, the records and the decisions quickly fall out of step.\n\nChange management works closely with configuration management in the same way. Change management decides whether a change is allowed. Configuration management records the new state and checks that systems match it. When an approved change is finished, the baseline must be updated. A baseline is the approved record of how a system should be set up.\n\nIt also supports separation of duties, where no single person can complete a sensitive task alone. A developer who writes code should not be the person who moves it into production. Production means the live systems the business really uses. If one person could do both, that person could insert malicious code without anyone noticing.\n\nThe same applies to the person who approves a change and the person who carries it out. Where possible, the person who requests a change should not be the only person who approves it.\n\nThere is also a software side to change management. Developers work in a separate development environment, and move to a test environment, and only then to production. Each of these environments should be kept apart. Live customer data should not be used carelessly in test systems, as they usually have weaker protection.\n\nVersioning means giving each release a number, such as 2.1 and 2.2, so that you can tell what is running and go back to an earlier one.\n\nModern teams often release software many times a day, using automated pipelines. This does not remove change management. The controls are built into the pipeline, such as automatic tests and a required peer review before code can be merged.\n\nHere is a workplace example. A bank's developers can write code, but they have no access to production. Only the release team can deploy, and only code which has passed testing and been approved. An automated tool records the version of every release.\n\nHere is what to take away. Change management decides, configuration management records, and separation of duties keeps developers apart from production."
+    },
+    {
+      "heading": "Auditing, unauthorised changes and the manager's view",
+      "body": "In this final part, we will look at how the loop is closed, and how a manager should think about change.\n\nThink about a bank statement. You record your spending, and once a month you check that the bank's list matches yours. If there is a payment that you do not remember making, you look into it at once. Change auditing is the same idea.\n\nAuditing closes the loop. Compare what is actually running against approved changes. Anything unapproved is an unauthorised change, and it must be investigated.\n\nThere are tools that help with this. File integrity monitoring is a tool that tells you when important files have changed, by comparing their digital fingerprints, called hashes, against known good values. Configuration tools can compare settings with the baseline. Logs show who did what.\n\nAn unauthorised change might be innocent. An engineer may have tried to help and forgotten to log it. But it might also be a sign of an attacker, or of an employee doing something wrong. So treat it seriously. Find out who made the change, and why. If it was an attack, treat it as an incident. If it was a mistake, decide whether to reverse it, or to process it after the event, and find out why the process was bypassed.\n\nThe manager's view is about balance. A process that is too slow will encourage people to go around it. A process that is too loose offers no protection. Good change management is proportionate to the risk. That is the reason for having standard changes for routine work, and full review for the changes that matter.\n\nOn the exam, watch for these patterns. If a change caused an outage, the first response is to use the rollback plan and restore service. If a change was made without approval, the answer usually involves investigation and getting it back into the process. And if an answer tells you to skip the process because someone senior insists, it is probably wrong.\n\nHere is a workplace example. A monthly audit finds a new administrator account on a server, with no matching ticket. The team treats it as a possible incident, and checks the logs before doing anything else.\n\nHere is your takeaway. Compare reality with approved records, investigate anything unapproved, and keep the process proportionate to the risk."
+    }
+  ],
+  "practiceQuestions": [
+    {
+      "prompt": "A manager asks an engineer to make a change to the billing system immediately, without a ticket, because it would be convenient for an upcoming presentation. There is no emergency. What should the engineer do?",
+      "options": [
+        "Make the change, because a manager has requested it",
+        "Make the change and write a ticket for it next month",
+        "Explain that the change must go through the change process",
+        "Refuse to speak with the manager about the matter"
+      ],
+      "correctIndex": 2,
+      "explanation": "Without an emergency, the normal process applies, whoever makes the request. Doing it because a manager asked is tempting, but seniority does not remove the need for review and approval."
+    },
+    {
+      "prompt": "A change request has been reviewed and approved by the change board. Under the usual order of steps, what comes NEXT?",
+      "options": [
+        "Test the change outside production",
+        "Update the network diagrams",
+        "Carry out the change in production",
+        "Submit a new change request"
+      ],
+      "correctIndex": 0,
+      "explanation": "Testing follows approval in the usual order. Carrying out the change is tempting because approval has been given, but it must first be tried away from production."
+    },
+    {
+      "prompt": "A change board receives a request to upgrade a core database, but there is no way described to return to the old version if it fails. What should the board do?",
+      "options": [
+        "Approve it, as the engineer is very experienced",
+        "Approve it, but ask for extra staff during the upgrade",
+        "Ask the vendor to take all responsibility for any failure",
+        "Send it back until a rollback plan is included"
+      ],
+      "correctIndex": 3,
+      "explanation": "Without a rollback plan, a change is usually not ready. Trusting the engineer's experience is tempting, but even a skilled engineer cannot quickly undo a failed upgrade without a prepared plan."
+    },
+    {
+      "prompt": "The service desk adds new staff to a known email group many times a week, following a written, low-risk procedure. Which type of change is this?",
+      "options": [
+        "Emergency change",
+        "Standard change",
+        "Normal change",
+        "Unauthorised change"
+      ],
+      "correctIndex": 1,
+      "explanation": "A common, low-risk change with a pre-approved procedure is a standard change. Normal change is tempting, but that goes through the full review each time."
+    },
+    {
+      "prompt": "A change manager notices that one team labels nearly all of its changes as emergencies. What should the manager do FIRST?",
+      "options": [
+        "Investigate why this team is using the emergency process so often",
+        "Approve the changes, because the team must be very busy",
+        "Remove the emergency process for the whole organisation",
+        "Report the team's manager to the board of directors"
+      ],
+      "correctIndex": 0,
+      "explanation": "Overuse suggests poor planning or avoidance of scrutiny, so the cause must be found. Removing the emergency process is tempting, but real emergencies still need a fast route."
+    },
+    {
+      "prompt": "An approved change to an internal application has been carried out. It succeeded and users are happy, but no records have been updated. Which statement is MOST accurate?",
+      "options": [
+        "The change is finished, because it was approved and worked",
+        "The change should be rolled back at once",
+        "Only the users need to be told about what happened",
+        "The process is not complete until the records are updated"
+      ],
+      "correctIndex": 3,
+      "explanation": "Documenting is the final required step. Calling it finished is tempting since the change worked, but out-of-date records cause trouble in later changes and recovery."
+    },
+    {
+      "prompt": "A routine change has just caused the company's main website to fail. Customers cannot place orders. What should the team do FIRST?",
+      "options": [
+        "Carry out the rollback plan to restore the service",
+        "Find out who made the mistake and hold a meeting",
+        "Rewrite the change management policy",
+        "Wait for the next meeting of the change board"
+      ],
+      "correctIndex": 0,
+      "explanation": "Restoring the service through the prepared rollback comes first. Finding out who made the mistake is tempting, but blame does not help customers and the review can happen later."
+    },
+    {
+      "prompt": "An engineer raises a change request, approves it personally and then carries it out. What is the MAIN risk?",
+      "options": [
+        "The change may take longer to complete than was planned",
+        "A harmful or careless change could go live with no independent check",
+        "The engineer will have too much work to do",
+        "The ticket numbering may become harder to read"
+      ],
+      "correctIndex": 1,
+      "explanation": "When one person controls every stage, there is no independent check on what goes live. Extra workload is tempting as a concern, but it is not the security problem."
+    },
+    {
+      "prompt": "A monthly audit finds a change to a server's configuration with no matching approval. What is the BEST FIRST step?",
+      "options": [
+        "Reverse the change at once, without looking at it further",
+        "Add an approval record so that the audit will pass",
+        "Investigate who made the change and why",
+        "Ignore it if the server still appears to be working"
+      ],
+      "correctIndex": 2,
+      "explanation": "An unauthorised change may be a mistake or a sign of an attack, so investigate first. Reversing it at once is tempting, but it could destroy evidence or break something that now depends on it."
+    },
+    {
+      "prompt": "Which control would BEST alert a team that a key system file on a server has been changed outside the approved process?",
+      "options": [
+        "A longer password policy",
+        "A larger backup disk",
+        "A monthly staff newsletter",
+        "File integrity monitoring"
+      ],
+      "correctIndex": 3,
+      "explanation": "File integrity monitoring compares file fingerprints against known good values and alerts on changes. A longer password policy is tempting because it strengthens access, but it would not reveal that a file has changed."
+    }
+  ]
+}

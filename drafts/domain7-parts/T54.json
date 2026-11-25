@@ -1,0 +1,141 @@
+{
+  "id": "T54",
+  "studyNotes": [
+    {
+      "heading": "Intrusion detection and prevention",
+      "body": "In this first part, we are going to look at the tools that watch for attacks and the tools that can stop them.\n\nAn IDS, or intrusion detection system, watches and raises an alarm. An IPS, or intrusion prevention system, sits in the path of the traffic and can block it. Together they are often called IDPS. Think of a smoke alarm compared with a sprinkler. The alarm tells you about the fire. The sprinkler does something about it.\n\nBecause an IPS sits in the path, it is called inline. An IDS usually receives a copy of the traffic, so it is called passive. That difference matters. If an IPS fails or blocks the wrong thing, real work can stop.\n\nBoth tools come in two kinds. Network-based tools watch traffic on a part of the network. Host-based tools run on one computer, and can see what happens on it, including activity hidden by encryption while travelling over the network. Encryption is the scrambling of data so that only key holders can read it.\n\nThey find trouble in two main ways.\n\nSignature-based detection matches known attack patterns. It is accurate for known attacks, but it misses new ones. Anomaly-based detection, also called behaviour-based, learns what is normal and flags what is different. It can catch new attacks, but it gives more false alarms.\n\nThere are four possible results, and you should know each one. A true positive is a real attack with an alarm. A true negative is normal activity with no alarm. A false positive is an alarm with no real attack. A false negative is a real attack with no alarm. The false negative is usually the worst, because nobody knows anything is wrong.\n\nHere is a workplace example. A hospital puts an IPS in front of its public web servers, where blocking attacks quickly matters. It puts an IDS on the network that connects medical devices, because a wrongly blocked signal there could harm a patient.\n\nHere is what to take away. An IDS alerts and an IPS blocks, signatures miss new attacks, and a false negative is the most dangerous result."
+    },
+    {
+      "heading": "SIEM and SOAR",
+      "body": "Now we will look at the systems that pull all the alerts together, and at the systems that act on them.\n\nSIEM stands for security information and event management. It collects logs from many systems into one place. It puts them in a common format, which is called normalising. Then it links events together, which is called correlation, and it raises alerts.\n\nThink of a shop manager who hears three separate things. A customer says that a door was left open. A cashier says that a stranger asked about the safe. A cleaner says that the alarm box looks damaged. Each report seems small. Together they tell a story. A SIEM does the same with logs.\n\nHere is a workplace example. One failed login means little. Fifty failed logins, then a success, then a large download from the same account, tells a very different story. A SIEM can spot that pattern across the login server, the file server and the firewall, even though no single system saw all of it.\n\nA SIEM also provides dashboards, which are live summary screens, and it keeps logs that help with investigations and with proving compliance. Compliance means showing that you are following the rules.\n\nSOAR stands for security orchestration, automation and response. Where a SIEM finds and tells, SOAR does. It follows playbooks, which are written steps for a type of event. For example, when a phishing email is reported, SOAR can pull the same email from every mailbox, block the sender and open a ticket. Phishing is a trick message that fools people into giving something away.\n\nAutomation brings speed. It also brings risk. A poorly written playbook could disable the account of the chief executive during a busy day. So playbooks are tested, and high-impact actions often wait for a person to approve them.\n\nA SIEM is only as good as what you feed into it, and only useful if someone responds. A manager must make sure that staff have time and clear responsibility for working through the alerts. A tool that nobody watches gives a false sense of safety.\n\nHere is your takeaway. A SIEM collects, links and alerts, while SOAR follows playbooks and acts on what is found."
+    },
+    {
+      "heading": "Continuous monitoring and tuning",
+      "body": "Next we are going to look at continuous monitoring, and at tuning, which keeps the alerts useful.\n\nContinuous monitoring means checking security all the time, and not once a year. Think of your health. A yearly check-up is useful, but a heart monitor that runs all day can catch a problem the moment it starts. In the workplace, continuous monitoring keeps watch on controls, threats and vulnerabilities, so that decisions are based on the current state of things.\n\nTuning means adjusting detection rules to fit your own environment, so that real alarms stand out. Every organisation is different. A backup server that sends huge files every night is perfectly normal. The same behaviour from a reception computer is not.\n\nImagine a car alarm that goes off whenever a leaf lands on the car. Very soon, everybody on the street ignores it. Security teams suffer from this too, and it is called alert fatigue. When staff are flooded with alarms, they stop looking, and the real one gets missed.\n\nWorked example. Let us walk through tuning a noisy rule.\n\nStep one, the team notices that one rule produces 800 alerts a day. Step two, they study a sample of those alerts, and find that 790 of them come from the company's own vulnerability scanner. Step three, they confirm that the scanner's address is really the scanner. Step four, they write a narrow exception for that one address and that one rule. Step five, they test the change through the normal approval process. Step six, they measure the result, which is now about 10 alerts a day, and each of those deserves a look. Step seven, they review the exception on a regular basis, because an attacker could one day abuse that address.\n\nNotice what the team did not do. They did not simply switch off the rule, because then a real attack would go unnoticed. They fixed the cause of the noise.\n\nA manager might also track measures such as the time taken to detect an event and the time taken to respond.\n\nHere is what to take away. Monitor all the time, and when a tool is noisy, tune it carefully and do not turn it off."
+    },
+    {
+      "heading": "Log management",
+      "body": "In this part, we will look at how logs are handled, so that people can trust them.\n\nA log is a record of events on a system. Think of a visitor book at a front desk. It is only useful if the pages are not torn out, the times are correct, and somebody reads it now and then.\n\nThese are the main practices to remember.\n\nCentralise the logs. Send them to a separate server, so that an attacker who takes over one system cannot easily erase the record of what was done.\n\nProtect them. Limit who can read them, and limit who can change them even more strictly. Some systems use WORM storage, which stands for write once, read many. Once written, the data cannot be altered. Hashing log files, which means taking a digital fingerprint of them, shows whether they have been changed.\n\nSynchronise the clocks. NTP, or Network Time Protocol, keeps all systems on the same time. Without it, events from different systems cannot be put into the right order, and evidence can be challenged.\n\nKeep the right things. Log successful and failed logins, changes to privileged accounts, changes to settings, and access to sensitive data. Do not log passwords or other secrets.\n\nKeep them for the right time. Retention means how long you hold on to records. Policy, law and contracts set the period. Too short, and you cannot investigate. Too long, and you pay to store risk that you did not need to keep.\n\nReview them regularly. Automated tools do much of this. A clipping level is a set limit below which events are not reported, such as five failed logins. This reduces noise, so that repeated failures stand out. Sampling means reviewing a portion of the logs, to draw a conclusion about all of them.\n\nHere is a workplace example. An attacker gets administrator access to a web server and deletes its local logs. The company's central log server already holds a copy, so the investigators can still see what happened.\n\nThe manager's view is that logging supports accountability, which means being able to tie an action to one person.\n\nHere is your takeaway. Logs must be central, protected, time-synchronised, kept for the right period and actually reviewed."
+    },
+    {
+      "heading": "Egress monitoring",
+      "body": "Now we are going to look at egress monitoring, which means watching what leaves your network.\n\nEgress means going out. Ingress means coming in. Many teams concentrate on keeping attackers out, and forget to watch what is leaving. Think of a shop. There are guards at the entrance to greet customers, and security tags that sound an alarm at the exit if someone walks out with goods that were not paid for. Egress monitoring is the alarm at the exit.\n\nThe main tool is DLP, or data loss prevention. A DLP tool looks for sensitive data, such as card numbers or customer records, in emails, uploads and files copied to removable drives.\n\nThere are two main kinds. Network-based DLP inspects data moving through the network. Endpoint-based DLP runs on the user's computer, and can see copying to a USB stick, which is a small plug-in storage device. To work well, DLP depends on data being classified and labelled, so that the tool knows what matters.\n\nThe outline also expects you to know these related ideas.\n\nA watermark is a hidden or visible mark placed in a file, which helps to trace where a leaked copy came from. Steganography hides data inside a harmless file, such as a photo, so that it is hard to spot. An attacker might use it to carry stolen data out. Encrypted traffic is another challenge, because a DLP tool cannot read what it cannot decrypt. Some organisations therefore inspect encrypted web traffic at a controlled point, and they tell their staff about this in policy.\n\nEgress rules on firewalls also help. Malware often needs to call back to the attacker. A server that has no reason to reach the internet should not be allowed to.\n\nHere is a workplace example. A staff member tries to email a spreadsheet of customer details to a personal account. The DLP system spots a pattern of national identity numbers, blocks the message, and alerts the security team. The team treats it first as a possible mistake, and then checks the facts.\n\nA manager would also ask about privacy, and make sure that staff are told that monitoring takes place.\n\nHere is what to take away. Watch what leaves, classify data so that tools can recognise it, and tell staff that monitoring happens."
+    },
+    {
+      "heading": "Threat intelligence, threat hunting and UEBA",
+      "body": "In this final part, we are going to look at how to learn about attackers, how to search for them, and how to spot unusual behaviour.\n\nThreat intelligence is useful knowledge about attackers and their methods. Threat feeds deliver it as a steady stream, such as lists of bad internet addresses and file fingerprints. These are known as indicators of compromise, which means the signs that an attack has taken place. Standard formats help tools to share this. STIX, or Structured Threat Information Expression, describes threats, and TAXII, or Trusted Automated Exchange of Intelligence Information, carries them between organisations.\n\nThreat hunting is a person actively searching for attackers who have already got past the defences. It assumes that a breach may have happened, and it does not wait for an alert. Think of a neighbourhood watch that walks the streets looking for anything out of place, instead of waiting for a burglar alarm to ring.\n\nHunters often describe attackers using two models. The cyber kill chain sets out seven stages, in this order.\n\n- Reconnaissance, which is gathering information.\n- Weaponisation, which is preparing the attack.\n- Delivery.\n- Exploitation.\n- Installation.\n- Command and control.\n- Actions on objectives.\n\nThe other model is called ATT and CK, from an organisation named MITRE. It is a large catalogue of the tactics and techniques that real attackers use.\n\nUEBA stands for user and entity behaviour analytics. An entity is something other than a person, such as a server or a device. UEBA learns normal behaviour for each user and entity, and then flags what is unusual. A clerk who suddenly downloads thousands of files at two in the morning stands out, even if the account has every right to read those files. UEBA is especially good at finding insider threats and stolen accounts.\n\nHere is a workplace example. A feed reports a new attack method used against banks. A hunter at a bank searches its logs for signs of that method and finds one server contacting an unknown address. UEBA also shows that an administrator account is behaving strangely. Together they reveal an intruder that no alarm had caught.\n\nHere is your takeaway. Intelligence informs you, hunting assumes a breach, and UEBA compares behaviour with what is normal."
+    }
+  ],
+  "practiceQuestions": [
+    {
+      "prompt": "A factory wants to detect attacks on the network that controls its production machines. A wrongly blocked command could stop the production line. Which tool is BEST?",
+      "options": [
+        "An inline intrusion prevention system on that network",
+        "An anti-malware scanner on the office computers",
+        "A passive network intrusion detection system",
+        "A web application firewall on the company website"
+      ],
+      "correctIndex": 2,
+      "explanation": "A passive detection system watches a copy of the traffic, so it cannot block a command by mistake. An inline prevention system is tempting because it can stop attacks, but a false block could halt production."
+    },
+    {
+      "prompt": "A new type of attack has appeared, and no security vendor has published a pattern for it yet. Which detection method has the BEST chance of noticing it?",
+      "options": [
+        "Anomaly-based detection",
+        "Signature-based detection",
+        "A deny list of known bad files",
+        "A clipping level on failed logins"
+      ],
+      "correctIndex": 0,
+      "explanation": "Anomaly-based detection flags what differs from normal, so it can notice something never seen before. Signature-based detection is tempting because it is accurate, but it can only match attacks that are already known."
+    },
+    {
+      "prompt": "A company's intrusion detection system saw an attack pass by but raised no alarm. The breach was found three months later. What was the detection result at the time of the attack?",
+      "options": [
+        "True negative",
+        "False positive",
+        "True positive",
+        "False negative"
+      ],
+      "correctIndex": 3,
+      "explanation": "A real attack with no alarm is a false negative. False positive is the commonly confused term, but that is an alarm when no real attack took place."
+    },
+    {
+      "prompt": "An analyst needs to see failed logins, a firewall event and a large file transfer linked together as one possible attack. Which tool is designed to do this?",
+      "options": [
+        "A vulnerability scanner",
+        "A security information and event management system",
+        "A data loss prevention tool",
+        "A host-based firewall"
+      ],
+      "correctIndex": 1,
+      "explanation": "A SIEM collects logs from many sources and correlates them. A data loss prevention tool is tempting because of the file transfer, but it looks at data leaving and does not link events across systems."
+    },
+    {
+      "prompt": "An attacker took control of a server and removed the evidence from its local event log. Which earlier practice would BEST have preserved a record of the attacker's actions?",
+      "options": [
+        "Setting a higher clipping level",
+        "Turning on the local firewall",
+        "Keeping the local logs for a longer period",
+        "Sending logs to a separate central server"
+      ],
+      "correctIndex": 3,
+      "explanation": "A central log server keeps a copy that the attacker cannot easily reach. Keeping local logs for longer is tempting, but the attacker can still delete them on the compromised machine."
+    },
+    {
+      "prompt": "Investigators cannot work out the order of events because timestamps from two servers do not agree. Which control would have BEST prevented this problem?",
+      "options": [
+        "Network Time Protocol on all systems",
+        "Write once, read many storage",
+        "A longer log retention period",
+        "Encrypting the log files"
+      ],
+      "correctIndex": 0,
+      "explanation": "Network Time Protocol keeps every system on the same time, so events can be placed in order. Write once storage is tempting because it protects logs, but it protects them from change, not from having the wrong time."
+    },
+    {
+      "prompt": "A security team suspects that an insider is hiding company data inside ordinary holiday photos and emailing them out. Which technique does this describe?",
+      "options": [
+        "Watermarking",
+        "Tokenisation",
+        "Steganography",
+        "Hashing"
+      ],
+      "correctIndex": 2,
+      "explanation": "Steganography hides data inside another harmless file. Watermarking is tempting because it also places something in a file, but it marks a file in order to trace it and does not carry hidden data out."
+    },
+    {
+      "prompt": "A security team spends part of each week searching its logs for attackers, even though no alert has fired. Which activity is this?",
+      "options": [
+        "Vulnerability scanning",
+        "Threat hunting",
+        "Log rotation",
+        "Tuning"
+      ],
+      "correctIndex": 1,
+      "explanation": "Threat hunting actively searches for attackers on the assumption that one may already be inside. Vulnerability scanning is tempting because it is also proactive, but it looks for weaknesses and not for attackers."
+    },
+    {
+      "prompt": "A clerk's account has valid access to payroll files, but it suddenly reads thousands of them late at night. No rule has been broken. Which tool is MOST likely to flag this?",
+      "options": [
+        "A static packet filter",
+        "A signature-based intrusion detection system",
+        "A disk encryption product",
+        "User and entity behaviour analytics"
+      ],
+      "correctIndex": 3,
+      "explanation": "Behaviour analytics compares activity with what is normal for that account. A signature-based system is tempting because it raises alerts, but this is valid access with no known attack pattern to match."
+    },
+    {
+      "prompt": "A security manager is planning a system that will automatically remove a reported phishing email from every mailbox and open a ticket. Which capability is the manager planning?",
+      "options": [
+        "Security orchestration, automation and response",
+        "A central log server",
+        "A threat intelligence feed",
+        "A host-based intrusion detection system"
+      ],
+      "correctIndex": 0,
+      "explanation": "SOAR follows playbooks to act automatically on events. A threat intelligence feed is tempting because it relates to phishing information, but a feed only supplies information and takes no action."
+    }
+  ]
+}

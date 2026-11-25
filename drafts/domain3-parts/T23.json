@@ -1,0 +1,141 @@
+{
+  "id": "T23",
+  "studyNotes": [
+    {
+      "heading": "Client-based systems",
+      "body": "In this first part, we are going to look at the weaknesses of client systems, and at how to protect them.\n\nA client is the device a person uses, such as a laptop, a desktop or a phone. It is the part of a system that sits closest to people. That makes it the part most exposed to mistakes and to attackers.\n\nThink about your own front door keys. Your keys go everywhere with you. They can be lost, copied or left on a café table. Client devices are like the keys.\n\nCommon client problems include the following. Updates may be missing. Staff may download something malicious, or open a poisoned attachment. Data may be left in local caches, which are temporary stores kept to speed things up. The device may be lost or stolen. Users may have more local power than they need.\n\nHere are the usual protections. Patching means installing updates. Disk encryption protects the data on a lost device. Security software on the device can detect malicious activity. Least privilege means that staff do not work as local administrators, so that malicious software is limited to what that user can do. And mobile device management is a tool that lets a company apply settings to phones and laptops from a central point, and wipe them if they are lost.\n\nThere is also the matter of code that arrives from elsewhere. Web browsers routinely download and run small programs, called scripts, from websites. Browsers try to run these in a sandbox, which is a restricted area that limits what the code can touch. A flaw in the browser can let code escape. So keeping browsers up to date is an essential control, and not a minor chore.\n\nHere is a workplace example. A sales representative leaves a laptop in a taxi. The laptop's disk is encrypted, and it is enrolled in device management. The company wipes it remotely. No customer data is exposed. Without those controls, the company could be facing a data breach report to its regulator, all because of one small mistake.\n\nAs a manager, remember that people are part of this picture. Short and clear awareness training reduces the risk of malicious downloads.\n\nHere is what to take away. Clients are exposed and easily lost, so patch them, encrypt them, limit their privileges and manage them from a central point."
+    },
+    {
+      "heading": "Server-based systems",
+      "body": "Now we will look at servers, which face a different set of dangers from clients.\n\nA server provides services to many users. Because many people depend on one machine, one weakness can affect everyone at once. Think of the difference between a single household's water tank and the town's main water supply. If somebody spoils the household tank, one family is harmed. If somebody spoils the town's supply, everyone is harmed. So the town's supply gets much more protection.\n\nCommon server problems are these. Unneeded services are left running. Settings are weak, or left at their defaults. Patches are missing. Floods of traffic can overwhelm a server, which is known as denial of service. Application flaws can be reached from the network. Administrator accounts are used too widely.\n\nThe main protection is hardening. Hardening means removing everything a server does not need, and securing what remains. It includes the following steps. Turn off services that are not used. Close unused network ports, which are the numbered doors that network traffic comes through. Remove default accounts. Apply a secure baseline, which is a documented standard configuration. Keep the server patched.\n\nYou should also limit what data can flow in and out. Data flow control means deciding which systems may talk to the server, and in which direction. A web server does not need to start conversations with random addresses on the internet. If it suddenly does, that may be a sign that it has been taken over.\n\nLogging matters too. Send logs to a separate system, so that an attacker who takes over the server cannot simply delete the evidence.\n\nAvailability is part of security. For important services, use redundancy, which means having spare capacity, so that one failure does not stop the service.\n\nHere is a workplace example. A company builds a new web server from the standard image. The image has already been hardened. Only the web service runs. The firewall allows web traffic in, and allows the server to reach only its own database. Administrators reach it through a single hardened management host. Logs are sent to a central system.\n\nA manager should insist on a standard build, because a standard is easy to audit and repeat.\n\nHere is your takeaway. Servers serve many people, so harden them, control their data flows, log to another place, and plan for availability."
+    },
+    {
+      "heading": "Database systems",
+      "body": "In this part, we are going to look at database weaknesses. Databases have three special problems, and two of them are easily confused.\n\nAggregation means joining many low-value facts to create a high-value secret. Each cook's schedule at an army base seems harmless. But collect all of the schedules, and you may be able to work out when troops are moving. Each fact was allowed. The total was not.\n\nInference means working out a secret from facts you are allowed to see. Suppose you are allowed to see a department's total pay. You know the total before one person joined, and you know the total after. Take one from the other, and you have that person's salary.\n\nSo aggregation is adding things up, and inference is figuring things out.\n\nThe third problem is SQL injection, which means typing database commands into an input box. SQL stands for Structured Query Language, the language that databases understand. Imagine a form that asks for your name. Instead of a name, an attacker types a command telling the database to list all customers. If the application simply pastes what you typed into its query, the database will obey it.\n\nThere are several controls to know.\n\n- Views: show users only certain columns or rows.\n- Polyinstantiation: keep different versions of a record for different clearance levels.\n- Cell suppression: hide particular values.\n- Noise: add small random changes to results.\n- Partitioning: split a database into parts with different access rules.\n\nPolyinstantiation deserves an example. A ship is carrying secret cargo. A person with a high clearance sees the true cargo record. A person with a low clearance sees a harmless cover record for the same ship. Keeping the second version means that the low level user is not tipped off by a sudden refusal.\n\nTo stop SQL injection, check all input, and use parameterized queries, also called prepared statements. These are safe query templates. The database treats what the user typed as data, and never as a command.\n\nDatabases should also keep their transactions reliable. A transaction either completes entirely, or has no effect at all.\n\nHere is a workplace example. A human resources system lets managers see average pay by team. Teams of fewer than five people have their results suppressed, which blocks the inference problem.\n\nHere is what to take away. Aggregation combines facts, inference deduces a secret, and parameterized queries stop SQL injection."
+    },
+    {
+      "heading": "Cryptographic systems",
+      "body": "Next we are going to look at how cryptographic systems go wrong. Cryptography means protecting information with mathematics. We study it in depth in later topics.\n\nThe important thing to understand is this. Strong mathematics can still be used badly. Think about a very strong padlock. It offers no protection if you leave the key hanging from it, or if you fit it to a door with rotten hinges. Most cryptography fails through key handling or through implementation, and not through broken mathematics.\n\nCommon weaknesses are these.\n\nOld algorithms that are no longer safe. An algorithm is a method of scrambling. DES, the Data Encryption Standard, and MD5, the Message Digest 5 method for fingerprinting data, are well known examples. Systems continue to use them long after they should have been replaced.\n\nKeys that are too short. The longer the key, the more guesses it takes to find it.\n\nPoor random numbers. Keys must be unpredictable. If the source of randomness is weak, an attacker may be able to guess the keys.\n\nKeys stored next to the data they protect. An encryption key stored in the same database as the encrypted data gives little protection. Keys stored in program code, and then uploaded to a shared code store, are a very common real-world mistake.\n\nFlawed code written by hand instead of a tested library. A developer who writes their own encryption routine in an afternoon will almost certainly make errors.\n\nPoor certificate handling. A program that does not properly check the certificate of the server it is talking to can be fooled by an impostor.\n\nProtocol downgrade. An attacker tricks two systems into agreeing to use an older and weaker method. So old methods should be switched off.\n\nHere is a workplace example. A company encrypts its backups with a strong and modern method. An audit finds that the key is written in a text file, stored on the same backup server. A thief who takes the server gets both. The right fix is to move the key to a separate, protected key management system, and to give it its own access rules.\n\nA manager should keep an inventory of where cryptography is used, so that weak methods can be found and replaced.\n\nHere is your takeaway. Cryptography usually fails at the edges, through weak keys, poor storage, old methods and hand-written code."
+    },
+    {
+      "heading": "Industrial control systems and the Internet of Things",
+      "body": "In this part, we are going to look at systems that run physical things, and at everyday devices joined to a network.\n\nOperational Technology, or OT, is equipment that runs physical things, such as water plants and power grids. Industrial Control Systems, or ICS, are a main type of Operational Technology. Know these parts.\n\n- SCADA, or Supervisory Control and Data Acquisition: watches and controls equipment over wide areas, such as a pipeline.\n- PLC, or Programmable Logic Controller: a small rugged computer that runs a machine.\n- DCS, or Distributed Control System: controls a process inside one plant.\n- HMI, or Human-Machine Interface: the screen an operator uses.\n\nThese systems are old, hard to patch and often must never stop. In an office, confidentiality is usually the first concern. In a factory or a water plant, the order is different. Safety and availability come first. A failure here can injure people.\n\nSo the usual office reflex of patching immediately can be dangerous. A patch that has not been tested could stop a pump. The right approach is to separate these systems from office networks, control traffic strictly between the two, test changes carefully and work with the vendor. Where patching must wait, use compensating controls such as tighter network separation and monitoring.\n\nA common way to picture this separation is a set of layers, from the physical machines at the bottom to the business network at the top, with a buffer zone between them.\n\nThe Internet of Things, or IoT, means everyday objects joined to a network, such as cameras and thermostats. Think of a smart doorbell. It often arrives with a password that everyone knows, weak encryption and no way to receive updates. Some are forgotten for years after being plugged in.\n\nFor these devices, change default passwords, put them on a separate network, turn off what you do not use, and buy from vendors who promise updates.\n\nHere is a workplace example. A hotel fits smart thermostats in its rooms. An attacker reaches a thermostat, and from there reaches the guest records system, because they share one network. The fix is to place all of the thermostats on a separate network that cannot reach the business systems.\n\nHere is what to take away. In industrial systems, safety and availability come first. Separate these devices from office networks, and treat smart devices as untrusted."
+    },
+    {
+      "heading": "Covert channels and side channels",
+      "body": "In this final part, we are going to look at ways that information leaks through paths nobody intended. There are two kinds, and the exam expects you to tell them apart.\n\nA covert channel is a hidden way of sending information using something not meant for communication. Two cooperating parties are involved. One is deliberately sending, and the other is deliberately receiving.\n\nImagine two prisoners in separate cells who are not allowed to talk. They agree that one tap on the water pipe means yes, and two taps mean no. The pipe was not built for messages. They are using it for that anyway.\n\nThere are two types.\n\n- Covert storage channel: writing to a shared place, such as changing a file name or a setting that the other party can see.\n- Covert timing channel: changing the timing of events, such as making the processor busy in a pattern.\n\nIn the workplace, picture a malicious insider inside a classified system. A file is created and removed in a pattern, and a program at a lower level watches for it. Each appearance means a one, and each absence means a zero. That is a covert storage channel. No normal rule was obviously broken.\n\nA side channel is different. Nobody is cooperating. An attacker watches what a system leaks by accident, such as power use, sound, timing or radio emissions.\n\nThink about guessing what someone is typing by listening to the keys. The person typing is not cooperating. You are simply observing.\n\nIn the workplace, researchers may measure the exact electrical power drawn by a smart card as it carries out encryption. Differences in power can reveal the key. Protection includes shielding, adding random noise, and writing code whose timing does not change based on secret values. Older government programmes shielded equipment against radio emissions under the name TEMPEST.\n\nDefending against covert channels means analysing a design for shared resources, limiting those resources, and monitoring for unusual patterns. Noninterference, from the earlier topic on models, is the design goal.\n\nHow do you tell the two apart in a question? Ask whether someone is deliberately sending. If there is a sender and a receiver, it is a covert channel. If there is only a watcher, it is a side channel.\n\nHere is your takeaway. Covert means someone is deliberately sending. Side channel means someone is only observing what leaks."
+    }
+  ],
+  "practiceQuestions": [
+    {
+      "prompt": "A field sales team frequently travels with company laptops containing client files. Which control BEST protects the data if a laptop is stolen?",
+      "options": [
+        "Full disk encryption",
+        "A stronger web filter",
+        "Regular log reviews",
+        "Annual password changes"
+      ],
+      "correctIndex": 0,
+      "explanation": "Disk encryption protects stored data when the device is out of the company's hands. Password changes are tempting because they feel protective, but a thief can read an unencrypted disk without ever logging in."
+    },
+    {
+      "prompt": "A newly built web server is running a file sharing service and a printing service that it does not need. What should the security manager require?",
+      "options": [
+        "Add a second antivirus product to the server",
+        "Harden the server by removing the unneeded services",
+        "Increase the frequency of the server's backups",
+        "Require all administrators to take refresher training"
+      ],
+      "correctIndex": 1,
+      "explanation": "Hardening removes what is not needed and so shrinks the attack surface. A second antivirus product is tempting because more protection sounds better, but the unnecessary services would remain exposed."
+    },
+    {
+      "prompt": "An analyst with a low clearance combines many unclassified shipping notices and works out the schedule of a classified operation. Which database problem does this describe?",
+      "options": [
+        "Polyinstantiation",
+        "Injection",
+        "Aggregation",
+        "Partitioning"
+      ],
+      "correctIndex": 2,
+      "explanation": "Collecting many low-value facts to create something more sensitive is aggregation. Polyinstantiation is tempting because it is a database term about clearance levels, but it is a defense and not the problem."
+    },
+    {
+      "prompt": "A database holds a record of a military flight. Users with low clearance are shown an ordinary cargo record for that flight number, and users with high clearance see the true record. What technique is being used?",
+      "options": [
+        "Cell suppression",
+        "Noise",
+        "Parameterized queries",
+        "Polyinstantiation"
+      ],
+      "correctIndex": 3,
+      "explanation": "Keeping different versions of one record for different clearance levels is polyinstantiation. Cell suppression is tempting because it also limits what is seen, but it hides a value rather than presenting another version."
+    },
+    {
+      "prompt": "A penetration tester types database commands into a customer search box and receives a list of every customer. What is the BEST long-term fix for the developers?",
+      "options": [
+        "Use parameterized queries in the application",
+        "Encrypt the customer table while it is stored",
+        "Add a warning message to the search page",
+        "Move the database to a larger server"
+      ],
+      "correctIndex": 0,
+      "explanation": "Parameterized queries make the database treat input as data and not as commands. Encrypting the table is tempting, but the application decrypts data for its own queries, so injected commands would still work."
+    },
+    {
+      "prompt": "An audit discovers that the key protecting a company's encrypted backups is stored in a text file on the backup server itself. What should the security manager do?",
+      "options": [
+        "Replace the algorithm with one that has a longer key",
+        "Rename the file so that attackers cannot easily find it",
+        "Store the key separately under its own access controls",
+        "Encrypt the backups a second time using the same key"
+      ],
+      "correctIndex": 2,
+      "explanation": "Keys must be kept apart from the data they protect. A longer key is tempting because it sounds stronger, but a thief who takes the server would still have the key."
+    },
+    {
+      "prompt": "A security manager at an electricity plant learns of a flaw in the software on a controller that cannot be taken offline. Which concern should guide the decision on how to respond?",
+      "options": [
+        "Confidentiality of plant data comes before all other concerns",
+        "Lowering the cost of the vendor's support contract",
+        "Safety and availability of the physical process",
+        "The speed at which the flaw can be patched"
+      ],
+      "correctIndex": 2,
+      "explanation": "In industrial systems, safety and availability come first. Speed of patching is tempting because that is the usual office reflex, but an untested patch could stop the process and put people at risk."
+    },
+    {
+      "prompt": "A hotel plans to install several hundred network-connected room thermostats. What is the BEST way to reduce the risk they create?",
+      "options": [
+        "Place them on a network separate from business systems",
+        "Ask the housekeeping staff to check each one weekly",
+        "Buy only the most expensive model on the market",
+        "Connect them to the reservation system for central control"
+      ],
+      "correctIndex": 0,
+      "explanation": "Separate networks stop a weak device from becoming a route into business systems. Connecting them for central control is tempting because it sounds well organized, but it creates that very route."
+    },
+    {
+      "prompt": "A malicious program at a high security level signals to a program at a low level by creating and deleting a shared file in a pattern. What is this BEST described as?",
+      "options": [
+        "A side channel",
+        "A covert timing channel",
+        "A fault injection",
+        "A covert storage channel"
+      ],
+      "correctIndex": 3,
+      "explanation": "Two parties cooperating through a shared place form a covert storage channel. A covert timing channel is tempting, but that signals through the timing of events and not by writing to something shared."
+    },
+    {
+      "prompt": "A researcher measures the exact power drawn by a smart card during encryption and recovers its key. The card's owner is not cooperating in any way. What is this?",
+      "options": [
+        "A covert storage channel",
+        "A side-channel attack",
+        "A covert timing channel",
+        "An inference attack"
+      ],
+      "correctIndex": 1,
+      "explanation": "Observing accidental physical leakage, with nobody deliberately sending, is a side channel. A covert channel is tempting, but it needs a sender who is deliberately cooperating."
+    }
+  ]
+}

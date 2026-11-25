@@ -1,0 +1,141 @@
+{
+  "id": "T30",
+  "studyNotes": [
+    {
+      "heading": "Wiring closets and server rooms",
+      "body": "In this first part, we are going to look at how to protect the rooms that hold networking and computing equipment.\n\nA wiring closet is a small room that holds the cables and switches for one floor. It is also called an intermediate distribution facility, because it distributes network connections between the main equipment room and the desks on that floor.\n\nThink about the fuse box in a house. It is small and easy to forget. But anyone who gets to it can turn off everything. A wiring closet is the same. A person with access can plug in a small listening device, or simply pull out cables. Attackers know that it is often the least protected room in the building.\n\nLock wiring closets, and log who goes in. Do not use them for storage, as they often end up being used for mops and cardboard boxes, which is both a fire risk and a reason for cleaners to go in and out. Keep any network ports that are not in use switched off. Cable trays and cables running through shared spaces should also be protected.\n\nServer rooms and data centres hold the systems themselves. They need strict access, cameras, logs and escorted visitors. Keep the number of people with access small, and review that list regularly. Nobody should be there just because it is convenient. Everyone who enters should have a reason, and any visitor should be with an escort at all times.\n\nData centres often use extra layers. These include access cards together with a second check such as a fingerprint, locked cabinets inside the room, and cameras inside the aisles. A cabinet lock matters when several teams or customers share a room.\n\nIf you use someone else's data centre, known as co-location, you should still ask to see how their access controls work, and you should read the audit reports.\n\nHere is a workplace example. A company's audit finds a wiring closet with an unlocked door, boxes on the floor, and an unknown device plugged into a switch. The security manager has the room cleared and locked, starts a key log, investigates the device as a possible incident, and adds wiring closets to the quarterly inspection list.\n\nHere is what to take away. Wiring closets are small but powerful, so lock them and log them. Server rooms need strict access, cameras, logs and escorted visitors."
+    },
+    {
+      "heading": "Media storage, evidence and work areas",
+      "body": "Now we will look at three more kinds of space: where media is stored, where evidence is stored, and where people work.\n\nMedia storage holds tapes and drives. Think of a library of family photographs. If you do not label them, you cannot find them. If you leave them in a hot attic, they spoil. If anyone can walk off with them, they will go missing.\n\nSo label media, control check-out, and protect it from heat and magnetic fields. Keep backup media at a different site from the system it protects, so that a single fire cannot destroy both. When media is no longer needed, sanitize it, which means removing the data completely, before reuse. If it holds very sensitive data, destroy it, and keep a record of that.\n\nEvidence storage must keep a chain of custody, which is a record of who handled an item, when and why. Think of a relay race, where the baton must be accounted for at every hand-over. If there is a gap in the record, a court may refuse to accept the evidence.\n\nUse a dedicated locked room with very few keyholders. Log each entry. Protect the items from damage, and keep digital evidence away from anything that could alter it.\n\nHere is a workplace example. After a suspected fraud, an investigator takes a laptop from an employee's desk. It is placed in a sealed evidence bag, labelled and signed. It is logged into a locked evidence room. When a forensic examiner collects it a week later, both people sign the log. Every movement has been recorded.\n\nRestricted and work areas are where staff handle information every day. They should use badges, clean desk rules and visitor escorts. Higher sensitivity needs tighter control. A clean desk rule means papers are locked away at the end of the day. Screens should lock when staff walk away, and should be placed so that passers-by cannot read them.\n\nSome areas need even stronger protection. A sensitive compartmented information facility, or SCIF, is a specially built room for handling highly classified information. It is shielded and strictly controlled, and phones are usually left outside.\n\nHere is your takeaway. Label and control your media, keep an unbroken chain of custody for evidence, and match work area controls to how sensitive the information is."
+    },
+    {
+      "heading": "Power problems and how to handle them",
+      "body": "In this part, we are going to learn the names of electrical problems, and the protections against them. The exam expects the exact pairs.\n\nThink about the water coming from a tap. It might stop altogether. It might slow to a trickle. Or it might come out so strongly that it damages your pipes. Electricity can do all of the same things.\n\nHere are the pairs. In each pair, the first name is short, and the second is long.\n\n- Fault: short loss of power. Blackout: long loss of power.\n- Sag: short low voltage. Brownout: long low voltage.\n- Spike: short high voltage. Surge: long high voltage.\n\nThere are two more terms.\n\n- Inrush: a sudden rise when equipment first switches on.\n- Noise: unwanted interference on the line.\n\nNoise includes electromagnetic interference, often caused by nearby motors, and radio frequency interference. Cable shielding and keeping data cables away from power cables both help.\n\nHere are the protections.\n\nA UPS, or Uninterruptible Power Supply, provides batteries for a short time. It is usually enough to shut down cleanly, or to start a generator.\n\nA generator provides longer-term power. It needs fuel and regular tests. A generator that has not been tested may not start when it is needed. Check how long your fuel will last, and arrange for more to be delivered in an emergency.\n\nSurge protectors and power conditioners guard against spikes and clean up the supply.\n\nTwo power feeds, ideally from separate sources, protect against failure of one supply. Redundant power supplies in each server mean that one failure does not stop the server.\n\nHere is the worked sequence of a power cut. The main supply fails. In that first moment, the Uninterruptible Power Supply takes over without a break. A few seconds later, the generator starts. Once the generator is running steadily, it takes over the load, and the batteries recharge. When mains power returns, the system switches back. A battery alone lasts only a short time, so without a generator, the servers would have to shut down.\n\nHere is a workplace example. A company tests its generator once a year, without load. During a real outage, the generator starts but cannot carry the full load, and systems go down. The fix is regular testing under a realistic load.\n\nHere is what to take away. Short problems are fault, sag and spike. Long problems are blackout, brownout and surge."
+    },
+    {
+      "heading": "HVAC, water and other environmental issues",
+      "body": "Next we are going to look at keeping the air, the temperature and the water under control.\n\nHVAC means Heating, Ventilation and Air Conditioning. Servers need steady conditions. Think of a pet fish. It is not only the water that matters. The water has to be at the right temperature, and it has to stay that way.\n\nHere are the figures to know.\n\n- Temperature: about 18 to 27 degrees Celsius, which is 64 to 81 degrees Fahrenheit.\n- Humidity: commonly taught as 40 to 60 percent.\n\nWhy does humidity matter? Too low causes static electricity. A small spark from a person's finger can damage a circuit. Too high causes condensation and corrosion, as water settles on the equipment.\n\nUse positive air pressure, so that dust and smoke are pushed out when doors open. Positive pressure means that the air pressure inside the room is a little higher than outside. Air flows outward when a door is opened. Think about a soap bubble being blown from the inside, always pushing outward.\n\nGive the server room its own controls for this equipment, so that a problem in the main building does not affect it. It should also be possible to shut it down quickly in a fire, because air movement feeds a fire and spreads smoke.\n\nFor environmental risks, use water leak sensors, raised equipment, bracing against earthquakes and shutoff valves. Know where the water enters the building. Everyone who may need to shut off the water should know exactly where the valves are. A burst pipe at night needs a quick response.\n\nThink about wind and storms too. Storms can damage roofs, bring down power lines and block roads, so that staff cannot reach the site. Plans should allow for this.\n\nHere is a workplace example. A server room has been running at 45 percent humidity. An air conditioning unit fails during a heatwave. Sensors send an alert to the on-call engineer, who arranges a temporary cooling unit, and shuts down non-essential servers. Because the room has monitoring, the problem is found early, before the equipment is damaged.\n\nA manager should make sure that the utilities are monitored, and that somebody is responsible for acting on the alerts.\n\nHere is your takeaway. Keep temperature and humidity steady, use positive pressure, and know where the water comes in."
+    },
+    {
+      "heading": "Fire: prevention, detection and classes",
+      "body": "In this part, we are going to look at how fires start, how we detect them, and the classes of fire.\n\nFire needs heat, fuel and oxygen, and a chemical reaction keeps it going. Remove one and it stops. Think about a candle. Blow it out and you remove the heat. Put a glass over it and you remove the oxygen.\n\nPrevention comes first. Good housekeeping removes things that can burn. Staff are trained. Fire-resistant materials are used. Fire doors are kept shut, and they are never propped open.\n\nA fire usually grows in four stages.\n\n- Incipient: the air begins to change, with no visible smoke.\n- Smoke: smoke becomes visible.\n- Flame: flames can be seen.\n- Heat: high heat builds up, and damage spreads.\n\nDetectors are matched to these stages. Ionization and photoelectric smoke detectors notice smoke early. Heat detectors work when a set temperature is reached, or when the temperature rises very quickly. Flame detectors sense the light given off by a flame. Fire detection should alert people early.\n\nUnited States fire classes are as follows.\n\n- Class A: ordinary items such as paper and wood. Use water or foam.\n- Class B: flammable liquids such as petrol. Use carbon dioxide, foam or dry powder.\n- Class C: live electrical equipment. Use carbon dioxide or clean gas, never water.\n- Class D: burning metals. Use dry powder made for metals.\n- Class K: kitchen oils. Use a wet chemical.\n\nA simple memory aid goes like this. Class A leaves ash. Class B comes in barrels. Class C is current. Class D is dust of metal. Class K is the kitchen. Other parts of the world use different letters, so take care if you see a non-United States classification.\n\nWhy never water on Class C? Because water conducts electricity, and it can injure the person who is holding the hose. If the power is cut off first, then the fire is no longer an electrical one, and it can be treated as an ordinary fire.\n\nHere is a workplace example. A small fire starts in a power supply inside a server room. A smoke detector raises the alarm. A trained member of staff uses a carbon dioxide extinguisher, because it will not damage equipment or conduct electricity.\n\nHere is what to take away. Fire needs heat, fuel and oxygen, and the classes are A, B, C, D and K."
+    },
+    {
+      "heading": "Fire suppression and protecting people",
+      "body": "In this final part, we are going to look at the systems that put fires out, and at the priority that sits above everything else.\n\nThere are four water sprinkler systems to know.\n\n- Wet pipe: always full of water. It is the simplest, but leaks are a risk.\n- Dry pipe: holds air until needed. Good for freezing areas.\n- Preaction: fills with water only after a detector triggers, and then releases when a sprinkler head melts. It is the best water choice for data centres.\n- Deluge: all heads open at once for a large release of water. Used for high-hazard areas.\n\nLet us look closely at preaction, because two separate events have to happen. First, a detector senses a fire, which lets water into the pipes. Second, a sprinkler head melts from the heat, and the water comes out. If a pipe is damaged, or if a detector gives a false alarm, then nothing is released onto the servers.\n\nGas systems protect electronics, and they leave the equipment usable.\n\nClean agents such as FM-200 and Inergen leave no residue. FM-200 absorbs heat. Inergen is a mix of inert gases that lowers oxygen to a level that will not support fire, while remaining breathable for people for a short time.\n\nHalon is no longer produced under the Montreal Protocol, because it harms the ozone layer.\n\nCarbon dioxide removes oxygen and can kill people, so use it only in unoccupied areas or with a warning delay. A warning delay gives people time to get out before the gas is released.\n\nCut electrical power before releasing water. An emergency power off switch, near the door of the room, lets staff do that quickly.\n\nThe exam will always come back to this point. Protecting people comes before protecting equipment, even if that means losing the data centre. If an exam option says stay behind to save the server, it is wrong. People leave first.\n\nTrain staff, run drills and make sure everyone can get out. Fire wardens should be named for each area, and everyone should know the meeting point.\n\nHere is a workplace example. A company choosing a system for its new server room selects a clean agent, with preaction sprinklers behind it to meet the fire code.\n\nHere is your takeaway. Preaction is the best water choice for data centres, carbon dioxide can kill, and people always come first."
+    }
+  ],
+  "practiceQuestions": [
+    {
+      "prompt": "An audit finds a wiring closet left unlocked and being used to store cleaning supplies. What should the security manager require FIRST?",
+      "options": [
+        "Replace all of the network switches with newer models",
+        "Lock the closet, restrict access and remove the supplies",
+        "Install a smoke detector and record the finding",
+        "Hire a guard to watch the corridor during office hours"
+      ],
+      "correctIndex": 1,
+      "explanation": "Locking the room, restricting access and clearing it addresses the actual weakness. A guard is tempting because it adds visible protection, but it is a costly way of doing what a lock and an access list do better."
+    },
+    {
+      "prompt": "A hard drive taken as evidence in a fraud case passes between three staff members, but one transfer is not recorded. What is the MOST significant consequence?",
+      "options": [
+        "The drive will need to be encrypted again",
+        "The drive must be sanitized before further use",
+        "The evidence may not be accepted in court",
+        "The evidence must be moved to a colder room"
+      ],
+      "correctIndex": 2,
+      "explanation": "A gap in the chain of custody can make evidence unreliable and inadmissible. Sanitizing is tempting because it is a familiar media control, but sanitizing would destroy the evidence altogether."
+    },
+    {
+      "prompt": "A company stores its backup tapes in the same room as the servers those tapes protect. What is the MAIN concern?",
+      "options": [
+        "One fire could destroy both servers and backups",
+        "The tapes will slow down the servers in that room",
+        "Staff will be confused about which tape to use",
+        "The room's humidity will be raised by the tapes"
+      ],
+      "correctIndex": 0,
+      "explanation": "Backups kept with the system they protect can be lost in the same event, so they should be stored elsewhere. Staff confusion is tempting because labelling matters, but the main risk is losing everything at once."
+    },
+    {
+      "prompt": "A voltage monitor records a period of several hours when the supply stayed lower than normal. What is this problem called?",
+      "options": [
+        "Sag",
+        "Fault",
+        "Surge",
+        "Brownout"
+      ],
+      "correctIndex": 3,
+      "explanation": "Prolonged low voltage is a brownout. A sag is tempting because it is also low voltage, but a sag is short."
+    },
+    {
+      "prompt": "A server experiences a momentary and very brief loss of electrical power, and supply then returns. Which term BEST describes this?",
+      "options": [
+        "Fault",
+        "Blackout",
+        "Spike",
+        "Inrush"
+      ],
+      "correctIndex": 0,
+      "explanation": "A short loss of power is a fault. Blackout is tempting because power was lost, but a blackout is a long loss."
+    },
+    {
+      "prompt": "A data centre's humidity has been falling steadily, and engineers are worried. Which problem is MOST likely if it continues?",
+      "options": [
+        "Condensation on circuit boards",
+        "Corrosion of connector pins",
+        "Water pooling beneath the floor",
+        "Static electricity damaging equipment"
+      ],
+      "correctIndex": 3,
+      "explanation": "Low humidity causes static electricity. Condensation is tempting because humidity is involved, but condensation and corrosion come from humidity that is too high."
+    },
+    {
+      "prompt": "A fire has started in live electrical equipment in a server room. Which extinguishing agent is MOST appropriate?",
+      "options": [
+        "A water hose",
+        "A wet chemical",
+        "Carbon dioxide",
+        "Water-based foam"
+      ],
+      "correctIndex": 2,
+      "explanation": "Class C fires need a non-conductive agent such as carbon dioxide or clean gas. Water-based foam is tempting because foam works on some fires, but it conducts electricity and could injure the person using it."
+    },
+    {
+      "prompt": "A restaurant kitchen's cooking oil catches fire. Which fire class is this, and which agent is BEST?",
+      "options": [
+        "Class A, using water",
+        "Class K, using a wet chemical",
+        "Class C, using clean gas",
+        "Class B, using dry powder"
+      ],
+      "correctIndex": 1,
+      "explanation": "Cooking oils are Class K, and a wet chemical is the right agent. Class B is tempting because oil is a liquid, but cooking oils are treated as their own class."
+    },
+    {
+      "prompt": "A site in a very cold climate needs a sprinkler system for an unheated storage building where the pipes must not freeze. Which system is BEST?",
+      "options": [
+        "Wet pipe",
+        "Deluge",
+        "Halon",
+        "Dry pipe"
+      ],
+      "correctIndex": 3,
+      "explanation": "A dry pipe system holds air until needed, so the pipes do not freeze. Deluge is tempting because it is a water system, but it is intended for high-hazard areas and does not address freezing."
+    },
+    {
+      "prompt": "During a fire in an unoccupied data hall, an engineer proposes re-entering the room to remove backup drives before the carbon dioxide system discharges. What should the manager instruct?",
+      "options": [
+        "Allow it, if the engineer works as quickly as possible",
+        "Allow it, if a second engineer waits at the door",
+        "Do not allow it, as nobody should enter the room",
+        "Do not allow it, until the drives have been logged"
+      ],
+      "correctIndex": 2,
+      "explanation": "Carbon dioxide can kill, and people's safety comes before any data. The second option is tempting because it sounds cautious, but no precaution justifies sending a person into a room that is about to discharge gas."
+    }
+  ]
+}

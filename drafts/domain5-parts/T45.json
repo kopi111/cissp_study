@@ -1,0 +1,141 @@
+{
+  "id": "T45",
+  "studyNotes": [
+    {
+      "heading": "The lifecycle and provisioning new joiners",
+      "body": "In this first part, we will look at the life of an account from start to finish, and then focus on what should happen when a person joins.\n\nAccess has a life, just as a library card does. The card is issued when you join, updated when you move, and cancelled when you leave. The order of the stages is this.\n\n- Request.\n- Approve.\n- Create.\n- Use and review.\n- Change.\n- Disable.\n- Delete.\n\nThe outline describes three main events, called on-boarding, transfers and off-boarding. People often call them joiners, movers and leavers.\n\nHR, which stands for human resources, should trigger each stage, because HR is the part of the business that knows who joins, moves and leaves. If accounts depend on someone remembering to send an email, some will be missed.\n\nProvisioning means creating an account and giving it the rights that were approved. Access needs approval by someone who has the authority to give it, and it starts at least privilege, which means only what the job needs. The person does not get everything a colleague happens to have.\n\nThe common shortcut is to copy another employee's access. It feels quick. But if that colleague has built up years of extra rights, those rights are copied too. Provision from a defined role, and not from another person.\n\nThink about moving to a new school. The office registers you, the head teacher approves your class, and only then do you get a timetable and a locker. You do not get the keys to every classroom.\n\nHere is a worked example of a joiner.\n\n- HR enters a new accountant, with a start date.\n- The system creates an account and adds the accountant role.\n- The finance manager approves any additional access.\n- The new person proves who they are and enrolls a second factor.\n- A record of the approval is kept for the next audit.\n\nAutomating this through an identity management system saves effort and also reduces mistakes. And the records it produces are what auditors ask for.\n\nHere is what to take away. Access follows the order of request, approve, create, use and review, change, disable, delete. HR events should drive it, and new access starts at least privilege from a defined role."
+    },
+    {
+      "heading": "Deprovisioning and people who leave",
+      "body": "Now we will look at deprovisioning, which is the removal of access. It is where forgetting does the most damage.\n\nDeprovisioning removes access when it is no longer needed. The first rule to learn is the order. Disable the account first, and delete it later. A disabled account cannot be used, but its records and files stay available. Investigators, managers and lawyers may need them.\n\nThink of a member who leaves a gym. The gym stops the card at once. The membership record stays on file for a while, in case of a dispute about fees. It is thrown away later.\n\nTiming matters too. For a normal departure, access is removed on the agreed leaving date. For a hostile termination, which means dismissal where the person may be angry or may do harm, disable access at or before the moment the person is told. A person who has just been dismissed and still has administrator rights is a serious risk. So the human resources team, known as HR, and security must plan this together. Someone may also need to escort the person out, with care and respect.\n\nAlso collect badges, tokens and laptops. Change any shared passwords that the person knew, because disabling one account does not change a secret the person remembers. And check for access that does not go through your main directory, such as local accounts at a cloud supplier.\n\nHere is a worked example of a normal leaver, in order.\n\n- HR gives notice of the leaving date.\n- Access is disabled on that date.\n- Equipment is returned.\n- The manager takes over the files.\n- The account is deleted after the retention period.\n\nThe retention period is the length of time that records must be kept, under policy or law.\n\nHere is a workplace example of what goes wrong. A contractor's work ends in March. Nobody told the technology team, because contractors are not in the HR system. In November the old login is used to copy customer data. The cause is a process that left contractors out. A manager fixes that process, and does not just remove one account.\n\nHere is your takeaway. Disable first and delete later, move fast for hostile terminations, and make sure every kind of person is included."
+    },
+    {
+      "heading": "Role definition and role transition",
+      "body": "In this part we will look at how roles are defined, and at what must happen when a person moves to a new one.\n\nA role definition lists the rights that a job needs. The business owner agrees it, because the business knows what the job requires. Security checks it for conflicts with separation of duties, which means that no single person should be able to complete a sensitive task alone. A person who can create a supplier should not also be able to pay that supplier.\n\nThink about a restaurant. The cook has a key to the kitchen. The cashier has a key to the till. Writing that down in advance means nobody has to work it out for each new person.\n\nThere is a balance to find. Too few roles and people get more than they need. Too many narrow roles become hard to manage, which is called role explosion. Roles also go out of date as jobs change, so every role needs a named owner and an occasional review.\n\nRole transition is when a person moves to a new job, and the outline names this directly. The rule is simple. Remove the old rights and add the new ones together.\n\nThe common failure is that the new rights are added quickly, because someone is waiting for them. Nobody is waiting for the old rights to go, so they stay. Privilege creep is the slow build-up of rights over the years, and it happens when transfers only ever add access. After several moves, one long-serving employee may be able to do things that no single job should allow.\n\nSometimes a person really must help with a handover. In that case, approve a short overlap, with a fixed end date, and make sure the end date is enforced.\n\nHere is a workplace example. A payroll officer moves to marketing. On the day of the transfer, HR, which means human resources, updates the record. The system removes the payroll role and adds the marketing role. She is needed for two weeks to train her replacement, so the payroll manager approves read access for those two weeks, and it then ends by itself.\n\nHere is what to take away. Owners define roles, security checks for conflicts, and a transfer removes the old rights as it adds the new ones."
+    },
+    {
+      "heading": "Access reviews",
+      "body": "Now we will look at access reviews, which are how we find the mistakes that everything else has missed.\n\nAn access review is a regular check that current access is still right. The outline names three kinds of account to review, and here they are.\n\n- User accounts.\n- System accounts, used by the operating system and by other software.\n- Service accounts, used by applications and programs.\n\nThink about the keys to a house that you have owned for ten years. A neighbor has one. A cleaner you no longer use has one. Your brother has one from a visit years ago. Unless you stop and count, you will not know who can still walk in.\n\nHere is how a good review works.\n\nThe manager or data owner confirms the access. People do not review their own access, because nobody thinks that they have too much. The security team organizes the review and checks that it happened, but it does not decide whether the sales team needs a report. That is the owner's call.\n\nRisky access is reviewed more often. Administrator accounts might be reviewed every quarter, and ordinary accounts every year.\n\nLook for two kinds of account in particular. An orphan account has no current owner, often because the person has left. A dormant account has not been used for a long time. Each is an unlocked door that no one is watching.\n\nRemove what is not needed, and keep evidence of the review. An auditor will ask to see it.\n\nThere is a trap here, which is approving everything. A busy manager given a list of five hundred items may click approve on all of them. That is called rubber stamping, and it makes a review worthless. Keep the lists short, show what has changed, and send them to people who actually know the job.\n\nHere is a workplace example. A quarterly review at a hospital finds three accounts belonging to people who left in the spring. Removing these accounts is only the start. Why were they still active? If reviews keep finding the same problem, fix the process that caused it. Cleaning up one account at a time only treats the symptom.\n\nHere is your takeaway. Owners review, risky access is reviewed more often, and repeated findings mean a process must change."
+    },
+    {
+      "heading": "Privilege escalation, sudo and privileged access management",
+      "body": "In this part we will look at how people gain higher rights, the right way and the wrong way, and how powerful accounts should be controlled.\n\nPrivilege escalation means gaining more rights. There are two directions.\n\n- Vertical escalation: moving up, such as from user to administrator.\n- Horizontal escalation: reaching another user's data at the same level.\n\nThink of a hotel. If a guest gets hold of the manager's master key, that is vertical. If a guest gets into the next room, that is horizontal. For example, a customer who changes a number in a web address and sees someone else's bank statement has escalated horizontally.\n\nThere is also a legitimate form, and the outline names it. On Linux, the sudo tool lets an approved user run a single command as root, which is the all-powerful account. The name is usually read as superuser do. The rules sit in a file called sudoers.\n\nThe point of sudo is that people do not need to log in as root. Each person uses their own account, and each command can be traced to them.\n\nThree practices make it safe. First, limit people to the commands they need, and do not write a rule that allows all commands. Second, watch out for commands that open a full shell, which is a command-line session, because then the individual commands that follow may not be logged by sudo at all. Third, audit its use. Send sudo logs to a central server that administrators cannot change, and review them. An administrator who can edit the only copy of the log can erase the evidence.\n\nThe equivalent idea on Windows is run as administrator, and the same principles apply.\n\nPAM stands for privileged access management, a set of tools for powerful accounts. It offers vaulted passwords, approval steps, short-lived access and recorded sessions. Administrators should also have a separate account for daily work such as email, so that a phishing message, which is a trick message, does not land on a powerful account.\n\nHere is a workplace example. An outside engineer needs to work on a server. She connects through the PAM tool, the password is never shown to her, and the session is recorded.\n\nHere is your takeaway. Know vertical from horizontal, limit and audit sudo, and use PAM to control powerful accounts."
+    },
+    {
+      "heading": "Service accounts",
+      "body": "To finish this topic, we will look at accounts that belong to programs and not to people, which are among the most neglected in any organization.\n\nA service account is used by a program, and not by a person. A backup job is an example, and so is a website that connects to its database.\n\nThink of a robot in a factory that has its own security pass. Nobody talks to it, nobody thinks about it, and it keeps working. Meanwhile, the pass is still valid, and it may open many doors.\n\nThese accounts tend to have three problems. They are forgotten, because no human uses them. They are over-powerful, because giving broad rights was the quick way to make the software work. And their passwords are never changed, because no one wants to break a running system.\n\nGood practice is a set of habits, and the exam expects you to recognize them.\n\n- Keep an inventory, with a named human owner for each.\n- Give least privilege, meaning only the rights the program needs.\n- Block interactive login, so no person can sign in with the account.\n- Use one account per application.\n- Store secrets in a vault and rotate them, or use identities the platform manages.\n- Include them in access reviews.\n- Alert if one is used in an unusual way.\n\nRotate simply means changing the secret on a schedule. A platform-managed identity is better still, because the cloud or the operating system handles the secret and no person ever sees it.\n\nOne account per application matters for damage and for tracing. If one is stolen, only one application is affected, and you can tell which one was misused.\n\nHere is a workplace example. A monitoring alert shows that the service account for the overnight batch job has just signed in from a staff member's desktop at lunchtime. That account should only ever run on one server, at night. A real person, or an attacker, is using it. Treat this as a possible compromise, and investigate. Do not simply delete the account first, because that may stop an important job and also destroy useful evidence.\n\nHere is what to take away. Every service account needs a human owner, least privilege, no interactive login, managed secrets and regular review."
+    }
+  ],
+  "practiceQuestions": [
+    {
+      "prompt": "A manager plans to dismiss a system administrator at 3 in the afternoon today because of serious misconduct. When should the administrator's access be disabled?",
+      "options": [
+        "At the end of the person's final day of notice",
+        "At or just before the moment the person is told",
+        "Within 24 hours of the meeting taking place",
+        "As soon as the exit interview has been completed"
+      ],
+      "correctIndex": 1,
+      "explanation": "In a hostile termination, access must be gone before the person can react. Within 24 hours is tempting because it sounds prompt, but it leaves a powerful and angry user with access for a full day."
+    },
+    {
+      "prompt": "An employee has resigned and left the company. The legal department may need to examine her mailbox and files later this year. What should be done with her account?",
+      "options": [
+        "Delete it at once, so that it cannot be misused by anyone",
+        "Keep it active so her manager can sign in and check her email",
+        "Hand the login over to the person who is replacing her in the job",
+        "Disable it now and delete it after the retention period"
+      ],
+      "correctIndex": 3,
+      "explanation": "Disabling blocks use and keeps the records available. Deleting at once is tempting because it feels secure, but it could destroy the very evidence that the legal department needs."
+    },
+    {
+      "prompt": "New staff regularly wait a week for accounts, because requests are passed around by email, and leavers are sometimes missed entirely. Which change would BEST address both problems?",
+      "options": [
+        "Drive account changes from the HR system of record",
+        "Ask new staff to use a colleague's login until theirs is ready",
+        "Hire more help desk staff to process requests sent by email",
+        "Create accounts for all possible new staff well in advance"
+      ],
+      "correctIndex": 0,
+      "explanation": "HR knows who joins and leaves, so linking account changes to HR events fixes both delays and missed leavers. More help desk staff is tempting, but the process would still depend on someone remembering to send an email."
+    },
+    {
+      "prompt": "While a new role is being defined, a security analyst notices that it lets one developer write code and also release that code to production without anyone else being involved. What should the analyst recommend?",
+      "options": [
+        "Approve it, because developers are trusted members of staff",
+        "Approve it and review the role again in a year's time",
+        "Split the abilities so that a different person releases",
+        "Limit the role to senior developers with long service"
+      ],
+      "correctIndex": 2,
+      "explanation": "One person should not be able to complete a sensitive task alone, so the duties must be separated. Limiting the role to senior staff is tempting, but seniority does not remove the conflict."
+    },
+    {
+      "prompt": "A company has 4,000 roles for 2,500 employees, and many roles differ by a single permission. Which action is BEST?",
+      "options": [
+        "Consolidate them into fewer, owner-approved roles",
+        "Create a new role for each remaining difference in rights",
+        "Pause all access reviews until the roles have become stable",
+        "Let managers grant individual permissions to staff directly"
+      ],
+      "correctIndex": 0,
+      "explanation": "This is role explosion, and the remedy is a smaller set of roles agreed by the business. Letting managers grant permissions directly is tempting because it is quick, but it brings back inconsistent access that nobody can track."
+    },
+    {
+      "prompt": "An employee moves from accounts to internal audit, but must help her replacement through the month-end close for the next two weeks. What is the BEST way to handle her access?",
+      "options": [
+        "Keep all of her old rights in case she is ever needed again",
+        "Remove the old rights today and decline to allow any handover",
+        "Approve a short overlap that has a fixed end date",
+        "Let her borrow her replacement's login whenever she needs it"
+      ],
+      "correctIndex": 2,
+      "explanation": "A short overlap with an enforced end date meets the need without leaving old rights behind. Removing everything today is tempting because it is tidy, but it ignores a real business need that can be managed safely."
+    },
+    {
+      "prompt": "A company is planning its next review of access to the claims system. Who should confirm that each person's access is still appropriate?",
+      "options": [
+        "Each employee, reviewing their own list of rights",
+        "The help desk team that handles access requests",
+        "An external auditor, once a year, for all accounts",
+        "The claims manager or the data owner"
+      ],
+      "correctIndex": 3,
+      "explanation": "The manager or owner knows what the job needs and is accountable for the data. An external auditor is tempting because auditors are independent, but auditors check that the review happens and do not make these decisions."
+    },
+    {
+      "prompt": "A customer of an online store changes a number in the address bar and finds that she can view another customer's order history. Her own account has no special rights. What has occurred?",
+      "options": [
+        "Vertical privilege escalation",
+        "Horizontal privilege escalation",
+        "Session fixation during the login process",
+        "Credential stuffing from a leaked password list"
+      ],
+      "correctIndex": 1,
+      "explanation": "She has reached another user's data at the same level. Vertical is tempting because she has gained access she should not have, but vertical means moving up to a higher level, such as administrator."
+    },
+    {
+      "prompt": "Administrators use sudo on Linux servers. The sudo logs are held only on each server, and those same administrators can act as root there. Which improvement is BEST?",
+      "options": [
+        "Turn off sudo logging, to protect the privacy of administrators",
+        "Have the administrators check one another's local logs each week",
+        "Give all of the administrators a single shared root password",
+        "Send sudo logs to a central server they cannot alter"
+      ],
+      "correctIndex": 3,
+      "explanation": "Logs that the administrators cannot change can be trusted as evidence. Having them check each other is tempting, but anyone with root could already have edited the local log before the check."
+    },
+    {
+      "prompt": "A monitoring tool shows that the service account for an overnight batch job, which should run only on one server, has just signed in from an employee's desktop at noon. What should be done FIRST?",
+      "options": [
+        "Treat it as a possible compromise and investigate",
+        "Delete the account immediately, whatever the batch job needs",
+        "Wait for the next quarterly access review of this account",
+        "Ask the employee at that desk to stop using this account"
+      ],
+      "correctIndex": 0,
+      "explanation": "Unusual use of a service account is a warning sign that calls for incident handling. Deleting the account is tempting, but it could stop a business process and destroy evidence before anyone knows what happened."
+    }
+  ]
+}

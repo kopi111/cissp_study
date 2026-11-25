@@ -1,0 +1,141 @@
+{
+  "id": "T41",
+  "studyNotes": [
+    {
+      "heading": "Claim, prove, permit, record",
+      "body": "In this first part, we will look at the four steps that happen whenever someone uses a system, and the order they happen in.\n\nHere are the steps, in their exact order.\n\n- Identification: you claim an identity, such as a username.\n- Authentication: you prove the claim.\n- Authorization: the system decides what you may do.\n- Accounting: the system records what you did.\n\nThe last three are often shortened to AAA, which stands for authentication, authorization and accounting.\n\nThink about checking in at a hotel. You give your name. That is identification. You show your passport. That is authentication. The clerk gives you a key that opens only your room. That is authorization. The hotel's system notes when your key was used. That is accounting.\n\nThe common mistake is to mix up the first two. Typing a username proves nothing. Anyone can type your name. Only when you give the proof have you authenticated.\n\nAuthentication and authorization are also easy to confuse. Authentication answers the question, who are you? Authorization answers the question, what may you do? A valid login does not mean you can open every file.\n\nThe outline says that this strategy covers people, devices and services. So people are not the only ones with identities. A laptop can prove itself with a certificate, which is a digital identity card, signed by a trusted issuer. A program can prove itself with a key or a token. A managed company phone can prove that it is the device it claims to be.\n\nHere is a workplace example. A nurse scans her badge and enters a code at a shared computer. Her identity is claimed and proven. The medical records program then shows only the charts for her ward. Every chart she opens is written to a log, under her name. All four steps have taken place, and if a patient later asks who read the chart, the hospital can answer.\n\nHere is what to take away. The order is identify, authenticate, authorize, account. A claim is not a proof, and proving who you are does not decide what you may do."
+    },
+    {
+      "heading": "The authentication factors and multi-factor authentication",
+      "body": "Now we will look at the types of proof, which are called factors, and at what really counts as using more than one.\n\nThere are three main factors, and you need to know their type numbers.\n\n- Type 1, something you know: a password, or a personal identification number, called a PIN.\n- Type 2, something you have: a smart card, a phone or a hardware token.\n- Type 3, something you are or do: a fingerprint, a face, or the way you sign your name.\n\nThere are extra signals too. Somewhere you are means your location, such as a building or a country. Location is useful, but on its own it is treated as an added signal and not as a main factor.\n\nMFA stands for multi-factor authentication. It means using two or more factors of different types. The word different is the whole test. Two passwords are still only one factor.\n\nThink about a cash machine. Your bank card is something you have. Your PIN is something you know. A thief who steals the card alone cannot use it, and someone who watched you type the PIN cannot use it without the card.\n\nLet us work through some examples, counting by type, not by items.\n\nA password plus a PIN are both something you know. That is single-factor. A fingerprint plus a face scan are both something you are. That is also single-factor. A smart card plus a PIN is have plus know, so it is MFA. A password plus a code from a phone app is know plus have, so it is MFA. A password plus the answer to a security question is know plus know, so it is single-factor.\n\nHere is a trap to watch for. Type 1 and Type 2 also appear in biometric error rates, where they mean something entirely different. We will come to those shortly. When you see a type number, read which subject the question is about.\n\nFor a workplace view, think about remote staff logging in from home. Requiring a second factor means that a stolen password alone is no longer enough.\n\nHere is your takeaway. Know, have, are. MFA means different types, so count the types and not the number of items."
+    },
+    {
+      "heading": "Passwords and how they should be stored",
+      "body": "In this part we will look at passwords, which are still everywhere, and at what good practice looks like today.\n\nLength matters more than odd symbols. A long sentence that you can remember is harder to guess than a short word with a number and a symbol on the end. Each extra character multiplies the number of possibilities that an attacker must try.\n\nCurrent guidance from NIST, the National Institute of Standards and Technology, a United States standards body, says this.\n\n- Allow long passphrases.\n- Check new passwords against lists of leaked and common ones.\n- Do not force changes on a fixed schedule.\n- Force a change when there is evidence of compromise.\n- Do not demand mixtures of character types.\n\nWhy no scheduled changes? Think about what people do. When forced to change every month, they move from Summer1 to Summer2. The password changes, but it does not get stronger.\n\nMany older policies still demand complexity and regular change, and many exam scenarios describe them. Follow the policy in the scenario, and choose the current guidance only when the question asks what is best practice.\n\nNow for storage. Systems should never store the password itself. They store a hash. A hash is a one-way scramble. You can turn a password into a hash, but you cannot turn the hash back into the password. At login, the system hashes what you typed and compares the two results.\n\nA salt is random data added to each password before hashing. Think about two users who both choose the same password. Without a salt, their hashes would match, and an attacker would notice. With a different salt for each, the hashes look different. Salts also defeat ready-made lists of hashes.\n\nThe hashing should also be deliberately slow, using a method such as bcrypt or Argon2. A real user logs in once and hardly notices the delay. An attacker trying billions of guesses suffers badly.\n\nFor a workplace example, a stolen database of salted, slowly hashed passwords gives the attacker very little quickly, while plain text gives everything at once.\n\nHere is what to take away. Favor length and leaked-password checks, change passwords on evidence of compromise, and store only slow, salted hashes."
+    },
+    {
+      "heading": "Tokens and one-time codes",
+      "body": "Next we will look at one-time codes, which are the most common form of the second factor.\n\nA one-time password is a code that works once, or for a very short time. If someone sees it after it has been used, it is worthless. Think about a paper raffle ticket that is torn when it is used. No one can hand it in a second time.\n\nThere are two main kinds, and the exam likes the difference.\n\nThe first is TOTP, which stands for time-based one-time password. The token and the server share a secret, and both use the current time to work out the code. Because both sides calculate it separately, the code changes on a fixed cycle, commonly every 30 seconds. This is also called a synchronous token, because the two sides must keep their clocks in step. Most phone authenticator apps work this way.\n\nThe second is HOTP, which stands for HMAC-based one-time password. HMAC means hash-based message authentication code, a hash that uses a secret key. HOTP uses a counter and not the clock. The code changes each time the button is pressed or a code is used. So it is event-based, and the counters on the two sides have to stay close together.\n\nBecause it needs no clock, HOTP is called an asynchronous token. A challenge and response token is also asynchronous. The server sends a random challenge, and the token uses its secret to work out the answer.\n\nNow to the weaker choices. Codes sent by text message can be intercepted. In SIM swapping, an attacker persuades a mobile phone company to move your number to their own SIM card, which is the small chip that links a phone to a number. From then on, your codes go to the attacker. A text message code is still better than no second factor, but a phone app or a hardware key is stronger.\n\nPush approval has its own weakness. Attackers can send prompt after prompt until a tired user taps yes. This is called MFA fatigue. Asking the user to type a number shown on the login screen reduces it.\n\nHere is your takeaway. TOTP uses time, HOTP uses a counter, and text message codes are the weakest of the common second factors."
+    },
+    {
+      "heading": "Biometrics and the error rates",
+      "body": "Now we will look at biometrics, which means measuring something about your body or behavior, and at the error rates the exam asks about.\n\nFirst you go through enrollment, where your sample is recorded. Later scans are compared with that sample. Biometric readers never match perfectly, so they work with a threshold, a level of similarity that counts as a match. A stolen fingerprint also cannot be replaced like a password. And retina scans are intrusive and can reveal health details, so they raise privacy concerns.\n\nThere are two kinds of mistake and one measure, and you must have them exactly right.\n\n- FRR, false rejection rate, is a Type 1 error: the right person is refused.\n- FAR, false acceptance rate, is a Type 2 error: the wrong person is let in.\n- CER, crossover error rate, also called equal error rate: the setting where FRR equals FAR.\n\nFAR is the more dangerous error, because an impostor gets in. FRR is the more annoying one, because honest staff are stopped at the door.\n\nThink about a nightclub doorman. If he is strict, he turns away some real guests. That is FRR. If he is relaxed, he lets in people who should not be there. That is FAR.\n\nThe two move in opposite directions. Raising the sensitivity makes FRR go up and FAR go down. Lowering it does the reverse.\n\nLet us work through the numbers. In a test, 200 real staff try the reader, and 6 are refused. FRR is 6 divided by 200, which is 3 percent. Then 1,000 impostors try, and 10 get in. FAR is 10 divided by 1,000, which is 1 percent. These two are not equal, so this setting is not the crossover point.\n\nTo compare products, use the CER, because any vendor can make one error rate look good just by changing the setting. A reader with a CER of 2 percent beats one with a CER of 4 percent. Lower is better.\n\nCER is for comparing products. In use, you may set the reader away from it. A bank vault would favor a low FAR and accept more rejections.\n\nHere is what to take away. FRR is Type 1, FAR is Type 2, and the lowest CER is the most accurate product."
+    },
+    {
+      "heading": "Passwordless authentication",
+      "body": "To finish this topic, we will look at passwordless login, which removes the thing attackers most like to steal.\n\nPasswordless means nothing is typed that can be stolen and reused. The main example today is the passkey, built on FIDO2, which stands for Fast Identity Online 2. It uses public key cryptography, a method with two matching keys. A private key is kept secret, and a public key can be shared with anyone.\n\nHere are the steps, in order.\n\n- You register, and your device creates a key pair for that website.\n- The website keeps the public key, and the private key stays on your device.\n- Later, the website sends a challenge, which is a random value.\n- You unlock the device with a fingerprint or a PIN.\n- The device signs the challenge with the private key and sends it back.\n- The website checks the signature with the public key.\n\nThink of a wax seal on a letter. Everyone can recognize your seal, but only you own the ring that makes it. And you never hand over the ring.\n\nThis gives some real advantages. A website break-in reveals only public keys, which do not help an attacker to log in. And the key works only for the real site, because the device checks the address that it is talking to. So a fake site cannot capture a usable login. That is what phishing resistance means. Phishing is tricking someone into giving away a secret, often through a fake page.\n\nHow many factors is this? Having the device is one. Unlocking it with a fingerprint or PIN is another. So a passkey on your own device gives two factors in one action.\n\nHere is a workplace example. A company issues hardware security keys to its finance staff. An attacker sends a convincing fake login page. The employee goes to it and tries to sign in, but the key refuses, because the address is wrong.\n\nA caution for the manager. Attackers look for the weakest path. If a forgotten device can be replaced by a simple phone call to the help desk, the strong login has been bypassed. Protect account recovery as strongly as the login.\n\nHere is your takeaway. Passkeys remove the stealable secret, resist phishing, and must have equally strong recovery."
+    }
+  ],
+  "practiceQuestions": [
+    {
+      "prompt": "A fingerprint reader is trialed at a laboratory door. Of 400 attempts by real staff, 8 are refused. What is the false rejection rate for this trial?",
+      "options": [
+        "0.5 percent",
+        "2 percent",
+        "4 percent",
+        "8 percent"
+      ],
+      "correctIndex": 1,
+      "explanation": "The false rejection rate is refused real staff divided by attempts by real staff, so 8 divided by 400 is 2 percent. 8 percent is tempting, but that uses the count of refusals as if it were already a rate."
+    },
+    {
+      "prompt": "During a test of a facial recognition gate, a person who is not enrolled is accepted as an employee. What has occurred?",
+      "options": [
+        "A Type 1 error, which is measured by the false rejection rate",
+        "A crossover error, which is measured at the equal error rate",
+        "An enrollment failure, which is measured by the throughput rate",
+        "A Type 2 error, measured by the false acceptance rate"
+      ],
+      "correctIndex": 3,
+      "explanation": "Accepting the wrong person is a false acceptance, which is a Type 2 error. Type 1 is the tempting choice, but a Type 1 error is refusing the right person."
+    },
+    {
+      "prompt": "A company requires staff to tap an employee badge and then insert a USB security key to sign in. Both items are physical objects carried by the employee. How should this design be described?",
+      "options": [
+        "Single-factor, because both are something you have",
+        "Multi-factor, because two separate items are required",
+        "Multi-factor, because a key and a badge use different technology",
+        "Single-factor, because neither item can be used without the network"
+      ],
+      "correctIndex": 0,
+      "explanation": "The test is the factor type, and both items are something you have. Calling it multi-factor because two items are used is tempting, but two items of one type are still one factor."
+    },
+    {
+      "prompt": "An administrator raises the sensitivity of a palm reader to improve security. What change in the error rates should be expected?",
+      "options": [
+        "False rejections fall and false acceptances rise",
+        "Both false rejections and false acceptances fall",
+        "False rejections rise and false acceptances fall",
+        "The crossover error rate of the product falls"
+      ],
+      "correctIndex": 2,
+      "explanation": "A stricter reader refuses more real users and admits fewer impostors. The crossover error rate is tempting, but it is a property of the product and does not improve just by changing a setting."
+    },
+    {
+      "prompt": "An organization has no written password rule and wants to follow current best practice. Which approach is BEST?",
+      "options": [
+        "Short passwords, changed every month, with a symbol required",
+        "Long passphrases, checked against known leaked passwords",
+        "Passwords of exactly eight characters, reused only once a year",
+        "Complex passwords written in a notebook kept by each manager"
+      ],
+      "correctIndex": 1,
+      "explanation": "Current guidance favors length and screening against leaked passwords. Monthly changes with a symbol are tempting, because many older policies demand them, but people respond with small predictable changes."
+    },
+    {
+      "prompt": "After a break-in, investigators study a stolen password file and see that many users have exactly the same stored value. What weakness does this MOST clearly indicate?",
+      "options": [
+        "Passwords were hashed without a unique salt",
+        "The password file was not stored on an encrypted disk",
+        "Users were not required to change passwords often enough",
+        "The hashing method used was a two-way algorithm"
+      ],
+      "correctIndex": 0,
+      "explanation": "With a different salt for each user, identical passwords give different stored values, so identical values point to missing salts. Disk encryption is tempting, but it does not affect the values that are held in the file."
+    },
+    {
+      "prompt": "A hardware token shows a new code each time its button is pressed. The code does not change with the passage of time. What kind of token is it?",
+      "options": [
+        "Time-based, using a synchronized clock on each side",
+        "Certificate-based, using a key stored on a smart card",
+        "Biometric, using a sample captured during enrollment",
+        "Event-based, using a counter on each side"
+      ],
+      "correctIndex": 3,
+      "explanation": "A code that changes on each use comes from a counter, as HOTP does. Time-based is tempting because it is the most familiar type, but a time-based code changes on a schedule whether or not anyone presses a button."
+    },
+    {
+      "prompt": "Attackers have been taking over staff accounts at a company by persuading a mobile carrier to move victims' phone numbers. Staff currently receive login codes by text message. What is the BEST improvement?",
+      "options": [
+        "Send each login code to two phone numbers instead of one",
+        "Shorten the time that each text message code remains valid",
+        "Move staff to hardware security keys for the second factor",
+        "Train staff to report text messages that seem to be suspicious"
+      ],
+      "correctIndex": 2,
+      "explanation": "A hardware key does not depend on the phone number, so moving a number gains the attacker nothing. A shorter code life is tempting, but the attacker receives the code in real time and can use it at once."
+    },
+    {
+      "prompt": "A bank is installing an iris reader at its main vault and may set the reader's threshold. What setting is MOST appropriate for this door?",
+      "options": [
+        "The crossover point, because equal error rates are always the goal",
+        "A setting that favors a low false acceptance rate",
+        "A setting that favors a low false rejection rate for staff comfort",
+        "The lowest available sensitivity, to keep queues at the door short"
+      ],
+      "correctIndex": 1,
+      "explanation": "For a high-value door, keeping impostors out matters most, even if some staff must try again. The crossover point is tempting, but it is mainly a way of comparing products and need not be the setting used."
+    },
+    {
+      "prompt": "A company rolls out passkeys for all staff. Soon afterwards, attackers gain access by phoning the help desk and asking for a new device to be registered. What should the security manager do FIRST?",
+      "options": [
+        "Strengthen identity checks in the account recovery process",
+        "Return to passwords until the help desk has been replaced",
+        "Add a second passkey for each member of the staff",
+        "Ask the passkey vendor for a more advanced product"
+      ],
+      "correctIndex": 0,
+      "explanation": "The attackers are using the recovery path, so that is where the fix belongs. Returning to passwords is tempting because the trouble started after the change, but passwords are weaker and the recovery process would still be open."
+    }
+  ]
+}

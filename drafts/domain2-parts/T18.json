@@ -1,0 +1,141 @@
+{
+  "id": "T18",
+  "studyNotes": [
+    {
+      "heading": "The three data states",
+      "body": "In this first part, we are going to look at the three states that data can be in, because each one needs its own kind of protection.\n\nThink about money. In a vault, it is at rest. In an armored van, it is in transit. And when a cashier is counting it on a counter, it is in use. The vault's thick door does nothing to protect the van, and the van's guards do nothing for the cashier.\n\nData at rest is stored, as on a disk or a backup tape. Protect it with encryption, which is scrambling so only a key holder can read it, and with access controls and physical locks. The usual encryption choice is the Advanced Encryption Standard, or AES. It can be applied to a whole disk, to a database or to single files.\n\nData in transit, also called data in motion, is moving across a network. Protect it with Transport Layer Security, or TLS, which secures web traffic, or with a virtual private network, or VPN, which is a protected tunnel across another network.\n\nData in use is being worked on in a computer's memory or shown on a screen. It is often unencrypted at this moment, so it is the hardest state to protect. Use strict access limits, screen locks and clean desk rules. Newer hardware can keep data protected while it is being processed. This is often called confidential computing, and it relies on a sealed area of the processor known as a trusted execution environment.\n\nHere is a workplace example. A hospital encrypts its disks, which protects data at rest. It uses TLS between the ward computers and the server, which protects data in transit. Then a nurse leaves a patient record open on a screen at the reception desk, where visitors can see it. Neither of those controls helps. That is data in use, and it calls for a privacy filter and an automatic screen lock.\n\nWatch the common mistake. A company proud of its website security may leave its database and backups unencrypted. One state is covered, and another is wide open.\n\nHere is what to take away. Data is at rest, in transit or in use, each state needs its own controls, and data in use is the hardest to protect."
+    },
+    {
+      "heading": "Baselines, scoping and tailoring",
+      "body": "Next we will look at how organizations adapt a published list of controls to fit, and at two words that the exam loves to swap.\n\nA baseline is a starting list of minimum security controls. A control is anything that reduces risk. It is like a builder's standard checklist for a new house.\n\nScoping means removing the controls that do not apply. A house with no pool can skip the pool fence rules.\n\nTailoring means adjusting the remaining controls to fit the organization. A house in a storm area may need stronger windows.\n\nHere is the worked example. A clinic adopts a baseline of 200 controls. It has no wireless network, so it removes 15 wireless controls. That is scoping, and 200 minus 15 leaves 185. The baseline says screens lock after 15 minutes. Ward computers are in public areas, so the clinic changes this to 5 minutes. That is tailoring. The number of controls did not change, only how one of them works.\n\nA simple way to remember it is that scoping cuts, and tailoring fits.\n\nIn United States government guidance, scoping is treated as one part of the wider tailoring process. That guidance comes from the National Institute of Standards and Technology, or NIST. So you may see tailoring used as the bigger word. It can include setting values for controls, adding extra controls, and using compensating controls, which are alternatives used when a normal control cannot be applied. On the exam, when the two words appear side by side, scoping is removing and tailoring is adjusting.\n\nKeep a written reason for every change, and get management approval. An auditor will ask why each control was removed or changed. A sound reason recorded at the time is your answer. An honest shrug is not.\n\nThere is one firm limit. Laws and contracts cannot be scoped away. If a health privacy law requires a control, then it stays, however expensive it is. Cost alone is not a reason to scope out a legal duty.\n\nThink like a manager. Scoping and tailoring are decisions about risk, so the right people approve them and the reasons are kept.\n\nHere is your takeaway. Scoping removes what does not apply, tailoring adjusts what is left, record why, and never scope out the law."
+    },
+    {
+      "heading": "Selecting standards",
+      "body": "In this part we will look at how to choose which standards to follow, and at the common names that you should recognize.\n\nThink about opening a small restaurant. First you must follow the health and fire laws. Next you must follow the terms of your lease and your supplier agreements. Then you may choose to follow a respected cookery school's kitchen guidelines, because they help you run things well. The order matters.\n\nChoose in this order.\n\n- First, what you must follow by law or regulation.\n- Next, what you must follow by contract.\n- Then, voluntary good practice that fits your risks.\n\nHere are examples that you should recognize.\n\n- General Data Protection Regulation, or GDPR: European Union personal data law.\n- Health Insurance Portability and Accountability Act, or HIPAA: United States health data law.\n- Payment Card Industry Data Security Standard, or PCI DSS: a card industry standard, usually required by contract, for anyone handling payment cards.\n- International Organization for Standardization, or ISO, 27001: a standard for running a security management program.\n- National Institute of Standards and Technology, or NIST, Special Publication 800-53: a United States catalog of security controls.\n- Center for Internet Security, or CIS, Benchmarks: secure settings for particular products.\n\nA few details are worth holding on to. PCI DSS is not a law, even though it can feel like one. It comes from the card industry and it binds you through your contracts. ISO 27001 is the standard that an organization can be certified against, while its companion ISO 27002 gives guidance on the controls. NIST publishes baselines at low, moderate and high impact, and an organization picks one based on how much harm a loss would cause.\n\nStandards overlap, so many organizations map them together. One control can then satisfy several sets of rules.\n\nHere is a workplace example. An online retailer starts selling to customers in Europe and taking card payments directly. Before anything else, its security manager identifies what the law and contracts require. GDPR and PCI DSS are not optional. Only then does it choose a voluntary framework to organize the work.\n\nHere is what to take away. Law first, then contract, then voluntary good practice that fits your risks."
+    },
+    {
+      "heading": "Digital Rights Management",
+      "body": "Now we will look at the first of three named tools in the outline. It is the one that stays with the file.\n\nDigital Rights Management, or DRM, controls what someone can do with a file they already have, such as view, print, copy or forward. Access can also expire. When used inside companies, it is often called Information Rights Management, or IRM.\n\nThink about renting a film online. You can watch it on your screen, but you cannot copy it for a friend, and after 48 hours it stops playing. You have the file, but the rules came with it.\n\nThat is the key difference from ordinary access control. Ordinary access control is like a locked door. Once you are through the door and you have picked up the document, the door no longer matters. DRM is like a document that has its own rules, wherever it travels.\n\nDRM usually works by encrypting the file, and then releasing the key only to permitted people, under stated conditions. Common features include these.\n\nA license says what a particular person may do. A check back to a central server confirms that the license is still valid. An expiry date ends access automatically. An audit record shows who opened the file and when. Some systems also place a visible or hidden mark on the file, called a watermark, so that a leak can be traced.\n\nHere is a workplace example. An engineering firm shares drawings with a partner. The partner can open them, but cannot print or forward them, and access ends on the day the contract ends. If the relationship goes badly, the firm can withdraw access to the copies already sent.\n\nDRM has limits. Someone who can see a file on a screen can still photograph the screen. It needs software on the receiving side, which can frustrate partners. And if the central server is unavailable, permitted people may be locked out, so there is an availability cost.\n\nPick DRM when the need is to control a file after it has been handed to someone else. If the need is to stop a file leaving at all, that is a different tool, and we turn to it next.\n\nHere is your takeaway. DRM follows the file and controls what people can do with it, even after they have received it."
+    },
+    {
+      "heading": "Data Loss Prevention",
+      "body": "In this part we will look at the second tool, which guards the ways out of the organization.\n\nData Loss Prevention, or DLP, looks for sensitive data, such as card numbers, and alerts on or blocks it when it tries to leave.\n\nThink about the security gate at a shop, or a guard who checks bags as people leave a warehouse. The guard does not care what you did inside. The guard cares about what you are carrying out.\n\nDLP can run in three places, and each one matches a data state.\n\n- On the network: it watches data in transit.\n- On staff computers, also called endpoints: it watches data in use.\n- In storage: it scans data at rest to find sensitive files.\n\nThe placement decides what it can see. Network DLP cannot see a file being copied to a Universal Serial Bus, or USB, storage stick, because that copy never crosses the network. Endpoint DLP can see it. Storage DLP is valuable for finding sensitive files in places where they should not be.\n\nHow does it recognize sensitive data? It may look for patterns, such as the format of a card number. It may look for particular words. It may compare files with exact fingerprints of known sensitive documents. And it may read the class label in a file's metadata, which is the data about the file. This is another reason why classification comes first. DLP can only protect what it can recognize.\n\nDLP has a well-known blind spot. Encrypted traffic can hide data from it. If an employee uploads a file to a personal website over an encrypted connection, network DLP may see nothing at all. The fix is to inspect encrypted traffic at an approved point, or to use DLP on the staff computers, where the data can be seen before it is encrypted.\n\nFalse alarms are the other challenge. A rule that is too broad blocks honest work. So many organizations begin by only alerting, tune the rules, and then begin to block.\n\nHere is a workplace example. A bank's email system stops a message containing 300 account numbers, and tells the sender and the security team.\n\nHere is what to take away. DLP guards the exits, the placement decides what it sees, and encrypted traffic can blind it."
+    },
+    {
+      "heading": "CASB, and methods that change the data",
+      "body": "In this final part we will look at the third tool, and then at methods that change the data itself.\n\nA Cloud Access Security Broker, or CASB, sits between users and cloud services, which are online services run by another company. It shows which services are used, including unapproved ones, and applies rules to them.\n\nThink of a building's reception desk. Everyone going to any office passes it. It knows who goes where, and it can stop someone carrying what they should not.\n\nA CASB can work in two ways. Inline means it sits in the path of the traffic, so it can act at the moment an upload happens. The other way uses a software connection into the cloud service itself, often called an application programming interface, or API. That way, it can inspect data already stored there, but it usually acts after the event.\n\nA typical need is to stop files labeled Restricted being uploaded from home computers, while allowing the service for other work. That is a job for a CASB.\n\nOther methods change the data itself.\n\nMasking hides parts of it, as on a receipt showing only the last four card digits.\n\nTokenization swaps it for a meaningless stand-in value called a token. The real value is kept in a secure vault. A retailer's order systems can hold only tokens, so a breach of those systems exposes nothing usable.\n\nPseudonymization replaces names and other details with codes, and the link between them is kept separately. Because the link exists, the data can be traced back to the person, so it is still personal data under privacy law.\n\nAnonymization removes the link permanently, so that nobody can be identified. Truly anonymous data falls outside privacy law such as the General Data Protection Regulation, the European Union law. Doing it properly is harder than it sounds, because combined facts can often identify someone.\n\nPick by the need. DRM, which is Digital Rights Management, follows the file. DLP, which is Data Loss Prevention, guards the exits. And CASB watches the cloud.\n\nThink like an adviser. Start from what must be protected, and where it is, and only then choose the tool.\n\nHere is your takeaway. CASB controls cloud use, masking hides, tokens replace, and pseudonymized data is still personal data."
+    }
+  ],
+  "practiceQuestions": [
+    {
+      "prompt": "A nurse has a patient's record open on a screen at a reception desk, where visitors can see it. The hospital's disks are encrypted and its network traffic is protected. Which state of data is exposed, and which control BEST fits it?",
+      "options": [
+        "Data at rest, which calls for a stronger encryption setting on the disks in the reception computer",
+        "Data in transit, which calls for a private network link between the reception desk and the server",
+        "Data in use, which calls for a privacy filter and an automatic lock on the reception screen",
+        "Data at rest, which calls for a review of who can enter the data center holding the patient records"
+      ],
+      "correctIndex": 2,
+      "explanation": "Data shown on a screen is in use, and disk or network encryption does nothing for it. Data at rest is tempting because the record is stored somewhere, but the exposure here comes from its being displayed."
+    },
+    {
+      "prompt": "An auditor confirms that a shop's website protects all traffic with Transport Layer Security. The same auditor finds that the customer database and its backups are stored without encryption. Which data state is MOST clearly unprotected?",
+      "options": [
+        "Data in transit",
+        "Data at rest",
+        "Data in use",
+        "Data in motion"
+      ],
+      "correctIndex": 1,
+      "explanation": "Stored databases and backups are data at rest. Data in use is tempting because a database is busy all the time, but the finding is about how the data is stored. Data in motion is another name for data in transit."
+    },
+    {
+      "prompt": "A clinic is applying a baseline of controls. One control is expensive, and it is required by the health privacy law that applies to the clinic. A manager wants to scope it out. What is the BEST advice?",
+      "options": [
+        "Remove it, and write down the cost as the reason for doing so in the records of the baseline",
+        "Remove it, provided that senior management signs a form accepting the risk of breaking the law",
+        "Remove it for now, and then add it back in if a regulator happens to ask about it at an inspection",
+        "Keep it, because a control that the law requires does apply and cannot be scoped out"
+      ],
+      "correctIndex": 3,
+      "explanation": "Scoping removes controls that do not apply, and a control required by law does apply. Formal risk acceptance is tempting because it is the usual route for risk decisions, but management cannot accept away a legal duty."
+    },
+    {
+      "prompt": "A team adopted a published baseline and removed or changed many of its controls. When an auditor asks why, nobody can explain the changes. What is the BEST corrective action?",
+      "options": [
+        "Document the reason for each change, and obtain management approval for each one",
+        "Return to the full baseline at once and apply each control exactly, whether it is relevant or not",
+        "Tell the auditor that baselines are only advice, and so no record of the changes is ever needed",
+        "Choose a different published baseline so that the auditor's questions about this one fall away"
+      ],
+      "correctIndex": 0,
+      "explanation": "Changes to a baseline need a recorded reason and management approval. Returning to the full baseline is tempting because it removes the question, but it would apply controls that do not fit and would waste money."
+    },
+    {
+      "prompt": "A growing online retailer begins selling to customers in Europe and accepting card payments directly. It wants to choose which security standards to adopt. What should the security manager do FIRST?",
+      "options": [
+        "Adopt the most popular voluntary framework, then check whether it also happens to meet any laws",
+        "Ask the web development team which standards it would find the easiest to put into practice",
+        "Identify which laws and contracts bind the company in each of its new markets",
+        "Buy the security product that advertises compliance with the largest number of different standards"
+      ],
+      "correctIndex": 2,
+      "explanation": "Legal and contract duties are not optional, so they are identified first, and voluntary standards follow. Adopting a popular framework is tempting because it gives a quick structure, but it may not satisfy what the retailer is actually bound to do."
+    },
+    {
+      "prompt": "A company approves one cloud storage service. It wants to stop staff uploading files labeled Restricted from unmanaged home computers at the moment the upload happens, while allowing other use of the service. Which control BEST meets this need?",
+      "options": [
+        "Full-disk encryption on each laptop that the company owns and manages",
+        "A Cloud Access Security Broker that works inline on each upload",
+        "A written policy sent by email to all staff once each quarter",
+        "A firewall rule that allows all traffic to the approved service"
+      ],
+      "correctIndex": 1,
+      "explanation": "An inline broker sits in the path of the traffic and can apply rules to each upload as it happens. A firewall rule is tempting because it controls traffic, but it sees only where the traffic is going, and it knows nothing of the label on a file."
+    },
+    {
+      "prompt": "A research team replaces patient names with codes and keeps the table linking codes to names in a separate secure system. A manager says the data is now anonymous, so privacy law no longer applies. What is the BEST response?",
+      "options": [
+        "Agree, because replacing a name with a code always removes the data from all privacy laws",
+        "Agree, as long as the table that links the codes to the names is kept in a locked server room",
+        "Disagree, because a record that contains a code must always be treated as Top Secret",
+        "Disagree, because the data is only pseudonymized and can still be linked back to patients"
+      ],
+      "correctIndex": 3,
+      "explanation": "While the link exists, the data can be traced back to a person, so it is pseudonymized and remains personal data. Keeping the table locked is tempting because it is good security, but it does not make the data anonymous."
+    },
+    {
+      "prompt": "A company's network Data Loss Prevention tool catches card numbers in ordinary email. An employee then uploads a file of card numbers to a personal website over an encrypted connection, and the tool sees nothing. What would BEST close this gap?",
+      "options": [
+        "Turn the tool off, because it has shown that it cannot catch every attempt to send data out",
+        "Ask all staff to agree that they will never use encrypted websites while they are at work",
+        "Inspect encrypted traffic at an approved point, or add the tool on staff computers",
+        "Buy a second network tool of the same type, and place it beside the first one on the same link"
+      ],
+      "correctIndex": 2,
+      "explanation": "Encryption hides the content from a network tool, so the data must be examined where it can be seen. A second network tool is tempting because it sounds like extra coverage, but it would be just as blind."
+    },
+    {
+      "prompt": "A company wants to stop staff copying customer lists from their laptops to USB (Universal Serial Bus) storage sticks. The copying never crosses the network. Which control BEST fits?",
+      "options": [
+        "Network Data Loss Prevention on the link to the internet",
+        "Endpoint Data Loss Prevention running on staff computers",
+        "A Cloud Access Security Broker in front of cloud services",
+        "Transport Layer Security on all of the web servers"
+      ],
+      "correctIndex": 1,
+      "explanation": "Endpoint tools run on the computer where the copying happens, so they can see it and block it. Network Data Loss Prevention is tempting because it is the same type of tool, but a copy to a USB stick never passes through the network."
+    },
+    {
+      "prompt": "A retailer wants to keep card numbers out of its own order systems, so that a breach of those systems exposes nothing usable and fewer systems fall under the card industry's rules. Which method BEST meets this goal?",
+      "options": [
+        "Tokenization, with real numbers held in a secure vault",
+        "Masking the card number on all of the cashiers' screens",
+        "Digital Rights Management on all of the exported reports",
+        "Stronger passwords for all of the order system's users"
+      ],
+      "correctIndex": 0,
+      "explanation": "Tokenization replaces the card number with a meaningless value, and the real number stays in a secure vault. Masking is tempting because it also hides digits, but the full number would still be held behind the screen."
+    }
+  ]
+}

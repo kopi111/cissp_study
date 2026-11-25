@@ -1,0 +1,141 @@
+{
+  "id": "T33",
+  "studyNotes": [
+    {
+      "heading": "IPv4 addresses and a subnet worked example",
+      "body": "In this first part, we are going to look at how computers are addressed, starting with the older system that most networks still use.\n\nIP is the Internet Protocol. It gives every device an address, just as every house has a street number. IPv4, which is IP version 4, uses addresses of 32 bits. A bit is a single one or zero. An address is written as four numbers separated by dots, such as 192.168.1.10. That allows about 4.3 billion addresses, which is not enough for today's world.\n\nSome ranges are private. They are not routed on the public internet. These are the three to know, and the phrase slash 8 means the first 8 bits name the network.\n\n- 10.0.0.0 slash 8.\n- 172.16.0.0 slash 12.\n- 192.168.0.0 slash 16.\n\nNAT, which is Network Address Translation, lets many private devices share one public address. Picture one school telephone number with many extensions. NAT saves addresses and hides internal numbering, but it is not a security control by itself.\n\nA subnet is a smaller network cut out of a larger one. Here is a worked example with 192.168.1.0 slash 24.\n\nSlash 24 means 24 bits name the network. An address has 32 bits, so 32 minus 24 leaves 8 bits for devices. Two to the power of 8 is 256. Two addresses are reserved, one for the network itself and one for the broadcast. So 256 minus 2 gives 254 usable addresses.\n\nTry one more. With slash 26, 32 minus 26 leaves 6 bits. Two to the power of 6 is 64. Take away 2, and you have 62 usable addresses.\n\nHere is a workplace example. A company puts its finance computers in their own small subnet. Traffic to and from that subnet must now cross a router or firewall, which gives the security team a place to apply rules and to watch.\n\nAlso recognize two special addresses. 127.0.0.1 is the loopback, which means this computer talking to itself. An address starting 169.254 means the computer failed to get an address automatically.\n\nYour takeaway is this. IPv4 is 32 bits, know the three private ranges, and calculate hosts by subtracting from 32."
+    },
+    {
+      "heading": "IPv6, and the four ways to deliver traffic",
+      "body": "Now we will look at the newer address system and at the four ways traffic can be addressed.\n\nIPv6, which is IP version 6, uses addresses of 128 bits. They are written as eight groups of four hexadecimal digits, separated by colons. Hexadecimal is counting in base 16, using 0 to 9 and then a to f. A run of zero groups can be shortened once with a double colon, so 2001:db8::1 is a complete address.\n\nIPv6 has no broadcast and no need for NAT, which is Network Address Translation, because addresses are so plentiful. Your device can even build its own address. Instead of ARP, the Address Resolution Protocol, it uses Neighbor Discovery. IPv6 was designed with IPsec in mind, but IPsec is not switched on automatically. Do not fall for the claim that IPv6 is encrypted by default.\n\nHere are some special IPv6 addresses. The loopback is written with two colons and a one. Addresses starting fe80 are link-local, which means they work only on the local network segment. Addresses starting ff are multicast.\n\nNow the four ways to deliver traffic. Imagine messages in an office.\n\n- Unicast is one to one. You hand a note to one colleague.\n- Broadcast is one to all on the local network. You shout across the room. This exists in IPv4 only.\n- Multicast is one to a chosen group. You email only the people who joined a mailing list.\n- Anycast is one to the nearest of several servers that share an address. You call a helpline and reach the closest branch.\n\nNow a workplace example of a real risk. Many networks run both IPv4 and IPv6 at once, which is called dual stack. Laptops often have IPv6 switched on by default. If a firewall team writes rules for IPv4 only, the IPv6 path may be wide open. Tunnels that carry IPv6 inside IPv4 can also hide traffic from filters.\n\nA manager's response is to make a deliberate decision. Either secure and monitor IPv6 as carefully as IPv4, or disable it where it is not needed.\n\nHere is what to take away. IPv6 is 128 bits with no broadcast, IPsec is not automatic, and unmonitored IPv6 is a blind spot."
+    },
+    {
+      "heading": "IPsec, AH versus ESP, transport versus tunnel",
+      "body": "Now we come to IPsec, one of the most heavily tested topics here. Let us go slowly and be exact.\n\nIPsec stands for IP Security. It protects traffic at Layer 3 of the OSI model, the Open Systems Interconnection map. It has two protection protocols and a key system.\n\n- AH, the Authentication Header, proves origin and integrity. It gives no encryption. Its IP protocol number is 51.\n- ESP, the Encapsulating Security Payload, gives encryption, and it can also prove origin and integrity. Its IP protocol number is 50.\n- IKE, Internet Key Exchange, agrees the keys and builds Security Associations. It uses UDP, the User Datagram Protocol, on port 500.\n\nA Security Association is a one-way agreement on settings, so a two-way conversation needs two of them.\n\nIPsec has two modes.\n\n- Transport mode protects the payload and keeps the original IP header. It is usually host to host.\n- Tunnel mode wraps the whole original packet inside a new one with a new header. It is usually gateway to gateway.\n\nThink of a letter. Transport mode is putting the page in a sealed sleeve, while the envelope still shows who it is for. Tunnel mode is putting the whole envelope inside a new courier bag, addressed from one office to another.\n\nNow combine them.\n\n- AH in transport mode: signs the payload and most of the IP header. Nothing is hidden.\n- AH in tunnel mode: signs the whole packet. Nothing is hidden.\n- ESP in transport mode: encrypts the payload. The original addresses remain visible.\n- ESP in tunnel mode: encrypts the entire original packet. Observers see only the gateway addresses.\n\nOne trap is worth knowing. NAT, Network Address Translation, changes the addresses in the IP header. AH protects that header, so NAT breaks AH. ESP does not cover the outer header, and it can pass through NAT by being wrapped in UDP on port 4500.\n\nHere is a workplace example. Two branch offices need a private link across the internet. The gateways use ESP in tunnel mode, so outsiders learn only that the two offices are talking.\n\nThe takeaway is this. AH is an autograph, ESP is an envelope, transport keeps the header, and tunnel wraps everything."
+    },
+    {
+      "heading": "SSH and TLS",
+      "body": "Next we will look at two protocols you meet every day, and at what each one really protects.\n\nSSH, which is Secure Shell, gives you an encrypted remote command line. It runs on port 22. It replaces Telnet and other old tools, which send everything, even passwords, in plain readable text. SSH can also copy files securely. Use SSH version 2, because version 1 had serious flaws.\n\nThink of SSH as a private phone line to a machine, where Telnet is shouting your instructions across a busy car park.\n\nSSH proves the server's identity using a host key. The first time you connect, you are asked to trust that key. Afterwards, a changed key produces a warning. Users should stop and report it, and not just click past it. For logins, public key authentication is stronger than a password. It uses a matched pair of keys, one kept secret and one shared.\n\nTLS, which is Transport Layer Security, protects web traffic and many other applications. HTTPS is the Hypertext Transfer Protocol running over TLS. SSL, the Secure Sockets Layer, was the older parent of TLS, and all versions of SSL are broken and should be retired. TLS versions 1.0 and 1.1 are retired too. Use TLS 1.2 or 1.3.\n\nHere is what happens when TLS starts. The client and server agree on settings. The server presents a certificate, which is a digital identity card signed by a trusted authority. The two sides then agree on a shared key for the session. From then on, the data is encrypted and checked for tampering. TLS 1.3 is faster and removes older weak options.\n\nTLS gives confidentiality, integrity and proof of the server's identity. The client is proved only if mutual TLS is used, where both sides show certificates.\n\nBe clear about limits. TLS protects data in transit between two points. It does not protect data stored on the server. It does not stop an attack carried inside a valid connection.\n\nHere is a workplace example. A company's website uses TLS, and it is still breached by an attacker who sends harmful input through the encrypted connection. The lock on the browser only protected the trip.\n\nYour takeaway is this. Replace Telnet with SSH, retire SSL, and remember what TLS does not do."
+    },
+    {
+      "heading": "Port numbers, DNS and DNSSEC",
+      "body": "In this part we will learn the port numbers worth memorizing, and then see how names are found and protected.\n\nA port is a numbered door into a computer. Well-known ports run from 0 to 1023. Registered ports run from 1024 to 49151. Dynamic ports run from 49152 to 65535. Here are the ones to know.\n\n- 20 and 21: FTP, the File Transfer Protocol.\n- 22: SSH, Secure Shell.\n- 23: Telnet.\n- 25: SMTP, the Simple Mail Transfer Protocol.\n- 53: DNS, the Domain Name System.\n- 67 and 68: DHCP, the Dynamic Host Configuration Protocol.\n- 80: HTTP, the Hypertext Transfer Protocol.\n- 88: Kerberos, a ticket-based login.\n- 110: POP3, Post Office Protocol version 3.\n- 123: NTP, the Network Time Protocol.\n- 143: IMAP, the Internet Message Access Protocol.\n- 161 and 162: SNMP, the Simple Network Management Protocol.\n- 389: LDAP, the Lightweight Directory Access Protocol.\n- 443: HTTPS, which is HTTP over Transport Layer Security.\n- 445: SMB, Server Message Block, for Windows file sharing.\n- 636: LDAPS, which is LDAP over Transport Layer Security.\n- 3389: RDP, the Remote Desktop Protocol.\n\nDNS works like a phone book, turning names into addresses. Most lookups use UDP, the User Datagram Protocol, on port 53. Zone transfers, which copy a whole set of records between servers, use TCP, the Transmission Control Protocol, on port 53. Large answers also use TCP.\n\nDNSSEC, or DNS Security Extensions, digitally signs records. A resolver can check that an answer came from the right zone and was not changed. So it provides origin proof and integrity. It does not hide your lookups, so it provides no confidentiality. To hide lookups, you use DNS over TLS or DNS over HTTPS.\n\nA simple way to remember it is this. DNSSEC is a seal on the phone book entry. DNS over HTTPS is a private booth to read the book in.\n\nHere is a workplace example. A company restricts zone transfers to its own secondary servers, because an open transfer hands an attacker a map of the whole network.\n\nYour takeaway is this. Memorize the common ports, and remember that DNSSEC proves answers but does not hide them."
+    },
+    {
+      "heading": "Multilayer and converged protocols",
+      "body": "In this final part, we will look at two ideas named in the outline: what multilayer protocols imply, and what converged protocols are.\n\nA multilayer protocol works across several layers of the model, and it wraps one protocol inside another. TCP IP is the main example, named for the Transmission Control Protocol and the Internet Protocol. Web traffic is carried inside TCP, inside IP, inside Ethernet. This gives great flexibility. Anything can ride on anything.\n\nThat flexibility has a security cost. Think of a parcel inside another parcel. A guard who checks only the outside label never sees the inner one. In the same way, a filter that reads only the outer header can miss what is carried inside.\n\nAttackers use this to create a covert channel, which is a hidden path that moves data in a way that breaks policy. A real example is tunneling stolen data inside DNS lookups, because DNS, the Domain Name System, is usually allowed out through a firewall. Another is VLAN hopping, where VLAN means Virtual Local Area Network, and extra tags are added to a frame to reach a separate virtual network.\n\nThe manager's answer is to inspect deeper, restrict what may leave, and watch for odd patterns, such as an unusually large number of lookups from one computer.\n\nConverged protocols carry a kind of traffic that once needed its own separate network over a shared one. The benefit is lower cost and simpler cabling. The risk is that one failure, or one attack, can now affect everything at once.\n\nHere are the examples to recognize.\n\n- InfiniBand over Ethernet: carries high-speed data centre traffic, normally found on special InfiniBand networks, across Ethernet.\n- Compute Express Link: a fast connection between processors, memory and accelerators, built on the PCIe link inside a computer. PCIe is Peripheral Component Interconnect Express.\n- Fibre Channel over Ethernet: carries storage traffic on Ethernet.\n- iSCSI, the Internet Small Computer Systems Interface: carries storage commands over IP networks.\n- Voice over IP: carries telephone calls over a data network.\n\nHere is a workplace example. A hospital moves phones and storage onto one network. The savings are real, but a single switch failure could now stop both, so redundancy becomes essential.\n\nHere is what to take away. Wrapping creates hiding places, and convergence creates shared failure."
+    }
+  ],
+  "practiceQuestions": [
+    {
+      "prompt": "A network team must give a new department its own subnet using a slash 26 prefix on an IPv4 network. How many usable host addresses will the department have?",
+      "options": [
+        "64",
+        "62",
+        "126",
+        "254"
+      ],
+      "correctIndex": 1,
+      "explanation": "32 minus 26 leaves 6 bits. Two to the power of 6 is 64, and removing the network and broadcast addresses leaves 62. 64 is tempting, but it counts those two reserved addresses."
+    },
+    {
+      "prompt": "An organization wants its global DNS service to answer each user from whichever server is closest, while all servers share the same address. Which delivery method BEST describes this design?",
+      "options": [
+        "Unicast, with one fixed path to each individual server",
+        "Multicast, with each server joining one chosen group",
+        "Broadcast, with one query sent to all servers in the world",
+        "Anycast"
+      ],
+      "correctIndex": 3,
+      "explanation": "Anycast sends traffic to the nearest of several servers that share one address. Multicast is tempting, but it delivers to every member of a group and not just to the nearest one."
+    },
+    {
+      "prompt": "A security review finds that laptops have IPv6 enabled, while firewall rules and monitoring cover only IPv4. What should the security manager recommend?",
+      "options": [
+        "Treat it as low risk, because IPv6 traffic is always encrypted by the protocol itself",
+        "Treat it as low risk, because IPv6 has no broadcast traffic that could be misused",
+        "Decide whether IPv6 is needed, then either secure and monitor it or disable it",
+        "Change every laptop to use a static address until the next network refresh"
+      ],
+      "correctIndex": 2,
+      "explanation": "An unmonitored path is a blind spot, so it needs a deliberate decision. The first option is tempting, but IPsec is not switched on automatically in IPv6."
+    },
+    {
+      "prompt": "Two servers on the same internal network must exchange data with encryption, and the team wants the IPsec setup with the least overhead for this host-to-host traffic. Which choice is BEST?",
+      "options": [
+        "ESP in transport mode",
+        "AH in transport mode",
+        "AH in tunnel mode",
+        "ESP in tunnel mode between two new gateways"
+      ],
+      "correctIndex": 0,
+      "explanation": "ESP encrypts, and transport mode suits host-to-host traffic without adding a new IP header. ESP in tunnel mode is tempting, but it adds a whole new header and gateways that this need does not call for."
+    },
+    {
+      "prompt": "An IPsec connection using only AH keeps failing whenever the traffic passes through a device that performs Network Address Translation. What is the MOST likely cause?",
+      "options": [
+        "AH encrypts the addresses, so the translating device cannot read them",
+        "AH covers the IP header, so changing the addresses fails the integrity check",
+        "AH works only in tunnel mode, which translation devices do not accept",
+        "AH uses TCP port 500, which translation devices always happen to block"
+      ],
+      "correctIndex": 1,
+      "explanation": "AH protects most of the IP header, and address translation changes it, so the check fails. The first option is tempting, but AH does not encrypt anything."
+    },
+    {
+      "prompt": "An architect is asked which part of IPsec is responsible for agreeing the keys and setting up the agreed settings between two gateways. What is the BEST answer?",
+      "options": [
+        "The Encapsulating Security Payload",
+        "The Authentication Header",
+        "Internet Key Exchange",
+        "Transport mode"
+      ],
+      "correctIndex": 2,
+      "explanation": "Internet Key Exchange agrees keys and builds Security Associations. The Encapsulating Security Payload is tempting because it uses those keys, but it does not negotiate them."
+    },
+    {
+      "prompt": "A scan of a web server shows that it still accepts SSL version 3 and TLS 1.0 alongside TLS 1.2. What is the BEST recommendation?",
+      "options": [
+        "Keep all versions so that the widest range of customers can still connect",
+        "Keep the old versions, but add a warning notice to the website's front page",
+        "Move the old versions to a different port number so that scanners miss them",
+        "Disable the old versions and allow only TLS 1.2 and TLS 1.3"
+      ],
+      "correctIndex": 3,
+      "explanation": "SSL and TLS 1.0 are retired because of known weaknesses, so the fix is to disable them. Moving them to another port is tempting, but that only hides the weakness and does not remove it."
+    },
+    {
+      "prompt": "A firewall administrator is asked to permit secure directory lookups from an application to a directory server. Which destination port should the rule MOST likely allow?",
+      "options": [
+        "636",
+        "389",
+        "445",
+        "3389"
+      ],
+      "correctIndex": 0,
+      "explanation": "LDAP over Transport Layer Security uses port 636. Port 389 is tempting because it is also directory traffic, but that is plain LDAP without encryption."
+    },
+    {
+      "prompt": "A company wants to stop people on the local coffee shop network from seeing which websites its travelling staff look up. Which option MOST directly meets this requirement?",
+      "options": [
+        "Sign all the company's DNS zones with DNSSEC",
+        "Restrict zone transfers to the secondary DNS servers",
+        "Send the staff's DNS lookups over HTTPS to a trusted resolver",
+        "Move the company's public website to a new set of addresses"
+      ],
+      "correctIndex": 2,
+      "explanation": "DNS over HTTPS encrypts the lookup on its way to the resolver, so nearby observers cannot read it. DNSSEC is tempting, but it proves that answers are genuine and hides nothing."
+    },
+    {
+      "prompt": "Monitoring shows one workstation making thousands of DNS lookups for long random-looking names under one domain, even though the workstation's user is on leave. Which explanation is MOST likely?",
+      "options": [
+        "A converged protocol carrying storage traffic over the local Ethernet network",
+        "A covert channel moving data out inside DNS traffic",
+        "Normal caching behaviour that a busy resolver shows from time to time",
+        "A slow network link causing the workstation to retry the same lookup"
+      ],
+      "correctIndex": 1,
+      "explanation": "Encoded names sent to one domain, at volume, suggest data being tunneled through DNS. Retries are tempting, but retries repeat the same name and these names are all different."
+    }
+  ]
+}

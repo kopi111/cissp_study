@@ -1,0 +1,141 @@
+{
+  "id": "T14",
+  "studyNotes": [
+    {
+      "heading": "What handling requirements are",
+      "body": "In this first part, we are going to look at what handling rules are and where they come from.\n\nA handling requirement is a written rule that says how people must treat an item of a given class. The rules cover the item at every moment: when it is marked, used, stored, moved, copied and thrown away.\n\nThink about medicine in a family home. The label tells you what it is. The strong tablets go on a high shelf, out of reach of children. You carry them home in a closed bag. When they expire, you take them back to the pharmacy and you do not tip them in the bin. Each stage has its rule, and the rule depends on how dangerous the medicine is.\n\nNow think about a law firm. It might have three classes. Public items may go anywhere. Internal items stay within the firm's systems. Client Confidential items must be encrypted, may be seen only by the people working on that case, and must be shredded when they are finished with. Encryption means scrambling data so that only someone with the key can read it. A person who picks up a file needs only to see the class to know what the rules are.\n\nThe rules come from policy, and policy needs management support. Under the policy sit standards and procedures, which spell out the exact steps. Staff then need training, because a rule that nobody knows protects nothing.\n\nThe most important idea in this topic is that protection must stay with the information. A secret stays a secret when it is printed, emailed, photographed or copied to a backup. A backup needs the same protection as the original. A printout of a confidential report is still confidential, even if it is just lying on a desk.\n\nThink like a manager. If three departments treat the same class in three different ways, the people are not the problem. The missing written rule is the problem, and that is what you fix.\n\nHere is what to take away. Handling rules are written per class, they cover the whole life of the item, and the protection follows the information wherever it goes."
+    },
+    {
+      "heading": "Marking and labeling",
+      "body": "Next we will look at how people and computers can tell what class an item belongs to.\n\nMarking and labeling both show the class of an item. Many people use the two words to mean the same thing. In the more exact language of United States government security standards, marking is what people can read, such as a stamp on a page. A label is often a tag held inside the system that computers can read and act on.\n\nThink about food in a shop. The words on the packet are for you to read. The barcode is for the machine at the till. Both describe the same product, and each serves a different reader.\n\nItems should be marked in every form they take.\n\n- Paper: the class at the top and bottom of each page.\n- Screens: a banner that shows the class.\n- Files and emails: a tag in the file details or a note in the subject line.\n- Removable media: a physical sticker.\n\nRemovable media means storage that you can carry, such as tapes and disks. The file details just mentioned are often called metadata, which means data about data, such as the author or the date.\n\nThe computer-readable tag matters more every year. Automated tools can only act on a class that they can read. A class that appears only as a picture of a stamp on a scanned page is invisible to those tools. So a modern program uses both a visible marking for people and a label in the metadata for machines.\n\nGood practice is to mark public items too. Then a missing mark stands out as a mistake. If you find an item with no mark, treat it as the highest class until the owner confirms what it is.\n\nHere is a workplace example. A staff member finds an unmarked folder in a meeting room. He does not assume that it is harmless. He hands it to the proper person, and the owner works out what it is.\n\nHere is your takeaway. Marking is for people, labels are for machines, mark everything including public items, and treat anything unmarked as the highest class."
+    },
+    {
+      "heading": "Safe storage",
+      "body": "In this part we will look at how to store sensitive items, both on paper and in digital form.\n\nStorage rules cover both the physical place and the digital protection. The common controls are these.\n\n- Keep sensitive items in locked rooms, cabinets or safes.\n- Allow access only to people with a need to know, which means their job requires it.\n- Use encryption, so that a stolen item cannot be read.\n- Protect backups as strongly as the live data.\n- Protect media from heat, damp and magnetic fields, so that it can still be read later.\n\nThink about how you keep your valuables at home. You put jewelry in a locked box. You do not leave the key sitting on top of the box. And you do not keep your only family photographs in a damp garage.\n\nThat image gives us the three ideas that the exam likes.\n\nThe first idea is that locks work in layers. A locked cabinet inside a locked room inside a guarded building is harder to defeat than any one of them alone. This is called defense in depth.\n\nThe second idea is about keys. Keep encryption keys apart from the data they protect. Leaving them together is like taping your house key to your front door. If a thief carries off the cabinet with the disks and the keys inside it, the encryption has given you nothing.\n\nThe third idea is that storage is also about availability. Availability means that the information is there when you need it. Tapes kept in a hot, damp shed may be unreadable when you need them. If the law says that a record must be kept for ten years, you must still be able to read it after ten years. So keep media in a controlled environment, and test-read a sample from time to time.\n\nHere is a workplace example. A bank encrypts its backup disks, keeps them in a fireproof safe in a separate building, keeps the keys under a different person's control, and tests a restore every three months.\n\nHere is what to take away. Lock it up in layers, keep the keys apart from the data, and make sure you can still read it years from now."
+    },
+    {
+      "heading": "Safe transport",
+      "body": "Now we will look at what happens when information has to move, because this is when it is at extra risk.\n\nThink about moving house with something precious. You pack it carefully, and you may carry it yourself. If you must use a delivery company, you choose one you trust, you get a receipt, and you check the seal when it arrives.\n\nThe common controls for moving information follow the same logic.\n\n- Encrypt it before it leaves.\n- Use an approved, trusted courier.\n- Use tamper-evident packaging, which shows clearly if someone has opened it.\n- Keep a chain of custody, which is a signed record of who held the item, when and why.\n\nEncryption is the most important of these, because it protects the information even when everything else goes wrong. If a box of encrypted tapes falls off a van, you have lost some tapes. You have not lost the data.\n\nChain of custody answers one simple question. Who had it, at every moment? Each person signs when they receive the item and when they pass it on. If a record has a gap, nobody can say what happened during that gap.\n\nNow here is a detail that catches people out. For highly sensitive items, the outer wrapping often carries no class marking. A marking on the outside tells a thief which parcel to steal. The class is shown on an inner wrapping instead. So this is one place where we deliberately do not advertise the class to the world.\n\nInformation also moves electronically, and the same thinking applies. Use an approved encrypted service. Make sure that the person receiving it has to prove who they are. Do not put a password in the same email as the file it protects. That is just the house key taped to the door again.\n\nHere is a workplace example. A hospital sends old disks for destruction. They are encrypted, packed in sealed crates, collected by an approved company, and signed for at the hospital and at the destruction site. The record has no gaps.\n\nHere is your takeaway. Encrypt it, seal it, sign for it at every handover, and keep the class off the outer wrapping."
+    },
+    {
+      "heading": "Handling during daily use",
+      "body": "In this part we will look at the moments when information is simply being used, because most mistakes happen during ordinary work.\n\nThink about reading a private letter on a crowded bus. Nothing has been stolen and nobody has broken in, but the person beside you can read every word. Daily use is like that. The threat is usually a careless moment, and not a clever attacker.\n\nHere are the common situations and the sensible rules.\n\nPrinting is the first. Sensitive pages left in a printer tray can be read by anyone who walks past. A good fix is to hold each print job until the person who sent it shows a staff badge at the printer. Reminding staff is weaker, because it relies on memory.\n\nScreens are the second. Use automatic screen locks, and privacy filters in public areas. A privacy filter is a thin sheet that makes a screen unreadable from the side.\n\nDesks are the third. A clean desk policy says that sensitive papers are locked away whenever you leave your desk.\n\nCopying is the fourth. Every copy increases the risk and needs the same protection. Handling rules may limit copying for the highest class, and they may require a record of each copy.\n\nSharing is the fifth. Before information goes to a supplier or partner, the handling rules should travel with it, usually through a contract. An outside party that receives your data must protect it to the agreed level.\n\nDisposal is the last. Each class has its own rule for the end of an item's life. Paper may go through a cross-cut shredder, which cuts in two directions so that strips cannot be rejoined. We will study the methods for electronic media in a later topic.\n\nHere is a workplace example. An insurance office has shared printers, and an auditor finds claims forms left in the trays. The manager does not simply send out a reminder. She turns on badge release at the printer, so the page does not appear until the sender is standing there.\n\nHere is what to take away. Most handling failures are small daily habits, so build the safe behavior into the process and do not rely on people remembering."
+    },
+    {
+      "heading": "A worked example and the downgrade trap",
+      "body": "In this final part we will put all of this together with one example, and then look at the trap that the exam most likes to set.\n\nA bank has a printed loan report, classed as Confidential. Let us follow it through its handling rules.\n\n- Marking: Confidential appears at the top and bottom of every page.\n- Storage: it stays in a locked cabinet in a restricted room.\n- Transport: it goes in a sealed tamper-evident envelope by approved courier, with a signature at each handover.\n- Disposal: it goes through a cross-cut shredder, never the normal bin.\n\nNow suppose that a manager needs a copy for a branch in another city. The copy gets the same marking and the same protection. If a scanned version goes by email, the file gets a label in its metadata, it is encrypted, and only the named person can open it. The format has changed, but the rules have not.\n\nNow for the trap. Staff are sometimes tempted to mark an item lower so that it is easier to send. Imagine a parent writing the word cheap on a valuable parcel to save on insurance. The parcel is still valuable, and the risk has not changed.\n\nOnly the owner may change a class, and convenience is not a reason to change it. If the secure method is slow, the answer is to use it anyway, or to ask the owner whether the information really is still at that level. A good adviser may also suggest improving the secure method, so that staff are not tempted next time.\n\nIf something goes wrong, handling rules connect to incident response. A lost envelope or a misdirected email should be reported at once. Early reporting matters far more than blame. A person who fears punishment hides the mistake, and then nobody can reduce the harm.\n\nThink like a manager. Ask whether the rule is written, whether people know it, whether the secure way is workable, and whether the owner made the decision.\n\nHere is your takeaway. The rules follow the class through every format, only the owner changes a class, and a deadline never does."
+    }
+  ],
+  "practiceQuestions": [
+    {
+      "prompt": "To save time, a manager proposes that staff stop marking Public documents and mark only the sensitive ones. What is the BEST advice from the security adviser?",
+      "options": [
+        "Agree, because Public documents carry no risk of any kind and need no handling rules at all",
+        "Agree, and ask staff to store all of the unmarked documents together in one shared folder",
+        "Disagree, and require every Public document to be encrypted in the same way as sensitive ones",
+        "Disagree, because when every item carries a mark, a missing mark stands out as a mistake"
+      ],
+      "correctIndex": 3,
+      "explanation": "When everything carries a mark, an unmarked item is clearly a mistake and can be treated with caution. Agreeing is tempting because Public items need little care, but then nobody can tell a harmless blank from a sensitive item that was never marked."
+    },
+    {
+      "prompt": "A company stamps its class in large text on the first page of each scanned document. Its new monitoring software, which should act automatically on the class, cannot tell which files are sensitive. What would BEST solve this?",
+      "options": [
+        "Add a machine-readable label to the metadata of each file that can be read by the software",
+        "Make the printed stamp larger, and place it in a bolder color on every page of the document",
+        "Ask staff to read each file and to tell the monitoring team when a sensitive one is being sent",
+        "Stop using the monitoring software and rely on the printed stamp as the only form of marking"
+      ],
+      "correctIndex": 0,
+      "explanation": "A stamp is for people, and automated tools need a label they can read in the file's details. A bigger stamp is tempting, but a picture on a page is still invisible to the software. Relying on staff to report each file does not scale."
+    },
+    {
+      "prompt": "A company encrypts its archive disks before placing them in a fireproof cabinet. An auditor notices that the printed encryption keys are in an envelope inside the same cabinet. What is the BEST corrective action?",
+      "options": [
+        "Buy a second, stronger fireproof cabinet, and keep both the disks and the keys inside that one",
+        "Seal the envelope with tamper-evident tape and then leave it where it is in the cabinet",
+        "Store the keys separately from the disks, under the control of a different authorized person",
+        "Encrypt the disks a second time using a longer key, and leave the rest of the process unchanged"
+      ],
+      "correctIndex": 2,
+      "explanation": "Anyone who takes the cabinet's contents gets both the disks and the means to read them, so the keys must be kept apart. Tamper-evident tape is tempting, but it only shows that someone opened the envelope after the harm is done."
+    },
+    {
+      "prompt": "A customer database sits in a locked, monitored data center and is encrypted. Its nightly backup disks, which hold the same data, are unencrypted on an open shelf in the IT (information technology) office. What is the BEST recommendation?",
+      "options": [
+        "Make backups less often, so that fewer disks are sitting on the shelf at any one time",
+        "Give the backup disks the same protection that the original database already has",
+        "Put a sign on the shelf telling all staff and visitors that the backup disks are confidential",
+        "Leave the disks there, since the live database is the one that attackers would want to reach"
+      ],
+      "correctIndex": 1,
+      "explanation": "A backup holds the same information, so it needs the same protection. Making backups less often is tempting because it reduces the number of disks, but the remaining disks are still exposed and recovery becomes worse."
+    },
+    {
+      "prompt": "A hospital sends old drives to a destruction company. During an audit, it cannot show who held the drives between its loading dock and the destruction site. Which control was MOST clearly missing?",
+      "options": [
+        "A class marking on the outside of every shipping crate",
+        "A review of the destruction company's financial accounts",
+        "An extra overwrite of each drive before it left the building",
+        "A signed chain of custody record at every handover point"
+      ],
+      "correctIndex": 3,
+      "explanation": "A chain of custody records who held an item, when and why, which is precisely what the hospital cannot show. An extra overwrite is tempting because it reduces the data at risk, but it would not answer who held the drives."
+    },
+    {
+      "prompt": "An agency must send a highly classified paper document by approved courier. Which packaging approach is BEST?",
+      "options": [
+        "One envelope with the class printed clearly on the outside, so that the courier knows to take special care",
+        "One plain envelope with the class marked nowhere at all, including on the document inside it",
+        "A plain outer wrapping with no class shown, and the class marked on an inner wrapping",
+        "A clear plastic bag, so the courier can see at a glance that the document is still inside it"
+      ],
+      "correctIndex": 2,
+      "explanation": "The plain outer layer does not tell a thief what is valuable, and the inner wrapping tells the authorized receiver how to treat it. Printing the class outside is tempting because it seems to encourage care, but it advertises the target."
+    },
+    {
+      "prompt": "Sensitive reports are often left in the tray of a shared office printer for hours. Staff say that they simply forget to collect them. What would BEST address the cause?",
+      "options": [
+        "Hold each print job on the system until the person who sent it badges in at the printer",
+        "Send a reminder email each month asking all staff to collect their printing more quickly",
+        "Move the printer into the manager's office so that the manager can watch what is printed on it",
+        "Empty the tray at the end of each day and put whatever is found into the ordinary waste bin"
+      ],
+      "correctIndex": 0,
+      "explanation": "Holding the job until the person is standing at the printer removes the dependence on memory. A reminder is tempting because it is cheap, but staff have already said that forgetting is the problem. Ordinary waste bins would create a new exposure."
+    },
+    {
+      "prompt": "Three departments handle the same class of report in three different ways. One emails it openly, one encrypts it, and one will only hand over paper. Staff say that nobody has told them the rules. What is the BEST action?",
+      "options": [
+        "Choose the strictest department and tell the other two departments to copy it without any written rules",
+        "Buy an email encryption product and install it for all of the staff in those three departments",
+        "Ask each of the three department heads to write their own handling rules for their own staff",
+        "Publish written handling rules for each class, and then train the staff in all departments"
+      ],
+      "correctIndex": 3,
+      "explanation": "The cause is that no shared written rule exists and nobody has been trained on one. Buying encryption is tempting, but a tool cannot fix a missing rule. Separate department rules would keep the inconsistency."
+    },
+    {
+      "prompt": "A company must be able to read its archive tapes for ten years. The tapes are currently stored in a hot, damp shed beside a large electric motor. What is the BEST recommendation?",
+      "options": [
+        "Move the tapes into the main office, and ask the staff to keep a close eye on them during the day",
+        "Store them in a controlled environment, and test-read a sample of the tapes from time to time",
+        "Keep them in the shed, but wrap each tape in plastic and label it carefully with the current year",
+        "Make a second copy and store it in the same shed so that there is always one spare tape available"
+      ],
+      "correctIndex": 1,
+      "explanation": "Heat, damp and magnetic fields can make media unreadable, and only testing proves that it can still be read. A second copy is tempting, but a copy in the same shed suffers from the same conditions."
+    },
+    {
+      "prompt": "An accountant must send a Confidential file to an outside auditor today. Which method BEST meets typical handling rules for that class?",
+      "options": [
+        "Email the file in a password-protected archive and put the password in the same email message",
+        "Upload the file to a personal online storage account, then share a public link with the auditor",
+        "Use the approved encrypted transfer service, and require the auditor to sign in to collect it",
+        "Change the class to Public, email the file, then change the class back once it has been received"
+      ],
+      "correctIndex": 2,
+      "explanation": "An approved encrypted service protects the file on its way and proves who collects it. The password-protected archive is tempting because it looks like encryption, but the password travels with the file, so anyone who gets the email can open it."
+    }
+  ]
+}

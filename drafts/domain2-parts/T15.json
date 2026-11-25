@@ -1,0 +1,141 @@
+{
+  "id": "T15",
+  "studyNotes": [
+    {
+      "heading": "Provisioning securely",
+      "body": "In this first part, we are going to look at what it means to provision something securely, which is the first idea in this objective.\n\nTo provision means to supply. Secure provisioning means giving people the information and equipment they need in a controlled way, and nothing extra. Two ideas guide it.\n\n- Need to know: you see information only if your job requires it.\n- Least privilege: you get the smallest set of rights that lets you do your job.\n\nThese two sound alike, but they answer different questions. Need to know is about which information you may see. Least privilege is about what you may do, such as read, change or delete.\n\nThink about a babysitter. You give the babysitter the front door key. You do not hand over the key to your safe, or your bank card. The babysitter gets what the job needs, and you take the key back at the end of the evening.\n\nNow think about a workplace. A new payroll clerk needs to read and enter pay details. The clerk does not need to change the structure of the payroll database. And the clerk does not need the records of the board of directors.\n\nThe business owner of the information approves access. The technical team carries out the decision. The person asking for access should not be the person approving it. Keeping those jobs apart is called separation of duties. It means that no single person can complete a sensitive task alone.\n\nA common shortcut causes real harm. The help desk sets up a new person by copying a colleague's rights. Those rights may be years out of date and far too wide. A better way is to give rights according to a defined role, which has been approved in advance.\n\nProvisioning also needs a way back. When someone changes jobs or leaves, the organization must remove rights and collect equipment. People who move jobs and keep their old rights slowly collect far more access than they need. This is called privilege creep. Regular access reviews catch it.\n\nHere is what to take away. Give only what the job needs, have the owner approve it, and take it back when the job changes."
+    },
+    {
+      "heading": "Ownership and accountability",
+      "body": "Next we will look at ownership, because the exam treats it as the foundation of everything else in this domain.\n\nEvery asset needs a named owner. An asset is anything of value, such as information, a system or a piece of equipment. The owner is a person with authority in the business, and the owner answers for how the asset is protected.\n\nAn owner may hand out the daily work. An owner cannot hand away the accountability. Think of a landlord who hires a cleaner. The cleaner does the work, but the landlord still answers for the building. If a tenant is hurt on a wet floor, nobody is going to accept that the landlord had forgotten about it.\n\nThe exam uses two words with care. Accountable means that you answer for the result. Responsible means that you carry out the task. You can share responsibility among many people. Accountability stays with one named person.\n\nWhat does an owner actually do? The owner decides the class of the information. The owner approves who may have access. The owner agrees the level of protection, and accepts the risk that is left over. The owner also makes sure that access is reviewed.\n\nHere is a workplace example. The finance director owns the payroll data. She asks an assistant to carry out the quarterly access reviews. The assistant forgets for six months. The assistant failed in a task, but the finance director is still accountable for the fact that it did not happen.\n\nThe owner should be a business person, and not simply someone from the technical team. The business knows what the information is worth and what it is used for. A system owner, by contrast, answers for a particular system, such as the payroll application, and for making sure that it is protected. In a small company, one person may hold both roles.\n\nAn asset with no owner is an asset nobody protects. Nobody approves its access, nobody budgets for it, and nobody notices when it is out of date. When you find such an asset, your first job is to find out who uses it, and to have management name an owner.\n\nHere is your takeaway. Owners can delegate the work, but they keep the accountability."
+    },
+    {
+      "heading": "The inventory: tangible assets",
+      "body": "In this part we will begin looking at the inventory, and we will start with the things that you can touch.\n\nAn inventory is a complete, current list of what the organization has. The outline splits assets into two kinds, tangible and intangible. Tangible assets can be touched. They include laptops, servers, phones, network equipment, paper records and buildings. A server is a central computer that serves many users.\n\nThink about the home insurance form that asks what you own. If your television is stolen and you have no idea of the make, the model or when you bought it, you will struggle to claim. You must know what you have before you can protect it or replace it.\n\nA useful inventory record shows what the item is, who owns it, where it is, its class and its current state. For a laptop, that may include the serial number, the person it was issued to, the software on it, and whether it is in use, in repair or retired.\n\nHere is why this matters for security. The inventory supports nearly everything else.\n\nYou need it to assess risk, because you cannot weigh the risk to something you have forgotten. You need it to find what must be patched, which means fixed with an update from the maker. You need it to learn what was affected during an incident. And you need it when you retire equipment, so that nothing leaves the building with data still on it.\n\nHere is a workplace example. A police station keeps a register of its radios and laptops. Each item has an asset tag, which is a numbered label, and each one is signed out to a named officer. When a radio goes missing, the register shows who last held it and which channels it could reach, so the right people are told and the radio can be locked out.\n\nInventories go stale quickly. A list that was correct in January may be badly wrong by July. So the inventory must be kept current as a normal part of work, and not rebuilt in a rush for each audit.\n\nHere is what to take away. Record what it is, who owns it, where it is and what class it is, and keep that record current."
+    },
+    {
+      "heading": "The inventory: intangible assets",
+      "body": "Now we will look at the other half of the inventory, the things you cannot touch, which are the ones that people most often forget.\n\nIntangible assets cannot be touched. They include data, software licenses, patents, trademarks, brand and reputation. A patent is a legal right over an invention. A trademark is a protected name or symbol.\n\nThink about a small family bakery. The ovens are tangible. But the secret recipe, the name that the town knows and trusts, and the list of regular customers are all intangible. If the ovens break, you can buy new ones. If the recipe leaks or the name is ruined, you may not recover. Intangible assets are frequently worth more than the physical ones.\n\nFour kinds of intangible asset are worth thinking about at work.\n\nData comes first. It belongs in the inventory like anything else, with its owner, class and location.\n\nSoftware and licenses come next. A license is the legal permission to use a product. If a company is using 500 copies but holds licenses for only 300, it is 200 short. That is a legal and financial risk, and it is the kind of problem that a software inventory exposes.\n\nA related idea is the software bill of materials, or SBOM. It is a list of the components inside a software product, much like the list of ingredients on a food packet. When a flaw is announced in a popular component, the list tells you where that component is.\n\nThen comes intellectual property, meaning creations of the mind that have value, such as designs, trade secrets, patents and trademarks. A trade secret is protected only as long as it stays secret, so handling rules matter a great deal.\n\nLast come brand and reputation. You cannot list them with a serial number, but they belong in risk discussions, because a breach can damage them for years.\n\nHere is a workplace example. A company's register lists every laptop and phone, and nothing else. A manager points out that its customer data, its licenses and its product designs are worth many times more than the hardware, and none of them are listed.\n\nHere is your takeaway. An inventory that only counts hardware is only half an inventory."
+    },
+    {
+      "heading": "Finding what is really out there",
+      "body": "In this part we will look at how to check the inventory against reality, and what to do when the two do not agree.\n\nThink about checking your kitchen cupboards against your shopping list. The list says that you have rice. The cupboard says that you do not. And there is a jar at the back that you have never seen before. The difference between the list and the shelf is the part that deserves your attention.\n\nAutomated discovery tools do this job for an organization. They scan the network and report on what they find. The team compares what they find with the list, and then investigates any difference.\n\nThere are two kinds of difference. An item may be on the list but not found. It could be lost, stolen, switched off, or sitting in a drawer. Or an item may be found but not on the list. It may be a personal device, a forgotten old server, or even an intruder's equipment.\n\nThe right first step in both cases is to investigate. Do not delete the results. Do not add the unknown items to the list just to make the numbers match. And do not rip everything off the network without knowing what it does, because it may be supporting something important.\n\nAn item found on the network but missing from the list may be shadow IT. That means technology that staff use without approval from the information technology, or IT, team. Cloud services, which are computing bought online from another company, make this easy, because anyone with a payment card can start one.\n\nShadow IT usually means that staff have a real need that is not being met. So a wise manager does two things. The manager brings the service under control, with a named owner and a place in the inventory. And the manager asks why people felt that they had to go around the approved route.\n\nHere is a workplace example. A marketing team has started using an online design tool, and has uploaded a customer list to it. The security manager records the tool, finds an owner, checks the contract and moves the customer list to an approved place.\n\nHere is what to take away. Compare the list with reality, investigate every difference, and deal with the cause of shadow IT."
+    },
+    {
+      "heading": "Asset management and a worked example",
+      "body": "In this final part we will look at asset management as a whole, and we will follow one laptop from the day it was requested to the day it comes back.\n\nAsset management is the ongoing process of tracking each asset through its whole life. A common order is: request, approve, buy, record, configure, issue, maintain, retire, and dispose. Many organizations keep this in a configuration management database, or CMDB, a central record of assets and how they are set up.\n\nThink about a library book. It is bought, it is catalogued, it is lent, it is returned, it is repaired, and one day it is withdrawn. At any moment the library can tell you where it is.\n\nHere is the worked example. A new bank teller needs a laptop.\n\n- Step 1: The teller's manager requests it.\n- Step 2: The owner approves access to the account system.\n- Step 3: The IT team, meaning information technology, records the laptop's serial number in the inventory.\n- Step 4: IT sets it up to the secure standard, with only the needed software.\n- Step 5: The teller signs for it.\n- Step 6: Access is reviewed each year.\n- Step 7: On leaving, rights are removed and the laptop is returned and checked off.\n\nNotice that the steps depend on each other, and that the leaving step depends on someone telling IT. If human resources does not tell IT that a person has left, the laptop and the access both go on existing. The proper fix is to link the leaving process to asset return and access removal.\n\nThe same is true of changes. If a system is changed but nobody updates the record, then the record is wrong when it matters most, in the middle of an incident. The fix is to make the update a required step of change management, which is the controlled process for approving and recording changes.\n\nThink like a manager. If an audit finds items missing, the fix is a better process, not simply buying replacements.\n\nHere is your takeaway. Track every asset from request to disposal, and fix the process whenever the record and reality drift apart."
+    }
+  ],
+  "practiceQuestions": [
+    {
+      "prompt": "A developer emails the database team asking for access to the live payroll database. An administrator grants it, because the developer seems to have a good reason. What was the MAIN failure?",
+      "options": [
+        "The developer should have asked in person rather than by sending an email to the database team",
+        "The administrator should have waited until the next planned maintenance window to grant the access",
+        "The data owner did not approve the access before the administrator granted it",
+        "The access should have been granted only after the developer had finished security awareness training"
+      ],
+      "correctIndex": 2,
+      "explanation": "The business owner approves access, and the technical team carries the decision out. Waiting for a maintenance window is tempting because it sounds like good process, but timing does not fix the fact that the wrong person made the decision."
+    },
+    {
+      "prompt": "Over eight years, an employee has worked in four departments. A review shows that she still has access rights from all four jobs. Which control would BEST prevent this from happening again?",
+      "options": [
+        "Remove the old rights at each job change, and review everyone's access on a regular schedule",
+        "Require her and all other long-serving staff to change their passwords more often than others",
+        "Give her a new account at each job change, and leave the old accounts in place in case they are needed",
+        "Record every action that long-serving staff take and keep those records for seven years"
+      ],
+      "correctIndex": 0,
+      "explanation": "This is privilege creep, and it is stopped by removing rights when a job changes and by regular reviews to catch what is missed. Recording actions is tempting because it creates evidence, but the excess access would remain."
+    },
+    {
+      "prompt": "The finance director owns the company's payroll data. She asks an assistant to carry out the quarterly access reviews. The assistant misses two reviews, and an auditor reports the gap. Who is accountable for the missed reviews?",
+      "options": [
+        "The assistant, because accountability moved when the task was handed over",
+        "The finance director, because owners cannot delegate accountability for their data",
+        "The auditor, because the auditor did not report the missing reviews sooner",
+        "The IT (information technology) team, because the access rights are held on its systems"
+      ],
+      "correctIndex": 1,
+      "explanation": "An owner may hand over the work but keeps the accountability. The assistant is tempting, since the assistant did fail in a task, but that is responsibility for the task and not accountability for the result."
+    },
+    {
+      "prompt": "A company's asset register lists every laptop, server and phone, and nothing else. The security manager is asked what the register is MOST seriously missing. Which answer is BEST?",
+      "options": [
+        "Furniture and other office items that are physically present in each of the buildings",
+        "A column giving the color and the weight of each laptop, server and telephone in the list",
+        "The personal phones and home computers of each member of staff and of their families",
+        "Intangible assets, such as the company's data, its software licenses and its patents"
+      ],
+      "correctIndex": 3,
+      "explanation": "An inventory should cover tangible and intangible assets, and intangible ones are often worth the most. Furniture is tempting because it is an asset too, but it adds little to security compared with data, licenses and patents."
+    },
+    {
+      "prompt": "An automated network scan finds 14 devices that do not appear in the inventory. What should the security team do FIRST?",
+      "options": [
+        "Investigate each one to learn what the device is, what it does and who is responsible for it",
+        "Disconnect all 14 devices from the network at once and then destroy them as unknown equipment",
+        "Add all 14 devices to the inventory with no further checks, so that the two lists will agree",
+        "Delete the scan results, because the inventory is the approved record and takes priority"
+      ],
+      "correctIndex": 0,
+      "explanation": "Every difference must be understood before anyone acts. Disconnecting at once is tempting because unknown devices are worrying, but one of them may support something important, and destroying them would also destroy evidence."
+    },
+    {
+      "prompt": "Several departing staff have left without returning their laptops. Each time, the IT (information technology) team learns of the departure weeks later. What would BEST fix the cause?",
+      "options": [
+        "Buy laptops at a cheaper price so that each one lost costs the company rather less money",
+        "Send a stronger letter reminding former staff that laptops belong to the company",
+        "Link the human resources leaving process to equipment return and to access removal",
+        "Ask line managers to keep a spreadsheet of laptops that they think are in their own teams"
+      ],
+      "correctIndex": 2,
+      "explanation": "The cause is that the leaving process does not tell the people who collect equipment and remove access. A stronger letter is tempting, but it comes after the laptop has already gone, and it does nothing about the access that remained."
+    },
+    {
+      "prompt": "During an audit, a server is found that runs an old application. Nobody claims it, no budget covers it, and it has not been updated for years. What is the BEST next step?",
+      "options": [
+        "Switch it off right away and wipe its disks, because nobody has come forward to claim it",
+        "Leave it running untouched, because changing it could harm a process that nobody knows about",
+        "Ask the newest member of the IT (information technology) team to look after it from now on",
+        "Find out who uses the server in the business, and have management name an owner for it"
+      ],
+      "correctIndex": 3,
+      "explanation": "Without an owner, nobody can decide on its protection, its budget or its future. Wiping it is tempting because it looks like an easy way to remove the risk, but it could stop a real business process and destroy needed data."
+    },
+    {
+      "prompt": "A software maker's audit finds that a company is using 500 copies of a product but holds licenses for only 300. Staff installed the extra copies over time, and nobody kept count. Which action would BEST prevent this from happening again?",
+      "options": [
+        "Buy an additional 1,000 licenses so that the company will always have far more than it needs",
+        "Track all software and its licenses as assets in the inventory, and keep the count current",
+        "Ban all software purchases across the company until the next audit has been carried out",
+        "Uninstall the product from every computer and ask staff to find a free alternative product"
+      ],
+      "correctIndex": 1,
+      "explanation": "Licenses are intangible assets, and tracking them is what prevents the count from drifting. Buying a large surplus is tempting because it removes the shortage for now, but it wastes money and nobody would still be counting."
+    },
+    {
+      "prompt": "During an incident, responders relied on the configuration management database, a central record of assets and how they are set up. It was wrong, because recent changes were never recorded. What is the BEST corrective action?",
+      "options": [
+        "Stop using the database, and ask staff to keep their own personal notes about every system",
+        "Rebuild the database by hand once every year and keep the rest of the process just as it is",
+        "Make updating the record a required step of the change management process for every system",
+        "Buy a second database and keep a copy there so that the responders have two records to compare"
+      ],
+      "correctIndex": 2,
+      "explanation": "The cause is that changes do not update the record, so the update must become part of the change process. A yearly rebuild is tempting because it does correct the data, but the record would drift again the next day."
+    },
+    {
+      "prompt": "To save time, the help desk sets up each new employee by copying the access rights of a colleague in the same team. What is the BEST replacement for this practice?",
+      "options": [
+        "Grant only the rights that have been approved in advance for the person's defined role",
+        "Copy the rights from the most senior person on the team, so that nobody ever lacks any access",
+        "Give each new employee full access for thirty days and then remove whatever was not used by them",
+        "Keep copying rights, and ask each new employee to tell the help desk about any they do not need"
+      ],
+      "correctIndex": 0,
+      "explanation": "Rights based on an approved role follow least privilege and do not inherit a colleague's old access. Asking new staff to report extra rights is tempting because it seems to involve them, but they cannot know what they should not have."
+    }
+  ]
+}

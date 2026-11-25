@@ -1,0 +1,141 @@
+{
+  "id": "T40",
+  "studyNotes": [
+    {
+      "heading": "Subjects, objects and the two kinds of access",
+      "body": "In this first part, we will look at what access really means, and at the two kinds of control that protect everything else in this domain.\n\nAccess is a flow of information between two things. The subject is the active thing that asks. It could be a person, a program or a device. The object is the passive thing being reached, such as a file, a printer or a room.\n\nHere is an everyday picture. You walk up to a library shelf and take a book. You are the subject and the book is the object. Now a small twist. A program that reads a file is a subject. If another program then starts that first program, the first program has become the object. So the labels depend on who is asking at that moment.\n\nThere are two broad kinds of access. Physical access means a body reaches something. A door lock, a fence and a guard all control physical access. Logical access means someone reaches something through software or a network. A login, a file permission and encryption, which is scrambling data so that only key holders can read it, all control logical access. Logical controls are also called technical controls.\n\nThe two kinds depend on each other. Think about your home laptop. A strong password stops a stranger on the internet. It does little against a burglar who carries the laptop away.\n\nNow a workplace example. A company has excellent passwords on its servers, but the server room door is left open. A visitor can walk in, pull out a disk and leave. Anyone who can touch a machine can steal its disks, damage it, or start it from their own software and get around the login. Strong logical controls mean little without physical controls, and the reverse is also true. A locked room does not stop an attacker who comes in over the network.\n\nThe aim is to control access in both worlds at once, so that a failure in one does not open everything.\n\nHere is what to take away. A subject asks and an object is reached. Physical controls stop bodies, logical controls stop software and network access, and you always need both."
+    },
+    {
+      "heading": "Information, systems and devices",
+      "body": "Now we will walk through the first three of the six assets the outline names, and see how access is controlled for each one.\n\nThe outline lists six assets, and exam questions may use any of them. Here is the set.\n\n- Information.\n- Systems.\n- Devices.\n- Facilities.\n- Applications.\n- Services.\n\nStart with information, because information is usually what all the other controls are protecting. First it is classified, which means labeled by how sensitive it is. Then the owner decides who should see it, based on need to know. Technical tools carry out that decision. Encryption protects the data when it is stored and when it travels. Data loss prevention, or DLP, is a tool that watches for sensitive data leaving the organization and stops it.\n\nThink of a medical file. It needs the same protection whether it sits in a paper folder, on a server or in an email. The protection follows the information, wherever it goes.\n\nNext come systems, meaning servers, computers and the operating systems that run them. Give each person a named login, so that actions can be traced. Keep the number of administrators small. Apply hardening, which means removing or switching off anything the system does not need. A smaller system has fewer ways in.\n\nThen come devices, such as phones, laptops, printers and sensors. A device can be lost, stolen or infected, so it needs its own controls. Screen locks and disk encryption protect a device that goes missing. Mobile device management, or MDM, gives central control of phone settings, and it can erase a lost phone. Network access control, or NAC, checks that a device is allowed and healthy before it joins the network.\n\nHere is a workplace example. A sales manager's laptop is left in a taxi. Because the disk is encrypted, the customer list cannot be read. Because the laptop is managed, the company can lock it remotely. Because the login belongs to one named person, the company knows whose access to cancel.\n\nHere is your takeaway. Protect information according to its value, harden and limit systems, and treat every device as something that can be lost."
+    },
+    {
+      "heading": "Facilities, applications and services",
+      "body": "In this part we will finish the six assets, with facilities, applications and services.\n\nFacilities are buildings, floors and rooms. They are protected by fences, guards, badge readers, visitor logs and escorts. A visitor should be signed in, given a visible badge, and kept with an escort in sensitive areas. Think about visiting a friend in a hospital ward. You stop at the desk, you say who you are seeing, and you do not wander into the pharmacy.\n\nDifferent rooms need different levels of protection. A lobby can be open. The finance office needs a badge. The data center, which is the room that holds the servers, needs a badge and something more, such as a code or a fingerprint.\n\nApplications are the programs people use. Getting into an application is only the beginning. What matters next is what each person can do inside it. Applications use roles and permissions to separate these abilities. In a bank's loan program, a clerk may enter a loan, while a supervisor may approve it. The clerk cannot approve, and the supervisor should not enter and approve the same loan.\n\nServices are things one system offers another. Cloud storage is a service. So is a program that checks a credit score when another program asks. No person is typing here, so people often forget to control this access. A service needs its own identity, separate from any person. It also needs limits on what it can call. A program that only reads a price list should not hold a key that can delete the whole database. An application programming interface, or API, is the doorway one program uses to make requests of another, and those doorways need authentication and limits too.\n\nHere is a workplace example. A shop's website calls a payment service. The website has its own identity with the payment provider. That identity can request a payment, but it cannot download the list of past payments. If the website is broken into, the damage is limited.\n\nSo here is the point to take away. Facilities are protected in layers, applications control what people do once inside, and services need their own identities and narrow limits."
+    },
+    {
+      "heading": "The principles behind every access decision",
+      "body": "Now we will look at the principles that sit behind every access decision. The exam expects you to tell them apart.\n\nLeast privilege means giving only the rights the job needs, and no more. Need to know means that even if you are trusted with a level of information, you see only what your current task requires. Clearance and need to know are different things. Clearance says you are trusted to handle a certain level. Need to know says you have a reason to see this particular item.\n\nHere is an everyday picture. A hotel housekeeper has a key to the rooms on one floor, and only during a shift. That is least privilege. A bank manager may be trusted with every file, but she should not open a neighbor's account out of interest. That is need to know.\n\nSeparation of duties means splitting a sensitive task so that one person cannot complete it alone. People would then have to work together to commit fraud, which is called collusion. A person who sets up a new supplier should not also be the person who pays that supplier.\n\nDefense in depth means using layers, so that one failure does not open everything. Implicit deny means that if no rule allows the access, the answer is no. Silence is a refusal. A guest list works this way. If your name is not on it, you do not get in.\n\nNext, think about who decides. The asset owner is the senior person accountable for that asset, and the owner decides who should have access. The custodian, often a technical team, carries out that decision and keeps the controls running. Security advises and checks. Technical staff should not decide on their own who sees the payroll.\n\nHere is a workplace example. A new analyst asks for access to all customer records, because it would be convenient. The data owner approves only the one region she works on. The request is recorded, the technical team applies it, and it is checked at the next review.\n\nThe manager's view is simple. Every asset should have a named owner, and every right should have a reason.\n\nHere is what to take away. Least privilege limits what you can do, need to know limits what you can see, and the owner decides."
+    },
+    {
+      "heading": "Physical layers and what doors do when power fails",
+      "body": "In this part we will look at physical layers, and at what a door should do when the power fails, which is a favorite exam subject.\n\nThink from the outside in. Fence, gate, guard, badge door, locked room, locked rack. Each layer slows an intruder and gives you more time to notice. A castle worked the same way, with a moat, an outer wall and an inner keep.\n\nThese controls have different purposes. A fence prevents. A camera detects, and it may also deter. A guard can do all three, and can use judgment, which a machine cannot.\n\nTailgating is following someone through a secured door without using your own badge. Piggybacking is a close relative, where the person who opened the door knowingly lets you through. An access control vestibule, often called a mantrap, stops both. It is a small space with two doors, and only one door can open at a time. One person enters, the first door closes, that person is checked, and only then does the second door open.\n\nNow for power failure. A fail-safe door unlocks when the power is lost, so that people can get out. A fail-secure door stays locked when the power is lost, so that assets stay protected. Notice the trap in the words. Safe here means safe for people. Secure means secure for the assets.\n\nPeople's safety always comes first. Where people could be trapped, choose fail-safe. Then cover the added risk with alarms and cameras. A cash box or a supply cage can be fail-secure, because nobody needs to escape from it. Many secure doors also allow free exit from the inside at all times, using a push bar, while staying locked from the outside.\n\nHere is a workplace example. A company's server room has a single exit. A fire would cut the power. The door must let people out, even if that means the room is briefly unprotected. An alarm on the door tells the guards, and a camera shows who leaves.\n\nHere is your takeaway. Build physical layers from the outside in, use a vestibule to stop tailgating, and when people could be trapped, fail-safe wins every time."
+    },
+    {
+      "heading": "Worked example: one file at a bank, and the manager's view",
+      "body": "To finish, we will follow one customer file through every layer, and then see how a manager should think about all of this.\n\nA clerk at a bank needs to look up a customer's loan. Let us go through it in order.\n\n- Facility: her badge opens the door to the branch.\n- Device: the company laptop passes a health check before it joins the network.\n- System: she signs in with her own personal account.\n- Application: her role lets her view a loan, but not approve it.\n- Service: the loan application calls a credit check service, using its own identity.\n- Information: the file is labeled confidential, and it is encrypted.\n\nNow count how many separate checks had to succeed. If she left her badge at home, she would be stopped at the door. If someone stole her password, that person would still need a healthy company laptop. If the application were broken into, the credit service identity could do only a small part of the work. That is defense in depth in practice.\n\nNow think about two common failures. First, the controls exist, but no one owns them. A rule that nobody reviews slowly goes out of date. So a manager makes sure that each asset has a named owner, and that owners review who has access. Second, a control gets in the way of the work, so people go around it. Staff prop open a heavy door because they carry boxes all day. The answer is not only a stern reminder. Find out why it happens and fix the cause, perhaps with a powered door and a badge reader.\n\nWhen an exam question asks for the best action, think in this order. Are people safe? Is there a policy? Who is the owner, and have they decided? Does the control fix the real cause, or only a symptom?\n\nAlso remember that a control can be too strong for its asset. A fingerprint reader on the stationery cupboard costs more than it saves. Protection should match value.\n\nHere is what to take away. Access is checked at many layers, the owner decides, and a good manager fixes causes and matches protection to value."
+    }
+  ],
+  "practiceQuestions": [
+    {
+      "prompt": "A scheduled reporting program opens a database table and copies some rows into a file. In access control terms, what is the program during this action?",
+      "options": [
+        "The object, because it is a passive piece of software",
+        "The subject, because it is the active requester",
+        "The data owner, because it holds the table open",
+        "The custodian, because it stores the copied rows"
+      ],
+      "correctIndex": 1,
+      "explanation": "The subject is the active thing that asks for access, and a running program can be a subject. Object is tempting because software can feel like a thing, but here the table is the passive thing being reached."
+    },
+    {
+      "prompt": "An analyst holds a Secret clearance. She asks to read a Secret report from a project she has no part in, saying it would be interesting background. What should happen?",
+      "options": [
+        "Grant it, because her clearance matches the label on the report",
+        "Grant it for a limited time, and log everything that she reads",
+        "Ask the security team to review her clearance before granting it",
+        "Refuse it, because she has no need to know"
+      ],
+      "correctIndex": 3,
+      "explanation": "Clearance is not enough. She also needs a reason connected to her work, and interest is not one. Granting it because the clearance matches is tempting, but that ignores need to know."
+    },
+    {
+      "prompt": "Staff at a data center often hold the badge door open for the person behind them, and unknown people have been seen inside. Reminders have not worked. Which control BEST addresses this?",
+      "options": [
+        "An access control vestibule at the entrance",
+        "Longer retention of the footage from the door camera",
+        "A stronger type of badge with an embedded smart chip",
+        "A written warning for anyone caught holding the door open"
+      ],
+      "correctIndex": 0,
+      "explanation": "A vestibule lets one person through at a time, so following someone in becomes very hard. A stronger badge is tempting, but the problem is people entering without using a badge at all."
+    },
+    {
+      "prompt": "A contractor must repair an air conditioning unit inside a server room for one day. What is the BEST way to allow this?",
+      "options": [
+        "Lend the contractor a spare staff badge so the work is not delayed",
+        "Let the contractor work alone after signing a confidentiality agreement",
+        "Log the visit, issue a visitor badge and keep an escort present",
+        "Allow entry only outside business hours, when fewer staff are nearby"
+      ],
+      "correctIndex": 2,
+      "explanation": "A logged and escorted visit lets the work happen and keeps a record and a watchful person in the room. A confidentiality agreement is tempting, but a signature does not stop someone from touching the racks."
+    },
+    {
+      "prompt": "An online shop's website uses one key with full rights over the entire cloud account, although it only needs to read a product list. Which change is BEST?",
+      "options": [
+        "Keep the same key, but store it in an encrypted file on the web server",
+        "Keep the same key, but replace it with a new one every 30 days",
+        "Give the website its own identity that can only read that list",
+        "Require multi-factor authentication for every cloud administrator login"
+      ],
+      "correctIndex": 2,
+      "explanation": "A narrow identity applies least privilege, so a broken website can do very little. Replacing the key often is tempting, but each new key would still hold full rights over the account."
+    },
+    {
+      "prompt": "Employees have started connecting personal laptops to the office network, and some have no security updates. Which control would BEST keep unhealthy devices off the network?",
+      "options": [
+        "Network access control with a health check",
+        "A policy asking staff to update their laptops",
+        "A stronger password rule for all network accounts",
+        "An intrusion detection sensor in the server room network"
+      ],
+      "correctIndex": 0,
+      "explanation": "Network access control checks a device before it joins, and refuses it if it is not healthy. A policy is tempting and is still useful, but on its own it cannot stop an unpatched laptop from connecting."
+    },
+    {
+      "prompt": "In a purchasing application, one clerk can create a new supplier and can also approve payments to that supplier. Which change BEST reduces the risk of fraud?",
+      "options": [
+        "Review the clerk's activity at the end of each year",
+        "Require the clerk to use a longer password for the application",
+        "Move the application to a more secure server and encrypt its data",
+        "Separate creating suppliers from approving payments"
+      ],
+      "correctIndex": 3,
+      "explanation": "Separation of duties means one person cannot complete the whole sensitive task alone. A yearly review is tempting, but it only finds fraud long after the money has gone."
+    },
+    {
+      "prompt": "A new access system is being configured. A request arrives that matches no rule in the policy. How should a well-designed system respond?",
+      "options": [
+        "Allow it and write an entry in the log for later review",
+        "Refuse it, because nothing explicitly allows it",
+        "Pass it to the administrator on duty for a manual decision",
+        "Allow it only during normal business hours on weekdays"
+      ],
+      "correctIndex": 1,
+      "explanation": "Implicit deny means that if no rule allows the access, the answer is no. Asking an administrator is tempting, but it depends on one person making a choice that the policy never authorized."
+    },
+    {
+      "prompt": "A sales director asks a database administrator to give a new employee access to the customer database. The administrator is unsure whose decision this is. Who should decide?",
+      "options": [
+        "The data owner of the customer database",
+        "The database administrator who manages the system",
+        "The security team that writes the access standards",
+        "The new employee's colleagues who use the database every day"
+      ],
+      "correctIndex": 0,
+      "explanation": "The owner is accountable for the data, and so decides who should have access. The administrator is tempting because that person applies the change, but a custodian carries out decisions and does not make them."
+    },
+    {
+      "prompt": "A locked cage inside a warehouse holds spare hard drives, and nobody works inside it. The company must choose how its electronic lock behaves if the power fails. Which choice is MOST appropriate?",
+      "options": [
+        "Fail-safe, because all electronic locks must release in an outage",
+        "Fail-safe, provided that a camera records the cage door",
+        "Fail-secure, because nobody needs to escape from the cage",
+        "Remove the electronic lock and rely on the warehouse guards"
+      ],
+      "correctIndex": 2,
+      "explanation": "With no one inside, there is no life safety concern, so the assets can stay locked. Fail-safe is tempting because people's safety comes first, but that rule applies where people could be trapped."
+    }
+  ]
+}

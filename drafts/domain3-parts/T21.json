@@ -1,0 +1,141 @@
+{
+  "id": "T21",
+  "studyNotes": [
+    {
+      "heading": "Controls come from requirements",
+      "body": "In this first part, we are going to look at where security controls should come from. The answer is requirements, and not from a favourite product.\n\nA control is anything that reduces risk, such as a password rule, a guard or a backup. Imagine buying a lock for a shed. Before you go to the shop, you ask what is in the shed, who might want it, and what the insurance company requires. A garden fork needs one kind of lock. An expensive motorcycle needs another. If you buy the most impressive lock first and think later, you may have wasted your money.\n\nSystem security requirements come from several places.\n\n- Risk assessments, which tell us what could go wrong and how badly.\n- Laws and regulations.\n- Contracts with customers and suppliers.\n- Company policy.\n- Business goals.\n\nThere are two kinds of requirement, and the exam expects you to tell them apart.\n\nA functional requirement says what the control must do. For example, lock an account after five bad passwords.\n\nAn assurance requirement says how sure we are that it works. For example, an independent laboratory has tested the product.\n\nThink about buying a car. A functional requirement is that the car has airbags. An assurance requirement is that the car passed an independent crash test. The first describes what the feature does. The second tells you why you can believe it.\n\nA useful habit is to write requirements so that they can be tested. The sentence, the system must be secure, cannot be tested. The sentence, all customer data must be encrypted when stored, can be tested.\n\nHere is a workplace example. A hospital is buying a system to hold patient records. Health law says patient data must be protected. A risk assessment shows that stolen laptops are a major concern. The business needs doctors to reach records at the bedside. These facts become requirements: encrypt the data on every device, log every access, and make sure doctors can sign in within a few seconds.\n\nThe manager's mindset here is important. Security exists to support the business, so the controls have to fit how the business works.\n\nHere is what to take away. Start from requirements, separate what a control does from how sure we are that it works, and write requirements that can be tested."
+    },
+    {
+      "heading": "Baselines, scoping, tailoring and cost",
+      "body": "Now we will look at the sensible order for choosing controls, using a worked example.\n\nA good order of work is as follows.\n\n- Identify the data, and how much harm a loss would cause.\n- Assess the risks.\n- Write the security requirements.\n- Pick a baseline, which is a standard starting set of controls.\n- Scope it by removing controls that do not apply.\n- Tailor it by adjusting the rest to fit.\n- Compare cost with benefit.\n- Get management approval.\n\nThink about a recipe. The baseline is the recipe as written. Scoping is crossing out the part about nuts, because nobody in your house eats nuts. Tailoring is adjusting the amount of salt to your family's taste.\n\nFor a government system in the United States, the baseline often comes from NIST, the National Institute of Standards and Technology. Its Special Publication 800-53 lists controls, and a companion publication, 800-53B, offers low, moderate and high baselines. The level is chosen by asking how much harm a loss of confidentiality, integrity or availability would cause. Other organizations start from ISO 27001, an international standard for managing information security. ISO stands for the International Organization for Standardization.\n\nHere is the worked example. A company builds a website for staff holidays. It holds names and dates. A loss would cause moderate harm.\n\nStep one. The team starts from a moderate baseline.\n\nStep two, scoping. The baseline includes controls for wireless networks. The application has no wireless parts, so those controls are removed.\n\nStep three, tailoring. The baseline says lock accounts after a stated number of failed logins. The team sets that number to five, to fit company policy.\n\nStep four, a compensating control. The application cannot support a particular logging feature. So the team sends its records to a central logging service. A compensating control is an alternative that gives similar protection.\n\nStep five, cost. A control should not cost more than the value it protects. A control worth 2,000 dollars a year should not guard an asset that could only lose 500 dollars a year.\n\nStep six. Management reviews the result and signs its approval.\n\nWrite down every decision and the reason for it. An auditor will want to know why a control was removed.\n\nHere is your takeaway. Start with a baseline, scope out what does not apply, tailor the rest, and let management decide."
+    },
+    {
+      "heading": "Common Criteria and its three key terms",
+      "body": "Next we are going to look at how a product can be tested independently. The main international scheme is called Common Criteria.\n\nCommon Criteria, or CC, is an international standard for evaluating security products. It is published by ISO as standard 15408. Before it existed, each country had its own scheme, and a vendor might have to pay for the same test several times. Under Common Criteria, a product tested in one member country can be recognised in other member countries, usually up to a certain level.\n\nThere are three terms to learn.\n\n- Protection Profile, or PP: what a type of customer needs. It is the shopping list.\n- Security Target, or ST: what the vendor claims this product does.\n- Target of Evaluation, or TOE: the exact product and setup being tested.\n\nAn everyday picture helps here. Suppose a town council wants safe child car seats. The council publishes a list of what every seat must do. That is the Protection Profile. A manufacturer says, our seat does all of this, and also has a special side bar. That is the Security Target. The exact model of seat, fitted in the exact way described, is the Target of Evaluation. An independent laboratory then tests it.\n\nThe flow is simple. Customers state their needs in a Protection Profile. The vendor writes a Security Target. An independent laboratory tests the Target of Evaluation against the claims. The national scheme then issues a certificate.\n\nA Protection Profile is general and can apply to many products. A Security Target is specific to one product.\n\nHere is a workplace example. A government wants firewalls for its offices. A published Protection Profile for network devices describes what such a device must do. A vendor writes a Security Target claiming that its firewall meets that profile. The laboratory tests version 9 of the firewall, in the configuration described. A later version is a different Target of Evaluation until it has been tested too.\n\nCommon Criteria replaced older schemes. The older United States scheme was the Trusted Computer System Evaluation Criteria, nicknamed the Orange Book. The older European scheme was the Information Technology Security Evaluation Criteria, or ITSEC. You only need to recognise those names.\n\nHere is what to take away. The Protection Profile is the need, the Security Target is the claim, and the Target of Evaluation is the exact thing tested."
+    },
+    {
+      "heading": "Evaluation Assurance Levels in order",
+      "body": "In this part, we are going to learn the seven Evaluation Assurance Levels, in their exact order.\n\nAn Evaluation Assurance Level, or EAL, tells you how deeply a product was examined. Here is the order.\n\n- EAL1: functionally tested.\n- EAL2: structurally tested.\n- EAL3: methodically tested and checked.\n- EAL4: methodically designed, tested and reviewed.\n- EAL5: semi-formally designed and tested.\n- EAL6: semi-formally verified design and tested.\n- EAL7: formally verified design and tested.\n\nNotice the pattern in the words. Levels one and two are about testing. Levels three and four add method. Levels five and six add semi-formal work, which means structured methods that fall short of full proof. Level seven adds formal work, which means mathematical proof.\n\nThink about checking a new bridge. At the lowest level, you drive a car over it and see that it holds up. At the next level, you also look at the drawings of its structure. At the middle levels, engineers check that it was designed and built by a careful method. At the highest level, the design has been proved mathematically.\n\nLet us walk through what each one is suited to. EAL1 suits a product where some confidence is wanted, but threats are not serious. EAL2 suits a product where the developer can give limited help to the tester. EAL3 suits moderate needs, with care taken during development. EAL4 is an important one for the exam. It is generally the highest level at which it makes economic sense to test an existing product that was not specially built for evaluation. Levels five, six and seven usually require that the product was designed from the beginning with the evaluation in mind. Those higher levels are used in places such as military and intelligence systems.\n\nHere is a workplace example. A bank buys a commercial firewall rated EAL4. That is a sensible level for a product made for ordinary sale. A defence agency needs a device to separate networks of different classification. It may ask for a product rated EAL6 or above, built from the start for that purpose, and it will pay much more for it.\n\nHere is your takeaway. Learn the seven names in order, and remember that semi-formal comes before formal, and that EAL7 means the design was formally verified."
+    },
+    {
+      "heading": "What a rating does not tell you",
+      "body": "Now we will look at the limits of a rating, because the exam enjoys testing them.\n\nHere is the main trap. A higher Evaluation Assurance Level means more assurance, and not more security features. An EAL6 product may do less than an EAL4 product. A rating tells you how carefully the claims were examined, and not how impressive the claims were.\n\nThink of a restaurant inspection. A very thorough inspection of a small sandwich shop tells you that the shop is clean. It does not tell you that the shop serves a better meal than the restaurant across the road.\n\nThere are other limits as well.\n\nThe rating covers only the configuration that was tested. If you turn on a feature that was not part of the test, or apply a new version, the rating may no longer apply.\n\nThe rating applies to the stated claims. So you must read the Security Target, and check that the Protection Profile matches your needs. A strong result against the wrong profile tells you very little.\n\nA rating does not mean a product is free of flaws. New weaknesses are found after products have been tested.\n\nTwo more words matter here. Certification is the technical evaluation of a system. Authorization, which was once called accreditation, is when a senior manager formally accepts the risk and approves use. A laboratory or an assessor can certify. Only management can accept the risk. The person who signs is sometimes called the authorizing official.\n\nThis order is tested, so hold it firmly. First comes the technical evaluation, and then comes the management decision.\n\nHere is a workplace example. A city council wants a database for housing benefit. A vendor offers an EAL5 product, and points proudly at the rating. The council's security manager reads the Security Target. It turns out that the tested configuration has no network connections at all. The council needs one with network connections, so the rating does not describe what the council would really be running. The manager asks for evidence that fits the real setup.\n\nTesting by itself never replaces your own requirements. Ask whether the product solves your problem, in your setting, at a fair cost.\n\nHere is what to take away. A rating measures depth of testing against stated claims, for one exact setup, and the final decision to accept risk always belongs to management."
+    },
+    {
+      "heading": "Other kinds of assurance and a worked decision",
+      "body": "In this final part, we will look at other kinds of evidence you can use, and then walk through a full buying decision.\n\nCommon Criteria is not the only source of assurance. Assurance simply means reasons to be confident.\n\nFor cryptographic hardware and software, the United States and Canada use FIPS 140. FIPS stands for Federal Information Processing Standard. The current version is FIPS 140-3. It has four levels, numbered one to four, and they go up in strength, with level four being the highest. At the higher levels, the module must show evidence of tampering, and then actively resist it.\n\nFor service providers, you can ask for independent audit reports. A common one is the SOC 2 report. SOC stands for System and Organization Controls. It describes how well a provider's controls are designed and, in a Type 2 report, how well they worked over a period of time. You may also ask for an ISO 27001 certificate, which shows that an organization runs a proper security management system.\n\nYou can also run your own tests, such as a trial in your own environment, a vulnerability scan or a penetration test, which is an authorized simulated attack.\n\nThink about buying a used car. The maker's brochure is a claim. An official inspection certificate is independent evidence. A mechanic you hired yourself is your own test. The more you rely on the car, the more of these you want.\n\nHere is a worked decision. A water company needs a device to connect a control network to its office network.\n\nFirst, write the requirements. Only one kind of traffic may pass. Operators must log in individually. All activity must be logged. The device must be supportable for ten years.\n\nSecond, gather evidence. Product A has a higher rating, but against a profile for a different kind of device. Product B has a lower rating, against a profile that matches this use.\n\nThird, check that the tested configuration is the one the company will run.\n\nFourth, weigh the cost, including staff time and support.\n\nFifth, ask a senior manager to accept the remaining risk. Product B is the better choice.\n\nHere is your takeaway. Match the evidence to the need, use the assurance that fits the product, and let requirements lead the decision from start to finish."
+    }
+  ],
+  "practiceQuestions": [
+    {
+      "prompt": "A project team states that a new application must lock an account after five failed logins, and also that an independent laboratory must confirm this feature works. How are these two statements BEST classified?",
+      "options": [
+        "Both are functional requirements",
+        "Functional, then assurance",
+        "Assurance, then functional",
+        "Both are assurance requirements"
+      ],
+      "correctIndex": 1,
+      "explanation": "The first says what the control must do, and the second says how confident we must be. Both are functional is tempting because both sound like rules, but independent confirmation is about confidence and not about behaviour."
+    },
+    {
+      "prompt": "A company adopts a standard moderate control baseline for a new internal application. The application has no wireless components, so the team removes the wireless controls. What is this activity called?",
+      "options": [
+        "Scoping",
+        "Tailoring",
+        "Certification",
+        "Compensating"
+      ],
+      "correctIndex": 0,
+      "explanation": "Removing controls that do not apply is scoping. Tailoring is tempting because it also changes the baseline, but tailoring means adjusting the remaining controls to fit."
+    },
+    {
+      "prompt": "A sales director asks the security manager to buy a popular endpoint product because a competitor has just bought it. What should the security manager do FIRST?",
+      "options": [
+        "Arrange a free trial of the product on several laptops",
+        "Ask the competitor how well the product has worked",
+        "Confirm the budget and request a quote from the vendor",
+        "Establish the security requirements the product must meet"
+      ],
+      "correctIndex": 3,
+      "explanation": "Controls are selected to meet requirements, so the requirements come first. A trial is tempting because it is practical, but without requirements there is nothing to measure the trial against."
+    },
+    {
+      "prompt": "In a Common Criteria evaluation, which document states what a vendor claims its particular product does?",
+      "options": [
+        "Protection Profile",
+        "Target of Evaluation",
+        "Security Target",
+        "Evaluation Assurance Level"
+      ],
+      "correctIndex": 2,
+      "explanation": "The Security Target holds the vendor's claims for its product. The Protection Profile is tempting, but it states the needs of a type of customer and is not specific to one product."
+    },
+    {
+      "prompt": "Which Evaluation Assurance Level is described as methodically designed, tested and reviewed?",
+      "options": [
+        "EAL2",
+        "EAL3",
+        "EAL4",
+        "EAL5"
+      ],
+      "correctIndex": 2,
+      "explanation": "EAL4 is methodically designed, tested and reviewed. EAL3 is tempting because it is also methodical, but it is methodically tested and checked, without the design work."
+    },
+    {
+      "prompt": "Which sequence places Evaluation Assurance Level descriptions in order from LOWEST to HIGHEST?",
+      "options": [
+        "Structurally tested, functionally tested, semi-formally designed and tested",
+        "Formally verified design and tested, semi-formally designed and tested, methodically tested and checked",
+        "Functionally tested, structurally tested, methodically tested and checked",
+        "Methodically tested and checked, functionally tested, formally verified design and tested"
+      ],
+      "correctIndex": 2,
+      "explanation": "The levels begin with functionally tested, then structurally tested, then methodically tested and checked. The first option is tempting, but it reverses the two lowest levels."
+    },
+    {
+      "prompt": "A product has a Common Criteria rating for one tested setup. An administrator enables an extra remote feature that was not part of that setup. What is the MOST accurate statement?",
+      "options": [
+        "The rating may no longer describe this setup",
+        "The rating stays valid until the certificate ends",
+        "The rating now applies at one level lower",
+        "The rating covers all features of that version"
+      ],
+      "correctIndex": 0,
+      "explanation": "A rating applies only to the configuration that was evaluated. The fourth option is tempting because the product version is the same, but the Target of Evaluation is an exact setup and not just a version."
+    },
+    {
+      "prompt": "An independent assessor finishes a technical evaluation of a new system and reports several remaining risks. Who should decide whether the system may go into use?",
+      "options": [
+        "The independent assessor who carried out the work",
+        "A senior official with authority over the risk",
+        "The lead developer who best understands the design",
+        "The vendor's accredited support engineer"
+      ],
+      "correctIndex": 1,
+      "explanation": "Authorization is a management decision to accept risk. The assessor is tempting because the assessor knows the details, but certification is technical work and does not accept risk on the business's behalf."
+    },
+    {
+      "prompt": "A manager is comparing two firewalls. One is rated EAL5 and the other is rated EAL4. A colleague says the EAL5 product must have more security features. What is the BEST reply?",
+      "options": [
+        "That is right, because each level adds further required features",
+        "That is right, because higher levels also need stronger algorithms",
+        "That is wrong, because a lower number means a higher rating",
+        "That is wrong, because the level measures depth of testing"
+      ],
+      "correctIndex": 3,
+      "explanation": "A higher level means deeper evaluation, not more features. The first option is tempting because it sounds logical, but features are set by the Security Target and not by the level."
+    },
+    {
+      "prompt": "A company wants confidence in a hardware device that performs encryption, and the buyer is specifically asking how strongly the device resists physical tampering. Which standard is MOST relevant?",
+      "options": [
+        "FIPS 140",
+        "ISO 27001",
+        "NIST Special Publication 800-53",
+        "A SOC 2 Type 2 report"
+      ],
+      "correctIndex": 0,
+      "explanation": "FIPS 140 evaluates cryptographic modules, and its higher levels address tamper evidence and resistance. ISO 27001 is tempting because it is widely trusted, but it covers how an organization manages security, not the strength of a device."
+    }
+  ]
+}

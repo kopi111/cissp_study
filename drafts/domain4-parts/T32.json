@@ -1,0 +1,141 @@
+{
+  "id": "T32",
+  "studyNotes": [
+    {
+      "heading": "Why we use layers, and the seven in order",
+      "body": "In this first part, we are going to see why networks are described in layers, and then learn the seven layers in their exact order.\n\nA network conversation is a big job, and engineers split big jobs into small ones. Think about sending a parcel. One person packs it, another writes the label, another sorts it at the depot, and a driver carries it. The driver does not need to know what is in the box. The packer does not need to know the road.\n\nNetwork layers work the same way. Each layer does one job. Each layer serves the layer above it and uses the layer below it. If one layer changes, the others should keep working. That is why you can swap a copper cable for Wi-Fi, and your web browser never notices.\n\nThe OSI model is the best known map of these layers. OSI stands for Open Systems Interconnection. It is a reference model, which means it is a teaching map and not a product you install.\n\nLearn these seven layers in order, from the top down. The exam uses both the names and the numbers.\n\n- Layer 7, Application.\n- Layer 6, Presentation.\n- Layer 5, Session.\n- Layer 4, Transport.\n- Layer 3, Network.\n- Layer 2, Data Link.\n- Layer 1, Physical.\n\nA memory sentence from Layer 1 upward is this: Please Do Not Take Sweets, Pies, Apples. The first letters give you Physical, Data Link, Network, Transport, Session, Presentation and Application.\n\nWhy does a security person care? Because layers let you ask one useful question. At what level is this problem, and which control works at that level?\n\nHere is a workplace example. A company finds that someone has clipped a small device onto a cable in a wiring cabinet. A stronger password policy does nothing about that. The problem is at Layer 1, so the answer starts with a locked cabinet and regular inspection.\n\nHere is what to take away. Layers split one big job into seven small jobs. Learn the order until it is automatic, and use it to match each problem with the right control."
+    },
+    {
+      "heading": "The top three layers and their protocols",
+      "body": "Now we will walk through the top three layers, looking at what each one does and which protocols live there. A protocol is simply an agreed set of rules for communicating.\n\nLayer 7 is the Application layer. It is the doorway that programs use to reach the network. It is not the program itself. Your web browser is a program, but the rules it uses to ask for a page belong to Layer 7.\n\nHere are the main Layer 7 protocols. HTTP is the Hypertext Transfer Protocol, for web pages. SMTP is the Simple Mail Transfer Protocol, for sending email. POP3 is Post Office Protocol version 3, and IMAP is the Internet Message Access Protocol. Both are for collecting email. FTP is the File Transfer Protocol. DNS is the Domain Name System, which turns names into addresses. SSH is Secure Shell, for a protected remote login. SNMP is the Simple Network Management Protocol, for looking after devices.\n\nLayer 6 is the Presentation layer. It puts data into a form that both sides understand, much like a translator at a meeting. Its jobs are formatting, compression and encryption. Encryption means scrambling data to keep it secret. Examples are ASCII, the American Standard Code for Information Interchange, which is a code for text, and JPEG, a picture format from the Joint Photographic Experts Group.\n\nLayer 5 is the Session layer. It starts, manages and ends conversations between programs. Think of a phone call. You dial, you talk, and you hang up. Examples are RPC, which is Remote Procedure Call, and NetBIOS, the Network Basic Input Output System, an old naming and session service.\n\nA word about TLS, which is Transport Layer Security and protects web traffic. It does not fit neatly into one layer. It runs on top of Layer 4 and serves the applications above it. So on the exam, choose the best fit among the options you are given.\n\nHere is a workplace example. An attacker types harmful database commands into a web form. Every lower layer sees ordinary traffic. Only a control that reads Layer 7 content can notice the problem.\n\nYour takeaway is this. Application is the doorway, Presentation is the translator, and Session is the phone call."
+    },
+    {
+      "heading": "The bottom four layers, protocols and devices",
+      "body": "Next we will cover the bottom four layers. These are where addresses, ports and hardware live, so the exam returns to them again and again.\n\nLayer 4 is the Transport layer. It moves data from end to end and uses port numbers, which are like numbered doors into a computer. Its two main protocols are TCP, the Transmission Control Protocol, and UDP, the User Datagram Protocol.\n\nLayer 3 is the Network layer. It picks a path between networks using IP addresses. IP is the Internet Protocol. Other protocols here are ICMP, the Internet Control Message Protocol, which ping uses, and IGMP, the Internet Group Management Protocol, which manages multicast groups. IPsec, or IP Security, protects traffic at this layer. OSPF, which is Open Shortest Path First, is a routing method. Routers work here.\n\nLayer 2 is the Data Link layer. It moves data between devices on the same local network, using MAC addresses. MAC stands for Media Access Control, and a MAC address is the hardware label on a network card. It has two sublayers, Logical Link Control on top and Media Access Control underneath. Examples are Ethernet and PPP, the Point-to-Point Protocol. ARP, the Address Resolution Protocol, finds the MAC address that goes with an IP address, and it is usually placed here. Switches and bridges work here.\n\nLayer 1 is the Physical layer. It sends raw bits as electricity, light or radio. Cables, connectors, hubs and repeaters belong here. A hub simply repeats every signal out of every port.\n\nThink of a postal system. The street address on the envelope is like an IP address, because it gets the letter across the country. The name of the person inside the house is like a port number. And the local carrier who walks from door to door works like Layer 2.\n\nNow a workplace example. A hub sends all traffic to every connected computer, so anyone plugged in can read it. A switch sends each frame only to the right port. Replacing old hubs with switches therefore reduces casual eavesdropping.\n\nHere is what to take away. Ports are Layer 4, IP addresses and routers are Layer 3, MAC addresses and switches are Layer 2, and cables and hubs are Layer 1."
+    },
+    {
+      "heading": "The TCP IP model and encapsulation",
+      "body": "In this part we will compare the second model you must know, and then follow a web request down through the layers, step by step.\n\nThe TCP IP model is named after the Transmission Control Protocol and the Internet Protocol. It is the four-layer model the internet really uses. Here is how it lines up with OSI.\n\n- Application: OSI Layers 7, 6 and 5.\n- Transport: OSI Layer 4.\n- Internet: OSI Layer 3.\n- Network Access, also called Link: OSI Layers 2 and 1.\n\nNow for encapsulation. It means each layer wraps the data from above in its own header. A header is a label of control facts. Think of a letter placed in an envelope, the envelope in a mailbag, and the mailbag on a truck. Each wrapper is only for whoever handles that stage.\n\nHere is a worked example of opening a web page.\n\n- Step 1: The top layers create the request. Its name is data.\n- Step 2: Transport adds a TCP header with the source and destination ports, such as destination port 443. Its name is a segment. With UDP, it is called a datagram.\n- Step 3: Network adds an IP header with the source and destination addresses. Its name is a packet.\n- Step 4: Data Link adds a header with MAC addresses, and a trailer called the Frame Check Sequence, which detects errors. Its name is a frame.\n- Step 5: Physical sends it as bits.\n\nThe receiver reverses these steps, removing the frame wrapper first and the application data last. That is de-encapsulation. Along the way, each router removes the frame and builds a new one for the next link. The IP addresses normally stay the same from end to end, but the MAC addresses change at each hop.\n\nEncapsulation matters for security. A filter that reads only the outer header cannot see what is hidden inside, and this is how attackers smuggle data past controls.\n\nHere is a workplace thought. When a firewall log shows a blocked packet, you know it was judged at Layer 3 or above, not at the cable.\n\nThe takeaway is this. Remember four TCP IP layers, and remember data, segment, packet, frame, bits."
+    },
+    {
+      "heading": "TCP and UDP, the two transport choices",
+      "body": "Now let us look closely at the two transport protocols, because the exam loves to contrast them.\n\nTCP, the Transmission Control Protocol, is connection-oriented. That means the two sides agree to talk before any data moves. TCP numbers every byte, confirms what arrives and resends what is lost. It also slows down when the network is struggling. Think of a registered letter, which someone must sign for.\n\nTCP starts with a three-way handshake, in this exact order.\n\n- SYN, which means synchronize. The client asks to talk and offers a starting number.\n- SYN-ACK, which means synchronize-acknowledge. The server agrees, confirms that number and offers its own.\n- ACK, which means acknowledge. The client confirms the server's number, and data can begin.\n\nSYN and ACK are flags, which are single on or off switches in the TCP header. Others are FIN, which closes a connection politely, and RST, which is reset and ends it at once. PSH asks for data to be pushed along promptly, and URG marks data as urgent.\n\nUDP, the User Datagram Protocol, is connectionless. It has no handshake, no delivery check and no resending. Think of dropping a postcard in a box and hoping. Its header is only 8 bytes, while a TCP header is at least 20 bytes. So UDP is quicker and lighter.\n\nWhich uses which? Web browsing, email and file transfer use TCP, because every byte matters. Live voice, video and most DNS lookups use UDP, because a late piece of sound is useless, and a quick retry is cheaper than a long setup. DNS is the Domain Name System.\n\nThere is a security side to this. Because UDP has no handshake, a forged sender address is easy to use, and this helps certain flooding attacks. TCP's handshake makes forging harder, but it creates its own weakness, the SYN flood, which we will study later in this domain.\n\nHere is a workplace example. A call centre finds that its voice calls stutter under load. Moving voice onto TCP would make things worse, because resending old sound only adds delay.\n\nYour takeaway is this. TCP is reliable and starts with SYN, SYN-ACK, ACK. UDP is fast and makes no promises."
+    },
+    {
+      "heading": "Thinking like a manager about layers",
+      "body": "In this final part we will turn the model into decisions, because the exam asks what you would advise, and not just what you can recite.\n\nStart with the principle. Every control works at certain layers and cannot see what happens at others. Think of your home. A strong front door does nothing about a thief who climbs in through a window. A burglar alarm does nothing to stop a leaking roof. You need the right protection for each way that harm can arrive.\n\nHere is how controls line up with the layers.\n\n- Layer 1: locked cabinets, protected cable routes, and inspection.\n- Layer 2: switch port security, which limits the devices on a port, and network access checks.\n- Layers 3 and 4: packet filters, which read addresses and ports, and IPsec.\n- Layer 7: web application firewalls and application proxies, which read content.\n\nWhen a question describes an attack, first name the layer. Next, ask whether the proposed control works at that layer. If it does not, then the option is wrong, however impressive it sounds.\n\nNow a workplace example. A bank is told by an auditor that traffic between two internal systems could be read by anyone on that network segment. The team proposes a bigger firewall at the internet connection. A manager would ask three things. Where is the exposure? It is inside, between the two systems. What is the risk? Readable data in transit. What control fits? Encryption between those systems, such as TLS or IPsec. The firewall sits in the wrong place, so it would not help.\n\nDefense in depth means using controls at several layers, so that the failure of one is not the failure of all. It does not mean buying every product. A manager weighs each control against the value of what it protects and its cost, follows policy, and fixes the cause and not just the symptom.\n\nAnd always remember that safety comes first. If a network change could affect a hospital's patient monitors, that consideration comes before everything else.\n\nHere is what to take away. Name the layer, choose a control that works there, place it where the risk is, and layer your protections with judgment."
+    }
+  ],
+  "practiceQuestions": [
+    {
+      "prompt": "Users report that they can reach an internal server by typing its IP address, but not by typing its name. Which OSI layer is the MOST likely home of the failing service?",
+      "options": [
+        "Layer 7, because name lookup is an application service",
+        "Layer 3, because the server's address cannot be routed at all",
+        "Layer 2, because hardware addresses have stopped being resolved",
+        "Layer 1, because the signal on the cable has become too weak"
+      ],
+      "correctIndex": 0,
+      "explanation": "Reaching the server by IP address shows Layers 1 to 3 are working. The Domain Name System is a Layer 7 service. Layer 3 is tempting, but the working IP address rules out a routing failure."
+    },
+    {
+      "prompt": "A trainer asks a new analyst to state the data unit names as a web request travels down the stack on the sending computer. Which sequence is the MOST accurate?",
+      "options": [
+        "Data, packet, segment, frame, bits",
+        "Data, frame, packet, segment, bits",
+        "Data, segment, packet, frame, bits",
+        "Bits, frame, packet, segment, data"
+      ],
+      "correctIndex": 2,
+      "explanation": "Going down, the names are data, segment, packet, frame and bits. The last option is tempting, but that is the order on the receiving side, going up."
+    },
+    {
+      "prompt": "During a walk-through, an auditor finds that network cable runs pass through an unlocked ceiling space used by contractors. Which action BEST addresses the layer at which this exposure exists?",
+      "options": [
+        "Turn on stricter address filtering at each network router",
+        "Secure the cable route and inspect it on a regular schedule",
+        "Add a web application firewall to the main company website",
+        "Require longer and more complex passwords from every contractor"
+      ],
+      "correctIndex": 1,
+      "explanation": "Exposed cable is a Layer 1 risk, so a physical control fits. Address filtering is tempting, but a device tapped into the cable can listen without any router being involved."
+    },
+    {
+      "prompt": "A new network device decides where to send traffic by reading destination MAC addresses and learning which port each address sits behind. What is this device MOST likely to be?",
+      "options": [
+        "A router working at the Network layer",
+        "A hub repeating signals at the Physical layer",
+        "A repeater that boosts signals along a cable",
+        "A switch working at the Data Link layer"
+      ],
+      "correctIndex": 3,
+      "explanation": "Switches learn and use MAC addresses at Layer 2. A router is tempting, but routers make decisions using IP addresses at Layer 3."
+    },
+    {
+      "prompt": "A company is designing a live voice service. Sound that arrives late is useless, and small losses are acceptable. Which transport choice is the BEST fit?",
+      "options": [
+        "UDP, because it adds no handshake or resending delay",
+        "TCP, because it resends every byte that happens to be lost",
+        "ICMP, because it is the protocol that carries status messages",
+        "ARP, because it finds the fastest route between the callers"
+      ],
+      "correctIndex": 0,
+      "explanation": "UDP has no handshake and no resending, which suits live sound. TCP is tempting because it is reliable, but resending old sound only adds delay."
+    },
+    {
+      "prompt": "An analyst reviews a capture of a new connection. The client sent SYN and the server replied with SYN-ACK. What should the analyst expect to see NEXT in a normal connection?",
+      "options": [
+        "The server sends a FIN to confirm that the connection is open",
+        "The client sends an ACK to complete the handshake",
+        "The client sends a second SYN carrying its first data bytes",
+        "The server sends RST to mark the handshake as complete"
+      ],
+      "correctIndex": 1,
+      "explanation": "The order is SYN, SYN-ACK, ACK, so the client sends ACK next. RST is tempting as a closing signal, but it aborts a connection and does not complete one."
+    },
+    {
+      "prompt": "A team documents a control that works at the OSI Presentation layer and must now record it against the four-layer TCP IP model. Where does it BEST belong?",
+      "options": [
+        "The Network Access layer",
+        "The Internet layer",
+        "The Transport layer",
+        "The Application layer"
+      ],
+      "correctIndex": 3,
+      "explanation": "The TCP IP Application layer covers OSI Layers 7, 6 and 5. The Transport layer is tempting because it sits just below, but it matches only OSI Layer 4."
+    },
+    {
+      "prompt": "An application converts text into a common character format and compresses it before it is sent across a network. Which OSI layer's function does this MOST closely describe?",
+      "options": [
+        "Session",
+        "Transport",
+        "Presentation",
+        "Data Link"
+      ],
+      "correctIndex": 2,
+      "explanation": "Formatting and compression are Presentation layer functions. Session is tempting because it sits next door, but Session starts, manages and ends conversations."
+    },
+    {
+      "prompt": "A receiving computer takes in a frame from its network card and begins processing it. Which wrapper does it remove FIRST?",
+      "options": [
+        "The Data Link header and trailer",
+        "The IP header holding the addresses",
+        "The TCP header holding the ports",
+        "The application's own request header"
+      ],
+      "correctIndex": 0,
+      "explanation": "De-encapsulation works upward, so Layer 2 comes off first. The IP header is tempting because addresses seem to come first, but it sits inside the frame."
+    },
+    {
+      "prompt": "Leaders want to spend the entire network security budget on one powerful firewall at the internet connection and drop all other planned controls. What is the BEST advice from the security manager?",
+      "options": [
+        "Agree, because a single stronger device is always simpler to run",
+        "Agree, provided that the firewall vendor offers a good warranty",
+        "Advise layered controls that are matched to the risks at each level",
+        "Advise buying every available product so that no layer is left out"
+      ],
+      "correctIndex": 2,
+      "explanation": "One device cannot see every layer or every path, so controls should match the risks and be weighed against cost. Buying every product is tempting, but defense in depth still requires judgment about value."
+    }
+  ]
+}

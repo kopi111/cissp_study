@@ -1,0 +1,141 @@
+{
+  "id": "T25",
+  "studyNotes": [
+    {
+      "heading": "Goals and basic words",
+      "body": "In this first part, we are going to learn what cryptography is for, and the basic words that everything else depends on.\n\nCryptography means protecting information with mathematics. It has four main goals.\n\n- Confidentiality: only the right people can read it.\n- Integrity: we can tell whether it changed.\n- Authentication: we can check who it came from.\n- Non-repudiation: the sender cannot deny sending it.\n\nNow for the words. Think about a padlocked box. Plaintext is the readable letter you put inside. Ciphertext is what an outsider sees, which is scrambled data. A cipher, or algorithm, is the method used to scramble. The key is the secret value that controls the cipher, much like the shape of a real key.\n\nA bit is the smallest unit of computer data, a zero or a one. Key space is the number of possible keys. Each added bit doubles it. A key of 8 bits has 256 possible values. A key of 9 bits has 512.\n\nA round is one pass of scrambling inside a cipher. Work factor is the effort needed to break the cipher. Good security makes that effort far greater than the data is worth.\n\nTwo words describe what good ciphers do. Confusion hides the link between the key and the ciphertext. Diffusion spreads each plaintext bit across the output, so that changing one letter changes much of the result. Think of baking. Once the eggs are mixed in, you cannot point to them. That is diffusion.\n\nAn IV, or Initialization Vector, is a random starting value, so that the same message encrypts differently each time. XOR, short for exclusive OR, is a simple operation that combines bits. If two bits differ, the result is one. If they match, the result is zero.\n\nThere is a very important principle, known as Kerckhoffs's principle. It says the method may be public, and only the key must be secret. A lock is not safer because you hide how locks work. Published algorithms have been attacked by experts for years, which is why we trust them.\n\nIn the workplace, this means you should be wary of a vendor who says its secret encryption method is unbreakable.\n\nHere is what to take away. Know the four goals, know these words, and remember that only the key must be secret."
+    },
+    {
+      "heading": "Symmetric encryption, stream ciphers and block ciphers",
+      "body": "Now we will look at how symmetric encryption works, and at the two main kinds of cipher.\n\nSymmetric encryption means the same key locks and opens the data. Think of a shared house key. You and your friend each have a copy. So you have to get a copy to your friend safely, and you both have to look after it. That is the weakness of symmetric encryption. The key has to be shared, and that must happen securely, through what is called an out-of-band route, meaning a separate and safe channel.\n\nIts great strength is speed. Symmetric encryption is very fast, so it suits large amounts of data.\n\nThere are two kinds of symmetric cipher.\n\nA stream cipher encrypts data one bit or one byte at a time. A byte is eight bits. It mixes the data with a stream of key-based values, using XOR. Think of a conveyor belt where each item is painted as it passes. ChaCha20 is a modern example, with a 256-bit key and 20 rounds. RC4 is an old one that is broken and should not be used.\n\nA block cipher encrypts fixed-size chunks of data. Think of packing goods into boxes of one set size. DES, the Data Encryption Standard, and AES, the Advanced Encryption Standard, are block ciphers, and we will study them shortly.\n\nStream ciphers tend to suit a continuous flow of data, such as a voice call. Block ciphers suit files and stored data. In practice, block ciphers are often used in modes that make them behave like stream ciphers.\n\nA special case is the one-time pad. It cannot be broken if four conditions are all met. The key must be truly random. It must be at least as long as the message. It must be kept secret. And it must be used only once. Because the key is so long and so hard to share, the method is rarely practical.\n\nHere is a workplace example. A company wants to encrypt a 500 gigabyte backup. It uses a symmetric cipher because of the speed. The difficult part is not the encryption. The difficult part is protecting and sharing the key.\n\nHere is your takeaway. Symmetric means one shared key, and it is fast. Stream ciphers work bit by bit, and block ciphers work in fixed-size chunks."
+    },
+    {
+      "heading": "Key counts: a worked example",
+      "body": "In this part, we are going to work out how many keys a group of people needs. The exam expects you to do this quickly.\n\nIn symmetric encryption, every pair of people needs its own key. If two people share a key, a third person must not be able to read their messages. So the third person needs a different key with each of them.\n\nHere is the formula, said in words. The number of keys equals the number of people, times one less than the number of people, all divided by two.\n\nWhy divide by two? Because the key that Ana shares with Ben is the same key that Ben shares with Ana. Without the division, every pair would be counted twice.\n\nLet us start with a small family. Five people. One less than five is four. Five times four is twenty. Twenty divided by two is ten. So five people need ten keys.\n\nNow a workplace example. A team of 10 people. One less than ten is nine. Ten times nine is ninety. Ninety divided by two is forty-five. So 10 people need 45 keys.\n\nWatch how quickly this grows. For 100 people, one less is ninety-nine. One hundred times ninety-nine is nine thousand nine hundred. Divided by two, that makes 4,950 keys.\n\nIf somebody joins the group, the new person needs a key with everyone already there. So if a group of eight gets one more member, the group needs eight extra keys. You can check that. Eight people need twenty-eight keys. Nine people need thirty-six. The difference is eight.\n\nNow compare asymmetric encryption, where each person has a public key and a private key. Each person holds a pair, so the total is two keys per person. The formula, said in words, is two times the number of people. For 10 people, that is 20 keys. For 100 people, that is 200 keys. Take care if a question asks about key pairs. Ten people need ten key pairs, which are twenty keys.\n\nThis growth is why symmetric keys are hard to manage at scale. Symmetric encryption alone also cannot give non-repudiation, because both parties hold the same key. Either one of them could have written the message.\n\nHere is what to take away. Symmetric keys are the number of people, times one less, divided by two. Asymmetric keys are two for each person."
+    },
+    {
+      "heading": "DES and Triple DES",
+      "body": "Next we are going to look at the older symmetric algorithms, DES and Triple DES. You need their exact numbers.\n\nDES stands for the Data Encryption Standard. It was adopted by the United States government in the 1970s. Here are its figures.\n\n- Block size: 64 bits.\n- Key size: 56 bits. The key is written as 64 bits, but 8 of those are used for checking errors.\n- Rounds: 16.\n\nA 56-bit key was once strong enough. Computers caught up. By the late 1990s, a purpose-built machine could find a DES key in a matter of days. So DES is too weak today. It is like a bicycle lock that can now be cut in seconds.\n\nThe obvious solution was to use DES more than once. You might expect Double DES, using two keys, to give twice the strength. It does not. An attack called meet in the middle works forward from the plaintext and backward from the ciphertext, and it meets in the centre. Double DES ends up only slightly stronger than single DES, so it was never adopted.\n\nThe answer was Triple DES, often written as 3DES. Here are its figures.\n\n- Block size: 64 bits.\n- Rounds: 48, which is three times 16.\n- With three keys: 168 bits of key, but about 112 bits of real strength.\n- With two keys: 112 bits of key, and about 80 bits of real strength.\n\nThe real strength is lower than the length of the key, again because of the meet in the middle attack.\n\nTriple DES usually works by encrypting, then decrypting, then encrypting again, with different keys. That odd middle step means that if all three keys are the same, it behaves just like ordinary DES, which helped it work with older equipment.\n\nNIST, the United States National Institute of Standards and Technology, disallowed Triple DES for new encryption after the end of 2023. It may still be used to decrypt old data.\n\nHere is a workplace example. A bank discovers an old payment link that is still using Triple DES. The security manager plans a move to AES, and in the meantime records the risk and has senior management accept it.\n\nHere is your takeaway. DES has a 64-bit block, a 56-bit key and 16 rounds. Triple DES has 48 rounds, and three keys give about 112 bits of real strength."
+    },
+    {
+      "heading": "AES and other symmetric algorithms",
+      "body": "In this part, we are going to look at the modern standard, AES, and at some other names you may meet.\n\nAES stands for the Advanced Encryption Standard. It was chosen in an open competition, and adopted by the United States government in 2001. The winning design was called Rijndael. Here are the figures, and you should know them exactly.\n\nAES always has a 128-bit block. The key can be one of three lengths, and the key length sets the number of rounds.\n\n- 128-bit key: 10 rounds.\n- 192-bit key: 12 rounds.\n- 256-bit key: 14 rounds.\n\nAn easy way to remember this is that adding 64 bits to the key adds 2 rounds.\n\nHere is an everyday way of picturing what the key length does. Going from a 128-bit key to a 256-bit key is not twice as strong. Each added bit doubles the key space. So 128 more bits means the number of possible keys is multiplied by two, one hundred and twenty-eight times over. That is an unimaginably large increase.\n\nAES is fast, it is widely supported in hardware, and it is the first choice for protecting data. Nobody has found a practical attack against properly used AES.\n\nYou may also meet these algorithms. Know that they exist, and know their basic sizes.\n\n- Blowfish: 64-bit block, key from 32 to 448 bits, 16 rounds.\n- Twofish: 128-bit block, key up to 256 bits.\n- IDEA, the International Data Encryption Algorithm: 64-bit block, 128-bit key.\n- RC4: a stream cipher, now broken.\n- RC5: a block cipher with sizes that can be varied.\n\nA block of only 64 bits is a concern for large volumes of data. With so few possible block values, repeats start to appear after enough data has been encrypted. That is one more reason to prefer AES, with its 128-bit block.\n\nHere is a workplace example. A company is writing an encryption standard for new systems. It chooses AES with a 256-bit key for its most sensitive data. It forbids DES and RC4 outright. It sets a date for removing Triple DES. The standard also says who may approve an exception.\n\nThe manager's point is that algorithm choice belongs in policy.\n\nHere is what to take away. AES has a 128-bit block, and 128, 192 and 256-bit keys use 10, 12 and 14 rounds."
+    },
+    {
+      "heading": "Modes of operation",
+      "body": "In this final part, we are going to look at modes of operation. A mode says how a block cipher handles messages longer than one block. The mode matters as much as the cipher itself.\n\nHere are the modes that you need to know.\n\nECB, or Electronic Codebook. Each block stands alone. Identical plaintext blocks give identical ciphertext, so patterns show. If you encrypt a picture of a face in this mode, you can still see the outline of the face. Avoid it.\n\nCBC, or Cipher Block Chaining. Each block is mixed with the previous one before it is encrypted, and the first block is mixed with an Initialization Vector. So identical blocks no longer look alike. An error in one block affects that block and the next one. Think of a line of people, where each person whispers the previous message into the next. It cannot easily be done in parallel when encrypting.\n\nCFB, or Cipher Feedback. This turns a block cipher into something like a stream, with chaining.\n\nOFB, or Output Feedback. This is also stream-like, but errors do not spread. It generates a stream of key-based values, separately from the data.\n\nCTR, or Counter. This encrypts a counter and mixes the result with the data. It can run in parallel, which makes it fast. You must never reuse a counter value with the same key, because that can expose the data.\n\nGCM, or Galois Counter Mode. This is Counter mode with a built-in integrity check. It gives confidentiality and integrity together, and it is widely preferred. A mode that provides both is known as authenticated encryption.\n\nHere is an everyday way to hold these in mind. ECB is writing each page with the same stamp. CBC is making every page depend on the page before. CTR is numbering every page and using the number to scramble it. GCM is the same as CTR, with a tamper seal added.\n\nHere is a workplace example. A developer proposes encrypting customer records with AES in Electronic Codebook mode, because it is simple. The security reviewer points out that customers with the same postal code would produce identical encrypted blocks, which reveals patterns. The reviewer asks for Galois Counter Mode, with unique starting values.\n\nHere is your takeaway. Avoid ECB, never reuse a counter with the same key, and choose GCM when you want confidentiality and integrity together."
+    }
+  ],
+  "practiceQuestions": [
+    {
+      "prompt": "A law office of 12 partners wants each pair of partners to share its own symmetric key. How many keys are needed?",
+      "options": [
+        "24",
+        "66",
+        "132",
+        "144"
+      ],
+      "correctIndex": 1,
+      "explanation": "Twelve times eleven is 132, and 132 divided by two is 66. The answer 132 is tempting, but it forgets to divide by two, and so counts every pair twice."
+    },
+    {
+      "prompt": "A university with 50 staff replaces its symmetric scheme with public key encryption, giving each person a key pair. How many keys exist in total?",
+      "options": [
+        "100",
+        "50",
+        "1,225",
+        "2,450"
+      ],
+      "correctIndex": 0,
+      "explanation": "Each person has two keys, so 50 times 2 is 100. The answer 50 is tempting, but that is the number of key pairs and not the number of keys."
+    },
+    {
+      "prompt": "An office of eight people each share a separate symmetric key with one another. A ninth person joins and needs to communicate with everybody. How many NEW keys are required?",
+      "options": [
+        "1",
+        "9",
+        "36",
+        "8"
+      ],
+      "correctIndex": 3,
+      "explanation": "The new person needs one key with each of the existing eight. Eight people need 28 keys and nine need 36, a difference of 8. The answer 36 is tempting, but that is the new total."
+    },
+    {
+      "prompt": "A one-time pad would be unbreakable for a government courier service. Which requirement must be met for that to be true?",
+      "options": [
+        "The key is a memorable phrase changed every day",
+        "The key is random, as long as the message, and used once",
+        "The key is exactly 256 bits long and rotated each year",
+        "The algorithm is kept secret from everyone outside the service"
+      ],
+      "correctIndex": 1,
+      "explanation": "A one-time pad needs a truly random key, at least as long as the message, kept secret and never reused. Keeping the algorithm secret is tempting, but security should depend on the key alone."
+    },
+    {
+      "prompt": "A bank's standard requires AES with a 192-bit key. How many rounds will the algorithm perform?",
+      "options": [
+        "10",
+        "12",
+        "14",
+        "16"
+      ],
+      "correctIndex": 1,
+      "explanation": "A 192-bit key uses 12 rounds. The answer 16 is tempting, but that is the number of rounds in DES."
+    },
+    {
+      "prompt": "A security manager is reviewing an old system that uses DES. What are its true key size and block size?",
+      "options": [
+        "64-bit key and 56-bit block",
+        "128-bit key and 64-bit block",
+        "56-bit key and 128-bit block",
+        "56-bit key and 64-bit block"
+      ],
+      "correctIndex": 3,
+      "explanation": "DES has a 56-bit key and a 64-bit block. The first option is tempting because the key is written as 64 bits, but 8 of those are for checking errors, so the true key is 56 bits."
+    },
+    {
+      "prompt": "A vendor claims that its Triple DES product, which uses three separate keys, provides 168 bits of real strength. What is the BEST response?",
+      "options": [
+        "Accept the claim, since three keys of 56 bits make 168 bits",
+        "Reject the claim, since the real strength is 56 bits only",
+        "Correct the claim, since the real strength is about 112 bits",
+        "Correct the claim, since the real strength is about 256 bits"
+      ],
+      "correctIndex": 2,
+      "explanation": "Three keys total 168 bits, but the meet in the middle attack lowers the real strength to about 112 bits. Accepting the claim is tempting because the arithmetic looks correct, but it describes key length and not strength."
+    },
+    {
+      "prompt": "A developer encrypts an image file with a block cipher and finds that the outline of the original image can still be seen in the output. Which mode was MOST likely used?",
+      "options": [
+        "Electronic Codebook",
+        "Cipher Block Chaining",
+        "Galois Counter Mode",
+        "Output Feedback"
+      ],
+      "correctIndex": 0,
+      "explanation": "Electronic Codebook encrypts each block alone, so identical blocks look alike and patterns show. Cipher Block Chaining is tempting because it is an older mode, but its chaining hides such patterns."
+    },
+    {
+      "prompt": "An architect needs one block cipher mode that provides both confidentiality and a check that the data was not altered. Which mode is BEST?",
+      "options": [
+        "Counter mode",
+        "Cipher Feedback",
+        "Galois Counter Mode",
+        "Output Feedback"
+      ],
+      "correctIndex": 2,
+      "explanation": "Galois Counter Mode is Counter mode with a built-in integrity check. Counter mode is tempting because it is fast and related, but on its own it gives confidentiality only."
+    },
+    {
+      "prompt": "A vendor refuses to publish its encryption method, and argues that keeping the method secret is what makes the product strong. What is the BEST response?",
+      "options": [
+        "Reject the argument, as only the key should need to be secret",
+        "Accept the argument, as a hidden method is harder to attack",
+        "Reject the argument, as all keys should be published as well",
+        "Accept the argument, if the vendor signs an agreement to protect it"
+      ],
+      "correctIndex": 0,
+      "explanation": "Kerckhoffs's principle says the method may be public and only the key must be secret. A hidden method is tempting, but unreviewed methods often hide weaknesses, and secrecy is lost once anyone studies the product."
+    }
+  ]
+}

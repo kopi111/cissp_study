@@ -1,0 +1,141 @@
+{
+  "id": "T19",
+  "studyNotes": [
+    {
+      "heading": "Threat modeling",
+      "body": "In this first part, we are going to look at threat modeling, which is where secure design begins.\n\nThreat modeling means thinking about what could go wrong before it goes wrong. Imagine planning a family holiday. Before you leave, you ask what could spoil it. Someone could lose the passports. The flight could be cancelled. So you keep copies, and you buy insurance. You did not wait for the problem. You looked ahead.\n\nIn systems, we do this early in design, when a fix costs very little. We repeat it whenever the system changes. The work has four basic steps.\n\n- Decide what you are protecting, and draw how the data moves.\n- List the threats.\n- Rank the threats by risk.\n- Choose controls, and check that they work.\n\nA well-known method from Microsoft is called STRIDE. Each letter is a type of threat.\n\n- Spoofing: pretending to be someone else.\n- Tampering: changing data without permission.\n- Repudiation: denying that you did something.\n- Information disclosure: leaking data.\n- Denial of service: stopping others from using the system.\n- Elevation of privilege: gaining more power than you should have.\n\nEach threat attacks one security goal. Spoofing attacks authentication, which is proving who you are. Tampering attacks integrity. Repudiation attacks our ability to prove who did what. Disclosure attacks confidentiality. Denial of service attacks availability. Elevation attacks authorization, which is what you are allowed to do.\n\nAnother method is PASTA, which stands for Process for Attack Simulation and Threat Analysis. It has seven stages. It starts from the risk to the business, and then works toward technical detail.\n\nHere is a workplace example. A bank plans a new mobile app. The team draws the path of a payment, from the phone, to the server, to the database. At each step they ask the STRIDE questions. Could someone pretend to be the customer? Could the amount be changed on the way? They rank what they find, and they build the controls into the design.\n\nAs a manager, you want the business owner in the room, because only the owner can say what a loss would really cost.\n\nHere is what to take away. Threat model early, repeat it after changes, and know the six STRIDE threats."
+    },
+    {
+      "heading": "Least privilege and defense in depth",
+      "body": "Now we will look at two principles that limit how much damage any one failure can do.\n\nLeast privilege means that each person and each program gets only the access needed for the job, and only for as long as it is needed. Think of a house cleaner. The cleaner gets a key to the front door. The cleaner does not get the key to the safe, because cleaning does not need it.\n\nLeast privilege also applies to time. If a contractor needs access for a two week project, the access should end when the two weeks end. And it applies to software. A web application that only reads a catalogue should not connect to its database with an administrator account. If that application is broken into, the attacker gets only what the application had.\n\nPeople tend to collect access as they move between jobs. This is called privilege creep. Someone moves from sales to finance and keeps both sets of rights. Regular access reviews are how a manager finds and removes it.\n\nDefense in depth means using several different layers of protection, so that one failure does not cause a loss. A house may have a fence, a locked door, an alarm and a safe. A burglar who climbs the fence still faces the door. Each layer buys time and gives another chance of being noticed.\n\nThe layers should be different in kind. Two identical locks that open with the same key are not two layers. A good design mixes administrative controls, such as policies and training, with technical controls, such as firewalls and encryption, and physical controls, such as locks and guards.\n\nHere is a workplace example. A hospital protects patient records. A firewall filters network traffic. Staff must log in with a password and a phone code. Access is limited by job role. The database is encrypted. Activity is logged and reviewed. Staff are trained. If a thief steals a password, the phone code stops the login. If that also fails, the job role limits what can be seen, and the logs reveal it.\n\nHere is your takeaway. Give the least access for the shortest time, and never let a single control stand between an attacker and your most valuable asset."
+    },
+    {
+      "heading": "Segregation of duties and keeping it simple",
+      "body": "In this part, we will look at splitting power between people, and at why simple designs are safer.\n\nSegregation of duties, often shortened to SoD, means splitting a sensitive task so that one person cannot finish it alone. You will also hear it called separation of duties. Think about a club treasurer. One member writes the cheque, and a second member must also sign it. The treasurer cannot quietly pay herself.\n\nHere is a workplace example. In an accounts office, one clerk sets up a new supplier, and a different clerk approves payments to suppliers. If one person could do both, that person could invent a fake supplier and pay it. With the duties split, cheating needs collusion, which means two or more people working together dishonestly. Collusion is harder to arrange and easier to discover.\n\nThis principle is close to two others, so let us keep them apart. Segregation of duties splits one task between people, all of the time. Two person control means two people must act together at the moment of a critical action, such as opening a vault. Job rotation moves people between roles over time, so that hidden fraud comes to light when someone new takes over.\n\nWhat about a very small team, where there are not enough people to split the work? Then use a compensating control, which is an alternative that reduces the same risk. For example, a manager might review every payment log each week.\n\nNow to the second idea, keep it simple and small. Complex systems contain more mistakes, and they are harder to test. Think about a door with one good lock, compared with a door that has a complicated mechanism nobody understands. The more moving parts there are, the more can go wrong.\n\nSimple design also shrinks the attack surface, which is every place an attacker could try to get in. Every extra feature, open port or unused account is another door to guard. So remove what you do not need.\n\nA manager should question every added feature, and ask whether it is worth the extra risk.\n\nHere is what to take away. Split sensitive tasks so that fraud needs collusion, and keep designs small enough that you can actually check them."
+    },
+    {
+      "heading": "Secure defaults and failing securely",
+      "body": "Next, we are going to look at how a system should behave when it is first switched on, and how it should behave when it breaks.\n\nSecure defaults means a product is safe straight out of the box. Extra services are turned off. Guest access is turned off. Default passwords must be changed at first use. People have to make a choice to open things up. Think of a new bank account where online transfers are switched off until you ask for them. If you do nothing, you are still safe.\n\nThis matters because most people never change the settings they were given. Whatever the default is, that is what most systems will run with.\n\nFail securely means that when something breaks, it ends up in a safe state. If a login server crashes, nobody gets in. If a firewall, the gatekeeper of a network, fails, it blocks traffic. You will also hear this called failing closed. The same applies to software. If a program hits an error while checking permissions, the answer must be no. It must also avoid showing a detailed error message that helps an attacker.\n\nNow here is a detail that the exam tests. In physical security, two terms have exact meanings.\n\n- Fail-safe: when power is lost, the door unlocks, so that people can get out.\n- Fail-secure: when power is lost, the door stays locked, so that assets stay protected.\n\nSo the words sound similar but protect different things. Fail-safe protects people. Fail-secure protects property. Whenever people may be inside, life safety wins. A fire exit must let people out during a power failure, even though that weakens security.\n\nHere is a workplace example. A company has a records room with a magnetic door lock. The fire code requires that anyone inside can always leave. So the door releases from the inside, while an alarm sounds and a camera records who went through it. The company has kept people safe and has still detected the event.\n\nA good manager does not choose between safety and security. A good manager puts safety first, and then adds other controls to manage the risk that remains.\n\nHere is your takeaway. Start safe, fail safe, and when a door has to choose between a person and a server, the person wins."
+    },
+    {
+      "heading": "Zero trust and trust but verify",
+      "body": "In this part, we will compare two ways of thinking about trust. The older way is called trust but verify. The newer way is called zero trust.\n\nTrust but verify works like an office with a guard at the front door. Once you are past the guard, you can walk around freely. Your actions may be checked later, through logs and audits. In a network, this meant that anyone inside the company network was trusted. The danger is obvious. One stolen laptop or one tricked employee puts an attacker on the inside, where nobody is checking.\n\nZero trust means never trust, always verify. Being inside the building or the network earns you nothing. Every request is checked, every time. Who is asking? From which device? Is that device healthy and up to date? What are they asking for, and do they need it?\n\nThink about an airport. You show your passport at check-in, and again at security, and your boarding pass again at the gate. Getting through one checkpoint does not excuse you from the next.\n\nZero trust is a way of designing, and it is not a product you can buy. Be careful if a vendor tells you otherwise. NIST, the United States National Institute of Standards and Technology, describes it in Special Publication 800-207. That publication separates two jobs. A policy decision point decides whether a request is allowed. A policy enforcement point carries out that decision, by opening or closing the path.\n\nA zero trust design relies on three habits. Use strong identity checks, including multi-factor authentication, which means proving who you are in more than one way. Grant least privilege for each request. And use microsegmentation, which splits the network into very small zones, so that an intruder cannot move around freely.\n\nHere is a workplace example. A company has staff working from home and from the office. In the old design, the office network was trusted. In the new design, a laptop in the office goes through the same checks as a laptop at home. If the laptop has missing updates, access to the finance system is refused.\n\nHere is what to take away. Trust but verify checks later and trusts by location, while zero trust checks every request and never trusts by location."
+    },
+    {
+      "heading": "Privacy by design, shared responsibility and SASE",
+      "body": "In this final part, we will look at three more ideas from the outline: privacy by design, shared responsibility, and something called SASE.\n\nPrivacy by design means planning for privacy from the very start, and not bolting it on later. Collect only the data you need. Make the private choice the default. Protect the data for its whole life, and be open with people about what you do with it. Here is an everyday example. A school app that only sends homework has no reason to ask for a parent's income, so it should not ask.\n\nIn the workplace, imagine a retailer designing a loyalty scheme. The team decides to store a member number and a postcode area, and not a full address or a date of birth. They also set a date for deleting old records. Data that was never collected can never be leaked.\n\nShared responsibility means that security duties are split between parties, such as a company and its cloud provider. It is like renting a flat. The landlord keeps the building sound. You lock your own door. Write the split down in the contract, so that nobody assumes the other side is doing it. Gaps usually appear where each side thought the other was responsible. Even when a task is handed over, the company stays accountable for its own data.\n\nNow to SASE, which is usually said as sassy. It stands for Secure Access Service Edge. It joins networking and security into one service delivered from the cloud, close to the user. It combines these parts.\n\n- Software-defined wide area networking, which makes smart links between sites.\n- A secure web gateway, which filters web traffic.\n- A cloud access security broker, which controls the use of cloud applications.\n- A firewall delivered as a service.\n- Zero trust network access, which checks each connection.\n\nImagine a company with forty small branches and many people working from home. In the past, all traffic had to travel back to head office to be inspected. With SASE, each user connects to a nearby cloud point, and the security is applied there.\n\nAs a manager, ask for these principles at the start of a project, and get leadership support for them in policy.\n\nHere is your takeaway. Design privacy in, write responsibilities down, and think of SASE as networking and security delivered together from the cloud."
+    }
+  ],
+  "practiceQuestions": [
+    {
+      "prompt": "A project manager plans to carry out threat modeling on a new payroll application six months after it goes live, so that real attacks can guide the work. What should the security manager advise?",
+      "options": [
+        "Keep the plan, because live attack data is the most accurate source",
+        "Skip the exercise, because a penetration test will cover the same ground",
+        "Begin during design, and repeat it whenever the system changes",
+        "Hand the exercise to the vendor and ask for a signed statement"
+      ],
+      "correctIndex": 2,
+      "explanation": "Threat modeling belongs early in design, when fixes are cheap, and it is repeated after changes. Waiting for live attack data is tempting, but by then the design flaws are already built in and costly to fix."
+    },
+    {
+      "prompt": "While buying goods from an online shop, a customer intercepts the web request on its way to the server and lowers the price field. Which STRIDE threat BEST describes this?",
+      "options": [
+        "Tampering",
+        "Spoofing",
+        "Repudiation",
+        "Elevation of privilege"
+      ],
+      "correctIndex": 0,
+      "explanation": "Changing data without permission is tampering. Elevation of privilege is tempting because the customer got something they should not have, but no extra rights were gained. The data itself was altered."
+    },
+    {
+      "prompt": "A help desk analyst must cover a colleague's password reset duties for two weeks. Which approach BEST applies least privilege?",
+      "options": [
+        "Add the analyst to the administrators group until the colleague returns",
+        "Let the analyst use the colleague's account for the two weeks",
+        "Copy every permission the colleague holds to the analyst permanently",
+        "Grant only the password reset right, with a fixed end date"
+      ],
+      "correctIndex": 3,
+      "explanation": "Least privilege means only the access needed, for only as long as needed. Adding the analyst to the administrators group is tempting because it is quick, but it grants far more power than the task requires."
+    },
+    {
+      "prompt": "An audit finds that one clerk in a purchasing team can both create new suppliers and approve payments to them. What is the BEST corrective action?",
+      "options": [
+        "Assign supplier creation and payment approval to different people",
+        "Require the clerk to change their password every thirty days",
+        "Send the clerk on an ethics course and record that they attended",
+        "Encrypt the supplier table inside the purchasing database"
+      ],
+      "correctIndex": 0,
+      "explanation": "Splitting the two duties means fraud would need collusion. Ethics training is tempting because it addresses behaviour, but it leaves one person able to create and pay a fake supplier."
+    },
+    {
+      "prompt": "A vendor ships a network device with remote administration switched on, a guest account enabled and a published default password. Which design principle does this MOST clearly break?",
+      "options": [
+        "Defense in depth",
+        "Secure defaults",
+        "Segregation of duties",
+        "Shared responsibility"
+      ],
+      "correctIndex": 1,
+      "explanation": "A product should be safe when first switched on, with extras turned off. Defense in depth is tempting because more layers would help, but the direct fault is the unsafe starting state."
+    },
+    {
+      "prompt": "A door on a building's emergency escape route is designed to unlock automatically whenever electrical power is lost. Which term describes this behaviour?",
+      "options": [
+        "Fail-secure",
+        "Secure by default",
+        "Fail-safe",
+        "Least privilege"
+      ],
+      "correctIndex": 2,
+      "explanation": "Fail-safe means the door unlocks on power loss, so that people can escape. Fail-secure is tempting because the word secure sounds right, but that term means the door stays locked to protect assets."
+    },
+    {
+      "prompt": "An attacker tricks one employee and gets past the company's single strong firewall. Nothing else stands in the way, and the attacker reads every file server. Which principle was MOST lacking?",
+      "options": [
+        "Privacy by design",
+        "Secure defaults",
+        "Trust but verify",
+        "Defense in depth"
+      ],
+      "correctIndex": 3,
+      "explanation": "One control failed and nothing stood behind it, which is what layered defense prevents. Trust but verify is tempting, but it is the older model that trusts people inside the network, which is part of this problem."
+    },
+    {
+      "prompt": "A hospital wants to adopt a zero trust approach for its patient records application. Which design BEST reflects that approach?",
+      "options": [
+        "Staff on the hospital network connect without a further login",
+        "Each request is checked for user, device health and need",
+        "All remote staff connect through one large virtual private network",
+        "Logs are reviewed every month to look for unusual access"
+      ],
+      "correctIndex": 1,
+      "explanation": "Zero trust verifies every request and gives location no credit. The monthly log review is tempting because checking is good, but checking later is the trust but verify model."
+    },
+    {
+      "prompt": "A fitness app needs only step counts to work, but the marketing team also wants each user's home address and employer collected in case they are useful later. What should the security manager recommend?",
+      "options": [
+        "Collect only the data the service actually needs",
+        "Collect all of it, but encrypt it while it is stored",
+        "Collect all of it, and explain this in the privacy notice",
+        "Collect it for one year, and review its usefulness after that"
+      ],
+      "correctIndex": 0,
+      "explanation": "Privacy by design means collecting only what is needed. Encrypting everything is tempting because it sounds protective, but the safest data is data that was never gathered."
+    },
+    {
+      "prompt": "A company has many small branches and a large number of home workers. It wants network links, web filtering, a firewall and zero trust access delivered together from the cloud, close to each user. Which approach BEST fits?",
+      "options": [
+        "A second data centre with extra firewalls",
+        "A virtual private network back to head office",
+        "A public key infrastructure for every branch",
+        "Secure Access Service Edge"
+      ],
+      "correctIndex": 3,
+      "explanation": "SASE combines networking and security in one cloud-delivered service near the user. A virtual private network is tempting because it serves remote staff, but it sends traffic back to one place and does not provide the combined service."
+    }
+  ]
+}

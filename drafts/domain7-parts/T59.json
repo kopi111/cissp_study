@@ -1,0 +1,141 @@
+{
+  "id": "T59",
+  "studyNotes": [
+    {
+      "heading": "Firewalls and the rule that ends every list",
+      "body": "In this first part, we are going to look at firewalls, which control what traffic may pass between networks.\n\nA firewall works much like a guard at a gate. The guard has a list of who may come in, and turns away everyone else. A firewall's list is made up of rules, and they are read from the top. The last rule should be implicit deny, which means that anything not clearly allowed is blocked.\n\nFirewalls come in several kinds, and the outline names next-generation, web application and network firewalls.\n\nStart with the simple ones. A static packet filter checks addresses and ports only. A port is a numbered doorway to a program. It is fast but simple, and it does not understand the conversation.\n\nStateful inspection remembers each conversation, so it knows whether a reply belongs to a real request. Think of a receptionist who remembers that you made an appointment.\n\nAn application proxy stands between the two sides, and it understands one application in detail. Think of a translator who speaks to each side, so that the two sides never speak directly.\n\nAn NGFW, or next-generation firewall, adds awareness of applications and users, plus built-in intrusion prevention. It can allow a video call while blocking file sharing, even if both use the same port.\n\nA WAF, or web application firewall, protects websites from attacks such as SQL injection. SQL, or Structured Query Language, is used to talk to databases, and in this attack bad commands are typed into a web form.\n\nA network firewall protects a whole network. A host-based firewall protects one computer.\n\nWhere you place a firewall matters. A common design is a DMZ, or demilitarised zone, also called a screened subnet. This is a separate network area that holds the public-facing servers, so that the outside world never reaches the internal network directly.\n\nHere is a workplace example. A retailer places a WAF in front of its online shop, puts the web servers in a DMZ, and uses an NGFW between that zone and its internal systems. It also reviews the rules every quarter, because old rules that nobody remembers are a common weakness.\n\nHere is what to take away. Every firewall should end with implicit deny, and each type understands more than the type before it."
+    },
+    {
+      "heading": "Intrusion systems, allow lists and deny lists",
+      "body": "Now we will look at intrusion systems as preventive and detective controls, and at how lists are used to allow or deny.\n\nAn IDS, or intrusion detection system, is a detective control. It watches and raises an alert. An IPS, or intrusion prevention system, is a preventive control. It sits in the path of the traffic and blocks.\n\nThink of a nightclub. A camera on the wall is like an IDS. It records and alerts, but it cannot stop anybody. A door attendant is like an IPS, because that person can actually refuse entry.\n\nIf an IPS makes a mistake, it can block real work, so tune it carefully. Tuning means adjusting the rules to fit your own environment. Often, a new IPS is first set to alert only, for a few weeks, so that the team can see what it would have blocked. Only then is blocking switched on.\n\nAn allow list names what is permitted, and blocks everything else. A deny list names what is blocked, and permits everything else. Older books call these whitelists and blacklists.\n\nThink of a party. An allow list is a guest list at the door. A deny list is a list of people who are banned, and everyone else may walk in.\n\nThe important difference is what happens to something new and unknown. With an allow list, it is blocked by default. With a deny list, it is permitted until someone adds it to the list. So an allow list is usually stronger. But it takes more work to keep up to date, and mistakes can stop people from working.\n\nHere is a workplace example. A hospital uses an allow list on the computers that run its medical imaging machines. Those machines run only a few programs, which rarely change, so an allow list is simple to maintain and very strong. On the general office laptops, where staff need a broad range of tools, the hospital relies on anti-malware and a deny list of known bad sites.\n\nThat example shows how the manager chooses. An allow list suits a stable and sensitive system. A deny list suits a changing environment where flexibility matters.\n\nHere is your takeaway. An IDS detects and an IPS prevents, and an allow list blocks the unknown while a deny list permits it."
+    },
+    {
+      "heading": "Third-party security services",
+      "body": "Next we are going to look at third-party security services, which means paying another company to help with security.\n\nThink about home security. You could sit up every night watching your own door. Or you could pay a monitoring company whose staff watch the alarms all the time, and call you only when something happens. Most businesses face the same choice.\n\nThese are the main services to recognise.\n\nAn MSSP, or managed security service provider, can watch your systems around the clock, and can run tools for you.\n\nA CASB, or cloud access security broker, sits between your staff and cloud services, and applies your rules. For example, it can stop staff from uploading sensitive files to a personal cloud account.\n\nOther services include outside scanning for weaknesses, penetration testing, which is an authorised attempt to break in, and SASE, or secure access service edge, which delivers network and security functions from the cloud. DDoS protection is another common service. DDoS means distributed denial of service, where large numbers of computers flood a target so that it stops working.\n\nThese services bring skill and working hours that you may not have. A small company could never afford its own team working through every night. A provider spreads that cost among many customers.\n\nThere are risks too. You are giving an outside company access to sensitive information, so that company becomes part of your own attack surface, meaning the set of ways in which you can be attacked. It may also not know your business as well as your own staff do.\n\nSo a good manager takes these steps. Check the provider's security before you sign, often using an independent audit report. Use a contract and an SLA, or service level agreement, which sets out the written promises from the provider. Agree who does what during an incident. Agree how quickly they must tell you about a problem. Then check that the provider actually meets the agreement.\n\nHere is a workplace example. A small insurance firm hires an MSSP for night-time monitoring. When an alert appears, the provider calls a named person at the firm, who decides what to do about the business systems.\n\nHere is what to take away. You can outsource the work, but you stay accountable, so choose carefully and verify."
+    },
+    {
+      "heading": "Sandboxing",
+      "body": "In this part, we will look at sandboxing, which lets you find out what something does without letting it do any real harm.\n\nA sandbox is a closed, safe space for running suspicious software. Think of a child's sandbox in a park. Whatever gets built or knocked over inside the box stays inside the box.\n\nSecurity teams use a sandbox to see what a file really does. Does it try to contact a strange address? Does it try to change system files? Does it start encrypting things? Anti-malware tools looking for known patterns can miss a new file. Watching what it does in a sandbox can reveal the danger.\n\nThere are two common uses.\n\nThe first is as a security tool. Email gateways and network devices may send suspicious attachments to a sandbox automatically, before delivering them to staff. An email gateway is a system that checks mail on its way into an organisation.\n\nThe second is as part of normal application design. Web browsers and mobile phones run each program or page in its own confined space. If one part is attacked, the damage is held inside that space, away from the rest of the device.\n\nA sandbox is often built using virtualisation. Virtualisation means running a software-based computer on top of real hardware. Because that virtual machine can be restored to a clean state within seconds, it is ideal for testing harmful files.\n\nThere is a limit to this. Clever malware can sometimes tell that it is being watched, and it behaves innocently until it reaches a real computer. It might wait an hour, or it might check for signs of a real user, such as mouse movement. So a clean result from a sandbox does not prove that a file is safe.\n\nThe sandbox must also be kept apart from the production network. Production means the systems that the business really uses. If it is connected, a harmful file could escape.\n\nHere is a workplace example. A law firm receives an invoice attachment from an unknown sender. The email gateway opens it in a sandbox, and sees it reach out to a suspicious address and try to download more code. The message is quarantined, and it never reaches the staff member.\n\nHere is your takeaway. A sandbox shows what a file does, safely, but a clean result is not a guarantee."
+    },
+    {
+      "heading": "Honeypots and honeynets",
+      "body": "Now we are going to look at honeypots and honeynets, which are traps built to attract attackers.\n\nA honeypot is a fake system built to attract attackers. A honeynet is a whole network of honeypots. Think of leaving a small jar of honey in a garden shed, well away from the picnic, so that the wasps gather there and you can watch them.\n\nThe key idea is simple. No real user has any reason to touch a honeypot. So any visit to it is suspicious. That gives a very clean signal, with few false alarms.\n\nHoneypots have three main purposes. They help you to detect attackers who have already got inside. They help you to learn attackers' methods and tools. And they waste attackers' time, which keeps them away from the real targets.\n\nThere is also a smaller version of the same idea. A honeytoken is a piece of fake data, such as a made-up account or a false customer record. If anyone ever uses it, you know that someone has been where they should not be. A pseudo flaw is an apparent weakness placed on purpose to attract and distract an attacker.\n\nThese traps must be run carefully.\n\nKeep them apart from real systems. If an attacker takes over the honeypot, it must not become a stepping stone to something that matters.\n\nHold no real data on them. Fake data is enough.\n\nStay on the legal side. Enticement means leaving something available for someone who is already looking to attack, and that is allowed. Entrapment means persuading someone to commit a crime that they would not otherwise have committed, and that is not allowed. So a honeypot that simply exists is fine. Advertising it on criminal forums with a promise of free data is a problem.\n\nA manager should also get legal advice and approval before setting up a honeypot, and also check how the evidence might be used.\n\nHere is a workplace example. A bank places a fake database on a small isolated segment of its internal network. It holds invented customer names. An alert fires when an internal account tries to read it, which reveals a stolen account that no other tool had noticed.\n\nHere is what to take away. Any visit to a honeypot is suspicious, keep it isolated, and remember that enticement is legal and entrapment is not."
+    },
+    {
+      "heading": "Anti-malware, machine learning and layering",
+      "body": "In this final part, we will look at anti-malware tools, at machine learning and artificial intelligence based tools, and at why no single tool is enough.\n\nMalware is harmful software. It includes viruses, worms, trojans and ransomware. Anti-malware finds it and removes it.\n\nSignature-based tools match known malware, so they need frequent updates. Heuristic tools look at how a program behaves, so they can find new malware, but they make more mistakes. EDR, or endpoint detection and response, goes further. It records what happens on a computer and allows a team to investigate and respond. An endpoint is a device that people use, such as a laptop.\n\nThink of a doctor. A blood test for one known disease is like a signature. Noticing that a patient looks unwell, even without knowing why, is like a heuristic.\n\nAnti-malware works best at several layers, such as the email gateway, the web gateway and the user's computer. It also pays to use more than one vendor in different layers, so that one vendor's blind spot is less likely to matter.\n\nMachine learning tools are trained on large amounts of data, so that they can spot unusual patterns. Artificial intelligence is the broader field of systems that perform tasks calling for judgement. These tools help with scale, because no person can read millions of events.\n\nThey do have limits. Learn these, because the exam likes them.\n\n- They are only as good as their training data.\n- They can give false alarms, or miss real attacks.\n- Attackers may try to poison the data that they learn from.\n- Attackers can use the same techniques to improve their own attacks.\n- Their decisions may be hard to explain.\n\nPeople must still review and decide. A manager should not buy such a tool because of its marketing. Test it against your own data and measure the results.\n\nFinally, all of these measures are layered, and this is called defence in depth. Think of a house with a fence, a locked door, an alarm and a dog. If one fails, the next one is still there.\n\nHere is a workplace example. A company blocks known bad attachments at the email gateway, uses EDR on its laptops, uses machine learning to flag strange logins, and has analysts confirm the alerts.\n\nHere is your takeaway. Combine signatures with behaviour, keep people in the loop, and never rely on a single layer."
+    }
+  ],
+  "practiceQuestions": [
+    {
+      "prompt": "A company reviews its firewall rules. An auditor asks what should happen to traffic that does not match any rule. Which answer is BEST?",
+      "options": [
+        "It should be logged and then allowed through",
+        "It should be sent to the most recently used server",
+        "It should be blocked by an implicit deny rule",
+        "It should be allowed only during working hours"
+      ],
+      "correctIndex": 2,
+      "explanation": "Anything not clearly allowed should be blocked. Logging and allowing is tempting because it leaves a record, but it still lets unknown traffic through."
+    },
+    {
+      "prompt": "An online shop's main concern is attackers typing harmful database commands into its order form. Which control is designed for this problem?",
+      "options": [
+        "A web application firewall",
+        "A static packet filter",
+        "A full-disk encryption product",
+        "A virtual private network"
+      ],
+      "correctIndex": 0,
+      "explanation": "A web application firewall inspects web requests for attacks such as SQL injection. A packet filter is tempting because it is a firewall, but it checks only addresses and ports and cannot read the form's content."
+    },
+    {
+      "prompt": "A hospital's imaging workstations run the same three programs and rarely change. The hospital wants the STRONGEST protection against unknown malware on them. What should it choose?",
+      "options": [
+        "A deny list of all known bad programs and files",
+        "A longer password policy",
+        "A monthly vulnerability scan",
+        "An allow list of the approved programs"
+      ],
+      "correctIndex": 3,
+      "explanation": "An allow list blocks anything not named, including new malware, and it is easy to maintain on stable systems. A deny list is tempting because it needs less setup, but unknown malware is not on it."
+    },
+    {
+      "prompt": "A company is about to install a new intrusion prevention system in front of its main application. What is the BEST way to introduce it without disrupting the business?",
+      "options": [
+        "Enable blocking on all rules from the first day",
+        "Run it in alert-only mode first and tune the rules",
+        "Put it behind the application, where it sees no traffic",
+        "Install it and leave the vendor's default settings forever"
+      ],
+      "correctIndex": 1,
+      "explanation": "Alert-only mode shows what would have been blocked, so rules can be tuned before they stop real work. Blocking from day one is tempting for immediate protection, but false blocks could stop the business."
+    },
+    {
+      "prompt": "A company wants staff to be blocked from uploading sensitive files to personal cloud storage accounts while allowing use of the approved cloud service. Which service BEST meets this need?",
+      "options": [
+        "A cloud access security broker",
+        "A managed backup provider",
+        "A warm recovery site",
+        "A hardware security module"
+      ],
+      "correctIndex": 0,
+      "explanation": "A cloud access security broker applies company rules to the use of cloud services. A managed backup provider is tempting because it is a cloud-related service, but it copies data for recovery and does not control uploads."
+    },
+    {
+      "prompt": "A company hires a managed security service provider to monitor its network. Which action is MOST important for the company's security manager after signing the contract?",
+      "options": [
+        "Remove the company's own incident response plan",
+        "Hand over all accountability for the company's security to the provider",
+        "Regularly check the provider's performance against the agreement",
+        "Stop reviewing any of the alerts that are received"
+      ],
+      "correctIndex": 2,
+      "explanation": "The company stays accountable, so it must verify that the promises are met. Handing over accountability is tempting because the work has moved, but accountability cannot be outsourced."
+    },
+    {
+      "prompt": "A suspicious attachment passes through a sandbox and shows no harmful behaviour. A week later, it is found to be malware. What is the MOST likely reason?",
+      "options": [
+        "The sandbox was connected to the printer",
+        "The malware detected the sandbox and delayed its behaviour",
+        "The file was too small for a sandbox to examine",
+        "The sandbox had been given too much memory"
+      ],
+      "correctIndex": 1,
+      "explanation": "Some malware waits or checks for signs that it is being watched. File size is tempting as a simple technical reason, but small files are examined as well, and size would not hide behaviour."
+    },
+    {
+      "prompt": "A company wants a fake account name placed in its directory so that any attempt to use it reveals an intruder. What is this called?",
+      "options": [
+        "A service account",
+        "A sandbox",
+        "A honeynet",
+        "A honeytoken"
+      ],
+      "correctIndex": 3,
+      "explanation": "A honeytoken is a piece of fake data whose use signals an intruder. A honeynet is tempting because it is also a trap, but it is a network of fake systems and not a single fake item."
+    },
+    {
+      "prompt": "A security team plans to place a honeypot on the same network segment as its finance servers, so that it looks realistic. What is the MAIN concern?",
+      "options": [
+        "It could be used by an attacker as a stepping stone to real systems",
+        "It might slow down the finance team's printers",
+        "It might make the finance servers look less attractive",
+        "It would require a different brand of anti-malware"
+      ],
+      "correctIndex": 0,
+      "explanation": "A honeypot must be kept apart from real systems, so that a compromise cannot spread. The finance servers looking less attractive is tempting because that is partly the idea, but the danger of exposing real systems is the serious issue."
+    },
+    {
+      "prompt": "A vendor claims that its new machine learning tool will remove the need for security analysts. What is the BEST response from a security manager?",
+      "options": [
+        "Buy it and reduce the security team straight away",
+        "Reject it, because such tools never produce useful results",
+        "Replace all of the other security tools with this single new product",
+        "Test it on company data and keep people reviewing its results"
+      ],
+      "correctIndex": 3,
+      "explanation": "These tools can help with scale, but they need testing and human review. Rejecting it is tempting if you distrust the claim, but the tools do have real value when used properly."
+    }
+  ]
+}

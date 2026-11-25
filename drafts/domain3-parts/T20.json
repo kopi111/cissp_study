@@ -1,0 +1,141 @@
+{
+  "id": "T20",
+  "studyNotes": [
+    {
+      "heading": "What a model is, and the two ideas underneath",
+      "body": "In this first part, we are going to look at what a security model actually is, and at two ideas that sit beneath many of the models.\n\nA policy says what we want. A security model turns that goal into exact rules. A system is then built to follow those rules. Think of a family rule that says the children must be safe online. That is the policy. The model is the precise set of rules: this child may visit these sites, at these times, and no others.\n\nTwo words appear everywhere in this topic. A subject is an active thing, such as a person or a program. An object is a passive thing, such as a file. Subjects act on objects.\n\nNow, a model is not software you can install. It is a design idea. A security architect uses it to decide how a system should behave.\n\nThe first underlying idea is the state machine model. A state is a snapshot of a system at one moment. The model says this. If a system starts in a secure state, and every change keeps it in a secure state, then the system is always secure. Think of a bank vault with a rule that the door can only move from locked to open when two managers are present. If it starts locked, and every change obeys the rule, it can never reach an unsafe condition. Bell-LaPadula, which we will meet next, is built on this idea.\n\nThe second idea is the lattice model. A lattice is a grid of levels. Every subject and every object has a place on it. For each pair, there is a highest level that the subject can reach, called the upper bound, and a lowest level, called the lower bound.\n\nIn the workplace, imagine a government office with levels called Confidential, Secret and Top Secret. An officer cleared for Secret has Secret as the upper bound for reading. The grid gives an exact answer to the question: may this subject touch this object?\n\nA simpler tool that you will also see is the access control matrix. It is a grid with subjects down the side and objects across the top. Each cell lists the allowed actions.\n\nHere is what to take away. A model turns a goal into exact rules, a subject acts on an object, and a state machine starts secure and stays secure."
+    },
+    {
+      "heading": "Bell-LaPadula: keeping secrets",
+      "body": "Now we will look at the first model you must know exactly, which is Bell-LaPadula.\n\nBell-LaPadula protects confidentiality, which means keeping secrets. It came from military needs in the 1970s. It is a state machine model that uses levels, and it is mainly about how information can move between those levels. It has these rules.\n\n- Simple security property: no read up. You may not read above your level.\n- Star property: no write down. You may not write to a lower level.\n- Strong star property: you may read and write only at your own level.\n- Discretionary security property: an access table also controls who may do what.\n\nLet us take the first two slowly, because they are the most tested.\n\nNo read up is the obvious one. A person cleared for Secret must not read Top Secret. Think of a junior employee who must not open the directors' salary file.\n\nNo write down is less obvious. Why stop someone writing to a lower level? Because a person at a high level could copy a secret into a low level document, where lower-cleared people could read it. It also stops a malicious program, running with a high level user's rights, from quietly leaking secrets downward.\n\nSo you may be surprised to learn that writing up is allowed. A junior officer may write a report for a senior officer. Information moves upward, which is safe for secrecy. The junior officer may not then read it back.\n\nA word about exceptions. A trusted subject is a carefully controlled process that is allowed to break the star property, for example to declassify a document that is no longer secret.\n\nHere is a workplace example. An analyst at the Secret level opens a Secret report and tries to paste a paragraph into a Confidential memo. The system refuses, because that would be writing down.\n\nNow the limits. Bell-LaPadula handles confidentiality only. It says nothing about integrity, so someone at a low level could write nonsense into a high level file. It also says nothing about availability.\n\nHere is your takeaway. Bell-LaPadula keeps secrets. Simple means no read up, and star means no write down. Remember too that simple is always about reading, and star is always about writing."
+    },
+    {
+      "heading": "Biba, the star rules and a worked comparison",
+      "body": "Next we will look at Biba, and then we will put it side by side with Bell-LaPadula, so that you never mix them up.\n\nBiba protects integrity, which means keeping data correct. Its rules are the opposite of the rules we have just learned. It has these rules.\n\n- Simple integrity property: no read down. Do not rely on less trusted data.\n- Star integrity property: no write up. Do not spoil more trusted data.\n- Invocation property: a subject may not call on a subject at a higher integrity level.\n\nHere is an everyday way of thinking about it. You are a doctor. You should not base your treatment on a rumour from a social media post. That is no read down. And a patient's neighbour must not be allowed to write in the patient's medical chart. That is no write up.\n\nIn the workplace, picture a company's finance system. The official ledger has high integrity. A spreadsheet emailed around by staff has low integrity. Under Biba, the ledger process must not read figures from that spreadsheet, and a staff member at a low integrity level must not write directly into the ledger.\n\nThe outline also mentions the Star Model. Study it as these star rules, which are the rules that control writing in both models.\n\nNow the worked comparison. Sam works at the Medium level. There are also Low and High levels.\n\nUnder Bell-LaPadula, Sam may read Low and Medium. Sam may not read High. Sam may write Medium and High. Sam may not write Low.\n\nUnder Biba, Sam may read Medium and High. Sam may not read Low. Sam may write Medium and Low. Sam may not write High.\n\nThis is a useful way to hold it in mind. Secrets must not travel down. So in Bell-LaPadula, you can look down and you can write up. Dirt must not travel up. So in Biba, you can look up and you can write down.\n\nBoth models leave things out. Neither handles availability. Bell-LaPadula ignores integrity, and Biba ignores confidentiality. Biba also deals only with stopping unauthorized people from changing data. It does not stop authorized people from making improper changes.\n\nHere is what to take away. Bell keeps secrets, with no read up and no write down. Biba keeps data correct, with no read down and no write up."
+    },
+    {
+      "heading": "Clark-Wilson: integrity through approved programs",
+      "body": "In this part, we will look at Clark-Wilson, the integrity model most suited to business systems.\n\nClark-Wilson says that users must never touch important data directly. They must go through an approved program. Think of a bank. You cannot walk into the vault and change your balance. A teller uses the banking system, and that system follows rules. You are the subject, the banking software is the program, and your balance is the object.\n\nThat link of three is called the access triple: subject, program, object. It is the phrase to remember.\n\nClark-Wilson has its own vocabulary, and the exam may use it.\n\n- CDI, or Constrained Data Item: protected data, such as an account balance.\n- UDI, or Unconstrained Data Item: unchecked data, such as text typed by a user.\n- TP, or Transformation Procedure: the approved program that changes data.\n- IVP, or Integrity Verification Procedure: a check that the data is still correct.\n\nIt also enforces two practices. The first is well-formed transactions. A well-formed transaction takes data from one correct state to another correct state. Moving money means taking it from one account and adding it to another, and both halves must happen. The second is separation of duties, so that the person who enters a change is not the person who approves it.\n\nClark-Wilson goes further than Biba. It works toward three integrity goals.\n\n- Prevent unauthorized users from making changes.\n- Prevent authorized users from making improper changes.\n- Keep the data consistent, inside the system and with the real world.\n\nBiba deals only with the first goal. This is a frequent exam distinction.\n\nHere is a workplace example. A hospital's laboratory system stores blood results. A technician enters a result through the approved laboratory application. The application checks that the number is sensible. A senior scientist must approve it before it reaches the patient's record. Nobody edits the database directly. Every night, a separate job checks that the stored results still match the instrument readings. That job is the Integrity Verification Procedure.\n\nSo if an exam scenario describes people changing data only through a controlled application, along with split duties, think of Clark-Wilson.\n\nHere is your takeaway. Clark-Wilson protects integrity through the access triple of subject, program and object, along with well-formed transactions and separation of duties."
+    },
+    {
+      "heading": "Brewer-Nash, Take-Grant and Graham-Denning",
+      "body": "Now we are going to look at three models that handle very different problems: conflicts of interest, and how rights are passed around.\n\nBrewer-Nash is also called the Chinese Wall model. It prevents conflicts of interest. What makes it special is that access changes based on what you have already seen. It is dynamic, which means it changes over time.\n\nThink of a lawyer in a town with two rival shops. Before taking either case, the lawyer could work for either. Once she has read the private papers of the first shop, she must not read the papers of the second.\n\nIn the workplace, a consultant who opens Bank A's files is then blocked from rival Bank B's files. The consultant can still open files for an airline, because an airline is not a competitor of Bank A. Companies that compete are grouped into what is called a conflict of interest class. Within a class, you may see only one company's data.\n\nSo do not confuse this with Bell-LaPadula. Levels do not change in Bell-LaPadula. In Brewer-Nash, your own history decides what you can do next.\n\nTake-Grant uses a drawing of arrows, called a directed graph, to show how rights move between subjects and objects. It has four rules.\n\n- Take: a subject takes rights from another.\n- Grant: a subject gives rights to another.\n- Create: a subject makes a new object.\n- Remove: a subject removes rights it holds.\n\nIts practical use is to answer one question. Could this user ever end up with this right, by following a chain of takes and grants?\n\nGraham-Denning sets out how subjects and objects should be securely created and deleted, and how rights are assigned. It defines eight basic protection rights. They include creating and deleting objects and subjects, and reading, granting, deleting and transferring an access right. A related model, Harrison-Ruzzo-Ullman, looks at whether rights can be changed safely, and it asks whether a subject could ever obtain a particular right.\n\nHere is a workplace example of why this matters. An employee who may hand their own rights to a colleague can spread access far beyond what anyone intended.\n\nHere is what to take away. Brewer-Nash reacts to what you have seen, and Take-Grant and Graham-Denning describe how rights are created and passed on."
+    },
+    {
+      "heading": "Information flow, noninterference and choosing a model",
+      "body": "In this final part, we will look at models concerned with how information flows, and then at how to choose the right model in an exam question.\n\nThe information flow model tracks how information moves from one security level to another. Only authorized flows are allowed. Bell-LaPadula and Biba can both be seen as information flow models, because they control which direction data may travel.\n\nThe noninterference model is stricter. It says that actions at a high level must not affect what a lower level can see. If a low level user can notice high level activity, information has leaked.\n\nThink about two flats that share a wall. You must not be able to tell what your neighbour is doing, not from noise and not from anything else. If you can tell they are at home because your lights dim whenever they use the oven, then something has leaked.\n\nThis model helps to defend against covert channels, which are hidden ways of passing information. Imagine a program at a high level that makes the processor busy for one second to signal a one, and idle for one second to signal a zero. A program at a low level, timing its own speed, could read that message. Nothing was written down, but a secret travelled anyway.\n\nThree other names may appear. Goguen-Meseguer is an integrity model built on noninterference. Sutherland is an integrity model that uses states and information flow to prevent interference. You need only recognise these.\n\nNow, how do you choose in a scenario? Ask what the question is really protecting. If the concern is secrets at fixed levels, think of Bell-LaPadula. If the concern is keeping data correct at fixed levels, think of Biba. If the concern is that changes go through approved programs, with duties split, think of Clark-Wilson. If the concern is competing clients, think of Brewer-Nash. If the concern is how rights spread, think of Take-Grant.\n\nHere is a workplace example. An accountancy firm has several banks as clients. Partners ask for a control that stops an auditor who has worked on one bank from seeing another bank's working papers. That is a conflict of interest problem, so the model is Brewer-Nash.\n\nHere is your takeaway. Noninterference means high level actions leave no trace at low levels, and the right model is the one that matches what the scenario is protecting."
+    }
+  ],
+  "practiceQuestions": [
+    {
+      "prompt": "An analyst cleared to Secret tries to copy a paragraph from a Secret report into a Confidential memo. The system blocks it. Which rule has been enforced?",
+      "options": [
+        "The Biba simple integrity property",
+        "The Bell-LaPadula simple security property",
+        "The Biba invocation property",
+        "The Bell-LaPadula star property"
+      ],
+      "correctIndex": 3,
+      "explanation": "Writing Secret content to a lower level breaks the star property, which is no write down. The simple security property is tempting, but simple is about reading, and this action is a write."
+    },
+    {
+      "prompt": "Under Bell-LaPadula, a user cleared at the Confidential level wants to perform an action on a Secret document. Which action does the model allow?",
+      "options": [
+        "Add a section to the document",
+        "Read the document in full",
+        "Read the summary page only",
+        "Copy the document to Confidential"
+      ],
+      "correctIndex": 0,
+      "explanation": "Bell-LaPadula forbids reading up and writing down, so writing up is allowed. Reading the summary is tempting because it seems a small request, but any reading above your level is forbidden."
+    },
+    {
+      "prompt": "A pharmaceutical firm wants to make sure that a highly trusted dosage process never draws on figures from an unverified staff spreadsheet. Which rule MOST directly addresses this?",
+      "options": [
+        "Bell-LaPadula no read up",
+        "Bell-LaPadula no write down",
+        "Biba no read down",
+        "Biba no write up"
+      ],
+      "correctIndex": 2,
+      "explanation": "A trusted process must not rely on less trusted data, which is Biba's no read down. Biba's no write up is tempting because it also protects integrity, but it stops low level subjects from writing to high level data, and here the trusted process is the reader."
+    },
+    {
+      "prompt": "Maria works at the Medium integrity level in a system that enforces Biba. Which action is permitted?",
+      "options": [
+        "Reading a Low integrity file",
+        "Writing to a High integrity file",
+        "Reading a High integrity file",
+        "Calling a High integrity process"
+      ],
+      "correctIndex": 2,
+      "explanation": "Biba forbids reading down and writing up, so reading upward is allowed. Calling a High integrity process is tempting because it feels like asking for help, but the invocation property forbids it."
+    },
+    {
+      "prompt": "A retailer requires that stock figures be changed only through a tested stock application, never by editing the database, with a second person approving large changes. Which model BEST fits?",
+      "options": [
+        "Clark-Wilson",
+        "Biba",
+        "Take-Grant",
+        "Noninterference"
+      ],
+      "correctIndex": 0,
+      "explanation": "Forcing every change through an approved program, with separated duties, is Clark-Wilson. Biba is tempting because it also protects integrity, but it uses integrity levels and does not require approved programs or separated duties."
+    },
+    {
+      "prompt": "In Clark-Wilson terms, which item is the check that runs each night to confirm that protected account data is still correct?",
+      "options": [
+        "Constrained Data Item",
+        "Integrity Verification Procedure",
+        "Transformation Procedure",
+        "Unconstrained Data Item"
+      ],
+      "correctIndex": 1,
+      "explanation": "An Integrity Verification Procedure checks that protected data remains correct. A Transformation Procedure is tempting because it is also a process, but it is the approved program that changes the data."
+    },
+    {
+      "prompt": "A security architect must show whether a junior user could ever end up with a sensitive right by following a chain of permissions passed between accounts. Which model is MOST useful?",
+      "options": [
+        "Bell-LaPadula",
+        "Take-Grant",
+        "Brewer-Nash",
+        "Biba"
+      ],
+      "correctIndex": 1,
+      "explanation": "Take-Grant uses a directed graph to show how rights can move between subjects and objects. Brewer-Nash is tempting because access changes in it too, but it is about conflicts of interest and not about chains of rights."
+    },
+    {
+      "prompt": "A system at a high level changes how busy the processor is, and a program at a lower level can detect the change. Which model does this behaviour MOST directly break?",
+      "options": [
+        "Take-Grant",
+        "Clark-Wilson",
+        "Graham-Denning",
+        "Noninterference"
+      ],
+      "correctIndex": 3,
+      "explanation": "Noninterference says high level actions must not affect what lower levels can see. Graham-Denning is tempting because it is a formal model, but it deals with creating subjects and objects and assigning rights."
+    },
+    {
+      "prompt": "A law firm's system lets a new associate open either of two competing clients' files, but blocks the second client as soon as the first has been opened. Which feature of the model makes this possible?",
+      "options": [
+        "Access depends on the fixed clearance of the associate",
+        "Access depends on what the associate has already seen",
+        "Access depends on a formal chain of granted rights",
+        "Access depends on the approved program being used"
+      ],
+      "correctIndex": 1,
+      "explanation": "Brewer-Nash is dynamic, so access reacts to earlier access. Fixed clearance is tempting because it is how most classified systems work, but a fixed clearance would not change after the first file was opened."
+    },
+    {
+      "prompt": "A security manager is told that a system fully enforces Bell-LaPadula. Which additional concern should the manager still raise?",
+      "options": [
+        "Junior staff may read documents above their clearance",
+        "Staff at high levels may copy secrets to lower levels",
+        "Data could be wrongly changed by those at lower levels",
+        "Files could be labelled with more than one clearance"
+      ],
+      "correctIndex": 2,
+      "explanation": "Bell-LaPadula covers confidentiality only, so integrity is not addressed and writing up is allowed. The first two options are tempting, but those are precisely the actions the model already prevents."
+    }
+  ]
+}

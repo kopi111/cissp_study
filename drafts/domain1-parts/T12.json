@@ -1,0 +1,141 @@
+{
+  "id": "T12",
+  "studyNotes": [
+    {
+      "heading": "Awareness, training and education",
+      "body": "In this first part, we are going to separate three words that sound alike but mean different things: awareness, training and education.\n\nPeople make many of the mistakes that attackers rely on. A person can be tricked into opening a file, or can hold a door open for a stranger. So an organization must teach its people, and how it teaches them depends on what they need.\n\n- Awareness: makes people notice security. It is for everyone. It answers what.\n- Training: teaches a specific skill for a job. It answers how.\n- Education: builds deep knowledge and understanding over a longer time. It answers why.\n\nHere is a simple example from a school kitchen. A sign reminding children to wash their hands is awareness. Teaching the kitchen staff to handle food safely is training. A university course on food science is education.\n\nNow a workplace example. A poster that says to beware of strange emails is awareness. Everyone sees it. Nobody needs special skill to understand it. Showing help desk workers how to check a caller's identity before resetting a password is training. It gives them a skill they will use in their job. A security engineer who studies for a degree, or works toward a professional certification, is receiving education. That person is learning why things work and how to reason about new problems.\n\nThe exam may describe an activity and ask which of the three it is. Look at the goal and the audience. Everyone, and a short reminder, means awareness. A particular group learning a practical task means training. A longer period of study, focused on understanding, means education.\n\nThere is another useful way to think about this. Awareness changes attention. Training changes ability. Education changes understanding. A strong program uses all three, for the right people at the right time.\n\nWhy does the outline mention all three together? Because a program that offers only one of them fails. Posters alone do not teach a skill. Skills without understanding do not help when something new comes along.\n\nHere is what to take away. Awareness is what, for everyone. Training is how, for a job. Education is why, for deep understanding."
+    },
+    {
+      "heading": "Building a program that fits",
+      "body": "Now we will look at how a good program is built. This objective uses the words establish and maintain, so a program is something that lasts.\n\nFirst comes senior management support. A program needs budget and time, and staff take it seriously when leaders take part. If the managing director skips the training, everyone notices.\n\nSecond, the program should suit each audience. A cleaner, a payroll clerk and a programmer face different risks. A cleaner may be asked by a stranger to open a door. A payroll clerk may receive a fake request to change a bank account. A programmer may be tempted to copy untrusted code from the internet. Sitting them all through the same hour of slides wastes everyone's time.\n\nThink about teaching water safety. A toddler learns to stay away from the pool. A teenager learns to swim. A lifeguard learns rescue. It is the same subject, but the lessons are very different.\n\nThird, content should be relevant and short. People remember a ten-minute lesson about something that really happened in their own company. They forget a long lecture about something that seems far away.\n\nFourth, repeat it. A once-a-year session fades quickly. Short and frequent lessons work better. New staff should get their first lesson during onboarding, which is the process of bringing a new person in, and before they get wide access.\n\nFifth, make the program a part of the working culture. Reporting a concern should be easy, and it should always be thanked.\n\nHere is a workplace example. A company's training was one yearly video. A new security manager replaces it with short monthly lessons. There is a five-minute induction module for each role, a separate lesson for finance staff on payment fraud, and a separate one for developers on secure coding. Leaders open the first session. Staff reports of suspicious activity begin to rise.\n\nA manager should also plan who owns the program, how it will be funded, and how often it will be reviewed.\n\nSo here is your takeaway. Get senior support, match the content to the audience, keep it short and relevant, and repeat it often."
+    },
+    {
+      "heading": "Social engineering and phishing",
+      "body": "Next we are going to look at the main thing staff need protection from, which is being tricked.\n\nSocial engineering means tricking people into giving away information or access. It works on human feelings rather than on technology. Think of a stranger who rings your doorbell, says he is from the water company, and asks to come in and check your meter. He may have a clipboard and a confident manner. He has no need to break a window.\n\nTeach staff the warning signs. These are urgency, fear, unusual requests and secrecy. Pressure to act right now, a threat of trouble, or an instruction not to tell anybody should all ring alarm bells.\n\nThe most important habit is to check a request using a second, trusted route. For instance, you call a known phone number from the company directory. You do not use the number in the suspicious message.\n\nPhishing is a fake message designed to trick someone, usually sent by email. There are several kinds, and you should know this set.\n\n- Spear phishing: targets a particular person or group.\n- Whaling: targets senior leaders.\n- Vishing: uses voice calls.\n- Smishing: uses text messages.\n\nHere is a workplace example. A finance officer receives an email that seems to come from the chief financial officer. It says that an urgent payment must be made today to a new supplier, and that the matter is confidential. It contains urgency, secrecy and an unusual request. The officer telephones the chief financial officer on the usual number, and learns that the message is fake. That single phone call saved the company a lot of money.\n\nSimulated phishing means sending safe practice emails. A person who clicks gets quick, kind teaching and not punishment. Punishment makes people hide their mistakes. A person who clicks a real phishing link and is afraid to say so gives the attacker hours of extra time.\n\nThe same applies to reporting. If someone reports that they have clicked something, thank them. Speed matters more than blame.\n\nHere is what to remember. Teach the warning signs, check requests by a second trusted route, and treat mistakes as chances to learn."
+    },
+    {
+      "heading": "Champions and gamification",
+      "body": "In this part, we are going to look at two methods the outline names specifically, which are security champions and gamification.\n\nSecurity champions are staff in ordinary departments who volunteer to promote good security and bring questions forward. They are not full-time security staff. They carry the message closer to daily work.\n\nThink of a neighbourhood watch. The police cannot be on every street. But a helpful neighbour on each block can pass on advice, notice problems and tell the police when something is wrong. People listen more readily to someone they already know.\n\nAt work, picture a large insurance company with a very small security team. The team cannot sit with every department. So it asks one volunteer in each department to act as a champion. Those champions get some extra training, a regular meeting with the security team, and recognition from their managers. In return, they help colleagues with everyday questions. They also tell the security team about real problems that it would never have heard about otherwise, such as a rule that makes the sales team's work impossible.\n\nThat two-way flow is the real benefit. The security team learns what the business actually needs.\n\nGamification means using games, points and friendly contests to make learning stick. Think about an app that teaches you a language by awarding you points each day for keeping up your streak. People will often do more for a badge than they would for a lecture.\n\nAt work, a department that reports the most phishing attempts could win a prize. A team could compete in a capture-the-flag event, which is a contest in which players solve security puzzles for points. A company could use an escape room with a security theme.\n\nThere is a caution here. Games must reward the right behaviour. If people win points just for finishing a module, they may simply click through without learning. And a game should never shame people by listing the worst performers.\n\nA manager should be able to say what each method is meant to achieve, and how that would be shown.\n\nHere is your takeaway. Champions carry security into each department and bring concerns back. Gamification builds interest, as long as it rewards real behaviour."
+    },
+    {
+      "heading": "Periodic content reviews and emerging trends",
+      "body": "Now we will look at how the program stays current. The outline requires periodic content reviews, and it names some emerging technologies.\n\nA course that never changes soon becomes out of date. Think about a road safety lesson from long before anyone had a mobile phone. Its advice may still be sound, but it does not mention what is now one of the main dangers.\n\nReview content on a regular schedule and after any major incident or change. Reviews also mean removing old material. Keep the program short, relevant and matched to real incidents seen by the organization.\n\nThe outline includes emerging technology and trends. Let us go through the three named items.\n\nArtificial intelligence means computer systems that perform tasks we usually associate with human thinking. Attackers use it to write convincing messages without spelling mistakes. They can also copy a voice or create a fake video, which is known as a deepfake. So the old advice to look for spelling mistakes is no longer enough. Staff also need rules on what company data they may paste into public tools.\n\nCryptocurrency is digital money, often demanded by criminals because payments are hard to reverse. Staff should know about ransomware, which locks files and demands payment. They should also know about investment scams, and about harmful software, called malware, that secretly uses company computers to generate cryptocurrency.\n\nBlockchain is a shared digital record that is very hard to change. Staff should understand what it does and does not guarantee. A false entry that has been recorded permanently is still false.\n\nHere is a workplace example. A company reviews its training after a help desk worker was fooled by a cloned voice. It adds a lesson saying that a familiar voice is no longer proof of identity. It introduces a call-back procedure for sensitive requests. It removes an old section on floppy disks. And it sets the next review for six months' time.\n\nThe manager's job is to make sure somebody owns this review, and that it really happens on schedule, and not only after trouble.\n\nSo here is what to take away. Content must be reviewed regularly and after incidents, and it must reflect current trends, including artificial intelligence, cryptocurrency and blockchain."
+    },
+    {
+      "heading": "Measuring effectiveness",
+      "body": "In this final part, we are going to look at how you find out whether the program is really working. The outline calls this program effectiveness evaluation.\n\nAttendance only tells you who was present. It does not tell you what changed. Think about a gym membership. Having the card does not make you fit. A better measure is whether you can climb the stairs without losing your breath.\n\nGood measures show changes in behaviour.\n\n- Fewer people clicking on simulated phishing emails.\n- More people reporting suspicious messages, and reporting them sooner.\n- Fewer incidents caused by human error.\n- Better results on tests before and after training.\n\nLet us work through a numeric example. In January, 30 of 200 staff click on a practice phishing email. To find the percentage, divide 30 by 200, then multiply by 100, which gives 15 percent. In June, 10 of 200 click, which is 5 percent. So the click rate has fallen by two thirds.\n\nReports tell the other half of the story. In January, 20 people reported the practice email. In June, 90 did. That is a rise from 10 percent of staff to 45 percent. This shows that behaviour has improved.\n\nLook for fair comparisons. A very easy practice email in June and a hard one in January would make the numbers look good, without proving anything. So try to keep the difficulty similar between tests.\n\nTime matters as well. It helps to measure how long it takes from the first click to the first report. The shorter that time, the quicker the security team can act.\n\nHere is a workplace example of using results. A company finds that most clicks come from one department that handles many outside messages. It does not punish them. Instead, it gives them a short, focused lesson and adds a clear report button to their email. The next test shows an improvement.\n\nShare such results with management in plain business terms, and use them to improve the program. A program that is measured can be justified, funded and made better.\n\nHere is your takeaway. Measure behaviour rather than attendance, keep your tests fair, and use the results to improve the program."
+    }
+  ],
+  "practiceQuestions": [
+    {
+      "prompt": "A help desk team spends an afternoon practising how to confirm a caller's identity before resetting a password. Which part of a security program does this BEST represent?",
+      "options": [
+        "Awareness",
+        "Education",
+        "Training",
+        "Gamification"
+      ],
+      "correctIndex": 2,
+      "explanation": "Teaching a specific job skill to a specific group is training. Awareness is tempting because it is also about security habits, but awareness is a general reminder for everyone and does not build a skill."
+    },
+    {
+      "prompt": "A network engineer spends two years on a university degree to gain a deep understanding of why security designs succeed or fail. Which category does this BEST fit?",
+      "options": [
+        "Awareness",
+        "Education",
+        "Training",
+        "Onboarding"
+      ],
+      "correctIndex": 1,
+      "explanation": "Long-term study aimed at understanding why is education. Training is tempting because the engineer is learning, but training teaches a specific practical skill for a job."
+    },
+    {
+      "prompt": "After a phishing simulation, a department head suggests docking the pay of any employee who clicks on a practice email. What should the security manager recommend?",
+      "options": [
+        "Accept the idea, because financial penalties are by far the fastest way to change behaviour among staff",
+        "Accept the idea, but only apply it to those employees who click on two or more practice emails in a year",
+        "Stop running the simulations altogether, because they are clearly creating ill feeling in the department",
+        "Give quick, supportive teaching and encourage reporting"
+      ],
+      "correctIndex": 3,
+      "explanation": "Punishment makes people hide mistakes, and this delays the response to real attacks. Applying the penalty only to repeat clickers is tempting, but it has the same effect on trust and on reporting."
+    },
+    {
+      "prompt": "An attacker researches a company's chief executive and sends her a personalized email designed to trick her into approving a transfer. Which term BEST describes this attack?",
+      "options": [
+        "Whaling",
+        "Vishing",
+        "Smishing",
+        "Gamification"
+      ],
+      "correctIndex": 0,
+      "explanation": "Targeting a senior leader by message is whaling. Vishing is tempting as another type of phishing, but it uses voice calls, and this attack came by email."
+    },
+    {
+      "prompt": "Several employees receive text messages claiming to be from the company's bank, each containing a link to confirm their account details. Which term BEST describes this?",
+      "options": [
+        "Vishing",
+        "Smishing",
+        "Whaling",
+        "Spear phishing"
+      ],
+      "correctIndex": 1,
+      "explanation": "Phishing by text message is smishing. Vishing is tempting since the words sound similar, but vishing is carried out through voice calls."
+    },
+    {
+      "prompt": "A small security team at a large company finds that departments rarely contact it and that its advice often does not fit their work. Which approach would BEST address this?",
+      "options": [
+        "Send a longer security newsletter to all staff each week, giving more detail on the latest threats",
+        "Require every department head to attend a full day of technical security training every single year",
+        "Appoint security champions in each department",
+        "Move all the members of the security team into the same office as the technology department"
+      ],
+      "correctIndex": 2,
+      "explanation": "Champions carry advice into each department and bring real concerns back. A longer newsletter is tempting, but it is one-way communication and does not fix the disconnect."
+    },
+    {
+      "prompt": "A company gives every employee the same one-hour security course. Developers and payroll staff both complain that most of it has nothing to do with their work. What is the BEST improvement?",
+      "options": [
+        "Tailor content to the risks of each audience",
+        "Extend the course to three hours, so that the content relevant to each group can all be included",
+        "Excuse developers from all further security training, because they already know about computers",
+        "Require staff to pass a harder final test at the end of the same one-hour course they already take"
+      ],
+      "correctIndex": 0,
+      "explanation": "Different roles face different risks, so content should fit each group. A longer course is tempting because it would include everything, but most of it would still be irrelevant to each person."
+    },
+    {
+      "prompt": "A payroll officer receives an urgent email, apparently from the finance director, asking her to change a supplier's bank details today and to tell nobody. What has training MOST likely taught her to do?",
+      "options": [
+        "Reply to the email and ask the sender to confirm that the request is genuine and truly urgent",
+        "Make the change straight away, because a request from a director should not ever be delayed by staff",
+        "Forward the message to all of her colleagues to find out whether they have received the same request",
+        "Verify the request using a known phone number"
+      ],
+      "correctIndex": 3,
+      "explanation": "Urgency and secrecy are warning signs, and verifying by a second trusted route defeats the trick. Replying is tempting, but the reply goes to the attacker, who will happily confirm it."
+    },
+    {
+      "prompt": "A company's security game has very high participation and high scores. Yet incidents caused by staff clicking on phishing emails have risen during the same period. What is the BEST conclusion?",
+      "options": [
+        "The program is working well, as participation and scores are the most reliable measures that exist",
+        "The game may not be changing behaviour, so the program should be reassessed",
+        "The rise in incidents must be caused by a technical failure, because the staff are obviously well prepared",
+        "The company should increase the prizes on offer, so that even more staff will take part in the game"
+      ],
+      "correctIndex": 1,
+      "explanation": "Real incidents show that behaviour has not improved, even though the game is popular. Increasing the prizes is tempting, but it rewards participation, which is not the problem here."
+    },
+    {
+      "prompt": "Last year, 40 of 400 staff clicked a practice phishing email and 30 reported it. This year, at similar difficulty, 12 of 400 clicked and 120 reported it. What is the BEST conclusion?",
+      "options": [
+        "The click rate has fallen from 40 percent to 12 percent, which shows that the program has worked",
+        "The click rate has fallen, but the number of reports has made no difference to the overall picture",
+        "The click rate fell from 10 percent to 3 percent and reports rose fourfold, showing improved behaviour",
+        "The results cannot be used for anything, as phishing tests have no value in measuring any change"
+      ],
+      "correctIndex": 2,
+      "explanation": "40 divided by 400 is 10 percent, and 12 divided by 400 is 3 percent. Reports went from 30 to 120, which is four times as many. The first option is tempting, but it mistakes the counts for percentages."
+    }
+  ]
+}

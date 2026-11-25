@@ -1,0 +1,141 @@
+{
+  "id": "T22",
+  "studyNotes": [
+    {
+      "heading": "The trusted computing base",
+      "body": "In this first part, we are going to look at the idea of a trusted computing base. It is the foundation of everything else in this topic.\n\nThe Trusted Computing Base, or TCB, is all the hardware, firmware and software that enforce security on a system. Firmware is the low-level software stored on a chip. If the Trusted Computing Base fails, the whole security promise fails.\n\nThink about the people you trust to run your home. Perhaps you trust the person who holds the master key, the company that installed the alarm, and the neighbour who watches the house. Those people are your trusted base. If one of them betrays you, your other protections do not help much. So you want that group to be as small as possible, and you want to check them carefully.\n\nThe same is true of computers. The Trusted Computing Base should be small, because small things can be tested fully. A large one will contain more mistakes.\n\nThere are two more terms that go with this idea.\n\nThe security perimeter is an imaginary line between the Trusted Computing Base and everything else. Anything inside the line is trusted. Anything outside it is not. When a program outside the line needs something from inside, it has to cross through a controlled interface.\n\nA trusted path is a protected route between the user and the Trusted Computing Base. It makes sure that a fake login screen cannot steal a password. Many people remember the old Windows habit of pressing Control, Alt and Delete together before logging in. That key combination was handled by the operating system itself, so an ordinary program could not imitate it.\n\nHere is a workplace example. A company runs a server that holds payroll data. The processor, the operating system's core, the login components and the access control software are part of the Trusted Computing Base. The word processor on a staff desktop is not. So the security team spends its effort on hardening the small trusted part, and it treats everything else as untrustworthy.\n\nA good manager asks of any new product, does this need to be part of what we trust? Every trusted item adds risk.\n\nHere is what to take away. The Trusted Computing Base is everything that enforces security, it should be as small as possible, and a trusted path protects the user's route into it."
+    },
+    {
+      "heading": "The reference monitor and the security kernel",
+      "body": "Now we are going to look at the guard at the centre of a secure system, which is called the reference monitor.\n\nA reference monitor is the idea of a guard that checks every access by a subject to an object. Remember that a subject is an active thing, such as a person or a program, and an object is a passive thing, such as a file.\n\nPicture a nightclub with one door and one very strict doorkeeper. Every person who goes in is checked. There is no back door. Nobody can bribe the doorkeeper, or swap the doorkeeper for a friend. And the doorkeeper's rule book is short enough for the owner to read in a single sitting.\n\nA reference monitor must have three qualities. You need to know them as a set.\n\n- Tamperproof: nobody can change it.\n- Always invoked: it cannot be bypassed.\n- Verifiable: it is small enough to test completely.\n\nThe security kernel is the real thing that carries out the reference monitor idea. It is the actual hardware, firmware and software that make the checks. So the reference monitor is the concept, and the security kernel is the working implementation. If an exam question says concept, think of the reference monitor. If it says the actual components, think of the security kernel.\n\nThis connects back to our earlier topic on security models. A model says what the rules are. The reference monitor is the mechanism that applies those rules at every access. So if Bell-LaPadula says no read up, the reference monitor is what actually refuses the request.\n\nHere is a workplace example. A government system stores files at several classification levels. When an analyst's program asks to open a file, the request goes to the security kernel. The kernel compares the analyst's clearance with the file's label. It refuses the request if the rules are broken, and it writes the attempt in an audit log. Because every request travels through this one point, the agency can be confident that nothing slips past.\n\nThere is a design lesson here. If any route to the data avoids the check, then the promise is broken.\n\nHere is your takeaway. A reference monitor is the concept of a complete check on every access, and the security kernel is the real implementation. Learn the three qualities: tamperproof, always invoked and verifiable."
+    },
+    {
+      "heading": "Memory protection, process isolation and rings",
+      "body": "Next, we are going to look at memory protection, which keeps programs out of each other's way.\n\nMemory is where a computer holds what it is working on. Many programs share the same memory chips at the same time. Without protection, one program could read or change what another program is holding. A bad program could read passwords held by your web browser.\n\nThink of a block of flats. Everyone lives in the same building, and yet each flat has its own walls and its own door. Memory protection gives each program its own flat.\n\nThis is called process isolation. A process is simply a running program. The operating system and the processor work together to keep each process inside its own space. If a process tries to reach outside it, the attempt is stopped.\n\nA technique that helps is called virtual memory addressing. Each program believes it has its own private set of addresses. The hardware quietly translates these to real locations. A program simply has no way of naming memory that belongs to another program.\n\nProtection rings separate levels of power. You can picture a castle, with the most important people in the very centre. There are four rings, numbered from zero to three.\n\n- Ring 0: the kernel, which is the core of the operating system. It has the most power.\n- Ring 1 and Ring 2: often used for drivers and services, the parts that talk to hardware.\n- Ring 3: normal applications, with the least power.\n\nA lower number means more power. Many modern systems use only Ring 0 and Ring 3. Those two are often called kernel mode, or supervisor mode, and user mode.\n\nA program in Ring 3 must ask the operating system to do privileged work. It makes what is called a system call. Think of a hotel guest. The guest cannot walk into the kitchen and cook. The guest rings room service, and the staff do the work.\n\nHere is a workplace example. A staff member's spreadsheet program has a flaw, and an attacker exploits it. Because the program runs in user mode, the attacker has the power of that program only. To take over the machine, the attacker would need a second flaw to break into kernel mode.\n\nHere is what to take away. Process isolation keeps each program in its own space, and a lower ring number means more power."
+    },
+    {
+      "heading": "Buffer overflows, ASLR and DEP",
+      "body": "In this part, we are going to look at a classic attack on memory, and at two features that help to stop it.\n\nA buffer is a block of memory set aside to hold something, such as a name typed into a form. A buffer overflow happens when a program writes more data into a buffer than it can hold, so that the extra data spills into nearby memory.\n\nImagine pouring a litre of water into a small glass standing on a kitchen counter. The water does not vanish. It spills over and soaks the letters lying next to the glass. In memory, the spilled data can overwrite important values, including the address that tells the processor where to go next. An attacker who controls that address can steer the program into running the attacker's own instructions.\n\nThe true fix is writing careful code that checks the length of the input before storing it. But two operating system features give extra protection, in case a mistake gets through.\n\nThe first is ASLR, which stands for Address Space Layout Randomization. It places parts of a program at random memory addresses each time the program starts. So an attacker cannot predict where to jump. Think of a shop that rearranges its shelves each morning. A thief who memorised last week's layout will be lost.\n\nThe second is DEP, which stands for Data Execution Prevention. It marks areas of memory as being for data only, so that code cannot run from them. It is like a rule that a storage room may hold boxes, but nobody may work in it. Even if an attacker gets instructions into the storage room, those instructions cannot be carried out.\n\nOne hides the target, and the other refuses to run code in data areas. Neither is perfect, which is another example of defense in depth.\n\nHere is a workplace example. A company has an older web application with a known buffer overflow. While the application is being replaced, the security manager makes sure that it runs on an operating system with both features switched on, and with a firewall limiting who can reach it. These are compensating controls. The real fix is still to correct the code.\n\nHere is your takeaway. Buffer overflows spill data into nearby memory, ASLR randomizes where things are, DEP stops code running from data areas, and careful code is the true fix."
+    },
+    {
+      "heading": "TPM and HSM",
+      "body": "Now we will look at two pieces of hardware that protect keys. The exam likes to ask you to tell them apart.\n\nA Trusted Platform Module, or TPM, is a chip on one computer's main board. It stores keys safely, and it measures the boot process. To measure means to take a fingerprint of each piece of startup code, one after another, and to record those fingerprints inside the chip. If someone tampers with startup files, the fingerprints change.\n\nThe chip can be told to release a key only if the fingerprints match the expected values. This is called sealing. So if someone tampers with the startup files, the Trusted Platform Module can refuse to release the disk encryption key. Think of a safe bolted inside your own house, which opens only if the house looks exactly as it did when you left. This is how a stolen laptop stays protected. Microsoft BitLocker, which encrypts Windows disks, commonly uses this feature.\n\nA Hardware Security Module, or HSM, is a hardened device, often a plug-in card or a network box. It is built to resist tampering. It creates, stores and uses many keys, and it does encryption work quickly. Keys are not meant to leave it. Applications send data in to be signed or decrypted, and they receive only the answer.\n\nBanks use them. So do certificate authorities, which issue digital identity documents. Many are tested under FIPS 140, a United States government standard for cryptographic modules. FIPS stands for Federal Information Processing Standard.\n\nTo tell them apart, remember these points.\n\n- Trusted Platform Module: one device, cheap and built in.\n- Hardware Security Module: many keys, high volume, tamper resistant and costly.\n\nHere is a workplace example of each. A company issues laptops to staff. It uses each laptop's Trusted Platform Module to bind the disk encryption key to that laptop. Separately, the company runs a payment platform that signs thousands of transactions each second. That platform uses a pair of Hardware Security Modules, so that the signing keys are never exposed in ordinary server memory.\n\nIf you are asked which one fits a scenario, ask how many keys are involved, how much work is being done, and whether it serves one device or many.\n\nHere is what to take away. A Trusted Platform Module protects one machine and checks its startup. A Hardware Security Module serves many keys at scale."
+    },
+    {
+      "heading": "Encryption and secure enclaves",
+      "body": "In this final part, we are going to look at encryption as a system capability, and at secure enclaves.\n\nEncryption turns readable data into scrambled data that needs a key to read. Decryption turns it back. We will study how it works in later topics. Here, we need to understand that systems protect data in different ways, depending on where the data is. Data has three states.\n\n- At rest: stored on a disk. Use disk or database encryption.\n- In transit: moving over a network. Use TLS, or Transport Layer Security, the protection behind the padlock in a web browser.\n- In use: being worked on in memory. This is the hardest state to protect.\n\nHere is an everyday picture. A letter in a locked drawer is at rest. A letter in a sealed envelope in the post is in transit. A letter open on your desk while you read it is in use. Anyone looking over your shoulder can see it.\n\nThe reason that data in use is so hard to protect is that the processor generally needs the data in readable form in order to work on it.\n\nModern processors often include special instructions that make encryption much faster, so that encrypting everything is no longer a heavy burden on the system.\n\nA secure enclave, also called a Trusted Execution Environment, is a walled-off part of the processor. Code and data inside are protected even from the operating system. So even if an attacker controls the operating system, the contents of the enclave stay hidden. Intel SGX and Arm TrustZone are examples. Phones use enclaves to protect fingerprint data. Using enclaves to protect data while it is being processed is often called confidential computing.\n\nHere is a workplace example. A hospital wants to analyse patient records on a cloud provider's servers, but it does not want the provider's staff to be able to see them. The data travels with Transport Layer Security. It is encrypted when stored. And it is processed inside a secure enclave, so that it remains protected in use. All three states have now been covered.\n\nNo single feature is enough, so a manager should combine them according to risk.\n\nHere is your takeaway. Protect data at rest, in transit and in use, and remember that enclaves shield data while it is being worked on."
+    }
+  ],
+  "practiceQuestions": [
+    {
+      "prompt": "A security architect is reviewing a design and finds a maintenance interface that lets some requests reach protected files without being checked. Which reference monitor quality has been violated?",
+      "options": [
+        "Verifiable",
+        "Tamperproof",
+        "Always invoked",
+        "Non-repudiable"
+      ],
+      "correctIndex": 2,
+      "explanation": "A reference monitor must check every access, so a route around it breaks always invoked. Tamperproof is tempting because the design has a weakness, but nothing here has changed the monitor. It has simply been avoided."
+    },
+    {
+      "prompt": "A team has built the hardware, firmware and software that actually check every access in a new operating system. What is this collection BEST called?",
+      "options": [
+        "A security kernel",
+        "A reference monitor",
+        "A protection profile",
+        "A trusted path"
+      ],
+      "correctIndex": 0,
+      "explanation": "The security kernel is the real implementation. Reference monitor is tempting, but that term names the concept, and the question describes actual components."
+    },
+    {
+      "prompt": "A company is designing a product with a very large set of components that all need to be trusted. What is the MOST important concern about this design?",
+      "options": [
+        "The product will cost too much to manufacture and ship",
+        "Users will struggle to learn all of its many features",
+        "Encryption will not be available to each of the parts",
+        "A large trusted base is harder to test completely"
+      ],
+      "correctIndex": 3,
+      "explanation": "The Trusted Computing Base should be small, so that it can be fully verified. Cost is tempting as a practical worry, but the security concern is that a large trusted base hides more flaws."
+    },
+    {
+      "prompt": "An organization wants staff to be sure that the login screen they are typing into is the real operating system screen and not an imitation. Which feature addresses this need?",
+      "options": [
+        "Process isolation",
+        "A trusted path",
+        "A security perimeter",
+        "Data Execution Prevention"
+      ],
+      "correctIndex": 1,
+      "explanation": "A trusted path is a protected route between the user and the trusted components. A security perimeter is tempting, but it is the boundary around the trusted components and does not by itself assure the user of what is on screen."
+    },
+    {
+      "prompt": "A program with a flaw is compromised, but the attacker can act only with the limited power of an ordinary application. In which ring was the program MOST likely running?",
+      "options": [
+        "Ring 0",
+        "Ring 1",
+        "Ring 2",
+        "Ring 3"
+      ],
+      "correctIndex": 3,
+      "explanation": "Ordinary applications run in Ring 3, which has the least power. Ring 0 is tempting because it is the one most often discussed, but that is the kernel, which has the most power."
+    },
+    {
+      "prompt": "An attacker has placed malicious instructions in an area of memory reserved for data, but the processor refuses to run them. Which feature is responsible?",
+      "options": [
+        "Data Execution Prevention",
+        "Address Space Layout Randomization",
+        "Process isolation",
+        "Trusted Platform Module sealing"
+      ],
+      "correctIndex": 0,
+      "explanation": "Data Execution Prevention stops code from running in data areas. Address Space Layout Randomization is tempting because it also defends memory, but it works by hiding where things are, not by refusing to run code."
+    },
+    {
+      "prompt": "A legacy application has a known buffer overflow. Which action addresses the ROOT cause?",
+      "options": [
+        "Switch on Address Space Layout Randomization for the server",
+        "Place a network firewall in front of the application",
+        "Correct the code so that it checks the length of input",
+        "Run the application under a separate user account"
+      ],
+      "correctIndex": 2,
+      "explanation": "The flaw is the missing length check, so fixing the code is the root cause fix. Address Space Layout Randomization is tempting because it hinders exploitation, but the overflow itself remains."
+    },
+    {
+      "prompt": "A company wants each laptop's disk to stay encrypted unless the startup files are exactly as expected. Which feature of a Trusted Platform Module makes this possible?",
+      "options": [
+        "Load balancing of keys across several modules",
+        "Sealing a key to measurements of the boot process",
+        "Exporting private keys to a central key server",
+        "Randomizing the memory location of the boot loader"
+      ],
+      "correctIndex": 1,
+      "explanation": "Sealing ties a key to startup measurements, so tampering stops its release. Randomizing memory is tempting because it is a protection feature, but it relates to Address Space Layout Randomization and not to the Trusted Platform Module."
+    },
+    {
+      "prompt": "A payment processor must sign thousands of transactions a second, and the signing keys must never appear in ordinary server memory. Which is the BEST solution?",
+      "options": [
+        "Encrypted key files kept on a shared drive",
+        "A Trusted Platform Module on each desktop",
+        "Keys loaded at startup into each server's memory",
+        "A pair of Hardware Security Modules"
+      ],
+      "correctIndex": 3,
+      "explanation": "Hardware Security Modules hold many keys and do high-volume work without exposing them. Encrypted key files are tempting, but the keys would have to be decrypted into ordinary memory to be used."
+    },
+    {
+      "prompt": "A research group wants to process sensitive data on a shared cloud server so that even the operating system on that server cannot read it during processing. Which technology is MOST appropriate?",
+      "options": [
+        "Transport Layer Security",
+        "Full disk encryption",
+        "A secure enclave",
+        "A digital certificate"
+      ],
+      "correctIndex": 2,
+      "explanation": "A secure enclave protects code and data in use, even from the operating system. Full disk encryption is tempting, but it protects data at rest and does not help once the data is loaded for processing."
+    }
+  ]
+}

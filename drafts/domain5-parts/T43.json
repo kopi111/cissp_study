@@ -1,0 +1,141 @@
+{
+  "id": "T43",
+  "studyNotes": [
+    {
+      "heading": "What federation means",
+      "body": "In this first part, we will look at what federation is, who the parties are, and why organizations use it.\n\nFIM stands for federated identity management. It is an agreement that lets separate organizations trust each other's identities. The two main parties are these.\n\n- The identity provider, or IdP, checks who you are.\n- The service provider, or SP, offers the application and relies on the IdP.\n\nThe SP is also called the relying party, because it relies on what the IdP says.\n\nThink about a passport. Your own country checks who you are and issues the passport. When you land abroad, border staff do not visit your home town to investigate you. They trust the country that issued the document. Your country is the identity provider, and the country you visit is the service provider.\n\nBefore any of this can happen, the two sides set up trust. They exchange technical details and certificates, which are signed digital identity documents, so that each can recognize messages from the other. They also agree, usually in a contract, what each side is responsible for.\n\nSSO, which stands for single sign-on, means one login for many systems. Federation extends that idea across organizations.\n\nHere is a workplace example. A business uses a third-party payroll service. Staff sign in with their normal company login. The payroll company never receives or stores their passwords. The company's IdP checks the person and sends a signed statement. The payroll company reads the statement and lets the person in.\n\nThe benefits are clear. Staff have fewer passwords. The supplier holds fewer secrets. And when someone leaves, disabling that one identity closes the door everywhere the federation reaches.\n\nNotice the words everywhere the federation reaches. If the supplier also keeps some local accounts that do not go through the IdP, those are separate doors. Each one needs its own removal when a person leaves. Local accounts are often kept for emergencies, and they are easily forgotten.\n\nFederation also supports people outside your staff, such as customers or partners who sign in with an account they already have.\n\nHere is what to take away. The IdP proves identity, the SP relies on it, the password stays with the IdP, and any local accounts must be handled separately."
+    },
+    {
+      "heading": "On-premises, cloud and hybrid",
+      "body": "Now we will look at the three ways federation can be deployed, which the outline names directly, and at how a manager should choose.\n\nHere is the set.\n\n- On-premises: you run the federation servers yourself, in your own buildings.\n- Cloud: a vendor runs the service, which is often called IDaaS, or identity as a service.\n- Hybrid: both of these work together.\n\nThink about where to keep your food. You could grow it all in your own garden. You have full control, but all the work is yours. You could order everything from a delivery service. It is quick and easy, but if the service fails you go hungry. Or you could do a little of each.\n\nOn-premises gives you full control over data and configuration, and it can satisfy strict rules about where identity data is kept. But you pay for the equipment, you patch everything, and you must build your own backup systems.\n\nCloud is quick to start and scales well, because the vendor adds capacity as you grow. The vendor also handles patching. But you depend on the vendor's availability and security, and your access to logs and settings is limited to what the vendor offers.\n\nHybrid is the most common in larger organizations. Usually a company directory in the building is copied to a cloud identity service, which is known as directory synchronization. It is common during a move to the cloud, when some applications are still in the building and some have moved. The link between the two sides becomes a key asset. If an attacker controls the synchronization server, the attacker may be able to affect both sides. So it must be protected and monitored like any other critical system.\n\nHere is a workplace example. A regional hospital keeps its medical systems on site, but it has moved email to the cloud. Staff use one identity for both, through a hybrid design.\n\nAs a manager, treat a federated third party as a supplier. Check its audit reports. Put security duties, service levels, incident notice and access to logs in the contract. You can pass on the work, but you cannot pass on the accountability.\n\nHere is your takeaway. On-premises means control, cloud means convenience, hybrid means both, and the link between them needs protection."
+    },
+    {
+      "heading": "SAML step by step",
+      "body": "In this part we will look at SAML, and walk through one login from start to finish.\n\nSAML stands for Security Assertion Markup Language. Version 2.0 is the common one. It uses XML, which stands for Extensible Markup Language, a text format with labeled tags. SAML is widely used for logging in to business websites through a browser.\n\nThree parties take part. The principal is the user. The IdP is the identity provider, and the SP is the service provider.\n\nThe IdP sends an assertion, which is a signed statement of facts about the user. There are three types of statement, and you should know them.\n\n- Authentication: this person logged in, at this time, by this method.\n- Attribute: facts about the person, such as department.\n- Authorization decision: this person may or may not use this resource.\n\nThink of a letter of introduction from a trusted friend, sealed with a stamp. It says who you are, a little about you, and what you are allowed to do. You carry the letter yourself, but you cannot change it without breaking the seal.\n\nHere is a typical login, in order. It is called SP-initiated, because the user starts at the service.\n\n- The user opens the SP's website.\n- The SP sends the browser to the IdP with an authentication request.\n- The IdP authenticates the user, if the user has not already logged in.\n- The IdP signs an assertion and sends it through the browser.\n- The SP checks the signature and the details, and lets the user in.\n\nNotice that the browser carries the messages, and the IdP and SP need not talk directly during the login. Notice too that the SP never sees the password. The signature is what the SP trusts.\n\nIn the other variation, called IdP-initiated, the user begins at a company portal and clicks on an application.\n\nHere is a workplace example. An employee opens a cloud expense system. The system sends her browser to the company's login page. She signs in there. A moment later she is back at the expense system, logged in, and the system never handled her password.\n\nHere is what to take away. SAML uses signed XML assertions passed through the browser, for business web logins."
+    },
+    {
+      "heading": "OAuth 2.0 and delegated authorization",
+      "body": "Now we will look at OAuth, which is often misunderstood, because it does something quite different from logging you in.\n\nOAuth 2.0 is a framework for authorization, and the word to remember is delegated. It lets an application do limited things on your behalf, without ever learning your password.\n\nThink of a valet key for a car. It lets the attendant drive the car and park it, but it will not open the glove box or the trunk. You did not hand over your full set of keys. Most important of all, the key does not say who you are.\n\nThere are four roles to know.\n\n- The resource owner: you, the person whose data it is.\n- The client: the application that wants access.\n- The authorization server: it issues the tokens.\n- The resource server: it holds the data.\n\nAn access token is a limited permission slip. Its limits are called scopes, such as read photos but not delete photos.\n\nHere is the most common flow, called the authorization code flow, in order.\n\n- The client sends your browser to the authorization server.\n- You sign in there and approve the scopes requested.\n- The authorization server sends a short-lived code back to the client.\n- The client exchanges that code for an access token.\n- The client presents the token to the resource server to get the data.\n\nA refresh token may also be issued. It is a longer-lived credential that lets the client get a new access token without asking you again, so it needs careful protection.\n\nHere is a workplace example. A printing website wants to use your online photos. It sends you to your photo provider, where you agree that it may read them. The printing site gets a token that can read your photos but cannot delete them. You can cancel its access later, and you never gave it your password.\n\nNow the most important point. OAuth alone does not prove who you are. An access token says what an application may do. It does not reliably tell the application who the person is, and it is not meant to.\n\nHere is your takeaway. OAuth 2.0 is delegated authorization, using limited tokens in place of shared passwords, and it is not authentication."
+    },
+    {
+      "heading": "OpenID Connect, and telling the three apart",
+      "body": "In this part we will add OpenID Connect, and then place all three standards side by side, because the exam loves the difference.\n\nOIDC, which stands for OpenID Connect, adds authentication on top of OAuth 2.0. In other words, it uses the same flows as OAuth, and it adds a way to prove who the user is.\n\nIt does this with an ID token. The ID token is a JWT, which stands for JSON Web Token. JSON stands for JavaScript Object Notation, a simple text format for data. A JWT is a small signed package of facts called claims, such as the user's identifier, who issued the token, who it is meant for, and when it expires. Signing proves that it has not been changed, but it does not hide the contents, so anyone holding the token can read it.\n\nIn OIDC, the identity provider is called the OpenID Provider, and the application is called the relying party.\n\nThink again about the valet key. OAuth gives the valet a key that moves the car. OIDC also gives the attendant a name badge saying who owns the car.\n\nNow here are the three, side by side.\n\n- SAML: authentication and authorization statements, in XML, mainly for business web logins through a browser.\n- OAuth 2.0: delegated authorization, using access tokens. It is not authentication.\n- OIDC: authentication built on OAuth 2.0, using a signed JWT, common for web and mobile logins.\n\nSo how do you choose on the exam? Look at what the scenario needs. If an application needs permission to reach your data, think of OAuth. If an application needs to know who you are, especially on a mobile phone or a consumer website, think of OIDC. If it is an older or enterprise web application trading signed XML statements with a partner, think of SAML.\n\nThe sign in with your existing account button on many websites is usually OIDC at work. An application that posts to your calendar with your permission is usually OAuth.\n\nHere is a workplace example. A company's staff portal uses SAML with a long-standing partner, and its new mobile app uses OIDC.\n\nHere is what to take away. SAML is XML login, OAuth is permission, and OIDC is identity on top of OAuth."
+    },
+    {
+      "heading": "Where federation can fail",
+      "body": "To finish this topic, we will look at how federation goes wrong and how a manager keeps it safe.\n\nTrust spreads risk. Federation means that one party's decision is accepted by many others. That is the benefit, and also the danger. If the identity provider, or IdP, is broken into, every connected service is exposed.\n\nThink back to passports. If a criminal steals the machine that prints a country's passports, those documents will look real at every border in the world.\n\nThe signing key is that machine. If an attacker steals the IdP's private signing key, the attacker can forge assertions for anyone, including senior administrators. No password is needed, and multi-factor authentication, or MFA, does not help, because the forged statement says that the login has already happened.\n\nHere are the main controls.\n\n- Require MFA, meaning proof of two different types, at the IdP.\n- Guard signing keys in protected hardware, and change them on a plan.\n- Keep token and assertion life short.\n- Check each token's signature, audience and expiry.\n- Send logs from both sides to one place.\n\nThe audience check deserves a moment. Audience means who the token was issued for. If a token issued for the payroll system is accepted by the expense system, someone can carry it to the wrong door. Think of a train ticket for one route. The inspector looks at the route, and not just at whether it is a real ticket.\n\nNow think about response. If a signing key is stolen, resetting user passwords will not help, because forged assertions do not use passwords. The first priority is to replace the key and to update the trust at each service provider, so that anything signed with the old key is refused.\n\nThere are also business failures. If the IdP goes down, no one can reach any connected service, so the IdP needs high availability. And a supplier's outage can become your outage, so the contract and your continuity plans should cover it.\n\nHere is a workplace example. A company reviews its federation yearly, removes connections to services no longer in use, and tests its plan for replacing a signing key.\n\nHere is your takeaway. Protect the IdP and its signing keys above all else, and always check signature, audience and expiry."
+    }
+  ],
+  "practiceQuestions": [
+    {
+      "prompt": "A company's staff log in to a third-party expense service using their normal company login. The company's own server checks each person's password and second factor. In federation terms, what is the company's server?",
+      "options": [
+        "The service provider",
+        "The identity provider",
+        "The resource server",
+        "The relying party"
+      ],
+      "correctIndex": 1,
+      "explanation": "The identity provider is the party that checks who the user is. Relying party is tempting, but that is another name for the expense service, which relies on the company's word."
+    },
+    {
+      "prompt": "A partner's web portal needs to know which department a federated user belongs to before it shows certain pages. Which part of a SAML message carries this kind of information?",
+      "options": [
+        "An authentication statement",
+        "An authorization decision statement",
+        "An attribute statement",
+        "A browser session cookie"
+      ],
+      "correctIndex": 2,
+      "explanation": "Facts about a user, such as department, travel in an attribute statement. An authorization decision is tempting because the portal is deciding what to show, but the portal needs a fact here and is making the decision itself."
+    },
+    {
+      "prompt": "A photo printing website wants to read pictures from a customer's account at another cloud provider. It must not learn the customer's password and must not be able to delete anything. Which approach is BEST?",
+      "options": [
+        "OAuth 2.0 with a read-only scope",
+        "OpenID Connect with an ID token alone",
+        "SAML with an attribute statement for each photo",
+        "LDAP queries against the provider's user directory"
+      ],
+      "correctIndex": 0,
+      "explanation": "OAuth 2.0 delegates limited access with a scope, and the password stays with the provider. OpenID Connect is tempting, but an ID token only says who the customer is and gives no permission to read photos."
+    },
+    {
+      "prompt": "A user approves a scheduling application to read her calendar. The application then receives an access token. In OAuth 2.0 terms, which party issues the token?",
+      "options": [
+        "The scheduling application, acting as the client",
+        "The user, acting as the resource owner",
+        "The server that holds the calendar entries",
+        "The authorization server"
+      ],
+      "correctIndex": 3,
+      "explanation": "The authorization server issues tokens. The resource owner is tempting because the user gives approval, but the user only agrees to the request and does not create the token."
+    },
+    {
+      "prompt": "A development team treats the receipt of any OAuth 2.0 access token as proof that a particular user has signed in. What should the security adviser recommend?",
+      "options": [
+        "Encrypt each access token before it is stored on the device",
+        "Issue access tokens with a much shorter life than at present",
+        "Request a broader set of scopes for each new access token",
+        "Use OpenID Connect and validate its ID token"
+      ],
+      "correctIndex": 3,
+      "explanation": "OAuth gives permission and does not prove identity, so the team needs OpenID Connect and its ID token. Shorter token life is tempting and generally good, but a short-lived access token still does not say who the user is."
+    },
+    {
+      "prompt": "A government agency is required by law to keep its identity data, and the servers that check logins, inside its own buildings. Which federation deployment BEST fits this requirement?",
+      "options": [
+        "On-premises federation",
+        "Cloud identity as a service",
+        "Hybrid, with a directory copied to the cloud",
+        "Social login through a large consumer provider"
+      ],
+      "correctIndex": 0,
+      "explanation": "On-premises keeps both the data and the servers in the agency's own hands. Hybrid is tempting because it is common, but copying the directory to the cloud would break the requirement."
+    },
+    {
+      "prompt": "An investigation shows that an attacker has stolen the private key an identity provider uses to sign its assertions. What should be done FIRST?",
+      "options": [
+        "Force all users to choose a new password at their next sign-in",
+        "Tell service providers to watch their logs more closely this month",
+        "Replace the key and update trust at each service provider",
+        "Shorten the life of all assertions that are issued in the future"
+      ],
+      "correctIndex": 2,
+      "explanation": "Until the old key stops being trusted, the attacker can forge an assertion for anyone. Password resets are tempting, but forged assertions do not use passwords at all."
+    },
+    {
+      "prompt": "A company is about to federate its staff logins with a cloud human resources supplier. What should the security manager do BEFORE the agreement is signed?",
+      "options": [
+        "Rely on the security statements in the supplier's sales material",
+        "Review audit reports and set security duties in the contract",
+        "Ask the supplier to hold a copy of all staff password hashes",
+        "Ask a small team of staff to try the service for one week"
+      ],
+      "correctIndex": 1,
+      "explanation": "A federated third party is a supplier, so due care means checking evidence and setting duties in the contract. A trial is tempting, but it tests convenience and shows nothing about the supplier's security."
+    },
+    {
+      "prompt": "An assertion issued for a payroll application is presented to an expense application that uses the same identity provider, and the expense application accepts it. Which check is missing?",
+      "options": [
+        "Password complexity at the identity provider",
+        "Encryption of the browser connection to the service",
+        "Validation of the audience value in each assertion",
+        "A shorter idle timeout in the expense application"
+      ],
+      "correctIndex": 2,
+      "explanation": "The audience states who the assertion was issued for, and the expense application should have refused one meant for payroll. Encryption is tempting, but this assertion was not stolen in transit; it was accepted at the wrong door."
+    },
+    {
+      "prompt": "Two large companies want staff at one to sign in through a browser to the other's business web portal. Both already run enterprise products that exchange signed XML identity statements. Which standard is the BEST fit?",
+      "options": [
+        "SAML 2.0",
+        "OAuth 2.0 on its own",
+        "Kerberos across the internet",
+        "RADIUS with a shared secret"
+      ],
+      "correctIndex": 0,
+      "explanation": "SAML 2.0 exchanges signed XML assertions and is built for business web sign-in across organizations. OAuth is tempting because it is widely used, but on its own it grants permission and does not prove who the user is."
+    }
+  ]
+}

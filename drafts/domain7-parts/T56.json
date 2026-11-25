@@ -1,0 +1,141 @@
+{
+  "id": "T56",
+  "studyNotes": [
+    {
+      "heading": "Need to know and least privilege",
+      "body": "In this first part, we are going to look at need to know and least privilege. These two ideas are close, but they are not the same.\n\nNeed to know is about information. You may see something only if your work requires it. Think of a family doctor's office. The receptionist may need your appointment time, but does not need to read your medical history. Even someone with a high security clearance has no need to know about a secret project that lies outside their work. Clearance tells you what level a person may be trusted with. Need to know tells you whether they should see this particular thing.\n\nLeast privilege is about rights and actions. You receive only the permissions your job requires, and no more. Think of a hotel cleaner's key. It opens the guest rooms on one floor during working hours, but not the safe in the manager's office.\n\nHere is a workplace example. A help desk worker can reset a password, but cannot delete all user accounts. A payroll clerk can enter hours, and can read the records for one department, but cannot change the tax tables.\n\nNotice how the two fit together. Need to know limits what you can see. Least privilege limits what you can do.\n\nThese ideas apply to systems as well as people. A program that only needs to read a database should not run with an account that is able to delete it. If an attacker takes over that program, the harm is limited.\n\nPrivilege creep happens when someone changes jobs over time and keeps their old rights as well as the new ones. After ten years, a long-serving employee may have more access than anyone realises. Regular access reviews catch this problem. A manager looks at who has what, and confirms whether it is still needed.\n\nA related idea is default deny. Start with no access at all, and add only what is justified. That is safer than starting with everything, and trying to remove what is not wanted.\n\nHere is what to take away. Need to know is about information, least privilege is about rights, and regular access reviews stop privilege creep."
+    },
+    {
+      "heading": "Separation of duties and responsibilities",
+      "body": "Now we will look at separation of duties, which stops any one person from having too much power.\n\nSeparation of duties, often called SoD, splits a sensitive task so that no single person can complete it alone. Think of a shop. One person orders the goods, another checks that they arrived, and a third pays the bill. If one person could do all three, that person could invent a supplier and pay themselves.\n\nHere is a workplace example from technology. A developer writes the code, a separate person tests it, and an operations team moves it into production. Production means the live systems that the business really uses. The developer cannot sneak in a change, because someone else has to release it.\n\nA similar example involves security logs. The administrator who runs a system should not be the only person who can read or delete the logs of that system. Otherwise, that administrator could hide any misuse.\n\nCollusion means two or more people secretly working together to break the rules. Separation of duties makes fraud harder, because fraud now needs collusion. It does not make collusion impossible. It simply raises the difficulty and the risk of being discovered.\n\nThere are some related controls that the exam expects you to recognise.\n\nTwo-person control means that two people must act together at the same time, such as two keys being turned for a vault. Think of the old films where two officers turn their keys at the same moment.\n\nM of N control means that a set number of people out of a larger group must agree. For example, any 3 of 5 managers must provide their part of a key before a master encryption key can be recovered.\n\nSplit knowledge means that no single person knows the whole secret. Each person holds only one part.\n\nSometimes a very small team cannot separate duties. A company with two technology staff cannot have three separate roles. In that case, use a compensating control, such as an independent review of the logs by someone outside the team. A compensating control is another protection used when the normal one is not possible.\n\nHere is your takeaway. No single person should complete a sensitive task alone, and when that cannot be done, add a compensating control."
+    },
+    {
+      "heading": "Job rotation and mandatory vacations",
+      "body": "Next we are going to look at job rotation and mandatory vacations. They are both simple ideas, and they can be surprisingly powerful.\n\nJob rotation moves staff between roles from time to time. Think of a team of shop assistants who take turns on the till, on the shop floor and in the store room. Each person learns the whole business. If one is ill, somebody else can step in.\n\nThis practice has two main benefits.\n\nThe first is that it finds hidden fraud. A new person in the role looks at the records with fresh eyes. Things that were being hidden can suddenly come to light.\n\nThe second benefit is cross-training. Staff learn other roles, so the business does not depend on one person. Many organisations have a dangerous habit of relying on one expert, the only one who knows how an old system works. If that person leaves, wins the lottery, or falls ill, the business is in trouble.\n\nMandatory vacations are closely related. A person is required to take a block of leave, often at least one full week or two, and somebody else does the work in the meantime. Fraud that needs daily hiding is often found this way.\n\nHere is a workplace example. A bank's accounts clerk is the model employee, and has not taken a day off in five years. When the bank enforces its leave policy, a colleague takes over for two weeks and notices payments going to an unknown account. The clerk had been moving small amounts for years. The fraud could continue only as long as the clerk was present to cover it each day.\n\nThat clerk's loyalty looked like a good thing. In fact, an employee who never takes leave can be a warning sign.\n\nThese are detective controls, which means they help to discover problems. Separation of duties is largely a preventive control, which means it stops problems from happening. They work best together.\n\nFor these controls to work, access must be arranged carefully. The person who steps in needs the rights to do the job, and the person who is away should not be able to log in remotely and keep covering their tracks.\n\nHere is what to take away. Job rotation and mandatory vacations reveal hidden fraud, and rotation also reduces dependence on one person."
+    },
+    {
+      "heading": "Privileged account management",
+      "body": "In this part, we will look at how powerful accounts are controlled.\n\nPAM stands for privileged account management. A privileged account is one that can do far more than a normal account, such as an administrator on a server or the owner of a cloud subscription. Think of the master key for a block of flats. Nobody leaves it under the doormat, and the caretaker signs for it whenever it is used.\n\nThese accounts can do the most harm. An attacker who gets one can create new accounts, switch off logging and read everything. So they get the tightest control.\n\nThe main practices are these.\n\nGive each person their own account. Avoid shared accounts, because then nobody can be held accountable. Accountability means being able to tie an action to one person.\n\nRequire MFA, or multi-factor authentication, which means more than one kind of proof, such as a password and a code from a phone.\n\nGrant high rights only when needed, and only for a short time. This is called just-in-time access. For example, an engineer asks for administrator rights for two hours for one approved task, and the rights then disappear.\n\nStore passwords in a vault. A vault is a secure system that holds passwords, hands them out only to approved people, and changes them after use.\n\nRecord and review privileged sessions, so that there is a record of what was done. The person reviewing the sessions should be someone other than the person who did the work.\n\nKeep normal work, such as reading email, on a separate normal account. If an administrator opens a malicious attachment while logged in with full rights, the attacker gets those full rights too.\n\nService accounts deserve attention too. These are accounts used by programs, not by people. They are often forgotten, have passwords that never change, and hold more rights than needed.\n\nHere is a workplace example. A company puts all of its administrator passwords into a vault. To use one, an engineer logs in with multi-factor authentication and gives a ticket number. The session is recorded, and a security analyst spot-checks a sample each week.\n\nHere is your takeaway. Privileged accounts need individual ownership, strong authentication, short-lived rights, a vault, recorded sessions and regular review."
+    },
+    {
+      "heading": "Service level agreements",
+      "body": "Now we are going to look at service level agreements, which turn a supplier's promises into something that can be measured.\n\nAn SLA, or service level agreement, is a contract that sets measurable promises from a provider. Think of a pizza shop that promises delivery within thirty minutes or the pizza is free. The promise is clear. You can measure it, and there is a stated result if it is broken.\n\nA typical agreement states these things: how much uptime is promised, how quickly a problem will be answered, how quickly it will be fixed, and what penalty applies if the provider fails. Uptime means the time during which a service is working.\n\nTwo measures often appear. MTBF, or mean time between failures, is the average time that something runs before it breaks. MTTR, or mean time to repair, is the average time to fix it.\n\nNow a worked example. An agreement promises 99.9 percent uptime each month. How much downtime is allowed?\n\nA 30-day month has 720 hours. That is 30 times 24. The allowed downtime is the remaining 0.1 percent. So we work out 720 times 0.001, which is 0.72 hours. Now turn that into minutes. 0.72 times 60 is about 43 minutes.\n\nSo a provider who promises 99.9 percent may be down for about 43 minutes in that month, and still be keeping its promise. If you tighten it to 99.99 percent, the allowance drops by ten times, to about 4 minutes. Each extra nine costs a great deal more money, so a business should buy only what it really needs.\n\nBe careful about the wording. Check how downtime is measured, and whether planned maintenance counts.\n\nHere is the manager's view. You can hand over the work, but you remain accountable for the risk. If a cloud provider loses your customers' data, your customers will still blame you. So check the provider's reports. Do not simply assume that they are meeting the agreement. For security, an agreement may also include how quickly the provider must tell you about a breach.\n\nThe exam may also mention an MOU, or memorandum of understanding. That is a less formal statement of intent, and it usually carries no penalties.\n\nHere is what to take away. An agreement must be measurable, the numbers matter, and accountability stays with you."
+    },
+    {
+      "heading": "Putting the foundations together",
+      "body": "In this final part, we will bring these ideas together, and see how they work in one realistic situation. We will also look at how to choose between them on the exam.\n\nThink of a house with several safeguards. The lock stops someone getting in. The alarm tells you if they do. The neighbour who visits while you are away may notice something odd. Each one does a different job. Security operations concepts are the same. They overlap, and they support one another.\n\nHere is a worked example. A mid-sized insurance company has just suffered a fraud. A claims supervisor approved fake claims and paid them to a friend, over three years. An investigation reveals the following. The supervisor could both create and approve a claim. The supervisor had not taken a holiday in three years. The supervisor still had rights from an earlier job in the finance team. Nobody reviewed the supervisor's activity.\n\nNow we match each weakness to a concept.\n\nCreating and approving a claim by the same person is a failure of separation of duties. So split those tasks between two people.\n\nThe missing holiday points to mandatory vacations. So enforce a leave policy.\n\nThe old finance rights are privilege creep, and they break the principle of least privilege. So start regular access reviews, and remove old rights whenever someone changes roles.\n\nThe lack of review points to weak monitoring. So let an independent person review the logs of high-value payments.\n\nNow here is how to choose on the exam. Read the scenario, and ask what the actual problem is.\n\nIf somebody can see something they should not, think about need to know.\n\nIf somebody can do something they should not, think about least privilege.\n\nIf one person can complete a risky process alone, think about separation of duties.\n\nIf fraud is staying hidden because one person always does the job, think about job rotation or mandatory vacations.\n\nIf nobody can tell who did something, think about individual accounts and accountability.\n\nIf a supplier's promises cannot be measured, think about the service level agreement.\n\nAnd as a manager, remember to fix the process and record the decision, and not just to punish one person.\n\nHere is your takeaway. Name the real weakness first, and then pick the control that addresses that weakness directly."
+    }
+  ],
+  "practiceQuestions": [
+    {
+      "prompt": "A senior analyst holds a top-level clearance and asks to read files from a secret project that is unrelated to the analyst's work. What is the BEST response?",
+      "options": [
+        "Refuse, because the analyst has no need to know",
+        "Allow it, because the clearance level is high enough",
+        "Allow it, but only for a limited period of time",
+        "Refuse, unless the analyst first signs a new confidentiality form"
+      ],
+      "correctIndex": 0,
+      "explanation": "Clearance alone is not enough. The person also needs a work reason. Allowing it because of clearance is tempting, but need to know applies at every clearance level."
+    },
+    {
+      "prompt": "An employee has worked in sales, marketing and finance over eight years, and still has access to systems in all three departments. Which problem does this describe?",
+      "options": [
+        "Separation of duties",
+        "Collusion",
+        "Privilege creep",
+        "Job rotation"
+      ],
+      "correctIndex": 2,
+      "explanation": "Keeping old rights while gaining new ones is privilege creep. Job rotation is tempting because the person moved between roles, but rotation is a control and the leftover access is the problem."
+    },
+    {
+      "prompt": "In a company's payment system, one person creates a new supplier and another person must approve payments to it. Fraud is still possible if which of these occurs?",
+      "options": [
+        "The two employees work in different buildings",
+        "The two employees secretly work together",
+        "The payments are recorded in a central log",
+        "One of the two employees takes annual leave"
+      ],
+      "correctIndex": 1,
+      "explanation": "Separation of duties forces fraud to need collusion, but it cannot remove that possibility. Annual leave is tempting because of its link to fraud detection, but leave helps to reveal fraud and does not make it possible."
+    },
+    {
+      "prompt": "A master encryption key can be recovered only when any three of the seven appointed managers provide their part. What is this control?",
+      "options": [
+        "Least privilege",
+        "Job rotation",
+        "Mandatory access control",
+        "M of N control"
+      ],
+      "correctIndex": 3,
+      "explanation": "A set number out of a larger group must act together, which is M of N control. Mandatory access control is tempting because of the word control, but it is a method of granting access based on labels."
+    },
+    {
+      "prompt": "A small company has only one database administrator and cannot afford a second. How can it BEST reduce the risk of misuse by that administrator?",
+      "options": [
+        "Ask the administrator to sign a yearly statement of good conduct",
+        "Have someone independent regularly review the administrator's logged activity",
+        "Remove all of the administrator's access to the database",
+        "Rely on the fact that the administrator is a trusted employee"
+      ],
+      "correctIndex": 1,
+      "explanation": "An independent review is a compensating control where duties cannot be separated. A signed statement is tempting because it is cheap, but it neither prevents nor detects anything."
+    },
+    {
+      "prompt": "A bank requires staff in sensitive roles to take two weeks of leave in a row each year while someone else performs their duties. What is the MAIN security purpose of this rule?",
+      "options": [
+        "To improve staff health and reduce the number of sick days",
+        "To reduce the number of accounts that need passwords",
+        "To reveal fraud that needs daily concealment",
+        "To lower the cost of the payroll system"
+      ],
+      "correctIndex": 2,
+      "explanation": "With the person away, someone else may see what was being hidden. Staff health is a real benefit and tempting to select, but it is not the main security reason."
+    },
+    {
+      "prompt": "A system administrator uses one account for email, web browsing and server administration. What is the BEST recommendation?",
+      "options": [
+        "Force the administrator to change the password every week",
+        "Install a second web browser for administration tasks",
+        "Monitor the administrator's email more closely each day",
+        "Use a normal account for daily work and a separate privileged account for administration"
+      ],
+      "correctIndex": 3,
+      "explanation": "Separating daily activity from privileged use limits the harm if a malicious email is opened. Frequent password changes are tempting, but malware running under the account would still have full rights."
+    },
+    {
+      "prompt": "An engineer needs administrator rights for one approved task lasting two hours. Which approach BEST supports least privilege?",
+      "options": [
+        "Grant just-in-time access that ends when the task is finished",
+        "Add the engineer permanently to the administrators group",
+        "Share the password of an existing administrator with the engineer",
+        "Leave the engineer's normal rights in place and skip the approved task"
+      ],
+      "correctIndex": 0,
+      "explanation": "Just-in-time access grants rights only when needed and removes them afterwards. Permanent membership is tempting for convenience, but it leaves high rights in place long after the task."
+    },
+    {
+      "prompt": "A hosting contract promises 99 percent uptime in a 30-day month. What is the MOST downtime allowed in that month without breaking the promise?",
+      "options": [
+        "About 43 minutes",
+        "About 72 hours",
+        "About 7.2 hours",
+        "About 1 hour"
+      ],
+      "correctIndex": 2,
+      "explanation": "A 30-day month has 720 hours, and 1 percent of 720 is 7.2 hours. About 43 minutes is tempting, but that is the figure for 99.9 percent uptime."
+    },
+    {
+      "prompt": "A company has moved its payroll to an outside provider under a service level agreement. A provider error then exposes staff salaries. Who remains accountable to the staff for this?",
+      "options": [
+        "Only the provider, as it caused the failure",
+        "The company that chose to use the provider",
+        "The regulator that oversees data protection law",
+        "The individual employee who was on duty at the provider"
+      ],
+      "correctIndex": 1,
+      "explanation": "The work can be outsourced, but accountability stays with the organisation. Blaming only the provider is tempting because it caused the error, but the provider's contract does not remove the company's duty to its staff."
+    }
+  ]
+}

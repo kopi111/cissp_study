@@ -1,0 +1,141 @@
+{
+  "id": "T37",
+  "studyNotes": [
+    {
+      "heading": "Copper cable types",
+      "body": "In this first part, we are going to look at copper cabling, which still carries a great deal of the traffic inside buildings.\n\nData needs something to travel on, just as water needs a pipe. Transmission media is simply the name for that something. It may be copper wire, glass fiber or radio waves. Each has its limits and its risks.\n\nTwisted pair is the most common copper cable. Inside the jacket are pairs of wire twisted together. The twist cancels out interference from outside and from neighbouring pairs. There are two types.\n\n- UTP, unshielded twisted pair: has no metal shield. It is cheap and common.\n- STP, shielded twisted pair: has a shield, so it resists interference better.\n\nCables come in categories, and the exam may give you distance limits.\n\n- Cat5e: 1 gigabit per second over 100 metres.\n- Cat6: 10 gigabits per second over about 55 metres.\n- Cat6a: 10 gigabits per second over 100 metres.\n\nThe figure of 100 metres is the one to remember for ordinary copper Ethernet runs. Beyond that, the signal fades too far, and it needs a device to boost it.\n\nCoaxial cable has a copper core, then insulation, then a shield. It resists interference better than unshielded twisted pair. You may have seen it connected to a cable television box.\n\nCopper has a security weakness. It carries electrical signals, which leak a little energy, and a tap can be placed on it without cutting it. Copper also conducts electricity, which matters when cables run between buildings. A lightning strike can travel along it and damage equipment at both ends.\n\nThere is a safety point too. Plenum-rated cable has a coating that gives off less toxic smoke when it burns. A plenum is an air space in a building, such as the gap above a ceiling, that air circulates through. In a fire, smoke from ordinary cable in that space would be carried through the whole building. So plenum spaces need plenum-rated cable, and fire codes require it.\n\nHere is a workplace example. A contractor offers cheap cable for an office ceiling space. The manager checks that it is plenum-rated, because this is about keeping people safe, and not merely about a network.\n\nHere is what to take away. Twists fight interference, 100 metres is the common copper limit, and plenum cable is about people's safety."
+    },
+    {
+      "heading": "Fiber optic cable",
+      "body": "Now we will look at glass fiber, which carries light in place of electricity.\n\nFiber optic cable sends pulses of light down a very thin strand of glass or plastic. Because it carries light, electrical noise cannot disturb it. Lightning does not travel along the glass either. Fiber has become the normal choice for long runs and for links between buildings.\n\nThere are two main types.\n\nMultimode fiber has a wider core, so the light bounces along several paths. Those paths arrive at slightly different times, and that limits the distance. It is normally used inside a building or a data centre, for distances commonly up to a few hundred metres at high speed.\n\nSingle-mode fiber has a very thin core, and it uses laser light travelling along one path. It can reach many kilometres. It is used between buildings, across cities and under oceans.\n\nThink of a wide corridor where a crowd runs and spreads out, compared with a narrow lane where everyone moves in a single line. The people in the narrow lane all arrive together, however long the lane is.\n\nThe words can be confusing, so here is a simple rule. Single-mode is thin and goes the long way. Multimode is wider and stays closer to home.\n\nNow security. Fiber does not leak electrical signals in the way that copper does, and it is harder to tap. But do not fall for the claim that it cannot be tapped. A skilled attacker can bend a fiber slightly, so that a small amount of light escapes to be read. So fiber still needs physical protection, monitoring of signal loss and, for sensitive data, encryption on top.\n\nFiber has practical drawbacks too. It costs more to install and terminate, and it breaks more easily if it is bent too sharply. Fiber is also often cut by accident during building works, and so the route matters as well as the cable.\n\nHere is a workplace example. A campus links two buildings 1 kilometre apart, with heavy machinery running between them. Copper could not reach that distance at network speed, and it would pick up noise. Single-mode fiber solves both problems. The manager still asks that the two links take different physical routes.\n\nYour takeaway is this. Fiber resists electrical noise and goes the distance. Harder to tap does not mean impossible to tap."
+    },
+    {
+      "heading": "Signal quality and physical protection of media",
+      "body": "Next we will look at what makes a signal weaken, and how to keep the cables themselves safe.\n\nThe outline calls this signal propagation quality. It means how well a signal travels from one end to the other. Here are the problems to know.\n\n- Attenuation: the signal gets weaker over distance.\n- Crosstalk: signal leaks from one wire to the next.\n- EMI, or electromagnetic interference: noise from motors and power lines.\n- RFI, or radio frequency interference: noise from radio sources.\n\nThink about talking to a friend. If they walk away, then your voice fades, and that is attenuation. If two other people are chatting right beside you, that is crosstalk. If a lorry drives past, that is interference.\n\nTo overcome attenuation, a repeater regenerates the signal, and an amplifier boosts it. An amplifier boosts the noise too, while a repeater regenerates a clean signal.\n\nRadio has further problems. Walls absorb signal. Reflections cause the same signal to arrive at slightly different times. Other devices can interfere.\n\nGood signal quality is measured by the signal-to-noise ratio, which compares the signal with the background noise. Higher is better.\n\nHere is a worked example of finding a cause. A switch reports many errors on a link near a large air conditioning unit. Nothing is wrong with the configuration, and the errors rise whenever the unit starts. The cause is likely to be interference. The right fix is to reroute the cable, shield it or use fiber, and not simply to buy a faster switch.\n\nNow physical security of media. A network can be attacked at the cable. So protect the media.\n\n- Lock wiring closets, and log who enters them.\n- Run sensitive cable through sealed conduit, which is protective pipe.\n- Inspect cable runs for tampering.\n- Disable unused wall ports.\n\nA PDS, or protected distribution system, is a guarded and alarmed path for sensitive cabling. It is used when data is so sensitive that it is carried unencrypted only within tightly controlled spaces.\n\nThere is also the risk of emanations, where equipment gives off signals that can be picked up at a distance. Tempest is the name for the study of this and for its controls.\n\nHere is what to take away. Know what degrades signals, fix the cause, and remember that a cable can be attacked like anything else."
+    },
+    {
+      "heading": "Redundant power",
+      "body": "Now we will look at power, because no network can run without it, and availability is part of security.\n\nThe exam expects you to know the names for power problems, and they come in pairs. In each pair, the first is momentary and the second is prolonged.\n\n- Fault: momentary loss of power. Blackout: prolonged loss.\n- Sag: momentary low voltage. Brownout: prolonged low voltage.\n- Spike: momentary high voltage. Surge: prolonged high voltage.\n\nThink of the lights at home. A quick flicker off is a fault, while the whole street losing power for hours is a blackout. Lights dimming for a moment is a sag, and lights staying dim is a brownout.\n\nHere are the controls that keep power flowing.\n\nDual power supplies mean that a device has two power units, each fed by a separate circuit. If one fails, then the device keeps running. A PDU, or power distribution unit, is the strip that feeds power to the equipment in a rack.\n\nA UPS, or uninterruptible power supply, uses batteries to carry the load for a short time. It also cleans up sags and spikes. A generator provides long-term power, as long as it has fuel.\n\nThe order in an outage matters. Here is a worked example.\n\n- Step 1: Mains power fails at the data centre.\n- Step 2: The UPS carries the load at once, with no interruption.\n- Step 3: The generator starts, which might take thirty seconds.\n- Step 4: The generator takes over, and the UPS recharges.\n\nSuppose the UPS lasts for 15 minutes, and the generator needs 30 seconds. There is plenty of margin. But if the UPS batteries have aged and last only 20 seconds, the data centre goes dark before the generator starts. That is why both must be tested, and tested under real load.\n\nA generator also needs a fuel supply. For an outage lasting days, you need a contract for fuel deliveries, and that contract should be tested before it is needed.\n\nHere is a workplace example. A hospital tests its generator every month. It treats the test as a safety measure, because patients depend upon that power.\n\nNotice that this is a management matter too. Someone has to own the test schedule, and record the results.\n\nHere is your takeaway. Learn the pairs, remember the UPS bridges the gap until the generator takes over, and test both."
+    },
+    {
+      "heading": "Warranty, support and the end of a device's life",
+      "body": "In this part, we are going to look at warranty and support, two words in the outline that matter more than they sound.\n\nA warranty is a promise that the manufacturer will repair or replace a faulty product for a set time. A support contract goes further. It usually gives you access to technical help, software updates and security fixes, and agreed repair times.\n\nThink of buying a new car. The warranty covers parts that fail in the first few years. A service plan is a separate agreement that keeps the car looked after. One does not replace the other.\n\nYou should keep an inventory of every network device, and record each device's warranty, support contract and key dates. Two terms matter.\n\n- EOL, or end of life, means the vendor stops selling the product.\n- EOS, or end of support, means the vendor stops providing fixes.\n\nVendors use these words in slightly different ways, so always read the actual notice.\n\nA device past end of support is a growing risk, because new weaknesses are never fixed. It may still work perfectly, and this makes the risk easy to ignore. Think about a building whose door locks can no longer be repaired, because the maker has closed. The locks seem fine, until the day that one fails or a way to defeat them becomes widely known.\n\nHere is what a good manager does.\n\n- Tell management early, so that replacement can be funded.\n- Plan the replacement as a project, with change control.\n- If replacement must wait, apply compensating controls, such as isolating the device.\n- Record the risk, and have the right person formally accept it.\n\nA spare unit protects you from a hardware failure, but it does nothing about missing security fixes.\n\nFor critical devices, hold spare parts or buy a fast replacement service. An SLA, or service level agreement, sets the agreed repair time. Be sure the contract's repair time is shorter than the time that the business can tolerate being without that device.\n\nHere is a workplace example. A bank's core switch fails on a Friday night. Its contract promises next business day repair, but the bank cannot be down for that long. A manager should have found this mismatch in advance, and either bought four-hour support or kept a spare.\n\nHere is what to take away. Track dates, report end of support early, and make sure support matches business need."
+    },
+    {
+      "heading": "Availability, with worked examples",
+      "body": "In this final part we will put numbers to availability, step by step.\n\nThere are two terms to know. MTBF, or mean time between failures, is the average working time between one failure and the next. MTTR, or mean time to repair, is the average time to fix a failure.\n\nAvailability equals MTBF divided by the sum of MTBF and MTTR.\n\nThink of a delivery van. If it runs for 990 hours and then spends 10 hours in the garage, it was available for 990 out of 1,000 hours.\n\nHere is the worked example with a switch. The mean time between failures is 990 hours. The mean time to repair is 10 hours. First add them together, 990 plus 10 is 1,000. Then divide, 990 divided by 1,000 is 0.99. That is 99 percent.\n\nNotice that there are two ways to improve this. You can make failures rarer. Or you can fix them faster. Keeping spare parts improves MTTR, and it is often the cheaper option.\n\nNow the allowed downtime in a year. A year has 8,760 hours.\n\n- 99 percent: about 87.6 hours.\n- 99.9 percent: about 8.76 hours.\n- 99.99 percent: about 52.6 minutes.\n- 99.999 percent: about 5.26 minutes.\n\nEach extra nine reduces allowed downtime tenfold. It also costs a great deal more.\n\nNow let us see what happens when devices are combined. Suppose that traffic must pass through two devices, each 99 percent available. They are in series, which means both must work. Multiply them. 0.99 times 0.99 is 0.9801, or about 98 percent. Adding a device in the chain lowered the availability.\n\nNow suppose the devices are in parallel, which means either can do the job. The chance of one failing is 0.01. The chance of both failing together is 0.01 times 0.01, which is 0.0001. So availability is 1 minus 0.0001, or 99.99 percent. This is why redundancy works so well.\n\nThis assumes the two devices fail independently. If both are on one power circuit, or one carrier, then they can fail together. So remove single points of failure, and buy service from two carriers over different physical routes.\n\nHere is a workplace example. A company buys two internet links from two providers, then finds both run through the same trench. One digger could cut them both.\n\nYour takeaway is this. Availability is working time divided by total time, and true redundancy needs independent paths."
+    }
+  ],
+  "practiceQuestions": [
+    {
+      "prompt": "An office needs a 10 gigabit copper connection across a run of 90 metres inside the building. Which cable is the BEST choice?",
+      "options": [
+        "Cat5e",
+        "Cat6",
+        "Cat6a",
+        "Coaxial television cable"
+      ],
+      "correctIndex": 2,
+      "explanation": "Cat6a supports 10 gigabits per second over 100 metres. Cat6 is tempting, but it reaches 10 gigabits only over about 55 metres."
+    },
+    {
+      "prompt": "A contractor proposes to run ordinary cable above a suspended ceiling that is used for air circulation in an office building. What is the manager's BEST response?",
+      "options": [
+        "Approve it, because the cable's jacket affects only how long it lasts",
+        "Require plenum-rated cable, because of toxic smoke risk to people",
+        "Approve it as long as the cable is shielded twisted pair",
+        "Require single-mode fiber in the ceiling space for speed"
+      ],
+      "correctIndex": 1,
+      "explanation": "A ceiling used for air circulation can spread toxic smoke, so plenum-rated cable is required for people's safety. Shielded cable is tempting, but shielding addresses interference and does nothing about the smoke."
+    },
+    {
+      "prompt": "A network team argues that a sensitive link needs no further protection because it is fiber and fiber cannot be tapped. What is the BEST response from the security manager?",
+      "options": [
+        "Agree, because fiber signals can never be intercepted",
+        "Agree, but replace the fiber with copper to reduce the cost",
+        "Add stronger passwords for each staff member who uses that link",
+        "Explain fiber can be tapped, and require physical protection and encryption"
+      ],
+      "correctIndex": 3,
+      "explanation": "Fiber is harder to tap, but tapping is still possible, so physical protection and encryption are appropriate. Stronger passwords are tempting, but they do nothing about someone reading the signal from the glass."
+    },
+    {
+      "prompt": "A switch logs a rise in errors each time a large air conditioning unit starts. The copper cable runs alongside the unit's power feed. What is the MOST likely cause of the errors?",
+      "options": [
+        "Electromagnetic interference from the unit's motor and power feed",
+        "Attenuation, because the copper cable is simply too long for the link",
+        "A firmware fault in the switch that appears at random times",
+        "A misconfigured VLAN on the port that is connected to the cable"
+      ],
+      "correctIndex": 0,
+      "explanation": "Errors that rise when a motor starts point to electromagnetic interference. Attenuation is tempting, but attenuation depends on distance and does not change when a unit switches on."
+    },
+    {
+      "prompt": "The lights in a data centre dim for several hours because the utility is struggling to meet demand. Power is present, but the voltage stays low. How is this event BEST described?",
+      "options": [
+        "A fault",
+        "A blackout",
+        "A sag",
+        "A brownout"
+      ],
+      "correctIndex": 3,
+      "explanation": "A prolonged period of low voltage is a brownout. A sag is tempting because it is also low voltage, but a sag is momentary."
+    },
+    {
+      "prompt": "A site's UPS batteries are found to last only 20 seconds under full load, and the generator needs 45 seconds to take over. What is the BEST conclusion?",
+      "options": [
+        "There is no concern, since a generator will always take over the load",
+        "The generator should be switched off to give the UPS batteries longer life",
+        "Load will be lost before the generator takes over, so the batteries need fixing",
+        "The site should remove the UPS and rely on the generator on its own"
+      ],
+      "correctIndex": 2,
+      "explanation": "The UPS must last longer than the generator takes to start, and here it does not. Removing the UPS is tempting as a simple fix, but the generator's start-up gap would remain."
+    },
+    {
+      "prompt": "A vendor announces that a model of router will no longer receive fixes, and replacement cannot be funded until next year. In the meantime, what is the BEST action for the security manager?",
+      "options": [
+        "Apply compensating controls and record the formally accepted risk",
+        "Take no action, because the router is working well today",
+        "Buy a spare router of the same model, and consider the risk closed",
+        "Hide the router's model number from all of the network documentation"
+      ],
+      "correctIndex": 0,
+      "explanation": "Compensating controls reduce the risk and formal acceptance records the decision until replacement arrives. A spare is tempting, but it helps only with hardware failure."
+    },
+    {
+      "prompt": "A device has a mean time between failures of 1,900 hours and a mean time to repair of 100 hours. What is its availability?",
+      "options": [
+        "90 percent",
+        "95 percent",
+        "99 percent",
+        "99.9 percent"
+      ],
+      "correctIndex": 1,
+      "explanation": "1,900 divided by 1,900 plus 100 is 1,900 divided by 2,000, which is 0.95, or 95 percent. 90 percent is tempting if the 100 hours is mistakenly counted twice."
+    },
+    {
+      "prompt": "A service needs traffic to pass through two devices in series, each with 90 percent availability. What is the combined availability of the service?",
+      "options": [
+        "99 percent",
+        "90 percent",
+        "81 percent",
+        "45 percent"
+      ],
+      "correctIndex": 2,
+      "explanation": "Devices in series must both work, so 0.9 times 0.9 is 0.81, or 81 percent. 99 percent is tempting, but that is the result for two devices in parallel."
+    },
+    {
+      "prompt": "A company has two internet links from two providers, yet an audit finds that both enter the building through a single duct. What should the security manager recommend?",
+      "options": [
+        "Accept the design, because having two providers is already sufficient",
+        "Raise the bandwidth of each link so that either one can carry all the load",
+        "Combine the two links into one much larger link from a single provider",
+        "Arrange physically diverse routes to remove the shared point of failure"
+      ],
+      "correctIndex": 3,
+      "explanation": "A shared duct is a single point of failure, so routes must be physically diverse. More bandwidth is tempting, but one cut in that duct would still take down both links."
+    }
+  ]
+}

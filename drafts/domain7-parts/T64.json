@@ -1,0 +1,141 @@
+{
+  "id": "T64",
+  "studyNotes": [
+    {
+      "heading": "Why we test a disaster recovery plan",
+      "body": "In this first part, we are going to look at why testing matters, and at what makes a good test.\n\nA plan that has never been tested is only a hope. Think of a school fire drill. Everyone knows in theory where the exits are. But only a drill shows that one of the doors is blocked by boxes, or that nobody can hear the bell in the music room. It is much better to find that out on a sunny afternoon than in a real fire.\n\nTesting proves that a DRP, or disaster recovery plan, works, and that people know their roles. It finds old phone numbers, missing steps and backups that cannot be restored. It also trains the people involved, because practice builds confidence and speed.\n\nHere are the features of a good test.\n\nClear goals. A test should measure something specific. For example, can the payment system be working at the recovery site within four hours? The target usually comes from the RTO, the recovery time objective, which is the target time to bring a system back.\n\nApproval from management. The more disruptive the test, the more senior the approval that it needs.\n\nA realistic scenario. The test should reflect the things that are genuinely likely to happen to this organisation.\n\nA written report. Results go to senior management, with each problem assigned to an owner.\n\nHow often should a test take place? Tests should happen at least once a year, and after major changes, such as moving to a new data centre, changing key staff, or installing a new critical system.\n\nThere are six test types in the exam, from least to most disruptive. Learn them in this exact order.\n\n- Read-through.\n- Tabletop.\n- Walkthrough.\n- Simulation.\n- Parallel.\n- Full interruption.\n\nThe first three are based on discussion, and they touch no systems. The fourth rehearses the response. The last two involve really bringing systems up, and carry real cost or risk.\n\nHere is a workplace example. A hospital sets a goal of restoring its patient records system within two hours. Its test shows that it takes three hours. That result is not a failure of the test. It is the test doing its job, while nobody's life is at risk.\n\nHere is what to take away. Testing proves that the plan works, every test needs goals and approval, and the six types run from read-through to full interruption."
+    },
+    {
+      "heading": "Read-through, tabletop and walkthrough",
+      "body": "Now we will look at the three gentlest types of test, in which nobody touches a live system.\n\nThe outline places read-through and tabletop together as one item, because both are forms of discussion and review.\n\nA read-through means that each team member reads the plan alone and reports errors. It is also called a checklist review. Think of a recipe that is passed around the family. Each person reads it and says that an ingredient is missing, or that the oven temperature looks wrong. No one has actually cooked anything.\n\nIt finds out-of-date names, wrong phone numbers and missing pages. It is cheap and carries no risk.\n\nA tabletop exercise means that the team sits together and talks through a made-up event. No systems are touched. A facilitator, who runs the session, describes the event, and then adds new complications. Now the power is out. Now one of the key people cannot be reached. What do you do?\n\nThink of a family sitting at the kitchen table to discuss what they would do if the house caught fire at night. Who gets the baby? Where do we meet? Talking it through reveals gaps that reading alone would not.\n\nA walkthrough means that team members go through the steps together, in order, confirming that each step makes sense. It is more structured and more detailed than a general discussion. Some people carry this out at the locations involved, checking that the equipment and the routes are really there.\n\nA word of caution. Some books use the term structured walkthrough to mean the same thing as a tabletop. So read the wording in the question, and look at what the people are actually doing.\n\nAll three of these are low cost and low risk. Their limitation is that they prove only that the plan looks right. They cannot prove that a recovery site will start, or that the data can be restored.\n\nHere is a workplace example. A logistics company has just written its first plan. Each manager reads it and finds 20 errors. Then the team holds a tabletop session about a cyber attack on its warehouse system. It discovers that no one is in charge of telling the customers.\n\nHere is your takeaway. A read-through is done alone, a tabletop is a group discussion, and a walkthrough checks each step together in order."
+    },
+    {
+      "heading": "Simulation, parallel and full interruption",
+      "body": "Next we are going to look at the three more demanding types of test, where things begin to get real.\n\nA simulation means that a realistic scenario is played out. Staff carry out their responses, but production systems are not switched over. Production means the live systems that the business really uses. Think of a fire drill in a school where teachers lead the children out, as though the fire were real. But nobody actually turns off the school's electricity.\n\nIn a simulation, people may travel to the recovery site, make their calls and act on what they are told. It tests people and procedures more fully, and it stops short of moving real work.\n\nA parallel test means that the recovery site is really brought up, and it runs the workload. The main site keeps running, so that the business is not put at risk. Think of a restaurant setting up a second kitchen in another building, and cooking real orders there, while the main kitchen carries on serving customers. Afterwards, the two sets of dishes can be compared.\n\nA parallel test costs a good deal of money, as it requires staff, equipment and data at both sites. But it provides strong proof that the recovery site works.\n\nA full interruption test means that the main site is really shut down, and work moves to the recovery site. It is the most realistic, and also the most dangerous. Think of closing the main kitchen entirely, and relying on the second kitchen to serve every customer.\n\nA full interruption test can itself cause a disaster. If the recovery site fails to take the load, the business has lost both. So it requires senior management approval, careful timing and a tested way to go back. Many organisations never do one.\n\nHere are the key differences.\n\nDoes the main site keep running? In a simulation and a parallel test, yes. In a full interruption, no.\n\nIs the recovery site really running the work? In a simulation, no. In a parallel test and a full interruption, yes.\n\nHere is a workplace example. A bank runs a parallel test twice a year, processing a copy of real transactions at its hot site.\n\nHere is what to take away. A simulation rehearses, a parallel test runs both sites, and a full interruption really shuts down the main site."
+    },
+    {
+      "heading": "Choosing the right test",
+      "body": "In this part, we are going to look at how to pick the right test for each situation, which is what the exam usually asks.\n\nThink of learning to drive. You read the handbook first. Then you talk through the road rules with an instructor. Then you practise on an empty car park. Only then do you drive on a busy road, and later on the motorway. You build up to the risk. Disaster recovery testing follows the same path.\n\nThe order, from least to most disruptive, is read-through, tabletop, walkthrough, simulation, parallel and full interruption.\n\nHere is how to match a test to a need.\n\nA new plan, or one that has never been tested, should start with a read-through or a tabletop.\n\nIf the team needs a realistic practice with no technical risk, choose a simulation.\n\nIf you need proof that the recovery site really works, with no risk of an outage, choose a parallel test.\n\nIf you need final proof, and management accepts the risk, choose a full interruption.\n\nNow some worked decisions.\n\nThe first scenario. A manager says that nobody has looked at the plan for three years, and staff have changed. Budget is tight. The answer is a read-through, followed by a tabletop. Those tests are cheap, and they will find the out-of-date details.\n\nThe second scenario. The team has run tabletops successfully for two years. Now management wants to see the people actually go through their response, but it does not want any systems moved. The answer is a simulation.\n\nThe third scenario. A regulator requires evidence that the recovery site can handle the real workload, but the bank cannot accept any risk to live services. The answer is a parallel test.\n\nThe fourth scenario. A company wants to confirm whether its recovery site can run the entire business alone. Senior management has approved the risk and picked a quiet weekend. The answer is a full interruption.\n\nLook out for phrases in the question. Phrases such as no risk to operations or the main site must keep running rule out a full interruption. A phrase like first test of a new plan points towards a read-through.\n\nHere is your takeaway. Build up gradually, start small with a new plan, and match the disruption of the test to what management will accept."
+    },
+    {
+      "heading": "Worked example: testing a hot site",
+      "body": "Now we are going to walk through one test from planning to follow-up, so that you can see how the parts fit together.\n\nThink of planning a practice evacuation for a large office. You agree on the date, warn the people who need warning, send someone with a stopwatch, and afterwards write down what went wrong. A technical test has the same shape.\n\nA bank wants proof that its hot site can process payments. A hot site is a fully equipped recovery location with current data.\n\nStep one. Management approves a parallel test, and sets a goal of recovery within four hours. A parallel test means that the hot site really runs the work, while the main site keeps going.\n\nStep two. The team plans the details. The test will use a copy of the day's payments, so that no customer is charged twice. A named test leader has the authority to stop the test if anything starts to threaten live services.\n\nStep three. Staff restore recent data at the hot site. The clock starts when the team begins work.\n\nStep four. They process the copy of the day's payments there, while the main site continues as normal.\n\nStep five. They compare the results from the two sites. Do the totals match? Did any record go missing?\n\nStep six. They look at how long it took. The team finds that recovery took six hours, and so the goal of four hours was missed by two hours.\n\nStep seven. They find the reason. The largest delay was caused by a slow restore from an older backup system, and by waiting for someone to confirm the network settings.\n\nStep eight. They report this to management, with recommended fixes. They fix the slow step, and they write the network settings into the plan.\n\nStep nine. They plan a retest, and this time the recovery takes three and a half hours, which meets the goal.\n\nPay attention to what the bank did about the missed goal. It did not change the goal to make the result look better. The four-hour figure came from what the business needs. It fixed the slow step instead.\n\nA failed test is valuable, because it finds the problem while no real disaster is happening.\n\nHere is what to take away. Set a measurable goal, protect live services, report honestly, fix the cause and test again."
+    },
+    {
+      "heading": "Communications during a test",
+      "body": "In this final part, we will look at how to communicate about a test. The outline names three groups to think about: stakeholders, test status and regulators.\n\nThink about a town that sets off its emergency sirens every year. If nobody is told about it beforehand, people panic and the phone lines jam. If the town announces the date and says clearly that it is only a test, everyone stays calm.\n\nThe first is stakeholders. A stakeholder is anyone with an interest in the outcome or anyone affected. They should know the date, the scope and what to expect. Announce it, so that a test is not mistaken for a real event. Begin messages with words such as: this is a test. End them that way too.\n\nThat might include staff, business owners, suppliers, the emergency services, and sometimes customers if there is any chance of disruption.\n\nThe second is test status. Report progress as the test runs, including any problems. Those in charge need to know where things stand. Have a clear way to stop the test, and agree in advance who may stop it and what would cause it to be stopped. Think of an emergency stop button.\n\nA single point of contact, often called a test coordinator, gathers updates and shares them.\n\nThe third is regulators. Some industries, such as banks and health care, must tell regulators about tests or send them results. Check what your rules require. Regulators may want to see evidence that you tested, what you found, and what you did about it.\n\nAfterwards, give management a report of what was found. It should state the goals, the results, the problems found, and who owns each fix. Then update the plan. A test that produces no changes in the plan suggests that nobody looked very hard.\n\nA failed test is still useful, and a manager should be careful not to punish the team that found the weakness. Otherwise, people will start to design tests that are certain to pass.\n\nHere is a workplace example. An insurer plans a simulation on a Saturday. It tells staff and suppliers ten days ahead, marks every message as a test, sends hourly updates to the business leaders, and files the report with its regulator.\n\nHere is your takeaway. Warn stakeholders, report the status during the test, and meet what regulators require."
+    }
+  ],
+  "practiceQuestions": [
+    {
+      "prompt": "An organisation wants to list the disaster recovery test types from the LEAST disruptive to the MOST disruptive. Which list is correct?",
+      "options": [
+        "Read-through, simulation, tabletop, walkthrough, full interruption, parallel",
+        "Read-through, tabletop, walkthrough, simulation, parallel, full interruption",
+        "Tabletop, read-through, parallel, walkthrough, simulation, full interruption",
+        "Walkthrough, read-through, tabletop, parallel, simulation, full interruption"
+      ],
+      "correctIndex": 1,
+      "explanation": "The order runs from reading alone, through discussion and rehearsal, to really running systems. The first option is tempting because it also starts with read-through, but simulation does not come before the discussion-based tests."
+    },
+    {
+      "prompt": "Each manager at a company is sent a copy of the recovery plan and asked to check the names, phone numbers and steps for their area. Which test is this?",
+      "options": [
+        "Simulation",
+        "Parallel test",
+        "Tabletop exercise",
+        "Read-through"
+      ],
+      "correctIndex": 3,
+      "explanation": "Each person reviewing the plan alone is a read-through. Tabletop is tempting because it is also a low-risk review, but that is a group discussion of a scenario."
+    },
+    {
+      "prompt": "Team members meet in a conference room. A facilitator describes a flood and then adds new complications as they discuss what they would do. No systems are touched. Which test is this?",
+      "options": [
+        "Tabletop exercise",
+        "Parallel test",
+        "Full interruption test",
+        "Read-through"
+      ],
+      "correctIndex": 0,
+      "explanation": "A group talking through a scenario without touching systems is a tabletop exercise. Read-through is tempting because no systems are touched there either, but that is done individually and has no scenario."
+    },
+    {
+      "prompt": "A company wants its recovery team to travel to the alternate site and carry out its response to a realistic scenario, but no live work should be moved. Which test fits BEST?",
+      "options": [
+        "Read-through",
+        "Parallel test",
+        "Simulation",
+        "Full interruption test"
+      ],
+      "correctIndex": 2,
+      "explanation": "A simulation has staff carry out their responses without switching production. Parallel is tempting because people work at the alternate site, but it really brings up systems and runs the workload there."
+    },
+    {
+      "prompt": "During a test, staff bring up systems at the recovery site and process a copy of the day's orders there, while the main site carries on as normal. Which test is this?",
+      "options": [
+        "Walkthrough",
+        "Full interruption test",
+        "Tabletop exercise",
+        "Parallel test"
+      ],
+      "correctIndex": 3,
+      "explanation": "The recovery site really runs the work while the main site continues, which is a parallel test. Full interruption is tempting because real work runs at the recovery site, but in that test the main site is shut down."
+    },
+    {
+      "prompt": "An executive proposes a full interruption test for next Friday, during the busiest week of the year, in order to get it finished. What should the security professional advise?",
+      "options": [
+        "Proceed, because a full test always gives the best evidence",
+        "Run it on an even busier day to make it realistic",
+        "Delay it, start with less disruptive tests and get senior approval for a suitable time",
+        "Cancel all disaster recovery testing for the year"
+      ],
+      "correctIndex": 2,
+      "explanation": "A full interruption can itself cause a disaster, so it needs approval and careful timing, and should follow smaller tests. Proceeding is tempting because of the strong evidence, but the business risk is far too high."
+    },
+    {
+      "prompt": "During a parallel test, the recovery site takes six hours to come online. The recovery time objective is four hours. What should the team do?",
+      "options": [
+        "Report the result, fix the cause and retest",
+        "Change the objective to six hours in the plan",
+        "Record the test as successful, because the site did come online",
+        "Repeat the test without telling management"
+      ],
+      "correctIndex": 0,
+      "explanation": "A missed target should be reported, fixed and tested again. Changing the objective is tempting because the problem disappears on paper, but that figure comes from what the business needs."
+    },
+    {
+      "prompt": "During a simulation, a member of the public hears staff discussing a flood and calls the police. Which step would have BEST prevented this?",
+      "options": [
+        "Using stronger passwords on the test systems",
+        "Telling stakeholders about the test in advance and marking communications as a test",
+        "Holding the test on an even larger scale",
+        "Moving all of the test work to the recovery site"
+      ],
+      "correctIndex": 1,
+      "explanation": "Warning those affected and marking messages as tests stops a test being taken for a real event. Stronger passwords are tempting as a general good practice, but they do nothing about confusion over what is happening."
+    },
+    {
+      "prompt": "A bank is planning its yearly recovery test and must follow its industry's rules. Which group MOST needs to be considered for formal notice or results?",
+      "options": [
+        "The company's cafeteria supplier",
+        "The local newspaper",
+        "All former employees",
+        "The banking regulator"
+      ],
+      "correctIndex": 3,
+      "explanation": "Some industries must tell regulators about tests or send them results. The local newspaper is tempting because of the public interest, but the press has no formal role in a compliance requirement."
+    },
+    {
+      "prompt": "A test coordinator wants to make sure that a test can be stopped safely if it starts to affect live services. What should be arranged BEFORE the test begins?",
+      "options": [
+        "A clear stop procedure and a named person with authority to use it",
+        "A press release about how well the test went",
+        "A plan to continue regardless of any problem that appears",
+        "An instruction that all staff turn off their phones"
+      ],
+      "correctIndex": 0,
+      "explanation": "A clear way to stop, with a named decision maker, protects the live business. A plan to continue regardless is tempting if completion seems to matter most, but protecting operations is far more important."
+    }
+  ]
+}

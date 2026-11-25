@@ -1,0 +1,617 @@
+{
+  "number": 4,
+  "name": "Communication and Network Security",
+  "weightPercent": 13,
+  "plainMeaning": "This domain is about how information travels safely from one place to another. It covers how networks are built, which devices protect them, and how to stop attacks on the traffic.",
+  "topics": [
+    {
+      "id": "T32",
+      "name": "OSI and TCP/IP models",
+      "outlineRef": "4.1",
+      "simpleExplanation": "Computers talk in layers, a bit like a letter. You write it, put it in an envelope, drop it in a mailbag, and a truck drives it away. The OSI model (Open Systems Interconnection) is a seven-layer teaching map of that journey. The TCP/IP model (Transmission Control Protocol/Internet Protocol) is the four-layer version the internet really uses. Each layer does one job and adds its own label. Knowing the layers tells you where an attack happens and which control can stop it.",
+      "studyNotes": [
+        {
+          "heading": "Why we use layers",
+          "body": "A model splits one big job into small jobs. Each layer serves the layer above it and uses the layer below it. A change in one layer should not break the others.\n\nA security person uses layers to ask one question. At what level is this problem, and which control works at that level?"
+        },
+        {
+          "heading": "The seven OSI layers, in order",
+          "body": "Learn this order. The exam uses both the names and the numbers.\n\n- Layer 7 Application: the doorway programs use to reach the network. Examples: HTTP (Hypertext Transfer Protocol, for web pages), SMTP (Simple Mail Transfer Protocol, for sending email), DNS (Domain Name System, for finding addresses), FTP (File Transfer Protocol).\n- Layer 6 Presentation: puts data into a common form. It handles formats, compression and encryption. Examples: ASCII (a code for text), JPEG (a picture format).\n- Layer 5 Session: starts, manages and ends conversations between programs. Examples: RPC (Remote Procedure Call), NetBIOS (an old naming and session service).\n- Layer 4 Transport: moves data end to end and uses port numbers. Examples: TCP, UDP (User Datagram Protocol).\n- Layer 3 Network: picks a path between networks using IP addresses. Examples: IP, ICMP (Internet Control Message Protocol, used by ping), IPsec (IP Security), OSPF (Open Shortest Path First, a routing method). Routers work here.\n- Layer 2 Data Link: moves data between devices on the same local network using MAC (Media Access Control) addresses, the hardware label on a network card. Examples: Ethernet, ARP (Address Resolution Protocol, usually placed here). Switches work here. Its two sublayers are LLC (Logical Link Control) and MAC.\n- Layer 1 Physical: sends raw bits as electricity, light or radio. Examples: cables, connectors, hubs, repeaters."
+        },
+        {
+          "heading": "The TCP/IP model",
+          "body": "It has four layers. This is how they match OSI:\n\n- Application: OSI layers 7, 6 and 5.\n- Transport: OSI layer 4.\n- Internet: OSI layer 3.\n- Network Access (also called Link): OSI layers 2 and 1."
+        },
+        {
+          "heading": "Encapsulation: a worked example",
+          "body": "Encapsulation means each layer wraps the data from above in its own header. A header is a label of control facts. Here is what happens when you open a web page:\n\n- Step 1: The upper layers create the request. Its name is data.\n- Step 2: Transport adds a TCP header with port numbers. Its name is a segment. With UDP it is a datagram.\n- Step 3: Network adds an IP header with addresses. Its name is a packet.\n- Step 4: Data Link adds a MAC header and an error-check trailer. Its name is a frame.\n- Step 5: Physical sends it as bits.\n\nThe receiver reverses these steps and removes each wrapper. That is called de-encapsulation."
+        },
+        {
+          "heading": "TCP and UDP",
+          "body": "TCP is connection-oriented. It checks delivery and resends lost data. It starts with a three-way handshake in this exact order: SYN (synchronize), SYN-ACK (synchronize-acknowledge), ACK (acknowledge).\n\nUDP is connectionless. It has no handshake and no delivery check. It is faster, so live voice and most DNS lookups use it."
+        },
+        {
+          "heading": "Think like a manager",
+          "body": "Match the control to the layer. A locked cable cabinet protects Layer 1. Switch port security protects Layer 2. A packet filter works at Layers 3 and 4. A web application firewall works at Layer 7. A control at one layer may not see an attack at another. So use controls at several layers. This is called defense in depth."
+        }
+      ],
+      "keyTerms": [
+        { "term": "OSI model", "meaning": "Open Systems Interconnection: a seven-layer reference map of network communication." },
+        { "term": "TCP/IP model", "meaning": "Transmission Control Protocol/Internet Protocol: the four-layer model the internet uses." },
+        { "term": "Encapsulation", "meaning": "Each layer wraps data from the layer above in its own header." },
+        { "term": "De-encapsulation", "meaning": "The receiver removes each wrapper, layer by layer." },
+        { "term": "Segment", "meaning": "The TCP data unit at Layer 4." },
+        { "term": "Packet", "meaning": "The data unit at Layer 3. It carries IP addresses." },
+        { "term": "Frame", "meaning": "The data unit at Layer 2. It carries MAC addresses and an error-check trailer." },
+        { "term": "MAC address", "meaning": "Media Access Control address: the hardware label of a network card." },
+        { "term": "Three-way handshake", "meaning": "How TCP starts a connection: SYN, SYN-ACK, ACK." }
+      ],
+      "keyPoints": [
+        "OSI has seven layers: Application, Presentation, Session, Transport, Network, Data Link, Physical.",
+        "TCP/IP has four layers: Application, Transport, Internet, Network Access.",
+        "Data units going down are data, segment, packet, frame, bits.",
+        "Switches work at Layer 2 and routers work at Layer 3.",
+        "Match each security control to the layer where the problem lives."
+      ],
+      "memoryHook": "From Layer 1 up: Please Do Not Take Sweets, Pies, Apples (Physical, Data Link, Network, Transport, Session, Presentation, Application).",
+      "question": {
+        "prompt": "A school's network team writes a rule that allows or blocks traffic using only IP addresses and port numbers. A manager asks which OSI layers the rule is working at. What is the BEST answer?",
+        "options": [
+          "Layers 1 and 2, because the rule controls how signals reach each device",
+          "Layers 2 and 3, because the rule uses hardware addresses and routes",
+          "Layers 3 and 4, because IP addresses and ports belong to those layers",
+          "Layers 6 and 7, because the rule understands what each program is sending"
+        ],
+        "correctIndex": 2,
+        "explanation": "IP addresses belong to Layer 3 and port numbers belong to Layer 4. Layers 2 and 3 is tempting, but Layer 2 uses MAC addresses, and the rule does not read those."
+      }
+    },
+    {
+      "id": "T33",
+      "name": "IP networking and secure protocols",
+      "outlineRef": "4.1",
+      "simpleExplanation": "Every device on a network needs an address, as every house needs a street number. IP (Internet Protocol) gives those addresses. Ports are the numbered doors into each device. Many older protocols send everything in the open, like a postcard. Secure protocols put the message in a locked box. IPsec protects traffic at the network level. SSH protects remote logins. TLS protects websites. DNS finds addresses, and DNSSEC proves those answers are genuine. You must know what each one protects and what it does not.",
+      "studyNotes": [
+        {
+          "heading": "IPv4 and IPv6",
+          "body": "IPv4 (IP version 4) addresses are 32 bits, written like 192.168.1.10. There are about 4.3 billion of them. IPv6 addresses are 128 bits, written in hexadecimal (base 16, using 0 to 9 and a to f) like 2001:db8::1. IPv6 was designed with IPsec in mind, but IPsec is not switched on automatically.\n\nPrivate IPv4 ranges are not routed on the internet: 10.0.0.0/8, 172.16.0.0/12 and 192.168.0.0/16. NAT (Network Address Translation) lets many private devices share one public address, like one school phone number with many extensions.\n\nFour ways to address traffic:\n- Unicast: one to one.\n- Broadcast: one to all on the local network. IPv4 only.\n- Multicast: one to a chosen group.\n- Anycast: one to the nearest of several servers sharing an address.\n\nWorked example: 192.168.1.0/24 means 24 bits name the network. That leaves 32 - 24 = 8 bits for devices. 2 to the power 8 is 256. Remove the network and broadcast addresses. That leaves 254 usable addresses."
+        },
+        {
+          "heading": "IPsec",
+          "body": "IPsec (IP Security) protects traffic at Layer 3. Its parts are:\n\n- AH (Authentication Header): proves origin and integrity. It does not encrypt.\n- ESP (Encapsulating Security Payload): encrypts, and can also prove origin and integrity.\n- IKE (Internet Key Exchange): agrees the keys and sets up Security Associations, the agreed settings for each direction.\n\nIt has two modes:\n- Transport mode: protects only the payload. The original IP header stays. Usually host to host.\n- Tunnel mode: wraps the whole original packet inside a new one. Usually gateway to gateway."
+        },
+        {
+          "heading": "SSH, TLS and ports",
+          "body": "SSH (Secure Shell) gives an encrypted remote command line and file copy. It replaces Telnet, which sends passwords in clear text. TLS (Transport Layer Security) protects web and other application traffic. Use TLS 1.2 or 1.3. SSL (Secure Sockets Layer), its older parent, is broken and should be retired.\n\nPorts: well-known 0 to 1023, registered 1024 to 49151, dynamic 49152 to 65535. Know these:\n- 20 and 21: FTP (file transfer)\n- 22: SSH\n- 23: Telnet\n- 25: SMTP (sending email)\n- 53: DNS (name lookup)\n- 80: HTTP (web)\n- 110: POP3 (collecting email)\n- 143: IMAP (reading email on the server)\n- 389: LDAP (directory lookup)\n- 443: HTTPS (web over TLS)\n- 636: LDAPS (directory over TLS)\n- 3389: RDP (Remote Desktop Protocol)"
+        },
+        {
+          "heading": "DNS and DNSSEC",
+          "body": "DNS (Domain Name System) turns names into IP addresses, like a phone book. Most lookups use port 53 on UDP (User Datagram Protocol, the fast way with no delivery check). Zone transfers and large answers use port 53 on TCP (Transmission Control Protocol, the checked way).\n\nDNSSEC (DNS Security Extensions) digitally signs records. It proves origin and integrity. It does not hide the lookups, so it gives no confidentiality. DNS over TLS and DNS over HTTPS are what hide lookups."
+        },
+        {
+          "heading": "Multilayer and converged protocols",
+          "body": "Multilayer protocols work across many layers. TCP/IP is the main example. This gives flexibility. But encapsulation can hide traffic from a filter that reads only the outer header. Attackers use this for covert channels, which are hidden paths for data.\n\nConverged protocols carry traffic that once needed its own network over a shared one. This saves money, but one failure can hit everything. Outline examples:\n- InfiniBand over Ethernet: high-speed data centre traffic carried on Ethernet.\n- Compute Express Link: a fast connection between processors, memory and accelerators, built on the PCIe (Peripheral Component Interconnect Express) link inside a computer."
+        }
+      ],
+      "keyTerms": [
+        { "term": "IPv6", "meaning": "Internet Protocol version 6: uses 128-bit addresses and has no broadcast." },
+        { "term": "Anycast", "meaning": "Traffic goes to the nearest of several servers sharing one address." },
+        { "term": "AH", "meaning": "Authentication Header: IPsec part that gives integrity and origin proof, but no encryption." },
+        { "term": "ESP", "meaning": "Encapsulating Security Payload: IPsec part that encrypts." },
+        { "term": "Tunnel mode", "meaning": "IPsec mode that wraps the whole original packet in a new one." },
+        { "term": "Transport mode", "meaning": "IPsec mode that protects only the payload and keeps the original header." },
+        { "term": "TLS", "meaning": "Transport Layer Security: protects application traffic such as web pages." },
+        { "term": "DNSSEC", "meaning": "DNS Security Extensions: signs DNS records for integrity and origin proof, not secrecy." },
+        { "term": "Converged protocol", "meaning": "Carries a special kind of traffic over a shared common network." },
+        { "term": "Covert channel", "meaning": "A hidden path used to move data in a way that breaks policy." }
+      ],
+      "keyPoints": [
+        "IPv4 is 32 bits and IPv6 is 128 bits.",
+        "AH gives no encryption, while ESP does.",
+        "Tunnel mode hides the whole original packet.",
+        "DNSSEC proves answers are genuine but does not hide them.",
+        "Replace Telnet with SSH, and replace SSL with current TLS."
+      ],
+      "memoryHook": "AH is an Autograph: it proves who signed. ESP is an Envelope: it hides what is inside.",
+      "question": {
+        "prompt": "A bank wants customers' computers to be able to prove that answers about the bank's domain name really came from the bank's zone and were not changed on the way. Which step BEST meets this need?",
+        "options": [
+          "Sign the zone with DNSSEC",
+          "Move lookups to DNS over HTTPS so that nobody on the path can read them",
+          "Allow zone transfers only over TCP port 53",
+          "Put the DNS servers on private IP addresses"
+        ],
+        "correctIndex": 0,
+        "explanation": "DNSSEC signs records, so a resolver can check where they came from and that they are unchanged. DNS over HTTPS is tempting, but it protects only the link to the resolver. It hides the lookup and does not prove the record itself is genuine."
+      }
+    },
+    {
+      "id": "T34",
+      "name": "Wireless and cellular networks",
+      "outlineRef": "4.1",
+      "simpleExplanation": "Wireless networks send data through the air, so anyone nearby can try to listen. It is like talking in a shop rather than in a closed room. So we must encrypt the data and check who joins. Wi-Fi uses protections called WPA2 and WPA3 (Wi-Fi Protected Access). 802.1X makes every person or device log in. Bluetooth and Zigbee cover short distances. Satellite reaches remote places but can be slow. 4G and 5G mobile networks are stronger, yet you should still protect your own data.",
+      "studyNotes": [
+        {
+          "heading": "Wi-Fi standards",
+          "body": "Wi-Fi follows the IEEE (Institute of Electrical and Electronics Engineers) 802.11 family. GHz (gigahertz) is the radio frequency. Mbps means megabits per second.\n\n- 802.11a: 5 GHz, up to 54 Mbps.\n- 802.11b: 2.4 GHz, up to 11 Mbps.\n- 802.11g: 2.4 GHz, up to 54 Mbps.\n- 802.11n (Wi-Fi 4): 2.4 and 5 GHz, up to 600 Mbps.\n- 802.11ac (Wi-Fi 5): 5 GHz, gigabit speeds.\n- 802.11ax (Wi-Fi 6): 2.4 and 5 GHz. Wi-Fi 6E adds 6 GHz.\n- 802.11be (Wi-Fi 7): 2.4, 5 and 6 GHz.\n\nLower frequency reaches farther. Higher frequency is faster over short distances."
+        },
+        {
+          "heading": "Wi-Fi security",
+          "body": "- WEP (Wired Equivalent Privacy): broken. Never use it.\n- WPA with TKIP (Temporal Key Integrity Protocol): an old stopgap. Retire it.\n- WPA2: uses AES (Advanced Encryption Standard) in a mode called CCMP. In Personal mode, an attacker who records the login exchange can guess the password offline.\n- WPA3: Personal mode uses SAE (Simultaneous Authentication of Equals), which resists offline guessing. Enterprise mode offers a stronger 192-bit option.\n\nPersonal means one shared password. Enterprise means each user logs in. Hiding the network name and filtering by MAC (hardware) address are not real security, because attackers can see and copy both."
+        },
+        {
+          "heading": "802.1X",
+          "body": "802.1X is port-based network access control. It works on Wi-Fi and on wired networks. Three roles, like a guarded gate:\n\n- Supplicant: the device asking to join, like the visitor.\n- Authenticator: the access point or switch, like the guard.\n- Authentication server: usually RADIUS (Remote Authentication Dial-In User Service), like head office that says yes or no.\n\nEAP (Extensible Authentication Protocol) carries the login. EAP-TLS (EAP with Transport Layer Security) uses certificates on both sides and is the strongest common choice."
+        },
+        {
+          "heading": "Bluetooth and Zigbee",
+          "body": "Bluetooth links nearby devices on 2.4 GHz. Know three attacks:\n- Bluejacking: sending unwanted messages.\n- Bluesnarfing: stealing data.\n- Bluebugging: taking control of the device.\n\nDefences: turn it off when unused, use non-discoverable mode, pair only in private, and patch.\n\nZigbee (IEEE 802.15.4) is a low-power, low-speed mesh for sensors and smart buildings. It can use 128-bit AES, but key handling is often weak. Keep these devices on a separate network."
+        },
+        {
+          "heading": "Satellite",
+          "body": "Satellite reaches places with no cables. A GEO (geostationary) satellite orbits very high, so a round trip takes about 600 milliseconds. LEO (low Earth orbit) satellites are much closer, so delay is far lower. The signal covers a wide area, so encrypt the traffic."
+        },
+        {
+          "heading": "Cellular: 4G and 5G",
+          "body": "4G commonly means LTE (Long-Term Evolution). 5G brings more speed, lower delay and network slicing, which creates separate virtual networks on shared equipment. 5G also conceals the permanent subscriber identity and has stronger mutual authentication. Very high 5G frequencies have short range, so more small cells are needed.\n\nRadio encryption covers only the link from phone to tower. Fake towers and forced downgrades to older networks are real risks. So protect business data end to end with TLS or a VPN (Virtual Private Network)."
+        }
+      ],
+      "keyTerms": [
+        { "term": "WPA3", "meaning": "Wi-Fi Protected Access 3: current Wi-Fi security that resists offline password guessing." },
+        { "term": "SAE", "meaning": "Simultaneous Authentication of Equals: the WPA3 Personal login exchange." },
+        { "term": "802.1X", "meaning": "Port-based access control that makes a device log in before joining." },
+        { "term": "Supplicant", "meaning": "In 802.1X, the device asking to join." },
+        { "term": "Authenticator", "meaning": "In 802.1X, the switch or access point that controls entry." },
+        { "term": "RADIUS", "meaning": "Remote Authentication Dial-In User Service: a central login check server." },
+        { "term": "Bluesnarfing", "meaning": "Stealing data from a device over Bluetooth." },
+        { "term": "Zigbee", "meaning": "A low-power, low-speed wireless mesh for sensors." },
+        { "term": "Network slicing", "meaning": "A 5G feature that creates separate virtual networks on shared equipment." }
+      ],
+      "keyPoints": [
+        "Use WPA3, or WPA2 with AES where WPA3 is not possible.",
+        "802.1X roles are supplicant, authenticator and authentication server.",
+        "Hidden network names and MAC filters are not real security.",
+        "Cellular radio encryption stops at the tower, so protect data end to end."
+      ],
+      "memoryHook": "Visitor, Guard, Head Office: supplicant, authenticator, authentication server.",
+      "question": {
+        "prompt": "An office Wi-Fi network uses one shared password. Staff leave often, and auditors say the company cannot tell who connected. Which change BEST solves the problem?",
+        "options": [
+          "Move to WPA3-Personal with a much longer shared passphrase",
+          "Hide the network name and allow only approved MAC addresses",
+          "Keep WPA2-Personal and change the shared passphrase every time someone leaves the company",
+          "Use WPA3-Enterprise with 802.1X and a RADIUS server"
+        ],
+        "correctIndex": 3,
+        "explanation": "Enterprise mode with 802.1X gives each person their own login, so access can be traced and removed one person at a time. A longer shared passphrase is tempting, but everyone still shares it, so the auditors' problem remains."
+      }
+    },
+    {
+      "id": "T35",
+      "name": "Segmentation and modern network design",
+      "outlineRef": "4.1",
+      "simpleExplanation": "A ship has separate compartments so one leak does not sink it. Networks work the same way. Segmentation splits a network into zones, so an intruder in one zone cannot reach everything. A VLAN (Virtual Local Area Network) does this in switches. Microsegmentation goes further and walls off single servers. SDN (Software-Defined Networking) lets software run the network from one place. You should also know the direction traffic flows and how to measure whether the network is healthy.",
+      "studyNotes": [
+        {
+          "heading": "Physical and logical segmentation",
+          "body": "Physical segmentation uses separate equipment. An air gap has no connection at all. It is strong but costly. Logical segmentation shares equipment and separates traffic with software:\n\n- VLAN: separates traffic inside switches using 802.1Q tags. A router or Layer 3 device is needed to pass between VLANs. Misconfiguration allows VLAN hopping, so a VLAN alone is not strong security.\n- VPN (Virtual Private Network): an encrypted path across a shared network.\n- VRF (Virtual Routing and Forwarding): separate routing tables inside one router.\n- Virtual domain: one physical firewall divided into several virtual firewalls."
+        },
+        {
+          "heading": "Microsegmentation and overlays",
+          "body": "Microsegmentation sets rules around each workload. It uses distributed firewalls, routers and IPS (intrusion prevention systems), and it supports zero trust, meaning nothing is trusted because of where it sits.\n\nAn overlay network is a virtual network running on top of a physical one by using encapsulation. VXLAN (Virtual Extensible LAN) wraps Layer 2 frames inside UDP (User Datagram Protocol) packets, normally on port 4789.\n\nWorked example: a VLAN ID has 12 bits. That gives 4,096 values, with 4,094 usable. A VXLAN ID has 24 bits. That gives about 16 million segments, which suits large clouds."
+        },
+        {
+          "heading": "Software-defined and cloud networks",
+          "body": "A network has three planes:\n- Data plane: moves the traffic.\n- Control plane: decides where traffic goes.\n- Management plane: where staff configure and monitor.\n\nSDN separates control from data and uses a central controller reached through APIs (Application Programming Interfaces). Protect the controller, because it can change everything.\n\n- NFV (Network Functions Virtualization): runs firewalls and routers as software.\n- SD-WAN (Software-Defined Wide Area Network): steers branch traffic across several links by policy.\n- VPC (Virtual Private Cloud): your own isolated network inside a public cloud."
+        },
+        {
+          "heading": "Traffic flows, edge and CDN",
+          "body": "North-south traffic enters or leaves the data centre. East-west traffic moves between systems inside it. A perimeter firewall sees north-south traffic but often misses east-west traffic, which is how intruders move sideways.\n\nEdge networks handle ingress (traffic coming in), egress (traffic going out) and peering, where networks exchange traffic directly. A CDN (Content Distribution Network) keeps copies of content close to users. This speeds delivery and absorbs some attack traffic."
+        },
+        {
+          "heading": "Transport and performance",
+          "body": "Common topologies are star, mesh, ring and bus. A cut-through switch forwards after reading the destination, so it is fast. A store-and-forward switch receives the whole frame and checks it for errors first.\n\n- Bandwidth: the most a link can carry.\n- Throughput: what it really carries.\n- Latency: delay.\n- Jitter: variation in delay. It hurts voice and video.\n- Signal-to-noise ratio: signal strength against background noise.\n\nMonitoring includes observability, traffic shaping, capacity management, and fault detection and handling."
+        }
+      ],
+      "keyTerms": [
+        { "term": "VLAN", "meaning": "Virtual Local Area Network: logical separation of traffic inside switches." },
+        { "term": "VRF", "meaning": "Virtual Routing and Forwarding: separate routing tables in one router." },
+        { "term": "Microsegmentation", "meaning": "Security rules set around each individual workload." },
+        { "term": "VXLAN", "meaning": "Virtual Extensible LAN: carries Layer 2 frames inside UDP across a network, with about 16 million IDs." },
+        { "term": "SDN", "meaning": "Software-Defined Networking: separates the control plane from the data plane." },
+        { "term": "SD-WAN", "meaning": "Software-Defined Wide Area Network: policy-based steering across wide area links." },
+        { "term": "East-west traffic", "meaning": "Traffic moving between systems inside the data centre." },
+        { "term": "North-south traffic", "meaning": "Traffic entering or leaving the data centre." },
+        { "term": "Jitter", "meaning": "Variation in delay between packets." },
+        { "term": "CDN", "meaning": "Content Distribution Network: copies of content placed close to users." }
+      ],
+      "keyPoints": [
+        "Segmentation limits how far an intruder can move.",
+        "VLANs separate traffic but are not strong security alone.",
+        "SDN separates the control plane from the data plane.",
+        "East-west traffic is often unseen by perimeter firewalls.",
+        "Bandwidth is capacity, throughput is real delivery, and jitter is uneven delay."
+      ],
+      "memoryHook": "North-south goes through the front door. East-west walks between rooms.",
+      "question": {
+        "prompt": "An intruder broke into one virtual server at a hospital and then moved to many others in the same network zone. The perimeter firewall logged nothing unusual. Which design change BEST limits a repeat?",
+        "options": [
+          "Install a larger firewall at the internet connection",
+          "Apply microsegmentation with rules between workloads",
+          "Increase the bandwidth inside the data centre so that alerts arrive sooner",
+          "Move the hospital servers behind a content distribution network"
+        ],
+        "correctIndex": 1,
+        "explanation": "The attacker moved east-west, so controls are needed between the servers. Microsegmentation provides them. A larger perimeter firewall is tempting, but that traffic never passes through it."
+      }
+    },
+    {
+      "id": "T36",
+      "name": "Secure network components",
+      "outlineRef": "4.2",
+      "simpleExplanation": "A network has guards, just as a bank has doors, cameras and security staff. A firewall decides what may pass. An IDS (intrusion detection system) watches and raises the alarm. An IPS (intrusion prevention system) sits in the path and can stop the attack. A proxy speaks on behalf of others. NAC (network access control) checks devices before they join. Each tool does a different job. These devices only protect you if they are kept patched, well configured and watched.",
+      "studyNotes": [
+        {
+          "heading": "Types of firewall",
+          "body": "- Packet filter: stateless. Checks each packet alone using addresses and ports. Layers 3 and 4. Fast but simple.\n- Stateful inspection: remembers open connections and judges packets in that context.\n- Circuit-level gateway: checks that a session is valid, without reading content. Layer 5. SOCKS, a common proxy protocol, is an example.\n- Application-level gateway: understands one application's traffic. Layer 7. Slower but detailed.\n- NGFW (next-generation firewall): adds application awareness, user identity and built-in intrusion prevention.\n- WAF (web application firewall): protects websites from attacks such as SQL (Structured Query Language) injection, where bad database commands are typed into a web form.\n- Host-based firewall: runs on one computer.\n\nThe standard rule is deny by default. Allow only what is needed. Filter traffic going out as well as coming in."
+        },
+        {
+          "heading": "Placement and bastion hosts",
+          "body": "A screened subnet, also called a DMZ (demilitarized zone), is a buffer area for public servers. It sits between the internet and the inside network, like a shop counter that keeps customers out of the storeroom.\n\nA bastion host is a hardened computer exposed to risky networks. It runs only what it must. A jump server is a similar hardened system that administrators pass through to reach protected systems."
+        },
+        {
+          "heading": "IDS and IPS",
+          "body": "An IDS is passive. It often watches a copy of the traffic and sends alerts. An IPS is inline, so all traffic passes through it and it can block. A wrong block by an IPS can stop real business.\n\nThey can be network-based or host-based. Detection methods:\n- Signature: matches known attacks. It misses new ones.\n- Anomaly or behaviour: flags what differs from normal. It can catch new attacks but raises more false alarms.\n\nA false positive is an alarm with no attack. A false negative is an attack with no alarm. The false negative is usually more dangerous."
+        },
+        {
+          "heading": "Proxies",
+          "body": "A proxy makes requests for someone else.\n\n- Forward proxy: stands in front of staff going out. It can filter and log web use.\n- Reverse proxy: stands in front of servers and receives outside requests.\n- Transparent proxy: works without any setup on the client."
+        },
+        {
+          "heading": "NAC and endpoint security",
+          "body": "NAC checks a device before it joins (pre-admission) and while it is connected (post-admission). It can work with 802.1X, a login check for joining a network. It may check patches and antivirus, then send failing devices to a quarantine network. It comes as a physical or virtual appliance, with or without an agent on the device.\n\nEndpoint security protects each host. It includes a host firewall, anti-malware, EDR (endpoint detection and response), disk encryption and patching."
+        },
+        {
+          "heading": "Operating the hardware safely",
+          "body": "Keep firmware patched through change management. Remove default passwords. Turn off unused ports and services. Use a separate management network. Send logs to a central system. Lock devices away physically.\n\nDecide how devices fail. A security device should normally fail closed. But people's safety comes first, so a door lock on a fire exit must open in an emergency."
+        }
+      ],
+      "keyTerms": [
+        { "term": "Stateful firewall", "meaning": "A firewall that remembers open connections." },
+        { "term": "NGFW", "meaning": "Next-generation firewall: adds application awareness, identity and intrusion prevention." },
+        { "term": "WAF", "meaning": "Web application firewall: protects websites at Layer 7." },
+        { "term": "IDS", "meaning": "Intrusion detection system: watches and alerts." },
+        { "term": "IPS", "meaning": "Intrusion prevention system: sits inline and can block." },
+        { "term": "Reverse proxy", "meaning": "Stands in front of servers and handles outside requests." },
+        { "term": "NAC", "meaning": "Network access control: checks devices before and while they are connected." },
+        { "term": "Bastion host", "meaning": "A hardened computer exposed to risky networks." },
+        { "term": "Screened subnet", "meaning": "A buffer zone for public servers, also called a DMZ." },
+        { "term": "False negative", "meaning": "A real attack that raised no alarm." }
+      ],
+      "keyPoints": [
+        "Firewalls should deny by default.",
+        "An IDS alerts, and an IPS can block.",
+        "Forward proxies serve clients, and reverse proxies serve servers.",
+        "NAC checks devices both before and after they join.",
+        "Security devices usually fail closed, but life safety comes first."
+      ],
+      "memoryHook": "IDS is the Doorbell camera: it tells you. IPS is the Bouncer: it stops them.",
+      "question": {
+        "prompt": "An online store keeps suffering SQL injection attacks through its order form. A stateful firewall allows the traffic because it arrives on port 443, as expected. Which control BEST addresses this at the network boundary?",
+        "options": [
+          "Stricter port rules on the stateful firewall so that only web traffic can reach the servers",
+          "A detection sensor on a mirrored switch port that alerts the team to each attack",
+          "A web application firewall in front of the web servers",
+          "A forward proxy that filters the browsing of store employees"
+        ],
+        "correctIndex": 2,
+        "explanation": "SQL injection hides inside normal web requests, so a Layer 7 control that understands web traffic is needed. A detection sensor is tempting, but it only alerts and does not stop the attack. The lasting fix to the cause is also secure coding of the form."
+      }
+    },
+    {
+      "id": "T37",
+      "name": "Transmission media and hardware operations",
+      "outlineRef": "4.2",
+      "simpleExplanation": "Data has to travel over something, such as copper wire, glass fiber or radio. Each has limits of distance and speed, and each can be damaged or tapped. So cables need physical protection, just like the pipes in a house. Network equipment also needs steady power, spare parts and a vendor who will still support it. A security manager cares about this because availability is part of security. If the network is down, the business cannot work.",
+      "studyNotes": [
+        {
+          "heading": "Cable types",
+          "body": "- Twisted pair: copper pairs twisted to reduce interference. UTP (unshielded twisted pair) has no shield. STP (shielded twisted pair) has one and resists interference better.\n- Common categories: Cat5e reaches 1 Gbps (gigabit per second) over 100 metres. Cat6 reaches 10 Gbps over about 55 metres. Cat6a reaches 10 Gbps over 100 metres.\n- Coaxial: a copper core with a shield. It resists interference better than UTP.\n- Multimode fiber: a wider core for shorter distances, such as inside a building.\n- Single-mode fiber: a very thin core and laser light for long distances, even many kilometres.\n\nFiber carries light, so it does not suffer from electrical interference. It is harder to tap than copper, but tapping is still possible. Plenum-rated cable has a coating that gives off less toxic smoke. Use it in air spaces in buildings, because people's safety comes first."
+        },
+        {
+          "heading": "Signal quality and physical protection",
+          "body": "Signals can degrade in several ways:\n- Attenuation: the signal gets weaker over distance.\n- Crosstalk: signal leaks from one wire to the next.\n- EMI (electromagnetic interference): noise from motors and power lines.\n- RFI (radio frequency interference): noise from radio sources.\n\nProtect the media physically. Use locked wiring closets and sealed conduit, and inspect cable runs. A PDS (protected distribution system) is a guarded and alarmed path for sensitive cabling. Unused wall ports should be disabled."
+        },
+        {
+          "heading": "Redundant power",
+          "body": "Learn the power problems in pairs:\n- Fault: momentary loss. Blackout: prolonged loss.\n- Sag: momentary low voltage. Brownout: prolonged low voltage.\n- Spike: momentary high voltage. Surge: prolonged high voltage.\n\nUse these controls:\n- Dual power supplies fed by separate circuits.\n- PDUs (power distribution units) in each rack.\n- UPS (uninterruptible power supply): batteries for a short time.\n- Generator: long-term power.\n\nThe order in an outage matters. The UPS carries the load at once. The generator starts and takes over. The UPS must last longer than the generator takes to start. Test both regularly."
+        },
+        {
+          "heading": "Warranty and support",
+          "body": "Track each device's warranty, support contract and end-of-life dates. EOL (end of life) means the vendor stops selling it. EOS (end of support) means fixes stop. A device past EOS is a growing risk, because new weaknesses are never fixed. Tell management early, so that replacement can be funded. Hold spare parts for critical devices, and agree repair times in an SLA (service level agreement)."
+        },
+        {
+          "heading": "Availability: worked examples",
+          "body": "MTBF (mean time between failures) is the average working time between failures. MTTR (mean time to repair) is the average time to fix.\n\nAvailability = MTBF / (MTBF + MTTR).\n\nExample: a switch has an MTBF of 990 hours and an MTTR of 10 hours. 990 / (990 + 10) = 990 / 1000 = 99%.\n\nAllowed downtime per year:\n- 99.9%: about 8.76 hours.\n- 99.99%: about 52.6 minutes.\n- 99.999%: about 5.26 minutes.\n\nRemove single points of failure. Use redundant devices and links, and buy service from two carriers over different physical routes."
+        }
+      ],
+      "keyTerms": [
+        { "term": "Attenuation", "meaning": "A signal getting weaker over distance." },
+        { "term": "Crosstalk", "meaning": "Signal leaking from one wire to a nearby wire." },
+        { "term": "EMI", "meaning": "Electromagnetic interference: electrical noise that disturbs copper cables." },
+        { "term": "Single-mode fiber", "meaning": "Thin-core fiber used for long distances." },
+        { "term": "Plenum cable", "meaning": "Cable made to give off less toxic smoke in building air spaces." },
+        { "term": "UPS", "meaning": "Uninterruptible power supply: batteries that give short-term power." },
+        { "term": "Brownout", "meaning": "A prolonged period of low voltage." },
+        { "term": "MTBF", "meaning": "Mean time between failures: average working time between failures." },
+        { "term": "MTTR", "meaning": "Mean time to repair: average time to fix a failure." },
+        { "term": "End of support", "meaning": "The date a vendor stops providing fixes." }
+      ],
+      "keyPoints": [
+        "Fiber is not affected by electrical interference and suits long distances.",
+        "A UPS bridges the gap until the generator takes over.",
+        "Devices past end of support are a growing risk to report to management.",
+        "Availability equals MTBF divided by MTBF plus MTTR."
+      ],
+      "memoryHook": "Short and Sharp come first: Fault, Sag and Spike are momentary. Blackout, Brownout and Surge last.",
+      "question": {
+        "prompt": "A factory must link two buildings that are 2 kilometres apart. The cable route runs beside large electric motors, and management worries about interference. Which medium is the BEST choice?",
+        "options": [
+          "Single-mode fiber",
+          "Multimode fiber, because it costs less to install inside a building",
+          "Shielded twisted pair copper cable",
+          "Coaxial copper cable with a heavy outer shield"
+        ],
+        "correctIndex": 0,
+        "explanation": "Single-mode fiber handles long distances and is not affected by electrical noise. Multimode fiber is tempting, but it is meant for shorter distances. Copper cannot reliably cover 2 kilometres at network speeds and picks up interference."
+      }
+    },
+    {
+      "id": "T38",
+      "name": "Secure communication channels",
+      "outlineRef": "4.3",
+      "simpleExplanation": "People need to talk and work together from many places. They use phone calls, video meetings, chat and remote logins. Each of these is a channel, and each channel needs protection. A VPN (Virtual Private Network) is like a private tunnel through a public road. Remote access must prove who you are. Outside companies, such as phone carriers and repair vendors, also connect to your network. Treat each of those links as a risk, with clear contracts and limited access.",
+      "studyNotes": [
+        {
+          "heading": "Voice",
+          "body": "VoIP (Voice over Internet Protocol) carries calls over data networks. SIP (Session Initiation Protocol) sets up the call. RTP (Real-time Transport Protocol) carries the sound. Use SIP over TLS (Transport Layer Security) and SRTP (Secure RTP) to protect them.\n\nThreats include eavesdropping, toll fraud (running up call charges), caller ID spoofing and vishing, which is phishing by voice. Put phones on a separate VLAN (virtual network) and secure the PBX (private branch exchange), which is the office phone system."
+        },
+        {
+          "heading": "Video and collaboration",
+          "body": "Conferencing tools and meeting-room systems can leak information. Use meeting passwords, waiting rooms and end-to-end encryption where possible. Patch room devices, because they are computers with cameras and microphones. Set rules on recording and get consent. Apply policy to chat and shared files, and use data loss prevention tools for sensitive data."
+        },
+        {
+          "heading": "VPNs and tunneling",
+          "body": "Tunneling carries one protocol inside another. A tunnel alone is not always encrypted.\n\n- Site-to-site VPN: joins two networks through gateways.\n- Remote access VPN: joins one user to a network.\n- Full tunnel: all traffic goes through the company.\n- Split tunnel: only company traffic goes through the VPN. It saves bandwidth but reduces visibility.\n- IPsec (IP Security) VPN: works at Layer 3.\n- TLS VPN: often works through a browser or light client.\n- L2TP (Layer 2 Tunneling Protocol): gives no encryption alone, so it is paired with IPsec.\n- GRE (Generic Routing Encapsulation): a tunnel with no encryption.\n- PPTP (Point-to-Point Tunneling Protocol): obsolete. Do not use it."
+        },
+        {
+          "heading": "Remote access for administrators",
+          "body": "Administrator access is the most valuable target. Use MFA (multi-factor authentication), which means more than one kind of proof. Route access through a hardened jump server. Use SSH (Secure Shell) rather than Telnet. Never expose RDP (Remote Desktop Protocol) directly to the internet.\n\nOut-of-band management uses a separate path, so staff can reach devices when the main network is down. Log all administrator sessions."
+        },
+        {
+          "heading": "Data communications",
+          "body": "A backhaul network links edge sites, such as branches or cell towers, to the core network. Treat it as untrusted if another company runs it, and encrypt the traffic. Satellite links have the same need, because their signals spread widely and delay is often high."
+        },
+        {
+          "heading": "Third-party connectivity",
+          "body": "Telecom providers and hardware support vendors often need connections. Worked steps for a vendor connection:\n\n- Step 1: Assess the risk and get management approval.\n- Step 2: Put security duties in the contract. An SLA (service level agreement) sets service levels. An ISA (interconnection security agreement) sets the technical rules.\n- Step 3: Give each engineer a named account with least privilege and MFA.\n- Step 4: Keep access off by default. Turn it on for each approved job.\n- Step 5: Monitor sessions and review them.\n- Step 6: Remove access when the work ends."
+        }
+      ],
+      "keyTerms": [
+        { "term": "VoIP", "meaning": "Voice over IP: phone calls carried over a data network." },
+        { "term": "SIP", "meaning": "Session Initiation Protocol: sets up and ends calls." },
+        { "term": "SRTP", "meaning": "Secure Real-time Transport Protocol: encrypts call audio and video." },
+        { "term": "Tunneling", "meaning": "Carrying one protocol inside another." },
+        { "term": "Split tunnel", "meaning": "Only company traffic uses the VPN, and other traffic goes straight to the internet." },
+        { "term": "Full tunnel", "meaning": "All of the device's traffic goes through the VPN." },
+        { "term": "GRE", "meaning": "Generic Routing Encapsulation: a tunnel with no encryption." },
+        { "term": "Backhaul", "meaning": "The link joining edge sites to the core network." },
+        { "term": "Out-of-band management", "meaning": "A separate path for managing devices." },
+        { "term": "ISA", "meaning": "Interconnection security agreement: technical rules for connecting two organizations." }
+      ],
+      "keyPoints": [
+        "Tunneling does not always mean encryption.",
+        "L2TP needs IPsec for encryption.",
+        "Full tunnel gives more visibility than split tunnel.",
+        "Vendor access should be named, limited, time-bound and monitored."
+      ],
+      "memoryHook": "A tunnel is a road, not a lock. Check that it also has the lock.",
+      "question": {
+        "prompt": "A hardware support company needs remote access to a firm's storage systems a few times a year. Which approach BEST manages this third-party risk?",
+        "options": [
+          "Create one permanent VPN account for the support company, so that help is always quick when a storage system fails",
+          "Have vendor engineers log in with a staff member's account so the activity stays inside normal records",
+          "Allow RDP from the internet, limited to addresses in the vendor's country",
+          "Keep access off by default and enable named, monitored access per approved job"
+        ],
+        "correctIndex": 3,
+        "explanation": "Access that is off by default, named and monitored applies least privilege and keeps people accountable. A permanent account is tempting for speed, but it leaves an open door all year and hides who used it."
+      }
+    },
+    {
+      "id": "T39",
+      "name": "Network attacks and defenses",
+      "outlineRef": "4.1, 4.2",
+      "simpleExplanation": "Network attacks often do one of three things. They block a service, as when a crowd jams a shop door. They pretend to be someone else, like a fake delivery driver. Or they listen and change messages in the middle, like someone opening your mail. Each attack has a matching control. A DoS (denial of service) attack is stopped differently from a fake address trick. A good security adviser names the attack first, then picks the control that fixes the cause.",
+      "studyNotes": [
+        {
+          "heading": "DoS and DDoS",
+          "body": "A DoS attack makes a service unavailable. A DDoS (distributed denial of service) attack does this from many machines at once, often a botnet, which is a group of infected computers under one controller.\n\nIn a reflection attack, the attacker forges the victim's address, so replies go to the victim. In amplification, a small request causes a much larger reply. DNS (Domain Name System) and NTP (Network Time Protocol) servers are often abused this way. A smurf attack sends ICMP (ping) requests to a broadcast address with the victim's address forged.\n\nControls: rate limiting, a CDN (content distribution network), a DDoS scrubbing service from your provider, and a tested response plan. Your own firewall cannot help when the internet link itself is full. The filtering must happen upstream."
+        },
+        {
+          "heading": "SYN flood, step by step",
+          "body": "TCP (Transmission Control Protocol) starts with SYN (synchronize), SYN-ACK (synchronize-acknowledge), ACK (acknowledge). A SYN flood abuses this:\n\n- Step 1: The attacker sends many SYN packets, often from forged addresses.\n- Step 2: The server replies SYN-ACK and saves memory for each half-open connection.\n- Step 3: The final ACK never arrives.\n- Step 4: The table fills up, and real users are refused.\n\nControls: SYN cookies, which save no state until the ACK returns; shorter timeouts; and firewalls or load balancers that absorb the handshake."
+        },
+        {
+          "heading": "Spoofing and ARP poisoning",
+          "body": "Spoofing means faking an identity, such as an IP (Internet Protocol) address, a MAC (hardware) address or a caller ID. Ingress and egress filtering drop packets whose source address cannot be right.\n\nARP (Address Resolution Protocol) links IP addresses to MAC addresses on a local network. It has no authentication. In ARP poisoning, the attacker sends false replies saying, 'I am the gateway'. Traffic then flows through the attacker.\n\nControls: Dynamic ARP Inspection on switches, supported by DHCP snooping, which records which device received which address. DHCP is the Dynamic Host Configuration Protocol. Static entries suit a few critical systems."
+        },
+        {
+          "heading": "DNS poisoning",
+          "body": "DNS poisoning puts false records in a resolver's cache. Users then visit a fake site, even though they typed the right name, like a phone book with a wrong number. Controls: DNSSEC (DNS Security Extensions), which signs records; random query ports and IDs; and patched, restricted resolvers."
+        },
+        {
+          "heading": "On-path attacks and sniffing",
+          "body": "An on-path attack, once called man-in-the-middle, places the attacker between two parties to read or change traffic. Rogue access points and ARP poisoning often set it up. Controls: TLS (Transport Layer Security) with certificate checks, VPNs and mutual authentication. Train users not to ignore certificate warnings.\n\nSniffing is capturing traffic. It is passive and hard to detect. Encryption is the main control. Also use switches rather than hubs, enable port security and restrict mirror ports."
+        },
+        {
+          "heading": "Think like a manager",
+          "body": "- Service flood: upstream filtering and rate limits.\n- Forged sender: filtering and authentication.\n- Poisoned tables: validation and signing.\n- Listening: encryption.\n\nFollow the incident response plan, tell management, and then remove the root cause."
+        }
+      ],
+      "keyTerms": [
+        { "term": "DDoS", "meaning": "Distributed denial of service: flooding a target from many machines at once." },
+        { "term": "Botnet", "meaning": "A group of infected computers under an attacker's control." },
+        { "term": "Amplification", "meaning": "A small request causes a much larger reply aimed at the victim." },
+        { "term": "SYN flood", "meaning": "Filling a server with half-open TCP connections." },
+        { "term": "SYN cookies", "meaning": "A method that saves no connection state until the handshake finishes." },
+        { "term": "ARP poisoning", "meaning": "False Address Resolution Protocol replies that redirect local traffic." },
+        { "term": "Dynamic ARP Inspection", "meaning": "A switch feature that checks ARP messages against a trusted table." },
+        { "term": "DNS poisoning", "meaning": "Placing false records in a DNS cache." },
+        { "term": "On-path attack", "meaning": "An attacker sits between two parties to read or change traffic." },
+        { "term": "Sniffing", "meaning": "Capturing network traffic to read it." }
+      ],
+      "keyPoints": [
+        "A full internet link must be cleaned upstream, not at your own firewall.",
+        "SYN cookies defend against SYN floods.",
+        "Dynamic ARP Inspection with DHCP snooping stops ARP poisoning.",
+        "DNSSEC defends against forged DNS records.",
+        "Encryption is the main control against sniffing and on-path attacks."
+      ],
+      "memoryHook": "Block, Pretend, Listen: flood attacks block, spoofing pretends, sniffing listens.",
+      "question": {
+        "prompt": "A company web server shows thousands of connections stuck in a half-open state, and real customers are being refused. The internet link is not full. Which control BEST addresses this attack?",
+        "options": [
+          "Sign the company's DNS zone with DNSSEC so that customers reach the real server",
+          "Enable SYN cookies on the server or edge device",
+          "Keep web server logs for a longer period so that the attack can be studied",
+          "Add static ARP entries on the web server for the local gateway"
+        ],
+        "correctIndex": 1,
+        "explanation": "Half-open connections are the sign of a SYN flood, and SYN cookies stop the table from filling. DNSSEC is tempting because it is a good control, but it protects name records and does nothing about TCP handshakes."
+      }
+    }
+  ],
+  "examQuestions": [
+    {
+      "prompt": "A security analyst studies a captured unit of network data. It shows a source and destination MAC address, and it ends with an error-check trailer. What is the MOST accurate description of what the analyst is looking at?",
+      "options": [
+        "A packet at the Network layer",
+        "A frame at the Data Link layer",
+        "A segment at the Transport layer",
+        "Bits at the Physical layer"
+      ],
+      "correctIndex": 1,
+      "explanation": "MAC addresses and an error-check trailer are added at Layer 2, and that data unit is a frame. A packet is tempting, but packets are identified by IP addresses at Layer 3.",
+      "testsTopics": ["T32"]
+    },
+    {
+      "prompt": "Two company offices connect over the internet. Policy requires that the traffic be encrypted and that outsiders must not see the internal IP addresses of the computers talking. Which IPsec setup BEST meets the policy?",
+      "options": [
+        "AH in transport mode",
+        "AH in tunnel mode",
+        "ESP in transport mode",
+        "ESP in tunnel mode"
+      ],
+      "correctIndex": 3,
+      "explanation": "ESP encrypts, and tunnel mode wraps the whole original packet, including its internal addresses. ESP in transport mode is tempting, but it leaves the original IP header visible. AH gives no encryption.",
+      "testsTopics": ["T33"]
+    },
+    {
+      "prompt": "An audit finds that administrators manage network switches using Telnet. The switches can support modern protocols. What should the security manager recommend FIRST to fix the cause of this risk?",
+      "options": [
+        "Replace Telnet with SSH and disable the Telnet service",
+        "Move the Telnet service from port 23 to a high, unlisted port number",
+        "Require longer and more complex passwords for all Telnet accounts",
+        "Add a legal warning banner to every Telnet login screen"
+      ],
+      "correctIndex": 0,
+      "explanation": "Telnet sends passwords in clear text, so anyone sniffing can read them. SSH removes that cause by encrypting the session. Longer passwords are tempting, but a longer password sent in the clear can still be read.",
+      "testsTopics": ["T33", "T39"]
+    },
+    {
+      "prompt": "Field inspectors send confidential reports from phones over 4G and 5G networks in many regions. Leaders worry about fake cell towers and forced downgrades to older networks. Which action is the BEST protection for the reports?",
+      "options": [
+        "Rely on the radio encryption that the mobile carrier provides",
+        "Buy phones with faster 5G radios for all of the inspectors",
+        "Use an always-on VPN from each phone to the company",
+        "Ask the mobile carrier to raise the data limit on each company phone plan"
+      ],
+      "correctIndex": 2,
+      "explanation": "A VPN protects the data end to end, whatever radio network carries it. Carrier encryption is tempting, but it protects only the link to the tower and a fake tower or downgrade can weaken it.",
+      "testsTopics": ["T34"]
+    },
+    {
+      "prompt": "Staff complain that video calls keep breaking up. Monitoring shows the link has plenty of spare capacity and average delay is acceptable, but the delay between packets changes a lot from moment to moment. Which performance measure BEST describes the problem?",
+      "options": [
+        "Bandwidth",
+        "Jitter",
+        "Signal-to-noise ratio",
+        "Throughput"
+      ],
+      "correctIndex": 1,
+      "explanation": "Jitter is variation in delay, and live voice and video suffer from it. Bandwidth is tempting, but the link has plenty of spare capacity, so capacity is not the issue.",
+      "testsTopics": ["T35", "T38"]
+    },
+    {
+      "prompt": "Contractors at a college plug their own laptops into network sockets in meeting rooms. Some laptops are missing security patches. The college must still let approved contractors work. Which control BEST addresses this?",
+      "options": [
+        "Disable every network socket in every meeting room on the campus",
+        "Post a notice asking contractors to patch their laptops before arrival",
+        "Add an intrusion detection sensor to watch the meeting room traffic",
+        "Deploy NAC that checks device health and quarantines failing devices"
+      ],
+      "correctIndex": 3,
+      "explanation": "Network access control checks each device before it joins and keeps unhealthy ones away from the main network, while approved users can still work. Disabling all sockets is tempting, but it stops legitimate business.",
+      "testsTopics": ["T36"]
+    },
+    {
+      "prompt": "A vendor announces that the company's core firewall model will reach end of support next year. The firewall works well today. What should the security manager do FIRST?",
+      "options": [
+        "Report the risk to management and plan a funded replacement",
+        "Keep the firewall in service until it actually fails",
+        "Buy a spare unit of the same model and keep it on site for emergencies",
+        "Turn off the features of the firewall that depend on vendor updates"
+      ],
+      "correctIndex": 0,
+      "explanation": "After end of support, new weaknesses will not be fixed, so management needs to know and fund a replacement in time. A spare unit is tempting, but it helps only with hardware failure and does nothing about missing security fixes.",
+      "testsTopics": ["T37", "T36"]
+    },
+    {
+      "prompt": "Policy says all internet traffic from company laptops must pass through the company's web filter, even when staff work from home. Remote staff use a VPN today, but home internet traffic goes straight out. Which change BEST meets the policy?",
+      "options": [
+        "Keep split tunneling and send only the company's own traffic through the VPN",
+        "Replace the VPN with L2TP running without IPsec",
+        "Configure a full-tunnel VPN for all company laptops",
+        "Create a GRE tunnel from each laptop to the head office network"
+      ],
+      "correctIndex": 2,
+      "explanation": "A full tunnel sends all traffic through the company, where the web filter can inspect it. Split tunneling is what causes the gap today. L2TP without IPsec and GRE provide no encryption.",
+      "testsTopics": ["T38"]
+    },
+    {
+      "prompt": "Users on one office floor suddenly get certificate warnings. An analyst finds that the gateway's IP address now maps to the MAC address of a desktop computer on that floor. Once the incident is contained, which preventive control is BEST to add on the access switches?",
+      "options": [
+        "DNSSEC signing of the company's internal DNS zones",
+        "Longer DHCP lease times for computers on that floor",
+        "A perimeter firewall rule blocking outbound UDP port 53",
+        "Dynamic ARP Inspection supported by DHCP snooping"
+      ],
+      "correctIndex": 3,
+      "explanation": "The gateway's IP mapped to a desktop's MAC address shows ARP poisoning, and Dynamic ARP Inspection checks ARP messages against trusted records. DNSSEC is tempting because of the warnings, but this attack is on the local ARP table, not on DNS.",
+      "testsTopics": ["T39"]
+    },
+    {
+      "prompt": "An online shop is hit by a very large distributed denial of service attack from thousands of addresses. The company's internet link is completely full. What is the BEST action?",
+      "options": [
+        "Add a rule on the company firewall for each attacking address",
+        "Activate the upstream scrubbing service named in the response plan",
+        "Add more memory and processors to the web servers",
+        "Restart the web servers and the firewall to clear all connections"
+      ],
+      "correctIndex": 1,
+      "explanation": "When the link itself is full, traffic must be cleaned before it reaches the company, and following the agreed plan is the correct manager's response. Blocking addresses locally is tempting, but the flood has already filled the link by the time it reaches the firewall.",
+      "testsTopics": ["T39"]
+    }
+  ]
+}

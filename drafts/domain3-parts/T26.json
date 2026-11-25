@@ -1,0 +1,141 @@
+{
+  "id": "T26",
+  "studyNotes": [
+    {
+      "heading": "Asymmetric keys and which key to use",
+      "body": "In this first part, we are going to look at asymmetric encryption, and at the rule for which key to use. This rule is tested often, so we will go slowly.\n\nAsymmetric encryption, also called public key cryptography, gives each person a matched pair of keys. One is the public key, which anyone may have. The other is the private key, which only its owner may hold. What one key locks, only the other can open.\n\nThink of a post box in a wall. Anyone can drop a letter through the slot. That is the public key. Only the person with the key to the back of the box can take the letters out. That is the private key.\n\nThis solves the big problem of symmetric encryption, the problem of sharing a secret safely. You can publish a public key for the whole world to see. It is not a secret.\n\nNow for the rule, using a person called Ana.\n\n- To send a secret to Ana, encrypt with Ana's public key. Ana decrypts with her private key.\n- To sign as Ana, Ana uses her private key. Others verify with Ana's public key.\n\nAsk yourself what you are trying to achieve. If the goal is secrecy, only the receiver should be able to open the message. So you must lock it with something that only the receiver can undo. That means the receiver's public key.\n\nIf the goal is proof of who sent it, only the sender should be able to create it. So the sender must use something that only the sender has. That means the sender's private key.\n\nHere is a workplace example. An employee in the audit team must send a confidential report to the director. The employee obtains the director's public key, and encrypts the report with it. Even the employee can no longer decrypt the result. Only the director's private key will open it.\n\nThe private key must always stay private. If an exam question has anyone sending a private key to someone else, that option is very likely wrong.\n\nAsymmetric encryption is much slower than symmetric encryption. It is thought to be around a thousand times slower. So it is not used on large files.\n\nHere is what to take away. Lock a secret with the receiver's public key, and sign with the sender's private key."
+    },
+    {
+      "heading": "RSA, elliptic curves and key sizes",
+      "body": "Now we will look at the main asymmetric algorithms, and at how big their keys need to be.\n\nRSA is named after its inventors, Rivest, Shamir and Adleman. It relies on factoring. Factoring means finding the numbers that multiply together to make a larger number. If I give you two large prime numbers, you can multiply them easily. If I give you only the huge answer, finding the two original primes is extremely hard.\n\nThink of mixing two paints. Mixing is easy. Separating them again is close to impossible. A one-way operation like this one is at the heart of public key cryptography.\n\nRSA can encrypt and it can sign. Keys should be at least 2048 bits today, and 3072 bits gives more margin.\n\nECC, or Elliptic Curve Cryptography, relies on a different hard problem, based on the mathematics of curves. It gives the same strength with much smaller keys. That means less computing power and less battery use, so it suits phones and small devices.\n\nHere are the comparisons to learn.\n\n- A 224-bit elliptic curve key is about as strong as a 2048-bit RSA key.\n- A 256-bit elliptic curve key is about as strong as a 3072-bit RSA key.\n\nA 3072-bit RSA key and a 256-bit elliptic curve key are each about as strong as a 128-bit symmetric key.\n\nNotice that a 128-bit symmetric key is about as strong as a much larger asymmetric key. Do not compare key sizes across different kinds of algorithm. It is like comparing the length of a bicycle lock with the length of a door key.\n\nThere are two other algorithms to recognise. ElGamal is an asymmetric method built on the same hard problem as Diffie-Hellman, which we will meet in the next part. DSA, the Digital Signature Algorithm, is used for signing and not for encryption. Its elliptic curve version is called ECDSA.\n\nHere is a workplace example. A company is making a small sensor that runs on a battery for years. Each sensor must sign its readings. The team chooses a 256-bit elliptic curve key instead of a 3072-bit RSA key, because it uses far less power for the same protection.\n\nHere is your takeaway. RSA relies on factoring, and elliptic curves give the same strength with much smaller keys."
+    },
+    {
+      "heading": "Diffie-Hellman and hybrid encryption",
+      "body": "In this part, we will look at how two strangers agree on a secret, and at how real systems combine both kinds of encryption.\n\nDiffie-Hellman lets two people agree on a shared secret over an open network. It is key agreement. It does not encrypt messages itself.\n\nThink about mixing paint again. Ana and Ben agree in public on a common yellow. Each adds a secret colour of their own, and they swap the mixtures. Each then adds their own secret colour to the mixture they received. They both end up with the same final colour. Someone watching the swap saw only the mixtures, and cannot work out the final colour.\n\nThere is a weakness that you should know. Diffie-Hellman on its own does not prove who is on the other end. So it is open to man-in-the-middle attacks, where someone secretly sits between the two people and agrees a separate secret with each of them. To stop this, the exchange is authenticated, usually with digital certificates.\n\nThe ephemeral form of Diffie-Hellman uses new values for each session. Ephemeral means short-lived. This gives forward secrecy, which means a key stolen later cannot unlock past sessions. If an attacker recorded all of your traffic last year, and steals your server's private key today, they still cannot read last year's traffic.\n\nNow to hybrid encryption. Real systems use both kinds of encryption, because each one is good at something different.\n\n- Step 1: A random symmetric key is created for this one conversation. It is called a session key.\n- Step 2: Asymmetric methods are used to deliver or agree that session key safely.\n- Step 3: The session key encrypts the data, quickly.\n- Step 4: The session key is thrown away at the end.\n\nThink of a strong courier who carries only a small key to a large warehouse. Once the key has arrived, everyone can use the warehouse quickly.\n\nHere is a workplace example. When a staff member opens a secure website, the browser and the server use asymmetric methods to agree a session key. Then the whole page is protected with AES, the Advanced Encryption Standard, which is fast and symmetric. This is how Transport Layer Security works.\n\nHere is what to take away. Diffie-Hellman agrees a key but does not prove identity by itself, and hybrid encryption uses asymmetric methods to set up a fast symmetric key."
+    },
+    {
+      "heading": "Quantum computing and post-quantum methods",
+      "body": "Next, we are going to look at the coming challenge from quantum computers.\n\nA large quantum computer, which uses quantum physics to calculate, would threaten today's public key methods. It does not simply work faster. It can solve certain kinds of problem in a completely different way.\n\nThink of a maze. An ordinary computer tries one path after another. A quantum computer, in a loose sense, can explore the problem in a far more efficient way.\n\nTwo algorithms matter here.\n\nShor's algorithm would break RSA, elliptic curve methods and Diffie-Hellman. All of them rest on problems that this algorithm solves efficiently. This is the serious threat.\n\nGrover's algorithm speeds up searching. It roughly halves the effective strength of a symmetric key. So a 128-bit key would behave more like a 64-bit key. A 256-bit key would behave more like a 128-bit key, which is still strong. That is why AES with a 256-bit key is considered safe enough, and why the answer to quantum threats on symmetric keys is simply a longer key.\n\nPost-quantum cryptography means new methods designed to resist quantum attacks, and it runs on ordinary computers. Do not confuse it with quantum key distribution, which uses physics to share keys over special equipment.\n\nNIST, the United States National Institute of Standards and Technology, published its first post-quantum standards in 2024. Learn these names.\n\n- ML-KEM: for key exchange, in the standard called FIPS 203.\n- ML-DSA: for digital signatures, in FIPS 204.\n- SLH-DSA: also for signatures, in FIPS 205.\n\nFIPS stands for Federal Information Processing Standard.\n\nThere is one more threat to understand, known as harvest now, decrypt later. An attacker can record encrypted traffic today, and store it until a quantum computer becomes available. Data that needs to stay secret for many years is therefore at risk already.\n\nHere is a workplace example. A government agency holds records that must remain secret for fifty years. It starts now by listing everywhere it uses public key cryptography. It then plans a move to post-quantum methods, starting with the data that must stay secret the longest. This ability to switch methods easily is called crypto agility.\n\nA wise manager keeps that list up to date, and does not wait for an emergency.\n\nHere is your takeaway. Shor's algorithm threatens public key methods, Grover's algorithm halves symmetric strength, and planning for the change should begin now."
+    },
+    {
+      "heading": "Hashing and HMAC",
+      "body": "In this part, we are going to look at hashing, which is different from encryption.\n\nA hash function turns data of any size into a short fixed-size value. That value is called a hash, or a digest. It is one-way, so you cannot turn it back into the original. Any small change to the input gives a very different result.\n\nThink of a fingerprint. Your fingerprint identifies you, and it is much smaller than you are. But nobody can rebuild you from your fingerprint.\n\nHashing supports integrity. It does not provide confidentiality, because nothing is hidden, and there is no key.\n\nA collision is when two inputs give the same hash. A good hash function makes collisions extremely hard to find. Here are the sizes to know.\n\n- MD5, or Message Digest 5: 128 bits. Broken.\n- SHA-1, or Secure Hash Algorithm 1: 160 bits. Broken.\n- SHA-2: includes 224, 256, 384 and 512-bit versions. In wide use.\n- SHA-3: a newer design with the same output sizes.\n\nHashes are also used to store passwords. A system keeps the hash, and not the password. A salt is a random value added before hashing, so that two people with the same password end up with different hashes. For passwords, deliberately slow methods are best, such as bcrypt, scrypt or Argon2.\n\nNow to HMAC, which stands for Hash-based Message Authentication Code. It mixes a shared secret key into the hash. It proves integrity, and it proves that the sender holds the key.\n\nThink of two friends who agree on a secret word. When sending a note, the writer adds the secret word before calculating a checksum. Someone who alters the note cannot produce the right checksum without the word.\n\nHMAC cannot give non-repudiation, because both sides hold the same key. Either side could have created it.\n\nHere is a workplace example. A software company publishes a hash next to each download. A customer checks that the hash matches. That detects accidental damage. But an attacker who could change the download could also change the hash on the same web page. So on its own, a hash does not prove who published it. That takes a digital signature.\n\nHere is what to take away. A hash is a one-way fingerprint for integrity, and HMAC adds a shared secret key, but it cannot give non-repudiation."
+    },
+    {
+      "heading": "How a digital signature works",
+      "body": "In this final part, we are going to walk through a digital signature step by step, noting which key does what.\n\nA digital signature proves who sent a message, and that it was not changed. It joins together the two ideas we have just learned, which are hashing and asymmetric keys.\n\nAna is signing a contract for Ben. Here are the steps.\n\n- Step 1: Ana hashes the contract.\n- Step 2: Ana encrypts the hash with her private key. This is the signature.\n- Step 3: Ana sends the contract and the signature.\n- Step 4: Ben decrypts the signature with Ana's public key, which reveals her hash.\n- Step 5: Ben hashes the contract himself.\n- Step 6: Ben compares the two hashes. A match proves the signature is good.\n\nThink about why this works. Only Ana holds her private key, so only Ana could have made that signature. That gives authentication and non-repudiation. If even one comma in the contract had changed, Ben's hash would be different. That gives integrity.\n\nSo a signature gives integrity, authentication and non-repudiation. It does not give confidentiality, because the contract itself is not encrypted. Anybody can read it.\n\nTo add secrecy, Ana would also encrypt the signed message with Ben's public key. Then two different key pairs are in use. Ana's private key signs. Ben's public key encrypts.\n\nA small point of accuracy. Encrypting the hash is the traditional way of teaching this, and it is the way the exam tends to describe it. Some algorithms, such as DSA, create a signature in a different mathematical way, but the idea of private key to sign and public key to verify is the same.\n\nWhy do we sign the hash and not the whole document? Because the hash is short, and asymmetric work is slow. Signing a short hash takes very little time.\n\nHere is a workplace example. A software company signs its update files with its private key. Every customer's computer holds the company's public key, and it checks each update before installing it. An attacker who alters an update cannot create a valid signature without the private key, so the update is refused.\n\nHere is your takeaway. Sign with the sender's private key, verify with the sender's public key, and remember that a signature gives integrity, authentication and non-repudiation, but not secrecy."
+    }
+  ],
+  "practiceQuestions": [
+    {
+      "prompt": "Lena must send a confidential file so that only Omar can read it. Which key should encrypt it?",
+      "options": [
+        "Lena's private key",
+        "Lena's public key",
+        "Omar's private key",
+        "Omar's public key"
+      ],
+      "correctIndex": 3,
+      "explanation": "Encrypting with the receiver's public key means only the receiver's private key can open it. Lena's private key is tempting, but that is used for signing, and anyone with her public key could read the result."
+    },
+    {
+      "prompt": "Which key does a signer use to create a digital signature, and which key does the receiver use to check it?",
+      "options": [
+        "Signer's private key, then signer's public key",
+        "Receiver's public key, then receiver's private key",
+        "Signer's public key, then signer's private key",
+        "Receiver's private key, then signer's public key"
+      ],
+      "correctIndex": 0,
+      "explanation": "The signer uses its own private key, and anyone can verify using the signer's public key. Receiver's public key is tempting, but that pair is used for secrecy and proves nothing about who sent the message."
+    },
+    {
+      "prompt": "A company is building a battery-powered sensor that must sign its readings. The signing method must be strong but use as little power as possible. Which choice is BEST?",
+      "options": [
+        "RSA with a 4096-bit key",
+        "A 256-bit elliptic curve key",
+        "HMAC with a key shared by all sensors",
+        "MD5 applied to each reading"
+      ],
+      "correctIndex": 1,
+      "explanation": "Elliptic curves give strong signatures with small keys and little power. HMAC is tempting because it is light, but a shared key cannot prove which sensor signed a reading."
+    },
+    {
+      "prompt": "Two systems use plain Diffie-Hellman to agree on a shared key over the internet, with no other checks. What is the MAIN weakness of this setup?",
+      "options": [
+        "The key they agree cannot be used with AES",
+        "The exchange sends the shared secret openly",
+        "Neither side can prove who the other really is",
+        "The method needs a separate one-time pad"
+      ],
+      "correctIndex": 2,
+      "explanation": "Without authentication, an attacker can sit in the middle and agree a key with each side. Sending the secret openly is tempting, but the point of Diffie-Hellman is that the shared secret never travels across the network."
+    },
+    {
+      "prompt": "An attacker recorded a company's encrypted web traffic last year, and has now stolen the server's private key. The company used ephemeral Diffie-Hellman for every session. What is the MOST likely result?",
+      "options": [
+        "All of last year's traffic can now be read at once",
+        "Only traffic from the most recent week can be read",
+        "Last year's traffic stays protected by forward secrecy",
+        "The server's certificate becomes readable to the attacker"
+      ],
+      "correctIndex": 2,
+      "explanation": "Ephemeral exchanges use new values each session, so a stolen long-term key does not unlock past sessions. The first option is tempting, and it would be true if the server's key had been used to encrypt session keys directly."
+    },
+    {
+      "prompt": "A large quantum computer becomes available. Which of the following is the MOST seriously threatened?",
+      "options": [
+        "AES with a 256-bit key",
+        "RSA with a 3072-bit key",
+        "SHA-3 with a 512-bit output",
+        "A properly used one-time pad"
+      ],
+      "correctIndex": 1,
+      "explanation": "Shor's algorithm would break RSA regardless of practical key length. AES with a 256-bit key is tempting because it is widely used, but Grover's algorithm only halves its strength, which leaves it strong."
+    },
+    {
+      "prompt": "A file server stores hashes of its documents and compares them each night. What does this MOSTLY provide?",
+      "options": [
+        "Confidentiality of the documents",
+        "Non-repudiation by the authors",
+        "Availability of the file server",
+        "Detection of unauthorized changes"
+      ],
+      "correctIndex": 3,
+      "explanation": "Hashes support integrity, so a change shows up as a mismatch. Confidentiality is tempting because hashing can look like encryption, but hashing hides nothing in the documents themselves."
+    },
+    {
+      "prompt": "Two banks use HMAC with a shared key to protect messages between them. One bank later denies having sent a particular message. Why can the other bank NOT prove that it did?",
+      "options": [
+        "Either bank holding the key could have made the code",
+        "HMAC cannot detect whether a message has been changed",
+        "HMAC does not use any type of cryptographic key",
+        "HMAC can be calculated only by a third party"
+      ],
+      "correctIndex": 0,
+      "explanation": "Both banks hold the same key, so neither can prove the other made it, and there is no non-repudiation. The second option is tempting, but HMAC does detect changes. That is integrity, and it is what HMAC does well."
+    },
+    {
+      "prompt": "A contract is sent with a digital signature, but it is not encrypted. Which security goal is NOT achieved?",
+      "options": [
+        "Integrity",
+        "Authentication",
+        "Non-repudiation",
+        "Confidentiality"
+      ],
+      "correctIndex": 3,
+      "explanation": "A signature does not hide the contract, so anyone can read it. Non-repudiation is tempting if you are unsure, but a private key signature is exactly what provides it."
+    },
+    {
+      "prompt": "A company must transfer a confidential 200 gigabyte database to a partner over the internet, as quickly as possible, with the partner's identity assured. Which approach is BEST?",
+      "options": [
+        "Encrypt the entire database using the partner's public RSA key",
+        "Agree a session key using certificates, and encrypt with AES",
+        "Hash the entire database, and post the hash on the website",
+        "Sign the database with the company's own private key"
+      ],
+      "correctIndex": 1,
+      "explanation": "Hybrid encryption uses authenticated public key methods to set up a session key, and AES does the bulk work quickly. Using RSA on the whole database is tempting because it provides secrecy, but it is far too slow for large amounts of data."
+    }
+  ]
+}

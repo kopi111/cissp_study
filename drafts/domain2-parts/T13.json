@@ -1,0 +1,141 @@
+{
+  "id": "T13",
+  "studyNotes": [
+    {
+      "heading": "Why we classify at all",
+      "body": "In this first part, we are going to look at why organizations sort their information into groups at all, because every later step in this domain depends on it.\n\nClassification means sorting information by the harm that would follow if it were exposed, changed or lost. Each group is called a class. Each class comes with its own protection rules.\n\nThink about your own home. Your passport goes in a safe. Your shopping list stays on the fridge. If you guarded both in the same way, you would either spend far too much protecting the list, or far too little protecting the passport. You already classify things without using the word.\n\nNow think about a workplace. A bank holds customer account numbers, staff payroll, a public list of branch opening hours, and plans for a merger that nobody outside may know about. Treating all four the same would be wasteful and dangerous at once. The opening hours need almost nothing. The merger plans need a great deal.\n\nThis gives classification its main benefit. It makes the cost of protection match the value of what is protected. It gives staff clear instructions, so nobody has to guess. It helps leaders to spend money where the harm would be greatest. And it helps to show regulators, which are the official bodies that enforce rules, that the organization takes proper care of what it holds.\n\nClassification looks at all three goals of security. Confidentiality means keeping information away from the wrong people. Integrity means keeping it correct. Availability means having it there when it is needed. Most class names focus on confidentiality, but a good program considers all three.\n\nHere is one important warning. Classification is not a control by itself. A control is anything that reduces risk, such as a lock, a password or a rule. A label on a file stops nobody. It is a decision that tells us which controls to apply.\n\nHere is what to take away. Classification sorts things by harm, it matches protection to value, and it tells people what to do. It is the decision that comes before the controls."
+    },
+    {
+      "heading": "Building a classification program, step by step",
+      "body": "Next we will walk through how an organization sets up classification, because the exam likes to ask what comes first and what comes next.\n\nImagine sorting a family's papers after moving house. First, the family agrees on the piles: keep safe, keep handy, throw away. Then someone finds all the boxes. Then someone decides which pile each paper belongs in. Only then do you buy the safe. A business works in much the same way.\n\nA sensible order for a classification program is this.\n\n- Step 1: Get senior management support and set the class levels in a policy.\n- Step 2: Find the information and assets you have.\n- Step 3: Name an owner for each one.\n- Step 4: The owner assigns a class, using agreed criteria.\n- Step 5: Apply the protection rules for that class.\n- Step 6: Train staff and review the classes regularly.\n\nLet us follow a hospital through those steps. The board approves a policy with three classes. Staff then search for information, including the forgotten copies on old file shares. Software called a data discovery tool helps, by searching storage for patterns such as patient numbers. The director of nursing is named owner of the ward records. She assigns them the highest class. The security team and the technical teams then apply the rules for that class. Staff are trained, and the owner looks at the class again each year.\n\nNotice why senior management comes first. A classification program costs money and changes how people work. Without support from the top, it fades away within months.\n\nNotice also that finding the information comes before deciding on controls. You cannot protect what you do not know you have. If an answer offers to buy a tool before you know what you hold, be suspicious of it.\n\nThink like a manager here. Your job is to make sure the process exists and that the right people make the decisions. You are not there to label every file yourself.\n\nHere is your takeaway. Policy and management support first, then find it, name an owner, classify, protect, train and review."
+    },
+    {
+      "heading": "Government classes and the idea of clearance",
+      "body": "In this part we will look at the class names used by the United States government, because the exam expects you to know them in order and to know what each one means.\n\nFrom highest to lowest, the levels are these.\n\n- Top Secret: disclosure could cause exceptionally grave damage to national security.\n- Secret: disclosure could cause serious damage.\n- Confidential: disclosure could cause damage.\n- Unclassified: not covered by the three levels above.\n\nThe words to remember are grave, serious, and plain damage. Say them to yourself in that order. Exceptionally grave belongs to Top Secret. Serious belongs to Secret. Damage, with no extra word, belongs to Confidential.\n\nUnclassified does not always mean free for anyone to read. The United States also uses a category called Controlled Unclassified Information, or CUI. This is information that is not classified, but which laws or policies still require to be protected.\n\nNow we need a second idea. Information has a classification. A person has a clearance. A clearance is official approval, after a background check, to see information up to a certain level. But clearance alone is never enough. The person must also have a need to know, which means that their job really requires this particular information.\n\nThink about a hotel. A staff key card may open every floor. That does not mean that a cook should be walking through guests' rooms. The card shows what the person could reach. The job decides where the person should go.\n\nHere is a workplace example. A defense analyst holds a Secret clearance. A colleague on another project has a Secret report. The analyst's clearance is high enough. But the report has nothing to do with her work, so she has no need to know, and she should not read it.\n\nThis matters for the exam because a wrong answer will often say that the person's clearance is high enough, so access is fine. It is not fine unless the job requires it.\n\nHere is what to take away. Know the order: Top Secret, Secret, Confidential, Unclassified. And remember that access needs clearance and need to know together."
+    },
+    {
+      "heading": "Business classes and how the owner decides",
+      "body": "Now we move from government to business, and we will look at who chooses a class and what they base the choice on.\n\nBusinesses have no single required scheme. A common one, from highest to lowest, is this.\n\n- Confidential or Proprietary: trade secrets and the most valuable company data.\n- Private: personal details about staff or customers.\n- Sensitive: internal data that needs some care.\n- Public: safe for anyone to see.\n\nWatch the trap with these names. Confidential is the lowest of the three secret government levels, but it is often the top level in a company. When two organizations work together, or merge, the same word may mean very different things. The answer is to map one scheme to the other, in writing.\n\nKeep the number of levels small. Three or four is common. Too many levels confuse people, and confused people make mistakes.\n\nThe person who chooses the class is the owner. The owner is a senior business person who answers for the information. Technical staff can advise, and they carry out the rules, but they do not decide. Think of a family deciding which papers go in the safe. The family decides, even though a locksmith fits the safe.\n\nOwners use criteria such as these.\n\n- Value: what it is worth to the organization.\n- Sensitivity: the harm if the wrong people see it.\n- Criticality: how much the business depends on it being correct and available.\n- Legal and contract rules: for example, laws on personally identifiable information, or PII, which is any data that can point to a particular person.\n- Age and useful life: value often falls over time.\n\nSensitivity and criticality are not the same thing. A hospital's bed schedule would embarrass nobody if it leaked, so its sensitivity is low. But wards cannot admit patients without it, so its criticality is high. Protected health information, or PHI, the medical data about a person, is usually high on both.\n\nThink like a manager. Classifying too high wastes money, and staff stop taking the labels seriously. Classifying too low leaves valuable things exposed.\n\nHere is your takeaway. The owner decides, using written criteria, and three or four clear levels work best."
+    },
+    {
+      "heading": "Classifying assets and the high-water mark",
+      "body": "In this part we will turn from the information itself to the things that hold it, and we will see the rule that decides their level.\n\nData classification is about the information, such as a customer list or a payroll file. Asset classification is about the things that hold or handle that information, such as laptops, servers, paper files and backup tapes. A server is a central computer that serves many users. The two go together, and the data comes first. You decide how sensitive the data is, and that tells you how to treat what it sits on.\n\nThe key rule is that an asset takes the class of the most sensitive information on it. This is often called the high-water mark. Think of the line that a flood leaves on a wall. It records the highest level the water reached, however low the water usually is.\n\nHere is a worked example. A school laptop holds 500 public newsletters and one file of student medical notes. The medical notes are the highest class. So the whole laptop gets that level of protection. Counting files does not matter. One sensitive file sets the level. If the school wants a cheaper level for that laptop, it can move the medical file somewhere else.\n\nAsk also where copies go. A test system loaded with real customer records holds real customer data, so it takes the same class, even if the project calls it low value. The safest fix is to test with made-up data instead.\n\nDo not forget less obvious assets. Office printers often keep images of what they have scanned on an internal drive. Those printers hold whatever class they have copied.\n\nYou may also meet the word categorization. In United States government practice, a standard called Federal Information Processing Standard 199 groups systems as low, moderate or high impact. It looks separately at confidentiality, integrity and availability. The overall rating for the system then follows the highest of the three results. So categorization groups systems by impact, and classification labels information by sensitivity. They are close cousins, and the high-water idea appears in both.\n\nHere is what to take away. The data sets the class, and one sensitive item lifts the whole asset to its level."
+    },
+    {
+      "heading": "Aggregation, inference, downgrading and review",
+      "body": "In this final part we will look at how a class can change, either because facts are combined, or because time has passed.\n\nStart with aggregation. Aggregation means combining many low-value facts, so that together they become more sensitive. One delivery time for one truck is harmless. A full year of delivery times can reveal exactly when a cash shipment is easiest to rob. So the combined collection may need a higher class than any of its parts.\n\nInference is related, but it is different. Inference means working out a hidden fact from the facts you are allowed to see. Suppose a report shows only the total pay of each team. Last month a team had a total of 90,000 dollars. This month one person joined, and the total is 95,000 dollars. Now take 90,000 from 95,000. The answer is 5,000 dollars, and you have just learned the new person's monthly pay. Nobody showed it to you. You worked it out.\n\nSo aggregation is about the collection becoming sensitive. Inference is about deducing one protected fact.\n\nNow think about time. A school exam paper is highly secret the day before the exam. A week later it may be public. People often call moving an item to a lower class declassification or downgrading. In strict government language, downgrading means moving to a lower level, while declassification means removing the classification altogether.\n\nThe decision belongs to the owner. A deadline, a cost problem or an awkward process is not a reason to lower a class. The only proper reason is that the harm of exposure has really fallen.\n\nHere is a workplace example. A product launch plan was the company's most protected document for a year. The product is now on sale and its details are on the website. The owner reviews the plan, and lowers the class. Money is no longer spent guarding something that the whole world can read.\n\nThat is why classes need a regular review. Value changes, laws change, and data gets combined in new ways.\n\nHere is your takeaway. Combining facts can raise a class, time can lower it, and the owner makes the call at a regular review."
+    }
+  ],
+  "practiceQuestions": [
+    {
+      "prompt": "An employee at a defense contractor holds a Secret clearance. He asks to read a Secret report from a project he does not work on, and says that his clearance already allows it. What is the BEST response?",
+      "options": [
+        "Give him the report, because his clearance level matches the class of the report exactly",
+        "Refuse for now, because he has no need to know what is in a report for that project",
+        "Ask him to sign a confidentiality form and then give him a printed copy of the report",
+        "Raise his clearance to Top Secret so that the same question does not come up again"
+      ],
+      "correctIndex": 1,
+      "explanation": "Access needs both clearance and need to know, and his job does not require this report. Handing it over is tempting because the levels match, but matching levels are only half of the test. A form or a higher clearance does not create a need to know."
+    },
+    {
+      "prompt": "Two companies are merging. In one, Confidential is the highest class. In the other, Confidential is a middle class and Restricted is the highest. Staff have begun sharing files between the two. What would BEST prevent mishandling?",
+      "options": [
+        "Tell all staff to treat shared files as Public until the merger is complete and the policies agree",
+        "Let each company go on using its own meaning of the words for as long as it wishes to do so",
+        "Rename every class in both companies to a number so that nobody is confused by the old words",
+        "Map the two schemes to each other in an approved policy, and tell staff how they line up"
+      ],
+      "correctIndex": 3,
+      "explanation": "A written mapping tells people exactly how a class in one company translates into the other. Renaming the classes is tempting, but numbers alone do not say which level equals which. Treating files as Public under-protects them."
+    },
+    {
+      "prompt": "A logistics firm publishes each delivery in a separate public notice. An analyst combines a full year of notices and finds that the collection reveals the exact routine of its cash shipments. Each single notice is harmless. What is the BEST response?",
+      "options": [
+        "Have the owner review the combined collection and assign it a higher class than its parts",
+        "Leave it as it is, because each single notice that went into it was already classed as Public",
+        "Delete the analyst's work and ask the analyst not to combine public information in the future",
+        "Make every individual notice Top Secret so that nobody can ever combine them again in any form"
+      ],
+      "correctIndex": 0,
+      "explanation": "This is aggregation, where a combined collection becomes more sensitive than its parts, so the collection needs its own higher class. Leaving it alone is tempting because each part is public, but the harm comes from the combination. Raising every single notice is out of proportion."
+    },
+    {
+      "prompt": "A staff portal shows only the total pay of each small team, and a list of who joined each team this month. An employee compares last month's total with this month's and works out the exact pay of a new colleague. Which problem does this show MOST clearly?",
+      "options": [
+        "Data remanence, because old pay data was left behind",
+        "Aggregation, because many records are held in one place",
+        "Inference, because a protected fact was worked out",
+        "Declassification, because the pay data was moved down"
+      ],
+      "correctIndex": 2,
+      "explanation": "Inference means deducing a hidden fact from facts you are allowed to see. Aggregation is tempting, but aggregation describes a collection becoming sensitive, and here one particular protected fact was worked out."
+    },
+    {
+      "prompt": "A new product plan was given a company's highest class before launch. The product launched six months ago, and the details are now on its website. The plan is still stored under the strictest and most costly controls. What is the BEST next step?",
+      "options": [
+        "Leave the class unchanged, because a class once given should never be lowered by anybody",
+        "Ask the owner to review the class, and to lower it if the harm has really fallen",
+        "Let the storage administrator lower the class now, in order to reduce this quarter's costs",
+        "Delete the plan right away, since all of its contents have already been made public"
+      ],
+      "correctIndex": 1,
+      "explanation": "Value falls over time, and the owner is the person who may change a class. It is tempting to let the administrator act, since the saving is real, but technical staff carry out class decisions and do not make them. Deleting it ignores any retention need."
+    },
+    {
+      "prompt": "An audit finds that nearly every document in a company is marked at the highest class. Staff admit that they ignore the markings and email these files freely. What is the BEST corrective action?",
+      "options": [
+        "Have the owners reclassify items against clear criteria, and then retrain the staff on them",
+        "Discipline every employee who emailed a marked file and make them sign the policy once again",
+        "Buy stronger encryption for all documents, because all of them are marked at the highest class",
+        "Remove all of the markings, since the staff have already shown that they do not read them"
+      ],
+      "correctIndex": 0,
+      "explanation": "Over-classification is the cause, because staff stop believing the labels when everything is top level. Discipline is tempting, but it punishes the symptom and leaves the broken scheme in place. Encryption would spend more money on the same mistake."
+    },
+    {
+      "prompt": "A finance director asks why the company should spend time on a classification program when it already has good firewalls, which filter network traffic. What is the BEST answer from the security manager?",
+      "options": [
+        "It removes the need for most other controls, because a labeled file cannot be misused by staff",
+        "It is a technical requirement of every modern firewall and cannot be avoided by any company",
+        "It places every item under the same strong level of protection, which makes the rules much simpler",
+        "It lets the company match its protection spending to the value of each item that it holds"
+      ],
+      "correctIndex": 3,
+      "explanation": "The main business benefit is matching the cost of protection to the value of what is protected, which is language a finance director can use. Equal protection for everything sounds simple, but it is the exact waste that classification is meant to avoid."
+    },
+    {
+      "prompt": "Developers copied the live customer database to a test system so that they could try a new feature with realistic data. The test system has weak controls, because the project labeled it as low value. What is the BEST action?",
+      "options": [
+        "Keep the test system as it is, since test systems are by definition low in value and low in risk",
+        "Ask the developers to promise not to look at any of the customer details while they test the feature",
+        "Protect it at the customer data's class, or replace the real data with made-up values",
+        "Move the test system to a different building so that it is further away from the live database"
+      ],
+      "correctIndex": 2,
+      "explanation": "A copy keeps the class of the data it holds, whatever a project calls the system. Replacing the real data removes the problem, and protecting it properly also meets the rule. A promise from the developers is tempting because it is cheap, but it is not a control over the data."
+    },
+    {
+      "prompt": "A hospital's bed-scheduling data would embarrass nobody if outsiders saw it. However, wards cannot admit patients if the data is wrong or unavailable. Which factor should MOST drive the protection of this data?",
+      "options": [
+        "Criticality, because the hospital depends on it",
+        "Sensitivity, because outsiders might read it",
+        "Age, because schedules soon go out of date",
+        "Marking, because schedules must carry a banner"
+      ],
+      "correctIndex": 0,
+      "explanation": "Criticality measures how much the organization depends on data being correct and available. Sensitivity is tempting because it is the factor most often discussed, but the scenario says that exposure would cause little harm."
+    },
+    {
+      "prompt": "A government analyst is reviewing a new report. Its unauthorized disclosure could reasonably be expected to cause serious damage to national security, but not exceptionally grave damage. Which United States classification level fits BEST?",
+      "options": [
+        "Top Secret",
+        "Secret",
+        "Confidential",
+        "Unclassified"
+      ],
+      "correctIndex": 1,
+      "explanation": "Serious damage is the test for Secret. Top Secret is tempting because the report is clearly important, but it is reserved for exceptionally grave damage. Confidential is for damage without the word serious."
+    }
+  ]
+}

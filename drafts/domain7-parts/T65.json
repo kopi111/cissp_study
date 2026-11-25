@@ -1,0 +1,141 @@
+{
+  "id": "T65",
+  "studyNotes": [
+    {
+      "heading": "Business continuity and disaster recovery are different",
+      "body": "In this first part, we are going to look at what business continuity is, and at how it differs from disaster recovery.\n\nBCP, or business continuity planning, keeps the whole business working through a disruption. It looks at people, buildings, suppliers and processes as well as technology. DRP, or disaster recovery planning, restores computer systems after a disaster. It is narrower, and it is usually a part of the wider continuity effort.\n\nThink of a bakery whose oven breaks. Continuity is everything the owner does to keep selling bread. She might borrow an oven, sell yesterday's stock, change what she bakes or tell her regular customers what is going on. Disaster recovery is the part about getting the oven itself fixed. Think of BCP as keeping the shop open, and DRP as getting the tills and computers working again.\n\nBoth follow the same priorities: people first, then the most important business functions.\n\nHere is a workplace example. A hospital loses its electronic patient records. The business continuity plan says that wards should switch to paper forms, so that care can continue. The disaster recovery plan says how technicians will restore the database, and in what order. Patients keep receiving care while the technical work goes on.\n\nThe objective for this topic is called participate. That word is important. As a security professional, you are one of the participants in this work, and your part is to advise. You are not the owner of the plan. The business owners and senior managers decide what matters most, and they accept the plan.\n\nThe security professional makes sure that security is not forgotten when things are rushed. During a crisis, people are tempted to prop open doors, share passwords or send data over unsafe channels. Good planning decides in advance how security will be kept up under pressure.\n\nThere are well-known standards that guide this work. ISO 22301 is the international standard for business continuity management. NIST Special Publication 800-34 is a United States guide to planning for contingencies in information systems.\n\nHere is what to take away. Continuity keeps the business going, recovery restores the systems, and security advises while the business decides."
+    },
+    {
+      "heading": "The planning process and the security professional's part",
+      "body": "Now we will look at how a continuity plan is put together, and where the security professional fits in.\n\nThink of planning a large family wedding. Someone must take charge. You must decide what really matters, and what could be dropped if the weather turns bad. You then make backup arrangements, get everyone to agree, and tell people what to do.\n\nHere are the usual stages, in order.\n\n- Project scope and planning: name the team and get senior management support.\n- Business impact analysis: work out which functions matter most and what an outage would cost.\n- Continuity planning: choose strategies and build the plans.\n- Approval and implementation: senior management signs off, and the plans go live.\n\nSenior management support comes first. Without it, there is no budget and no authority. Business leaders should be on the team, because they understand their own work best. A team made up only of technical staff will know how the servers work, but may not know which of them really matter.\n\nStaff from legal, human resources, facilities and communications should also be involved.\n\nThe security professional's part includes these things.\n\nAdvising on risk, and helping with the impact analysis.\n\nMaking sure that controls still work at a recovery site. A recovery site with weaker security is an attractive target.\n\nKeeping data protected when normal rules are under strain, such as when staff suddenly have to work from home.\n\nMaking sure that encryption keys and the people who can use them are available during a recovery. Encryption is the scrambling of data so that only key holders can read it. If the key is lost in the fire, the backups are useless.\n\nHelping to plan and run exercises.\n\nThe key point is that you are an adviser. If a manager asks you to choose how much downtime the business can stand, your correct response is to bring the information and let the business owner decide.\n\nHere is a workplace example. A retailer forms a planning team led by the chief operating officer. The security manager points out that the fallback process for taking card payments by phone would break the rules for handling card data. So the team designs a safer version.\n\nHere is your takeaway. Senior management support comes first, business leaders take part, and security advises and protects."
+    },
+    {
+      "heading": "The key numbers from a business impact analysis",
+      "body": "Next we are going to look at the business impact analysis and the numbers that come out of it.\n\nA BIA, or business impact analysis, works out which functions matter most, and what would happen if they stopped. Think of your own household. If the fridge fails, you have a day or so before the food spoils. If the television fails, you can wait. If the heating fails in winter, the answer may depend on how cold it is.\n\nImpact is measured in money, but also in other ways, such as harm to reputation, legal penalties, and risk to safety.\n\nThese are the four numbers to know.\n\n- MTD, or maximum tolerable downtime: the longest that a function can be down before the harm is unacceptable. Some books call this the maximum allowable outage.\n- RTO, or recovery time objective: the target time to bring the system back.\n- WRT, or work recovery time: the time needed after the system is back, to check data and catch up.\n- RPO, or recovery point objective: the most data that you can afford to lose, measured in time.\n\nThe rule to remember, said in words, is this: the recovery time objective plus the work recovery time must be no more than the maximum tolerable downtime.\n\nHere is a way to picture them. Imagine a line in time, with the disaster in the middle. RPO looks back in time, from the disaster to your last good copy. RTO looks forward, from the disaster to the moment when the system is running. WRT follows on from that. And MTD is the cliff edge at the very end.\n\nWho sets these numbers? The business decides how much downtime and how much data loss it can stand. The technical team then works out how to meet those figures and how much this will cost. A number should never be changed just to suit what technology can do cheaply.\n\nHere is a workplace example. A pharmacy chain identifies its prescription system as its most critical function. Its BIA finds that after eight hours, patients could be harmed. So its MTD is eight hours, and everything else in the plan is built around that figure.\n\nHere is what to take away. The business sets the targets, and the recovery time objective plus the work recovery time must fit within the maximum tolerable downtime."
+    },
+    {
+      "heading": "Worked example: checking whether a plan meets its limits",
+      "body": "In this part, we will work through the numbers, one step at a time, and see what the adviser does with the answer.\n\nThink of catching a train. The train leaves at nine o'clock. It takes you 30 minutes to get to the station, and 10 minutes to buy a ticket. So you have to leave home by twenty past eight, at the latest. If your taxi takes an hour, you will miss the train. The arithmetic here is exactly the same kind.\n\nThe billing system has an MTD of 24 hours. MTD means maximum tolerable downtime.\n\nStep one. Find the longest allowed recovery time. The WRT, or work recovery time, is 6 hours. We take 24 and subtract 6, which leaves 18. So the RTO, or recovery time objective, must be 18 hours or less.\n\nStep two. Look at the options. A cheap option recovers the system in 20 hours. Add the 6 hours of work recovery, and the total is 26 hours. That is 2 hours beyond the limit of 24. So the cheap option fails.\n\nStep three. A more expensive option recovers in 12 hours. Add 6, and the total is 18 hours, well inside the limit. That option passes.\n\nStep four. Now the RPO, or recovery point objective, which is the most data that you can afford to lose. Suppose that it is 4 hours. Backups or copies must then happen at least every 4 hours. A daily backup could lose up to 24 hours of data, so it would not meet this target.\n\nStep five. Consider the cost. Suppose that the better option costs far more each year. The adviser explains the gap clearly: the cheap option will miss the limit by 2 hours, and here is what that would mean for the business.\n\nStep six. The business owner and senior management then decide whether to pay more or to accept the risk. If they accept the risk, that decision should be written down.\n\nNow, what must never happen? Nobody should quietly change the MTD to 26 hours, so that the cheap option looks acceptable. That number reflects real harm to the business, and it does not change just because of a budget.\n\nHere is your takeaway. Add the recovery time and the work recovery time, compare with the limit, then explain any gap and let the business decide."
+    },
+    {
+      "heading": "Taking part in exercises",
+      "body": "Now we are going to look at exercises, which are a central part of what this objective asks of you.\n\nAn exercise is a practice of the plan. It can be as simple as a tabletop discussion, where people talk through a made-up event, or as large as moving real work to another building. Think of a lifeboat drill on a ship. People learn where to go and what to do, and the crew finds out whether the lifeboat really works.\n\nExercises build confidence, show gaps, and teach people their roles. A plan that has never been practised usually breaks at the first real test.\n\nAs a participant, you should do the following.\n\nTake part in your assigned role, and use the plan as written. If you know a shortcut that is not in the plan, the exercise cannot test what the plan really says.\n\nRecord what went wrong, rather than quietly working around it. A person who fixes a problem silently may look helpful, but the plan stays wrong, and the next person who follows it will fail.\n\nReport results to management, and track the fixes.\n\nCheck security throughout. Did the alternate site have the right controls? Were the backups protected on their way? Could someone have used the confusion to gain access?\n\nExercises should include the wider business, and not only the technical teams. A continuity exercise might involve moving a department to another building, or running a process on paper for a morning, or testing whether a key supplier can respond as promised.\n\nThey should also test assumptions. A plan may assume that all staff can reach the recovery site, or work from home. What if the roads are closed, or there is a pandemic? What if the internet provider has also been affected?\n\nHere is a workplace example. A city's water authority runs an exercise based on a long power failure. The customer service team works from a second building for a day. Everything seems fine until they notice that the backup phones need a licence that expired last year. One staff member writes that down and raises it, instead of borrowing someone's mobile and saying nothing. The fix is made within the week.\n\nHere is what to take away. Play your role as written, record every problem, and report the findings so that they get fixed."
+    },
+    {
+      "heading": "Keeping the plan alive",
+      "body": "In this final part, we will look at how a continuity plan is kept up to date, and how a manager should think about it.\n\nThink of a first aid box at home. It was perfect on the day you bought it. A few years later, the medicines have expired and the plasters have run out. Nobody noticed, because nobody opened it. A plan goes out of date in just the same way.\n\nThe plan needs regular maintenance, and it must be reviewed when the business changes. New systems, new suppliers and new staff can all make an old plan wrong. Linking the plan to the change management process helps. When an important system changes, someone asks whether the plan needs to change as well.\n\nKeep versions controlled, so that everyone has the current copy.\n\nThe plan may contain sensitive information, such as the locations of sites, names, home phone numbers and system details. So it needs protection too, while staying available to those who need it.\n\nSuppliers are an important part of continuity. If your business depends on a single provider, your plan depends on theirs. So check your key suppliers' continuity arrangements, and include what they promise in your contract. A service level agreement is a contract that sets measurable promises from a provider.\n\nOne person or group should own the plan's upkeep, or else everybody will assume that someone else is looking after it. Senior management should receive regular reports on the state of the plan.\n\nNow let us think about the exam. The questions in this area often turn on a small number of ideas.\n\nFirst, people's safety comes before everything.\n\nSecond, senior management support is needed before work begins.\n\nThird, the business decides priorities, and security advises.\n\nFourth, the numbers from the impact analysis drive the choice of strategy.\n\nFifth, a plan that is not tested and maintained cannot be relied upon.\n\nHere is a workplace example. A manufacturer connects its plan to its change process. When the company moves its email to a cloud service, the change form prompts a review. The plan is updated, the contact list is checked, and the next exercise tests the new arrangement.\n\nHere is your takeaway. Keep the plan current, control its versions, protect its contents, check your suppliers and give it a clear owner."
+    }
+  ],
+  "practiceQuestions": [
+    {
+      "prompt": "A company is about to begin its first business continuity planning project. Which of the following should be secured FIRST?",
+      "options": [
+        "A contract for a hot site",
+        "Senior management support",
+        "A complete inventory of laptops",
+        "A list of staff home addresses"
+      ],
+      "correctIndex": 1,
+      "explanation": "Without senior management support, the project has no budget or authority. A hot site contract is tempting because it is a concrete step, but that strategy cannot be chosen before the business needs are known."
+    },
+    {
+      "prompt": "Which statement BEST describes the difference between business continuity planning and disaster recovery planning?",
+      "options": [
+        "Continuity planning is only for technical teams",
+        "Disaster recovery covers the whole business, while continuity covers only computers",
+        "They are two names for the same set of documents",
+        "Continuity keeps the business running, while disaster recovery restores technology"
+      ],
+      "correctIndex": 3,
+      "explanation": "Continuity covers the whole business, and disaster recovery is the narrower technology part. The second option is tempting because it uses the right words, but it reverses the two scopes."
+    },
+    {
+      "prompt": "A business owner asks the security manager to decide how many hours the sales system may be down. What is the BEST response?",
+      "options": [
+        "Pick a number that the technical team finds convenient",
+        "Set the figure as low as possible to be safe",
+        "Provide information and help, but let the business owner set the figure",
+        "Tell the owner that this figure is not needed at all"
+      ],
+      "correctIndex": 2,
+      "explanation": "Downtime limits come from business impact, so the business owner decides and security advises. Setting the figure as low as possible is tempting for safety, but it could waste large sums on recovery that the business does not need."
+    },
+    {
+      "prompt": "A system has a maximum tolerable downtime of 10 hours and a work recovery time of 3 hours. What is the longest acceptable recovery time objective?",
+      "options": [
+        "7 hours",
+        "10 hours",
+        "13 hours",
+        "3 hours"
+      ],
+      "correctIndex": 0,
+      "explanation": "The recovery time objective plus the work recovery time must fit within the limit, so 10 minus 3 is 7 hours. 13 hours is tempting, but that comes from adding when you should subtract."
+    },
+    {
+      "prompt": "A company states that it can afford to lose no more than 2 hours of transaction data. Which figure does this describe?",
+      "options": [
+        "Maximum tolerable downtime",
+        "Work recovery time",
+        "Recovery time objective",
+        "Recovery point objective"
+      ],
+      "correctIndex": 3,
+      "explanation": "The recovery point objective is the most data that can be lost, measured in time. Recovery time objective is tempting because it also uses hours, but it measures how long the system takes to come back."
+    },
+    {
+      "prompt": "A company has a recovery point objective of 1 hour. Which backup approach would FAIL to meet it?",
+      "options": [
+        "Continuous replication to another site",
+        "Transaction log shipping every 15 minutes",
+        "One full backup every night",
+        "Hourly snapshots copied to the recovery site"
+      ],
+      "correctIndex": 2,
+      "explanation": "A nightly backup could lose up to 24 hours of data, which is far beyond 1 hour. Hourly snapshots are tempting to pick as too slow, but they do meet the 1 hour limit."
+    },
+    {
+      "prompt": "A proposed recovery option would bring a system back in 20 hours. Work recovery takes 8 hours. The maximum tolerable downtime is 24 hours. What should the security professional do?",
+      "options": [
+        "Explain that the total of 28 hours misses the limit, and let management decide",
+        "Approve it, as 20 hours is less than 24 hours",
+        "Reduce the work recovery time on paper to 4 hours",
+        "Raise the maximum tolerable downtime to 28 hours"
+      ],
+      "correctIndex": 0,
+      "explanation": "20 plus 8 is 28 hours, which exceeds the limit, and management must decide what to do. Approving it is tempting, but it ignores the work recovery time."
+    },
+    {
+      "prompt": "During a continuity exercise, a staff member notices a mistake in the plan and quietly works around it so the exercise can continue smoothly. Why is this a problem?",
+      "options": [
+        "The exercise will finish too quickly",
+        "The plan remains wrong, and others may fail by following it",
+        "The staff member may be asked to do more work",
+        "The exercise will cost too much money"
+      ],
+      "correctIndex": 1,
+      "explanation": "Problems must be recorded so that the plan gets fixed. Finishing too quickly is tempting as an odd side effect, but the real harm is that the error stays in the plan."
+    },
+    {
+      "prompt": "During a real disruption, staff are told to work from home using personal email, because the company's system is down. What is the security professional's BEST contribution?",
+      "options": [
+        "Forbid all work until the normal system has returned",
+        "Say nothing, because the emergency overrides all rules",
+        "Advise on a secure alternative that keeps the data protected",
+        "Personally approve the use of personal email for all staff"
+      ],
+      "correctIndex": 2,
+      "explanation": "The adviser's job is to keep work going while keeping data safe. Forbidding all work is tempting from a security view, but keeping critical functions running is the point of continuity."
+    },
+    {
+      "prompt": "A company has moved a key system to a new cloud provider. The continuity plan has not been updated. Which process would BEST have caught this?",
+      "options": [
+        "The yearly staff satisfaction survey",
+        "Linking plan reviews to change management",
+        "The external audit of last year's accounts",
+        "The company's car parking policy"
+      ],
+      "correctIndex": 1,
+      "explanation": "Linking the plan to change management prompts a review whenever key systems change. The accounts audit is tempting because it is a formal check, but it looks at financial records and not at continuity."
+    }
+  ]
+}

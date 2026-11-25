@@ -1,0 +1,141 @@
+{
+  "id": "T07",
+  "studyNotes": [
+    {
+      "heading": "Business continuity basics",
+      "body": "In this first part, we are going to look at what business continuity is, and at the order in which the work is done.\n\nBusiness continuity planning, or BCP, prepares the whole organization to keep working during and after a disruption. A disruption might be a flood, a fire, a long power failure, an illness that keeps staff at home, or a cyber attack.\n\nDisaster recovery is a related idea, but it is narrower. It focuses on restoring technology after a disaster. Business continuity asks how the business keeps going, including people, buildings and suppliers. We will study disaster recovery later in the course.\n\nThink about a family whose home is flooded. Continuity is how the family keeps going: where they will sleep, how the children will get to school, and how the bills will be paid. Disaster recovery is more like getting the house repaired.\n\nThe usual order of the work is one you should know.\n\n- Project scope and planning.\n- Business impact analysis.\n- Continuity planning.\n- Plan approval and implementation.\n\nThe first step includes getting senior management support, naming the team and agreeing the budget. Senior management must support and approve the plan, because a continuity plan needs money, and it needs people from every part of the organization to give up their time.\n\nThe team should include people from every key department, and not only the technology team. The technology team cannot know how the payroll department really works, or which customer deadlines matter most to the sales team. Legal advisers, human resources and facilities staff also have a part to play.\n\nImplementation includes training, so that people know what to do, and regular testing and updating.\n\nHere is a workplace example. A hospital decides to write a continuity plan, and the technology manager starts to write it alone. The plan covers servers in detail, but says nothing about how the wards will operate without electronic records. That plan would fail in a real emergency.\n\nOne principle sits above all of this. People's safety always comes first.\n\nHere is what to take away. Continuity covers the whole business, it needs senior support and a cross-department team, and it follows a known order."
+    },
+    {
+      "heading": "Business impact analysis, step by step",
+      "body": "Now we will look at the business impact analysis, which is often called a BIA. This is the heart of the objective.\n\nA business impact analysis finds out what would hurt most if it stopped. It looks at impact only. It does not choose solutions yet. That point is often tested.\n\nThink of a doctor examining a patient. First the doctor works out what is wrong, and how serious it is. Only then does the doctor discuss treatment. If someone proposes buying a new backup site while the BIA is still going on, they have jumped ahead.\n\nThe steps look like this.\n\n- List the business activities and the people and systems they need.\n- Decide how critical each activity is.\n- Estimate the harm from stoppage over time.\n- Set recovery priorities and time limits.\n\nLet us work through these for a small online bookshop.\n\nFirst, list the activities. There is taking orders, picking and packing, customer service, payroll and marketing. Taking orders needs the website, the payment service and the stock system.\n\nSecond, decide what is critical. To do this, you talk with the people who actually run each activity. Taking orders is critical. Payroll is important, but it only runs once a month. Marketing can wait.\n\nThird, estimate harm over time. Harm usually grows. An hour with no orders loses a little money. A week may lose customers forever.\n\nFourth, set priorities and limits. Orders come back first, then packing, then customer service.\n\nDepartments will all say that their work is the most critical. That is natural. So senior management should agree the final ranking, because it is a business decision, and not a technical one.\n\nThe analysis should also identify the resources each activity needs, and which activities depend on which others. The order of recovery has to respect those links. There is little point restoring the order system before the database it depends on.\n\nThe result is a document that senior management reviews and accepts. Everything in the continuity plan builds on it.\n\nSo take this away. A BIA works out what matters most and how fast harm grows, but it does not choose solutions."
+    },
+    {
+      "heading": "Measuring impact",
+      "body": "In this part we are going to look at how impact is measured, using both numbers and words.\n\nImpact can be quantitative, meaning measured in numbers, such as money lost. It can also be qualitative, meaning described in words, such as loss of trust, harm to reputation or danger to people. Both matter, and a good analysis uses both.\n\nHere is an everyday example. If your car breaks down, you can count the cost of repairs and taxi fares. That part is quantitative. The embarrassment of missing your sister's wedding is real too, but it does not have a simple price. That part is qualitative.\n\nLet us work through a numeric example at a small call centre. Suppose the centre earns 5,000 dollars each hour that it is open. If it stays closed for 8 hours, the lost income is 5,000 times 8, which is 40,000 dollars. Suppose there are also contract penalties of 10,000 dollars if it is closed for more than a day. A full closure of 24 working hours would lose 5,000 times 24, which is 120,000 dollars, plus the 10,000 dollars penalty. That is a total of 130,000 dollars.\n\nNotice what happens to the harm over time. It does not always grow in a straight line. There are often steps, or sudden jumps, such as the moment a contract penalty applies or a regulator gets involved. Those jumps help you to find the point where the business can no longer cope.\n\nNow the qualitative side. For a charity that depends on donors, one day offline may cost very little money. But if donors see that their personal details are unavailable or insecure, trust may be lost for years. That belongs in the analysis, even without a figure attached.\n\nSafety and legal duties also count as impact. A hospital cannot simply work out the price of a stopped operating theatre.\n\nA manager's job is to present both kinds of impact clearly, so that senior leaders can make good decisions.\n\nThe takeaway is this. Measure what you can in money, describe what you cannot, and watch for the points where harm suddenly jumps."
+    },
+    {
+      "heading": "MTD, RTO and work recovery time",
+      "body": "Now we will look at the time measures, starting with the two that deal with getting back to work. These appear on the exam again and again, so go slowly here.\n\nMaximum Tolerable Downtime, or MTD, is the longest an activity can be down before the organization suffers serious, possibly fatal, harm. You may also see it called maximum tolerable period of disruption. It is set by the business and not by the technology team.\n\nRecovery Time Objective, or RTO, is the target time to bring the system back after a disruption. It is a goal for restoring the system.\n\nWork Recovery Time, or WRT, is the extra time needed to test the restored system and get data up to date before real work continues.\n\nThe rule is this: RTO plus WRT must not be more than MTD.\n\nThink of a restaurant after a kitchen fire. MTD is how long the owner can stay closed before the business fails. RTO is how long it takes to get the cookers running again. WRT is the time for the health check and for restocking the food before opening the doors. The cookers working is not the end of the story, because you still cannot serve anyone until the checks are done.\n\nHere is a worked example. A shop's online order system has been studied. MTD is 8 hours. Testing and catching up on orders takes 2 hours, so WRT is 2 hours. So the longest allowed RTO is 8 minus 2, which is 6 hours.\n\nNow let us test a plan. Suppose the technology team says it can restore in 7 hours. Then 7 plus 2 is 9 hours, which is more than the MTD of 8. That plan fails by one hour. Either recovery must become faster, or the work recovery time must be reduced.\n\nNotice one common error. People say the RTO can be as long as the MTD. It cannot, because that leaves no time for testing and catching up.\n\nThe point to take away is this. MTD is the cliff edge, RTO is the target for restoring the system, and RTO plus WRT must fit within MTD."
+    },
+    {
+      "heading": "RPO and choosing a cost",
+      "body": "In this part, we are going to look at the measure that deals with lost data, and at how cost affects recovery targets.\n\nRecovery Point Objective, or RPO, is the most data you can afford to lose, measured in time. It looks backwards from the disaster. An RPO of one hour means that, after the event, you can accept losing up to the last hour of work.\n\nImagine writing a long essay, with your computer saving automatically every ten minutes. If the power fails, the worst you can lose is ten minutes of writing. That ten minutes is like your RPO. If you only save once a day, you could lose a whole day of writing.\n\nBackups must run at least as often as the RPO. Let us work through an example. A shop can afford to lose 15 minutes of orders, so the RPO is 15 minutes. Backups or data copies must happen at least every 15 minutes. If a nightly backup is all the shop has, it could lose up to 24 hours of orders, and the RPO is not met.\n\nHere is a second example. A system copies its data every 4 hours, at midday and again at four in the afternoon. The system fails at five minutes to four. The most recent copy is from midday, so nearly 4 hours of work is lost.\n\nDo not confuse RPO with RTO. RTO is the clock running forward, measuring how long until the system is running. RPO is the clock running backward, measuring how old the last good copy is. A company can restore in ten minutes, and still lose a full day of data, if the backup it restored is a day old. Those are separate problems with separate solutions.\n\nShorter times usually cost more. Copying data every few seconds to a second site is very expensive. Copying it once a night is cheap. So the business must balance cost against harm. A target should be as short as the harm justifies, and no shorter.\n\nHere is your takeaway. RPO measures data loss looking backward, backups must be at least that frequent, and shorter targets cost more."
+    },
+    {
+      "heading": "External dependencies",
+      "body": "In this final part, we are going to look at external dependencies, the second item that the outline names for this objective.\n\nNo business works alone. A plan must also consider what you rely on from outside. That includes electricity, water, internet providers, cloud services, payment companies, suppliers and delivery firms. Cloud services are computing services run for you by another company over the internet.\n\nHere is an everyday example. You may have planned carefully for the day your car fails. You have a spare key and breakdown cover. But if the only road to your house is flooded, none of that helps. You depended on something you do not control.\n\nThe job is to ask what happens if each outside service fails. Then look for a single point of failure. That is one thing whose failure stops everything. A single internet connection is a classic example. So is one supplier of a vital part. Sometimes it is one person, who is the only employee who knows how a key process works.\n\nDependencies can also be hidden. Two internet providers may use the same cable under the same street. Two suppliers may buy from the same factory. So you have to look more than one layer down.\n\nCheck that your supplier's recovery times meet your own. Here is a worked example. A company has set an RTO of 4 hours for its billing system, meaning it must be running again within 4 hours. The system runs on a cloud service whose contract promises recovery within 12 hours. The company's own target cannot be met, however good its internal plans may be. The right response is to negotiate a better contract, add an alternative provider, or have senior management accept the longer time.\n\nIt also helps to ask suppliers for evidence of their own continuity plans, and to include them in your tests.\n\nThe manager's view is the same here as everywhere else in this domain. Contracts, alternatives and tested plans are how you reduce the risk, and senior management decides what remains acceptable.\n\nSo remember this. List what you rely on from outside, look for single points of failure, and make sure each supplier's recovery time meets your own."
+    }
+  ],
+  "practiceQuestions": [
+    {
+      "prompt": "A business impact analysis shows that a logistics system has a Maximum Tolerable Downtime of 24 hours. Staff will need 6 hours after restoration to test it and catch up on missed entries. What is the longest acceptable Recovery Time Objective?",
+      "options": [
+        "18 hours",
+        "24 hours",
+        "30 hours",
+        "6 hours"
+      ],
+      "correctIndex": 0,
+      "explanation": "RTO plus work recovery time must fit within MTD, so 24 minus 6 is 18 hours. The 24 hour answer is tempting, but it leaves no time for testing and catching up."
+    },
+    {
+      "prompt": "A company copies its data every 4 hours, with copies at midday and at four in the afternoon. The system fails at five minutes to four. What is the amount of work MOST likely lost?",
+      "options": [
+        "About five minutes of work",
+        "Nearly four hours of work",
+        "Exactly twenty-four hours of work",
+        "No work at all, since copies are made regularly"
+      ],
+      "correctIndex": 1,
+      "explanation": "The latest copy is from midday, so nearly four hours of work has gone. Five minutes is tempting because the next copy was only five minutes away, but that copy never happened."
+    },
+    {
+      "prompt": "A company has decided to create a business continuity plan. The technology team is keen to begin the business impact analysis straight away. What should happen FIRST?",
+      "options": [
+        "Select a recovery site in another part of the country so that the planning can be based on real facilities",
+        "Buy backup software that will be needed whatever the outcome of the analysis turns out to be",
+        "Write the emergency contact list and send it out to all members of staff in the organization",
+        "Obtain senior management support and agree the scope and team"
+      ],
+      "correctIndex": 3,
+      "explanation": "Project scope and planning, with senior support, comes before the analysis. The other options jump ahead to solutions and details before the impact is known."
+    },
+    {
+      "prompt": "During a business impact analysis, one team member keeps proposing that the company buy a specific backup service. How should the project leader respond?",
+      "options": [
+        "Add the service to the plan now, because an early decision will save time in later project stages",
+        "Stop the analysis and evaluate that service, so that the team can be sure that it meets the need",
+        "Note it for later, because a BIA measures impact and does not choose solutions",
+        "Ask that person to leave the team, because such proposals are not allowed in the planning process"
+      ],
+      "correctIndex": 2,
+      "explanation": "The BIA establishes needs first, and solutions are chosen in continuity planning. Adding the service now is tempting, but it may not fit the priorities that the analysis finds."
+    },
+    {
+      "prompt": "A flood is rising around a data centre. The manager wants staff to stay and carry servers to an upper floor while the emergency services are ordering people to leave. What is the BEST action?",
+      "options": [
+        "Keep the most experienced members of the team on site and send only the junior staff to safety",
+        "Make sure all staff evacuate immediately",
+        "Continue moving the servers for as long as the water remains below knee level on the ground floor",
+        "Ask the emergency services for a short delay, because the data on those servers is very valuable"
+      ],
+      "correctIndex": 1,
+      "explanation": "People's safety always comes first, and data can be restored from copies. Keeping experienced staff is tempting for the sake of recovery, but no business need justifies risking lives."
+    },
+    {
+      "prompt": "A company has set a Recovery Time Objective of 4 hours for its customer portal. The portal's cloud provider contract promises recovery within 12 hours. What should the continuity manager do?",
+      "options": [
+        "Seek a better contract or an alternative, or get the gap formally accepted",
+        "Leave things as they are, because the cloud provider's own engineers know best what is possible",
+        "Change the Recovery Time Objective to 12 hours in the document without telling the business owners",
+        "Rely on the company's internal staff to restore the provider's service during any serious outage"
+      ],
+      "correctIndex": 0,
+      "explanation": "An outside dependency that cannot meet the target must be dealt with, by contract, by alternatives, or by senior acceptance. Changing the document quietly is tempting, but it hides the risk from those who own it."
+    },
+    {
+      "prompt": "A charity's analysis shows that a short outage of its donor site would cost little money, but could badly damage donor trust. How should this be treated in the business impact analysis?",
+      "options": [
+        "Leave it out of the analysis, because harm that cannot be measured in money is not relevant",
+        "Invent a suitable money figure for the lost trust so that the entire analysis can be numeric",
+        "Include it as a qualitative impact",
+        "Wait to see whether real donors complain after an outage and only then record the impact"
+      ],
+      "correctIndex": 2,
+      "explanation": "Impact can be qualitative as well as quantitative, and both belong in the analysis. Inventing a figure is tempting for neatness, but it gives false precision."
+    },
+    {
+      "prompt": "A continuity planning team consists only of technology staff. The plan they have produced is detailed about servers and silent about how departments would operate. What is the BEST improvement?",
+      "options": [
+        "Have the technology staff spend more time writing about each of the departments' likely requirements",
+        "Add a detailed section at the end on how to restore each of the company's servers more quickly",
+        "Hire an external consultant to write the whole plan again without talking to any of the departments",
+        "Add representatives from each key department"
+      ],
+      "correctIndex": 3,
+      "explanation": "Continuity covers the whole business, and only departments know how their work really runs. Having technology staff write more is tempting, but they would still be guessing."
+    },
+    {
+      "prompt": "A recovery plan shows a Recovery Time Objective of 20 hours and work recovery of 8 hours. The Maximum Tolerable Downtime is 24 hours. What is the BEST conclusion?",
+      "options": [
+        "The plan is acceptable, because 20 hours is less than the 24 hour limit that was set for the system",
+        "The plan fails by 4 hours, so the times must be reduced",
+        "The plan is acceptable, because work recovery is never counted against the tolerable downtime",
+        "The plan fails by 8 hours, so the Maximum Tolerable Downtime must be increased by the technology team"
+      ],
+      "correctIndex": 1,
+      "explanation": "20 plus 8 is 28 hours, which is 4 more than the 24 hour limit. The first option is tempting, but it forgets the work recovery time, and the technology team does not set the MTD."
+    },
+    {
+      "prompt": "A review finds that all of a retailer's stores use one payment company, and the retailer has no other way to take cards. Which concept does this finding BEST illustrate?",
+      "options": [
+        "A single point of failure",
+        "A Recovery Point Objective",
+        "A work recovery time",
+        "A qualitative impact"
+      ],
+      "correctIndex": 0,
+      "explanation": "One provider whose failure stops all card sales is a single point of failure. Qualitative impact is tempting, but the finding is about a dependency and not about how harm is described."
+    }
+  ]
+}

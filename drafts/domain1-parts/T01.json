@@ -1,0 +1,141 @@
+{
+  "id": "T01",
+  "studyNotes": [
+    {
+      "heading": "Why ethics matters in security",
+      "body": "In this first part, we are going to look at why ethics matters so much in security work. Let us begin with something familiar.\n\nThink of a locksmith. A locksmith can open almost any door in town. People only call one they trust. If a locksmith copied keys, or told burglars which houses were empty, the whole trade would suffer.\n\nNow think about your own work. A security professional can often see private files, staff records and bank data. An administrator at a hospital may be able to open any patient record. An analyst at a bank may watch the traffic that carries customer payments. Nobody checks every action these people take. The organization simply has to trust them.\n\nEthics means knowing what is right and doing it, even when nobody is watching. Ethics is not quite the same thing as law. Something can be legal and still be wrong. Your monitoring tools may lawfully capture a colleague's private message. That does not make it right to read it out of curiosity.\n\nISC2 is the organization that runs this certification. The letters stand for the International Information System Security Certification Consortium. The certification is the CISSP, which means Certified Information Systems Security Professional. Everyone who holds it agrees to follow the ISC2 Code of Professional Ethics. Following the Code is a condition of keeping the certification.\n\nThe Code begins with a short opening statement called the preamble. A preamble is an introduction that explains the purpose of what follows. In plain words, it says that the safety and welfare of society and the common good, our duty to the people we serve, and our duty to each other, require us to hold the highest standards of behaviour. It also says we must be seen to hold them. That last part matters. Looking honest counts as well as being honest, because trust depends on what other people can see.\n\nSo here is what to take away. Security people hold unusual power over other people's information. Ethics is what makes that power safe, and the Code asks you both to behave well and to be seen to behave well."
+    },
+    {
+      "heading": "The four canons, in exact order",
+      "body": "Now we will look at the heart of the Code, which is its four canons. A canon is a main rule. You must know these in order, because the order is what settles a conflict.\n\n- Canon 1: Protect society, the common good, necessary public trust and confidence, and the infrastructure.\n- Canon 2: Act honourably, honestly, justly, responsibly and legally.\n- Canon 3: Provide diligent and competent service to principals.\n- Canon 4: Advance and protect the profession.\n\nLet us walk through them slowly.\n\nCanon 1 is about everybody. Society means the public at large. Infrastructure means the big systems that people depend on, like power, water, transport and hospitals. Public trust means people's confidence that these systems and the people who run them are sound.\n\nCanon 2 is about your own conduct. Honourably means with integrity. Justly means fairly. Legally means obeying the law. Telling the truth in a report, even when the truth is unwelcome, is Canon 2.\n\nCanon 3 is about the people who pay you. A principal is the person or organization you work for, such as your employer or a client. Diligent means careful and hard-working. Competent means having the skill to do the job.\n\nCanon 4 is about your fellow professionals. You help the profession by sharing knowledge, mentoring newcomers and refusing to bring it into disrepute.\n\nHere is an everyday picture. Imagine circles getting smaller. The biggest circle is the whole world. Inside it is your own honesty and the law. Inside that is your boss. The smallest circle is your own profession.\n\nAnd here is a workplace picture. A consultant writes a report for a client. The report must not put the public in danger, which is Canon 1. It must be truthful, which is Canon 2. It must be careful and skilled work, which is Canon 3. And it must not embarrass the profession, which is Canon 4.\n\nThe point to take away is simple. Learn the four canons word for word and in order: society, honesty and law, principals, profession."
+    },
+    {
+      "heading": "When the canons clash",
+      "body": "In this part we will look at what you do when two canons pull in different directions. The rule is short. The higher canon wins. The harder skill is acting on it sensibly.\n\nStart with an everyday case. Your friend asks you to keep a secret, and you are glad to. Then you learn the secret is that the brakes on the school bus do not work. Loyalty to your friend is real, but children's safety is more important. You would speak up, and you would speak to the right person.\n\nNow a workplace case, worked through step by step. You are a consultant for a company that makes heart monitors. You discover that the monitors can be switched off remotely. The sales director asks you to leave this out of your report until after a big contract is signed.\n\nFirst, name the duties. Your duty to the client is Canon 3. Your duty to tell the truth is Canon 2. Your duty to patients is Canon 1.\n\nSecond, rank them. Canon 1 is at the top, so patient safety decides the matter.\n\nThird, choose the responsible route. You keep the finding in your report. You raise it in writing with senior management. You press for a fix and a safety notice. If the company refuses, you take legal advice and use the proper route to inform the regulator, which is the government body that oversees that industry.\n\nNotice what you do not do. You do not rush to social media. Publishing the details could arm attackers and hurt the very patients you want to protect. You also do not quietly change the client's systems yourself, because you have no authority to do that.\n\nThis is how the exam wants you to think. You are an adviser and a manager, not a lone hero. You stay calm, you use the process, and you put people's safety first.\n\nSo remember this. When duties collide, the higher canon decides what matters most, and proper written escalation decides how you act on it."
+    },
+    {
+      "heading": "Living the canons at work",
+      "body": "Next we will look at what the canons mean on an ordinary working day, when nothing dramatic is happening. Most ethics questions are small ones.\n\nBegin with competence, which belongs to Canon 3. Think of a family doctor. If you need brain surgery, a good family doctor sends you to a surgeon. A bad one has a go. Security is the same. Suppose a client asks you to review the control systems in a factory, and you have never worked with them. The ethical move is to say so, and either bring in a specialist or decline the work. Never accept a job you are not qualified to do.\n\nNow think about honesty, which belongs to Canon 2. Honest work means never overstating your skills or your results. If a test covered only half of the network, your report must say that. If you made a mistake that caused an outage, you say so.\n\nConfidentiality toward clients also sits here. What you learn on one job does not travel to the next one. You do not take a former client's design documents to your new employer.\n\nA conflict of interest is a situation where your private gain could affect your work decision. Imagine a referee whose brother plays for one of the teams. Even if the referee is perfectly fair, nobody will believe it. At work, this might be choosing a supplier whose director is your spouse, or accepting an expensive gift during a tender. A tender is a formal competition for a contract. The correct response is to declare the interest and step away from the decision.\n\nFinally, there is Canon 4. You support the profession when you mentor a junior colleague, share lessons learned and treat others with respect. You harm it when you cheat. Certification fraud, and sharing the contents of the real exam, both damage the value of the credential for everyone.\n\nTake this away. Ethics is mostly daily habits: admit what you cannot do, report truthfully, declare conflicts, and protect the good name of the profession."
+    },
+    {
+      "heading": "The organization's own code of ethics",
+      "body": "Now we will look at the second item in this objective, the organization's own code of ethics. The exam expects you to know that you follow both codes, and that you help to promote them.\n\nA code of ethics is a written set of rules about right and wrong behaviour. Think of a football club. The league has its rules for every club. The club also has its own rules about how its players behave. A player must follow both.\n\nIn the same way, your employer will usually have its own code. It often covers honest dealing, gifts and hospitality, conflicts of interest, the treatment of colleagues, and the proper use of company property. It may be stricter than the ISC2 Code on some matters. A bank may ban all gifts from suppliers, for example, while the ISC2 Code says nothing about the size of a gift.\n\nA code only works when certain things are in place. Think about them as a chain. Senior management approves it and follows it visibly, because staff copy what leaders do. Every member of staff receives it and agrees to it. People are trained on what it means in real situations. There is a safe way to report a concern, so that nobody fears punishment for speaking up. And the rules are enforced fairly, for junior staff and senior staff alike.\n\nHere is a workplace example. A company publishes a fine code of ethics. Then a senior director is caught taking supplier gifts, and nothing happens. From that day, staff stop taking the code seriously. The fault is not in the wording. The fault is in the lack of leadership and enforcement.\n\nYour part as a security professional is to promote the code by your own example. You also help to build it into the security program, through policy, awareness training and reporting channels.\n\nSo the thing to remember is this. A written code means little by itself. Leadership support, training, safe reporting and fair enforcement are what bring it to life."
+    },
+    {
+      "heading": "Complaints and consequences",
+      "body": "In this last part, we will look at what happens when someone breaks the ISC2 Code, and how to choose the best answer in an ethics question.\n\nA member who knowingly breaks the Code can face a formal complaint and a review by ISC2. The result can be loss of the certification. Think of a doctor who can be struck off the medical register. The certificate is a public promise, so it can be taken back.\n\nComplaints are made in writing, to ISC2, with supporting evidence. Members are expected to use this procedure when they see a breach of the Code. Spreading rumours is not the procedure. Neither is posting accusations online. The person complaining must have been affected by the conduct.\n\nWho may complain depends on the canon. This is a detail worth learning.\n\n- Canons 1 and 2: any member of the public.\n- Canon 3: only principals, which means employers or clients.\n- Canon 4: only other professionals.\n\nHere is the reasoning behind it. Society's interests belong to everybody, so anybody can raise them. Service to a client concerns that client, so the client raises it. The good of the profession concerns professionals, so they raise it.\n\nConsider a workplace case. You learn that a colleague who holds the certification has been altering audit results. You have evidence. You follow your employer's reporting route, because this is a business matter. You also make a formal complaint to ISC2 if the facts support it. You do not confront the colleague in public, and you do not threaten them.\n\nWhen you meet an ethics question on the exam, use a short routine. Ask who could be harmed. Find the highest canon involved. Then pick the answer that is lawful, truthful and goes through a proper process. Be wary of answers that are dramatic, secret or based on revenge.\n\nHere is your takeaway. Breaches go through the formal complaint process, who may complain depends on the canon, and the best answer is nearly always calm, honest and procedural."
+    }
+  ],
+  "practiceQuestions": [
+    {
+      "prompt": "A client tells a security consultant to sign a report stating that a control was tested on a date when no test took place. The client hints that the contract may end if the consultant refuses. What should the consultant do FIRST?",
+      "options": [
+        "Sign the report this once and carry out the missing test a little later, so the record becomes true",
+        "Decline to sign and explain in writing why that date cannot be stated",
+        "Sign the report but keep a private note of what really happened in case of a later dispute",
+        "Report the client to the police before speaking with anyone at the company"
+      ],
+      "correctIndex": 1,
+      "explanation": "A false statement breaks Canon 2, which ranks above service to a client under Canon 3, so the consultant refuses and records why. Testing later is tempting, but the report would still state something untrue."
+    },
+    {
+      "prompt": "A security manager is asked to lead a review of the control systems in a chemical plant. The manager is skilled in office networks but has never worked with plant equipment. Which action BEST follows the ISC2 Code?",
+      "options": [
+        "Accept the work and learn about plant equipment during the review, charging only half of the normal fee",
+        "Accept the work, since the manager's certification covers every kind of technology",
+        "Refuse all involvement and give the client no further advice about the plant",
+        "Explain the skill gap and bring in a qualified specialist"
+      ],
+      "correctIndex": 3,
+      "explanation": "Canon 3 requires competent service, so the manager is open about the gap and arranges real expertise. Charging less is tempting, but a lower fee does not make unskilled work safe for a chemical plant."
+    },
+    {
+      "prompt": "A new member is preparing a short talk for colleagues on how to decide between competing duties under the ISC2 Code. Which order, from highest to lowest, should the talk present?",
+      "options": [
+        "Society, honesty and law, principals, profession",
+        "Principals, society, honesty and law, profession",
+        "Honesty and law, society, profession, principals",
+        "Society, principals, profession, honesty and law"
+      ],
+      "correctIndex": 0,
+      "explanation": "The canons run from society, to honest and legal behaviour, to principals, to the profession. Putting principals first is tempting because they pay you, but duty to the public and to the law ranks higher."
+    },
+    {
+      "prompt": "A company asks its security manager to help choose a new firewall supplier. One of the suppliers on the shortlist is partly owned by the manager's brother. What should the manager do?",
+      "options": [
+        "Stay on the panel and score that supplier a little lower, so that nobody can claim favouritism",
+        "Stay on the panel without saying anything, because the manager knows the decision will be fair",
+        "Declare the interest and step out of the decision",
+        "Ask the brother to sell his share in the company before the final decision is announced"
+      ],
+      "correctIndex": 2,
+      "explanation": "This is a conflict of interest, which must be declared and removed from the decision. Scoring the supplier lower is tempting, but that is still biased, and it treats the supplier unfairly."
+    },
+    {
+      "prompt": "A woman with no link to a company reads that a certified consultant gave that company careless service. She wants to file an ISC2 complaint under Canon 3. Which statement is MOST accurate?",
+      "options": [
+        "She may file it, because any member of the public may complain under every one of the four canons",
+        "She may not file it, because only principals may complain under Canon 3",
+        "She may file it only if she also holds a current ISC2 certification",
+        "She may not file it, because complaints can only be made by the police or by a court"
+      ],
+      "correctIndex": 1,
+      "explanation": "Only principals, meaning employers or clients, may complain under Canon 3. The public may complain under Canons 1 and 2. The first option is tempting, but it ignores this limit."
+    },
+    {
+      "prompt": "While checking a monitoring tool for signs of malware, an analyst notices that a captured message from a colleague appears to discuss a medical condition. The message has nothing to do with the malware. What should the analyst do?",
+      "options": [
+        "Leave it unread and carry on only with the authorized task",
+        "Read it to confirm that it is harmless, then tell the colleague that it was captured by the system",
+        "Pass it to the colleague's manager, who may need to arrange support for a staff member's health",
+        "Save a copy in a restricted folder in case it turns out to be useful evidence at a later date"
+      ],
+      "correctIndex": 0,
+      "explanation": "Access should go no further than the authorized purpose, and honourable conduct respects private information. Telling the manager may sound caring, but it spreads private data with no authority to do so."
+    },
+    {
+      "prompt": "An executive instructs a security engineer to install hidden tracking software on staff phones. The company has no policy allowing this, and local law requires staff to be told. What is the engineer's BEST response?",
+      "options": [
+        "Install it as told, because the executive is responsible for the instruction and its legal results",
+        "Install it on a small group of phones first and see whether anyone complains about it",
+        "Refuse and immediately warn every member of staff by email about the executive's plan",
+        "Hold off and raise the legal issue with management and legal advisers"
+      ],
+      "correctIndex": 3,
+      "explanation": "Canon 2 requires legal behaviour, and the engineer should raise the concern through proper channels before doing anything. Warning all staff is tempting, but it skips the process and may be based on incomplete facts."
+    },
+    {
+      "prompt": "A colleague preparing for the CISSP exam sends you a link to a site that claims to list questions copied from the live exam. What should you do?",
+      "options": [
+        "Use the site for a short time, because every candidate looks for extra study material of this kind",
+        "Forward the link to your study group so that nobody in the group is at a disadvantage on the day",
+        "Do not use it, and report it through the proper ISC2 channel",
+        "Post the link on a public forum and warn others that the site exists and is being used by candidates"
+      ],
+      "correctIndex": 2,
+      "explanation": "Using or spreading exam content harms the value of the credential, which goes against Canon 4. Warning people on a forum is tempting, but it advertises the site, while a report to ISC2 reaches those who can act."
+    },
+    {
+      "prompt": "A company has just published a code of ethics, but early surveys show that staff think it applies only to junior employees. What would MOST improve the code's effectiveness?",
+      "options": [
+        "Leaders follow it visibly and it is enforced fairly at all levels",
+        "The code is rewritten by outside lawyers, using more precise and more detailed language throughout",
+        "The code is printed on posters and placed in every office and meeting room in the building",
+        "Junior employees are asked to sign the code a second time at their next yearly review"
+      ],
+      "correctIndex": 0,
+      "explanation": "Staff follow what leaders do, so visible commitment and fair enforcement address the real problem. Better wording is tempting, but the survey shows a trust problem and not a drafting problem."
+    },
+    {
+      "prompt": "During a contract competition, a bidder offers the security manager on the evaluation panel a free holiday, with nothing said about the bid. What is the BEST course of action?",
+      "options": [
+        "Accept the holiday, because the bidder has not asked for anything in return",
+        "Decline it and report the offer as the company's code requires",
+        "Accept the holiday only after the contract has been awarded and the competition has formally closed",
+        "Decline it without telling anyone, so that the bidder is not embarrassed in front of the panel"
+      ],
+      "correctIndex": 1,
+      "explanation": "A valuable gift during a competition creates a conflict of interest, even when nothing is asked. Declining in silence is tempting, but the panel needs to know, so the offer must be reported."
+    }
+  ]
+}

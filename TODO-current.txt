@@ -1,0 +1,4 @@
+CISSP Study, voices. This file is deleted when everything is done.
+[x] Phone voice picker, saved choice
+[x] Read a whole domain aloud, remembers the place
+[ ] Waiting on kopi: record lessons in a Kokoro voice? Samples in Desktop/CISSP Voice Samples

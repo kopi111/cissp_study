@@ -1,0 +1,141 @@
+{
+  "id": "T42",
+  "studyNotes": [
+    {
+      "heading": "Accountability, groups and roles",
+      "body": "In this first part, we will look at how a system ties actions to real people, and how groups and roles make access easier to manage.\n\nAccountability means you can prove who did what. It rests on three things. Each person has a unique identity. That identity is backed by strong authentication, which is the proof of who you are. And there are logs that cannot easily be changed. Take away any one of these and accountability fails.\n\nThink of a shared car with no record of who drove it. A speeding fine arrives in the post. Five people had the keys that week, and each one says it was not them.\n\nShared accounts cause exactly the same problem. If five cashiers use one login, the log cannot say which one took the money. Non-repudiation is a closely related idea. It means a person cannot believably deny an action. It also depends on unique identities.\n\nNow for groups and roles, which the outline names. A group is a collection of users, such as all teachers. A role is a set of permissions needed for a job, such as exam marker. People often use the two words loosely, and in practice many systems use groups to deliver roles.\n\nThe key idea is this. Give rights to the group or role, and then add each person's own account to it. You do not give rights to individuals one at a time, and you do not share a single account. So management stays simple, and each person stays accountable.\n\nHere is a workplace example. A school has two hundred teachers. The administrator creates a group called teachers, and that group has access to the grade system. A new teacher joins the group and has what she needs on the first day. When she leaves, she is removed from the group. And the log still shows her own name beside every grade she entered.\n\nA manager should treat shared accounts as a finding that needs fixing. If a system truly cannot support individual logins, use a compensating control, such as checking the password out of a vault, so that the log shows who held it.\n\nHere is what to take away. One person, one account, with rights given through groups and roles."
+    },
+    {
+      "heading": "Session management",
+      "body": "Now we will look at sessions, because what happens after login matters just as much as the login itself.\n\nA session starts after login, and ends at logout or timeout. The website gives your browser a session token, which is a temporary pass saying that you have already logged in. You do not need to type your password on every page.\n\nThink of a wristband at a swimming pool. You pay once at the gate, and then the band gets you back in all day. If someone steals the band, that person gets in as you. So the band must be hard to copy, and it must stop working at the end of the day.\n\nSession hijacking means stealing a valid token and acting as that user. Session fixation is a different trick. The attacker plants a known token on the victim before login, and then uses that same token after the victim logs in.\n\nHere is good practice.\n\n- Make tokens long and random, so they cannot be guessed.\n- Send them only over TLS, which stands for Transport Layer Security and encrypts traffic.\n- Issue a new token at every login, which stops session fixation.\n- Set an idle timeout and a maximum session length.\n- Destroy the session on the server at logout, not just in the browser.\n- Ask for login again before risky actions, such as moving money.\n\nThat last point is called reauthentication. It means an unattended open session cannot be used to do the most harmful things.\n\nHere is a workplace example. A bank's website keeps a customer signed in while reading statements. When the customer tries to send money to a new person, the site asks for a fresh code. An attacker who stole the session can read statements, which is bad, but cannot empty the account.\n\nSession control is not only about websites. On desktops, automatic screen locks do a similar job to timeouts. A shared terminal in a hospital should lock quickly, and a remote access connection should end when idle. Shorter is safer, but very short timeouts annoy people, so risk should set the length.\n\nHere is your takeaway. Protect the token, replace it at login, end it properly on the server, and ask again before risky actions."
+    },
+    {
+      "heading": "Registration, proofing and establishing identity",
+      "body": "In this part we will look at what must happen before anyone gets an account. If this stage is weak, everything built on top of it is weak too.\n\nThe outline names three activities. Here they are, in order.\n\n- Registration: collect the person's details.\n- Identity proofing: check evidence that the person is real and is who they claim to be.\n- Establishment of identity: create the account and tie credentials to that person.\n\nA credential is whatever proves an identity later, such as a password, a key or a certificate.\n\nThink about opening a bank account. You fill in a form. That is registration. A clerk looks at your passport and compares the photo with your face. That is proofing. The bank then opens the account and gives you a card and a PIN, which is your personal identification number. That is establishment.\n\nThe strength of the proofing should match the risk. A free forum needs very little. A government benefits system needs a great deal. NIST, the National Institute of Standards and Technology, a United States standards body, describes Identity Assurance Levels, from IAL1, the lowest, with little proofing and in older editions none at all, up to IAL3, the strongest, which needs a physically present or closely supervised check.\n\nWorked example. A new teacher brings a passport to the school's human resources office, or HR. The office compares the photo with her face and records that the check was done. Her HR record triggers the creation of an account. She sets a password and enrolls a second factor, and the school now knows that the account belongs to her.\n\nFor people who cannot attend in person, remote proofing may use a photo of an identity document, a live video and a check against trusted records.\n\nBeware of knowledge-based authentication. It means asking questions such as your mother's maiden name or your first school. The answers can often be found online, and they are weak proof.\n\nThe same care applies to devices and services. A device should be registered and tied to a named owner before it joins the network.\n\nHere is the point to take away. Register, prove, then establish, with proofing strength that matches the risk."
+    },
+    {
+      "heading": "Credential management systems",
+      "body": "Next we will look at how organizations store and control credentials once they have been issued.\n\nA credential management system stores and controls credentials such as passwords, keys and certificates. The most common example, and the one the outline names, is the password vault. It is a strongly encrypted store. It holds secrets, it logs who took each one, and it can change passwords automatically.\n\nThink of a key cabinet at a car hire office. Staff do not keep car keys in their pockets. They sign out a key, use it, and return it. The cabinet shows who has which key at any moment.\n\nNow a personal password manager does this for one person. It lets you use a different long password for every site, while remembering only one. An enterprise vault does the same job for a whole organization, with central control, approvals and reports.\n\nA vault brings real benefits. People no longer write passwords on sticky notes or keep them in a shared document. Each password can be long and unique, because no one needs to remember it. If an employee leaves, the shared passwords that person used can be changed automatically. And an auditor can see who obtained what, and when.\n\nThe drawback is plain. All the secrets now sit in one place, so the vault is a very valuable target. It must be protected to match. Use MFA, which stands for multi-factor authentication, meaning proof of two different types. Keep the list of vault administrators short. Test backups, because a vault that cannot be restored locks everyone out. And send its logs to a place the vault administrators cannot change.\n\nHere is a workplace example. A hospital has several shared accounts for old medical machines that cannot support individual logins. Technicians sign out the password from the vault, giving a ticket number. The vault changes the password as soon as the work is done. So the log shows who held the password at the time, which restores accountability even with an account that is shared.\n\nThe manager's question is always the same. Who can reach this secret, and how would we know?\n\nHere is your takeaway. A vault makes unique passwords and traceable use possible, and since it holds everything, it needs the strongest protection you have."
+    },
+    {
+      "heading": "Single sign-on",
+      "body": "In this part we will look at SSO, which stands for single sign-on, and weigh what it gives against what it risks.\n\nSSO means that one login opens many systems. You sign in once in the morning, and your email, your calendar and your expense system all accept that login.\n\nThink of a theme park pass. You show your identification once at the gate, and each ride then accepts your pass. Nobody asks for your identification again at every ride.\n\nThe benefits are easy to see.\n\nUsers have fewer passwords to remember, so they are less likely to reuse or write them down. The help desk gets fewer password reset calls. There is one strong front door to protect and to monitor. And there is one place to disable a user when that person leaves, which is a real gain in safety.\n\nNow the risks. One stolen login opens everything. An attacker no longer needs to break into each system. And an outage of the login service blocks everything too. If the single sign-on service is down, nobody can reach anything.\n\nSo SSO should be paired with MFA, which stands for multi-factor authentication, and it should be built to stay available, with more than one server and a tested plan for failure.\n\nSSO and federation are related but different. SSO generally means one login for many systems within one organization. Federation extends that trust across separate organizations, and we will cover it in the next topic.\n\nSSO is not the same as using the same password on many systems either. With password synchronization, each system still does its own check, and the password is copied around. True SSO means the systems accept a ticket or a token from one trusted login service.\n\nHere is a workplace example. A company connects forty applications to SSO. It requires a phone app code at sign-in, and it adds a second server in another building. When staff leave, one action closes all forty doors. Before, the technical team had to remember each system one at a time, and sometimes they forgot one.\n\nHere is what to take away. SSO means fewer passwords and one place to disable users, but it concentrates risk, so add MFA and plan for availability."
+    },
+    {
+      "heading": "Just-in-time access",
+      "body": "To finish this topic, we will look at just-in-time access, the idea that powerful rights should be borrowed and not kept.\n\nStanding privilege means holding powerful rights all the time. If that account is stolen, the attacker has those rights all the time too. Think about a security guard who keeps the master key at home every night. Most nights it is not needed, but it can be stolen every night.\n\nJIT, which stands for just-in-time access, removes standing privilege. Here is the sequence.\n\n- The person asks for access and gives a reason.\n- The request is approved, by a person or by a rule.\n- Rights are given for a short period.\n- Rights end by themselves.\n- All use is logged.\n\nThe automatic ending is the important part. A human who has to remember to remove rights will sometimes forget. With a time limit built in, nothing needs to be remembered.\n\nThe everyday picture is borrowing a tool from a hardware library. You ask, you get it for the afternoon, and it goes back. It does not stay in your garage for years.\n\nHere is a workplace example. A database administrator needs to fix a problem at two in the morning. She requests administrator rights for two hours and links the request to the incident ticket. The on-call manager approves it. She gets the rights, the session is recorded, and after two hours the rights disappear. The next day, her account is an ordinary account again. If an attacker steals her login next week, the attacker gets very little.\n\nThe exam may use JIT in a second way, so read carefully. In federation, just-in-time provisioning creates a local account the first time a person signs in, using details sent by their home organization. No one has to set up the account in advance. So one meaning is about granting rights for a short time, and the other is about creating accounts on first use.\n\nFor a manager, JIT reduces risk without stopping the work. The work still gets done. What changes is how long the power exists.\n\nHere is your takeaway. Replace standing privilege with short, approved, logged access, and check which meaning of just-in-time the question intends."
+    }
+  ],
+  "practiceQuestions": [
+    {
+      "prompt": "Six help desk staff use one login called helpdesk to reset customer passwords. An auditor cannot tell which of them made a disputed change. What is the BEST corrective action?",
+      "options": [
+        "Give each person an individual account with the same rights",
+        "Change the shared password immediately and then every week",
+        "Ask all six staff to sign a statement of responsibility",
+        "Keep a paper sign-in sheet beside the shared terminal"
+      ],
+      "correctIndex": 0,
+      "explanation": "Unique accounts tie each action to one person, while a role can still give everyone the same rights. A paper sheet is tempting, but people can forget it or lie on it, and it does not bind the actions to a person."
+    },
+    {
+      "prompt": "A university has 900 lecturers who all need the same access to the course system, and many join or leave each term. Which approach is BEST?",
+      "options": [
+        "Assign the rights to each lecturer's account one at a time",
+        "Assign the rights to a group and manage group membership",
+        "Create a single lecturer account and share it with everyone",
+        "Let the course system owner add each lecturer by request"
+      ],
+      "correctIndex": 1,
+      "explanation": "Giving rights to a group keeps management simple, and each lecturer keeps a personal account. A single shared account is tempting because it is even simpler, but it destroys accountability."
+    },
+    {
+      "prompt": "A penetration test shows that a company's web application sends its session tokens over unencrypted connections, and a test user's token was captured on shared Wi-Fi. Which change BEST addresses this?",
+      "options": [
+        "Shorten the password expiry period for every user account",
+        "Add multi-factor authentication at the login page only",
+        "Warn users in the application not to use shared Wi-Fi",
+        "Send all application traffic, including tokens, over TLS"
+      ],
+      "correctIndex": 3,
+      "explanation": "Encrypting the traffic stops the token from being read in transit. Multi-factor authentication at login is tempting, but a stolen token is used after login, so it passes straight through that check."
+    },
+    {
+      "prompt": "A tester logs out of a web application, then replays the old session token and finds it still works. Which fix should the development team apply?",
+      "options": [
+        "Clear the token from the browser when the user logs out",
+        "Make each session token twice as long as it is at present",
+        "Invalidate the session on the server at logout",
+        "Add a confirmation message that logout has succeeded"
+      ],
+      "correctIndex": 2,
+      "explanation": "The server must stop accepting the token once the session ends. Clearing the browser is tempting, but it only removes the user's copy, so a copy held by anyone else would still work."
+    },
+    {
+      "prompt": "An online bank wants to reduce the harm if an attacker takes over a customer's session that is already logged in. Which control is BEST?",
+      "options": [
+        "A longer idle timeout for customers who are using the site",
+        "Require reauthentication before sending money to a new payee",
+        "Stronger password rules at the original login page",
+        "A notice on the login page reminding users to log out"
+      ],
+      "correctIndex": 1,
+      "explanation": "Asking for fresh proof before a risky action limits what a hijacked session can do. Stronger passwords are tempting, but the attacker in this scenario is already past the login, and does not need the password."
+    },
+    {
+      "prompt": "A caller claims to be a new employee and asks a help desk to create an account. The caller correctly gives a date of birth and mother's maiden name. What should the help desk do?",
+      "options": [
+        "Create the account, because two personal facts have been verified",
+        "Create the account with limited rights until a manager agrees",
+        "Ask one more personal question before creating the account",
+        "Refuse until identity is proven through the approved process"
+      ],
+      "correctIndex": 3,
+      "explanation": "Personal facts can often be found by anyone, so they are weak proof, and proofing must come before an account exists. Limited rights is tempting, but it still creates an account for a person whose identity is unproven."
+    },
+    {
+      "prompt": "A company has just moved all shared administrator passwords into a new enterprise password vault. Which additional step is MOST important?",
+      "options": [
+        "Print a copy of each password and lock it in the office safe",
+        "Require multi-factor authentication to open the vault",
+        "Give every technician administrator rights over the vault",
+        "Reduce the length of the stored passwords so staff can recall them"
+      ],
+      "correctIndex": 1,
+      "explanation": "The vault holds every secret in one place, so access to it needs strong protection. A printed copy is tempting as a way to avoid lockout, but it creates an unprotected second store, and tested backups do the job properly."
+    },
+    {
+      "prompt": "A company's single sign-on service is its only way into 60 business applications. The service runs on one server, which failed last month and stopped all work. What is the BEST recommendation?",
+      "options": [
+        "Build a redundant service and test its failover",
+        "Remove half of the applications from single sign-on",
+        "Give each user a backup local password for each application",
+        "Ask staff to save their work more often during the day"
+      ],
+      "correctIndex": 0,
+      "explanation": "The fault is a single point of failure, so availability is what must be built in. Backup local passwords are tempting, but they bring back many passwords and many doors to protect."
+    },
+    {
+      "prompt": "A hospital's new just-in-time system grants administrators rights after approval, yet an audit finds that many of those rights are still active months later. Which feature MOST needs correcting?",
+      "options": [
+        "The approval step that managers complete for each request",
+        "The list of approved reasons that administrators may choose",
+        "The automatic expiry of rights when the period ends",
+        "The strength of the passwords on the administrators' accounts"
+      ],
+      "correctIndex": 2,
+      "explanation": "Just-in-time access depends on rights ending by themselves, and these are not ending. The approval step is tempting because it is the visible part of the process, but the finding is about what happens after approval."
+    },
+    {
+      "prompt": "A partner company's staff sign in through federation to a supplier portal. The portal creates a local account for each person automatically the first time that person signs in. What is this called?",
+      "options": [
+        "Just-in-time provisioning",
+        "Standing privilege assignment",
+        "Delegated access review",
+        "Identity proofing at enrollment"
+      ],
+      "correctIndex": 0,
+      "explanation": "Creating a local account at first sign-in, from details sent by the home organization, is just-in-time provisioning. Identity proofing is tempting because it also happens early, but proofing checks evidence of who a person is and does not create the account."
+    }
+  ]
+}
